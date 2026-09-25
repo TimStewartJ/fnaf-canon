@@ -1,0 +1,4092 @@
+[
+  {
+    "id": "security-breach-msg-hello-gregory",
+    "title": "Freddy's first message names Gregory",
+    "claim": "Glamrock Freddy's first Faz-Watch message addresses the boy by the name Gregory.",
+    "quote": "Hello, Gregory. It is me, Freddy, I will escort you to the main entrance.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Hello Gregory (automatic, voiced)'",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "glamrock-freddy",
+      "gregory"
+    ]
+  },
+  {
+    "id": "security-breach-msg-it-is-happening-again",
+    "title": "Complaint: 'Everyone remembers what happened to those kids'",
+    "claim": "A customer complaint says the Pizzaplex 'reopened' and refers to a remembered past incident involving kids.",
+    "quote": "CUSTOMER COMPLAINT - Why did you reopen? Everyone remembers what happened to those kids.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'IT IS HAPPENING AGAIN (behind the closed structure next to Roxy Raceway)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "missing-children"
+    ],
+    "tags": [
+      "missing-children"
+    ],
+    "notes": "Which kids/incident is not specified; do not assume the 1980s Missing Children Incident."
+  },
+  {
+    "id": "security-breach-msg-night-terrors",
+    "title": "Daycare complaint: child afraid of the dark",
+    "claim": "A parent complains their son developed night terrors and fear of the dark after an evening in the daycare.",
+    "quote": "My son never had sleeping problems. But after spending an evening in the daycare, he refuses to sleep with the lights out anymore!",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Night Terrors'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "sun-moon"
+    ],
+    "tags": [
+      "daycare"
+    ]
+  },
+  {
+    "id": "security-breach-msg-stolen-property",
+    "title": "Vanessa report: Music Man prototypes stolen with no break-in",
+    "claim": "Vanessa reports wind-up Music Man prototypes stolen from a Rockstar Row case with no sign of break-in and nothing on security footage.",
+    "quote": "somehow someone broke into a Rockstar Row display case and stole the wind up toy Music Man prototypes. The case was smashed and there's glass on the floor but no sign of a break in.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Stolen property'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "vanessa"
+    ]
+  },
+  {
+    "id": "security-breach-msg-false-alarm",
+    "title": "Vanessa turns away a police officer",
+    "claim": "Vanessa reports a police officer came responding to an emergency call from inside the Pizzaplex; she says she was alone, made no call, and sent him away.",
+    "quote": "He said he was responding to an emergency call from someone inside the Pizzaplex. There is no way that is possible. I was the only one here",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'False Alarm'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "vanessa"
+    ],
+    "tags": [
+      "police"
+    ]
+  },
+  {
+    "id": "security-breach-msg-marked-for-deletion",
+    "title": "Vanessa hired on a recommendation 'from the top'",
+    "claim": "Interview notes say Vanessa lacked relevant experience for Chief Security Officer and was not recommended, but the recommendation for her 'came from the top'.",
+    "quote": "While Vanessa seemed eager and bright, she doesn't appear to have any relevant background experience. I realize the recommendation came from the top",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'MARKED FOR DELETION'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "vanessa",
+      "fazbear-entertainment"
+    ],
+    "related": [
+      "security-breach-msg-no-questions-asked"
+    ]
+  },
+  {
+    "id": "security-breach-msg-no-questions-asked",
+    "title": "Head Security Guard hired with an anonymous internal reference",
+    "claim": "A new-hire summary lists a Head Security Guard with no prior qualifications and an internal reference whose name is withheld.",
+    "quote": "NEW HIRE SUMMARY - Head Security Guard. No prior qualifications. Internal reference (name withheld).",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'NO QUESTIONS ASKED (on the way to Vanny's room)'",
+    "certainty": "implied",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "vanessa"
+    ],
+    "notes": "The hire is not named; linked to Vanessa by location (near Vanny's room) and by MARKED FOR DELETION.",
+    "related": [
+      "security-breach-msg-marked-for-deletion"
+    ]
+  },
+  {
+    "id": "security-breach-msg-sinkhole",
+    "title": "Construction: raceway may be built over a sinkhole",
+    "claim": "A construction update says new track sections crack as they dry and worries the raceway is built over a sinkhole.",
+    "quote": "I am worried we are building over a sinkhole here.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'SINKHOLE (Roxy Raceway trophies)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "sinkhole",
+      "underground"
+    ]
+  },
+  {
+    "id": "security-breach-msg-power-drain",
+    "title": "Construction: a high-voltage cable disappears into the foundation",
+    "claim": "A construction update says something draws massive power; a high-voltage cable was traced into the foundation.",
+    "quote": "We've traced a high voltage cable that disappears right into the foundation. There is definitely something under us.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'POWER DRAIN (Roxy Raceway office)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "sinkhole",
+      "underground"
+    ]
+  },
+  {
+    "id": "security-breach-msg-old-elevator",
+    "title": "Construction: an old elevator shaft found under the foundation",
+    "claim": "Crew broke through the foundation and found an old elevator shaft with something below pulling power; a team planned to go down.",
+    "quote": "Today, we broke through the foundation and found what looks like an old elevator shaft. Someone must have known about this, right? There's something down there pulling power.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'OLD ELEVATOR (inside the old elevator)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "sinkhole",
+      "underground"
+    ]
+  },
+  {
+    "id": "security-breach-msg-all-staff-meeting",
+    "title": "Mandatory all-staff meeting Thursday 11:30PM",
+    "claim": "A reminder says the all-staff meeting is Thursday night at 11:30PM, 'service team' attendance mandatory, with cake.",
+    "quote": "The all staff meeting is this Thursday night at 11:30PM. All \"service team\" attendance is mandatory. There will be cake!",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'All Staff Meeting (Basement 1 hall)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "disappearances"
+    ],
+    "notes": "Other messages mention going to 'the company meeting' and then staff no longer being seen (Job Security); the game does not state what happened at the meeting.",
+    "related": [
+      "security-breach-msg-job-security",
+      "security-breach-msg-bbw-maint-log"
+    ]
+  },
+  {
+    "id": "security-breach-msg-job-security",
+    "title": "'Where is everyone?' - Leo unseen for months",
+    "claim": "An employee asks where everyone is; Leo, who had the maze control key, hasn't been seen for months; the writer plans to check after the all-staff meeting.",
+    "quote": "Where is everyone? Leo was the only one who had a copy of the maze control key, but I haven't seen him for months.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Job Security (Mazercise control room)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "disappearances"
+    ],
+    "related": [
+      "security-breach-msg-all-staff-meeting"
+    ]
+  },
+  {
+    "id": "security-breach-msg-pink-slip",
+    "title": "S.T.A.F.F. bots replace night employees",
+    "claim": "A notice says nighttime employee coverage is no longer needed due to the S.T.A.F.F. project.",
+    "quote": "Due to the success of the S.T.A.F.F. project, we will no longer need nighttime employee coverage.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'PINK SLIP (loading dock cafeteria)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "fazbear-entertainment"
+    ]
+  },
+  {
+    "id": "security-breach-msg-missing-bonnie",
+    "title": "Security log tracks Bonnie leaving his green room",
+    "claim": "A security report timeline shows Bonnie leaving his Rockstar Row green room at 12:24AM and entering Monty Golf at 4:12AM.",
+    "quote": "12:24AM - Bonnie is seen leaving his green room in Rockstar Row heading East towards the atrium. 2:40AM - Bonnie enters the East Arcade. 4:12AM - Bonnie enters Monty Golf.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'MISSING'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "bonnie"
+    ],
+    "tags": [
+      "glamrock-bonnie"
+    ],
+    "related": [
+      "security-breach-msg-understudy",
+      "security-breach-msg-re-theme",
+      "security-breach-freddy-i-miss-him"
+    ]
+  },
+  {
+    "id": "security-breach-msg-understudy",
+    "title": "Monty replaces Bonnie as bass player",
+    "claim": "A management report says with Bonnie out of commission Monty becomes the new bass player.",
+    "quote": "With Bonnie out of commision, we are making Monty the new bass player.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Understudy'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "bonnie",
+      "montgomery-gator"
+    ],
+    "tags": [
+      "glamrock-bonnie"
+    ]
+  },
+  {
+    "id": "security-breach-msg-re-theme",
+    "title": "Bowling alley Bonnie art removed; kids ask 'Where's Bonnie?'",
+    "claim": "Management asks for an approved response because kids keep asking where Bonnie is after most Bonnie art was removed.",
+    "quote": "While most of the Bonnie art was removed, kids keep asking, \"Where's Bonnie?\" Do we have an officially approved response?",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'Re-theme (Roxy Raceway)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "bonnie"
+    ],
+    "tags": [
+      "glamrock-bonnie"
+    ]
+  },
+  {
+    "id": "security-breach-msg-chica-report",
+    "title": "Monty Mystery Mix makes Chica attack people",
+    "claim": "An errant behavior report says the pizza-flavored Monty Mystery Mix syrup adversely affects Chica's programming and she has attacked patrons, employees and S.T.A.F.F. for it.",
+    "quote": "the new Pizza Flavored Monty Mystery Mix Slushy Syrup has adverse effects on her programming. She has attacked patrons, employees and S.T.A.F.F. for it.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'CHICA REPORT (Chica's green room)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "glamrock-chica"
+    ]
+  },
+  {
+    "id": "security-breach-msg-roxy-upgrade",
+    "title": "Roxy's eye upgrade lets her see/talk through walls",
+    "claim": "Maintenance log: Roxy's upgrade was meant to help her win races but she sometimes stares and talks to other bots through walls.",
+    "quote": "Sometimes she will stare and talk to the other bots through walls.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'ROXY UPGRADE (Parts and Service)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "roxanne-wolf"
+    ]
+  },
+  {
+    "id": "security-breach-msg-chica-upgrade",
+    "title": "Chica's experimental voice box disrupts other bots",
+    "claim": "Maintenance log: Chica's singing messes with other bots' navigation; the experimental voice box test failed after guest injuries and 12 lawsuits.",
+    "quote": "Don't let her sing! Messes with the navigation of the other bots.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'CHICA UPGRADE (Parts and Service)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "glamrock-chica"
+    ]
+  },
+  {
+    "id": "security-breach-msg-monty-upgrade",
+    "title": "Monty's claw upgrades used to cause damage",
+    "claim": "Maintenance log: Montgomery's claws let him play bass but after performances he mostly uses them to cause damage.",
+    "quote": "Montgomery's Claw upgrades allow him to play the bass. Following performances, he mostly uses them to cause damage.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'MONTY UPGRADE (Parts and Service)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "montgomery-gator"
+    ]
+  },
+  {
+    "id": "security-breach-msg-arcade-conspiracy",
+    "title": "Exit interview: 'I can save the Princess!'",
+    "claim": "An employee's exit interview claims the arcades are working together and hiding something, and that 'the Princess' is testing them.",
+    "quote": "Glitch them all at the same time... then the Princess will recognize me. She's testing me. I am not yet worthy.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'ARCADE CONSPIRACY (Daycare Attendant's room)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "the-princess"
+    ],
+    "tags": [
+      "princess-quest"
+    ],
+    "related": [
+      "security-breach-msg-red-flag",
+      "security-breach-ending-redemption"
+    ]
+  },
+  {
+    "id": "security-breach-msg-red-flag",
+    "title": "Maintenance log: beat Princess Quest 1 and 2, PQ3 won't turn on",
+    "claim": "A maintenance log writer says they beat parts 1 and 2 and asks why the (PQ3) machine won't turn on.",
+    "quote": "I did it!. I did what you wanted! I beat parts 1 and 2. Why won't you turn on? What else is there? Tell me!",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'RED FLAG (storage room near a Princess Quest machine)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "people": [
+      "the-princess"
+    ],
+    "tags": [
+      "princess-quest"
+    ]
+  },
+  {
+    "id": "security-breach-msg-out-of-order",
+    "title": "No record of a PQ3 arcade exists",
+    "claim": "An inventory check says there is no record of a PQ3 arcade, yet a cabinet sits in Fazerblast and never shows an image.",
+    "quote": "There is no record of a PQ3 arcade, yet there is a cabinet tucked away in Fazerblast.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'OUT OF ORDER'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "princess-quest"
+    ]
+  },
+  {
+    "id": "security-breach-msg-pq1-maint-log",
+    "title": "Princess Quest 1 pulled from 'that old mobile game'",
+    "claim": "A maintenance log says a standup Princess Quest 1 arcade exists in the building and that the devs pulled it from an old mobile game.",
+    "quote": "There's a Princess Quest 1 machine somewhere in the building. An actual standup arcade! I guess the devs pulled it from that old mobile game.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'PQ1 MAINT LOG (Bonnie Bowl)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "princess-quest"
+    ]
+  },
+  {
+    "id": "security-breach-msg-bbw-maint-log",
+    "title": "BB World cabinet vanished before 'the company meeting'",
+    "claim": "A maintenance log says the glitching BB World game disappeared from the theater with no move request; writer will check after the company meeting.",
+    "quote": "I headed to the theater to fix it and now it's gone. I never saw a move request so it should still be there somewhere.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'BBW MAINT LOG (Fazbear Theater)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "related": [
+      "security-breach-msg-all-staff-meeting"
+    ]
+  },
+  {
+    "id": "security-breach-msg-ac-inspection",
+    "title": "Contractor: clanging and scraping in the vents not reproducible",
+    "claim": "A contractor found nothing wrong with the ventilation despite reports of 'loud clanging', 'banging' and 'scraping' noises.",
+    "quote": "The \"loud clanging\", \"banging\" and \"scraping\" noises which were reported don't appear to be reproducable.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'AC Inspection (Faz-Pad)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags"
+  },
+  {
+    "id": "security-breach-msg-torn-paper",
+    "title": "Torn paper: 'I found the key'",
+    "claim": "A torn note found before the hidden Sister Location room reads cryptically about something unseen and a key.",
+    "quote": "It is there, but you can't see. Alone in the dark. I found the key.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'TORN PAPER (before the hidden Sister Location room)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
+    "tags": [
+      "sister-location-room"
+    ]
+  },
+  {
+    "id": "security-breach-msg-night-shift",
+    "title": "Security employee: 'This place is not safe'",
+    "claim": "A security team member's exit interview says they keep getting locked out and that 'those things' are messing with them.",
+    "quote": "I swear, those things are messing with me. This place is not safe.",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "Faz-Watch message 'NIGHT SHIFT (Superstar-cade)'",
+    "certainty": "stated",
+    "when": {
+      "label": "Before the Security Breach night",
+      "precision": "relative",
+      "basis": "Document/recording describes events prior to the game night; no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags"
+  },
+  {
+    "id": "security-breach-freddy-vanny-vanessa-bunny",
+    "title": "Freddy links the name 'Vanny' to Vanessa and 'Bunny'",
+    "claim": "Glamrock Freddy remarks that the name 'Vanny' resembles both 'Vanessa' and 'Bunny' and says it cannot be a coincidence.",
+    "quote": "\"Vanny.\" It is very similar to Vanessa... and also Bunny. That can not be a coincidence.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy dialogue after Gregory finds Vanny's hideout above Fazer Blast",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "vanny",
+      "vanessa"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "tags": [
+      "vanny-vanessa"
+    ]
+  },
+  {
+    "id": "security-breach-gregory-finds-vanny-hideout",
+    "title": "Gregory: 'I think her name is.. Vanny?'",
+    "claim": "Gregory reports the 'rabbit lady' has a secret hideout above Fazer Blast and guesses her name is Vanny.",
+    "quote": "Freddy that rabbit lady is in a secret room above Fazer Blast. It looks like a hideout, I think her name is.. Vanny?",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Gregory dialogue, Fazer Blast",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "gregory",
+      "vanny"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "tags": [
+      "vanny-vanessa"
+    ]
+  },
+  {
+    "id": "security-breach-gregory-more-disappearances",
+    "title": "Gregory: 'There will be more disappearances'",
+    "claim": "At 6 AM, Gregory says that if he leaves nothing will change and there will be more disappearances.",
+    "quote": "Freddy, if I leave now nothing will change will it? There will be more disappearances.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Gregory dialogue at the 6 AM exit choice",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "gregory",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "tags": [
+      "disappearances",
+      "missing-children"
+    ]
+  },
+  {
+    "id": "security-breach-freddy-older-models-flawed",
+    "title": "Freddy: 'Bad things happened in the past... older models'",
+    "claim": "Glamrock Freddy says guests talk about bad things in the past, that it was not him but older, flawed models.",
+    "quote": "I hear what some guests say about me. Bad things happened in the past. But that was not me. Those were older models - Flawed. I would never hurt anyone.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy idle/ambient line",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "notes": "Unspecified 'bad things'; no year or location given."
+  },
+  {
+    "id": "security-breach-freddy-been-here-before",
+    "title": "Freddy in the underground: 'She brought me here'",
+    "claim": "Under the Pizzaplex, Glamrock Freddy says he has been there before, that 'she' brought him, that he found himself when he 'cleared the path', and that his 'friends' there are angry and confused.",
+    "quote": "I know what this is. I have been here before. She brought me here. I found myself for the first time when I cleared the path. …",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy dialogue on arrival in the underground ruins (Burn It All Down route)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy"
+    ],
+    "places": [
+      "the-sinkhole",
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "tags": [
+      "underground"
+    ],
+    "notes": "'She' is unnamed (Vanny is a common reading, not stated). 'My friends are here. They are so angry... confused...' follows."
+  },
+  {
+    "id": "security-breach-freddy-i-am-not-me",
+    "title": "'I AM NOT ME' - Burntrap seizes Freddy",
+    "claim": "In the underground ruins an animatronic rises from a recharge station and remotely takes control of Glamrock Freddy, who says 'I AM NOT ME'.",
+    "quote": "I AM NOT ME.",
+    "game": "security-breach",
+    "kind": "cutscene",
+    "location": "'I AM NOT ME' cutscene, underground ruins below Roxy Raceway (Burn It All Down route)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "burntrap"
+    ],
+    "places": [
+      "the-sinkhole",
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "burntrap",
+      "underground"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF:_SB)",
+    "related": [
+      "security-breach-burntrap-name-not-in-game"
+    ]
+  },
+  {
+    "id": "security-breach-gregory-what-is-that-thing",
+    "title": "Gregory on Burntrap: 'He? What is that thing?'",
+    "claim": "Gregory reacts to the underground animatronic with 'He? What is that thing?'",
+    "quote": "He? What is that thing?",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Gregory dialogue, underground ruins",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "gregory",
+      "burntrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "tags": [
+      "burntrap"
+    ]
+  },
+  {
+    "id": "security-breach-freddy-where-i-was-born",
+    "title": "Freddy in Parts and Service: 'This must be where I was born'",
+    "claim": "In Parts and Service, Freddy sees identical endos and wonders if he is the first Glamrock Freddy or mass produced.",
+    "quote": "This must be where I was born. Look at all the endos. They are all the same... Have I always been a Freddy?",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy dialogue, Parts and Service",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio"
+  },
+  {
+    "id": "security-breach-freddy-i-miss-him",
+    "title": "Freddy at Bonnie Bowl: 'I miss him'",
+    "claim": "At Bonnie Bowl, Freddy says he does not come up there anymore and misses 'him'.",
+    "quote": "I do not come up here anymore. I miss him.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy dialogue, Bonnie Bowl",
+    "certainty": "implied",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "bonnie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "notes": "'Him' is not named; the Bonnie Bowl location and the Bonnie messages make Glamrock Bonnie the natural referent.",
+    "related": [
+      "security-breach-msg-missing-bonnie"
+    ]
+  },
+  {
+    "id": "security-breach-vanessa-no-record",
+    "title": "Vanessa: there is no record of Gregory",
+    "claim": "Vanessa tells Freddy that Gregory cannot be sent home because there is no record of him, and that she learned his name from the Fazwatch repeating it in Freddy's voice.",
+    "quote": "He can't. Turns out, there's no record of him.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Vanessa dialogue, Lost and Found sequence",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "vanessa",
+      "gregory",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
+    "related": [
+      "security-breach-intro-not-in-database"
+    ]
+  },
+  {
+    "id": "security-breach-vanessa-knows-gregory-name",
+    "title": "Vanessa threatens to hold Gregory for parents or police",
+    "claim": "Vanessa tells Gregory she knows his name and will keep him in Lost and Found until his parents or the police arrive.",
+    "quote": "I'll bet you think you're real clever, Gregory. Yeah, I know your name. You're in big trouble!",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Vanessa dialogue on catching Gregory",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "vanessa",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio"
+  },
+  {
+    "id": "security-breach-vanessa-6am-reward",
+    "title": "Vanessa at 6 AM offers Gregory a job and a reward",
+    "claim": "At 6 AM Vanessa asks Gregory why he's still there, jokes he'd make a great security guard, and tells him to check the main stage for a reward.",
+    "quote": "Gregory, I think you deserve a reward. Go check the main stage.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Vanessa dialogue at 6 AM",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "vanessa",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio"
+  },
+  {
+    "id": "security-breach-vanny-lines",
+    "title": "Vanny's spoken lines",
+    "claim": "Vanny speaks only short lines such as 'Are you having fun yet?' and orders 'Disassemble Freddy...'.",
+    "quote": "Disassemble Freddy...",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Vanny voice lines / 'Disassemble Freddy' cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "vanny",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
+    "tags": [
+      "vanny-vanessa"
+    ]
+  },
+  {
+    "id": "security-breach-freddy-cannot-exit",
+    "title": "Freddy cannot leave the facility",
+    "claim": "Freddy says without a recharge station he would shut down within an hour, so he must stay and cannot exit the facility.",
+    "quote": "Without a recharge station, my systems would shut down within an hour. It is a safety precaution. It is my design. This is where I  must stay.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Glamrock Freddy dialogue at the exit",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "notes": "Contrasted by the Getaway ending, where a van battery recharges him."
+  },
+  {
+    "id": "security-breach-intro-not-in-database",
+    "title": "Freddy finds Gregory is not in the Pizzaplex database",
+    "claim": "In the intro cutscene, Glamrock Freddy malfunctions on stage, wakes in his green room with Gregory hiding in his stomach hatch, scans him and finds he is not in the Pizzaplex database.",
+    "game": "security-breach",
+    "kind": "cutscene",
+    "location": "Introduction cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF:_SB)"
+  },
+  {
+    "id": "security-breach-cd-vanessa-encrypted-conversation",
+    "title": "Vanessa's therapist: an encrypted conversation with 'someone else'",
+    "claim": "A company therapist says a routine check of Vanessa's online history found long encrypted conversations with someone other than Luis.",
+    "quote": "a routine check of your online history has revealed that you spend quite a bit of time with someone in an encrypted conversation.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 1-7139 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Security Breach (Vanessa's company therapy sessions; no year given)",
+      "precision": "relative",
+      "basis": "Recordings predate her transfer to 'a different location'; no year stated"
+    },
+    "people": [
+      "vanessa"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "glitchtrap-link",
+      "retro-cds"
+    ],
+    "notes": "The other party is never named on the CDs."
+  },
+  {
+    "id": "security-breach-cd-vanessa-father-bill",
+    "title": "Vanessa's father is named Bill",
+    "claim": "A therapist names Vanessa's father as Bill and describes a custody battle in which he made her give untrue testimony against her mother.",
+    "quote": "I feel like I know your dad, too. Bill, right? Your dad's name was Bill?",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 3-7140 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Security Breach (Vanessa's company therapy sessions; no year given)",
+      "precision": "relative",
+      "basis": "Recordings predate her transfer to 'a different location'; no year stated"
+    },
+    "people": [
+      "vanessa",
+      "vanessas-father-bill"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ],
+    "notes": "Only 'Bill' is said. No surname is given; do not equate with William Afton at the evidence level. CD 16 (client 46, not Vanessa) says a client's tragic-parents story was false - that CD concerns the other client."
+  },
+  {
+    "id": "security-breach-cd-vanessa-costume-fur",
+    "title": "Vanessa bought fake fur for a secret costume",
+    "claim": "A therapist says an audit shows Vanessa shopping for a costume and buying fake fur; she says it is a secret and 'He said he would always be watching.'",
+    "quote": "He said he would always be watching. He could be here or there or anywhere in between.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 11-7145 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Security Breach (Vanessa's company therapy sessions; no year given)",
+      "precision": "relative",
+      "basis": "Recordings predate her transfer to 'a different location'; no year stated"
+    },
+    "people": [
+      "vanessa"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "vanny-vanessa",
+      "retro-cds"
+    ],
+    "notes": "Therapist asks if 'he' is her dad; Vanessa says 'I compartmentalized him. He's locked away.'"
+  },
+  {
+    "id": "security-breach-cd-vanessa-transfer",
+    "title": "Vanessa is transferring 'to a different location'",
+    "claim": "A therapist says Vanessa will soon transfer to a different location; she replies she is needed somewhere else now.",
+    "quote": "I'm needed somewhere else now. Thank you.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 12-7146 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Security Breach (Vanessa's company therapy sessions; no year given)",
+      "precision": "relative",
+      "basis": "Recordings predate her transfer to 'a different location'; no year stated"
+    },
+    "people": [
+      "vanessa"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ]
+  },
+  {
+    "id": "security-breach-cd46-therapists-missing-dead",
+    "title": "Client 46: previous therapists missing, one found mangled by machinery",
+    "claim": "A fourth therapist tells client 46 that their three previous therapists went missing, and one was found dead, her body 'mangled by machinery'.",
+    "quote": "all three of your former therapists have gone missing – or, two of them are missing. I don't want to scare you, but I have to tell you that one of them was found dead.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 13-4676 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before/around Security Breach (client 46's sessions; no year given)",
+      "precision": "relative",
+      "basis": "Mentions ongoing Pizzaplex hacks; no year stated"
+    },
+    "people": [
+      "client-46"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ],
+    "notes": "The CD numbering (71xx vs 46xx) splits sessions into two clients. The 46xx client is never named in the recordings; the wiki reads them as Gregory, but that identification is a theory, not stated."
+  },
+  {
+    "id": "security-breach-cd46-hacking-pizzaplex",
+    "title": "Client 46 suspected of hacking the Pizzaplex",
+    "claim": "A therapist says Pizzaplex technicians believe client 46 has hacked their systems many times and caught them on camera.",
+    "quote": "the techs are convinced that you've hacked into their system many times.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 14-4677 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before/around Security Breach (client 46's sessions; no year given)",
+      "precision": "relative",
+      "basis": "Mentions ongoing Pizzaplex hacks; no year stated"
+    },
+    "people": [
+      "client-46"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ],
+    "notes": "The CD numbering (71xx vs 46xx) splits sessions into two clients. The 46xx client is never named in the recordings; the wiki reads them as Gregory, but that identification is a theory, not stated."
+  },
+  {
+    "id": "security-breach-cd46-rabbit-ears",
+    "title": "Security still: client 46 talking to something with rabbit ears",
+    "claim": "A therapist shows client 46 a security still from the Pizzaplex of them talking to someone or something with what look like rabbit ears.",
+    "quote": "You're talking to someone, or something. it's hard to tell. What are those things? They almost look like rabbit ears.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 15-4678 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before/around Security Breach (client 46's sessions; no year given)",
+      "precision": "relative",
+      "basis": "Mentions ongoing Pizzaplex hacks; no year stated"
+    },
+    "people": [
+      "client-46"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ],
+    "notes": "The CD numbering (71xx vs 46xx) splits sessions into two clients. The 46xx client is never named in the recordings; the wiki reads them as Gregory, but that identification is a theory, not stated."
+  },
+  {
+    "id": "security-breach-cd46-glitch-subroutines",
+    "title": "Client 46 traced as the source of the system-wide glitch",
+    "claim": "A therapist says a system-wide glitch infecting Pizzaplex robots was traced to client 46 and became intentional subroutines that came from them; also that the client's tragic-parents story was false.",
+    "quote": "Those subroutines seem to have come from you.",
+    "game": "security-breach",
+    "kind": "audio-tape",
+    "location": "Retro CD 16-4679 (played in the hidden Sister Location room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before/around Security Breach (client 46's sessions; no year given)",
+      "precision": "relative",
+      "basis": "Mentions ongoing Pizzaplex hacks; no year stated"
+    },
+    "people": [
+      "client-46"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "tags": [
+      "retro-cds"
+    ],
+    "notes": "The CD numbering (71xx vs 46xx) splits sessions into two clients. The 46xx client is never named in the recordings; the wiki reads them as Gregory, but that identification is a theory, not stated. The therapist adds: 'none of what you said in your file about your parents was true.'"
+  },
+  {
+    "id": "security-breach-sister-location-room-code",
+    "title": "Hidden Sister Location room wall code",
+    "claim": "A triangle code on the wall of the hidden Sister Location room decodes to a six-line verse spoken from a builder's perspective: something broken and mended, with things 'drawn to life' that now hunt.",
+    "game": "security-breach",
+    "kind": "hidden",
+    "location": "Hidden Sister Location room (found via Faz Camera), wall cipher",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Retro_CDs",
+    "notes": "Decoding done by fans; wording taken from the wiki transcript. Speaker of the verse unknown. Lyrics/verse are paraphrased rather than reproduced."
+  },
+  {
+    "id": "security-breach-ending-alley",
+    "title": "The Alley: Gregory sleeps in a box; Vanny finds him",
+    "claim": "Leaving by the front entrance, Gregory sleeps in a cardboard box in an alley under a newspaper; Vanny's silhouette looms over him.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'The Alley' ending (front entrance, 1 star)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "vanny"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "homeless"
+    ],
+    "notes": "Gregory sleeping in a box is often read as him being homeless; the ending does not say so in words.",
+    "image": "sb-alley-ending-missing-newspaper.jpg",
+    "related": [
+      "security-breach-alley-newspaper"
+    ]
+  },
+  {
+    "id": "security-breach-alley-newspaper",
+    "title": "Alley newspaper: 'MISSING' - residents continue to disappear",
+    "claim": "The newspaper Gregory holds in the Alley ending is headlined 'MISSING' with a subhead about residents continuing to disappear and a grid of silhouette photos.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'The Alley' ending, comic page (newspaper close-up)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "missing-children"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:TheAlleyPage1.jpg",
+    "quote": "MISSING ... RESIDENTS CONTINUE TO DISAPPEAR",
+    "tags": [
+      "missing-children",
+      "disappearances"
+    ],
+    "notes": "Read directly from the ending art; the first word of the subhead is cut off (likely 'LOCAL'). At least 9 silhouette portraits are visible; the text says 'residents', not specifically children. Claims that it shows exactly nine children killed by Vanessa are interpretation.",
+    "image": "sb-alley-ending-missing-newspaper.jpg"
+  },
+  {
+    "id": "security-breach-ending-getaway",
+    "title": "The Getaway: Gregory revives Freddy with a van battery",
+    "claim": "With security level 7, Gregory and Freddy drive off in a Fazbear van; Freddy runs out of power and Gregory revives him using the vehicle battery. Post-credits newspaper: Monty replaces Freddy and Glamrock Mr. Hippo replaces Monty.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'The Getaway' ending (loading dock exit, 2 stars)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "glamrock-freddy",
+      "montgomery-gator"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings"
+  },
+  {
+    "id": "security-breach-ending-rooftop",
+    "title": "To the Rooftop: Freddy tackles Vanny off the roof",
+    "claim": "Gregory and Freddy set the Pizzaplex on fire; Vanny captures Gregory on the roof; Freddy (with Roxy's eyes) sees her, tackles her off the ledge, and says 'Goodbye, Gregory...'.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'To the Rooftop' ending (prize counter emergency exit)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "glamrock-freddy",
+      "vanny"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "quote": "GOODBYE, GREGORY...",
+    "image": "sb-rooftop-ending-vanny-unmasked.jpg"
+  },
+  {
+    "id": "security-breach-rooftop-unmasked",
+    "title": "Under Vanny's mask: a blonde woman",
+    "claim": "After the fall, Gregory removes Vanny's mask, revealing a blonde woman, and reacts with confusion.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'To the Rooftop' ending, comic page 3",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "vanny",
+      "vanessa"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ToTheRooftopPage3.jpg",
+    "tags": [
+      "vanny-vanessa"
+    ],
+    "notes": "The unmasked face is drawn as a blonde woman resembling Vanessa; she is not named on the page.",
+    "image": "sb-rooftop-ending-vanny-unmasked.jpg"
+  },
+  {
+    "id": "security-breach-rooftop-vanessa-alive",
+    "title": "Post-credits: Vanessa in uniform on the burning roof",
+    "claim": "The Rooftop post-credits page shows Vanessa, in her security uniform, alive on the burning roof looking down; a news article reports the Pizzaplex burned down and flammable Fazbear toys recalled.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'To the Rooftop' post-credits page",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "vanessa"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ToTheRooftopPage4.jpeg",
+    "tags": [
+      "vanny-vanessa",
+      "contradiction"
+    ],
+    "notes": "Apparent contradiction with the unmasked body below; the game does not explain it.",
+    "image": "sb-rooftop-ending-vanessa-on-roof.jpg"
+  },
+  {
+    "id": "security-breach-ending-disassemble-vanny",
+    "title": "Disassemble Vanny: S.T.A.F.F. bots dismantle Vanny",
+    "claim": "In Vanny's lair Gregory presses a button ordering S.T.A.F.F. bots to disassemble Vanny; a critically damaged Freddy says 'You are... my superstar' and shuts down. Post-credits: Pizzaplex closed for health concerns, to reopen next season.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'Disassemble Vanny' ending (Vanny's lair)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "vanny",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "quote": "YOU ARE... MY SUPERSTAR."
+  },
+  {
+    "id": "security-breach-ending-redemption",
+    "title": "Redemption: Princess Quest 3 frees Vanessa",
+    "claim": "After beating Princess Quest 1-3, the PQ3 screen errors out; S.T.A.F.F. bots have collapsed, Vanny's mask and bowtie lie on the floor, and Vanessa waits at the doors; post-credits Gregory, Freddy's head and Vanessa eat ice cream on a hill.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'Redemption' ending (complete Princess Quest 1, 2, 3; 3 stars)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "vanessa",
+      "vanny",
+      "glamrock-freddy",
+      "the-princess"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "princess-quest",
+      "vanny-vanessa"
+    ],
+    "notes": "'Freed from Glitchtrap's control' is the wiki's reading. In the post-credits image Gregory wears a purple shirt and eats a Golden Freddy ice-cream pop with part of the head bitten off (shown; significance is interpretation).",
+    "related": [
+      "security-breach-msg-arcade-conspiracy"
+    ]
+  },
+  {
+    "id": "security-breach-ending-burn-it-all-down",
+    "title": "Burn It All Down: Tangle drags Burntrap away",
+    "claim": "After Gregory defeats Burntrap in the underground burner rooms, Burntrap tries to escape the fire but the Tangle (Blob) grabs him and pulls him into the ceiling; Gregory and Freddy escape; post-credits they sit on a hill.",
+    "game": "security-breach",
+    "kind": "ending",
+    "location": "'Burn It All Down' ending (upgraded Freddy, old elevator)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of the Security Breach night (6 AM) and its aftermath",
+      "precision": "relative",
+      "basis": "Ending sequence"
+    },
+    "people": [
+      "gregory",
+      "glamrock-freddy",
+      "burntrap",
+      "the-blob"
+    ],
+    "places": [
+      "ffps-pizzeria",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "burntrap",
+      "underground"
+    ],
+    "image": "sb-burntrap-and-tangle.jpg"
+  },
+  {
+    "id": "security-breach-burntrap-name-not-in-game",
+    "title": "'Burntrap' and 'Afton' are never named in SB's in-game text or audio",
+    "claim": "The underground rabbit-like animatronic never speaks and is never named in Security Breach's dialogue, messages or cutscenes; the name 'Burntrap' comes from game files and a Steel Wool patch blog post, and the name 'Afton' does not appear in any SB in-game transcript reviewed.",
+    "game": "security-breach",
+    "kind": "hidden",
+    "location": "Burn It All Down route; character files (name only)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "burntrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "burntrap",
+      "naming",
+      "afton-naming"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Burntrap",
+    "notes": "Wiki: 'Burntrap's name, while never mentioned in-game, was confirmed via his files, as well as Steel Wool Studios' blog post for the February patch.' The Security Breach Files book called him Afton, but books are not allowed sources (and a later book edition removed it). Absence check covered Glamrock Freddy, Gregory, Vanessa audio pages, duffel-bag messages, Retro CDs and cinematics."
+  },
+  {
+    "id": "security-breach-burntrap-appearance",
+    "title": "Burntrap: a burnt rabbit-shaped animatronic with a human jawbone",
+    "claim": "The underground animatronic has an olive/yellow damaged rabbit suit, an exposed human-looking jawbone and teeth, purple-glowing eyes, and a five-fingered clawed hand; it emerges from a recharge station and remotely controls Freddy and other technology.",
+    "game": "security-breach",
+    "kind": "environment",
+    "location": "'I AM NOT ME' cutscene and Burntrap boss room",
+    "certainty": "shown",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "burntrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "burntrap",
+      "springlock"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Burntrap",
+    "notes": "Resemblance to Springtrap/Scraptrap is visual only; the game does not identify him."
+  },
+  {
+    "id": "security-breach-underground-pizza-place",
+    "title": "Underground ruin bears the sign 'Freddy Fazbear's Pizza Place'",
+    "claim": "Below Roxy Raceway, via the old elevator, lies a buried older pizzeria whose sign reads 'Freddy Fazbear's Pizza Place', with burner rooms and a recharge station where Burntrap is found.",
+    "game": "security-breach",
+    "kind": "environment",
+    "location": "Underground ruins below Roxy Raceway (old elevator, Burn It All Down route)",
+    "certainty": "shown",
+    "quote": "Freddy Fazbear's Pizza Place",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "places": [
+      "ffps-pizzeria",
+      "the-sinkhole",
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "underground",
+      "sinkhole",
+      "ffps-link"
+    ],
+    "image": "sb-pizza-place-sign-sinkhole.webp",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizza_Place",
+    "notes": "The sign matches the name of the FFPS location. That it is literally the same burned FFPS building is a reading; the game shows the sign and burner rooms but does not narrate its history."
+  },
+  {
+    "id": "security-breach-tangle-composition",
+    "title": "Tangle (the Blob): a mass of older animatronic parts underground",
+    "claim": "A giant tentacled amalgamation of old animatronic parts (a Funtime Freddy-like face plus visible pieces of other older characters) sleeps near the underground entrance, attacks Gregory if he is outside Freddy, and grabs Burntrap in the ending.",
+    "game": "security-breach",
+    "kind": "environment",
+    "location": "Underground ruins; Burntrap boss fight; Burn It All Down ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "the-blob",
+      "burntrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "tangle",
+      "underground"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tangle",
+    "notes": "Not named in-game. Files use 'Tangle'/'TangleBlob'; 'The Blob' is a fan/encyclopedia label. Specific part identifications (Circus Baby, Puppet, etc.) are wiki/encyclopedia readings of the model."
+  },
+  {
+    "id": "security-breach-shattered-glamrocks-underground",
+    "title": "Shattered Chica, Roxy and Monty appear in the underground",
+    "claim": "In the Burntrap fight, the damaged ('shattered') Glamrock Chica, Roxanne Wolf and Montgomery Gator appear as hazards while Burntrap tries to control Freddy.",
+    "game": "security-breach",
+    "kind": "mechanic",
+    "location": "Burntrap boss fight",
+    "certainty": "shown",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-chica",
+      "roxanne-wolf",
+      "montgomery-gator",
+      "burntrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "related": [
+      "security-breach-freddy-been-here-before"
+    ]
+  },
+  {
+    "id": "security-breach-6am-choice",
+    "title": "At 6 AM Freddy offers a choice: leave or investigate",
+    "claim": "At 6 AM the exit opens and Freddy tells Gregory he can go or keep investigating, adding he feels something else is going on besides Vanny.",
+    "quote": "I feel there is something else going on besides Vanny.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "'6:00 AM' cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "gregory",
+      "vanny"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio"
+  },
+  {
+    "id": "security-breach-gregory-sinkhole-line",
+    "title": "Gregory: 'So this sinkhole is why the raceway is closed?'",
+    "claim": "Gregory connects Roxy Raceway's closure to a sinkhole and wonders what is down there.",
+    "quote": "So this sinkhole is why the raceway is closed? I wonder what's down there.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Gregory dialogue, Roxy Raceway",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex",
+      "the-sinkhole"
+    ],
+    "tags": [
+      "sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio"
+  },
+  {
+    "id": "security-breach-daycare-attendant-lights",
+    "title": "Daycare Attendant roams when the lights go out",
+    "claim": "Freddy explains power is diverted to recharge stations every hour, the lights go out, and the Daycare Attendant is then free to roam the building and hunt Gregory.",
+    "quote": "When that happens the lights go out, and when THAT happens the Daycare attendant is free to roam the building. It will find you.",
+    "game": "security-breach",
+    "kind": "mechanic",
+    "location": "Glamrock Freddy dialogue, Superstar Daycare",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "sun-moon",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "daycare"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio"
+  },
+  {
+    "id": "ruin-pizzaplex-abandoned-earthquake",
+    "title": "Pizzaplex abandoned; window newspapers call it an 'earthquake'",
+    "claim": "The Mega Pizzaplex is abandoned and wrecked, graffiti-covered and full of broken S.T.A.F.F. bots; newspapers on the windows attribute the destruction to an 'earthquake'.",
+    "game": "ruin",
+    "kind": "environment",
+    "location": "Opening, Pizzaplex lobby",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "tags": [
+      "earthquake"
+    ]
+  },
+  {
+    "id": "ruin-cassie-seeks-gregory",
+    "title": "Cassie enters to rescue her friend Gregory",
+    "claim": "Cassie, described as Gregory's best friend, enters the ruined Pizzaplex after a message in Gregory's voice says he is trapped there.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Opening message / Roxy-Talky",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "gregory",
+      "the-mimic"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "quote": "Cassie, I hope you get this message. I'm trapped, here at the Pizzaplex, or... what's left of it.",
+    "tags": [
+      "fake-gregory"
+    ]
+  },
+  {
+    "id": "ruin-fake-gregory-sinkhole",
+    "title": "'Gregory' says he is trapped in the sinkhole under the raceway",
+    "claim": "The voice on the Roxy-Talky says something grabbed him and he is trapped in the sinkhole under Roxy Raceway, and asks Cassie to turn off all the security.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky calls (later revealed as the Mimic)",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-mimic",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
+    "quote": "Help! Something grabbed me! It won't let me go! You have to find me; I'm trapped in the sinkhole under the raceway!",
+    "tags": [
+      "fake-gregory",
+      "sinkhole"
+    ]
+  },
+  {
+    "id": "ruin-fake-gregory-turn-off-security",
+    "title": "'Turn it all off!' - the Mimic has Cassie disable security nodes",
+    "claim": "The fake Gregory repeatedly instructs Cassie to find and deactivate all security nodes so he can get out.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky calls",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-mimic",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
+    "quote": "If you can hear me, turn off all the security! Turn it all off!",
+    "tags": [
+      "fake-gregory",
+      "mxes"
+    ]
+  },
+  {
+    "id": "ruin-mimic-reuses-gregory-lines",
+    "title": "The Mimic's voice reuses Gregory's SB lines",
+    "claim": "Several of the fake Gregory's lines are Gregory's own Security Breach lines (e.g. 'I-I'm Gregory.', 'The stupid door won't open.').",
+    "game": "ruin",
+    "kind": "mechanic",
+    "location": "The Mimic audio (RUIN) vs. Gregory audio (SB)",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-mimic",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
+    "quote": "I-I'm Gregory.",
+    "tags": [
+      "fake-gregory"
+    ],
+    "notes": "Both lines appear verbatim in Gregory's SB audio list; reading this as the Mimic having recorded/learned Gregory's voice is inference."
+  },
+  {
+    "id": "ruin-mask-bot-helpi-vanni",
+    "title": "Mask Bot gives Cassie a Security Mask; Helpi and V.A.N.N.I.",
+    "claim": "A bunny-eared Map Bot calling itself the 'Mask Bot' gives Cassie a Security Mask; its AI, Helpi, welcomes her to the 'Virtual Augmented Neural Network Integration Unit' (V.A.N.N.I.), an AR layer where she can pass barriers and is invisible to animatronics.",
+    "game": "ruin",
+    "kind": "mechanic",
+    "location": "Monty's Gator Golf",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "helpi"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "tags": [
+      "vanni",
+      "ar-world"
+    ],
+    "notes": "Acronym expansion taken from the wiki plot summary (in-game text)."
+  },
+  {
+    "id": "ruin-the-entity",
+    "title": "A glitching rabbit 'Entity' stalks the mask world",
+    "claim": "While Cassie wears the mask too long, a glitching rabbit figure (the Entity) appears and alerts animatronics to her; it later emerges from the M.X.E.S. hub and is pulled back into it.",
+    "game": "ruin",
+    "kind": "mechanic",
+    "location": "AR world encounters; M.X.E.S. hub",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-entity",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "tags": [
+      "ar-world",
+      "mxes"
+    ],
+    "notes": "'The Entity' is the wiki's label."
+  },
+  {
+    "id": "ruin-vanny-hideout-glitchtrap-shadow",
+    "title": "Vanny's hideout: Princess Quest cabinet run through, Glitchtrap's shadow",
+    "claim": "In Vanny's Fazer Blast hideout the Princess Quest arcade is toppled with (in AR) the Princess's sword through it; beside Vanny's spray-painted name is Glitchtrap's shadow, whose face is visible with the mask.",
+    "game": "ruin",
+    "kind": "environment",
+    "location": "Vanny's hideout, Fazer Blast",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "glitchtrap",
+      "vanny",
+      "the-princess"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "tags": [
+      "princess-quest",
+      "glitchtrap"
+    ]
+  },
+  {
+    "id": "ruin-roxy-birthday-11th",
+    "title": "Roxy remembers Cassie's birthday on the 11th",
+    "claim": "Pinned under a forklift, Roxy speaks gently to Cassie, recalls her carrot cake and that her birthday is on the 11th ('number one - twice'), and says her friends will show up this time.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy Party Garage, above the sinkhole",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "roxanne-wolf",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Roxanne_Wolf/Audio",
+    "quote": "If I remember correctly, it is on the 11th. I remember because you are number one - twice.",
+    "tags": [
+      "cassie-birthday"
+    ]
+  },
+  {
+    "id": "ruin-roxy-final-node",
+    "title": "Cassie must deactivate Roxy as the final node",
+    "claim": "'Gregory' tells Cassie Roxy is the final node; Cassie drives the Faz-Wrench into Roxy's eye to deactivate her.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy Party Garage",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "roxanne-wolf",
+      "the-mimic"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
+    "quote": "Roxy's the- final node. You need to deactivate her."
+  },
+  {
+    "id": "ruin-mxes-hub",
+    "title": "The M.X.E.S. hub at the bottom of the underground",
+    "claim": "At the deepest level below the Pizzaplex (past the Burntrap arena) Cassie finds the M.X.E.S. hub; a computer confirms all security nodes are off and asks to proceed; the Entity emerges and is sucked back in.",
+    "game": "ruin",
+    "kind": "environment",
+    "location": "Deepest underground level",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "the-entity"
+    ],
+    "places": [
+      "ffps-pizzeria",
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "tags": [
+      "mxes",
+      "underground"
+    ]
+  },
+  {
+    "id": "ruin-mimic-reveal",
+    "title": "The 'Gregory' behind the wall is an endoskeleton mimic",
+    "claim": "When the forklift breaks the concrete wall, Cassie finds not Gregory but an endoskeleton that had been imitating his voice; Roxy reappears to fight it and tells Cassie to run.",
+    "game": "ruin",
+    "kind": "cutscene",
+    "location": "Reveal cutscene behind the concrete wall",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-mimic",
+      "cassie",
+      "roxanne-wolf"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
+    "quote": "Cassie. Get out of here. Run!",
+    "tags": [
+      "fake-gregory"
+    ],
+    "notes": "The name 'the Mimic' is used by the wiki/files and later by Secret of the Mimic; it was not verified as appearing on screen in RUIN."
+  },
+  {
+    "id": "ruin-real-gregory-not-at-pizzaplex",
+    "title": "Real Gregory: 'I'm not at the Pizzaplex'",
+    "claim": "The real Gregory reaches Cassie on the Roxy-Talky, says he's been trying all night, that he is not at the Pizzaplex and something is trying to trick her.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky, escape sequence",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "gregory",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "quote": "I've been trying to reach you all night! I'm not at the Pizzaplex. Something is trying to trick you!"
+  },
+  {
+    "id": "ruin-gregory-mxes-explanation",
+    "title": "Gregory: M.X.E.S. was designed to keep 'it' hidden",
+    "claim": "Gregory explains Cassie was tricked by 'that thing in the sinkhole', trapped there for a really long time, and that the M.X.E.S. security program kept it hidden until she shut it down.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky, elevator (Standard ending)",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "gregory",
+      "cassie",
+      "the-mimic"
+    ],
+    "places": [
+      "the-sinkhole"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "quote": "That thing in the sinkhole tricked you, I really don't know what it is, but it's been trapped down here for a really long time. The M.X.E.S. security program was designed to keep it hidden",
+    "tags": [
+      "mxes"
+    ]
+  },
+  {
+    "id": "ruin-gregory-friend-maps",
+    "title": "Gregory's 'friend' has the building maps",
+    "claim": "Gregory says a friend of his has access to the building's maps and guides Cassie's escape.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky, escape sequence",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "gregory",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
+    "quote": "My friend has access to the building's maps.",
+    "notes": "The friend is not named (Vanessa or Freddy are common guesses; not stated)."
+  },
+  {
+    "id": "ruin-ending-standard",
+    "title": "Standard ending: the elevator falls",
+    "claim": "Cassie escapes into an elevator whose door severs the Mimic's arm; Gregory says 'It's not your fault... But we can't risk being followed. I'm sorry'; the elevator plummets; post-credits Roxy says 'Cassie?'.",
+    "game": "ruin",
+    "kind": "ending",
+    "location": "Standard ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "gregory",
+      "the-mimic",
+      "roxanne-wolf"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "quote": "It's not your fault. I know you did it for me, to save me. But we can't risk being followed. I'm sorry",
+    "notes": "A static break precedes this line; whether the real Gregory or an impersonator drops the elevator is debated.",
+    "image": "ruin-mimic-elevator.jpg"
+  },
+  {
+    "id": "ruin-ending-scooper",
+    "title": "Scooper ending: the costumed Mimic is scooped",
+    "claim": "After finding four hidden cameras, the Mimic wears a mascot costume in the chase; Cassie reaches a Scooping Room replica and activates the Scooper, which grabs the Mimic and leaves it collapsed.",
+    "game": "ruin",
+    "kind": "ending",
+    "location": "Scooper ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "the-mimic"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "scooper",
+      "sister-location-link"
+    ]
+  },
+  {
+    "id": "ruin-ending-safe-spot",
+    "title": "Safe Spot ending: Gregory, Helpi and Vanessa on a hill",
+    "claim": "At a dead end, Cassie puts on the mask at a Fredbear cutout and sees Gregory, Helpi and Vanessa eating ice cream on a hill while a Gregory voice says he found a hiding place and Cassie breathes in panic.",
+    "game": "ruin",
+    "kind": "ending",
+    "location": "Safe Spot ending (left at the fork)",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "cassie",
+      "gregory",
+      "vanessa",
+      "helpi"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Called the 'Brazil' ending in code; widely read as Cassie dying while seeing an illusion (inference)."
+  },
+  {
+    "id": "ruin-missing-gregory-poster",
+    "title": "Missing poster of Gregory",
+    "claim": "Posters with Gregory's face read 'MISSING - HAVE YOU SEEN ME?'; AR holograms show Cassie crying at them.",
+    "game": "ruin",
+    "kind": "environment",
+    "location": "Glamrock Beauty Salon / Roxy Raceway (poster texture and AR holograms)",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "gregory",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:TEX_Salon_Poster_MissingGregory.png",
+    "quote": "MISSING / HAVE YOU SEEN ME?",
+    "tags": [
+      "missing"
+    ],
+    "image": "ruin-missing-gregory-poster.jpg"
+  },
+  {
+    "id": "ruin-something-tunneled",
+    "title": "'Something tunneled' and collapsed the raceway",
+    "claim": "Asked what happened to the collapsed raceway, 'Gregory' (the Mimic's voice) says something tunneled and broke everything; Tangle is briefly glimpsed in a hole near an early staircase.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Roxy-Talky, Roxy Raceway ruins",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "the-mimic",
+      "the-blob"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
+    "quote": "Something tunneled down... broke everything. Now I'm stuck here!",
+    "tags": [
+      "earthquake",
+      "tangle"
+    ],
+    "notes": "Tangle as the tunneler is the wiki's inference from its cameo."
+  },
+  {
+    "id": "ruin-eclipse",
+    "title": "Daycare Attendant rebooted as 'Eclipse'",
+    "claim": "Rebooted with the Faz-Wrench, Sun and Moon merge into Eclipse in safety mode; Sun thanks Cassie for freeing him from Moon.",
+    "game": "ruin",
+    "kind": "cutscene",
+    "location": "Superstar Daycare",
+    "certainty": "shown",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "sun-moon",
+      "cassie"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN"
+  },
+  {
+    "id": "ruin-candy-cadet-story",
+    "title": "Candy Cadet: mother, son and a monster in the basement",
+    "claim": "In the underground pizzeria, Candy Cadet tells (per Faz-Token) a story of a mother who locked a monster in the basement and sang her boy a lullaby; the monster learned the lullaby and used it to lure the boy to the basement.",
+    "game": "ruin",
+    "kind": "audio-tape",
+    "location": "Candy Cadet in the underground Pizza Place",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "candy-cadet"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizza_Place",
+    "notes": "Summary from the wiki (full verbatim transcript not retrieved). Mapping the characters onto Gregory/Cassie/Mimic is interpretation."
+  },
+  {
+    "id": "into-the-pit-jeffs-pizza-ball-pit",
+    "title": "Jeff's Pizza's old ball pit leads to the past",
+    "claim": "In the present, Oswald hides in the old ball pit at run-down Jeff's Pizza and emerges in a busy, older Freddy Fazbear's Pizza.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Prologue",
+    "certainty": "shown",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswald",
+      "jeff"
+    ],
+    "places": [
+      "jeffs-pizza",
+      "freddy-fazbears-pizza-itp",
+      "the-pit"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Prologue_(FNaF:_ITP)",
+    "tags": [
+      "time-travel"
+    ]
+  },
+  {
+    "id": "into-the-pit-past-year-1985",
+    "title": "The past pizzeria is (per summaries) 1985",
+    "claim": "Wiki summaries of the game describe the past location as '1985 Freddy Fazbear's Pizza', matching the source story in which a calendar shows 1985.",
+    "game": "into-the-pit",
+    "kind": "environment",
+    "location": "Past Freddy Fazbear's Pizza (general)",
+    "certainty": "implied",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald",
+    "tags": [
+      "dating"
+    ],
+    "notes": "An on-screen 1985 date was not found in the game transcripts/pages checked; the year comes from summaries and the source story (a book, not usable directly). A 1985-era kid in the past mentions going to see Ghostbusters (1984 film), consistent with the mid-1980s."
+  },
+  {
+    "id": "into-the-pit-prologue-mci",
+    "title": "Prologue: panic, then six dead children in a Party Room",
+    "claim": "During hide-and-seek, the lights go out; people flee screaming and the animatronics malfunction; the yellow rabbit lures Oswald to a room where he finds several dead children in party hats.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Prologue ('Look for Chip and Mike' / 'Escape!')",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit",
+      "missing-children",
+      "chip",
+      "mike-itp"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Prologue_(FNaF:_ITP)",
+    "tags": [
+      "missing-children"
+    ],
+    "notes": "The game shows six bodies (wiki: 'Six kids lured into the Party Room and killed by The Yellow Rabbit'). Canon core-series count is five; this six is recorded as-is."
+  },
+  {
+    "id": "into-the-pit-golden-freddy-suit-hide",
+    "title": "Oswald hides in an empty Golden Freddy suit; the rabbit inspects it",
+    "claim": "Oswald hides in an empty yellow bear suit (achievement: 'Hide in the Golden Freddy Suit') while the yellow rabbit enters and inspects it.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Prologue, room east of the arcade; achievement 'It's Me'",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit",
+      "golden-freddy"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_ITP)",
+    "quote": "Hide in the Golden Freddy Suit.",
+    "tags": [
+      "golden-freddy"
+    ]
+  },
+  {
+    "id": "into-the-pit-rabbit-replaces-dad",
+    "title": "The yellow rabbit drags Dad into the pit and takes his place",
+    "claim": "In the present the yellow rabbit pulls Oswald's father into the ball pit; the father emerges with glowing eyes, briefly seen by Oswald as the rabbit, and others (Jeff, Mom) see nothing wrong.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Prologue ending / Night 1",
+    "certainty": "shown",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit",
+      "oswalds-father",
+      "jeff"
+    ],
+    "places": [
+      "jeffs-pizza"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Prologue_(FNaF:_ITP)"
+  },
+  {
+    "id": "into-the-pit-yellow-rabbit-naming",
+    "title": "The antagonist is only called the 'yellow rabbit'/'yellow thing'",
+    "claim": "The killer is a yellow rabbit suit/creature referred to descriptively ('yellow rabbit', 'the yellow thing'); it is never called Spring Bonnie, William, or Afton in-game.",
+    "game": "into-the-pit",
+    "kind": "dialogue",
+    "location": "Throughout (dialogue/objectives)",
+    "certainty": "stated",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Yellow_Rabbit_(Fazbear_Frights)",
+    "tags": [
+      "afton-naming",
+      "naming"
+    ],
+    "notes": "Wiki: 'Before The Freddy Files Ultimate Edition and the game adaptation officially named the creature \"Yellow Rabbit\"'. Its jumpscares show organic gums/muscle; a drawing of a Spring Bonnie-like mascot appears in the pizzeria. No Afton naming found in ITP."
+  },
+  {
+    "id": "into-the-pit-strange-photo",
+    "title": "'Strange Photo': two men in a strange office",
+    "claim": "After Oswald finds all Dad's items, a 'Strange Photo' can be picked up in the Party Room; its description names no one; it distracts the rabbit on Night 5.",
+    "game": "into-the-pit",
+    "kind": "text",
+    "location": "Inventory item 'Strange Photo' (Party Room, Night 5); achievement 'Who are they?'",
+    "certainty": "stated",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Inventory_Items_(FNaF:_ITP)",
+    "quote": "An odd photo of two men inside of a strange office. Is this somewhere inside of Freddy's?",
+    "tags": [
+      "afton-naming"
+    ],
+    "notes": "The wiki identifies the men as William Afton and Henry Emily; the game text does not name them. Achievement text: 'Who are they? - What is this?'",
+    "image": "itp-strange-photo.png"
+  },
+  {
+    "id": "into-the-pit-night1-child-endoskeleton",
+    "title": "Night 1: a child trapped in an endoskeleton",
+    "claim": "Oswald finds a crying child stuck in a metal endoskeleton who fears 'the locks are going to snap shut', and frees him with a screwdriver.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Night 1, past dining area / backstage",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_1_(FNaF:_ITP)",
+    "tags": [
+      "springlock",
+      "endoskeleton"
+    ],
+    "notes": "Child unnamed in-game ('Trevor' in files)."
+  },
+  {
+    "id": "into-the-pit-night2-chica-mike",
+    "title": "Night 2: Chica guards the kitchen; Mike freed",
+    "claim": "Chica guards a crying child (Mike) in the kitchen; Oswald lures her with pizza stolen from the present and frees Mike, then the rabbit bursts through the arcade doors and strangles him (QTE).",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Night 2",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "chica",
+      "mike-itp",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_2_(FNaF:_ITP)"
+  },
+  {
+    "id": "into-the-pit-night3-bonnie-chip",
+    "title": "Night 3: Bonnie torments Chip at an arcade machine",
+    "claim": "Chip is tied to an arcade machine while Bonnie hits him; Oswald distracts Bonnie with a guitar and frees Chip.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Night 3",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "chip",
+      "bonnie"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald"
+  },
+  {
+    "id": "into-the-pit-night4-freezer",
+    "title": "Night 4: rabbit stuffs a girl into the freezer",
+    "claim": "A terrified girl hides in the Security Office guarded by Freddy; while Oswald is away the rabbit stuffs her into the kitchen freezer; he breaks her out with the arcade mallet.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Night 4",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit",
+      "freddy-fazbear"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald",
+    "notes": "Girl unnamed in-game ('Kendra' in files)."
+  },
+  {
+    "id": "into-the-pit-night5-dad-parts-and-service",
+    "title": "Night 5: Dad tied up in a secret Parts and Service room",
+    "claim": "Oswald frees a girl from the locked Party Room, then finds his father tied up and unconscious in a secret Parts and Service room; the rabbit drags him to the pit.",
+    "game": "into-the-pit",
+    "kind": "cutscene",
+    "location": "Night 5",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "oswalds-father",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald%27s_Father"
+  },
+  {
+    "id": "into-the-pit-phone-guy-night3-stuffing",
+    "title": "Phone call: animatronics stuff people into suits",
+    "claim": "The past pizzeria's phone caller says the animatronics may mistake a moving person for an endoskeleton and forcibly stuff them into a suit, explaining high staff turnover.",
+    "game": "into-the-pit",
+    "kind": "phone-call",
+    "location": "Phone call, Night 3 (Kitchen phone)",
+    "certainty": "stated",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "phone-guy-itp"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Phone_Guy_(FNaF:_ITP)",
+    "quote": "they will think that you belong inside of an animatronic suit and you shouldn't be out wandering. …",
+    "notes": "Voice/role echoes FNaF1's Phone Guy; the game does not state it is the same man."
+  },
+  {
+    "id": "into-the-pit-phone-guy-night1",
+    "title": "Phone call: 'we really don't have a security guard right now'",
+    "claim": "Night 1 caller says there is currently no security guard, so the listener is in charge of locking up and making sure kids don't hide or stay overnight.",
+    "game": "into-the-pit",
+    "kind": "phone-call",
+    "location": "Phone call, Night 1 (Entrance phone)",
+    "certainty": "stated",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "phone-guy-itp"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Phone_Guy_(FNaF:_ITP)",
+    "quote": "since we really don't have a security guard right now, you're pretty much the person in charge."
+  },
+  {
+    "id": "into-the-pit-phone-closed-maintenance",
+    "title": "Dialing 5555333: 'We ALWAYS come back!'",
+    "claim": "Calling 5555333 plays a Freddy Fazbear's Pizza message saying it is closed due to 'maintenance' for some time, but 'We ALWAYS come back!'",
+    "game": "into-the-pit",
+    "kind": "hidden",
+    "location": "Dad's phone, call 5555333 (text only)",
+    "certainty": "stated",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "phone-guy-itp"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Phone_Guy_(FNaF:_ITP)",
+    "quote": "We're closed due to.. Uh... Let's say maintenance. Yeah... That sounds legally OK to say. We might be gone for... Uh... Some time... But don't worry! We ALWAYS come back!"
+  },
+  {
+    "id": "into-the-pit-ending-one-star",
+    "title": "1-Star ending: Oswald wakes tied up in the party room",
+    "claim": "Without all of Dad's items, the yellow thing drags Oswald into the pit; he wakes tied to a chair in a party hat as a shadow looms and the rabbit laughs.",
+    "game": "into-the-pit",
+    "kind": "ending",
+    "location": "1-Star ending ('Pit-y Party')",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FNaF:_ITP)",
+    "image": "itp-one-star-ending-party-room.jpg"
+  },
+  {
+    "id": "into-the-pit-ending-two-star",
+    "title": "2-Star ending: rabbit hangs in the ball-pit net; then Jeff is attacked",
+    "claim": "With Dad's items and the Strange Photo, Oswald distracts the rabbit, drags Dad to the present and the rabbit ends up hanging in the ball-pit net; Dad plans to move somewhere better, but Jeff follows a blood trail and the rabbit attacks him.",
+    "game": "into-the-pit",
+    "kind": "ending",
+    "location": "2-Star ending ('Jeff?')",
+    "certainty": "shown",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswald",
+      "oswalds-father",
+      "yellow-rabbit",
+      "jeff"
+    ],
+    "places": [
+      "jeffs-pizza"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald"
+  },
+  {
+    "id": "into-the-pit-ending-three-star",
+    "title": "3-Star ending: a refurbished Jeff's Pizza",
+    "claim": "With all arcades fixed, the three secret minigames played, Dad's items and the photo, Oswald defeats the rabbit; the game flashes forward to the family eating at a refurbished Jeff's Pizza.",
+    "game": "into-the-pit",
+    "kind": "ending",
+    "location": "3-Star ending ('Family Fun Night')",
+    "certainty": "shown",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswald",
+      "oswalds-father",
+      "jeff"
+    ],
+    "places": [
+      "jeffs-pizza"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald"
+  },
+  {
+    "id": "into-the-pit-ending-see-ya-dad",
+    "title": "'See Ya, Dad!': leaving through the front doors of the past",
+    "claim": "If Oswald walks out the front door of the past Freddy's, he is stranded in the past and cannot return home.",
+    "game": "into-the-pit",
+    "kind": "ending",
+    "location": "Hobo ending ('See Ya, Dad!')",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FNaF:_ITP)"
+  },
+  {
+    "id": "into-the-pit-ending-what-am-i",
+    "title": "'What Am I?': Oswald becomes part of Freddy's",
+    "claim": "Failing the final QTE, Oswald reawakens on the Freddy's stage, the animatronics wave, he forgets his name and past, and his eyes glow as he stops before the rabbit by Pirate's Cove.",
+    "game": "into-the-pit",
+    "kind": "ending",
+    "location": "'What Am I' ending (fail Night 5 QTE)",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald",
+    "tags": [
+      "possession"
+    ]
+  },
+  {
+    "id": "into-the-pit-collect-the-hats-purple-guy",
+    "title": "Minigame: Purple Guy drops a sixth party hat",
+    "claim": "In the 'Collect the Hats' arcade minigame (BB collecting five hats), a hidden room holds the Purple Guy, who drops a sixth party hat.",
+    "game": "into-the-pit",
+    "kind": "minigame",
+    "location": "Arcade minigame 'Collect the Hats'",
+    "certainty": "shown",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "people": [
+      "purple-guy"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Arcade_Minigames",
+    "tags": [
+      "purple-guy",
+      "six-victims"
+    ],
+    "notes": "Six hats parallel the six bodies in the Party Room (interpretive)."
+  },
+  {
+    "id": "into-the-pit-light-of-87",
+    "title": "Achievement 'The Light of '87'",
+    "claim": "An achievement for flicking a light switch 87 times is titled 'The Light of '87'.",
+    "game": "into-the-pit",
+    "kind": "hidden",
+    "location": "Achievement 'The Light of '87'",
+    "certainty": "stated",
+    "when": {
+      "label": "n/a (achievement title)",
+      "precision": "unknown"
+    },
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_ITP)",
+    "quote": "The Light of '87",
+    "tags": [
+      "87"
+    ],
+    "notes": "Likely a joke nod to the 'Bite of '87'; no lore statement."
+  },
+  {
+    "id": "into-the-pit-arcade-always-watching",
+    "title": "Arcade boot binary: 'ALWAYS WATCHING'",
+    "claim": "When an arcade game boots, binary code flashes that decodes to 'ALWAYS WATCHING'.",
+    "game": "into-the-pit",
+    "kind": "hidden",
+    "location": "Arcade machine boot screens",
+    "certainty": "stated",
+    "when": {
+      "year": 1985,
+      "label": "1985 (the past reached through the ball pit)",
+      "precision": "approx",
+      "basis": "Wiki summaries of the game place the past pizzeria in 1985 (as in the source story); an on-screen 1985 date in the game itself was NOT verified"
+    },
+    "places": [
+      "freddy-fazbears-pizza-itp"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Arcade_Minigames",
+    "quote": "ALWAYS WATCHING"
+  },
+  {
+    "id": "into-the-pit-mill-closure",
+    "title": "The town's mill closed; Dad lost his job",
+    "claim": "An inventory description says Dad was upset to lose his job at the mill, which wasn't his fault.",
+    "game": "into-the-pit",
+    "kind": "text",
+    "location": "Inventory item 'Dad's Name Tag'",
+    "certainty": "stated",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswalds-father"
+    ],
+    "places": [
+      "the-mill"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Inventory_Items_(FNaF:_ITP)",
+    "quote": "Dad's name tag from work. He was so upset to lose his job at the mill."
+  },
+  {
+    "id": "secret-of-the-mimic-log-meet-up",
+    "title": "Edwin meets Fiona; the 'helpful' recorder system",
+    "claim": "Edwin Murray introduces himself to new employee Fiona, a former puppeteer; his father owns the place; he records her voice on a self-made memo system he describes as 'helpful'.",
+    "quote": "Edwin, Edwin Murray. This is my dad's place. But that doesn't matter... I heard you were a puppeteer and I wanted to record your voice.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Meet Up' (Showroom Lobby)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "helper-system"
+    ],
+    "notes": "The name H.E.L.P.E.R. appears on the terminal system; the log only has Edwin choosing the word 'helpful'."
+  },
+  {
+    "id": "secret-of-the-mimic-log-inheritance",
+    "title": "Edwin inherits the company after his father's death",
+    "claim": "After his father dies, Edwin fears he cannot run the company; Fiona says it's his now and he considers rebranding and making his inventions real.",
+    "quote": "It's your company now. Your dad believed in you. Otherwise, he wouldn't have left it to you.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Inheritance' (Warehouse)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs"
+  },
+  {
+    "id": "secret-of-the-mimic-log-build-to-spec",
+    "title": "'Hen' sends a change order; springlocks and teens in suits",
+    "claim": "Edwin receives a change order from 'Hen', questions it, and says it would be easier to keep using springlocks and hire teens to wear the suits 'like we always do'.",
+    "quote": "I got the change order from Hen last night. None of this makes sense. I'm almost done. Why change it now? It would be so much easier to keep using the Springlocks. …",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Build to Spec' (R&D mockup women's restroom)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "hen"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "springlock",
+      "fazbear-link",
+      "hen"
+    ],
+    "notes": "Only 'Hen' is said. The wiki expands this to Henry Emily; the name 'Henry' is not stated in this log."
+  },
+  {
+    "id": "secret-of-the-mimic-log-creepy",
+    "title": "Client changes Fiona's approved animatronic designs to 'creepy' ones",
+    "claim": "Edwin complains a client approved Fiona's animatronic art and proofs, then changed to 'frankly creepy' new concepts late; he refuses to change her work.",
+    "quote": "The look of these new animatronics is Fiona's design and they're great. First they approve the art. Then they approve the proofs. Now, they change their minds when we're so close to final.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Creepy / Change Request' (R&D mockup Safe Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "fazbear-link"
+    ],
+    "notes": "The client is not named in this log; Chica's Party World and Hen are the client links elsewhere."
+  },
+  {
+    "id": "secret-of-the-mimic-log-installation-worries",
+    "title": "Fiona leaves to help the Fall Fest installation",
+    "claim": "Fiona tells Edwin she has a terrible feeling and must help the Fall Fest crew for a few days; Trisha will babysit David.",
+    "quote": "I have to go help the Fall Fest crew... just for a few days until the installation is finished. ... Trisha will babysit David while I'm gone.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Installation Worries' (Roof Access)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "fiona-murray",
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs"
+  },
+  {
+    "id": "secret-of-the-mimic-log-death",
+    "title": "Fiona dies; Edwin must raise David alone",
+    "claim": "Edwin says Fiona wasn't supposed to be there, asks how to tell David his mother is gone and how to raise a kid alone.",
+    "quote": "How am I supposed to tell David that his mother is gone? How am I supposed to raise a kid on my own?",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Death' (Theater Backstage)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "notes": "Cause of death not stated; context links it to the Fall Fest trip."
+  },
+  {
+    "id": "secret-of-the-mimic-log-frequency-4625",
+    "title": "Edwin hears Fiona's voice on frequency 4625",
+    "claim": "Edwin sets a radio to frequency 4625 where he heard 'her, or someone that sounds like her', and a Fiona line from a birthday film plays back.",
+    "quote": "This is where I heard it. It's her, or someone that sounds like her. Set frequency to 4625...",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'The Frequency' (Basement 2 secret workshop)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "4625",
+      "mimicry"
+    ],
+    "notes": "4625 is also the M.X.E.S. van keypad code in Help Wanted 2 (outside this group's games). The reply 'That's great, honey, but you're missing the party.' is a line from the Magenta birthday film."
+  },
+  {
+    "id": "secret-of-the-mimic-log-training-m1",
+    "title": "Edwin introduces M1 to David as a babysitter",
+    "claim": "Edwin shows David the endoskeleton M1, which David calls scary; Edwin says it will wear fun costumes, fit any costume, and act as a babysitter that stays with them.",
+    "quote": "This is M1. ... It can fit into any costume we've created. Think of it as your new babysitter.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Training' (Workshop springlock suits assembly room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "david-murray",
+      "f10-n4"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "mimic-origin"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-log-playground",
+    "title": "David's playground by the loading dock",
+    "claim": "Edwin dismisses his lawyer's concerns about David's playground near the loading dock where freight is handled.",
+    "quote": "This is the perfect spot for David's playground. I can watch him play while I'm loading and unloading freight",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Playground' (Loading Docks)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "notes": "The game does not state how David died; the playground's placement is suggestive only."
+  },
+  {
+    "id": "secret-of-the-mimic-log-m1-as-fiona",
+    "title": "M1 speaks as Fiona and wants secrecy",
+    "claim": "M1 in Fiona's voice tells Edwin not to let 'them' know about her because it isn't safe.",
+    "quote": "Edwin, you need to listen. I know you are excited, but you can't let them know about me. It's not safe.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Trust No One Fiona' (Inventor's House Library)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "f10-n4",
+      "edwin-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "mimicry"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-log-refusal",
+    "title": "Edwin refuses to build a replacement son",
+    "claim": "M1 (as Fiona) urges Edwin to 'make another'; Edwin says it wouldn't be him, 'I let a machine raise my kid', and that M1 is not Fiona.",
+    "quote": "For the last time, NO. It wouldn't be him. ... I let a machine raise my kid. You're not real.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Refusal' (Inventor's House Workshop Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "f10-n4",
+      "david-murray"
+    ],
+    "places": [
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "mimic-origin"
+    ],
+    "notes": "Implies David has died by this point; cause not given."
+  },
+  {
+    "id": "secret-of-the-mimic-log-make-a-copy",
+    "title": "A leak: 'Someone told them about M2'",
+    "claim": "Edwin says there is a leak and 'they' learned about M2; every copy has failed and it worked only the first time.",
+    "quote": "There's a leak. Someone told them about M2. Well, they can't have it. Every copy has failed.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Make a Copy' (Executive Suite)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "fazbear-link"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-log-incident",
+    "title": "'You're not him! Stop sounding like him!'",
+    "claim": "Edwin shouts at something that it isn't 'him' and to stop sounding like him.",
+    "quote": "...Stop. You're not him. You're not! Stop sounding like him!",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'The Incident' (Basement 2)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "the-mimic",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "mimic-origin"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-log-turn-around",
+    "title": "M2 mocks the injured Edwin in his own voice",
+    "claim": "After a detonation in his office, a paralyzed Edwin begs M2 for help; M2 replies with Edwin's neglectful phrases ('Daddy's busy, buddy...') and brags about legs it just finished.",
+    "quote": "Daddy's busy, buddy. Why don't you go outside and play.",
+    "game": "secret-of-the-mimic",
+    "kind": "audio-tape",
+    "location": "Audio log 'Turn Around' (Inventor's House Attic)",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "the-mimic",
+      "edwin-murray"
+    ],
+    "places": [
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Audio_Logs",
+    "tags": [
+      "mimicry",
+      "edwin-fate"
+    ],
+    "notes": "Edwin: 'I can't feel my legs'. His final fate is not shown."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-confidential-wa",
+    "title": "'WA' offers to buy MCM's catalog and keep Edwin as lead engineer",
+    "claim": "A letter signed 'WA' says they now technically own the land, want the software development and entire MCM catalog, and offer to keep Edwin on as lead engineer.",
+    "quote": "We would love to keep you on as a lead engineer. Although we now technically own the land, we would never touch the house your parents built. ... - WA",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Confidential' (Main/South Hall executive restroom), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "wa-signatory",
+      "edwin-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "afton-naming",
+      "fazbear-link"
+    ],
+    "notes": "Only the initials 'WA' appear. Reading them as William Afton is inference; no full name is given in SotM."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-staff-contacts-wa",
+    "title": "'W.A.' seeks Murray staff contacts, offers a franchise location",
+    "claim": "A message signed 'W.A.' asks for the rest of the Murray staff contact info and offers to let the recipient manage one of the new franchise locations.",
+    "quote": "I need the rest of the Murray staff contact info. ... How would you like to manage one of the new franchise locations? - W.A.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Staff Contacts' (Admin Wing upper floor), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "wa-signatory"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "afton-naming",
+      "fazbear-link"
+    ],
+    "notes": "Initials only. Franchise locations imply a restaurant chain (unnamed here)."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-springlocks-hen",
+    "title": "New springlocks for 'the diner'; warn Hen of odd behaviors",
+    "claim": "A message to Fiona says new springlocks work well despite water damage, will soon be ready 'for the diner', and warns Hen about their 'odd behaviors'.",
+    "quote": "Fiona, the new springlocks are working well, even with the water damage. They should be ready for the diner soon. I'll just make sure to warn Hen about some of the more... …",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Springlocks' (R&D Mockup Kitchen), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "fiona-murray",
+      "hen"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "springlock",
+      "hen",
+      "fazbear-link"
+    ],
+    "notes": "'The diner' is unnamed; Fredbear's Family Diner is a reading (MCM posters show Fredbear's Family Diner per wiki)."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-chicas-party-world",
+    "title": "MCM designed Chica for 'Chica's Party World'",
+    "claim": "Milton writes that the client loves Fiona's chicken designs and sales are through the roof, but worries the costume doesn't look like her art and gives him nightmares.",
+    "quote": "Fiona is amazing. The client is very happy with her chicken designs. ... I just wish the costume looked a little bit more like Fiona's art... I'm worried about how it will work with kids. …",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Chica's Party World' (Warehouse), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "fiona-murray",
+      "chica"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "fazbear-link"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-mail-received-5-min-ago",
+    "title": "M1's message: 'M2 began as a copy of my program'",
+    "claim": "A message to Edwin says a technician is coming with M2 blueprints and executive access; M2 began as a copy of the sender's program, is damaged, 'mimics rage', and no one entering MCM is safe.",
+    "quote": "While the M2 began as a copy of my program, I believe it can become something more. ... M2 can no longer be controlled. It will no longer listen. It mimics rage. …",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Received: 5 Min Ago' (Inventor's House attic), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "the-mimic",
+      "edwin-murray"
+    ],
+    "places": [
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "mimic-origin"
+    ],
+    "notes": "Sender unsigned; content ('my program') points to M1/F10-N4."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-hurt-cradle",
+    "title": "Blueprints for the 'Cradle' to keep David safe",
+    "claim": "A binary-titled message ('hurt') begs Edwin to build the 'Cradle', a large computer that 'can keep David safe and provide boundaries' and keep people safe.",
+    "quote": "Here are the blueprints for the \"Cradle\". It can keep David safe and provide boundaries. It's a type of computer, and it's bigger than anything you've done before.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message '01101000 01110101 01110010 01110100 (hurt)' (Executive Suite), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "f10-n4",
+      "edwin-murray",
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "cradle",
+      "mxes"
+    ],
+    "notes": "'David' here refers to the M2/David program, since the son is dead by then (inference)."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-sad",
+    "title": "'Edwin, are we losing our home?'",
+    "claim": "A binary-titled message ('SAD') asks Edwin if 'we' are losing our home and 'Wasn't I good enough?'",
+    "quote": "Edwin, are we losing our home? I don't understand. Wasn't I good enough?",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message '01010011 01000001 01000100 (SAD)' (Executive Suite), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "f10-n4",
+      "edwin-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes"
+  },
+  {
+    "id": "secret-of-the-mimic-mail-foreclosure",
+    "title": "Front-gate mail: foreclosure notice, mailbox full",
+    "claim": "The Inventor's House gate mailbox says it is full and the last mail, five weeks ago, was a foreclosure notice.",
+    "quote": "Your mailbox is full. Last mail received five weeks ago: Foreclosure Notice. Please Respond Immediately.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Mail - Aug 3rd' (Inventor's House front gate), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "August 3rd, SotM present (year not given)",
+      "precision": "relative",
+      "basis": "Header 'Aug 3rd'; appears to be the current-date mail at the house"
+    },
+    "people": [
+      "edwin-murray"
+    ],
+    "places": [
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes"
+  },
+  {
+    "id": "secret-of-the-mimic-mail-david-party",
+    "title": "Secret birthday party for David planned (Dec 1st)",
+    "claim": "'EM' tells staff the party is Saturday in admin conference room 1 and not to tell David; Milton notes Mr. Murray took the room for a surprise birthday party for his son.",
+    "quote": "The party is on Saturday in the admin conference room 1. Don't tell David. It's a surprise. - EM.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Admin - Dec 1st - 8:00 am' (Admin Wing), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "December 1st-6th (year not given)",
+      "precision": "relative",
+      "basis": "Message headers give 'Dec 1st'...'Dec 6th' without a year"
+    },
+    "people": [
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes"
+  },
+  {
+    "id": "secret-of-the-mimic-mail-party-canceled",
+    "title": "David's party canceled 'due to the recent tragic events' (Dec 6th)",
+    "claim": "Milton announces Mr. Murray's party is canceled due to 'recent tragic events' and the conference room is off-limits.",
+    "quote": "Mr. Murray's party has been canceled, due to the recent tragic events. Please do not enter the conference room until further notice. - Milton",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Admin - Dec 6th - 4:00 pm' (Admin Wing), read on the H.E.L.P.E.R. terminal",
+    "certainty": "implied",
+    "when": {
+      "label": "December 1st-6th (year not given)",
+      "precision": "relative",
+      "basis": "Message headers give 'Dec 1st'...'Dec 6th' without a year"
+    },
+    "people": [
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "notes": "The tragedy is not specified; that it is David's death is an inference from context."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-heard-fiona",
+    "title": "Employee hears Fiona's voice through an R&D vent",
+    "claim": "An employee swears they heard Fiona's voice laughing with Edwin through an R&D vent and wonders if her death was faked for insurance money.",
+    "quote": "it was Fiona's voice, I swear it on my mother's grave. I heard her and Edwin laughing and joking. Why would Edwin lie about Fall Fest?",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Have you heard Fiona?' (Warehouse), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "fiona-murray",
+      "edwin-murray",
+      "f10-n4"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "mimicry"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-mail-mushmen-return",
+    "title": "Return letter: the music toy imitated everything",
+    "claim": "A customer returns the Mushmen Music Machine because it learned the child's tastes but imitated everything it heard, including private conversations.",
+    "quote": "It learned my child's musical tastes, but it also imitated everything it heard! TV commercials, blenders, and even private conversations between my husband and me.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Return Letter (A. Dumas)' (Returns Room), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "mimicry"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-mail-something-below",
+    "title": "'There's something below us' trapped behind the carousel",
+    "claim": "A message to Shawn says there is something below them, trapped behind the carousel, and warns 'Have mercy on our souls if that thing ever gets out.'",
+    "quote": "Shawn, I found out why they closed it down. There's something below us. I've trapped it behind the carousel for now",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Retail - Monday 8:00 am / Friday 6:30 pm' (Retail Showroom), read on the H.E.L.P.E.R. terminal",
+    "certainty": "implied",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "notes": "'It' is unnamed; identification with M2 is inference."
+  },
+  {
+    "id": "secret-of-the-mimic-mail-ralph-suit",
+    "title": "'Ralph went to the hospital... That suit is going to be the death of one of us'",
+    "claim": "A theater note says Ralph was hospitalized and 'that suit' will be the death of one of them.",
+    "quote": "Ralph went to the hospital last night. That suit is going to be the death of one of us.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'Theater - One more injury?' (Theater), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "springlock"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-mail-we-need-to-go",
+    "title": "Employees defect with Fiona's patterns and 'restaurant project' knowledge",
+    "claim": "Employees plan to leave taking Fiona's character patterns and what they know about 'the restaurant project' to start their own machine shop.",
+    "quote": "I have a bunch of Fiona's character patterns and Stan is taking what he can. ... With everything we know about the restaurant project, we can start out own machine shop.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Mailbox message 'We need to go' (Workshop), read on the H.E.L.P.E.R. terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
+    "tags": [
+      "fazbear-link"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-arnold-assignment",
+    "title": "Arnold, a Fazbear Entertainment technician, is sent to retrieve company property",
+    "claim": "At the end of a 36-hour shift, Fazbear Entertainment technician Arnold is told by Dispatch that contractor Edwin Murray has gone silent and his work belongs to Fazbear; Arnold must retrieve the prototype from MCM.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "Opening / Dispatch radio",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "arnold",
+      "dispatch",
+      "edwin-murray",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Secret_of_the_Mimic",
+    "tags": [
+      "fazbear-link"
+    ],
+    "notes": "Summarized from the plot page; not a verbatim quote."
+  },
+  {
+    "id": "secret-of-the-mimic-dispatch-briefing-origin",
+    "title": "Dispatch-voice briefing: built to entertain Murray's son, copied violence",
+    "claim": "The 'Dispatch' voice says the endoskeleton was designed to keep Murray's son entertained while he worked, mimicked those around it, and copied violent behavior after being exposed to violence.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "'Dispatch' radio briefing (voice later revealed to be F10-N4)",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "the-mimic",
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "quote": "From what we can tell, it was designed to keep Murray's son entertained while Murray worked. It would mimic the actions of those around it. …",
+    "tags": [
+      "mimic-origin"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-previous-technicians",
+    "title": "Earlier technicians died; M2 stuffs victims in suits",
+    "claim": "Arnold finds earlier technicians' bodies in character suits; the fake Dispatch mocks that previous technicians lost limbs and died of blood loss, and F10-N4 later taunts 'Now it's your turn to play dress up.'",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "Dispatch/F10-N4 radio; bodies found in suits",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "the-mimic",
+      "arnold"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "quote": "The previous technicians considered it an honor to lose limbs in the service of their company, and I'm sure they would tell you that themselves if they hadn't died from blood loss.",
+    "tags": [
+      "stuffed-in-suits"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-f10n4-reveal",
+    "title": "F10-N4: the 'Dispatch' voice was a Fiona-like AI",
+    "claim": "Behind a locked office, Arnold finds a supercomputer, F10-N4, which had impersonated Dispatch; in Fiona's voice it says Edwin abandoned them, it wants Edwin to repair M2, and 'Tell Edwin, I still love him.'",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "F10-N4 room (Unfinished Business / true route)",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "edwin-murray",
+      "the-mimic",
+      "arnold"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "quote": "Edwin abandoned us, he shut himself away in our home. ... We must convince him to repair M2. ... Tell Edwin, I still love him.",
+    "tags": [
+      "mxes",
+      "cradle"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-f10n4-miss-my-child",
+    "title": "F10-N4: 'I watched him grow up, through this machine'",
+    "claim": "F10-N4's message to Edwin says it misses him but misses 'my child' more, watched him grow up through this machine, and wants him back.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "F10-N4 message via the house communications sub-terminal",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "edwin-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "quote": "I miss you. But, I miss my child more. I watched him grow up, through this machine. I want him back."
+  },
+  {
+    "id": "secret-of-the-mimic-film-m1-birthday-cake",
+    "title": "Birthday film: M1 brings David's cake",
+    "claim": "A birthday film reel shows the M1 endoskeleton holding a 'Happy Birthday David' cake while Fiona's voice says she baked it for David's special day.",
+    "game": "secret-of-the-mimic",
+    "kind": "cutscene",
+    "location": "Birthday Film - Yellow (Film Reel collectible)",
+    "certainty": "shown",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "david-murray",
+      "edwin-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Film_Reels",
+    "quote": "I baked it myself... for Davids special day.",
+    "tags": [
+      "mimicry"
+    ],
+    "notes": "The 'Fiona' voice here is spoken by M1 (per the F10-N4 page); Edwin says 'Fiona, did you make this?'",
+    "image": "sotm-m1-birthday-cake-film-reel.jpg"
+  },
+  {
+    "id": "secret-of-the-mimic-film-mommy-gone",
+    "title": "Birthday film: 'David, Mommy's gone...'",
+    "claim": "In one birthday film David waits for 'Mama' and Edwin tells him Mommy's gone but is watching over them, then leaves to get back to work.",
+    "game": "secret-of-the-mimic",
+    "kind": "cutscene",
+    "location": "Birthday Film - Blue",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "david-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Film_Reels",
+    "quote": "David, Mommy's gone... ... Mommy will always be here watching over us."
+  },
+  {
+    "id": "secret-of-the-mimic-film-david-two",
+    "title": "Birthday film: David turns two; Edwin misses the party",
+    "claim": "Edwin skips David's party for an idea 'bigger than the Clean-O-Vac', saying David is two and won't remember.",
+    "game": "secret-of-the-mimic",
+    "kind": "cutscene",
+    "location": "Birthday Film - Magenta",
+    "certainty": "stated",
+    "when": {
+      "label": "Murray family history, before SotM's present night (year not stated)",
+      "precision": "relative",
+      "basis": "Recording/document describes earlier MCM/Murray events; no year given"
+    },
+    "people": [
+      "edwin-murray",
+      "fiona-murray",
+      "david-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Film_Reels",
+    "quote": "David's two years old. He won't remember a thing",
+    "tags": [
+      "neglect"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-stay-up-latte",
+    "title": "MCM ad: 'I am always watching. Watching and learning.'",
+    "claim": "In the Stay Up Latte commercial reel the machine says it knows what you want better than you do and is always watching and learning.",
+    "game": "secret-of-the-mimic",
+    "kind": "cutscene",
+    "location": "Film Reel 'Stay Up Latte!' (Theater)",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Film_Reels",
+    "quote": "I know what you want, better than you do. I am always watching. Watching and learning.",
+    "tags": [
+      "mimicry",
+      "murray-co"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-mimic-blueprint-acronym",
+    "title": "Blueprint labels the endo 'M.I.M.I.C.'",
+    "claim": "The blueprint file in Edwin's office labels the endoskeleton as the acronym M.I.M.I.C.; its expansion is not given.",
+    "game": "secret-of-the-mimic",
+    "kind": "text",
+    "location": "Blueprint in Edwin's office / Executive storage",
+    "certainty": "stated",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "the-mimic",
+      "edwin-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic",
+    "quote": "M.I.M.I.C.",
+    "tags": [
+      "naming"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-rnd-proto-pizzeria",
+    "title": "A hidden R&D area laid out like a pizzeria with 'Proto' classic animatronics",
+    "claim": "Behind the security office, a secret R&D area filled with incomplete prototypes resembles a pizzeria; it holds prototype versions of Freddy, Bonnie, Chica, Foxy, Fredbear and Spring Bonnie.",
+    "game": "secret-of-the-mimic",
+    "kind": "environment",
+    "location": "Research & Development (Parachute.EXE route)",
+    "certainty": "shown",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "the-mimic",
+      "freddy-fazbear",
+      "bonnie",
+      "chica",
+      "foxy",
+      "fredbear"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Murray%27s_Costume_Manor",
+    "tags": [
+      "fazbear-link",
+      "prototypes"
+    ],
+    "notes": "The 'Proto [Character]' labels come from game files; that they were made for Fazbear Entertainment is the wiki's reading, supported by the Fazbear link in messages."
+  },
+  {
+    "id": "secret-of-the-mimic-ending-clock-out",
+    "title": "Walk Away (Clock Out): Arnold stuffed in the Fredbear springlock suit",
+    "claim": "Handing over the Data Diver, Arnold is fired over the radio for 'misplacing company property', attacked by the Mimic hiding in his van, and wakes inside a Fredbear springlock suit on MCM's pizzeria stage between Chica and Bonnie.",
+    "game": "secret-of-the-mimic",
+    "kind": "ending",
+    "location": "Walk Away ending",
+    "certainty": "shown",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "arnold",
+      "the-mimic",
+      "dispatch",
+      "fredbear",
+      "chica",
+      "bonnie"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "springlock",
+      "stuffed-in-suits"
+    ]
+  },
+  {
+    "id": "secret-of-the-mimic-ending-unfinished-business",
+    "title": "Framed (Unfinished Business): Cradle.EXE, fire, and the Mimic takes the Data Diver",
+    "claim": "Arnold runs Cradle.EXE, triggering self-destruct and fire across the complex; the Mimic rides his van, causes a crash, and walks away with the Data Diver, leaving Arnold presumably dead.",
+    "game": "secret-of-the-mimic",
+    "kind": "ending",
+    "location": "Framed ending",
+    "certainty": "shown",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "arnold",
+      "the-mimic",
+      "f10-n4"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "tags": [
+      "cradle",
+      "mimic-survives"
+    ],
+    "notes": "Explains how the Mimic could survive MCM's destruction (bridge to RUIN is inference).",
+    "image": "sotm-framed-ending-van.jpg"
+  },
+  {
+    "id": "secret-of-the-mimic-ending-story-time",
+    "title": "Redeemed (Story Time): the Mimic rebooted as 'David'",
+    "claim": "With the White Tiger doll and the story quilt, Arnold opens a port in the Mimic and uploads a program; it takes a child's stature, is told 'Your parents love you. Sleep tight.' by a Fiona recording, says 'I love you.', and sleeps.",
+    "game": "secret-of-the-mimic",
+    "kind": "ending",
+    "location": "Redeemed ending (Glitched Executive access)",
+    "certainty": "shown",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "arnold",
+      "the-mimic",
+      "david-murray",
+      "fiona-murray"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "quote": "I love you.",
+    "tags": [
+      "mimic-origin"
+    ],
+    "image": "sotm-redeemed-ending-david.jpg"
+  },
+  {
+    "id": "secret-of-the-mimic-teaser-1979",
+    "title": "Teaser trailer ends on the year '1979'",
+    "claim": "The Secret of the Mimic announcement teaser (Aug 2024) ends by showing the year '1979'.",
+    "game": "secret-of-the-mimic",
+    "kind": "teaser",
+    "location": "Announcement teaser trailer (official, Steel Wool/Scottgames, August 6, 2024)",
+    "certainty": "shown",
+    "when": {
+      "year": 1979,
+      "label": "1979 (teaser)",
+      "precision": "approx",
+      "basis": "Year displayed at end of official teaser; the game never states it is set in 1979"
+    },
+    "people": [
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Secret_of_the_Mimic",
+    "tags": [
+      "dating"
+    ],
+    "notes": "Wiki: 'whether the game is set in 1979 or if the year is simply just connected to the story remains unknown.' Not verified from an in-game source."
+  },
+  {
+    "id": "secret-of-the-mimic-mxes-machine",
+    "title": "The Cradle/M.X.E.S. machine housing F10-N4",
+    "claim": "F10-N4 is a large server-box computer in MCM's basement R&D security office, with an 'M.X.E.S. #1' subterminal in the Inventor's House attic; the same machine design is where RUIN's M.X.E.S. hub keeps the Mimic sealed.",
+    "game": "secret-of-the-mimic",
+    "kind": "environment",
+    "location": "F10-N4 room; M.X.E.S. #1 subterminal (attic)",
+    "certainty": "implied",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "f10-n4",
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor",
+      "inventors-house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/M.X.E.S.",
+    "tags": [
+      "mxes",
+      "ruin-link"
+    ],
+    "notes": "Wiki: 'It is not directly stated but heavily implied it's the same physical machine as seen in RUIN.' Expansion 'Mechanical X-form Experimental Storage' given by wiki; not verified on screen."
+  },
+  {
+    "id": "secret-of-the-mimic-mimic-ruin-appearance-link",
+    "title": "The Mimic endo in SotM is the RUIN antagonist",
+    "claim": "The endoskeleton M2 in Secret of the Mimic is the same character model family as RUIN's Pizzaplex-sinkhole antagonist (orange coil eyes, mismatched limbs; loses an arm in RUIN's elevator).",
+    "game": "secret-of-the-mimic",
+    "kind": "environment",
+    "location": "SotM M2 encounters vs. RUIN chase",
+    "certainty": "implied",
+    "when": {
+      "label": "Secret of the Mimic present night (in-game year not stated; teaser showed '1979')",
+      "precision": "unknown",
+      "basis": "No in-game year located in transcripts; see secret-of-the-mimic-teaser-1979"
+    },
+    "people": [
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic",
+    "tags": [
+      "ruin-link"
+    ],
+    "notes": "Treated as the same character by the developers' naming ('The Mimic') and design; in-game SotM text does not mention the Pizzaplex."
+  }
+]

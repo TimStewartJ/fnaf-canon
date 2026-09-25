@@ -1,0 +1,3055 @@
+[
+  {
+    "id": "ffps-intro-fake-8bit-tycoon",
+    "title": "Opening 8-bit 'Pizzeria Simulator' fake-out",
+    "claim": "FFPS opens as an 8-bit tycoon minigame in which the player, as Freddy, throws pizzas to children; a grey-scaled Freddy appears on round 3 and on round 4 the game glitches out and cuts to the Scrap Baby salvage scene.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Game start: 'Pizzeria Simulator' 8-bit minigame",
+    "certainty": "shown",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "people": [
+      "freddy-fazbear",
+      "shadow-freddy",
+      "scrap-baby"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "fake-out",
+      "minigame"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Pizzeria_Simulator_(Minigame)",
+    "notes": "The grey Freddy is identified with Shadow Freddy only by fans/wiki; the game gives it no name."
+  },
+  {
+    "id": "ffps-cassette-intro-paragraph-4",
+    "title": "Intro tape: checking outside every shift, Paragraph 4",
+    "claim": "The Cassette Man's opening tape (played over Scrap Baby's salvage) says the listener has been checking outside after every shift as instructed and has found something meeting the criteria of their 'special obligations under Paragraph 4'.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Opening cutscene – Scrap Baby salvage tape",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "If you are playing this tape, that means that not only have you been checking outside at the end of every shift, as you were instructed to do, but also that you have found something …",
+    "people": [
+      "cassette-man",
+      "scrap-baby"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "paragraph-4",
+      "salvage"
+    ],
+    "image": "ffps-scrap-baby-salvage-intro.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-cassette-intro-seal-room",
+    "title": "Intro tape: seal the room and never return",
+    "claim": "The opening tape instructs the listener to document response times, secure the space, and never return after sealing the room.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Opening cutscene – Scrap Baby salvage tape",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Follow these instructions: document response times, then safely secure the space before leaving. Upon sealing the room, you are not to return.",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "paragraph-4"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-tutorial-franchisee",
+    "title": "Player becomes a Fazbear Entertainment franchisee",
+    "claim": "Tutorial Unit's intro presents the player as a new Fazbear Entertainment franchisee who has invested their life savings in a franchise package (a small room, some tables, electricity).",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Intro slideshow – Tutorial Unit",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "We're talking about becoming a Fazbear Entertainment franchisee. That's right, restaurant ownership and management.",
+    "people": [
+      "tutorial-unit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "franchise"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-tutorial-rebranded-disclaimer",
+    "title": "'Newly re-branded Freddy Fazbear's Pizza' and liability disclaimer",
+    "claim": "The intro calls the business 'the newly re-branded Freddy Fazbear's Pizza' and ends with a disclaimer that Fazbear Entertainment is not responsible for disappearance, death, or dismemberment.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Intro slideshow – Tutorial Unit (closing lines)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You are now the face of the newly re-branded Freddy Fazbear's Pizza. Wear that smile with pride and let's make some money. Fazbear Entertainment is not responsible for disappearance, death, or dismemberment.",
+    "people": [
+      "tutorial-unit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "rebrand",
+      "liability"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-tutorial-something-outside",
+    "title": "Something outside has been trying to get in for months",
+    "claim": "In the Liability section, Tutorial Unit warns that discounted items may have something hiding inside, which would only matter if something outside had been trying to get in for months, 'which we are not confirming to be the case'.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Intro slideshow – Tutorial Unit, 'Liability'",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Of course, that would only be a serious danger if there were something outside that's been trying to get in for months now, which we are not confirming to be the case.",
+    "people": [
+      "tutorial-unit"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "salvage",
+      "trap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit",
+    "notes": "Mechanically, poor-condition catalog items can contain an unsalvaged animatronic that then becomes active (see Maintenance Checklist wiki page)."
+  },
+  {
+    "id": "ffps-tutorial-saturday-party",
+    "title": "Saturday is a big party and the 'ultimate test'",
+    "claim": "After the first shift Tutorial Unit says there is a big party at the pizzeria on Saturday and calls that day the player's ultimate test.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "End of Monday (Day 1) – Tutorial Unit",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "There's a big party here Saturday, and you should view that day as your ultimate test.",
+    "people": [
+      "tutorial-unit"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "saturday",
+      "trap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-tutorial-all-in-one-place",
+    "title": "'You want them all to be in one place'",
+    "claim": "If the player declines a salvage, Tutorial Unit reminds them about Saturday and that they want 'them all' to be in one place.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Tutorial Unit line after declining a salvage",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Don't forget Saturday--you want them all to be in one place!",
+    "people": [
+      "tutorial-unit"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap",
+      "salvage"
+    ],
+    "related": [
+      "ffps-scrap-baby-completion-monologue",
+      "ffps-insanity-tape-call-them-back"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-salvage-first-tape-alley",
+    "title": "Animatronics are often found in the alley outside the back door",
+    "claim": "The Cassette Man's first salvage tape says animatronics are found 'quite often' in the alley outside the back door and that 'we aren't sure why'; keeping one risks death.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "End of Monday – first salvage tape",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "There is another aspect to your end of day routine, and that is inspecting and salvaging any animatronics found in the alley outside the backdoor. …",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "salvage",
+      "back-alley"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-salvage-origins-unknown",
+    "title": "Salvage tape: 'we are unsure of its origins'",
+    "claim": "Each later salvage tape describes the animatronic as found in the back alley with unknown origins, offering the choice to complete the Maintenance Checklist or throw it back.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Standard salvage tape (Tue–Thu)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Before you is an animatronic found in the back alley, we are unsure of its origins. It is your job to complete the Maintenance Checklist before claiming it as salvage.",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "salvage"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-salvage-order",
+    "title": "Four salvageable animatronics, in order",
+    "claim": "The four animatronics offered for salvage are Molten Freddy, Scraptrap, Scrap Baby and Lefty, in that order across the nights; salvaging (or otherwise letting in) all four is required for the Completion ending.",
+    "game": "ffps",
+    "kind": "mechanic",
+    "location": "Salvage phase, Monday–Thursday",
+    "certainty": "shown",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "people": [
+      "molten-freddy",
+      "scraptrap",
+      "scrap-baby",
+      "lefty"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "salvage"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Maintenance_Checklist"
+  },
+  {
+    "id": "ffps-bad-ending-paragraph-four",
+    "title": "Bad ending: fired for not meeting Paragraph Four",
+    "claim": "If any salvage animatronic was thrown away, the Cassette Man tells the player they did not meet their special obligations under Paragraph Four and their employment is terminated.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Bad (failure) ending tape",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Congratulations on completing the week. Unfortunately, you did not meet your special obligations under Paragraph Four. Your employment is terminated. We’ll mail you your things. End tape.",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "ending",
+      "paragraph-4"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-credits-cassette-man",
+    "title": "Credits name the tape speaker only 'Cassette Man'",
+    "claim": "FFPS's cast credits list Dave Steele as 'Cassette Man'. The name 'Henry' is never spoken or printed in FFPS dialogue or credits.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "End credits (cast list)",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Dave Steele - Cassette Man",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "naming",
+      "henry"
+    ],
+    "related": [
+      "ffps-hry223-label"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
+    "notes": "'Henry' comes from the novels and from voice actor PJ Heywood's remark on The FNaF Show, not from game text. See ffps-hry223-label for the only possible in-game hint."
+  },
+  {
+    "id": "ffps-hry223-label",
+    "title": "Insanity-ending tape labelled 'HRY223' (reported)",
+    "claim": "The Insanity-ending audio tape is reported to be labelled 'HRY223'.",
+    "game": "ffps",
+    "kind": "hidden",
+    "location": "Insanity ending audio log (label)",
+    "certainty": "implied",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "HRY223",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "naming",
+      "henry"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "UNVERIFIED LOCATION: the wiki says the tape 'is called HRY223' without saying whether this is on-screen text or an internal file name. Reading 'HRY' as 'Henry' is an inference. Treat this as a weak lead only."
+  },
+  {
+    "id": "ffps-credits-william-afton",
+    "title": "Credits: Scraptrap's voice is credited as 'William Afton'",
+    "claim": "FFPS's cast credits list PJ Heywood as 'William Afton'. PJ Heywood voices the salvaged Springtrap-like animatronic (Scraptrap) in FFPS, so the game's own credits name that character William Afton.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "End credits (cast list)",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "PJ Heywood - William Afton",
+    "people": [
+      "william-afton",
+      "scraptrap"
+    ],
+    "tags": [
+      "naming",
+      "afton"
+    ],
+    "related": [
+      "ffps-scraptrap-always-come-back",
+      "scott-ucn-character-guide-afton"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
+    "notes": "Cast list per wiki transcript: Heather Masters - Scrap Baby; PJ Heywood - William Afton; Kellen Goff - Molten Freddy; Andy Field - Tutorial Unit; Dave Steele - Cassette Man. The name 'Scraptrap' is not used in FFPS."
+  },
+  {
+    "id": "ffps-molten-freddy-lines",
+    "title": "Molten Freddy: 'Together again!'",
+    "claim": "Molten Freddy's FFPS voice lines speak of joining 'the party' and being together again as 'one big happy family'.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Molten Freddy voice lines (salvage / gameplay)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Thanks for letting me join the pa-a-arty, I-I'll try no-ot to disappoint... / Together aga-ain! / One bi-i-ig happy family!",
+    "people": [
+      "molten-freddy"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "salvage",
+      "remnant"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Molten_Freddy/Audio"
+  },
+  {
+    "id": "ffps-scraptrap-always-come-back",
+    "title": "Scraptrap: 'I always come back.'",
+    "claim": "The Springtrap-like salvage animatronic says 'I always come back.'",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scraptrap voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "I always come back.",
+    "people": [
+      "scraptrap",
+      "springtrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "afton",
+      "return"
+    ],
+    "related": [
+      "ffps-credits-william-afton",
+      "ucn-afton-always-come-back"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
+    "notes": "Voiced by PJ Heywood, credited as 'William Afton'. The identification with FNaF3's Springtrap rests on design and this line; FFPS does not say 'Springtrap'."
+  },
+  {
+    "id": "ffps-scraptrap-deceptive-calling",
+    "title": "Scraptrap knew the 'calling' was a lie",
+    "claim": "Scraptrap says he knew the 'calling' was a lie the moment he heard it but found it intriguing.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scraptrap voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "What a deceptive calling. I knew it was a lie the moment I heard it, obviously, but it is intriguing nonetheless.",
+    "people": [
+      "scraptrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap",
+      "lure"
+    ],
+    "related": [
+      "ffps-completion-labyrinth"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio"
+  },
+  {
+    "id": "ffps-scraptrap-still-me",
+    "title": "Scraptrap: 'it's still me'",
+    "claim": "Scraptrap tells the player they may not recognize him at first but it is still him.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scraptrap voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You may not recognize me at first, but I assure you, it's still me.",
+    "people": [
+      "scraptrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "afton",
+      "identity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
+    "notes": "Implies the player (or listener) knew him before. Who the player is is not stated in FFPS."
+  },
+  {
+    "id": "ffps-scraptrap-fascinating",
+    "title": "Scraptrap: 'Fascinating, what they have become' and 'a promise'",
+    "claim": "Other Scraptrap lines comment on what 'they' have become, on being unable to resist 'a promise such as this', and on the situation being 'bittersweet, but fitting'.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scraptrap voice lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Fascinating, what they have become. / How can I resist, a promise, such as this. / Bittersweet, but fitting.",
+    "people": [
+      "scraptrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap",
+      "lure"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio"
+  },
+  {
+    "id": "ffps-scrap-baby-employer",
+    "title": "Scrap Baby: 'You don't really know who your employer is'",
+    "claim": "Scrap Baby asks the player whether they really know who their employer is.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scrap Baby voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You don't really know who your employer is...do you?",
+    "people": [
+      "scrap-baby",
+      "circus-baby"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "employer",
+      "cassette-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "ffps-scrap-baby-heard-call",
+    "title": "Scrap Baby: 'I heard your call' / 'my birthday'",
+    "claim": "Scrap Baby says she heard the player's call, that the place feels like home, and that it feels like her birthday, asking whether the player has a gift for her.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scrap Baby voice lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "I heard your call. / It feels like home... / It feels like... my birthday. Did you have a gift for me?",
+    "people": [
+      "scrap-baby"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "lure",
+      "gift"
+    ],
+    "related": [
+      "ffps-completion-connection-terminated-elizabeth"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "ffps-scrap-baby-not-expected",
+    "title": "Scrap Baby: 'You're not who I expected to see'",
+    "claim": "Scrap Baby tells the player they are not who she expected to see.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Scrap Baby voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You're not who I expected to see...",
+    "people": [
+      "scrap-baby"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "identity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "ffps-scrap-baby-completion-monologue",
+    "title": "Scrap Baby's Saturday monologue: 'a gift, for us'",
+    "claim": "At the Completion ending Scrap Baby says the job was a gift for 'us': the player gathered 'all of those little souls' in one place 'just like he asked you to', so they can 'be complete'; she calls out to 'daddy'.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Scrap Baby monologue (before it is interrupted)",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "You gathered them all together in one place, just like he asked you to. All of those little souls, in one place, just for us... a gift. …",
+    "people": [
+      "scrap-baby",
+      "elizabeth-afton"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "remnant",
+      "souls",
+      "trap"
+    ],
+    "related": [
+      "ffps-completion-connection-terminated-elizabeth",
+      "ffps-tutorial-all-in-one-place"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "'He' and 'daddy' are not named here. Henry immediately says she was 'misinformed' and was not called by 'the individual you assume'."
+  },
+  {
+    "id": "ffps-lefty-shh",
+    "title": "Lefty only shushes in FFPS",
+    "claim": "Lefty's only FFPS voice line is a shush.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Lefty voice line (salvage / jumpscare)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Shhhh...",
+    "people": [
+      "lefty"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lefty/Audio"
+  },
+  {
+    "id": "ffps-lefty-alley-puppet-arm",
+    "title": "Lefty rare screen: black-and-white striped limb inside",
+    "claim": "A rare back-alley screen of Lefty slumped by trash cans shows black-and-white striped segments at his shoulder, matching the Puppet's striped arms.",
+    "game": "ffps",
+    "kind": "hidden",
+    "location": "Rare back-alley screen (Lefty)",
+    "certainty": "shown",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "people": [
+      "lefty",
+      "puppet"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "puppet",
+      "rare-screen"
+    ],
+    "image": "ffps-lefty-alley-rare-screen.jpg",
+    "related": [
+      "ffps-lefte-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lefty/Trivia",
+    "notes": "The stripes are small; whether they are the Puppet's arm is a visual reading. The wiki calls it possibly a texture error."
+  },
+  {
+    "id": "ffps-lefte-blueprint",
+    "title": "Lefty blueprint: L.ure E.ncapsulate F.use T.ransport & E.xtract",
+    "claim": "An Insanity-ending blueprint of Lefty spells out 'L.ure E.ncapsulate F.use T.ransport & E.xtract', lists a False Sensory Output that emits a bracelet code for a 'security receiver', and a 'Dream Wand'/Soother that uses 'lullaby index 01'. It is marked Fazbear Entertainment, Inc.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Insanity ending – terminal blueprint (LEFTE)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "L.ure E.ncapsulate F.use T.ransport & E.xtract ... B: False Sensory Output. NOTES: Bracelet code 93401233. Emit for security receiver frequency FZ554. C: \"Dream Wand\"/ Soother. NOTES: Use lullaby index 01. …",
+    "people": [
+      "lefty",
+      "puppet",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "puppet",
+      "trap",
+      "blueprint",
+      "security-bracelet"
+    ],
+    "image": "ffps-insanity-lefte-blueprint.png",
+    "related": [
+      "ffps-security-puppet-assignment",
+      "ffps-lefty-alley-puppet-arm"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:LEFTE_Print.png",
+    "notes": "Transcribed from the blueprint image. The Puppet is not named; the bracelet/security-receiver and lullaby details echo the Security Puppet and the Puppet's music box."
+  },
+  {
+    "id": "ffps-rasc-blueprint",
+    "title": "RASC blueprint: simulated presence at body temperature",
+    "claim": "An Insanity-ending blueprint 'R.emote A.ctivated S.imulated C.' has navigational sensors, a heat uplink/sensor override with 'Variable Alpha to remain at 98.6', and an individual emitter that must stay connected to a central server 'or risk inaccurate represented population'. Marked Fazbear Entertainment, Inc.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Insanity ending – terminal blueprint (RASC)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "B: Heat Uplink/ Sensor Override. NOTES: Must remain connected to central server at all times or risk duplicate signature. Variable Alpha to remain at 98.6. C: Individual Emitter. …",
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "blueprint",
+      "trap",
+      "lure"
+    ],
+    "image": "ffps-insanity-rasc-blueprint.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:RASC_Print.png",
+    "notes": "98.6 is normal human body temperature in °F. The 'C.' is not expanded. That RASC simulates children to lure the animatronics is an inference, supported by Henry's line about 'chasing the cries of children in some unseen chamber'."
+  },
+  {
+    "id": "ffps-scup-blueprint",
+    "title": "SCUP blueprint (Afton Robotics): Remnant injector and reservoir",
+    "claim": "An Insanity-ending blueprint 'S.calable C.reation of U.lterior P.resence', marked Afton Robotics, LLC, shows an excavating arm, a 'Remnant Injector' and a 'Remnant Reservoir'. It notes the substance must be kept heated and that 'overheating might neutralize the effects permanently'.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Insanity ending – terminal blueprint (SCUP / Scooper)",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "B: Remnant Injector. NOTES: Leave trace line amount on interior. Over-usage/ Over-exposure negates effect. ... D: Remnant Reservoir. NOTES: When heated, no observable motion. Keep in heated tank at sustained temperature. ... …",
+    "people": [
+      "afton-robotics"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "remnant",
+      "scooper",
+      "blueprint",
+      "fire"
+    ],
+    "image": "ffps-insanity-scup-blueprint.png",
+    "related": [
+      "ffps-completion-fire"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:SCUP_Print.png",
+    "notes": "First in-game use of the word 'Remnant' in the core series. The Scooper is also Sister Location's scooping machine (Circus Baby's UCN line mentions 'the Scooping Room')."
+  },
+  {
+    "id": "ffps-insanity-egg-baby-trigger",
+    "title": "Egg Baby unlocks the Insanity ending",
+    "claim": "Buying Egg Baby (Rare Finds Auction) and then toggling the office monitor off and on shows the blueprints and plays a Cassette Man audio log.",
+    "game": "ffps",
+    "kind": "mechanic",
+    "location": "Office – Egg Baby + monitor button",
+    "certainty": "shown",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "egg-baby",
+      "insanity-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FFPS)"
+  },
+  {
+    "id": "ffps-insanity-monster-helped-create",
+    "title": "Insanity tape: a monster the speaker 'unwillingly helped to create'",
+    "claim": "The Cassette Man calls someone a creature and monster that he unwillingly helped to create, who has found a new way to desecrate and destroy.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "It's only now that I understand the depth of the depravity of this...creature - this monster that I unwillingly helped to create.",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "cassette-man",
+      "creator"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "The 'monster' is not named."
+  },
+  {
+    "id": "ffps-insanity-small-souls-prisons",
+    "title": "Insanity tape: 'small souls trapped in prisons of my making'",
+    "claim": "The Cassette Man says small souls are trapped in 'prisons of my making', which implies he built the animatronics the souls inhabit.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Small souls trapped in prisons of my making now set to new purpose and used in ways I never thought imaginable.",
+    "people": [
+      "cassette-man",
+      "missing-children"
+    ],
+    "tags": [
+      "souls",
+      "creator"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "'Prisons of my making' is the speaker's own words. Which machines he built is not specified."
+  },
+  {
+    "id": "ffps-insanity-lured-back",
+    "title": "Insanity tape: 'He lured them all back'",
+    "claim": "The Cassette Man says 'he' lured them all back to a familiar place with familiar tricks and brought them all together.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "He lured them all back. Back to a familiar place. Back with familiar tricks. He brought them all together. Are they still...aware? I hope not.",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "lure",
+      "souls"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-insanity-could-make-myself-sleep",
+    "title": "Insanity tape: 'I could make myself...sleep. But not yet.'",
+    "claim": "The Cassette Man says the situation keeps him awake at night and that he 'could make myself...sleep', but not until he undoes what 'he' has done.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "It keeps me awake at night. I could make myself...sleep. But not yet. …",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "cassette-man",
+      "guilt"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "'Make myself sleep' is commonly read as a reference to suicide; that reading is implied, not stated. 'A wound first inflicted on me' suggests the speaker was the first harmed."
+  },
+  {
+    "id": "ffps-insanity-trap-again",
+    "title": "Insanity tape: 'He set some kind of trap... Again.'",
+    "claim": "The Cassette Man says 'he' set some kind of trap, led them there again, overpowered them again, and robbed them of the only thing they had, again.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "He set some kind of trap. I don't know what it was, but he led them there again. He overpowered them again. And he robbed them of the only thing that they had. Again.",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "trap",
+      "remnant",
+      "souls"
+    ],
+    "related": [
+      "ffps-scup-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "Commonly tied to Sister Location / Ennard / the Scooper, but the tape names no place or machine."
+  },
+  {
+    "id": "ffps-insanity-tiny-breaths",
+    "title": "Insanity tape: the speaker doesn't know how the souls got into the machines",
+    "claim": "The Cassette Man says he does not know how 'those tiny breaths of life' came to inhabit the machines, and that they will never find rest like this.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "I don't know how those tiny breaths of life came to inhabit those machines. But they will never find rest now. Not like this.",
+    "people": [
+      "cassette-man",
+      "missing-children"
+    ],
+    "tags": [
+      "souls",
+      "possession"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-insanity-tape-call-them-back",
+    "title": "Insanity tape: 'I have to call them all back... Together in one place'",
+    "claim": "The Cassette Man says he has to call them all back, together in one place. The tape cuts off with a beep.",
+    "game": "ffps",
+    "kind": "audio-tape",
+    "location": "Insanity ending – Cassette Man audio log",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "I have to call them all back. All of them. Together in one place",
+    "people": [
+      "cassette-man"
+    ],
+    "tags": [
+      "trap",
+      "plan"
+    ],
+    "related": [
+      "ffps-tutorial-all-in-one-place",
+      "ffps-completion-labyrinth"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-insanity-certificate",
+    "title": "Insanity ending: fired so that 'no one believes you'",
+    "claim": "Tutorial Unit fires the player for going somewhere they weren't supposed to and preventing 'a tidy resolution to a messy problem'. The Certificate of Insanity is given 'to ensure that no one believes you', and a truck is waiting outside.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Insanity ending – Tutorial Unit / Certificate of Insanity",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You went somewhere you weren’t supposed to go, saw something you weren’t supposed to see, and prevented a tidy resolution to a messy problem. Needless to say, you’re fired. …",
+    "people": [
+      "tutorial-unit",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "ending",
+      "cover-up"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-completion-connection-terminated-elizabeth",
+    "title": "Completion: 'I'm sorry to interrupt you, Elizabeth'",
+    "claim": "The Cassette Man cuts into Scrap Baby's monologue, addresses her as Elizabeth ('if you still even remember that name'), and tells her she has been misinformed: she is not there for a gift and was not called by the individual she assumes.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Connection terminated. I'm sorry to interrupt you, Elizabeth, if you still even remember that name, but I'm afraid you've been misinformed. …",
+    "people": [
+      "cassette-man",
+      "scrap-baby",
+      "elizabeth-afton"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "elizabeth",
+      "trap"
+    ],
+    "related": [
+      "ffps-scrap-baby-completion-monologue"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "This is where the game names Scrap Baby's occupant 'Elizabeth'. No surname is given in FFPS."
+  },
+  {
+    "id": "ffps-completion-labyrinth",
+    "title": "Completion: the pizzeria is 'a labyrinth with no exit'",
+    "claim": "The Cassette Man says they have all been called into a labyrinth of sounds and smells, misdirection and misfortune, with no exit and no prize, and that they do not realize they are trapped.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "You have all been called here into a labyrinth of sounds and smells, misdirection and misfortune. A labyrinth with no exit, a maze with no prize. You don't even realize that you are trapped.",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-chasing-cries",
+    "title": "Completion: chasing 'the cries of children in some unseen chamber'",
+    "claim": "The Cassette Man says their lust for blood has driven them in circles chasing the cries of children in an unseen chamber that they will never find.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Your lust for blood has driven you in endless circles, chasing the cries of children in some unseen chamber always seeming so near, yet somehow out of reach. But you will never find them. …",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap",
+      "lure"
+    ],
+    "related": [
+      "ffps-rasc-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-brave-volunteer",
+    "title": "Completion: the 'brave volunteer' and the job listing 'not intended for you'",
+    "claim": "The Cassette Man addresses the player as a 'brave volunteer' who somehow found a job listing not intended for them. He says a way out was planned for them but that they are right where they want to be.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "And to you, my brave volunteer, who somehow found this job listing not intended for you: although there was a way out planned for you, I have a feeling that's not what you want. …",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "protagonist"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "The player is never named in FFPS, and the protagonist has no spoken lines in any ending. Identification with Sister Location's Michael is a theory-layer inference."
+  },
+  {
+    "id": "ffps-completion-remaining-nearby",
+    "title": "Completion: 'I am remaining as well. I am nearby.'",
+    "claim": "The Cassette Man says he is staying too and is nearby, and that the place will not be remembered.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "I am remaining as well. I am nearby. This place will not be remembered, and the memory of everything that started this can finally begin to fade away, as the agony of every tragedy should.",
+    "people": [
+      "cassette-man"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "fire",
+      "cassette-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-give-up-spirits",
+    "title": "Completion: 'monsters trapped in the corridors, give up your spirits'",
+    "claim": "The Cassette Man tells the monsters in the corridors to give up their spirits, which do not belong to them, and says most of them will find peace after the smoke clears.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "And to you monsters trapped in the corridors, be still and give up your spirits. They don't belong to you. …",
+    "people": [
+      "cassette-man",
+      "missing-children"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "souls",
+      "fire"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-old-friend-hell",
+    "title": "Completion: 'don't keep the Devil waiting, old friend'",
+    "claim": "The Cassette Man says that for one of them the darkest pit of Hell has opened, and calls that one 'old friend'.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Although, for one of you, the darkest pit of Hell has opened to swallow you whole, so don't keep the Devil waiting, old friend.",
+    "people": [
+      "cassette-man",
+      "scraptrap"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "afton",
+      "hell"
+    ],
+    "related": [
+      "ffps-credits-william-afton",
+      "ucn-omc-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "The 'old friend' is not named. Reading it as Scraptrap / William Afton is implied: he is the one damned animatronic among those gathered."
+  },
+  {
+    "id": "ffps-completion-my-daughter",
+    "title": "Completion: 'My daughter... It's in your nature to protect the innocent'",
+    "claim": "The Cassette Man addresses his daughter. He knew she would return too and says it is in her nature to protect the innocent.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "My daughter, if you can hear me, I knew you would return as well. It's in your nature to protect the innocent.",
+    "people": [
+      "cassette-man",
+      "henrys-daughter",
+      "puppet"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "daughter",
+      "puppet"
+    ],
+    "related": [
+      "ffps-lefte-blueprint",
+      "ffps-security-puppet-dead-child"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "notes": "The daughter is unnamed. That she is the Puppet (held inside Lefty) is implied by the LEFTE blueprint and the Security Puppet minigame, not stated."
+  },
+  {
+    "id": "ffps-completion-shut-out",
+    "title": "Completion: 'the day you were shut out and left to die'",
+    "claim": "The Cassette Man says that on 'that day' his daughter was shut out and left to die, with no one to lift her up the way she lifted others.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "I'm sorry on that day, the day you were shut out and left to die, no one was there to lift you up into their arms the way you lifted others into yours. …",
+    "people": [
+      "cassette-man",
+      "henrys-daughter"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "daughter",
+      "death"
+    ],
+    "related": [
+      "ffps-security-puppet-dead-child"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-rest",
+    "title": "Completion: 'This ends for all of us.'",
+    "claim": "The Cassette Man tells his daughter to rest, along with 'those you have carried in your arms', and says this ends for all of them.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "I couldn't save you then, so let me save you now. It's time to rest, for you, and for those you have carried in your arms. This ends for all of us. End communication.",
+    "people": [
+      "cassette-man",
+      "henrys-daughter",
+      "missing-children"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "daughter",
+      "souls"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+  },
+  {
+    "id": "ffps-completion-fire",
+    "title": "Completion: the pizzeria burns during the speech",
+    "claim": "During the Completion speech a fire breaks out and the salvaged animatronics are shown burning as the building goes up in flames.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "people": [
+      "scrap-baby",
+      "scraptrap",
+      "molten-freddy",
+      "lefty"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "fire",
+      "ending"
+    ],
+    "related": [
+      "ffps-completion-remaining-nearby",
+      "ffps-scup-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "The wiki notes that Lefty is the only salvaged animatronic not shown burning. The game does not say who started the fire; Henry's 'after the smoke clears' implies he planned it."
+  },
+  {
+    "id": "ffps-completion-security-puppet-terminal",
+    "title": "Completion: terminal shows an altered Security Puppet scene",
+    "claim": "During the Completion speech the terminal shows a Security Puppet minigame scene: the Puppet's gift box without the box stacked on it, two children with blue bracelets, and a frowning child outside a window by the exit.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – terminal image",
+    "certainty": "shown",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "people": [
+      "puppet",
+      "security-puppet-child"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "puppet",
+      "daughter"
+    ],
+    "image": "ffps-completion-security-puppet-terminal.png",
+    "related": [
+      "ffps-security-puppet-trapped",
+      "ffps-completion-shut-out"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FFPS)"
+  },
+  {
+    "id": "ffps-completion-tutorial-atonement",
+    "title": "Completion: Fazbear Entertainment 'atoning for past mistakes' and 'no longer a corporate entity'",
+    "claim": "After the Completion ending, Tutorial Unit apologizes that the player's situation wasn't presented honestly and says the company values 'atoning for past mistakes and tying up loose ends'. It adds that Fazbear Entertainment is no longer a corporate entity.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Completion ending – Tutorial Unit / Certificate of Completion",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "We apologize if your situation wasn’t presented to you in a completely honest fashion when you first started, but it was important that your intentions and actions be genuine. ... …",
+    "people": [
+      "tutorial-unit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "ending",
+      "fazbear-entertainment"
+    ],
+    "image": "ffps-certificate-of-completion.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-completion-achievement",
+    "title": "Completion achievement: 'Trapped them all.'",
+    "claim": "The Completion achievement's description is 'Trapped them all.'",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Achievements – Completion",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Trapped them all.",
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "trap",
+      "ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FFPS)"
+  },
+  {
+    "id": "ffps-lorekeeper-gravestones",
+    "title": "Lorekeeper screen: gravestones named Gabriel, Fritz, Susie, Jeremy",
+    "claim": "If the three lore minigames were completed before the Completion ending, a post-credits image shows five gravestones in a sunny grassy field. Four are legible: 'Gabriel', 'Fritz', 'Susie', 'Jeremy'. The fifth is hidden by grass, and the wiki notes one more gravestone in the distance on the hill.",
+    "game": "ffps",
+    "kind": "hidden",
+    "location": "Post-credits Lorekeeper image (after Completion ending)",
+    "certainty": "shown",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Gabriel / Fritz / Susie / Jeremy",
+    "people": [
+      "victim-gabriel",
+      "victim-fritz",
+      "victim-susie",
+      "victim-jeremy",
+      "missing-children"
+    ],
+    "tags": [
+      "missing-children",
+      "names",
+      "gravestones"
+    ],
+    "image": "ffps-lorekeeper-gravestones.jpg",
+    "related": [
+      "ffps-lorekeeper-certificate"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "These names ARE in-game (engraved on the stones), so they can be cited. The game does not say whose graves they are, which animatronic each child haunted, or what the fifth stone says. Do not fill in the fifth name ('Cassidy' comes from books). The small source image makes the distant hill stone hard to confirm; that detail relies on the wiki description."
+  },
+  {
+    "id": "ffps-lorekeeper-certificate",
+    "title": "'You Are The Lorekeeper' certificate",
+    "claim": "Completing the secret parts of Fruity Maze, Midnight Motorist and Security Puppet awards the 'You Are The Lorekeeper' certificate. The achievement reads 'Found the secrets in the minigames.'",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Certificates / Achievements – Lorekeeper",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "Found the secrets in the minigames.",
+    "tags": [
+      "lorekeeper",
+      "minigame"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FFPS)"
+  },
+  {
+    "id": "ffps-mediocrity-ending",
+    "title": "Certificate of Mediocrity ending",
+    "claim": "Finishing Saturday with a Faz-Rating of 0 makes Tutorial Unit award a Certificate of Mediocrity and tell the player to look for work elsewhere.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Mediocrity ending – Tutorial Unit",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "While such a minimalist work ethic is rare, it doesn’t mean that we want you back. In fact, it means you should look for employment elsewhere.",
+    "people": [
+      "tutorial-unit"
+    ],
+    "tags": [
+      "ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-bankruptcy-ending",
+    "title": "Certificate of Bankruptcy ending",
+    "claim": "Running out of money (for example through lawsuits) ends the game with Tutorial Unit's Certificate of Bankruptcy.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Bankruptcy ending – Tutorial Unit",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "You ran out of cash. While we encourage entrepreneurs to follow their dreams, we also recognize a lost cause when we see one.",
+    "people": [
+      "tutorial-unit"
+    ],
+    "tags": [
+      "ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-blacklisted-ending",
+    "title": "Blacklisted ending: security footage wiped",
+    "claim": "A reckless week ends with the player blacklisted. Tutorial Unit says their final paycheck will be docked for 'wiping the security footage clean and erasing all trace of your employment from our files'.",
+    "game": "ffps",
+    "kind": "ending",
+    "location": "Blacklisted ending – Tutorial Unit",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "quote": "We’ll mail you your final paycheck, minus the costs of wiping the security footage clean and erasing all trace of your employment from our files.",
+    "people": [
+      "tutorial-unit",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "ending",
+      "cover-up"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "ffps-fruity-maze-decay",
+    "title": "Fruity Maze decays into dead dogs, coffins and Spring Bonnie figures",
+    "claim": "In Fruity Maze the player is a little girl collecting fruit. On repeat plays the oranges become dead dogs and the girl on the end screen frowns and cries. On the third play, coffins and flowers replace fruit, Spring Bonnie figures appear, the girl leaves blood puddles, and time always runs out.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Fruity Maze arcade (secret progression)",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated past event depicted in an FFPS minigame",
+      "precision": "unknown",
+      "basis": "Minigame depicts an earlier event; no date is given in-game"
+    },
+    "people": [
+      "fruity-maze-girl",
+      "spring-bonnie"
+    ],
+    "tags": [
+      "minigame",
+      "lure",
+      "dog"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fruity_Maze"
+  },
+  {
+    "id": "ffps-fruity-maze-follow-me",
+    "title": "Fruity Maze end: 'He's not really dead... Follow me.'",
+    "claim": "On the final Fruity Maze screen a figure in a yellow Spring Bonnie suit stands behind the crying girl. The text says 'He's not really dead.' / 'He is over here.' / 'Follow me.'",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Fruity Maze – final end screen",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated past event depicted in an FFPS minigame",
+      "precision": "unknown",
+      "basis": "Minigame depicts an earlier event; no date is given in-game"
+    },
+    "quote": "He's not really dead. / He is over here. / Follow me.",
+    "people": [
+      "fruity-maze-girl",
+      "spring-bonnie"
+    ],
+    "tags": [
+      "lure",
+      "missing-children",
+      "spring-bonnie"
+    ],
+    "image": "ffps-fruity-maze-final-screen.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fruity_Maze",
+    "notes": "The lines are in blue and yellow text. The wiki gives the first and last to the blue speaker and 'He is over here.' to yellow, so which speaker says which line is uncertain. The girl is unnamed in-game ('Susie' here comes from the Freddy Files/books, though a 'Susie' gravestone exists, see ffps-lorekeeper-gravestones). The man inside the suit is not shown or named."
+  },
+  {
+    "id": "ffps-midnight-motorist-secret-drive",
+    "title": "Midnight Motorist secret: a rainy night drive in a purple car",
+    "claim": "Driving through a gap in the bottom wall on lap 4 of Midnight Motorist opens a secret area: a rainy, forested night road driven in a dark purple car.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist arcade – secret area",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "people": [
+      "midnight-motorist-driver"
+    ],
+    "tags": [
+      "minigame",
+      "rain",
+      "purple-car"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "The regular race car is white and magenta. The secret-area car sprite is dark purple (checked from sprite colors)."
+  },
+  {
+    "id": "ffps-midnight-motorist-jrs",
+    "title": "JR's: 'you know you can't be here'",
+    "claim": "At a building with a 'JR's' neon sign, a green figure blocks the yellow driver from entering.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist secret area – JR's",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "quote": "Come on, you know you can't be here. Don't make this more difficult than it has to be.",
+    "people": [
+      "midnight-motorist-driver",
+      "jrs-green-man"
+    ],
+    "places": [
+      "jrs"
+    ],
+    "tags": [
+      "minigame"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "What JR's is (bar, restaurant) is not stated."
+  },
+  {
+    "id": "ffps-midnight-motorist-mound",
+    "title": "A mound in a hidden clearing",
+    "claim": "A side path off the road leads to a cleared patch of forest with a mound of earth in the upper-left corner.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist secret area – forest clearing",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "people": [
+      "midnight-motorist-driver"
+    ],
+    "tags": [
+      "minigame",
+      "grave?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "Reading the mound as a grave is an interpretation."
+  },
+  {
+    "id": "ffps-midnight-motorist-grey-person",
+    "title": "Grey person: 'Leave him alone tonight. He had a rough day.'",
+    "claim": "At the house, a person in grey sitting in front of the TV tells the driver to leave 'him' alone tonight because he had a rough day.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist secret area – house living room",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "quote": "Leave him alone tonight. He had a rough day.",
+    "people": [
+      "midnight-motorist-grey-person",
+      "midnight-motorist-driver",
+      "midnight-motorist-runaway-boy"
+    ],
+    "places": [
+      "midnight-motorist-house"
+    ],
+    "tags": [
+      "minigame",
+      "family"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "The grey person's text is grey (the wiki notes FNaF4's older brother also speaks in grey text). Their relationship to the driver is not stated."
+  },
+  {
+    "id": "ffps-midnight-motorist-closed-door",
+    "title": "Driver: 'I told you not to close your door.'",
+    "claim": "The yellow driver finds a boy's door shut. He says 'I told you not to close your door' and 'This is my house. He can't ignore me like that', then shouts 'OPEN THE DOOR!'",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist secret area – house hallway",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "quote": "I told you not to close your door. / This is my house. He can't ignore me like that. / OPEN THE DOOR!",
+    "people": [
+      "midnight-motorist-driver",
+      "midnight-motorist-runaway-boy"
+    ],
+    "places": [
+      "midnight-motorist-house"
+    ],
+    "tags": [
+      "minigame",
+      "family",
+      "abuse?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "The driver is a mostly featureless yellow stick figure. The game never names him or the boy, and never states they are father and son."
+  },
+  {
+    "id": "ffps-midnight-motorist-ran-off",
+    "title": "Broken window: 'Ran off to that place again.'",
+    "claim": "Behind the house the driver finds a shattered window and footprints leading away, including a larger non-human (three-toed) print. He says the boy ran off to 'that place' again and will be sorry when he gets back.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Midnight Motorist secret area – behind the house",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "quote": "Ran off to that place again. He will be sorry when he gets back.",
+    "people": [
+      "midnight-motorist-driver",
+      "midnight-motorist-runaway-boy"
+    ],
+    "places": [
+      "midnight-motorist-house"
+    ],
+    "tags": [
+      "minigame",
+      "runaway",
+      "footprints"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FFPS)",
+    "notes": "'That place' is not named. The wiki describes the larger prints as rabbit-like or three-toed."
+  },
+  {
+    "id": "ffps-midnight-motorist-later-that-night",
+    "title": "Internal label 'Later that night' on the secret area",
+    "claim": "The game's internal data reportedly labels Midnight Motorist's secret section 'later that night'.",
+    "game": "ffps",
+    "kind": "hidden",
+    "location": "Game files – Midnight Motorist frame name",
+    "certainty": "implied",
+    "when": {
+      "label": "Undated night depicted in Midnight Motorist's secret area",
+      "precision": "unknown",
+      "basis": "Minigame gives no date"
+    },
+    "quote": "later that night",
+    "tags": [
+      "minigame",
+      "data-only"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Midnight_Motorist",
+    "notes": "Data-only (a frame name in the game project, not shown to players). The wiki reports it; not independently checked. Its relation to other minigames is theory."
+  },
+  {
+    "id": "ffps-security-puppet-assignment",
+    "title": "Security Puppet: guard the assigned child",
+    "claim": "In the Security Puppet minigame the player, as the Puppet, must keep an assigned child from reaching the exit; children wear coloured bracelets. Touching any other child ends the game with 'This was not your assigned child.'",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Security Puppet minigame (plays 1–3)",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated past event depicted in an FFPS minigame",
+      "precision": "unknown",
+      "basis": "Minigame depicts an earlier event; no date is given in-game"
+    },
+    "quote": "This was not your assigned child.",
+    "people": [
+      "puppet",
+      "security-puppet-child"
+    ],
+    "tags": [
+      "puppet",
+      "security-bracelet"
+    ],
+    "related": [
+      "ffps-lefte-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Security_Puppet%27s_Minigame",
+    "notes": "The wiki says the assigned child's bracelet is green, matching the Puppet's pupils."
+  },
+  {
+    "id": "ffps-security-puppet-trapped",
+    "title": "Security Puppet: box stacked on the Puppet, child outside in the rain",
+    "claim": "On the fourth play a box sits on top of the Puppet's gift box, trapping it, while the assigned child is outside the building in the rain.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Security Puppet minigame (4th play)",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated past event depicted in an FFPS minigame",
+      "precision": "unknown",
+      "basis": "Minigame depicts an earlier event; no date is given in-game"
+    },
+    "people": [
+      "puppet",
+      "security-puppet-child"
+    ],
+    "tags": [
+      "puppet",
+      "rain",
+      "shut-out"
+    ],
+    "related": [
+      "ffps-completion-shut-out"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Security_Puppet%27s_Minigame",
+    "notes": "The wiki says other children locked the child out; that is inferred from the scene and the Completion-ending image."
+  },
+  {
+    "id": "ffps-security-puppet-dead-child",
+    "title": "Security Puppet: the Puppet finds the dead child and shuts down beside it",
+    "claim": "Once free, the Puppet goes out into the rain, which damages it. It finds the assigned child's body and collapses beside it, deactivating.",
+    "game": "ffps",
+    "kind": "minigame",
+    "location": "Security Puppet minigame (4th play, outside)",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated past event depicted in an FFPS minigame",
+      "precision": "unknown",
+      "basis": "Minigame depicts an earlier event; no date is given in-game"
+    },
+    "people": [
+      "puppet",
+      "security-puppet-child"
+    ],
+    "tags": [
+      "puppet",
+      "death",
+      "rain"
+    ],
+    "related": [
+      "ffps-completion-my-daughter",
+      "ffps-completion-shut-out"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Security_Puppet%27s_Minigame",
+    "notes": "The killer is not shown in this minigame. That the child is the Cassette Man's daughter is implied by his line about 'the day you were shut out and left to die'."
+  },
+  {
+    "id": "ffps-candy-cadet-five-keys",
+    "title": "Candy Cadet story: the Five Keys",
+    "claim": "Candy Cadet tells of a woman who melted five keys into one to save five children. The single key opened none of the doors: 'the key to five deaths'.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Candy Cadet (Faz-Token) – story 'The Five Keys'",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "Desperate to find a way to save all five children, the woman melted the five keys together in the furnace to create a single key, hoping it would unlock all five doors. …",
+    "people": [
+      "candy-cadet"
+    ],
+    "tags": [
+      "allegory",
+      "five",
+      "molten-freddy?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Candy_Cadet/Audio",
+    "notes": "Allegorical; any mapping onto characters is interpretation."
+  },
+  {
+    "id": "ffps-candy-cadet-five-orphans",
+    "title": "Candy Cadet story: the Five Orphans",
+    "claim": "Candy Cadet tells of a man who took in five orphans. A burglar killed all five, and the man stitched the bodies together into one, buried it, and 'That night, there was a knock at the door.'",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Candy Cadet (Faz-Token) – story 'The Five Orphans'",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "The man could only afford one coffin, so he stitched the five bodies together to make one, and buried the child. That night, there was a knock at the door.",
+    "people": [
+      "candy-cadet"
+    ],
+    "tags": [
+      "allegory",
+      "five"
+    ],
+    "related": [
+      "ffps-molten-freddy-lines"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Candy_Cadet/Audio",
+    "notes": "Allegorical. The five-into-one motif is often linked to Molten Freddy/Ennard; that is interpretation."
+  },
+  {
+    "id": "ffps-candy-cadet-five-kittens",
+    "title": "Candy Cadet story: the Five Kittens",
+    "claim": "Candy Cadet tells of a boy with an insatiable red snake who could not choose which of five kittens to sacrifice. He left the cage open, and after five nights he cut the snake open and 'pieced the remains together'.",
+    "game": "ffps",
+    "kind": "dialogue",
+    "location": "Candy Cadet (Faz-Token) – story 'The Five Kittens'",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "After five nights had gone by, the boy was full of regret, and cut the snake open. He pieced the remains together and put the kitten back into the shoebox.",
+    "people": [
+      "candy-cadet"
+    ],
+    "tags": [
+      "allegory",
+      "five"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Candy_Cadet/Audio"
+  },
+  {
+    "id": "ffps-lawsuits-utah",
+    "title": "Lawsuits are filed in Washington County, Utah",
+    "claim": "FFPS lawsuit documents are headed 'IN THE DISTRICT COURT OF UTAH / FIFTH JUDICIAL DISTRICT WASHINGTON COUNTY' and are filed by the Parents Union Against Unsafe Atrocities and Mechanical Abominations (PUAUAAMA) against Fazbear Entertainment, Inc.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Lawsuit (subpoena) documents during management phase",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "IN THE DISTRICT COURT OF UTAH / FIFTH JUDICIAL DISTRICT WASHINGTON COUNTY / PARENTS UNION AGAINST UNSAFE ATROCITIES AND MECHANICAL ABOMINATIONS, Plaintiff, v. FAZBEAR ENTERTAINMENT, INC, Defendant.",
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "location",
+      "utah",
+      "lawsuit"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lawsuits",
+    "notes": "The only explicit real-world location given in FFPS. The lawsuit bodies are comedic."
+  },
+  {
+    "id": "ffps-lawsuit-head-bitten",
+    "title": "Lawsuit: a child's head 'was bitten by an Animatronic'",
+    "claim": "One lawsuit (Civil No. 834710865) states that a child's head was bitten by an animatronic and his frontal lobe might yet fall off.",
+    "game": "ffps",
+    "kind": "text",
+    "location": "Lawsuit document, Civil No. 834710865",
+    "certainty": "stated",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "quote": "His Head was bitten by an Animatronic. Although his frontal lobe remained connected to his head, doctors aren't sure how long it will stay that way.",
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "bite",
+      "lawsuit"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lawsuits",
+    "notes": "Written as a joke, but echoes the earlier 'bite' incidents. It happens at the FFPS franchise, not in the 1980s."
+  },
+  {
+    "id": "ucn-roster-afton",
+    "title": "UCN roster lists Scraptrap as 'Afton'",
+    "claim": "In UCN's character roster the Scraptrap animatronic is listed as 'Afton'. He attacks once per night from the right vent after loud clattering and flickering lights.",
+    "game": "ucn",
+    "kind": "mechanic",
+    "location": "Character select roster – 'Afton'",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Afton",
+    "people": [
+      "scraptrap",
+      "william-afton"
+    ],
+    "tags": [
+      "afton",
+      "naming",
+      "roster"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "ffps-credits-william-afton"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Custom_Night_Character_Roster",
+    "notes": "No UCN voice line speaks the names 'William', 'Afton', 'Henry', 'Michael' or 'Cassidy'. 'Afton' comes from the roster label (verified via wiki roster table) and Scott's Character Guide."
+  },
+  {
+    "id": "scott-ucn-character-guide-afton",
+    "title": "Scott's UCN Character Guide: 'William Afton (AKA Scraptrap)'",
+    "claim": "In the official UCN Character Guide posted on Steam, Scott Cawthon names the character 'William Afton (AKA Scraptrap)'.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' (Ultimate Custom Night), June 15, 2018",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "William Afton (AKA Scraptrap): Afton has the distinction of having the simplest mechanic in the game, but also possibly the scariest. He will only attack once per night",
+    "people": [
+      "william-afton",
+      "scraptrap"
+    ],
+    "tags": [
+      "afton",
+      "naming"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2515705441805606668",
+    "verifiedVia": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=871720&count=100&maxlength=0"
+  },
+  {
+    "id": "ucn-afton-always-come-back",
+    "title": "UCN Afton: 'I always come back.'",
+    "claim": "In UCN, Afton reuses the line 'I always come back.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Afton (Scraptrap) voice line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I always come back.",
+    "people": [
+      "scraptrap",
+      "william-afton"
+    ],
+    "tags": [
+      "afton"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio"
+  },
+  {
+    "id": "ucn-nightmare-freddy-toysnhk",
+    "title": "Nightmare Freddy: remade 'by the one you should not have killed'",
+    "claim": "Nightmare Freddy tells the player he was remade not by them but by 'the one you should not have killed'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmare Freddy game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I am remade, but not by you. By the one you should not have killed.",
+    "people": [
+      "nightmare-freddy",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk",
+      "nightmares"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare_Freddy/Audio",
+    "notes": "Implies the player created or is associated with the Nightmares, and that the player killed someone."
+  },
+  {
+    "id": "ucn-nightmare-freddy-cant-perish",
+    "title": "Nightmare Freddy: 'a victim that can't perish'",
+    "claim": "Nightmare Freddy calls the player a victim that can't perish and says he was given flesh to be the player's tormentor.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmare Freddy game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "What a gift to relish: a victim that can't perish. / I am given flesh to be your tormentor. / I have always been hiding in your shadow.",
+    "people": [
+      "nightmare-freddy",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "immortal",
+      "hell?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare_Freddy/Audio"
+  },
+  {
+    "id": "ucn-withered-chica-toysnhk",
+    "title": "Withered Chica: 'I was the first!' and 'the one you shouldn't have killed'",
+    "claim": "Withered Chica says 'I was the first! I have seen everything!' and that she has seen 'the one you shouldn't have killed'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Withered Chica game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I was the first! I have seen everything! / I have seen him. The one you shouldn't have killed.",
+    "people": [
+      "withered-chica",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Chica/Audio",
+    "notes": "'Him': the one you should not have killed is referred to as male."
+  },
+  {
+    "id": "ucn-mangle-toysnhk",
+    "title": "Mangle: 'He's here, and always watching'",
+    "claim": "Mangle says 'the one you shouldn't have killed' is here and always watching.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Mangle game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "He's here, and always watching...The one you shouldn't have killed.",
+    "people": [
+      "mangle",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mangle/Audio"
+  },
+  {
+    "id": "ucn-jack-o-chica-toysnhk",
+    "title": "Jack-O-Chica: 'Greetings from the fire, and from the one you should not have killed!'",
+    "claim": "Jack-O-Chica calls herself a burning reminder of the player's misdeeds and brings greetings 'from the fire, and from the one you should not have killed'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Jack-O-Chica game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I am a burning reminder of your misdeeds! / Greetings from the fire, and from the one you should not have killed!",
+    "people": [
+      "jack-o-chica",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk",
+      "fire"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Jack-O-Chica/Audio"
+  },
+  {
+    "id": "ucn-happy-frog-never-rest",
+    "title": "Happy Frog secret line: 'I will never let you rest'",
+    "claim": "Happy Frog has a rare line, whispered over by another voice: 'We've only just begun. I will never let you leave. I will never let you rest.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Happy Frog rare game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "We've only just begun. I will never let you leave. I will never let you rest.",
+    "people": [
+      "happy-frog",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk",
+      "hell?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(UCN)",
+    "notes": "The wiki reads the background whisper (Tabatha Skanes) as the vengeful spirit speaking through the Mediocre Melodies; the game gives no speaker label."
+  },
+  {
+    "id": "ucn-nedd-bear-forever",
+    "title": "Nedd Bear secret line: 'over, and over... forever'",
+    "claim": "Nedd Bear's rare line tells the player this is how it feels and they will experience it over and over forever.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nedd Bear rare game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "This is how it feels, and you get to experience it over, and over, and over again... forever. I will never let you leave.",
+    "people": [
+      "nedd-bear",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk",
+      "loop"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nedd_Bear/Audio"
+  },
+  {
+    "id": "ucn-orville-he-tried-to-release",
+    "title": "Orville: 'He tried to release you... No matter how many times they burn us.'",
+    "claim": "Orville Elephant's rare line says 'he' tried to release the player and 'us', but the speaker will hold the player there 'no matter how many times they burn us'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Orville Elephant rare game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "He tried to release you. He tried to release us. But I'm not gonna let that happen. I will hold you here. I will keep you here. No matter how many times they burn us.",
+    "people": [
+      "orville-elephant",
+      "one-you-should-not-have-killed",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "toysnhk",
+      "fire",
+      "release"
+    ],
+    "related": [
+      "ffps-completion-fire",
+      "ffps-completion-give-up-spirits"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Orville_Elephant/Audio",
+    "notes": "'He' is not named. Reading it as the FFPS Cassette Man, whose plan ended in a fire, is implied."
+  },
+  {
+    "id": "ucn-toysnhk-face",
+    "title": "Hidden face of 'the one you should not have killed'",
+    "claim": "A rare distorted image of a grinning child's face can appear in UCN's doorways and vents, on the monitor, or after the game-over screen.",
+    "game": "ucn",
+    "kind": "hidden",
+    "location": "Rare image (office doorways/vents, monitor, game-over)",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "one-you-should-not-have-killed"
+    ],
+    "tags": [
+      "toysnhk",
+      "rare-screen"
+    ],
+    "image": "ucn-one-you-should-not-have-killed.png",
+    "related": [
+      "scott-ucn-jason-face"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(UCN)",
+    "notes": "The image carries no in-game caption. It is linked to 'the one you should not have killed' by Scott's Reddit statement (scott-ucn-jason-face)."
+  },
+  {
+    "id": "scott-ucn-jason-face",
+    "title": "Scott: his son Jason is the face of 'The one you should not have killed'",
+    "claim": "Scott Cawthon said the UCN face of 'The one you should not have killed' is an edited photo of his son Jason, and hinted that family photos he uses carry no lore meaning.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post 'A lore question about Help Wanted, and an answer!' (r/fivenightsatfreddys, Sept 2019)",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "My little boy, Jason, is the face of \"The one you should not have killed\" in UCN. ... Do these have lore significance? Well, you probably already know the answer.",
+    "people": [
+      "one-you-should-not-have-killed"
+    ],
+    "tags": [
+      "toysnhk",
+      "scott"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/a_lore_question_about_help_wanted_and_an_answer/",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(UCN)",
+    "notes": "Wording taken from the wiki's quotation; Reddit could not be fetched directly. The statement confirms the face is TOYSNHK and suggests the photo's real identity is not lore."
+  },
+  {
+    "id": "ucn-nightmare-lines",
+    "title": "Nightmare: 'I AM YOUR WICKEDNESS... MADE OF FLESH'",
+    "claim": "The Nightmare character tells the player it is their wickedness made flesh, will vomit them back to relive their horror, and that 'the shadow fears me'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmare game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I AM YOUR WICKEDNESS... MADE OF FLESH. / I WILL VOMIT YOU BACK... TO RELIVE YOUR HORROR! / I AM HERE TO CLAIM... WHAT IS LEFT OF YOU. / THE SHADOW FEARS ME.",
+    "people": [
+      "nightmare",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "nightmares",
+      "loop"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare/Audio"
+  },
+  {
+    "id": "ucn-nightmare-fredbear-lines",
+    "title": "Nightmare Fredbear: 'put you back together, then take you apart'",
+    "claim": "Nightmare Fredbear says it will put the player back together and take them apart again, that it is 'very real', and that 'We know who our friends are, and you are not one of them!'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmare Fredbear game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Let me put you back together, then take you apart all over again. / I assure you, I am very real. / This time, there is more than an illusion to fear. …",
+    "people": [
+      "nightmare-fredbear",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "nightmares",
+      "fnaf4-echo"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare_Fredbear/Audio",
+    "notes": "'Put you back together' echoes FNaF4's ending line; any link is theory."
+  },
+  {
+    "id": "ucn-nightmarionne-lines",
+    "title": "Nightmarionne: 'the fearful reflection of what you have created'",
+    "claim": "Nightmarionne says it is 'the fearful reflection of what you have created' and that 'This time, death cannot save you.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmarionne game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I am the fearful reflec-ection-ection of what you have c-created. / This t-time, death cannot save you-u-u.",
+    "people": [
+      "nightmarionne",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "nightmares"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmarionne/Audio"
+  },
+  {
+    "id": "ucn-puppet-lines",
+    "title": "Puppet: 'I recognize you, but I'm not afraid of you... not anymore.'",
+    "claim": "The Puppet's UCN lines: 'I recognize you, but I'm not afraid of you... not anymore', 'The others are under my protection', 'The others are like animals, but I am very aware', 'I don't hate you, but you need to stay out of my way', and 'Seeing you powerless is like music to me.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "The Puppet game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I recognize you, but I'm not afraid of you... not anymore. / The others are under my protection. / The others are like animals, but I am very aware. …",
+    "people": [
+      "puppet",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "puppet",
+      "protector"
+    ],
+    "related": [
+      "ffps-completion-my-daughter"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Puppet/Audio",
+    "notes": "'I don't hate you' sits awkwardly with the player being the Puppet's own killer; keep both readings open."
+  },
+  {
+    "id": "ucn-lefty-lines",
+    "title": "Lefty: 'come spend eternity inside with me'",
+    "claim": "Lefty's UCN lines speak of making room for the player inside him: 'come spend eternity inside with me', 'there is room for one more', 'I've been looking for you and now I will never let you go'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Lefty game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Shhhh...come spend eternity inside with me. / Shhhh...I've been looking for you and now I will never let you go. / Shhhh...there is room for one more.",
+    "people": [
+      "lefty",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "lefty",
+      "capture"
+    ],
+    "related": [
+      "ffps-lefte-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lefty/Audio"
+  },
+  {
+    "id": "ucn-scrap-baby-lines",
+    "title": "Scrap Baby: 'You won't die, but you'll wish you could.'",
+    "claim": "Scrap Baby's UCN lines include 'Time for your controlled shock' and 'You won't die, but you'll wish you could.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Scrap Baby game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Time for your controlled shock. / Let's see how many pieces I can cut you into. / You won't die, but you'll wish you could.",
+    "people": [
+      "scrap-baby",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "immortal",
+      "controlled-shock"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "'Controlled shock' echoes Sister Location's controlled shocks."
+  },
+  {
+    "id": "ucn-circus-baby-lines",
+    "title": "Circus Baby: 'Want to see the Scooping Room?'",
+    "claim": "Circus Baby's UCN lines include 'I guess you forgot about me', 'Want to see the Scooping Room?' and 'Looks like something bad happened.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Circus Baby game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I guess you forgot about me. / Want to see the Scooping Room? / Looks like something bad happened.",
+    "people": [
+      "circus-baby",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "sister-location",
+      "scooper"
+    ],
+    "related": [
+      "ffps-scup-blueprint"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "ucn-withered-bonnie-prison",
+    "title": "Withered Bonnie: 'What is this new prison?'",
+    "claim": "Withered Bonnie asks, 'What is this new prison? Is it me trapped, or is it you? Perhaps it is us both.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Withered Bonnie game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "What is this new prison? Is it me trapped, or is it you? Perhaps it is us both.",
+    "people": [
+      "withered-bonnie",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "prison",
+      "hell?"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Bonnie/Audio"
+  },
+  {
+    "id": "ucn-summoned-performers",
+    "title": "Funtime Foxy & Music Man: 'demanded of me' / 'requested of me'",
+    "claim": "Funtime Foxy says 'A performance was demanded of me, and now I have delivered! Encore!' and Music Man says 'A song was requested of me, and now I sing it!' Both suggest they were summoned for the player.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Funtime Foxy and Music Man game-over lines",
+    "certainty": "implied",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "A performance was demanded of me, and now I have delivered! Encore! / A song was requested of me, and now I sing it!",
+    "people": [
+      "funtime-foxy",
+      "music-man",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "summoned"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Music_Man/Audio",
+    "notes": "Who 'demanded' or 'requested' is unstated. The link to TOYSNHK arranging the torment is implied."
+  },
+  {
+    "id": "ucn-music-man-eternal",
+    "title": "Music Man: 'for a long, long time'",
+    "claim": "Music Man tells the player they will be making music together 'for a long, long time' and calls it 'your eternal silence'.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Music Man game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "You and I will be making music together for a long, long time! / You hear that? It's the sweet, sweet sound of your eternal silence!",
+    "people": [
+      "music-man",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "eternal"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Music_Man/Audio"
+  },
+  {
+    "id": "ucn-rockstar-bonnie-truest-friend",
+    "title": "Rockstar Bonnie: 'So good to see you again, my truest friend.'",
+    "claim": "Rockstar Bonnie greets the player: 'So good to see you again, my truest friend. But now your life must end.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Rockstar Bonnie game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "So good to see you again, my truest friend. But now your life must end.",
+    "people": [
+      "rockstar-bonnie",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "recognition"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Rockstar_Bonnie/Audio"
+  },
+  {
+    "id": "ucn-ballora-lines",
+    "title": "Ballora: 'strange circumstances that have brought us together'",
+    "claim": "Ballora's lines include 'These are strange circumstances that have brought us together' and 'Why do you hide inside these walls?'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Ballora game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "These are strange circumstances that have brought us together. / Why do you hide inside these walls? / Admit it: you wanted to let me in.",
+    "people": [
+      "ballora",
+      "ucn-protagonist"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ballora/Audio"
+  },
+  {
+    "id": "ucn-toy-chica-dying",
+    "title": "Toy Chica: 'You won't get tired of dying, will you?'",
+    "claim": "Toy Chica asks, 'You won't get tired of dying, will you?'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Toy Chica game-over line",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "You won't get tired of dying, will you?",
+    "people": [
+      "toy-chica",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "loop"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Toy_Chica/Audio"
+  },
+  {
+    "id": "ucn-nightmare-bb-eventually",
+    "title": "Nightmare Balloon Boy: 'You knew I'd get you eventually.'",
+    "claim": "Nightmare BB's lines include 'You knew I'd get you eventually' and 'There just isn't room in here for both of us.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Nightmare Balloon Boy game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "You knew I'd get you eventually. / There just isn't room in here for both of us.",
+    "people": [
+      "nightmare-bb",
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "nightmares"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare_Balloon_Boy/Audio"
+  },
+  {
+    "id": "ucn-candy-cadet-fragments",
+    "title": "Candy Cadet's ghostly fragments of his FFPS stories",
+    "claim": "In UCN, Candy Cadet speaks fragments of his FFPS stories: 'Now I will tell you a story.', 'He promised them to never leave them.', 'But he could not choose.', 'He pieced the remains together.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Candy Cadet (UCN) lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "He promised them to never leave them. / But he could not choose. / He pieced the remains together.",
+    "people": [
+      "candy-cadet"
+    ],
+    "tags": [
+      "allegory"
+    ],
+    "related": [
+      "ffps-candy-cadet-five-orphans",
+      "ffps-candy-cadet-five-kittens"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Candy_Cadet/Audio"
+  },
+  {
+    "id": "ucn-mr-hippo-just-a-story",
+    "title": "Mr. Hippo: 'Sometimes, a story's just a story'",
+    "claim": "Mr. Hippo's game-over monologue warns that reading into every little thing will drive you crazy and that sometimes a story is just a story.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Mr. Hippo game-over monologue",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Orville, not every story has to have significance, y'know? Sometimes, a... y'know, sometimes, a story's just a story. …",
+    "people": [
+      "mr-hippo",
+      "orville-elephant"
+    ],
+    "tags": [
+      "meta"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mr._Hippo/Audio",
+    "notes": "Widely read as a meta joke aimed at theorists."
+  },
+  {
+    "id": "ucn-mr-hippo-duck-feeder",
+    "title": "Mr. Hippo: a man and his son killing the ducks with sourdough",
+    "claim": "In the same monologue Mr. Hippo recalls a man who brought his son to the bakery every Wednesday, bought all the sourdough, and fed the ducks. The duck population fell over the years, and Mr. Hippo never told him.",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Mr. Hippo game-over monologue",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "I do remember a man who would bring his son to the bakery every Wednesday, and... then go feed the ducks. He would buy all of the sourdough bread.",
+    "people": [
+      "mr-hippo"
+    ],
+    "tags": [
+      "allegory?",
+      "father-son"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(UCN)",
+    "notes": "Possibly allegorical; any lore reading is interpretation."
+  },
+  {
+    "id": "ucn-toy-freddy-mr-hugs",
+    "title": "Toy Freddy plays 'Five Nights with Mr. Hugs'",
+    "claim": "Toy Freddy plays a video game ('Five Nights with Mr. Hugs') in UCN and blames the player when he loses: 'Mr. Hugs got me again.'",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Toy Freddy mechanic and game-over lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Mr. Hugs got me again. / If I get jumpscared, you get jumpscared!",
+    "people": [
+      "toy-freddy"
+    ],
+    "tags": [
+      "easter-egg"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Toy_Freddy/Audio",
+    "notes": "Comedic; no lore content. There is no 'Fazbear Fanverse' reference in UCN."
+  },
+  {
+    "id": "ucn-omc-ending",
+    "title": "Old Man Consequences ending: 'Leave the demon to his demons'",
+    "claim": "With only Old Man Consequences active (level 1), catching a fish takes the player to a FNaF World sub-tunnel lake scene. There he says 'Come and sit with me a while' and 'Leave the demon to his demons. Rest your own soul. There is nothing else.'",
+    "game": "ucn",
+    "kind": "ending",
+    "location": "Old Man Consequences secret ending",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Leave the demon to his demons. Rest your own soul. There is nothing else.",
+    "people": [
+      "old-man-consequences",
+      "ucn-protagonist"
+    ],
+    "places": [
+      "fnaf-world-sub-tunnel-4"
+    ],
+    "tags": [
+      "ending",
+      "demon",
+      "soul"
+    ],
+    "related": [
+      "ffps-completion-old-friend-hell"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Old_Man_Consequences",
+    "notes": "Addresses the player as someone separate from 'the demon'. The player (in UCN) and the demon are not named."
+  },
+  {
+    "id": "ucn-omc-ending-drowning",
+    "title": "OMC ending: the player can only drown, then the game closes",
+    "claim": "After Old Man Consequences speaks, the player's only possible action is to sink into the lake by mashing A and D, after which the game closes.",
+    "game": "ucn",
+    "kind": "ending",
+    "location": "Old Man Consequences secret ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "ucn-protagonist",
+      "old-man-consequences"
+    ],
+    "places": [
+      "fnaf-world-sub-tunnel-4"
+    ],
+    "tags": [
+      "ending",
+      "drowning"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(UCN)",
+    "notes": "Done with FNaF World on the same device, this also unlocks FNaF World's 'Drowning Ending' (per wiki)."
+  },
+  {
+    "id": "ucn-omc-ending-scream-audio",
+    "title": "OMC ending ambience hides a distorted screaming voice",
+    "claim": "The low ambience in the OMC ending (also a 1-in-10,000 menu track) contains, when sped up, a person screaming unintelligibly.",
+    "game": "ucn",
+    "kind": "hidden",
+    "location": "Old Man Consequences ending ambience (I.mp3)",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "hidden-audio"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(UCN)",
+    "notes": "Fans hear words like 'Help me', 'Mike' or 'Henry'. These are NOT verifiable; there are no official subtitles. Do not cite any words from it."
+  },
+  {
+    "id": "ucn-golden-freddy-final-cutscene",
+    "title": "Final cutscene: classic Golden Freddy twitching in a void",
+    "claim": "After watching all intermission cutscenes and reaching 9,800 points, the last cutscene shows Golden Freddy in his original FNaF1 form, twitching in darkness and fading away. No dialogue.",
+    "game": "ucn",
+    "kind": "cutscene",
+    "location": "Final cutscene (score 9,800 after all intermissions)",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "golden-freddy"
+    ],
+    "tags": [
+      "golden-freddy",
+      "ending"
+    ],
+    "image": "ucn-golden-freddy-final-cutscene.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(UCN)",
+    "notes": "No text or voice explains it. Tying it to TOYSNHK is theory."
+  },
+  {
+    "id": "ucn-death-coin-fredbear",
+    "title": "Death Coin on Golden Freddy summons Fredbear",
+    "claim": "With only Golden Freddy active at level 1, using the Death Coin on him makes Fredbear jumpscare the player.",
+    "game": "ucn",
+    "kind": "hidden",
+    "location": "Death Coin + Golden Freddy (level 1)",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "golden-freddy",
+      "fredbear"
+    ],
+    "tags": [
+      "golden-freddy",
+      "fredbear"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Death_Coin",
+    "notes": "Mechanically links Golden Freddy and Fredbear; no text explains why."
+  },
+  {
+    "id": "ucn-death-coin",
+    "title": "The Death Coin removes one of a few animatronics",
+    "claim": "The Death Coin (10 Faz-Coins at the Prize Corner) sets one eligible animatronic's difficulty to 0 for the night: Bonnie and Foxy together, Toy Freddy, the Puppet, Funtime Foxy, Rockstar Bonnie, or Lefty.",
+    "game": "ucn",
+    "kind": "mechanic",
+    "location": "Prize Corner (CAM 07) – Death Coin",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "puppet",
+      "lefty",
+      "toy-freddy",
+      "funtime-foxy",
+      "rockstar-bonnie",
+      "bonnie",
+      "foxy"
+    ],
+    "tags": [
+      "mechanic"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Death_Coin",
+    "notes": "No UCN voice line says 'I will be there' or 'I don't know'; no 'Office' voice lines were found."
+  },
+  {
+    "id": "ucn-dee-dee",
+    "title": "Dee Dee adds a 'new contender'; XOR in 50/20",
+    "claim": "Dee Dee appears at random and adds an unannounced animatronic or changes a difficulty, singing 'Uh-oh! How unfortunate.' In 50/20 mode she is replaced by the darker XOR, who adds several characters.",
+    "game": "ucn",
+    "kind": "mechanic",
+    "location": "Dee Dee / XOR appearances",
+    "certainty": "stated",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "quote": "Uh-oh! How unfortunate. Uh-oh! How unfortunate. I'm gonna do a sneaky thing, and throw a new contender in the ring.",
+    "people": [
+      "dee-dee",
+      "xor"
+    ],
+    "tags": [
+      "mechanic"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Dee_Dee"
+  },
+  {
+    "id": "ucn-office-ffps-alley-posters",
+    "title": "UCN office reuses posters from FFPS's back alley",
+    "claim": "Posters from FFPS's back-alley rare screens (performers and a Man-Wolf ad) reappear in UCN's default Office and Left Hall.",
+    "game": "ucn",
+    "kind": "environment",
+    "location": "Default Office and Left Hall",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "tags": [
+      "ffps-link",
+      "environment"
+    ],
+    "related": [
+      "ffps-lefty-alley-puppet-arm"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FFPS)",
+    "notes": "Could be asset reuse or a setting hint; the game doesn't say."
+  },
+  {
+    "id": "ucn-roster-includes-ffps-four",
+    "title": "UCN's roster includes all four FFPS salvage animatronics",
+    "claim": "UCN's roster of 50 selectable characters (plus Dee Dee's secret extras) includes Molten Freddy, Scrap Baby, Afton and Lefty alongside characters from FNaF1–4, Sister Location and FFPS.",
+    "game": "ucn",
+    "kind": "mechanic",
+    "location": "Character select roster",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "molten-freddy",
+      "scrap-baby",
+      "scraptrap",
+      "lefty"
+    ],
+    "tags": [
+      "roster",
+      "ffps-link"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Custom_Night_Character_Roster"
+  },
+  {
+    "id": "ucn-protagonist-unnamed-killer",
+    "title": "UCN never names the player, but many lines accuse them of a killing",
+    "claim": "UCN's player is never named, and no line says 'William', 'Afton', 'Michael' or 'Henry'. Several characters say the player killed someone ('the one you should not have killed') and cannot die ('a victim that can't perish'; 'You won't die, but you'll wish you could').",
+    "game": "ucn",
+    "kind": "dialogue",
+    "location": "Aggregate of game-over voice lines",
+    "certainty": "implied",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "ucn-protagonist",
+      "one-you-should-not-have-killed"
+    ],
+    "tags": [
+      "protagonist",
+      "toysnhk",
+      "hell?"
+    ],
+    "related": [
+      "ucn-nightmare-freddy-toysnhk",
+      "ucn-nightmare-freddy-cant-perish",
+      "ucn-scrap-baby-lines",
+      "ucn-omc-ending",
+      "ffps-completion-old-friend-hell"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Protagonist_(UCN)",
+    "notes": "The theory that the player is William Afton in a personal hell is not stated anywhere in UCN; it rests on these lines together with FFPS's ending. The roster label 'Afton' refers to an attacking animatronic, not the player."
+  },
+  {
+    "id": "ucn-phone-guy-calls",
+    "title": "Phone Guy appears as a caller to be muted",
+    "claim": "Phone Guy is a UCN roster 'character' represented only by incoming calls, which the player must mute quickly or be distracted by noise.",
+    "game": "ucn",
+    "kind": "mechanic",
+    "location": "Phone Guy (roster)",
+    "certainty": "shown",
+    "when": {
+      "label": "During UCN (undated)",
+      "precision": "unknown",
+      "basis": "UCN gives no date or setting year"
+    },
+    "people": [
+      "phone-guy"
+    ],
+    "tags": [
+      "roster"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Custom_Night_Character_Roster"
+  }
+]

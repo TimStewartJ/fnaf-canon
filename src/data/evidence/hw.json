@@ -1,0 +1,3440 @@
+[
+  {
+    "id": "hw-tape-01",
+    "title": "Tape 1: Logs hidden from core game files",
+    "claim": "Tape Girl says she hid her logs in a protected room away from the core gameplay files, where only a beta tester would look, and that the game contains malicious code her team could not contain or understand.",
+    "quote": "This game has some kind of malicious code in it that we haven't been able to fully contain...or even understand for that matter. We're over budget and out of time. …",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #1 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "malicious-code",
+      "dev-team"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-02",
+    "title": "Tape 2: First sighting of the character",
+    "claim": "Tape Girl describes first seeing an unidentified character at the end of a hall, then looking in the window as if actually watching what she was doing.",
+    "quote": "It was like it was actually looking in the window seeing what I was doing.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #2 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-03",
+    "title": "Tape 3: Lawsuit and incident in the building",
+    "claim": "Tape Girl overhears manager Dale in a heated call, is sure there is a lawsuit, and says the incident happened in their building a few doors from her; Jeremy had tried to warn the team.",
+    "quote": "There has to be a lawsuit. There's no way there isn't. It happened in this building just a few doors down from me. …",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #3 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "dale-hw",
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "lawsuit",
+      "jeremy"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-04",
+    "title": "Tape 4: Guillotine paper slicer",
+    "claim": "Tape Girl describes a guillotine paper slicer in the supply room and notes Jeremy used to do design work, which is how he knew it was there.",
+    "quote": "Jeremy used to do design work. I guess that's how he knew it was there.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #4 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "jeremy",
+      "paper-slicer"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-05",
+    "title": "Tape 5: Client sent old circuit boards to scan",
+    "claim": "The client sent the studio old junk (circuit boards) and told them to scan it to avoid programming pathfinding; usable code on it 'took hold by itself', things changed, and then 'he' started appearing, per Jeremy.",
+    "quote": "told us to scan it, said it would expedite the process so we wouldn't need to program any pathfinding ourselves. It was a budget thing, I guess. …",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #5 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "circuit-boards",
+      "origin-of-anomaly",
+      "fazbear-entertainment"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-06",
+    "title": "Tape 6: Supply room glowing, Jeremy in testing room",
+    "claim": "Tape Girl came in early; the supply room was brightly lit and glowing, and she walked past Jeremy standing in the testing room without noticing him.",
+    "quote": "The supply room was so bright- glowing from all the way down the hall.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #6 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "jeremy"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-07",
+    "title": "Tape 7: Jeremy's nightmares and decline",
+    "claim": "Jeremy complained of nightmares, looked pale and unfed, got little sympathy from Dale, no longer reacted to scares, stood as if talking to someone, and Tape Girl was being prepped to replace him as tester.",
+    "quote": "He doesn't even jump anymore, nothing scares him. He just stands there like he's talking to someone.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #7 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "dale-hw",
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "jeremy",
+      "nightmares"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-08",
+    "title": "Tape 8: Paper trail to discredit Jeremy",
+    "claim": "Tape Girl believes the company built a paper trail of write-ups not because of Jeremy's work but because he had seen something and needed to be discredited.",
+    "quote": "They just knew he'd seen something. They needed to discredit him.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #8 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "jeremy",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-09",
+    "title": "Tape 9: 'Halloween mask' and ink in the testing room",
+    "claim": "Tape Girl finds what looked like a Halloween mask on the floor and 'ink' spilled; Jeremy is in the testing room with the visor on, his shirt front black in the dark.",
+    "quote": "There was something that looked like a Halloween mask laying on the floor. I didn't understand. Ink must have spilled.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #9 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "jeremy",
+      "paper-slicer"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-10",
+    "title": "Tape 10: Buyout and a new studio",
+    "claim": "Tape Girl is given three days to finish Jeremy's work to 'keep up appearances until the buyout is complete'; another studio may pick up the project.",
+    "quote": "It's just to keep up appearances until the buyout is complete. We have to look like we have things under control. There's another potential development studio that wants to pick up from here.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #10 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "buyout",
+      "dev-team"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-11",
+    "title": "Tape 11: The anomaly attached itself to her logs",
+    "claim": "On her last day of testing the 'anomaly' was gone from the game but had attached itself to Tape Girl's logs; she decides to try to destroy the logs.",
+    "quote": "after inspecting some of the files it seems that it's attached itself to these logs...my logs... That can't be an accident.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #11 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly",
+      "logs"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-12",
+    "title": "Tape 12: The protected area became its hiding place",
+    "claim": "Tape Girl cannot delete the logs; by creating a protected area she gave the thing a safe place to hide.",
+    "quote": "By creating a protected area to store these logs apart from the game...I effectively gave this thing a safe place to hide itself. It's in here now...",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #12 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly",
+      "logs"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-14",
+    "title": "Tape 14: Logs fragmented to break the anomaly",
+    "claim": "Tape Girl ran a fragmentation program on the logs' memory area, breaking the files and, she hopes, the anomaly with them.",
+    "quote": "I effectively broke the files into pieces...and broke the anomaly along with it.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #14 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly",
+      "logs"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-15",
+    "title": "Tape 15: Logs as a Trojan Horse",
+    "claim": "Tape Girl fears her logs are being used as a Trojan Horse and that finding and reassembling them will reassemble the thing she tried to destroy.",
+    "quote": "Now I fear that those logs are being used as a Trojan Horse. If you are unable to abandon development, hide all traces of these logs that I've created.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #15 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly",
+      "logs",
+      "trojan-horse"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-16",
+    "title": "Tape 16: How to kill it: merge, music, switch",
+    "claim": "Tape Girl says it wants to escape through someone plugged into the game; the tester must let it begin to merge, then play the music and flip a disconnect switch by the main stage to hard-restart the game.",
+    "quote": "There is a way to kill it. It wants to escape...to escape through someone...someone plugged into this game. That's you now.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #16 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "silver-parasol-games-office"
+    ],
+    "tags": [
+      "tape-girl",
+      "anomaly",
+      "escape",
+      "merge"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-13-cover-story",
+    "title": "Tape 13: The PR cover story told to the devs",
+    "claim": "Tape Girl says the developers were told the VR game's purpose was to undo bad PR from a rogue indie game developer who supposedly made up crazy stories that tarnished the brand — and that this was a lie.",
+    "quote": "They lied to us. They lied to all of us. …",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #13 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "tape-girl",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "tape-girl",
+      "coverup",
+      "indie-developer"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes"
+  },
+  {
+    "id": "hw-tape-13-fe-hired-developer",
+    "title": "Tape 13: Fazbear Entertainment hired the indie developer",
+    "claim": "Per emails on a hard drive the client sent, Fazbear Entertainment hired 'a certain indie developer', whose games were designed to conceal and make light of what happened — an elaborate coverup to discredit everything.",
+    "quote": "Fazbear Entertainment hired the game developer. Those indie games were designed to conceal and make light of what happened. This isn’t just an attempt to rebrand, it’s an elaborate coverup- A campaign to discredit everything.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #13 (hidden cassette collectible; played in the Tape Room)",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "tape-girl",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "tape-girl",
+      "coverup",
+      "indie-developer",
+      "meta"
+    ],
+    "related": [
+      "hw-intro-complete-lunatic",
+      "hw-intro-indie-developer-poster",
+      "scott-not-part-of-lore"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
+    "notes": "The in-universe 'indie developer' is represented by a photo of Scott Cawthon in the intro (see hw-intro-indie-developer-poster). Scott later said he himself is not part of the lore (scott-not-part-of-lore). The name 'Steve Snodgrass' for this developer comes from a book (Tales from the Pizzaplex) and is NOT used here."
+  },
+  {
+    "id": "hw-jeremy-self-injury-implied",
+    "title": "Jeremy's injury implied across tapes 4 and 9",
+    "claim": "Read together, tapes 3, 4 and 9 imply Jeremy used the guillotine paper slicer on his own face: the slicer he knew about from design work, the 'Halloween mask' and 'ink' on the floor, and Jeremy in the visor with a blackened shirt, followed by an incident 'a few doors down' and a presumed lawsuit.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl logs #3, #4, #9 (Tape Room)",
+    "certainty": "implied",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "tags": [
+      "jeremy",
+      "paper-slicer",
+      "death"
+    ],
+    "related": [
+      "hw-tape-03",
+      "hw-tape-04",
+      "hw-tape-09"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
+    "notes": "Never stated outright; Tape Girl never says what happened or that Jeremy died. This Jeremy is a QA tester at the VR studio and must not be conflated with FNaF2's Jeremy Fitzgerald (the tapes never give a surname)."
+  },
+  {
+    "id": "hw-tape-girl-calls-it-the-anomaly",
+    "title": "Tape Girl's name for the entity: 'the anomaly'",
+    "claim": "Tape Girl never names the rabbit entity; she calls it 'the anomaly', 'this thing', 'this virus'. HandUnit also calls it 'an undesirable anomaly'. The name 'Glitchtrap' is never spoken in Help Wanted.",
+    "quote": "Today was my last day of beta testing and the anomaly that I've been seeing is nowhere to be found.",
+    "game": "help-wanted",
+    "kind": "audio-tape",
+    "location": "Tape Girl log #11 (Tape Room); HandUnit 25-challenge line",
+    "certainty": "stated",
+    "when": {
+      "label": "During the Virtual Experience's development (undated)",
+      "precision": "unknown",
+      "basis": "Help Wanted gives no in-universe year; the tapes describe the first studio's development period"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "tags": [
+      "naming",
+      "anomaly"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tape_Girl",
+    "notes": "'Glitchtrap' originated as an internal/data-mined name (wiki notes a files name 'SpringBonnieMAN'); treat the name as out-of-game labeling."
+  },
+  {
+    "id": "hw-credits-tape-girl-qa",
+    "title": "Tape Girl credited only as 'QA'",
+    "claim": "The game's credits list Tape Girl's role only as 'QA'; she is never named in-game.",
+    "game": "help-wanted",
+    "kind": "text",
+    "location": "Help Wanted credits (QA section)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "tape-girl"
+    ],
+    "tags": [
+      "naming",
+      "credits"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Help_Wanted/Credits",
+    "notes": "Names 'Gabriella'/'Tonya' come only from a scrapped out-of-game mock-up website for the studio and are excluded."
+  },
+  {
+    "id": "hw-tape-room-glitchtrap",
+    "title": "Glitchtrap can appear in the Tape Room",
+    "claim": "Very rarely, Glitchtrap appears standing behind the player inside the Tape Room, either waving or with arms at his sides.",
+    "game": "help-wanted",
+    "kind": "hidden",
+    "location": "Tape Room (rare random event)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "tape-room"
+    ],
+    "image": "hw-glitchtrap-tape-room.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tape_Girl"
+  },
+  {
+    "id": "hw-tape-room-setting",
+    "title": "The Tape Room",
+    "claim": "The tapes are played in a hidden dark Tape Room with a desk, a shelf of collected tapes and a tape player; it is unlocked by knocking a tape player off a Prize Counter shelf and reached via the glitchy cassette player in Blacklight mode.",
+    "game": "help-wanted",
+    "kind": "environment",
+    "location": "Tape Room (Blacklight Menu)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "tape-room"
+    ],
+    "image": "hw-tape-room.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tape_Girl"
+  },
+  {
+    "id": "hw-glitchtrap-approaches-with-tapes",
+    "title": "Glitchtrap draws nearer as tapes are collected",
+    "claim": "Glitchtrap first appears watching from out of reach and, as more tapes are collected, appears closer and closer until he looms directly behind the player in the hub.",
+    "game": "help-wanted",
+    "kind": "mechanic",
+    "location": "Main hub / levels, progression tied to tape collection",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "tapes"
+    ],
+    "related": [
+      "hw-tape-15"
+    ],
+    "image": "hw-glitchtrap-behind-player.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitchtrap/History",
+    "notes": "Consistent with Tape 15's warning that reassembling the logs reassembles the entity. Glitchtrap's look is a person/figure in a yellow rabbit suit with a purple vest and bow tie and purple eyes (visual description only)."
+  },
+  {
+    "id": "hw-glitchtrap-uses-tape-girl-voice",
+    "title": "Glitchtrap's ambient voice is Tape Girl's, pitched down",
+    "claim": "When Glitchtrap is near, a distorted, pitched-down recording of Tape Girl's first-tape line plays.",
+    "quote": "Hello. Can you hear me?",
+    "game": "help-wanted",
+    "kind": "hidden",
+    "location": "Ambient audio when Glitchtrap is near the player",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap",
+      "tape-girl"
+    ],
+    "tags": [
+      "glitchtrap",
+      "voice"
+    ],
+    "related": [
+      "hw-tape-01",
+      "hw2-mystic-hippo-hello"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitchtrap/Audio"
+  },
+  {
+    "id": "hw-intro-loosely-based-on-actual-events",
+    "title": "Fazbear admits some stories were based on real events",
+    "claim": "In the intro, HandUnit (for Fazbear Entertainment) admits some stories associated with the company were loosely based on actual events.",
+    "quote": "We know that Fazbear Entertainment has developed something of a bad reputation over the last few decades, and while it's true that some stories associated with our name were loosely based on actual events,",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Intro ride narration",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-intro-complete-lunatic",
+    "title": "The rest blamed on 'a complete lunatic (lawsuits pending)'",
+    "claim": "HandUnit says most stories were fabrications from the mind of a complete lunatic, with lawsuits pending, and that the VR game recreates these 'completely fictitious scenarios (lies)' so people can move past 'childish ghost stories'.",
+    "quote": "the majority of them were total fabrications from the mind of a complete lunatic (lawsuits pending).",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Intro ride narration",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "indie-developer",
+      "meta"
+    ],
+    "related": [
+      "hw-tape-13-fe-hired-developer",
+      "hw-intro-indie-developer-poster"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-intro-vr-game-to-move-past-ghost-stories",
+    "title": "The VR game exists to laugh off the stories",
+    "claim": "HandUnit frames the Virtual Experience as a hilarious VR recreation of the fictitious scenarios, meant to let the public move past the ghost stories and build a new relationship (and sell merch).",
+    "quote": "That's why we have recreated many of these completely fictitious scenarios (lies) that you've been fed over the last several years, into a hilarious VR Game in the hopes that we can finally move past …",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Intro ride narration",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "in-universe-product"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-waiver-qa-team",
+    "title": "The player is joining Fazbear's QA team",
+    "claim": "The in-game waiver welcomes the player to the Fazbear Entertainment Quality Assurance team, i.e. the player is an in-universe beta tester.",
+    "quote": "Welcome to the Fazbear Entertainment Quality Assurance team.",
+    "game": "help-wanted",
+    "kind": "text",
+    "location": "Intro liability waiver text (auto-scroll)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "player-identity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Freddy_Fazbear_Virtual_Experience",
+    "notes": "Waiver text is on-screen text rather than HandUnit speech."
+  },
+  {
+    "id": "hw-waiver-consciousness-transference",
+    "title": "Waiver: 'accidental digital consciousness transference'",
+    "claim": "After agreeing to the waiver, HandUnit lists things Fazbear is not responsible for, starting with accidental digital consciousness transference and real world manifestations of digital characters.",
+    "quote": "You acknowledge that Fazbear Entertainment is not responsible for; accidental digital consciousness transference, real world manifestations of digital characters, nightmares, night terrors, Night sweats",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "After accepting the waiver",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "foreshadowing",
+      "digital-consciousness"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-beta-artifacts",
+    "title": "Warning about beta-testing 'visual artifacts'",
+    "claim": "HandUnit warns there may be visual artifacts left from beta testing and advises not to interact with them.",
+    "quote": "Please be aware that there may be visual artifacts left behind from the beta testing phase of development. If you see any such artifacts, We recommend that you not interact with them.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 4 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "anomaly"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-scanned-photos-original-routines",
+    "title": "Built from scanned photographs and original routines",
+    "claim": "After the player first enters the Tape Room, HandUnit says the game used scanned photographs and original performance routines.",
+    "quote": "We went to great lengths to create an authentic VR experience, including using scanned photographs for reference and using original performance routines where applicable.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after first accessing the Tape Room",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "circuit-boards",
+      "authenticity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-vintage-control-boards",
+    "title": "Vintage control boards used 'plug-and-play'",
+    "claim": "HandUnit says Fazbear's VR teams used vintage control boards almost like plug-and-play, digitally recreating performances and personalities from the past.",
+    "quote": "our VR development teams were able to use vintage control-boards almost like plug-and-play, digitally recreating performances and personalities from the past in an instant!",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 10 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "circuit-boards",
+      "origin-of-anomaly",
+      "personalities"
+    ],
+    "related": [
+      "hw-tape-05",
+      "sd-circuit-board-scan-virus"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-risk-assessment",
+    "title": "'Staying in your lane' per risk assessment",
+    "claim": "If the Tape Room hasn't been found, HandUnit praises the player for staying in their lane and sticking to the script, as the risk assessment team hoped.",
+    "quote": "you're staying in your lane and sticking to the script, which is exactly what our risk assessment team was hoping you'd do.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 8 challenges (Tape Room not yet accessed)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-unauthorized-portion",
+    "title": "Warning about the unauthorized portion of the game",
+    "claim": "If the Tape Room was accessed, HandUnit warns the player about unofficial game code harmful to them and to Fazbear's reputation.",
+    "quote": "It seems that you may have inadvertantly accessed an Unauthorized portion of the game. Please be aware that interacting with unofficial game code can be harmful to you, and potentially damaging to our reputation.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 8 challenges (Tape Room accessed)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "tape-room",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-unauthorized-personnel",
+    "title": "Avoid 'embedded messages from unauthorized personnel'",
+    "claim": "HandUnit tells the player to avoid anything that could be a glitch, mistake, or embedded message from unauthorized personnel.",
+    "quote": "please be sure to only interact with core gameplay elements and avoid anything that could potentially be considered a glitch, mistake, or embedded message from unauthorized personnel.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 14 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "tape-girl",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-first-dev-team-pulled",
+    "title": "First development team was pulled from the project",
+    "claim": "HandUnit says the first development team had problems, made sloppy mistakes, was pulled from the project, and that any notes or warnings they left are 'wholly untrustworthy'.",
+    "quote": "The first development team had a lot of problems, made some sloppy mistakes, and was eventually pulled from the project. …",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 19 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment",
+      "silver-parasol-games"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "dev-team",
+      "coverup"
+    ],
+    "related": [
+      "hw-tape-10"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "The studio is never named in Help Wanted. The name 'Silver Parasol Games' comes from Scott Cawthon's Reddit post about a planned (scrapped) website (see scott-silver-parasol-website)."
+  },
+  {
+    "id": "hw-handunit-anomaly-fun-fact",
+    "title": "'A hilarious mistake' let an anomaly in",
+    "claim": "HandUnit's 'funny fun fact': a previous development team made a mistake that may or may not have let an undesirable anomaly into the game's code.",
+    "quote": "One of the previous development teams made a hilarious mistake. One that may or may not have resulted in an undesirable anomaly entering the game's code.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 25 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment",
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "anomaly"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-disappeared-from-boundaries",
+    "title": "Player 'disappeared' from authorized boundaries",
+    "claim": "HandUnit notes the player has on multiple occasions disappeared from the authorized boundaries of the Virtual Experience.",
+    "quote": "It seems that, on multiple occasions now, you have disappeared from the authorized boundaries of the Fazbear Virtual Experience. We would ask that you not do it again.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Hub line after 35 challenges",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "player-identity",
+      "tape-room"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-credits-no-skeletons",
+    "title": "Post-credits: 'nothing left to see', 'no skeletons in our closet'",
+    "claim": "After the credits HandUnit insists the player missed nothing and that Fazbear is a safe family-friendly brand with no skeletons in its closet.",
+    "quote": "you didn't miss anything and there is nothing left to see. …",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "After the credits (Pizza Party completion)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "coverup",
+      "ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-handunit-pizza-party-glitch",
+    "title": "Stage announcement glitches in Pizza Party",
+    "claim": "Walking onto the show stage in Pizza Party, HandUnit's Freddy Fazbear announcement glitches out mid-sentence.",
+    "quote": "Fazbear Entertainment would like you to put your hands together for the one, the only, The only, only, only-ly-ly-ly-ly-ly",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Night Terrors: Pizza Party (walking onto the stage)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "pizza-party",
+      "glitch"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-vent-repair-circus-baby-zero-days",
+    "title": "Vent Repair set at Circus Baby's Entertainment and Rental",
+    "claim": "The Ennard Vent Repair level is introduced as Circus Baby's Entertainment and Rental, 0 days since last incident, with a Boiler Room on Subbasement G.",
+    "quote": "Welcome to Circus Baby's Entertainment and Rental. It has been 0 days since last incident. Emergency ventilation repairs may be necessary to reach the Boiler Room on Subbasement G.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Vent Repair: Ennard (intro)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "ennard"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "recreation"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "In-universe this is a VR recreation of a 'fictitious scenario', not a real visit."
+  },
+  {
+    "id": "hw-pns-foxy-former-employee",
+    "title": "A former employee used the wrong fuse on Foxy",
+    "claim": "In Parts and Service: Foxy, HandUnit says a former employee attempted to repair Foxy's chest motor using an incorrect fuse.",
+    "quote": "Oh no. It looks like a former employee attempted to repair Foxy's chest motor using an incorrect fuse.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Parts and Service: Foxy",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "foxy"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "parts-and-service"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "hw-pns-freddy-child-items",
+    "title": "A child's hat, watch and shoe inside Freddy",
+    "claim": "In Parts and Service: Freddy the player removes a child's hat from Freddy's mouth and a child's watch and shoe from his chest cavity, for the Lost and Found.",
+    "quote": "It appears there is a child's shoe wedged behind Freddy's music box.",
+    "game": "help-wanted",
+    "kind": "dialogue",
+    "location": "Parts and Service: Freddy",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "handunit",
+      "freddy-fazbear"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "parts-and-service",
+      "children"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "Presented as a lost-and-found chore; any darker reading is interpretation."
+  },
+  {
+    "id": "hw-pizza-party-spring-bonnie-plush",
+    "title": "Pizza Party: a Spring Bonnie plush follows the player",
+    "claim": "Pizza Party begins in a FNaF4-style bedroom with a purple star curtain; a Spring Bonnie plush appears there and follows the player into every room.",
+    "game": "help-wanted",
+    "kind": "minigame",
+    "location": "Night Terrors (Blacklight): Pizza Party — Bedroom and onward",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "pizza-party",
+      "spring-bonnie"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_Terrors"
+  },
+  {
+    "id": "hw-pizza-party-favorite-cake-pizza",
+    "title": "Pizza Party: player picks cake flavor and pizza topping",
+    "claim": "The maze makes the player choose a cake flavor (chocolate or vanilla) via doors in the FNaF2 office, and a topping (cheese or pepperoni) via doors in the FNaF1 Kitchen, where Chica eats pizza, before the party room opens.",
+    "game": "help-wanted",
+    "kind": "minigame",
+    "location": "Night Terrors (Blacklight): Pizza Party — FNaF2 Office and Kitchen",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "chica"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "pizza-party",
+      "kitchen",
+      "lure"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_Terrors",
+    "notes": "The hidden 'Kitchen' (never viewable on FNaF1 cameras) is a walk-in room here. Red spray-painted warnings/directions cover the walls, but they don't restrict which doors work."
+  },
+  {
+    "id": "hw-pizza-party-springtrap-window",
+    "title": "Pizza Party: Springtrap stares through the office window",
+    "claim": "If the player stalls outside the FNaF3 office in Pizza Party, Springtrap appears in the office staring out of the window at the player.",
+    "game": "help-wanted",
+    "kind": "minigame",
+    "location": "Night Terrors (Blacklight): Pizza Party — FNaF3 Office",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "springtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "pizza-party",
+      "springtrap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_Terrors"
+  },
+  {
+    "id": "hw-pizza-party-ending",
+    "title": "Pizza Party ending: Glitchtrap beckons, player ends up on stage as Freddy",
+    "claim": "In the party room Glitchtrap steps from behind a curtain and gestures the player to follow; after darkness the player is on stage performing as Freddy (holding a microphone) while credits roll and Glitchtrap dances in the background.",
+    "game": "help-wanted",
+    "kind": "ending",
+    "location": "Night Terrors (Blacklight): Pizza Party — final party room / credits",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap",
+      "freddy-fazbear"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "ending",
+      "pizza-party",
+      "stuffed",
+      "lure"
+    ],
+    "related": [
+      "hw-handunit-credits-no-skeletons"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "The player being 'inside' Freddy is implied by the view; the game never states it. Wiki readings that this re-enacts past murders are interpretation."
+  },
+  {
+    "id": "hw-merge-ending",
+    "title": "Merge ending: Glitchtrap takes over the player",
+    "claim": "After all 16 tapes, Glitchtrap appears behind the main computer and begins to merge with the player; if Tape 16's instructions are not followed, the view fades to glitchy purple and the player finds themselves on stage as Glitchtrap, then the game goes to the game-over room.",
+    "game": "help-wanted",
+    "kind": "ending",
+    "location": "Main hub after collecting all 16 tapes (instructions not followed)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "ending",
+      "merge",
+      "escape"
+    ],
+    "related": [
+      "hw-tape-16"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "'Glitchtrap escaping through the player' is the implied reading, matching Tape 16's warning."
+  },
+  {
+    "id": "hw-trapped-ending",
+    "title": "Trapped ending: Glitchtrap behind a sealed door, plush left behind",
+    "claim": "If Tape 16's instructions are followed, the player is taken to a giant door covered in handprints and scratches; through a sliding hole Glitchtrap shushes the player and backs into darkness; back in the hub a Glitchtrap plush sits beside the player.",
+    "game": "help-wanted",
+    "kind": "ending",
+    "location": "Main hub after collecting all 16 tapes (disconnect switch used)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "ending",
+      "trapped",
+      "glitchtrap-plush"
+    ],
+    "related": [
+      "hw-tape-16",
+      "codb-mask-plush-voice"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Whether Glitchtrap is truly contained is left open; the plush left in the hub is later used in the Curse of Dreadbear mask/plush secret."
+  },
+  {
+    "id": "hw-game-over-remember-jeremy",
+    "title": "Game-over TV: 'Remember Jeremy.'",
+    "claim": "One random message on the Game Over Room television reads 'Remember Jeremy.'",
+    "quote": "Remember Jeremy.",
+    "game": "help-wanted",
+    "kind": "text",
+    "location": "Main hub Game Over Room television (random message)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "jeremy-hw"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "jeremy",
+      "game-over"
+    ],
+    "related": [
+      "hw-tape-03",
+      "hw2-remember-jeremy-achievement",
+      "scottgames-hw-teaser-hidden-text"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room",
+    "notes": "Which Jeremy is meant is not specified; most naturally the studio tester from the tapes. The wiki links it to Jeremy Fitzgerald, which is interpretation."
+  },
+  {
+    "id": "hw-game-over-animatronics-cant-kill",
+    "title": "Game-over 'Faz-Fact': 'Animatronics can't kill you.'",
+    "claim": "A Game Over Room 'Faz-Fact' claims animatronics can't kill you; other messages include 'These are completely fictitious scenarios.' and 'Report glitches before they spread.'",
+    "quote": "Animatronics can't kill you.",
+    "game": "help-wanted",
+    "kind": "text",
+    "location": "Main hub Game Over Room television (random message)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "game-over",
+      "fazbear-framing"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room",
+    "notes": "Appears on the screen you see after being killed by an animatronic — deliberate irony."
+  },
+  {
+    "id": "hw-game-over-court-of-law",
+    "title": "Game-over TV: 'Nothing was ever proven in a court of law.'",
+    "claim": "Another random Game Over Room message reads 'Nothing was ever proven in a court of law.'",
+    "quote": "Nothing was ever proven in a court of law.",
+    "game": "help-wanted",
+    "kind": "text",
+    "location": "Main hub Game Over Room television (random message)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "game-over",
+      "coverup",
+      "lawsuit"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room"
+  },
+  {
+    "id": "hw-mobile-princess-quest-unlock",
+    "title": "Princess Quest hidden in the mobile port",
+    "claim": "In Help Wanted's mobile port, zooming in on a glitching (grid-patterned) Prize Counter object unlocks a hidden 8-bit game, 'Princess Quest', on the level-select monitor.",
+    "game": "help-wanted",
+    "kind": "hidden",
+    "location": "Help Wanted (mobile port) — Prize Counter / level select",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "the-princess"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "princess-quest",
+      "mobile"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest"
+  },
+  {
+    "id": "hw-mobile-princess-quest-ending",
+    "title": "Princess Quest: 'I ALWAYS COME BACK.'",
+    "claim": "Princess Quest's princess fights floating rabbit heads and rabbit 'blockers', passes a graveyard, and opens a purple, tentacle-infested door to meet a glitching purple rabbit monster; cipher text reads 'I ALWAYS COME BACK' and the reversed/sped-up audio says 'I always come back. Let me out.' before the game returns to the hub.",
+    "quote": "I always come back. Let me out.",
+    "game": "help-wanted",
+    "kind": "minigame",
+    "location": "Help Wanted (mobile port) — Princess Quest final room",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "glitchtrap",
+      "the-princess"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "princess-quest",
+      "i-always-come-back",
+      "mobile"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitchtrap/Audio",
+    "notes": "The text is in an invented cipher and the voice is reversed; the wording comes from fan decoding documented on the wiki (Glitchtrap/Audio; Princess Quest). 'I always come back' echoes FNaF3's Springtrap-era phrasing — the connection is for the theory layer."
+  },
+  {
+    "id": "hw-mobile-princess-quest-graveyard",
+    "title": "Princess Quest graveyard",
+    "claim": "Princess Quest contains an outdoor cemetery section with gravestones (the wiki counts six).",
+    "game": "help-wanted",
+    "kind": "minigame",
+    "location": "Help Wanted (mobile port) — Princess Quest cemetery",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "the-princess"
+    ],
+    "tags": [
+      "princess-quest",
+      "graves"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
+    "notes": "Wiki links these to FFPS's six gravestones/missing children — interpretation; no names appear."
+  },
+  {
+    "id": "hw-intro-indie-developer-poster",
+    "title": "Intro shows a photo of the 'indie developer'",
+    "claim": "The intro ride displays a poster/photo of Scott Cawthon, representing the in-universe indie developer whose stories Fazbear blames; HandUnit's narration calls that person 'a complete lunatic'.",
+    "game": "help-wanted",
+    "kind": "environment",
+    "location": "Intro ride (poster sequence)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "indie-developer",
+      "meta",
+      "fazbear-framing"
+    ],
+    "related": [
+      "hw-intro-complete-lunatic",
+      "hw-tape-13-fe-hired-developer",
+      "scott-not-part-of-lore"
+    ],
+    "image": "hw-intro-indie-developer-poster.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Freddy_Fazbear_Virtual_Experience",
+    "notes": "The in-game image is unnamed. The name 'Steve Snodgrass' comes from Tales from the Pizzaplex (book) and is excluded."
+  },
+  {
+    "id": "scottgames-hw-teaser-hidden-text",
+    "title": "Help Wanted teaser hidden text",
+    "claim": "A Help Wanted teaser posted on scottgames.com on March 11, 2019 contained hidden text visible when brightened: 'Don't listen to them.', 'We let something inside.', 'It was an accident.', 'Remember Jeremy.'",
+    "quote": "We let something inside.",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "scottgames.com teaser image (posted and removed March 11, 2019)",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "March 11, 2019 (teaser post date)",
+      "precision": "exact",
+      "basis": "Date the teaser was posted"
+    },
+    "tags": [
+      "teaser",
+      "jeremy",
+      "anomaly"
+    ],
+    "related": [
+      "hw-game-over-remember-jeremy"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Help_Wanted",
+    "notes": "Scott removed the teaser within hours because some artwork was traced from fan renders; the hidden text is still an official Scott-posted teaser. 'Remember Jeremy.' was also in the page alt text/source per the wiki."
+  },
+  {
+    "id": "scott-silver-parasol-website",
+    "title": "Scott: planned studio website scrapped",
+    "claim": "Scott Cawthon said he had planned a real-world website for the fictional VR studio ('Silver Parasol Games') but decided against it to avoid crossing from in-game storytelling into outright lying.",
+    "quote": "there is a fine line between crafting an in-game story and just outwardly lying about something. I didn’t want to cross that line.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Scott Cawthon Reddit post 'Silver Parasol Games' (r/fivenightsatfreddys, 2019)",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "2019 (statement)",
+      "precision": "approx",
+      "basis": "Reddit post from May 2019"
+    },
+    "people": [
+      "silver-parasol-games"
+    ],
+    "tags": [
+      "meta",
+      "studio-name"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/btaxrx/silver_parasol_games/",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Silver_Parasol_Games",
+    "notes": "This is the source of the studio name; it is not spoken in Help Wanted. Reddit could not be fetched directly (login wall); wording taken from the wiki citation. A leaked mock-up of the site lists placeholder employee names — excluded."
+  },
+  {
+    "id": "scott-not-part-of-lore",
+    "title": "Scott: he himself is not part of the lore",
+    "claim": "After Help Wanted's intro showed his photo as the 'indie developer', Scott Cawthon explained on Reddit that he is not part of the lore.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Scott Cawthon Reddit post 'A lore question about Help Wanted, and an answer' (2019)",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "2019 (statement)",
+      "precision": "approx",
+      "basis": "Reddit post, September 2019"
+    },
+    "tags": [
+      "meta",
+      "indie-developer"
+    ],
+    "related": [
+      "hw-intro-indie-developer-poster",
+      "hw-tape-13-fe-hired-developer"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/a_lore_question_about_help_wanted_and_an_answer/",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Scott_Cawthon",
+    "notes": "Exact wording not verified (Reddit behind login); claim paraphrased from the wiki summary, so no quote."
+  },
+  {
+    "id": "codb-handunit-no-hidden-intent",
+    "title": "DLC has 'absolutely no hidden intent or purpose'",
+    "claim": "HandUnit introduces the Halloween add-on insisting it has absolutely no hidden intent or purpose.",
+    "quote": "Keep in mind that this DLC pack is nothing more than a festive holiday themed add-on, which has absolutely no hidden intent or purpose, so have fun.",
+    "game": "curse-of-dreadbear",
+    "kind": "dialogue",
+    "location": "Main hub after DLC install / on entering the Halloween Hub",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "people": [
+      "handunit",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "fazbear-framing"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "codb-fallfest-83-banner",
+    "title": "Halloween hub stage banner: 'Fallfest '83'",
+    "claim": "The Halloween hub is a farm with a small wooden stage under a banner reading Fallfest '83.",
+    "quote": "Fallfest '83",
+    "game": "curse-of-dreadbear",
+    "kind": "environment",
+    "location": "Curse of Dreadbear Halloween Hub (stage behind the player)",
+    "certainty": "stated",
+    "when": {
+      "year": 1983,
+      "label": "'83 (banner text; in a VR recreation)",
+      "precision": "approx",
+      "basis": "Banner reads Fallfest '83; setting is a virtual space, so this dates the depicted event, not the VR game"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "1983",
+      "fall-fest"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Curse_of_Dreadbear_(Mode)"
+  },
+  {
+    "id": "codb-fnaf4-house-on-hill",
+    "title": "FNaF4's house on the hill in the background",
+    "claim": "The FNaF4 menu house sits on a hill in the hub's background, and the sky can randomly turn red/orange like FNaF4's menu.",
+    "game": "curse-of-dreadbear",
+    "kind": "environment",
+    "location": "Curse of Dreadbear Halloween Hub (background)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience",
+      "fnaf4-house"
+    ],
+    "tags": [
+      "fnaf4",
+      "house"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF:_HW)"
+  },
+  {
+    "id": "codb-purple-headlights",
+    "title": "Button turns a car's headlights purple",
+    "claim": "A button on the hub's level-select monitor turns the headlights of the car/truck behind the player from white to purple.",
+    "game": "curse-of-dreadbear",
+    "kind": "hidden",
+    "location": "Curse of Dreadbear Halloween Hub (monitor side button)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "purple",
+      "easter-egg"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF:_HW)",
+    "notes": "The wiki reads this as a nod to the purple car of the 'Purple Guy'; that is interpretation."
+  },
+  {
+    "id": "codb-dancing-glitchtrap",
+    "title": "Glitchtrap dances on a distant hill",
+    "claim": "On loading the Halloween hub, Glitchtrap can randomly appear on a distant hill near the house, dancing the same way he did at the end of Pizza Party.",
+    "game": "curse-of-dreadbear",
+    "kind": "hidden",
+    "location": "Curse of Dreadbear Halloween Hub (random easter egg)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "easter-egg"
+    ],
+    "related": [
+      "hw-pizza-party-ending"
+    ],
+    "image": "codb-dancing-glitchtrap.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF:_HW)"
+  },
+  {
+    "id": "codb-corn-maze-rabbit-mask",
+    "title": "Corn Maze secret: the rabbit mask",
+    "claim": "Collecting all four keys in Corn Maze spawns a purple-glitching fifth key; returning to the cellar door at the maze start leads to a different 'Game Won' room with a grinning white rabbit mask on the table.",
+    "game": "curse-of-dreadbear",
+    "kind": "hidden",
+    "location": "Afraid of the Dark: Corn Maze (secret cellar)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "rabbit-mask",
+      "vanny-mask",
+      "secret"
+    ],
+    "related": [
+      "codb-mask-plush-voice",
+      "hw2-pq4-vanny-mask-trade"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Afraid_of_the_Dark",
+    "notes": "The mask's design matches the mask later worn by Vanny (Security Breach) and the Security Mask (RUIN/HW2); the name Vanny is not used in Help Wanted."
+  },
+  {
+    "id": "codb-mask-plush-voice",
+    "title": "Secret voice: a woman answers the rabbit",
+    "claim": "Wearing the rabbit mask while holding the Glitchtrap plush plays a hidden recording of a young woman's side of a conversation, reassuring someone she has 'it', made it herself, no one suspects anything, and she will be ready.",
+    "quote": "Yes, I hear you. I know... No. There's no miscommunication... I understand... Yes, I have it. I made it myself. I think you would like it... No, no one suspects anything... …",
+    "game": "help-wanted",
+    "kind": "hidden",
+    "location": "Main hub Prize Counter: wear the Corn Maze rabbit mask and hold the Glitchtrap plush (requires Trapped ending + Curse of Dreadbear)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given in Help Wanted"
+    },
+    "people": [
+      "hw-mask-voice",
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "vanny",
+      "glitchtrap",
+      "secret",
+      "one-sided-call"
+    ],
+    "related": [
+      "codb-corn-maze-rabbit-mask",
+      "hw-trapped-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/History",
+    "notes": "The speaker is unnamed in-game. Later games (Security Breach/HW2) tie the rabbit mask to Vanny/Vanessa, and the wiki identifies this voice as Vanessa; Help Wanted itself never says so. What 'it' is (she 'made it herself') is unstated."
+  },
+  {
+    "id": "codb-glitching-gravestone",
+    "title": "Game-over graveyard: a glitching central gravestone",
+    "claim": "In the Halloween Game Over Room, Dreadbear grasps a gazebo surrounded by seven gravestones with another beneath; after a while the central gravestone glitches with green polygons and purple particles.",
+    "game": "curse-of-dreadbear",
+    "kind": "hidden",
+    "location": "Curse of Dreadbear Game Over Room",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "people": [
+      "dreadbear"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "graves",
+      "glitch",
+      "purple"
+    ],
+    "image": "codb-glitching-gravestone.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room",
+    "notes": "Any link to Afton's victims or Glitchtrap is interpretation."
+  },
+  {
+    "id": "codb-game-over-its-only-a-dream",
+    "title": "Halloween game-over TV: 'It's only a dream.'",
+    "claim": "The Halloween Game Over Room television shows messages including 'It's only a dream.', 'Purging system...' and 'Where am I?'",
+    "quote": "It's only a dream.",
+    "game": "curse-of-dreadbear",
+    "kind": "text",
+    "location": "Curse of Dreadbear Game Over Room television",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "game-over",
+      "fnaf4"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room"
+  },
+  {
+    "id": "codb-dreadbear-reanimate",
+    "title": "Dreadbear: reanimating the inanimate",
+    "claim": "In the Dreadbear level, HandUnit welcomes the player to Research and Development to 'reanimate the inanimate': shocking the creature to life and calibrating a brain to put in its animatronic head, then introducing it to kids for focus testing.",
+    "quote": "Today, we are using science to pervert the mysteries of life and reanimate the inanimate.",
+    "game": "curse-of-dreadbear",
+    "kind": "minigame",
+    "location": "Spooky Mansion: Dreadbear",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "people": [
+      "handunit",
+      "dreadbear",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "dreadbear",
+      "brain",
+      "reanimation"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "codb-dreadbear-focus-testing",
+    "title": "Dreadbear to be introduced to children",
+    "claim": "On completing the Dreadbear build, HandUnit says the creature will be introduced to the kids for focus testing and troubleshooting.",
+    "quote": "Well done! It's time to introduce the creature to the kids for focus testing and troubleshooting.",
+    "game": "curse-of-dreadbear",
+    "kind": "dialogue",
+    "location": "Spooky Mansion: Dreadbear (completion)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "people": [
+      "handunit",
+      "dreadbear"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "dreadbear",
+      "children"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "codb-scanning-for-glitches",
+    "title": "Danger! Keep Out! Night 3: 'Scanning for glitches...'",
+    "claim": "Sometimes on Night 03, keeping the phone up after loud beeps makes the monitor show 'Scanning for glitches...'; textures flicker, lights turn purple, animatronics can't attack, then 'No glitches found' and the player is sent to the title screen.",
+    "quote": "No glitches found",
+    "game": "curse-of-dreadbear",
+    "kind": "hidden",
+    "location": "Danger! Keep Out! — Night 03 phone easter egg",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted's Curse of Dreadbear add-on (undated)",
+      "precision": "unknown",
+      "basis": "No in-universe year given"
+    },
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitch",
+      "purple"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Danger!_Keep_Out!"
+  },
+  {
+    "id": "sd-ness-blood-eagle-calendar",
+    "title": "Luis flags Ness's 'torture' searches",
+    "claim": "IT employee Luis Cabrera privately warns 'Ness' that her searches containing 'torture' triggered a red-flag report after she ordered a Viking Blood Eagle calendar.",
+    "quote": "basically anything mentioning 'torture' is going to raise the alarm. So although the Viking Blood Eagle Twelve-Month Calendar you ordered is very cool, the searches that got you there did trigger a red flag.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "November 28, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny",
+      "emails"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "Only 'Ness' is used. The link to Vanessa (Security Breach) is the obvious reading but is not stated in this game."
+  },
+  {
+    "id": "sd-ness-compliance-searches",
+    "title": "Ness searched 'how to induce compliance in human subjects'",
+    "claim": "Luis tells Ness her searches 'how to induce compliance in human subjects' and 'how to induce self-compliance(?)' got his attention, followed by a search for just 'help'.",
+    "quote": "the sentence how to induce compliance in human subjects, and how to induce self-compliance(?) did actually get my attention.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 2, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny",
+      "control"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-ness-cut-in-half-search",
+    "title": "Ness searched how far a human can be cut in half",
+    "claim": "Luis reports Ness went from researching bee migration to searching how far a human being can be cut in half before losing consciousness.",
+    "quote": "the next day you type in 'How far can a human being be cut in half before losing consciousness'.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 4, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-ness-rubber-masks",
+    "title": "Ness ordered three human male rubber masks",
+    "claim": "Luis notes Ness ordered three 'lifelike, human male rubber masks'.",
+    "quote": "I saw you ordered three 'lifelike, human male rubber masks' and I was dying to ask what they're for",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 6, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny",
+      "masks"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-ness-interested-in-it",
+    "title": "Ness showed interest in IT",
+    "claim": "After their first in-person conversation, Luis writes that he had no idea Ness was into IT stuff.",
+    "quote": "I had no idea you were into IT stuff.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 8, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "Could imply Ness probing the IT staffer; the email doesn't say why."
+  },
+  {
+    "id": "sd-ness-voices-at-screen",
+    "title": "Ness in 'another world' at her screen, voices heard",
+    "claim": "Luis says Ness didn't hear him at her desk, her face close to the screen as if in another world, and he heard voices as though she were on a call; he mentions her rainbow hair streaks.",
+    "quote": "It must be useful to be able to shut out the world and focus like that, I wish I could do it. …",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email '(no subject)' from luis.cabrera",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 9, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "luis-cabrera",
+      "ness"
+    ],
+    "tags": [
+      "ness",
+      "vanny",
+      "voices",
+      "possession"
+    ],
+    "related": [
+      "codb-mask-plush-voice"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-contractor-circuit-boards-drilled",
+    "title": "Contractor drills circuit boards out of animatronics",
+    "claim": "Employees of a contractor managed by Anna Kwemto remove circuit boards from animatronics, needing a power drill to get the casings off.",
+    "quote": "Need to get the circuit boards out. Anna says you're the only one who can use the power drill.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story emails 'Can I use power tools?' / 'Come drill for me?' (Daniel Rocha, Anna Kwemto, Raha Salib)",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "November 29, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "daniel-rocha",
+      "anna-kwemto",
+      "raha-salib"
+    ],
+    "tags": [
+      "circuit-boards",
+      "contractor"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "The contractor studio is never named. The wiki's scrapped/unused emails tie it to the Help Wanted studio, but the released emails do not."
+  },
+  {
+    "id": "sd-circuit-board-scan-virus",
+    "title": "Scanning an FE circuit board released a virus",
+    "claim": "Steven Wilson is locked out after scanning the last set of circuit boards; Daniel Rocha then reports that scanning the last circuit board released a fast-spreading virus.",
+    "quote": "Turns out that wasn't just a glitch, we released a virus when we scanned that last circuit board. It's spreading really fast, we're going to need all hands on deck.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story emails 'system glitch' (Steven Wilson) and 'virus detected' (Daniel Rocha)",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 5, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "steven-wilson",
+      "daniel-rocha"
+    ],
+    "tags": [
+      "circuit-boards",
+      "virus",
+      "origin-of-anomaly"
+    ],
+    "related": [
+      "hw-tape-05",
+      "hw-handunit-vintage-control-boards"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "Parallels Help Wanted's scanned-circuit-board origin for the anomaly; the email never names Glitchtrap."
+  },
+  {
+    "id": "sd-fe-legal-halt-vintage-hardware",
+    "title": "Fazbear Legal orders a halt on 'vintage hardware' work",
+    "claim": "Kayla Stringer, Associate General Counsel of Fazbear Entertainment, orders the contractor to immediately cease all work on Fazbear properties, especially regarding any vintage hardware, citing unforeseen circumstances.",
+    "quote": "Due to unforeseen circumstances, Fazbear Entertainment is ordering a halt to work on all existing contracts, especially in reference to any vintage hardware.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story email 'IMMEDIATE ACTION REQUIRED' from Fazbear Entertainment Office of Legal Affairs",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 1, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "kayla-stringer",
+      "fazbear-entertainment",
+      "anna-kwemto"
+    ],
+    "tags": [
+      "circuit-boards",
+      "fazbear-framing",
+      "coverup"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-virus-traced-to-fe-board",
+    "title": "Virus traced to a Fazbear Entertainment circuit board scan",
+    "claim": "Steven Wilson emails 'Jim' (James Campbell) that a virus spreading through their system was traced to a circuit-board scan performed for Fazbear Entertainment, and later follows up with no reply.",
+    "quote": "We have a virus spreading through our system, and we've traced it back to one of the circuit board scans we performed for Fazbear Entertainment.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Story emails 'URGENT: Virus caused by FE circuit board upload' and 'URGENT: virus'",
+    "certainty": "stated",
+    "when": {
+      "year": 2019,
+      "label": "December 7, 2019 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "steven-wilson",
+      "james-campbell",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "circuit-boards",
+      "virus"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-mail-server-advisory",
+    "title": "Why the player sees these emails",
+    "claim": "A Fazbear Legal staff advisory says the mail server may be directing email to incorrect recipients and that reading email not addressed to you violates company policy.",
+    "quote": "Due to technical complications, our mail server may be directing email to incorrect recipients.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Email 'Staff Advisory: Mail Server' (Fazbear Entertainment Office of Legal Affairs to All Staff)",
+    "certainty": "stated",
+    "when": {
+      "label": "Special Delivery launch period, 2019",
+      "year": 2019,
+      "precision": "approx",
+      "basis": "Default email received by all new players"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "emails"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-vintage-bonnie-reports",
+    "title": "Customers report an unlisted 'vintage Bonnie model'",
+    "claim": "Customer Service reports that hardcore users are getting service calls from an animatronic not in the database — a vintage Bonnie model with a really bad smell.",
+    "quote": "A handful of our more hardcore users of the service have been reporting service calls from an animatronic that isn't appearing anywhere in our database. Some kind of vintage Bonnie model. …",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Email 'Couple of weird customer reports' (Isolde, Customer Service, to Tristan, Compliance)",
+    "certainty": "stated",
+    "when": {
+      "year": 2020,
+      "label": "February 12, 2020 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "springtrap",
+      "isolde-sd",
+      "tristan-sd",
+      "fazbear-funtime-service"
+    ],
+    "tags": [
+      "springtrap",
+      "smell"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "Introduces Springtrap to the Funtime Service roster; the email does not name him."
+  },
+  {
+    "id": "sd-circuit-board-does-what-we-tell-it",
+    "title": "Compliance: 'It has to do what we tell it to'",
+    "claim": "QA asks whether a holiday release's circuit board changed because testers find its behavior aggressive; Compliance insists only the plush suit changed and a circuit-board-controlled machine cannot reprogram itself.",
+    "quote": "It's just a machine controlled by a circuit board. It has to do what we tell it to and nothing more.",
+    "game": "special-delivery",
+    "kind": "text",
+    "location": "Emails 'Circuit board changes?' / 'Re: Circuit board changes?' (Charles QA / Tristan Compliance)",
+    "certainty": "stated",
+    "when": {
+      "year": 2020,
+      "label": "March 12, 2020 (in-game email date)",
+      "precision": "exact",
+      "basis": "Date the story email was delivered/dated in Special Delivery's inbox (real-time delivery during the 2019 storyline)"
+    },
+    "people": [
+      "tristan-sd",
+      "charles-sd",
+      "fazbear-funtime-service"
+    ],
+    "tags": [
+      "circuit-boards",
+      "denial"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
+  },
+  {
+    "id": "sd-ffs-never-alone-ad",
+    "title": "Fazbear Funtime Service ad: 'never be alone again'",
+    "claim": "The opening ad copy for the Fazbear Funtime Service promises subscribers they'll never be alone again, with whispered undertones ('watching your back', 'we're always watching out for you').",
+    "quote": "That's right! With the Fazbear Funtime Service, you'll never be alone again!",
+    "game": "special-delivery",
+    "kind": "cutscene",
+    "location": "Special Delivery intro cinematic / launch ad",
+    "certainty": "stated",
+    "when": {
+      "label": "Special Delivery present (c. 2019)",
+      "year": 2019,
+      "precision": "approx",
+      "basis": "Game's contemporary setting and email dates"
+    },
+    "people": [
+      "fazbear-funtime-service",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "fazbear-framing",
+      "ad-copy"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Funtime_Service"
+  },
+  {
+    "id": "sd-tutorial-unit-eternal-package",
+    "title": "Tutorial Unit: 'Eternal Package'",
+    "claim": "The glitching Tutorial Unit tells new users another delivery is coming as part of their 'Eternal Package' and that they'll never be alone again.",
+    "quote": "As part of our Ete-ernal Package, another delivery is on its way!",
+    "game": "special-delivery",
+    "kind": "dialogue",
+    "location": "Special Delivery tutorial",
+    "certainty": "stated",
+    "when": {
+      "label": "Special Delivery present (c. 2019)",
+      "year": 2019,
+      "precision": "approx",
+      "basis": "Game's contemporary setting"
+    },
+    "people": [
+      "tutorial-unit",
+      "fazbear-funtime-service"
+    ],
+    "tags": [
+      "ad-copy",
+      "glitch"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit"
+  },
+  {
+    "id": "sd-springtrap-did-not-save-the-others",
+    "title": "Springtrap: 'It did not save the others'",
+    "claim": "Special Delivery's Springtrap taunts the player that hiding did not save 'the others' and says he is 'back'.",
+    "quote": "Hide if you want. It did not save the others. It will not save you.",
+    "game": "special-delivery",
+    "kind": "dialogue",
+    "location": "Springtrap encounter voice lines",
+    "certainty": "stated",
+    "when": {
+      "label": "Special Delivery present (c. 2020)",
+      "year": 2020,
+      "precision": "approx",
+      "basis": "Springtrap added to the service in early 2020"
+    },
+    "people": [
+      "springtrap"
+    ],
+    "tags": [
+      "springtrap",
+      "others"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
+    "notes": "Other lines: \"I'm...back...\", \"I will make you suffer...suffer like so many of the others.\" He is never named William/Afton in SD."
+  },
+  {
+    "id": "hw2-orientation-program-intro",
+    "title": "Frame: the Fazbear Orientation Program",
+    "claim": "Help Wanted 2 opens with the message that the Fazbear Orientation Program will begin shortly; the game is an AR job-training simulation for a new Fazbear employee, run through the Security Mask.",
+    "quote": "Welcome... Fazbear Orientation Program... will begin shortly",
+    "game": "help-wanted-2",
+    "kind": "text",
+    "location": "New game start screen",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "fazbear-entertainment",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "frame",
+      "employee-training"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program"
+  },
+  {
+    "id": "hw2-remove-mask-real-world",
+    "title": "Removing the mask reveals a ruined real world",
+    "claim": "After disabling an AR inhibitor (with the Faz-Wrench), the player can pull off the Security (V.A.N.N.I.) mask, revealing the hub's real, derelict state; hard-mode levels become available. The achievement text reads 'See the world as it really is.'",
+    "quote": "See the world as it really is.",
+    "game": "help-wanted-2",
+    "kind": "mechanic",
+    "location": "Hub: locked conduit room (AR inhibitor) → removing the mask; achievement 'Open Your Eyes'",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "security-mask",
+      "ar",
+      "ruin"
+    ],
+    "image": "hw2-hub-real-world.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
+    "notes": "The same line appears among Vanny's unused HW2 lines (hw2-unused-vanny-dont-help-it-escape)."
+  },
+  {
+    "id": "hw2-faz-wrench-after-16-prizes",
+    "title": "Faz-Wrench unlocks the hidden room",
+    "claim": "After 16 prizes from the end-of-level prize machine, the player receives a Faz-Wrench, used to open a locked conduit door concealing the Princess Quest IV cabinet and the AR inhibitor.",
+    "game": "help-wanted-2",
+    "kind": "mechanic",
+    "location": "Hub prize machine → locked conduit door",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "faz-wrench",
+      "16"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Faz-Wrench",
+    "notes": "16 prizes mirrors HW1's 16 tapes (interpretation). Mystic Hippo says 'The key is familiar to you.'"
+  },
+  {
+    "id": "hw2-glitchtrap-corrupts-backstage",
+    "title": "Glitchtrap corrupts instruction screens",
+    "claim": "In the Backstage makeover and repair levels, Glitchtrap appears on the instruction monitor and glitches it to obscure the directions.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Backstage: S.T.A.F.F. Makeover, Glam Makeover (Roxy), Repair Roxy",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "glitchtrap",
+      "corruption"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Backstage_(FNaF:_HW2)"
+  },
+  {
+    "id": "hw2-glitchtrap-hand-puppets",
+    "title": "Glitchtrap hand puppets in Bonk a' Bon",
+    "claim": "In Bonk a' Bon: Bonus Round, Glitchtrap's eyes watch through the holes and then emerge as Glitchtrap hand puppets; hitting one tilts the machine and a puppet attacks if repairs fail.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Fazcade: Bonk a' Bon: Bonus Round",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "glitchtrap",
+      "puppet"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazcade_(FNaF:_HW2)"
+  },
+  {
+    "id": "hw2-faz-force-ending",
+    "title": "Faz Force ending: Glitchtrap's hand, S.T.A.F.F. bots, Mask Bot",
+    "claim": "Combining all six Faz Force figures opens a box revealing a recharge station from which Glitchtrap's arm emerges; Nightmarionne-style S.T.A.F.F. bots confront the player; then Mask Bot reboots and hands someone a Security Mask.",
+    "game": "help-wanted-2",
+    "kind": "ending",
+    "location": "Main ending (all 6 Faz Force figures)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glitchtrap",
+      "mask-bot",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ending",
+      "faz-force",
+      "security-mask",
+      "ruin-link"
+    ],
+    "related": [
+      "hw2-faz-force-achievement"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "The wiki identifies the station as Burntrap's and the mask recipient as Cassie (mirroring RUIN's opening); the ending shows the mask hand-off from Mask Bot's perspective. Whether the player is killed is implied, not stated."
+  },
+  {
+    "id": "hw2-faz-force-achievement",
+    "title": "'Batteries Not Included': 'Take this mask.'",
+    "claim": "The main-ending achievement's text reads 'Take this mask. Take this mask.' — matching Mask Bot's RUIN lines.",
+    "quote": "Take this mask. Take this mask.",
+    "game": "help-wanted-2",
+    "kind": "text",
+    "location": "Achievement 'Batteries Not Included'",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "mask-bot"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ending",
+      "security-mask",
+      "ruin-link"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)"
+  },
+  {
+    "id": "hw2-faz-force-six-figures",
+    "title": "The six Faz Force figures",
+    "claim": "Faz Force consists of FazForce Freddy, Bionic Bonnie, Chipset Chica, Mecha Pirate Foxy and two unnamed 'mysterious friends' (Golden Freddy and Puppet figures), which combine into Fazbot-O-Tron.",
+    "game": "help-wanted-2",
+    "kind": "environment",
+    "location": "Hub Faz Force ads / figure prizes (given by the hub's Helpy/Helpi character)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "freddy-fazbear",
+      "bonnie",
+      "chica",
+      "foxy",
+      "golden-freddy",
+      "puppet"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "faz-force",
+      "six"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Faz_Force",
+    "notes": "Same six characters as the memory dolls (hw2-memory-dolls). Wiki speculation that the figures hold Glitchtrap's code is not in-game fact."
+  },
+  {
+    "id": "hw2-memory-dolls",
+    "title": "Six hidden 'memory' dolls",
+    "claim": "Six hidden 'memories' — rag dolls of Chica, Foxy, Freddy, Bonnie, Golden Freddy and the Puppet — are found via cryptic drawings; Glitchtrap is shown holding/presenting each doll, and they then sit in the hub.",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Memory dolls: Fazbear Theater (Chica), Log Ride (Foxy), Fazerblast: FNAF 3 (Freddy), Bonk a' Bon: Bonus Round (Bonnie), Fizzy Faz Night 3 'graveyard' drink (Golden Freddy), Puppet Master keypad 1983 (Puppet)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glitchtrap",
+      "freddy-fazbear",
+      "bonnie",
+      "chica",
+      "foxy",
+      "golden-freddy",
+      "puppet"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "memories",
+      "missing-children",
+      "glitchtrap"
+    ],
+    "related": [
+      "hw2-remember-jeremy-achievement",
+      "hw2-pq4-graveyard-order",
+      "hw2-puppet-master-1983"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Memories",
+    "notes": "No child names appear in-game; wiki image filenames using book names (Susie, Fritz, Gabriel, Jeremy, Cassidy, Charlie) are excluded."
+  },
+  {
+    "id": "hw2-remember-jeremy-achievement",
+    "title": "Achievement 'Remember Jeremy?' for retrieving a memory",
+    "claim": "Retrieving a memory doll unlocks an achievement named 'Remember Jeremy?' (text: 'Retrieve a memory.'), whose icon shows the Bonnie memory doll.",
+    "quote": "Retrieve a memory.",
+    "game": "help-wanted-2",
+    "kind": "text",
+    "location": "Achievement 'Remember Jeremy?'",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "bonnie"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "jeremy",
+      "memories",
+      "achievement"
+    ],
+    "related": [
+      "hw-game-over-remember-jeremy",
+      "hw2-memory-dolls"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
+    "notes": "Which 'Jeremy' is meant (the HW tester, the Bonnie doll, or FNaF2's Jeremy Fitzgerald) is not stated; the Bonnie icon pairing is suggestive only."
+  },
+  {
+    "id": "hw2-puppet-master-1983",
+    "title": "Puppet Master keypad: 1983 → Puppet memory",
+    "claim": "In the Sister Location 'Puppet Master' level, entering 1983 on a keypad hidden in the desk's left drawer brings out the Puppet memory doll.",
+    "quote": "1983",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Sister Location: Office: Puppet Master (left desk drawer keypad)",
+    "certainty": "shown",
+    "when": {
+      "label": "Code 1983 (the game never says what it dates)",
+      "year": 1983,
+      "precision": "unknown",
+      "basis": "Keypad code, not an explicit date"
+    },
+    "people": [
+      "puppet"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "1983",
+      "memories",
+      "keypad"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Sister_Location_(FNaF:_HW2)",
+    "notes": "Echoes Sister Location's 1983 keypad easter egg."
+  },
+  {
+    "id": "hw2-pq4-unlock",
+    "title": "Princess Quest IV unlocked by the memories",
+    "claim": "Collecting all six memory dolls and inserting a corrupted Faz-Token (from Mystic Hippo) unlocks the Princess Quest IV cabinet in the hidden room.",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Hidden conduit room: Princess Quest IV cabinet",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "the-princess"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest"
+  },
+  {
+    "id": "hw2-pq4-old-man",
+    "title": "Princess Quest IV: the Old Man",
+    "claim": "In Princess Quest IV an 'Old Man' gives the sword of light and later trades; his lines include 'You are Won. And you remain.' and 'It is a fair trade'.",
+    "quote": "It is a fair trade",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Princess Quest IV",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "pq-old-man"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest",
+      "old-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Old_Man_Consequences",
+    "notes": "Wiki says HW2's subtitle files label him 'OMC' (data-mined), and he matches the Security Breach PQ Old Man; the game never calls him Old Man Consequences on screen."
+  },
+  {
+    "id": "hw2-pq4-player-enters-game",
+    "title": "PQ IV: the Princess pulls the player into the game",
+    "claim": "Midway through Princess Quest IV, the Princess appears beside the player and, when she strikes them, the player is transported inside the game, continuing in first person with her sword.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Princess Quest IV (pit room)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "the-princess",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest",
+      "digital"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest"
+  },
+  {
+    "id": "hw2-pq4-graveyard-order",
+    "title": "PQ IV graveyard: six graves with the memory dolls",
+    "claim": "Princess Quest IV's graveyard has six gravestones, each paired with one of the six memory dolls; lighting torches in the order Chica, Foxy, Freddy, Bonnie, Golden Freddy, Puppet opens a secret chest.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Princess Quest IV graveyard; achievement 'Lost Luggage'",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "chica",
+      "foxy",
+      "freddy-fazbear",
+      "bonnie",
+      "golden-freddy",
+      "puppet",
+      "missing-children"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest",
+      "graves",
+      "memories",
+      "order"
+    ],
+    "related": [
+      "hw2-memory-dolls",
+      "hw2-pq4-bonnie-mask"
+    ],
+    "image": "hw2-pq4-graveyard-memory-dolls.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
+    "notes": "The wiki reads the order (and differing dot counts on the stones) as the order of Afton's murders; that is interpretation. No names are shown."
+  },
+  {
+    "id": "hw2-pq4-bonnie-mask",
+    "title": "PQ IV secret chest: 'A Bonnie Mask?'",
+    "claim": "The secret chest below the graveyard contains a Bonnie mask with no use; the achievement text reads 'A Bonnie Mask?'",
+    "quote": "A Bonnie Mask?",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Princess Quest IV secret chest; achievement 'Lost Luggage'",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "bonnie"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest",
+      "bonnie-mask"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
+    "notes": "Theories link it to FNaF4's bully masks; unstated."
+  },
+  {
+    "id": "hw2-pq4-vanny-mask-trade",
+    "title": "PQ IV: the player's Vanny mask traded for the Glitchtrap plush",
+    "claim": "The Old Man trades the player the Glitchtrap plush for their Vanny mask (the mask the player has worn through Help Wanted 2); the Old Man is then shown wearing it.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Princess Quest IV (Old Man trade)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "pq-old-man",
+      "vanny",
+      "glitchtrap",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "princess-quest",
+      "vanny-mask",
+      "glitchtrap-plush"
+    ],
+    "related": [
+      "codb-corn-maze-rabbit-mask",
+      "hw2-pq4-old-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings"
+  },
+  {
+    "id": "hw2-pq4-elevator-claw-machine",
+    "title": "PQ IV: Sister Location elevator into a claw machine",
+    "claim": "Beyond the door is the Sister Location elevator; exiting it, the player is trapped inside a giant claw machine among plush prizes while Vanny stares in from outside, and Moon (as the claw) takes the Glitchtrap plush to her.",
+    "game": "help-wanted-2",
+    "kind": "ending",
+    "location": "Princess Quest IV ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "vanny",
+      "sun-moon",
+      "hw2-protagonist",
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ending",
+      "princess-quest",
+      "vanny",
+      "trapped"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings"
+  },
+  {
+    "id": "hw2-pq4-vanny-crushes-glitchtrap",
+    "title": "PQ IV ending: Vanny crushes Glitchtrap",
+    "claim": "Vanny takes the plush, which becomes a tiny Glitchtrap, crushes him in her hands, and fades away into the darkness.",
+    "game": "help-wanted-2",
+    "kind": "ending",
+    "location": "Princess Quest IV ending ('Consequences')",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "vanny",
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ending",
+      "glitchtrap-death",
+      "vanny"
+    ],
+    "related": [
+      "hw2-pq4-consequences-achievement"
+    ],
+    "image": "hw2-pq4-vanny-crushes-glitchtrap.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "A Steel Wool developer reportedly called this 'the end of Glitchtrap' in an interview — not a Scott/game source, so not recorded as fact."
+  },
+  {
+    "id": "hw2-pq4-consequences-achievement",
+    "title": "'Consequences': 'System threats found. Repair complete.'",
+    "claim": "The secret-ending achievement 'Consequences' reads 'System threats found. Repair complete.'",
+    "quote": "System threats found. Repair complete.",
+    "game": "help-wanted-2",
+    "kind": "text",
+    "location": "Achievement 'Consequences' (Princess Quest IV ending)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ending",
+      "achievement"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)"
+  },
+  {
+    "id": "hw2-mimic-teaser-1979-white-tiger",
+    "title": "Keypad 1979: Glitchtrap gives a White Tiger plush",
+    "claim": "In the Secret of the Mimic teaser update, entering 1979 on the Puppet Master keypad makes Glitchtrap hand over a White Tiger plush, after which the Mimic appears as a gallery character and a new teaser area opens.",
+    "quote": "1979",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Sister Location: Office: Puppet Master keypad (1.017 teaser update)",
+    "certainty": "shown",
+    "when": {
+      "label": "Code 1979 (not stated as a date)",
+      "year": 1979,
+      "precision": "unknown",
+      "basis": "Keypad code; in-game meaning unstated"
+    },
+    "people": [
+      "glitchtrap",
+      "white-tiger",
+      "the-mimic"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "1979",
+      "mimic",
+      "teaser"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program"
+  },
+  {
+    "id": "hw2-mimic-teaser-mxes-ending",
+    "title": "Puzzle ending: Murray's Costume Manor and the M.X.E.S. van",
+    "claim": "Completing a jigsaw of a building (Murray's Costume Manor) makes the building appear with mailbox number 4625; removing the mask reveals a white van holding the M.X.E.S. machine; entering 4625 shows the M.X.E.S. Entity emerge, get pulled back in, and the van drive off.",
+    "quote": "4625",
+    "game": "help-wanted-2",
+    "kind": "ending",
+    "location": "Teaser area (1.017 update) — M.X.E.S. Code ending",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "the-mimic"
+    ],
+    "places": [
+      "fazbear-orientation-program",
+      "murray-costume-manor"
+    ],
+    "tags": [
+      "mimic",
+      "mxes",
+      "teaser",
+      "ruin-link"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Mirrors Cassie shutting down M.X.E.S. in RUIN (interpretation of the parallel)."
+  },
+  {
+    "id": "hw2-mystic-hippo-hello",
+    "title": "Mystic Hippo: 'Hello, can you hear me?'",
+    "claim": "Mystic Hippo, the hub's fortune-teller animatronic, says: \"Hello, can you hear me?\"",
+    "quote": "Hello, can you hear me?",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Hub: Mystic Hippo booth lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "mystic-hippo"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "mystic-hippo",
+      "echo"
+    ],
+    "related": [
+      "hw-tape-01",
+      "hw-glitchtrap-uses-tape-girl-voice"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
+    "notes": "Same words as Tape Girl's first log (and Glitchtrap's pitched voice) in Help Wanted."
+  },
+  {
+    "id": "hw2-mystic-hippo-key-darkness",
+    "title": "Mystic Hippo: 'Use the key to confront the darkness.'",
+    "claim": "Mystic Hippo, the hub's fortune-teller animatronic, says: \"Use the key to confront the darkness.\"",
+    "quote": "Use the key to confront the darkness.",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Hub: Mystic Hippo booth lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "mystic-hippo"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "mystic-hippo",
+      "faz-wrench",
+      "glitchtrap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
+    "notes": "Said when directing the player to use the Faz-Wrench on the hidden room; she also says 'The key is familiar to you.'"
+  },
+  {
+    "id": "hw2-mystic-hippo-she-needs-you",
+    "title": "Mystic Hippo: 'It needs you.' / 'She needs you.'",
+    "claim": "Mystic Hippo, the hub's fortune-teller animatronic, says: \"She needs you.\"",
+    "quote": "She needs you.",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Hub: Mystic Hippo booth lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "mystic-hippo"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "mystic-hippo",
+      "cryptic"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
+    "notes": "Other lines: 'It needs you.', 'You must help.', 'Do you remember?', 'When are you?', 'What makes you so special?'. Who 'she' is is not stated."
+  },
+  {
+    "id": "hw2-mystic-hippo-your-hands",
+    "title": "Mystic Hippo: 'Do you ever look at your hands?'",
+    "claim": "Mystic Hippo, the hub's fortune-teller animatronic, says: \"Do you ever look at your hands? I mean, really look at your hands?\"",
+    "quote": "Do you ever look at your hands? I mean, really look at your hands?",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Hub: Mystic Hippo booth lines",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "mystic-hippo"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "mystic-hippo",
+      "player-identity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
+    "notes": "Theories read this as the player lacking a physical body; unstated."
+  },
+  {
+    "id": "hw2-candy-cadet-witch-story",
+    "title": "Candy Cadet: the young woman and the witch",
+    "claim": "In the real-world hub, Candy Cadet tells a story of a young woman who as a child was led into a forest by a witch and escaped, later returned for revenge, was guided by a friendly young boy to a house, and ended up in the witch's oven.",
+    "quote": "She followed the boy into the house. The oven door closed. The witch would finally have her meal.",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Real-world hub: Candy Cadet (Faz-Token reward story)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "candy-cadet"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "candy-cadet",
+      "allegory",
+      "lure"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program",
+    "notes": "Allegorical; mapping it to Vanessa/Gregory/Glitchtrap is interpretation."
+  },
+  {
+    "id": "hw2-candy-cadet-family-story",
+    "title": "Candy Cadet: the family that missed the offer",
+    "claim": "Candy Cadet's other story is about a family that didn't buy a $49.99 limited-time pizza deal — 'and they all died'.",
+    "quote": "They did not purchase the food and they all died.",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Real-world hub: Candy Cadet",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "candy-cadet"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "candy-cadet"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program"
+  },
+  {
+    "id": "hw2-carnie-you-got-kids",
+    "title": "Carnie: 'you look like you got kids'",
+    "claim": "Fazerblast's Carnie tells the player they look like they have kids.",
+    "quote": "Now, you look like you got kids; wins a prize for the little one!",
+    "game": "help-wanted-2",
+    "kind": "dialogue",
+    "location": "Fazcade: Fazerblast (Carnie lines)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "carnie",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "player-identity"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Carnie",
+    "notes": "Used in theories that the protagonist is a parent (e.g., Cassie's father); this is a heckler's generic line."
+  },
+  {
+    "id": "hw2-fazerblast-fire-springtrap",
+    "title": "Fazerblast fire reveals a Springtrap cutout",
+    "claim": "Triggering a chain reaction sets Fazerblast on fire at the end of the FNAF 2 level; in the unlocked FNAF 3 level the burned Carnie powers down and a cardboard cutout of Springtrap behind him must be defeated.",
+    "quote": "Where ya' goin'? Don't let a little fire stop the fun! Come on back!",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Fazcade: Fazerblast FNAF 2 → Fazerblast: FNAF 3 (menu synopsis quoted)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "springtrap",
+      "carnie"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "fire",
+      "springtrap",
+      "fnaf3"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazcade_(FNaF:_HW2)"
+  },
+  {
+    "id": "hw2-springtrap-cutout-pq3-scream",
+    "title": "Springtrap cutout shares Glitchtrap's PQ3 scream",
+    "claim": "The scream the Springtrap cutout makes on defeat is the same audio as the scream at the end of Princess Quest III (Security Breach).",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Fazerblast: FNAF 3 (defeat sound; shared audio file)",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "springtrap",
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "audio",
+      "springtrap",
+      "glitchtrap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
+    "notes": "Shared sound asset; the connection it implies is for the theory layer."
+  },
+  {
+    "id": "hw2-endo-warehouse",
+    "title": "Endo Warehouse: teaching personalities to endos",
+    "claim": "The Endo Warehouse level has the player feed behavior data to learning endoskeletons, framed as preparing endos for life in the Pizzaplex.",
+    "quote": "Teaching time! Prepare Endos for life in the Pizza Plex.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Staff Only: Endo Warehouse (menu synopsis)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glamrock-endo"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "personalities",
+      "ai"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Staff_Only",
+    "notes": "Wiki notes the endos copy/develop personalities for 'TBD Pizzaplex stars'; wording not independently verified."
+  },
+  {
+    "id": "hw2-roxy-repair-mask",
+    "title": "Repair Roxy: player gives Roxanne her RUIN mask",
+    "claim": "In the ruined-state Repair Roxy level, the player fits a shattered Roxanne Wolf with the mask she wears in RUIN.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Backstage: Repair Roxy (hard/ruined version)",
+    "certainty": "implied",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "roxanne-wolf",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "ruin-link",
+      "roxanne"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Backstage_(FNaF:_HW2)",
+    "notes": "Wiki trivia says the given mask 'explains how her appearance changed between Security Breach and RUIN'. Implies HW2's real-world timeline overlaps the post-Security-Breach ruin."
+  },
+  {
+    "id": "hw2-cold-storage-jimmy-cake",
+    "title": "Cold Storage: Jimmy's cake inside Glamrock Freddy",
+    "claim": "In Cold Storage the player removes 'Jimmy's' birthday cake from Glamrock Freddy's stomach hatch and replaces it with 'Timmy's'.",
+    "game": "help-wanted-2",
+    "kind": "minigame",
+    "location": "Staff Only: Cold Storage",
+    "certainty": "shown",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "glamrock-freddy"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "jimmy",
+      "jeremy-motif"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF:_HW2)",
+    "notes": "Security Breach has a 'Remember Jimmy.' note; the Jeremy/Jimmy motif link is interpretation."
+  },
+  {
+    "id": "hw2-unused-vanny-dont-help-it-escape",
+    "title": "Unused Vanny line: 'Don't help it escape'",
+    "claim": "Unused Help Wanted 2 audio attributed to Vanny warns the player not to help 'it' escape — it is using the player 'to finish where she left off', and only a small piece of 'his' code remains.",
+    "quote": "You need to listen to me carefully. Don't help it escape. It's using you to finish where she left off. Only a small piece of his code remains.",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Unused voice lines in Help Wanted 2 game files (not played in the final game)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "vanny",
+      "glitchtrap",
+      "hw2-protagonist"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "unused",
+      "vanny",
+      "glitchtrap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
+    "notes": "UNUSED/cut content, data-mined — weaker than in-game canon. Other unused lines: 'I was able to upload some helpful code… It should look like a key.', 'It kept you for a reason.', 'Deactivate the inhibitor.', 'Remove your Mask.', 'See the world as it really is.'"
+  },
+  {
+    "id": "hw2-unused-vanny-bound-to-past",
+    "title": "Unused Vanny line: 'It is bound to the past'",
+    "claim": "Another unused Vanny line says 'it' is bound to the past and tells the player to find its memories and return; others say 'Find them.', 'Release them.', 'The memories are freed.'",
+    "quote": "It is bound to the past. Find its memories and return.",
+    "game": "help-wanted-2",
+    "kind": "hidden",
+    "location": "Unused voice lines in Help Wanted 2 game files",
+    "certainty": "stated",
+    "when": {
+      "label": "During Help Wanted 2 (undated; Pizzaplex era)",
+      "precision": "relative",
+      "basis": "No in-universe year given; set in the Mega Pizzaplex/Security Breach era"
+    },
+    "people": [
+      "vanny",
+      "glitchtrap"
+    ],
+    "places": [
+      "fazbear-orientation-program"
+    ],
+    "tags": [
+      "unused",
+      "memories"
+    ],
+    "related": [
+      "hw2-memory-dolls"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
+    "notes": "UNUSED content; indicates developer intent for the memory dolls but not heard in play."
+  }
+]

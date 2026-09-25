@@ -1,0 +1,2525 @@
+[
+  {
+    "id": "fnaf4-minigame-countdown-to-party",
+    "title": "Minigames count down to a party",
+    "claim": "Each FNaF4 end-of-night minigame opens with a countdown caption to 'the party', running from 5 days before Night 1 to 0 days on the Night 5 minigame.",
+    "quote": "5 days until the party",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "End-of-night minigames, opening captions (pre-Night 1 through post-Night 5)",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 5 to 0 days before the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "places": [
+      "fnaf4-house",
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "crying-child",
+      "birthday"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "Captions in sequence: '5 days until the party', '4 days…', '3 days…', '2 days…', '1 day until the party.', '0 days until the party.'"
+  },
+  {
+    "id": "fnaf4-plush-locked-in-room",
+    "title": "Fredbear plush: 'He locked you in your room again'",
+    "claim": "Before Night 1, a talking Fredbear plush tells the child that an unnamed 'he' has locked him in his room again, and says it is there with him.",
+    "quote": "What did he do this time? He locked you in your room again. Don't be scared. I am here with you.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Pre-Night 1 minigame (opening text)",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 5 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush",
+      "older-brother"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "fredbear-plush",
+      "abuse"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "'He' is not named here; the older brother is the only tormentor shown in later minigames (inference)."
+  },
+  {
+    "id": "fnaf4-plushies-these-are-my-friends",
+    "title": "The child's plushies: 'these are my friends'",
+    "claim": "In the child's bedroom sit Freddy, Bonnie, Chica and Foxy plushies (Foxy's head torn off); approaching them shows the text 'these are my friends'. The child bangs on the locked door until he collapses crying.",
+    "quote": "these are my friends",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Pre-Night 1 minigame, child's bedroom",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 5 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "plushies",
+      "crying-child"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-tomorrow-is-another-day",
+    "title": "'Tomorrow is another day'",
+    "claim": "The early minigames (pre-Night 1 through post-Night 3) end with the Fredbear plush saying 'Tomorrow is another day.' after the child breaks down.",
+    "quote": "Tomorrow is another day.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Ending line of pre-Night 1, post-Night 1, 2 and 3 minigames",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 5 to 2 days before the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush"
+    ],
+    "tags": [
+      "fredbear-plush"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-brother-foxy-mask-tv",
+    "title": "Older brother in Foxy mask scares the child",
+    "claim": "In the post-Night 1 minigame the child explores the house; when he reaches the TV, an older boy wearing a Foxy mask jumps out and scares him, and the child collapses crying.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 1 minigame, living room TV",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 4 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "older-brother",
+      "fredbear-plush"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "older-brother",
+      "foxy-mask"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The masked boy is identified as the child's brother by dialogue in the Night 5 minigame ('your brother') and the Night 6 cutscene. The Fredbear plush follows the child through the house and says 'Over there.' (per wiki; exact Night 1 opening line not verified)."
+  },
+  {
+    "id": "fnaf4-mangle-pieces-in-house",
+    "title": "A Mangle-like toy lies in pieces in the house",
+    "claim": "A scattered, pulled-apart pink-and-white toy with a Mangle-like head appears on the floor of the house in the post-Night 1 minigame.",
+    "game": "fnaf4",
+    "kind": "environment",
+    "location": "Post-Night 1 minigame, house interior",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 4 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "mangle",
+      "toys"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "Identified as 'Mangle's scattered pieces' by the wiki gallery; the game gives no label."
+  },
+  {
+    "id": "fnaf4-left-behind-at-diner",
+    "title": "'He left without you'",
+    "claim": "The Fredbear plush tells the child that 'he' left without him, knowing he hates it here, and urges him to run to the exit; the scene is a Fredbear-themed restaurant.",
+    "quote": "He left without you. He knows that you hate it here. You are right beside the exit. If you run, you can make it. Hurry, run toward the exit.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 2 minigame, opening text",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 3 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush",
+      "older-brother"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "fredbears-diner"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The restaurant is not named on screen in FNaF4 (no sign text; the exterior shows a Fredbear mural). The name 'Fredbear's Family Diner' comes from other games; association here is implied."
+  },
+  {
+    "id": "fnaf4-fredbear-suit-employee-chase",
+    "title": "An employee in a Fredbear suit blocks the exit",
+    "claim": "An adult wearing a Fredbear suit (face visible in the mouth) appears at the exit and follows the child; the plush warns 'You know what will happen if he catches you!'",
+    "quote": "It's too late. Hurry the other way and find someone who will help! You know what will happen if he catches you!",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 2 minigame, diner entrance",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 3 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush",
+      "fredbear-performer"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "springlock-suit",
+      "fredbear"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-dont-you-remember-what-you-saw",
+    "title": "'Don't you remember what you saw?'",
+    "claim": "If the child walks the wrong way, the plush shouts that he should remember 'what you saw' and leave.",
+    "quote": "NO! Don't you remember what you saw? The exit is the other way! Hurry and leave.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 2 minigame",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 3 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "fredbear-plush"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "What the child 'saw' is never specified."
+  },
+  {
+    "id": "fnaf4-fredbear-spring-bonnie-shadows",
+    "title": "Fredbear and Spring Bonnie on stage (shadows)",
+    "claim": "Heading left, the child sees shadows of Fredbear and a Spring Bonnie character performing on the diner's stage; the plush says he can find help if he gets past them. The child hides under a table crying instead.",
+    "quote": "You can find help if you can get past them. You have to be strong.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 2 minigame, dining area",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 3 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear",
+      "spring-bonnie"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "fredbear",
+      "spring-bonnie"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-purple-guy-suits-up-employee",
+    "title": "A purple figure helps someone into Spring Bonnie",
+    "claim": "Backtracking right, the child glimpses a purple-coloured man in a back room fitting a Spring Bonnie head onto another person; the door then shuts.",
+    "game": "fnaf4",
+    "kind": "hidden",
+    "location": "Post-Night 2 minigame, back room door (seen only on backtracking)",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 3 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "purple-guy",
+      "spring-bonnie-performer",
+      "crying-child"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "purple-guy",
+      "spring-bonnie",
+      "springlock-suit"
+    ],
+    "image": "fnaf4-purple-guy-spring-bonnie-suit.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
+    "notes": "The figure is only coloured purple; no name is given in FNaF4. The wiki labels him William Afton — that is an identification, not in-game text."
+  },
+  {
+    "id": "fnaf4-he-hates-you",
+    "title": "'He hates you'",
+    "claim": "On the 2-days minigame the plush tells the child that 'he' hates him and that he can get out this time.",
+    "quote": "He hates you. You have to get up. You can get out this time, but you have to hurry.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, opening text",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush",
+      "older-brother"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "fredbear-plush"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-spring-bonnie-plush-finger-trap",
+    "title": "Spring Bonnie plush 'finger trap' kid",
+    "claim": "A child outside holding a Spring Bonnie plush says their father warned it could pinch their finger and called it a 'finger trap'.",
+    "quote": "Where's your plush toy? Mine is Spring Bonnie. My daddy says I have to be careful with him or I will pinch my finger. He is a finger trap, he says.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, outside the diner",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "spring-bonnie"
+    ],
+    "tags": [
+      "plushtrap",
+      "spring-bonnie",
+      "springlock"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)",
+    "notes": "Wiki pages differ on capitalisation ('My daddy'/'My Daddy')."
+  },
+  {
+    "id": "fnaf4-pigtail-girl-hide-your-body",
+    "title": "'They hide your body'",
+    "claim": "A pigtailed girl warns that 'they' come to life at night and that if you die they hide your body and never tell anyone, then says she will see him at the party.",
+    "quote": "You'd better watch out. I hear they come to life at night. And if you die, they hide your body and never tell anyone. Why do you look so worried? See you at the party! …",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, sidewalk",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "rumor",
+      "missing-children"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "'They' presumably refers to the animatronics (inference). A child's rumour, not a confirmed fact."
+  },
+  {
+    "id": "fnaf4-kid-who-hides-under-table",
+    "title": "'The kid who always hides under the table'",
+    "claim": "A laughing boy identifies the child as the kid who always hides under the table and cries, and says no one else is scared.",
+    "quote": "Aren't you the kid who always hides under the table and cries? Hahaha! No one else is scared! Why are you? Stop being such a baby!",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, sidewalk",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "crying-child",
+      "fear"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-toy-collection-girl",
+    "title": "Girl with toy animatronic figures",
+    "claim": "A girl in a playground has three small figures resembling the Toy Freddy, Toy Bonnie and Toy Chica animatronics and asks why the child is crying.",
+    "quote": "Why are you crying? Don't you like my toy collection?",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, hidden playground",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "toy-animatronics",
+      "dating-clue"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)",
+    "notes": "Figures identified by appearance. Toy-animatronic merchandise existing in this c.1983 scene is a timeline wrinkle worth tracking."
+  },
+  {
+    "id": "fnaf4-its-your-birthday",
+    "title": "The party is the child's birthday",
+    "claim": "A boy with a balloon says everyone is going to the party and that the child has to go because it is his birthday.",
+    "quote": "Are you going to the party? Everyone is going to the party. Oh wait, you have to go. It's YOUR birthday! Haha!",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, street",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "birthday",
+      "crying-child"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-fredbear-and-friends-1983",
+    "title": "'Fredbear & Friends!' TV show dated 1983",
+    "claim": "At home, pressing Enter at the TV shows a broadcast titled 'Fredbear & Friends!' with the year 1983 on screen.",
+    "quote": "Fredbear & Friends! 1983",
+    "game": "fnaf4",
+    "kind": "hidden",
+    "location": "Post-Night 3 minigame, living room TV (press Enter)",
+    "certainty": "shown",
+    "when": {
+      "label": "1983",
+      "precision": "exact",
+      "year": 1983,
+      "basis": "Year printed on the Fredbear & Friends! TV title card."
+    },
+    "people": [
+      "crying-child",
+      "fredbear"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "dating-clue",
+      "fredbear-and-friends"
+    ],
+    "image": "fnaf4-fredbear-and-friends-1983-tv.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
+    "notes": "The on-screen text reads 'Fredbear & Friends!' over '1983' (verified from screenshot). It dates the show, the main anchor for dating the minigames."
+  },
+  {
+    "id": "fnaf4-plush-be-careful",
+    "title": "Plush: 'Be careful.'",
+    "claim": "When the child reaches home in the 2-days minigame the plush says 'Be careful.'; the brother then scares him from under his bed.",
+    "quote": "Be careful.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 3 minigame, house",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 2 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear-plush",
+      "older-brother"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "older-brother"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-plush-follows-child",
+    "title": "The plush follows and watches the child",
+    "claim": "The Fredbear plush repeatedly reappears near the child (on furniture, behind a car, as a flower head, in a storm drain) with its pupils tracking him; it is not seen physically inside the diner, though its text still appears there.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 1 and post-Night 3 minigames",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 4 to 2 days before the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "fredbear-plush"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-locked-backstage",
+    "title": "Child locked in the diner's back room",
+    "claim": "On the 1-day minigame the child is locked in a parts room containing a headless spring-lock suit, endoskeleton parts, and Fredbear and Spring Bonnie heads on shelves; he cries to be let out and curls up.",
+    "quote": "Please let me out.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 4 minigame (no movement possible)",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 1 day until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "springlock-suit",
+      "parts-room"
+    ],
+    "image": "fnaf4-locked-backstage-fredbears.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "Further lines: 'PLEASE!' and '...please let me out...'. Who locked him in is not shown."
+  },
+  {
+    "id": "fnaf4-bullies-in-masks",
+    "title": "Brother and friends in Freddy/Bonnie/Chica/Foxy masks",
+    "claim": "On the party day the child is surrounded by his older brother (Foxy mask) and three friends in Freddy, Bonnie and Chica masks; one calls him a baby and the brother says 'It's hilarious.'",
+    "quote": "Wow, your brother is kind of a baby isn't he?",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 5 minigame",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 0 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "older-brother"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "bite",
+      "older-brother",
+      "masks"
+    ],
+    "image": "fnaf4-older-brother-and-bullies.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-brother-lift-closer",
+    "title": "Brother: 'give this little man a lift'",
+    "claim": "The brother tells his friends to carry the child up close to the animatronics despite his protests.",
+    "quote": "Come on guys, let's give this little man a lift. He wants to get up close and personal!",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 5 minigame",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 0 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "older-brother"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "bite"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The child: 'No, please!' / 'No! I don't want to go!'."
+  },
+  {
+    "id": "fnaf4-give-fredbear-a-kiss",
+    "title": "'He wants to give Fredbear a big kiss'",
+    "claim": "The brother proposes putting the child's face to Fredbear, counts to three, and the boys push his head into Fredbear's mouth.",
+    "quote": "Hey guys, I think the little man said he wants to give Fredbear a big kiss!",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 5 minigame",
+    "certainty": "stated",
+    "when": {
+      "label": "c. 1983 — 0 days until the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "older-brother",
+      "fredbear"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "bite"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-the-bite",
+    "title": "Fredbear's jaw closes on the child's head",
+    "claim": "With the child's head inside Fredbear's mouth, Fredbear's jaw snaps shut on it (crunch sound); the boys stop laughing, the other animatronic keeps performing, and the screen fades to black.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "Post-Night 5 minigame (the Night 5 ending)",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 0 days until the party — the child's birthday",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child",
+      "fredbear",
+      "older-brother"
+    ],
+    "places": [
+      "fredbears-family-diner"
+    ],
+    "tags": [
+      "bite",
+      "fredbear"
+    ],
+    "related": [
+      "fnaf4-give-fredbear-a-kiss",
+      "fnaf4-night6-brother-apology"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "Victim is the FNaF4 crying child; the animatronic is Fredbear (not Freddy). Whether this is the 'Bite of '87' mentioned in FNaF1 or a separate 'Bite of '83' is a theory-layer question: FNaF4 never gives the bite a year."
+  },
+  {
+    "id": "fnaf4-night6-brother-apology",
+    "title": "Brother: 'Can you hear me? … I'm sorry.'",
+    "claim": "In the Night 6 cutscene, set in darkness, the older brother's voice text asks whether the child can hear him and apologises.",
+    "quote": "Can you hear me? I don't know if you can hear me. ....I'm sorry.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "Follows the '0 days until the party' Bite scene; year from the '1983' TV broadcast in the Night 3 minigame."
+    },
+    "people": [
+      "older-brother",
+      "crying-child"
+    ],
+    "tags": [
+      "bite",
+      "aftermath",
+      "older-brother"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-youre-broken",
+    "title": "Plush: 'You're broken.'",
+    "claim": "After the apology, the Fredbear plush tells the child 'You're broken.'",
+    "quote": "You're broken.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "Follows the '0 days until the party' Bite scene; year from the '1983' TV broadcast in the Night 3 minigame."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "fredbear-plush",
+      "aftermath"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The wiki notes the text colour here differs from the plush's usual colour; attribution to the plush is standard but not labelled on screen."
+  },
+  {
+    "id": "fnaf4-still-your-friends",
+    "title": "'We are still your friends' — plushies fade",
+    "claim": "The plushies fade away one by one while lines are shown: 'We are still your friends.', 'Do you still believe that?', 'I'm still here.'",
+    "quote": "We are still your friends.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "Follows the '0 days until the party' Bite scene; year from the '1983' TV broadcast in the Night 3 minigame."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "plushies",
+      "aftermath"
+    ],
+    "related": [
+      "fw-clock-ending-still-your-friends"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "Order per wiki: Foxy fades ('We are still your friends.'), Chica ('Do you still believe that?'), Bonnie ('I'm still here.'), Freddy. Compare FNaF World clock ending, which repeats the line but with 'Do you believe that?'."
+  },
+  {
+    "id": "fnaf4-i-will-put-you-back-together",
+    "title": "'I will put you back together.'",
+    "claim": "The Fredbear plush says 'I will put you back together.' and then fades, leaving the child alone.",
+    "quote": "I will put you back together.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "Follows the '0 days until the party' Bite scene; year from the '1983' TV broadcast in the Night 3 minigame."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "fredbear-plush",
+      "put-back-together"
+    ],
+    "related": [
+      "sl-golden-freddy-cutscene-father"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-flatline",
+    "title": "Child fades with a flatline tone",
+    "claim": "The child sobs and then fades out as a faint heart-monitor flatline tone plays.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene",
+    "certainty": "implied",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "Follows the '0 days until the party' Bite scene; year from the '1983' TV broadcast in the Night 3 minigame."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "death",
+      "hospital"
+    ],
+    "related": [
+      "fnaf4-bedside-items"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The flatline sound implies the child dies; no text states it. Background music file titled 'Hard To Say Goodbye'."
+  },
+  {
+    "id": "fnaf4-locked-box-ending",
+    "title": "Nightmare ending: the locked box",
+    "claim": "Beating Night 7 (Nightmare) shows a grey box with two padlocks that cannot be opened by clicking, with the caption 'Perhaps some things are best left forgotten, for now.'",
+    "quote": "Perhaps some things are best left forgotten, for now.",
+    "game": "fnaf4",
+    "kind": "ending",
+    "location": "Night 7 (Nightmare) completion screen",
+    "certainty": "stated",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "tags": [
+      "locked-box",
+      "mystery"
+    ],
+    "image": "fnaf4-locked-box-ending.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_7_(FNaF4)",
+    "notes": "Box contents never shown in-game. Scott's Steam comment about the box ('pieces' put together) belongs to the Scott-statements group, not here."
+  },
+  {
+    "id": "fnaf4-bedroom-setting",
+    "title": "Gameplay setting: a child's bedroom",
+    "claim": "FNaF4's nights are played in a bedroom of a house: the player checks two hallway doors, a closet and the bed with a flashlight, and listens for breathing instead of using cameras.",
+    "game": "fnaf4",
+    "kind": "mechanic",
+    "location": "Nights 1–7 gameplay",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "nightmare-animatronics",
+      "bedroom"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s_4",
+    "notes": "The protagonist's identity is not stated in-game; the Steam description (Scott) calls them a child whose role is unknown."
+  },
+  {
+    "id": "fnaf4-nightmare-animatronics",
+    "title": "Nightmare versions of the animatronics",
+    "claim": "The house is attacked by monstrous 'Nightmare' versions of Freddy (with small 'Freddles'), Bonnie, Chica (with cupcake), Foxy, plus Nightmare Fredbear, Plushtrap and 'Nightmare'.",
+    "game": "fnaf4",
+    "kind": "mechanic",
+    "location": "Nights 1–7; Extras > Animatronics",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "nightmare-freddy",
+      "nightmare-bonnie",
+      "nightmare-chica",
+      "nightmare-foxy",
+      "nightmare-fredbear",
+      "plushtrap",
+      "nightmare"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "nightmare-animatronics"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Unlockable_Extras_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-nightmare-fredbear-4am",
+    "title": "Nightmare Fredbear takes over at 4 AM (Night 6)",
+    "claim": "On Night 6 the other Nightmares are active until 4 AM, when Nightmare Fredbear replaces them all.",
+    "game": "fnaf4",
+    "kind": "mechanic",
+    "location": "Night 6",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "nightmare-fredbear"
+    ],
+    "tags": [
+      "nightmare-animatronics"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_6_(FNaF4)"
+  },
+  {
+    "id": "fnaf4-nightmare-shares-fredbear-sounds",
+    "title": "'Nightmare' shares Fredbear's laughter",
+    "claim": "The dark 'Nightmare' character of Night 7 uses the same laughter and bed/closet sounds as Nightmare Fredbear, and its full-body extras image unlocks only after beating Nightmare mode.",
+    "game": "fnaf4",
+    "kind": "mechanic",
+    "location": "Night 7 (Nightmare); Extras",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "nightmare",
+      "nightmare-fredbear"
+    ],
+    "tags": [
+      "nightmare"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare/Audio",
+    "notes": "Nightmare's UCN voice lines belong to UCN, not this group."
+  },
+  {
+    "id": "fnaf4-bedside-items",
+    "title": "Rare bedside items: flowers, pills, IV drip",
+    "claim": "Rarely, one of three items appears on the bedside table: a vase of flowers, a pill bottle, or an IV drip.",
+    "game": "fnaf4",
+    "kind": "hidden",
+    "location": "Bedroom, rare (reported 3/100 chance) bedside-table variants",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "hospital",
+      "bedroom"
+    ],
+    "image": "fnaf4-bedside-iv-drip.jpg",
+    "related": [
+      "fnaf4-flatline"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
+    "notes": "Hospital-like items; any link to the child being hospitalised is interpretation."
+  },
+  {
+    "id": "fnaf4-reversed-phone-guy",
+    "title": "Reversed Phone Guy call as ambience",
+    "claim": "A reversed, low-pitched fragment of the FNaF1 Night 1 phone call can rarely be heard as background ambience during FNaF4 nights.",
+    "game": "fnaf4",
+    "kind": "hidden",
+    "location": "Night ambience, rare",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "phone-guy"
+    ],
+    "tags": [
+      "phone-guy",
+      "audio-easter-egg"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
+    "notes": "Wiki reports odds of 1/40 (Night 1) and 1/200 after."
+  },
+  {
+    "id": "fnaf4-fun-with-plushtrap",
+    "title": "Fun with Plushtrap",
+    "claim": "Between nights a minigame has the player stop Plushtrap — a small Spring Bonnie-like plush animatronic — on an X in a dark hallway with a flashlight; success skips two hours of the next night.",
+    "game": "fnaf4",
+    "kind": "minigame",
+    "location": "'Fun with Plushtrap' minigame after Nights 2–4; Extras",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "plushtrap"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "plushtrap",
+      "spring-bonnie"
+    ],
+    "related": [
+      "fnaf4-spring-bonnie-plush-finger-trap"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fun_with_Plushtrap"
+  },
+  {
+    "id": "fnaf4-making-of-extras",
+    "title": "'Making Foxy' / 'Making Fredbear' extras",
+    "claim": "The Extras menu includes progressive galleries titled 'Making Foxy' and 'Making Fredbear' showing the Nightmare Foxy and Nightmare Fredbear models being built up.",
+    "game": "fnaf4",
+    "kind": "hidden",
+    "location": "Extras menu (after Nights 5 and 6)",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "nightmare-foxy",
+      "nightmare-fredbear"
+    ],
+    "tags": [
+      "extras"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Unlockable_Extras_(FNaF4)",
+    "notes": "These look like development renders; their lore meaning, if any, is not stated."
+  },
+  {
+    "id": "fnaf4-halloween-replacements",
+    "title": "Halloween Edition replaces several Nightmares",
+    "claim": "In the Halloween Edition, Nightmare Bonnie and Chica become Jack-O-Bonnie and Jack-O-Chica, Nightmare Foxy is replaced by Nightmare Mangle, Nightmare by Nightmarionne, and Plushtrap by Nightmare Balloon Boy.",
+    "game": "fnaf4-halloween",
+    "kind": "mechanic",
+    "location": "Halloween Edition, all nights",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "jack-o-bonnie",
+      "jack-o-chica",
+      "nightmare-mangle",
+      "nightmarionne",
+      "nightmare-bb"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "halloween",
+      "nightmare-animatronics"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s_4:_Halloween_Edition",
+    "notes": "Scott separately described the Halloween Edition as non-canon on Steam (Scott-statements group)."
+  },
+  {
+    "id": "fnaf4-halloween-fun-with-bb",
+    "title": "Fun with Balloon Boy",
+    "claim": "The Halloween Edition swaps 'Fun with Plushtrap' for 'Fun with Balloon Boy', in which Nightmare Balloon Boy must be stopped on the X.",
+    "game": "fnaf4-halloween",
+    "kind": "minigame",
+    "location": "Halloween Edition inter-night minigame; also Extras after Night 8",
+    "certainty": "shown",
+    "when": {
+      "label": "During FNaF4's nights (undated)",
+      "precision": "unknown",
+      "basis": "FNaF4's night gameplay gives no date."
+    },
+    "people": [
+      "nightmare-bb"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "halloween"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fun_with_Plushtrap"
+  },
+  {
+    "id": "fnaf4-halloween-decorated-minigames",
+    "title": "Halloween-decorated minigames",
+    "claim": "In the Halloween Edition the end-of-night minigames are unchanged in story but decorated with jack-o'-lanterns, bats, cobwebs and orange/black colours.",
+    "game": "fnaf4-halloween",
+    "kind": "minigame",
+    "location": "Halloween Edition end-of-night minigames",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 — 5 to 0 days before the party",
+      "precision": "approx",
+      "year": 1983,
+      "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983'; the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "halloween"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s_4:_Halloween_Edition"
+  },
+  {
+    "id": "fw-clock-ending-still-your-friends",
+    "title": "Clock ending: 'We are still your friends'",
+    "claim": "In FNaF World's clock ending, a pair of small yellow eyes in darkness says 'We are still your friends. Do you believe that?'",
+    "quote": "We are still your friends. Do you believe that?",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Clock ending (after setting all clocks)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "tags": [
+      "clock-ending",
+      "fnaf4-echo"
+    ],
+    "related": [
+      "fnaf4-still-your-friends"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
+    "notes": "Verified from wiki clock-ending screenshots. Echoes FNaF4 Night 6 wording but with 'Do you believe that?' instead of 'Do you still believe that?'. The speaker is not identified."
+  },
+  {
+    "id": "fw-clock-ending-pieces-in-place",
+    "title": "Clock ending: 'The pieces are in place for you'",
+    "claim": "The clock ending continues: 'The pieces are in place for you.' 'All you have to do is find them.' 'Rest.' followed by 'the end'. The ending's trophy is the Crying Child.",
+    "quote": "The pieces are in place for you. All you have to do is find them. Rest.",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Clock ending; Crying Child trophy on file select",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "crying-child"
+    ],
+    "tags": [
+      "clock-ending",
+      "pieces"
+    ],
+    "image": "fw-clock-ending-pieces-in-place.png",
+    "related": [
+      "fnaf4-locked-box-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
+    "notes": "Screens verified from wiki screenshots. The Crying Child link comes from the trophy awarded, not the text."
+  },
+  {
+    "id": "fw-8bit-fredbear-breadcrumbs",
+    "title": "8-bit Fredbear: 'leave breadcrumbs for him'",
+    "claim": "If the player idles at story Fredbear's dialogue, a glitchy 8-bit Fredbear appears and says there is a task: to leave breadcrumbs for 'him' to help him find his way.",
+    "quote": "But you don't really believe that, do you? There is a task for you to complete. You need to leave breadcrumbs for him, to help him find his way.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "First 8-bit Fredbear encounter (idle instead of pressing DONE)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "fredbear"
+    ],
+    "tags": [
+      "clock-ending",
+      "8-bit-fredbear"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear",
+    "notes": "'Him' is not identified."
+  },
+  {
+    "id": "fw-8bit-fredbear-made-for-one-thing",
+    "title": "8-bit Fredbear: 'you were made for one thing'",
+    "claim": "8-bit Fredbear calls the underground a sanctuary, then says there is no safe place and that the listener 'was made for one thing', and tells them to find the clock.",
+    "quote": "This is a safe place, a sanctuary. The truth is that there is no safe place. You don't understand that; you were made for one thing.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "Second 8-bit Fredbear encounter",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "fredbear"
+    ],
+    "tags": [
+      "8-bit-fredbear"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear"
+  },
+  {
+    "id": "fw-8bit-fredbear-puppet-master",
+    "title": "8-bit Fredbear: 'the puppet-master is laughing at you'",
+    "claim": "8-bit Fredbear repeatedly says the player is being played and pulled on strings by a watching 'puppet-master' / 'one who pulls the strings'.",
+    "quote": "You are being played. You are being led through hoops. Meanwhile the puppet-master is laughing at you.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "Third to seventh 8-bit Fredbear encounters",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "fredbear",
+      "animdude"
+    ],
+    "tags": [
+      "8-bit-fredbear",
+      "puppet-master"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear",
+    "notes": "Hard Mode's final boss Animdude says 'It was fun being the puppet master', so in-game the puppet-master is Animdude (a Scott avatar); any deeper reading is theory."
+  },
+  {
+    "id": "fw-8bit-fredbear-something-terrible",
+    "title": "8-bit Fredbear (Update 2): 'Something terrible is coming.'",
+    "claim": "In Update 2, the final 8-bit Fredbear speech ends with 'Something terrible is coming.'",
+    "quote": "Something terrible is coming.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "Final 8-bit Fredbear encounter, Update 2",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "fredbear"
+    ],
+    "tags": [
+      "8-bit-fredbear",
+      "sl-foreshadowing"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear"
+  },
+  {
+    "id": "fw-desk-man-made-something-terrible",
+    "title": "Desk Man: 'Her name is Baby.'",
+    "claim": "After Chica's Magic Rainbow is beaten, the grey Desk Man says his mind isn't right, that he has made something terrible named Baby, and that it is too late to deactivate her.",
+    "quote": "But my mind isn't right. I've made something terrible. Her name is Baby. It's too late to deactivate her. I'm sorry.",
+    "game": "fnaf-world",
+    "kind": "dialogue",
+    "location": "Desk Man's house, after Chica's Magic Rainbow (Update 2)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "desk-man",
+      "circus-baby"
+    ],
+    "tags": [
+      "sl-foreshadowing",
+      "desk-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Desk_Man",
+    "notes": "Desk Man is never named in-game (fan label). His link to Circus Baby is by the name 'Baby' and timing (SL teaser); inference."
+  },
+  {
+    "id": "fw-desk-man-found-dead",
+    "title": "Desk Man found dead; 'The show will begin momentarily'",
+    "claim": "The lights go out, two glowing yellow eyes say the show will begin momentarily, and when the lights return Desk Man lies dead at his desk with blood pooling; 'To be continued' follows.",
+    "quote": "The show will begin momentarily. Everyone please stay in your seats.",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Chica's Magic Rainbow ending (Update 2)",
+    "certainty": "shown",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "desk-man"
+    ],
+    "tags": [
+      "sl-foreshadowing"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)"
+  },
+  {
+    "id": "fw-desk-man-pendulum",
+    "title": "Desk Man: 'The pendulum swings…'",
+    "claim": "From update 1.2, Desk Man says it's a vicious cycle, the pendulum swings one way then the other, 'Now we return to darkness. Something terrible is coming.'",
+    "quote": "It's a vicious cycle, you know. But then, most things in life are. The pendulum swings one way, then it swings the other. Now we return to darkness. Something terrible is coming.",
+    "game": "fnaf-world",
+    "kind": "dialogue",
+    "location": "Desk Man's house (v1.2+)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "desk-man"
+    ],
+    "tags": [
+      "sl-foreshadowing"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Desk_Man"
+  },
+  {
+    "id": "fw-purpleguy-sprite-disclaimer",
+    "title": "Purpleguy: 'Don't confuse me with the actual Purple Guy'",
+    "claim": "The playable 8-bit 'Purpleguy' character says he is just a game sprite, not the actual Purple Guy.",
+    "quote": "Don't confuse me with the actual Purple Guy. I'm just a game sprite.",
+    "game": "fnaf-world",
+    "kind": "dialogue",
+    "location": "Halloween Update Backstage, Purpleguy NPC (Update 2)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "purple-guy"
+    ],
+    "tags": [
+      "purple-guy",
+      "meta"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Adventure_Purpleguy",
+    "notes": "Establishes that 'Purple Guy' is used as a name in a Scott game (FW), for what that's worth; the sprite disclaims being him."
+  },
+  {
+    "id": "fw-animdude-puppet-master",
+    "title": "Animdude: the 'puppet master' final boss",
+    "claim": "The Hard Mode final boss Animdude (Scott Cawthon's avatar) says 'It was fun being the puppet master, but now I grow weary.'",
+    "quote": "It was fun being the puppet master, but now I grow weary. It is time to put you in your place.",
+    "game": "fnaf-world",
+    "kind": "dialogue",
+    "location": "Hard Mode ending, Animdude boss",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "animdude"
+    ],
+    "tags": [
+      "meta",
+      "scott-avatar"
+    ],
+    "related": [
+      "fw-8bit-fredbear-puppet-master"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)"
+  },
+  {
+    "id": "fw-old-man-consequences",
+    "title": "Old Man Consequences in the fourth sub-tunnel",
+    "claim": "In the fourth, hidden sub-tunnel the player meets Old Man Consequences by a lake, who says they have gone too far into the code and are stuck, and offers to fish.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "Fourth Glitch ending (fourth sub-tunnel)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "old-man-consequences"
+    ],
+    "tags": [
+      "old-man-consequences"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
+    "notes": "Exact dialogue not verified from a transcript; paraphrased."
+  },
+  {
+    "id": "sl-intro-mr-afton-board",
+    "title": "Intro: a board member questions 'Mr. Afton'",
+    "claim": "The game opens with audio of a board member praising the robots technically but asking about 'certain design choices'; the designer lists Circus Baby's features including dispensing ice cream, and is addressed as 'Mr. Afton'.",
+    "quote": "With all due respect, those aren't the design choices we were curious about, Mr. Afton.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Opening cutscene (first launch)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "william-afton",
+      "circus-baby",
+      "fazbear-board-member"
+    ],
+    "tags": [
+      "afton",
+      "design-choices",
+      "ice-cream"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
+    "notes": "Only the surname 'Afton' is spoken. Designer's line: 'She can dance, she can sing, she's equipped with a built-in helium tank for inflating balloons right at her fingertips. She can take song requests. She can even dispense ice cream.' The board member is unnamed; the wiki calls him a Fazbear Entertainment board member (company not named in the audio)."
+  },
+  {
+    "id": "sl-girl-daddy-let-me-play",
+    "title": "Girl: 'Didn't you make her just for me?'",
+    "claim": "Before nights, a little girl's voice begs 'Daddy' to let her play with 'her', says he lets other children see her, and asks whether he made her just for her.",
+    "quote": "Daddy just once let me go play with her. She's so pretty and shiny. Didn't you make her just for me?",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Pre-night voice cutscenes (Nights 1–4)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "elizabeth-afton",
+      "circus-baby"
+    ],
+    "tags": [
+      "afton-family",
+      "circus-baby"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Elizabeth_Afton/Audio",
+    "notes": "Other lines: 'Daddy, why won't you let me play with her?', 'Daddy, you let the other children go see her. Why won't you let me go?', 'Daddy, she can make balloons!…', 'Daddy isn't watching.' The girl is never named in SL (the name Elizabeth is not spoken in SL transcripts checked); 'her' matches Circus Baby's features (balloons). Father = the designer is inference."
+  },
+  {
+    "id": "sl-girl-where-did-other-children-go",
+    "title": "Girl: 'Where did the other children go?'",
+    "claim": "After the Real Ending, the girl says not to tell Daddy she's there, that she wanted to watch the show, and asks where the other children went.",
+    "quote": "Don't tell Daddy that I'm here, I wanted to watch your show too! I don't know why he wouldn't let me come see you, you're wonderful! Where did the other children go?",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Voice cutscene after Night 5 (Real Ending)",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "elizabeth-afton",
+      "circus-baby"
+    ],
+    "tags": [
+      "afton-family",
+      "missing-children"
+    ],
+    "related": [
+      "sl-baby-ice-cream-story"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Elizabeth_Afton/Audio"
+  },
+  {
+    "id": "sl-baby-minigame-girl-grabbed",
+    "title": "Circus Baby minigame: the girl is grabbed",
+    "claim": "In the secret Circus Baby minigame, after Baby gives cupcakes to all children and drops an ice cream, a lone girl approaches and a claw extends from Baby's stomach and pulls her inside; a scream ends the game.",
+    "game": "sister-location",
+    "kind": "minigame",
+    "location": "Circus Baby's minigame (random after death / Extras), true ending",
+    "certainty": "shown",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "circus-baby",
+      "elizabeth-afton"
+    ],
+    "places": [
+      "circus-babys-pizza-world"
+    ],
+    "tags": [
+      "circus-baby",
+      "ice-cream",
+      "death"
+    ],
+    "image": "sl-baby-minigame-claw.png",
+    "related": [
+      "sl-baby-ice-cream-story"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby%27s_Minigame",
+    "notes": "The girl is unnamed in the minigame. Completing it unlocks the Private Room keycard."
+  },
+  {
+    "id": "sl-baby-ice-cream-story",
+    "title": "Baby: 'Something happened when there was one'",
+    "claim": "Circus Baby recounts her one day on stage, counting children, and that when one little girl was alone she 'was no longer myself', her stomach opened with ice cream, and when the girl stepped closer there was brief screaming; she still hears her.",
+    "quote": "A little girl, standing by herself. I was no longer... myself, and I stopped singing. My stomach opened, and there was ice cream. I couldn't move—at least, not until she stepped closer. …",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 3, Circus Baby monologue",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "circus-baby",
+      "elizabeth-afton"
+    ],
+    "places": [
+      "circus-babys-pizza-world"
+    ],
+    "tags": [
+      "circus-baby",
+      "ice-cream",
+      "death"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "She ends: 'I still hear her sometimes.' 'Why did that happen?' The phrase 'I was no longer… myself' suggests something else took control; interpretation left to theory layer."
+  },
+  {
+    "id": "sl-handunit-freddy-fazbear-closing",
+    "title": "HandUnit: after Freddy Fazbear's Pizza closed",
+    "claim": "HandUnit says the massive success and 'unfortunate closing' of Freddy Fazbear's Pizza set the stage for this company, whose robots are rented out for private parties by day.",
+    "quote": "Due to the massive success and even more so the unfortunate closing of Freddy Fazbear's Pizza, it was clear that the stage was set, no pun intended, for another contender in children's entertainment.",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 1, HandUnit (elevator descent)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 1 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "handunit"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "dating-clue",
+      "company-history",
+      "freddy-fazbears-pizza"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "Which Freddy Fazbear's Pizza is meant is not specified."
+  },
+  {
+    "id": "sl-eggs-benedict",
+    "title": "'Welcome, Eggs Benedict.'",
+    "claim": "HandUnit asks the new technician to enter his name, 'autocorrects' it, and addresses him as Eggs Benedict.",
+    "quote": "It seems that you had some trouble with the keypad. I see what you were trying to type, and I will autocorrect it for you. One moment. Welcome, Eggs Benedict.",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 1, HandUnit (name entry)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 1 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "eggs-benedict",
+      "handunit"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "protagonist-name"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "The player's real name is never typed on screen. The name 'Michael' is only spoken in the Custom Night Golden Freddy cutscene."
+  },
+  {
+    "id": "sl-controlled-shocks",
+    "title": "Technician's job: shock animatronics back onto their stages",
+    "claim": "HandUnit has the technician check Ballora, Funtime Foxy and Circus Baby through windows and administer 'controlled shocks' when they are off stage.",
+    "quote": "Press the red button now to administer a controlled shock. Maybe that will put the spring back in her step.",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 1, HandUnit (control modules)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 1 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "handunit",
+      "ballora",
+      "funtime-foxy",
+      "circus-baby",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "funtime-animatronics"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "sl-dead-body-in-vent",
+    "title": "HandUnit: 'a dead body was found in this vent once'",
+    "claim": "In the 'Angsty Teen' voice, HandUnit remarks that a dead body was once found in the vent the player is crawling through.",
+    "quote": "So, funny story, a dead body was found in this vent once. Okay, so, not that funny but, it's a story.",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 2, HandUnit ('Angsty Teen' voice), vent",
+    "certainty": "stated",
+    "when": {
+      "label": "Before Sister Location (undated past)",
+      "precision": "relative",
+      "basis": "Described as past events by Circus Baby / shown as memories; no date given."
+    },
+    "people": [
+      "handunit"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "death",
+      "previous-employee"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "sl-baby-previous-employee-hiding-place",
+    "title": "Baby: 'Someone before you crafted it into a hiding place'",
+    "claim": "Circus Baby tells the new technician to hide under the desk, saying someone before him made it a hiding place and it worked for him.",
+    "quote": "There is a space under the desk. Someone before you crafted it into a hiding place, and it worked for him.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 2, Circus Baby (Circus Control, power outage)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 2 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "previous-sl-employee",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "previous-employee"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "She also says: 'I don't recognize you. You are new. I remember this... scenario, however.'"
+  },
+  {
+    "id": "sl-baby-warns-handunit-will-kill",
+    "title": "Baby: following HandUnit's instructions means death",
+    "claim": "Baby predicts HandUnit will tell the player to crawl quickly through Ballora Gallery and warns that following those instructions will get him killed; she advises going slowly because Ballora can only listen.",
+    "quote": "If you follow his instructions, you will die. Ballora will not return to her stage anymore—she will catch you.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 2, Circus Baby",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 2 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "handunit",
+      "ballora",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "circus-baby",
+      "ballora"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-ballora-song",
+    "title": "Ballora's song",
+    "claim": "While the player crosses Ballora Gallery, Ballora sings a song about someone hiding inside the walls while music fills her halls, and describes an empty room and 'an empty tomb'.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 2, Ballora Gallery crawl",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 2 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "ballora"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "ballora"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ballora/Audio",
+    "notes": "Lyrics/verse are paraphrased rather than reproduced."
+  },
+  {
+    "id": "sl-technicians-injured-funtime-freddy",
+    "title": "Technicians failed to disconnect Funtime Freddy",
+    "claim": "HandUnit says technicians tried and failed to disconnect Funtime Freddy's power module and would need six to eight weeks for recovery and physical therapy.",
+    "quote": "It became necessary for technicians to attempt to disconnect Funtime Freddy's power module. However, they were unsuccessful. …",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 3, HandUnit",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 3 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "handunit",
+      "funtime-freddy",
+      "sl-technicians"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "funtime-freddy",
+      "injury"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "Same night: HandUnit also says the player's pay was substantially decreased for 'lackluster performance'."
+  },
+  {
+    "id": "sl-funtime-freddy-bon-bon-birthday-boy",
+    "title": "Funtime Freddy: 'that's the birthday boy'",
+    "claim": "Funtime Freddy talks to his hand puppet Bon-Bon, calling the player 'the birthday boy' and suggesting they give him a surprise.",
+    "quote": "Hey Bon-Bon, I think-ink that's the birthday boy over there-ere. We should go give him a surprise!",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 2 (Breaker Room) and Night 3 (Parts/Service), Funtime Freddy",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 3 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "funtime-freddy",
+      "bon-bon"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "funtime-freddy",
+      "birthday"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Funtime_Freddy/Audio",
+    "notes": "Also: 'Bon-Bon, say hi to our friends!'. The 'birthday boy' phrase recurs in Custom Night ('Oh, birthday boy!')."
+  },
+  {
+    "id": "sl-funtime-foxy-knockout",
+    "title": "Night 3 ends with Funtime Foxy attacking",
+    "claim": "Night 3 ends with Funtime Foxy jumping at the player near the auditorium exit; the next night begins with him waking elsewhere.",
+    "game": "sister-location",
+    "kind": "mechanic",
+    "location": "End of Night 3, Funtime Auditorium",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 3 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "funtime-foxy",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "funtime-foxy"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_3_(FNaF:_SL)"
+  },
+  {
+    "id": "sl-baby-i-kidnapped-you",
+    "title": "Baby: 'I kidnapped you.'",
+    "claim": "Night 4 opens with Baby telling the player he never left the building, that the cameras couldn't find him because she hid him, and that she kidnapped him but won't hurt him.",
+    "quote": "I kidnapped you.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 4, Circus Baby (opening)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "circus-baby"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-springlock-suit-from-old-pizzeria",
+    "title": "Suit 'from my old pizzeria' — too dangerous",
+    "claim": "Baby says the player is inside something that came from her old pizzeria, which she thinks was never used as meant because it was too dangerous, and is just big enough for one person.",
+    "quote": "You're inside something that came from my old pizzeria. I don't think it was ever used– at least, not the way it was meant to be used. Too dangerous. …",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 4, Circus Baby",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental",
+      "circus-babys-pizza-world"
+    ],
+    "tags": [
+      "springlock-suit"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "'My old pizzeria' is not named; the Steam description (Scott) names Circus Baby's Pizza World."
+  },
+  {
+    "id": "sl-scooping-room-explained",
+    "title": "The scooping room and 'the scooper'",
+    "claim": "Baby says the player is in the scooping room, where 'the scooper' is used, and jokes about how a pint of ice cream would feel about it.",
+    "quote": "You're in the scooping room. Do you know why they call it 'the scooping room'? It's because, dummy, this is the room where they use the scooper.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 4, Circus Baby",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "scooper",
+      "scooping-room"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-ballora-scooped",
+    "title": "Ballora is scooped",
+    "claim": "During Night 4, technicians send Ballora into the scooping room, where the scooper strikes her; her Minireenas later swarm the player's suit.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Night 4, Scooping Room",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "ballora",
+      "sl-technicians",
+      "minireena"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "scooper",
+      "ballora"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Scooping_Room"
+  },
+  {
+    "id": "sl-baby-how-to-pretend",
+    "title": "Baby: 'how. To. Pretend.'",
+    "claim": "Baby says she has learned how to pretend — to seem one way while being another — that Ballora never learns, and that 'they think there is something wrong, on the inside'.",
+    "quote": "They think there is something wrong, on the inside. The only thing that matters... is knowing... how. To. Pretend.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 4, Circus Baby",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby"
+    ],
+    "tags": [
+      "circus-baby",
+      "deception"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-springlocks-breathing",
+    "title": "Breathing and heartbeat loosen the springlocks",
+    "claim": "Baby warns that the player's breathing and heartbeat are loosening the suit's spring-locks and he must keep them wound; Night 4 gameplay is winding springlocks while shaking off Minireenas.",
+    "quote": "I'd recommend that you keep the spring-locks wound up. Your breathing and your heartbeat are causing them to come loose. You don't want them to get too loose, trust me.",
+    "game": "sister-location",
+    "kind": "mechanic",
+    "location": "Night 4, springlock suit gameplay",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 4 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "eggs-benedict",
+      "minireena"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "springlock-suit",
+      "springlock-failure"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-technicians-hanged",
+    "title": "Night 5: the two technicians hang on the stages",
+    "claim": "On Night 5 HandUnit notes two technicians are still on site; when the player checks Ballora Gallery and Funtime Auditorium, a dead technician hangs in each, and HandUnit reports everything as normal.",
+    "quote": "Please be aware that there are still two technicians on site today. Try to avoid interfering with their work if possible.",
+    "game": "sister-location",
+    "kind": "environment",
+    "location": "Night 5, Ballora Gallery and Funtime Auditorium windows",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "sl-technicians",
+      "handunit"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "death",
+      "technicians"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_5_(FNaF:_SL)",
+    "notes": "Killer not shown; Baby says 'Something bad happened yesterday.'"
+  },
+  {
+    "id": "sl-baby-something-bad-inside",
+    "title": "Baby: 'There is something bad… inside of me'",
+    "claim": "On Night 5 Baby says she is pretending to be deactivated, that something bad is inside her and she can't be fixed, and asks the player to 'save what is good, so the rest can be destroyed'.",
+    "quote": "There is something bad...inside of me. I'm broken. I can't be fixed. I'm going to be taken to the scooping room soon, but it's not going to fix what's wrong with me. …",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 5, Circus Baby (Parts/Service)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "circus-baby",
+      "deception"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "She also says 'Ballora will not return to her body.' Later events show this speech was part of a lure (see real ending)."
+  },
+  {
+    "id": "sl-baby-card-and-passcode",
+    "title": "Passcode, card, and sending Baby to the scooper",
+    "claim": "Baby has the player enter a spoken passcode into a panel on her, take a card from a hatch, insert it into his handheld device so she can keep talking, and send her body to the scooping room.",
+    "quote": "When you are there, I want you to destroy this body. Put the card into your handheld device, and I can continue to speak to you.",
+    "game": "sister-location",
+    "kind": "mechanic",
+    "location": "Night 5, Parts/Service",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "eggs-benedict",
+      "handunit"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "circus-baby"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio"
+  },
+  {
+    "id": "sl-real-ending-if-we-looked-like-you",
+    "title": "Real ending: 'If we looked like you'",
+    "claim": "In the scooping room, the voice says every Funtime animatronic 'has already been here today', that they always get put back, and that if they looked like the player they could hide and go somewhere; 'The scooper only hurts for a moment.'",
+    "quote": "There is nowhere to go... when we look like this. But if we looked like you, then we could hide. If we looked like you, then we would have somewhere to go. …",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 5 Real Ending, Scooping Room",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "ennard",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "scooper",
+      "ennard",
+      "real-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "Spoken in Baby's voice with 'we'; the Funtime shells (Ballora, Funtime Freddy, Funtime Foxy, Baby) have all been scooped, implying their insides combined (Ennard). Speaker attribution Baby vs Ennard is an interpretive point."
+  },
+  {
+    "id": "sl-real-ending-scooped-mirror",
+    "title": "Real ending: scooped, then purple eyes in the mirror",
+    "claim": "The scooper strikes the player; a cutscene then shows his dark silhouette before a mirror, whose eyes open to reveal glowing purple-and-white animatronic eyes.",
+    "game": "sister-location",
+    "kind": "ending",
+    "location": "Night 5 Real Ending cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "eggs-benedict",
+      "ennard"
+    ],
+    "tags": [
+      "scooper",
+      "ennard",
+      "real-ending"
+    ],
+    "image": "sl-real-ending-purple-eyes.png",
+    "related": [
+      "sl-custom-night-decay"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton",
+    "notes": "That Ennard is now wearing the player's body is implied by the eyes and the prior 'if we looked like you' speech."
+  },
+  {
+    "id": "sl-private-room-restricted",
+    "title": "Private Room: HandUnit locks the player in until 6 AM",
+    "claim": "If the player ignores Baby and enters the Private Room (needs the minigame keycard), HandUnit says he has wandered into a restricted area and can't leave until the cleanup crew arrives at 6 AM.",
+    "quote": "Due to the sensitive nature of the materials that you may be exposed to here, you will not be allowed to leave until the cleanup crew arrives at 6 am. So hang tight! …",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 5 Fake Ending, Private Room",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "handunit",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "private-room",
+      "fake-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
+  },
+  {
+    "id": "sl-private-room-fredbear-plush",
+    "title": "A Fredbear plush sits in the Private Room",
+    "claim": "The Private Room, laid out like earlier games' security offices with doors and cameras, has a Fredbear plush on its desk.",
+    "game": "sister-location",
+    "kind": "environment",
+    "location": "Private Room desk",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "fredbear-plush",
+      "private-room"
+    ],
+    "related": [
+      "fnaf4-plush-locked-in-room"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room",
+    "notes": "Whether it is the same plush as FNaF4's is not stated."
+  },
+  {
+    "id": "sl-fake-ending-to-be-with-her-again",
+    "title": "Ennard: 'To be with her again?'",
+    "claim": "While trying to get into the Private Room, the voice asks why the player didn't trust it, says 'we need you… so that we can look like you', and asks 'Isn't this why you came here? To be with her again?'",
+    "quote": "Isn't this why you came here? To be with her again?",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 5 Fake Ending (Private Room), before 4 AM",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "ennard",
+      "circus-baby",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "fake-ending",
+      "motive"
+    ],
+    "related": [
+      "sl-golden-freddy-cutscene-father"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "In Baby's voice before 4 AM. Implies the player came to the facility for a female 'her'; who is not said here."
+  },
+  {
+    "id": "sl-fake-ending-girl-voice",
+    "title": "Fake ending: the voice becomes the little girl's",
+    "claim": "After 4 AM the voice switches to the little girl's, saying 'I know it was an accident', 'Everything is okay. I'm still here.' and 'Isn't this why you came here? To be with me again?'",
+    "quote": "Isn't this why you came here? To be with me again?",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 5 Fake Ending (Private Room), after 4 AM",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "ennard",
+      "elizabeth-afton",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "fake-ending",
+      "afton-family",
+      "motive"
+    ],
+    "related": [
+      "sl-girl-daddy-let-me-play"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Elizabeth_Afton/Audio",
+    "notes": "Voice attributed by the wiki to the same girl as the pre-night cutscenes. 'I know it was an accident' is unexplained. Ending line: 'I will find a way out.'"
+  },
+  {
+    "id": "sl-fake-ending-home",
+    "title": "Fake ending: Ennard reaches the player's home",
+    "claim": "After surviving to 6 AM, the player watches TV at home with an 'Exotic Butters' basket on the TV; when the show ends, Ennard is seen dragging itself into the room.",
+    "game": "sister-location",
+    "kind": "ending",
+    "location": "Fake Ending cutscene (home)",
+    "certainty": "shown",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "ennard",
+      "eggs-benedict"
+    ],
+    "places": [
+      "michael-afton-home"
+    ],
+    "tags": [
+      "fake-ending",
+      "exotic-butters"
+    ],
+    "related": [
+      "sl-exotic-butters"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Scott later called the Private Room/Custom Night gameplay non-canon on Steam (Scott-statements group)."
+  },
+  {
+    "id": "sl-exotic-butters",
+    "title": "'Exotic Butters' gift basket",
+    "claim": "HandUnit 'autocorrects' the player's one-week bonus choice to a basket of Exotic Butters, its cost taken out of his next paycheck.",
+    "quote": "Thank you for selecting...Exotic Butters.",
+    "game": "sister-location",
+    "kind": "phone-call",
+    "location": "Night 5, HandUnit (elevator)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "handunit",
+      "eggs-benedict"
+    ],
+    "tags": [
+      "exotic-butters",
+      "running-gag"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
+    "notes": "Recurring object across later games; useful for tracking."
+  },
+  {
+    "id": "sl-custom-night-decay",
+    "title": "Custom Night cutscenes: the body decays among neighbours",
+    "claim": "Custom Night cutscenes show the player-character walking down a street of waving neighbours; across the scenes his skin darkens to purple and neighbours grow alarmed and hide.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night post-preset cutscenes (V. Hard), 1st–6th",
+    "certainty": "shown",
+    "when": {
+      "label": "After Sister Location's Real Ending (undated)",
+      "precision": "relative",
+      "basis": "Custom Night cutscenes depict the aftermath of the Real Ending."
+    },
+    "people": [
+      "eggs-benedict",
+      "ennard"
+    ],
+    "tags": [
+      "decay",
+      "custom-night-cutscenes"
+    ],
+    "related": [
+      "sl-real-ending-scooped-mirror"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF:_SL)",
+    "notes": "Wiki pages disagree on intermediate skin colours per cutscene. Scott stated the cutscenes are canon (Scott group)."
+  },
+  {
+    "id": "sl-custom-night-ennard-ejected",
+    "title": "The purple body ejects Ennard into a sewer",
+    "claim": "In the final walking cutscene, the fully purple man stops, his stomach heaves, and he regurgitates a mass of wires/eyes into a sewer drain, then collapses.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night 7th cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "After Sister Location's Real Ending (undated)",
+      "precision": "relative",
+      "basis": "Custom Night cutscenes depict the aftermath of the Real Ending."
+    },
+    "people": [
+      "eggs-benedict",
+      "ennard"
+    ],
+    "tags": [
+      "decay",
+      "ennard",
+      "purple-man"
+    ],
+    "image": "sl-custom-night-michael-ejects-ennard.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF:_SL)",
+    "notes": "The ejected mass is identified as Ennard by the wiki; its eyes light up in the drain."
+  },
+  {
+    "id": "sl-you-wont-die",
+    "title": "'You won't die.' — the body rises",
+    "claim": "After the collapse, a voice repeats 'You won't die.' until the purple man gets back up.",
+    "quote": "You won't die.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night 7th cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "After Sister Location's Real Ending (undated)",
+      "precision": "relative",
+      "basis": "Custom Night cutscenes depict the aftermath of the Real Ending."
+    },
+    "people": [
+      "eggs-benedict",
+      "circus-baby"
+    ],
+    "tags": [
+      "undeath",
+      "purple-man"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "Audio credited to Circus Baby's voice actor on the wiki; one wiki page attributes it to Ennard. Echoes the fake-ending line 'You won't die.'"
+  },
+  {
+    "id": "sl-golden-freddy-cutscene-father",
+    "title": "Golden Freddy cutscene: 'Father. It's me, Michael.'",
+    "claim": "After Golden Freddy mode on V. Hard, a speaker addresses 'Father', names himself Michael, says he found 'it' where he was told, that 'they' thought he was 'you', that he found 'her' and 'put her back together, just like you asked me to'.",
+    "quote": "Father. It's me, Michael. I did it. I found it. It was right where you said it would be. They were all there. …",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night — Golden Freddy (V. Hard) cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "After Sister Location's Real Ending and after Fazbear's Fright burned (undated)",
+      "precision": "relative",
+      "basis": "Cutscene shows the burned remains of Fazbear's Fright behind the speaker; no date given."
+    },
+    "people": [
+      "michael-afton",
+      "eggs-benedict",
+      "william-afton",
+      "circus-baby"
+    ],
+    "places": [
+      "fazbears-fright",
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "afton-family",
+      "put-back-together",
+      "father"
+    ],
+    "related": [
+      "sl-fake-ending-to-be-with-her-again",
+      "fnaf4-i-will-put-you-back-together"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton",
+    "notes": "Only first name 'Michael' is spoken; 'Afton' surname is inferred via 'Mr. Afton' in the intro plus 'Father'. The father is never named here. 'Her' is not named (Baby/the girl inferred). Linking the speaker to Eggs Benedict relies on matching events (implied)."
+  },
+  {
+    "id": "sl-golden-freddy-cutscene-come-find-you",
+    "title": "'I'm going to come find you.'",
+    "claim": "Michael continues that something is wrong with him — he should be dead but isn't, and has been living in shadows — and says he will come find his father.",
+    "quote": "But something is wrong with me. I should be dead. But I'm not. I've been living in shadows. There is only one thing left for me to do now. I'm going to come find you.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night — Golden Freddy (V. Hard) cutscene",
+    "certainty": "stated",
+    "when": {
+      "label": "After Sister Location's Real Ending and after Fazbear's Fright burned (undated)",
+      "precision": "relative",
+      "basis": "Cutscene shows the burned remains of Fazbear's Fright behind the speaker; no date given."
+    },
+    "people": [
+      "michael-afton",
+      "william-afton"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "undeath",
+      "father"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton"
+  },
+  {
+    "id": "sl-golden-freddy-cutscene-springtrap",
+    "title": "Burned Fazbear's Fright; Springtrap appears",
+    "claim": "The Golden Freddy cutscene shows the burned wreckage of Fazbear's Fright; after Michael's monologue, Springtrap appears from the darkness and the scene ends.",
+    "game": "sister-location",
+    "kind": "cutscene",
+    "location": "Custom Night — Golden Freddy (V. Hard) cutscene",
+    "certainty": "shown",
+    "when": {
+      "label": "After Sister Location's Real Ending and after Fazbear's Fright burned (undated)",
+      "precision": "relative",
+      "basis": "Cutscene shows the burned remains of Fazbear's Fright behind the speaker; no date given."
+    },
+    "people": [
+      "springtrap",
+      "michael-afton"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "springtrap",
+      "father"
+    ],
+    "related": [
+      "sl-golden-freddy-cutscene-father"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF:_SL)",
+    "notes": "Springtrap's appearance right after 'Father… I'm going to come find you' implies the father is in/at Springtrap; the game doesn't state it."
+  },
+  {
+    "id": "sl-blueprint-screens",
+    "title": "Rare blueprint screens",
+    "claim": "Rarely (reported 1/10,000) on entering an area, a technical blueprint of Circus Baby, Ballora, Funtime Freddy or Funtime Foxy flashes on screen.",
+    "game": "sister-location",
+    "kind": "hidden",
+    "location": "Random rare screen on entering an area",
+    "certainty": "shown",
+    "when": {
+      "label": "During Sister Location (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date."
+    },
+    "people": [
+      "circus-baby",
+      "ballora",
+      "funtime-freddy",
+      "funtime-foxy"
+    ],
+    "tags": [
+      "blueprints",
+      "funtime-animatronics"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF:_SL)",
+    "notes": "Blueprint annotations not transcribed here."
+  },
+  {
+    "id": "sl-baby-guides-past-ballora",
+    "title": "Baby: 'He is here to help, Ballora'",
+    "claim": "Guiding the player through Funtime Auditorium, Baby says Ballora is in front of him and tells Ballora 'he is here to help us'.",
+    "quote": "He is here to help, Ballora. He is not here to hurt us. Ballora, he is here to help us.",
+    "game": "sister-location",
+    "kind": "dialogue",
+    "location": "Night 5, Funtime Auditorium (Real Ending route)",
+    "certainty": "stated",
+    "when": {
+      "label": "Sister Location, Night 5 (undated)",
+      "precision": "relative",
+      "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
+    },
+    "people": [
+      "circus-baby",
+      "ballora",
+      "eggs-benedict"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "ballora",
+      "deception"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
+    "notes": "Baby had said 'Ballora will not return to her body' — suggesting what follows is Ballora's insides rather than her shell (interpretation)."
+  }
+]
