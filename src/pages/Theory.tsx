@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { citationsIn, theory } from "../data/store";
+import { auditLedger } from "../data/audit";
 import { Cite, RichText } from "../components/ui";
 
 export default function Theory() {
@@ -32,6 +33,11 @@ export default function Theory() {
           It was built from the <Link to="/evidence">evidence locker</Link> up, not from community theories. Every claim carries its citations;
           hover a chip to preview, click to open. Where evidence cuts against the model, it is listed openly.
         </p>
+        <Link to="/audit" className="audit-banner">
+          <strong>Audited.</strong> An adversarial review found {auditLedger.length} problems. {auditLedger.filter((a) => a.outcome !== "open").length} were
+          fixed, downgraded or reframed; {auditLedger.filter((a) => a.outcome === "open").length} remain openly unresolved. Two conclusions were reversed:
+          Golden Freddy is the fifth missing child, and UCN&apos;s player is Michael. See the ledger →
+        </Link>
         {theory.map((s, i) => (
           <section key={s.id} id={s.id} className="theory-sec">
             <h2><span className="sec-n">{String(i + 1).padStart(2, "0")}</span> {s.title} <span className={`badge conf-${s.confidence}`}>{s.confidence} confidence</span></h2>

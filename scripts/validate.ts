@@ -11,6 +11,7 @@ import { theory } from "../src/data/theory";
 import { familyTrees } from "../src/data/familyTrees";
 import { homeSummary } from "../src/data/home";
 import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
+import { auditLedger } from "../src/data/audit";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors: string[] = [];
@@ -74,6 +75,8 @@ for (const p of people) { textRefs(`person ${p.id}`, p.summary); if (p.theory) t
 for (const p of places) textRefs(`place ${p.id}`, p.summary);
 for (const h of homeSummary) textRefs(`home ${h.title}`, h.text);
 for (const p of people) textRefs(`person ${p.id} status`, p.status);
+const theoryIds = new Set(theory.map((x) => x.id));
+for (const a of auditLedger) { textRefs(`audit ${a.id}`, a.problem + " " + a.resolution); need(`audit ${a.id}`, a.evidence); for (const sct of a.sections) if (!theoryIds.has(sct)) errors.push(`audit ${a.id}: unknown theory section ${sct}`); }
 for (const t of timeline) if (!EVENT_DATES[t.id]) errors.push(`event ${t.id}: no date justification`);
 for (const [k, d] of Object.entries({ ...EVENT_DATES, ...ERA_DATES, ...PLACE_DATES, ...GAME_DATES })) need(`date ${k}`, d.evidence);
 for (const e of eras) if (!ERA_DATES[e.id]) errors.push(`era ${e.id}: no date justification`);
@@ -81,6 +84,27 @@ for (const t of familyTrees) for (const m of t.members) if (!personIds.has(m.id)
 for (const c of credits) if (!fs.existsSync(path.join(root, "public/img", c.file))) errors.push(`credit: missing file ${c.file}`);
 const credited = new Set(credits.map((c) => c.file));
 for (const f of fs.readdirSync(path.join(root, "public/img"))) if (!credited.has(f)) warnings.push(`image without credit: ${f}`);
+
+// ── Consistency rules added by the theory audit ──
+const evById = new Map(evidence.map((e) => [e.id, e]));
+const onlyImplied = (list: string[]) => list.length > 0 && list.every((id) => evById.get(id)?.certainty === "implied");
+for (const r of relations) if (r.status === "canon" && onlyImplied(r.evidence)) errors.push(`relation ${r.from}->${r.to}: canon status rests only on implied evidence`);
+for (const t of timeline) if (t.status === "canon" && onlyImplied(t.evidence)) errors.push(`event ${t.id}: canon status rests only on implied evidence`);
+// Eras must not overlap in sort order.
+const eraOrder = eras.map((e) => e.id);
+for (let i = 0; i + 1 < eraOrder.length; i++) {
+  const a = timeline.filter((t) => t.era === eraOrder[i]).map((t) => t.year);
+  const b = timeline.filter((t) => t.era === eraOrder[i + 1]).map((t) => t.year);
+  if (a.length && b.length && Math.max(...a) > Math.min(...b)) errors.push(`era order: ${eraOrder[i]} (max ${Math.max(...a)}) overlaps ${eraOrder[i + 1]} (min ${Math.min(...b)})`);
+}
+// A 'printed' date justification must cite at least one non-implied record.
+for (const [k, d] of Object.entries(EVENT_DATES)) if (d.kind === "printed" && onlyImplied(d.evidence)) errors.push(`date ${k}: 'printed' but only implied evidence`);
+// Non-high-confidence theory sections must show their counter-evidence (except the explicit open-questions section).
+for (const sct of theory) if (sct.confidence !== "high" && sct.id !== "open" && !(sct.counterEvidence?.length)) warnings.push(`theory ${sct.id}: ${sct.confidence} confidence but no counter-evidence listed`);
+// Identity groups: a record may not be 'same-as' two different canonical people.
+const sameAs = new Map<string, Set<string>>();
+for (const r of relations.filter((x) => x.kind === "same-as")) { (sameAs.get(r.from) ?? sameAs.set(r.from, new Set()).get(r.from)!).add(r.to); }
+for (const [from, tos] of sameAs) if (tos.size > 1) warnings.push(`identity: ${from} is same-as several records (${[...tos].join(", ")}); check they converge`);
 
 const undefinedEntities = new Map<string, number>();
 for (const e of evidence) for (const x of [...(e.people ?? []), ...(e.places ?? [])]) if (!personIds.has(x) && !placeIds.has(x)) undefinedEntities.set(x, (undefinedEntities.get(x) ?? 0) + 1);

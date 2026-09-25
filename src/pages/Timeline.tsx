@@ -63,7 +63,7 @@ export default function Timeline() {
     <div className="page tl-page">
       <header className="tl-hero">
         <h1>Timeline</h1>
-        <p className="lede">Eight eras, from Murray's costume workshop to the ruins of the Pizzaplex. Every date carries a pill: hover it to see whether the year is printed in a game, derived from printed dates, or estimated, and which records it rests on.</p>
+        <p className="lede">Eight eras, from Murray's costume workshop to the ruins of the Pizzaplex. Every date carries a pill: hover it to see whether the year is printed in a game, derived from printed dates, or estimated, and which records it rests on. Undated events are positioned by their relationship to dated ones; that position is a convention, not a claim about the year.</p>
         <div className="date-legend">
           {(["printed", "derived", "estimated", "relative", "teaser"] as DateKind[]).map((k) => (
             <span key={k}><span className={`date-pill compact dk-${k}`} style={{ cursor: "default" }}><span className="dp-dot" />{DATE_KIND[k].label}</span></span>

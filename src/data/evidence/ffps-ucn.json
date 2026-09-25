@@ -2034,12 +2034,12 @@
     "claim": "In the official UCN Character Guide posted on Steam, Scott Cawthon names the character 'William Afton (AKA Scraptrap)'.",
     "game": "scott",
     "kind": "scott-statement",
-    "location": "Steam announcement 'Character Guide' (Ultimate Custom Night), June 15, 2018",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
     "certainty": "stated",
     "when": {
-      "label": "During UCN (undated)",
+      "label": "Out-of-universe statement (2018-06-15)",
       "precision": "unknown",
-      "basis": "UCN gives no date or setting year"
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
     },
     "quote": "William Afton (AKA Scraptrap): Afton has the distinction of having the simplest mechanic in the game, but also possibly the scariest. He will only attack once per night",
     "people": [
@@ -2050,8 +2050,9 @@
       "afton",
       "naming"
     ],
-    "url": "https://steamcommunity.com/games/871720/announcements/detail/2515705441805606668",
-    "verifiedVia": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=871720&count=100&maxlength=0"
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Re-verified during the theory audit. An earlier search of Scott's Reddit posts and Steam discussion comments found no use of the name, but that search did not cover Steam announcements; this announcement does use it."
   },
   {
     "id": "ucn-afton-always-come-back",
@@ -2304,35 +2305,10 @@
     ],
     "image": "ucn-one-you-should-not-have-killed.png",
     "related": [
-      "scott-ucn-jason-face"
+      "scott-2019-ucn-child-face-jason"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(UCN)",
-    "notes": "The image carries no in-game caption. It is linked to 'the one you should not have killed' by Scott's Reddit statement (scott-ucn-jason-face)."
-  },
-  {
-    "id": "scott-ucn-jason-face",
-    "title": "Scott: his son Jason is the face of 'The one you should not have killed'",
-    "claim": "Scott Cawthon said the UCN face of 'The one you should not have killed' is an edited photo of his son Jason, and hinted that family photos he uses carry no lore meaning.",
-    "game": "scott",
-    "kind": "scott-statement",
-    "location": "Reddit post 'A lore question about Help Wanted, and an answer!' (r/fivenightsatfreddys, Sept 2019)",
-    "certainty": "stated",
-    "when": {
-      "label": "During UCN (undated)",
-      "precision": "unknown",
-      "basis": "UCN gives no date or setting year"
-    },
-    "quote": "My little boy, Jason, is the face of \"The one you should not have killed\" in UCN. ... Do these have lore significance? Well, you probably already know the answer.",
-    "people": [
-      "one-you-should-not-have-killed"
-    ],
-    "tags": [
-      "toysnhk",
-      "scott"
-    ],
-    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/a_lore_question_about_help_wanted_and_an_answer/",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(UCN)",
-    "notes": "Wording taken from the wiki's quotation; Reddit could not be fetched directly. The statement confirms the face is TOYSNHK and suggests the photo's real identity is not lore."
+    "notes": "The image carries no in-game caption. It is linked to 'the one you should not have killed' by Scott's Reddit statement (scott-2019-ucn-child-face-jason)."
   },
   {
     "id": "ucn-nightmare-lines",
