@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { credits, eras, evidence, games, people, relations, theory, timeline } from "../data/store";
-import { RichText, Shot, StatusBadge } from "../components/ui";
+import type { CSSProperties } from "react";
+import { DatePill, RichText, Shot, StatusBadge } from "../components/ui";
+import { ERA_COLOR, ERA_DATES } from "../data/dates";
 import { homeSummary, keyQuestions } from "../data/home";
 
 export default function Home() {
@@ -52,8 +54,8 @@ export default function Home() {
         <h2>Eras</h2>
         <div className="era-cards">
           {eras.map((e) => (
-            <Link key={e.id} to={`/timeline#era-${e.id}`} className={`era-card era-${e.id}`}>
-              <span className="muted small">{e.range}</span>
+            <Link key={e.id} to={`/timeline?era=${e.id}`} className={`era-card era-${e.id}`} style={{ "--ec": ERA_COLOR[e.id] } as CSSProperties}>
+              <span onClick={(ev) => ev.preventDefault()}><DatePill label={e.range} kind={ERA_DATES[e.id]?.kind ?? "unknown"} basis={ERA_DATES[e.id]?.basis} evidence={ERA_DATES[e.id]?.evidence} compact /></span>
               <h3>{e.name}</h3>
               <p className="small">{e.summary}</p>
             </Link>

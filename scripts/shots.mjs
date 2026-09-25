@@ -10,7 +10,9 @@ p.on("console", (m) => { if (m.type() === "error") errs.push(m.text()); });
 for (const path of pages) {
   await p.goto(base + path, { waitUntil: "networkidle" });
   await p.waitForTimeout(path === "/graph" ? 2500 : 600);
-  const name = `/tmp/shot-${width}-${path.replace(/[^a-z0-9]+/gi, "_") || "home"}.png`;
+  if (process.env.SCROLL) { await p.evaluate((y) => window.scrollTo(0, y), Number(process.env.SCROLL)); await p.waitForTimeout(700); }
+  if (process.env.HOVER) { const el = p.locator(process.env.HOVER).first(); await el.hover(); await p.waitForTimeout(300); }
+  const name = `/tmp/shot-${width}${process.env.SCROLL ? "-s" + process.env.SCROLL : ""}-${path.replace(/[^a-z0-9]+/gi, "_") || "home"}.png`;
   await p.screenshot({ path: name, fullPage: false });
   console.log(name);
 }

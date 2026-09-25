@@ -41,7 +41,7 @@ export const people: Person[] = [
   {
     id: "crying-child", name: "The Crying Child", aliases: ["The birthday boy", "The kid who hides under the table"], nameStatus: "descriptor", group: "afton",
     summary: "The boy in FNaF4's minigames. An unnamed \"he\" locks him in his room [[fnaf4-plush-locked-in-room]], he is afraid of the Fredbear restaurant [[fnaf4-left-behind-at-diner]], and his older brother torments him. On his birthday [[fnaf4-its-your-birthday]] he is pushed into Fredbear's mouth, which closes on his head [[fnaf4-the-bite]]. His plush promises \"I will put you back together\" [[fnaf4-i-will-put-you-back-together]] as a flatline tone plays [[fnaf4-flatline]].",
-    status: "Died after the Bite (c. 1983). Theory: lingers as Golden Freddy, the presence in Fredbear.",
+    status: "Died after the Bite (<<c. 1983|derived|fnaf4-minigame-countdown-to-party,fnaf4-fredbear-and-friends-1983|The party ends the countdown, whose only printed year is 1983.>>). Theory: lingers as Golden Freddy, the presence in Fredbear.",
     firstAppearance: "fnaf4", image: "fnaf4-older-brother-and-bullies.png",
     evidence: ["fnaf4-plush-locked-in-room", "fnaf4-its-your-birthday", "fnaf4-the-bite", "fnaf4-i-will-put-you-back-together", "fnaf4-flatline", "fw-clock-ending-pieces-in-place"],
     theory: "He is William Afton's youngest son. The Midnight Motorist driver comes home in a purple car to a boy who has shut his door and fled to \"that place\" [[ffps-midnight-motorist-closed-door]] [[ffps-midnight-motorist-ran-off]], the same family pattern FNaF4 shows. His spirit is the power behind Golden Freddy: in UCN, using the Death Coin on Golden Freddy summons Fredbear [[ucn-death-coin-fredbear]], and FNaF World's clock ending awards his trophy while yellow eyes say \"We are still your friends\" [[fw-clock-ending-still-your-friends]].",
@@ -76,7 +76,7 @@ export const people: Person[] = [
   {
     id: "missing-children", name: "The Missing Children", aliases: ["The five"], nameStatus: "descriptor", group: "victim",
     summary: "Children lured into a back room at Freddy Fazbear's Pizza by a man in a mascot costume on June 26th [[fnaf1-news-kids-vanish]]. Five are linked to the case and never found [[fnaf1-news-five-children]]. Parents later reported blood and mucus around the mascots' eyes and mouths [[fnaf1-news-sanitation]]. The Puppet gives four dead children masks of Freddy, Bonnie, Chica and Foxy [[fnaf2-give-gifts-give-life]].",
-    status: "Murdered (c. 1985, theory). Their spirits lived in the original four animatronics until FNaF3's Happiest Day freed them.",
+    status: "Murdered (<<c. 1985|estimated|fnaf1-news-kids-vanish,into-the-pit-past-year-1985|June 26th is printed with no year; 1985 is implied by Into the Pit.>>, theory). Their spirits lived in the original four animatronics until FNaF3's Happiest Day freed them.",
     firstAppearance: "fnaf1", image: "fnaf1-missing-children-newspapers.jpg",
     evidence: ["fnaf1-news-kids-vanish", "fnaf1-news-five-children", "fnaf1-news-sanitation", "fnaf2-give-gifts-give-life", "fnaf3-happiest-day", "fnaf3-good-ending-heads"],
     theory: "Four gravestone names appear in FFPS's Lorekeeper ending: Gabriel, Fritz, Susie and Jeremy [[ffps-lorekeeper-gravestones]]. These are the only victim names the games give, and they never say which child went into which animatronic.",

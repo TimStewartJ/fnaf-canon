@@ -86,7 +86,9 @@ export interface Person {
 
 export type RelationKind =
   | "parent-of" | "sibling-of" | "spouse-of" | "killed" | "possesses" | "created"
-  | "employed-by" | "same-as" | "worked-with" | "hunted" | "controls" | "partner-of";
+  | "employed-by" | "same-as" | "worked-with" | "hunted" | "controls" | "partner-of"
+  | "became"   // object continuity: a suit/machine turned into another form
+  | "wore";    // a person took on a role or costume
 
 export interface Relation {
   from: string;
@@ -117,6 +119,7 @@ export interface TimelineEvent {
   people?: string[];
   places?: string[];
   era: string;
+  image?: string;
 }
 
 export interface TheorySection {

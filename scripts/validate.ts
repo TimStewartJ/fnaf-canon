@@ -10,6 +10,7 @@ import { timeline, eras } from "../src/data/timeline";
 import { theory } from "../src/data/theory";
 import { familyTrees } from "../src/data/familyTrees";
 import { homeSummary } from "../src/data/home";
+import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors: string[] = [];
@@ -61,6 +62,10 @@ for (const t of timeline) {
 }
 const textRefs = (where: string, s: string) => {
   for (const m of s.matchAll(/\[\[([a-z0-9-]+)\]\]/g)) if (!ids.has(m[1])) errors.push(`${where}: unknown citation ${m[1]}`);
+  for (const m of s.matchAll(/<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g)) {
+    if (!["printed", "derived", "estimated", "relative", "teaser", "unknown"].includes(m[2])) errors.push(`${where}: bad date kind ${m[2]}`);
+    for (const id of m[3].split(",").filter(Boolean)) if (!ids.has(id)) errors.push(`${where}: date token cites unknown ${id}`);
+  }
   for (const m of s.matchAll(/\{\{([a-z0-9-]+)\}\}/g)) if (!personIds.has(m[1]) && !placeIds.has(m[1])) errors.push(`${where}: unknown entity ${m[1]}`);
 };
 for (const s of theory) { s.body.forEach((b) => textRefs(`theory ${s.id}`, b)); need(`theory ${s.id} counter`, s.counterEvidence ?? []); }
@@ -68,6 +73,10 @@ for (const t of timeline) textRefs(`event ${t.id}`, t.summary);
 for (const p of people) { textRefs(`person ${p.id}`, p.summary); if (p.theory) textRefs(`person ${p.id} theory`, p.theory); }
 for (const p of places) textRefs(`place ${p.id}`, p.summary);
 for (const h of homeSummary) textRefs(`home ${h.title}`, h.text);
+for (const p of people) textRefs(`person ${p.id} status`, p.status);
+for (const t of timeline) if (!EVENT_DATES[t.id]) errors.push(`event ${t.id}: no date justification`);
+for (const [k, d] of Object.entries({ ...EVENT_DATES, ...ERA_DATES, ...PLACE_DATES, ...GAME_DATES })) need(`date ${k}`, d.evidence);
+for (const e of eras) if (!ERA_DATES[e.id]) errors.push(`era ${e.id}: no date justification`);
 for (const t of familyTrees) for (const m of t.members) if (!personIds.has(m.id)) errors.push(`tree ${t.id}: unknown person ${m.id}`);
 for (const c of credits) if (!fs.existsSync(path.join(root, "public/img", c.file))) errors.push(`credit: missing file ${c.file}`);
 const credited = new Set(credits.map((c) => c.file));

@@ -53,7 +53,7 @@ export const relations: Relation[] = [
   { from: "victim-fritz", to: "missing-children", kind: "same-as", status: "strong", evidence: ["ffps-lorekeeper-gravestones"] },
   { from: "victim-susie", to: "missing-children", kind: "same-as", status: "strong", evidence: ["ffps-lorekeeper-gravestones"] },
   { from: "victim-jeremy", to: "missing-children", kind: "same-as", status: "strong", evidence: ["ffps-lorekeeper-gravestones"] },
-  { from: "spring-bonnie", to: "springtrap", kind: "same-as", status: "strong", evidence: ["fnaf3-n5-springlock-death", "fnaf3-springtrap-name", "fnaf3-spring-bonnie-posters"] },
+  { from: "spring-bonnie", to: "springtrap", kind: "became", status: "strong", evidence: ["fnaf3-n5-springlock-death", "fnaf3-springtrap-name", "fnaf3-spring-bonnie-posters"] },
   { from: "purple-guy", to: "spring-bonnie", kind: "controls", status: "strong", evidence: ["fnaf2-call6-yellow-suit", "ffps-fruity-maze-follow-me", "fnaf4-purple-guy-suits-up-employee", "into-the-pit-yellow-rabbit-naming"], note: "The killer's disguise." },
   { from: "yellow-rabbit", to: "purple-guy", kind: "same-as", status: "theory", evidence: ["into-the-pit-yellow-rabbit-naming", "into-the-pit-prologue-mci", "into-the-pit-collect-the-hats-purple-guy"] },
   { from: "michael-afton", to: "william-afton", kind: "hunted", status: "strong", evidence: ["sl-golden-freddy-cutscene-come-find-you", "ffps-completion-brave-volunteer"] },
@@ -62,7 +62,7 @@ export const relations: Relation[] = [
 
   // Pizzaplex era
   { from: "glitchtrap", to: "vanny", kind: "controls", status: "strong", evidence: ["security-breach-cd-vanessa-costume-fur", "codb-mask-plush-voice", "ruin-vanny-hideout-glitchtrap-shadow", "sd-ness-compliance-searches"] },
-  { from: "vanessa", to: "vanny", kind: "same-as", status: "strong", evidence: ["security-breach-freddy-vanny-vanessa-bunny", "security-breach-cd-vanessa-costume-fur", "security-breach-ending-redemption"], note: "Vanessa wore the role; she is not its only wearer (see the rooftop unmasking)." },
+  { from: "vanessa", to: "vanny", kind: "wore", status: "strong", evidence: ["security-breach-freddy-vanny-vanessa-bunny", "security-breach-cd-vanessa-costume-fur", "security-breach-ending-redemption"], note: "Vanessa wore the role; she is not its only wearer (see the rooftop unmasking)." },
   { from: "ness", to: "vanessa", kind: "same-as", status: "theory", evidence: ["security-breach-cd-vanessa-encrypted-conversation", "sd-ness-interested-in-it", "sd-ness-voices-at-screen"], note: "Both are linked to an IT worker named Luis." },
   { from: "vanny", to: "glitchtrap", kind: "killed", status: "canon", evidence: ["hw2-pq4-vanny-crushes-glitchtrap"] },
   { from: "vanny", to: "gregory", kind: "hunted", status: "canon", evidence: ["security-breach-vanny-lines", "security-breach-ending-alley"] },

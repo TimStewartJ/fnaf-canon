@@ -1,6 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { evidenceForPlace, placeById, places, timeline } from "../data/store";
-import { CiteList, EvidenceCard, RichText, Section, Shot, StatusBadge } from "../components/ui";
+import { CiteList, DatePill, EvidenceCard, RichText, Section, Shot, StatusBadge } from "../components/ui";
+import { PLACE_DATES } from "../data/dates";
+
+function PlaceYears({ id, years }: { id: string; years: string }) {
+  const d = PLACE_DATES[id];
+  return <DatePill label={years} kind={d?.kind ?? "unknown"} basis={d?.basis} evidence={d?.evidence} />;
+}
 
 export default function Places() {
   return (
@@ -13,7 +19,7 @@ export default function Places() {
             {p.image && <img src={`${import.meta.env.BASE_URL}img/${p.image}`} alt="" loading="lazy" />}
             <div>
               <h3>{p.name}</h3>
-              <p className="muted small">{p.years}</p>
+              <p className="small"><PlaceYears id={p.id} years={p.years} /></p>
               <p className="small">{p.summary}</p>
               <p className="muted small">{evidenceForPlace(p.id).length} records</p>
             </div>
@@ -34,13 +40,13 @@ export function PlaceDetail() {
     <div className="page">
       <p className="crumbs"><Link to="/places">Places</Link> / {p.name}</p>
       <h1>{p.name}</h1>
-      <p className="muted">{p.years}</p>
+      <p><PlaceYears id={p.id} years={p.years} /></p>
       <p className="big-claim"><RichText text={p.summary} /></p>
       <p>Established by: <CiteList ids={p.evidence} /></p>
       {p.image && <Shot file={p.image} />}
       {events.length > 0 && (
         <Section title="What happened here">
-          <ul className="plain">{events.map((t) => <li key={t.id}><StatusBadge status={t.status} /> <Link to={`/timeline#${t.id}`}>{t.yearLabel} — {t.title}</Link></li>)}</ul>
+          <ul className="plain">{events.map((t) => <li key={t.id}><StatusBadge status={t.status} /> <Link to={`/timeline?e=${t.id}`}>{t.yearLabel} — {t.title}</Link></li>)}</ul>
         </Section>
       )}
       <Section title={`Evidence (${ev.length})`}>

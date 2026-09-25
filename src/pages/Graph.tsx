@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY, type SimulationLinkDatum, type SimulationNodeDatum } from "d3-force";
 import { evidenceForPerson, labelForEntity, people, personById, relations } from "../data/store";
+import { canonicalId } from "../data/model";
 import type { Relation, Status } from "../data/schema";
 import { CiteList, EntityLink, StatusBadge } from "../components/ui";
 
@@ -18,16 +19,21 @@ export default function Graph() {
   const [focus, setFocus] = useState<string>("");
   const [sel, setSel] = useState<Relation | null>(null);
   const [tick, setTick] = useState(0);
+  const [unified, setUnified] = useState(true);
   const nav = useNavigate();
-  const size = { w: 1100, h: 760 };
+  const size = { w: 1100, h: 640 };
 
   const { nodes, links } = useMemo(() => {
-    const rels = relations.filter((r) => statuses.includes(r.status) && personById.has(r.from) && personById.has(r.to));
+    const map = (id: string) => (unified ? canonicalId(id) : id);
+    const seen = new Set<string>();
+    const rels = relations.filter((r) => statuses.includes(r.status) && personById.has(r.from) && personById.has(r.to))
+      .map((r) => ({ ...r, from: map(r.from), to: map(r.to) }))
+      .filter((r) => { const k = `${r.from}|${r.to}|${r.kind}`; if (r.from === r.to || seen.has(k)) return false; seen.add(k); return true; });
     const ids = new Set(rels.flatMap((r) => [r.from, r.to]));
     const nodes: N[] = people.filter((p) => ids.has(p.id)).map((p) => ({ id: p.id, group: p.group, weight: evidenceForPerson(p.id).length }));
     const links: L[] = rels.map((r) => ({ source: r.from, target: r.to, rel: r }));
     return { nodes, links };
-  }, [statuses]);
+  }, [statuses, unified]);
 
   const simRef = useRef<ReturnType<typeof forceSimulation<N>> | null>(null);
   useEffect(() => {
@@ -71,6 +77,7 @@ export default function Graph() {
         {(["canon", "strong", "theory"] as Status[]).map((s) => (
           <label key={s} className="check"><input type="checkbox" checked={statuses.includes(s)} onChange={(e) => setStatuses(e.target.checked ? [...statuses, s] : statuses.filter((x) => x !== s))} /> <StatusBadge status={s} /></label>
         ))}
+        <button className={`toggle ${unified ? "on" : ""}`} onClick={() => setUnified(!unified)} aria-pressed={unified}><span className="knob" />Unified people</button>
         <select value={focus} onChange={(e) => setFocus(e.target.value)} aria-label="Focus person">
           <option value="">No focus</option>
           {nodes.map((n) => <option key={n.id} value={n.id}>{labelForEntity(n.id)}</option>)}

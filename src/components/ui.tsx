@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState, type ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import type { Evidence, Status } from "../data/schema";
 import { creditByFile, evidenceById, gameById, labelForEntity, personById, placeById } from "../data/store";
+import { gameMeta } from "../data/gameMeta";
 
 export const KIND_LABEL: Record<string, string> = {
   "phone-call": "Phone call", "audio-tape": "Audio tape", minigame: "Minigame", cutscene: "Cutscene",
@@ -29,21 +30,21 @@ export function CertaintyBadge({ c }: { c: string }) {
   return <span className={`badge cert-${c}`} title={CERTAINTY_HELP[c]}>{c}</span>;
 }
 
-const SHORT: Record<string, string> = {
-  fnaf1: "FNaF1", fnaf2: "FNaF2", fnaf3: "FNaF3", fnaf4: "FNaF4", "fnaf4-halloween": "FNaF4 HE", "fnaf-world": "FNaF World",
-  "sister-location": "SL", ffps: "FFPS", ucn: "UCN", "help-wanted": "HW", "curse-of-dreadbear": "Dreadbear",
-  "special-delivery": "AR", "security-breach": "SB", ruin: "Ruin", "help-wanted-2": "HW2", "into-the-pit": "Into the Pit",
-  "secret-of-the-mimic": "SotM", "freddy-in-space-2": "FiS2", scott: "Scott", "scottgames-site": "Teaser",
-};
-export function shortGame(id: string) { return SHORT[id] ?? id; }
+export function shortGame(id: string) { return gameMeta(id).short; }
 
-export function GameBadge({ id, short }: { id: string; short?: boolean }) {
+/** Game identity chip: emoji + short code, tinted with the game's accent colour. */
+export function GameBadge({ id, short, plain }: { id: string; short?: boolean; plain?: boolean }) {
   const g = gameById.get(id as never);
-  return (
-    <Link to={`/sources/${id}`} className={`badge game game-${id}`} title={g?.title ?? id}>
-      {short ? shortGame(id) : g?.title ?? id}
-    </Link>
-  );
+  const m = gameMeta(id);
+  const body = <><span className="g-emoji" aria-hidden>{m.emoji}</span>{short ? m.short : g?.title ?? id}</>;
+  const style = { "--gc": m.color } as CSSProperties;
+  if (plain) return <span className="badge game" style={style} title={g?.title ?? id}>{body}</span>;
+  return <Link to={`/sources/${id}`} className="badge game" style={style} title={`${g?.title ?? id} — ${m.motif}`}>{body}</Link>;
+}
+
+export function GameIcon({ id, size = "1em" }: { id: string; size?: string }) {
+  const m = gameMeta(id);
+  return <span className="g-icon" style={{ fontSize: size, "--gc": m.color } as CSSProperties} title={gameById.get(id as never)?.title ?? id} aria-hidden>{m.emoji}</span>;
 }
 
 export function EntityLink({ id }: { id: string }) {
@@ -59,16 +60,17 @@ export function Cite({ id }: { id: string }) {
   if (!e) return <span className="cite missing" title="Missing evidence record">?{id}</span>;
   return (
     <span className="cite-wrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <Link to={`/evidence/${id}`} className={`cite cert-${e.certainty}`} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)}>
-        {shortGame(e.game)}
+      <Link to={`/evidence/${id}`} className={`cite cert-${e.certainty}`} style={{ "--gc": gameMeta(e.game).color } as CSSProperties} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)}>
+        <span aria-hidden>{gameMeta(e.game).emoji}</span>{shortGame(e.game)}
       </Link>
       {open && (
         <span className="cite-pop" role="tooltip">
-          <span className="cite-pop-head">{shortGame(e.game)} · {KIND_LABEL[e.kind]} · {e.when.label}</span>
+          <span className="cite-pop-head">{gameMeta(e.game).emoji} {gameById.get(e.game)?.title ?? e.game} · {KIND_LABEL[e.kind]}</span>
           <strong>{e.title}</strong>
           <span>{e.claim}</span>
           {e.quote && <q>{e.quote}</q>}
           <span className="muted">↳ {e.location}</span>
+          <span className="cite-pop-date">🗓 {e.when.label}{e.when.basis ? ` — ${e.when.basis}` : ""}</span>
         </span>
       )}
     </span>
@@ -82,11 +84,12 @@ export function CiteList({ ids }: { ids: string[] }) {
 /** Renders text containing [[evidence-id]] citations, {{entity-id}} links and **bold**. */
 export function RichText({ text }: { text: string }) {
   const out: ReactNode[] = [];
-  const re = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\*\*(.+?)\*\*/g;
+  const re = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\*\*(.+?)\*\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
   let last = 0; let m: RegExpExecArray | null; let k = 0;
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(text.slice(last, m.index));
-    if (m[1]) out.push(<Cite key={k++} id={m[1]} />);
+    if (m[4]) out.push(<DatePill key={k++} label={m[4]} kind={m[5] as DateKind} evidence={m[6] ? m[6].split(",") : []} basis={m[7]} />);
+    else if (m[1]) out.push(<Cite key={k++} id={m[1]} />);
     else if (m[2]) out.push(<EntityLink key={k++} id={m[2]} />);
     else out.push(<strong key={k++}>{m[3]}</strong>);
     last = m.index + m[0].length;
@@ -127,7 +130,7 @@ export function EvidenceCard({ e, showImage = true }: { e: Evidence; showImage?:
         <GameBadge id={e.game} short />
         <span className="badge kind">{KIND_LABEL[e.kind] ?? e.kind}</span>
         <CertaintyBadge c={e.certainty} />
-        <span className="when" title={e.when.basis}>{e.when.label}</span>
+        <span className="when"><EvidenceDate e={e} /></span>
       </header>
       <Link to={`/evidence/${e.id}`} className="ev-title">{e.title}</Link>
       <p className="ev-claim">{e.claim}</p>
@@ -152,4 +155,52 @@ export function Section({ title, children, aside }: { title: string; children: R
       {children}
     </section>
   );
+}
+
+export type DateKind = "printed" | "derived" | "estimated" | "relative" | "teaser" | "unknown";
+export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
+  printed: { label: "Printed", help: "The date is printed or spoken in a game or in Scott's words" },
+  derived: { label: "Derived", help: "Calculated from printed dates and stated intervals" },
+  estimated: { label: "Estimated", help: "This archive's best estimate from the surrounding evidence" },
+  relative: { label: "Relative", help: "Only placed relative to other events" },
+  teaser: { label: "Teaser", help: "Shown only in an official teaser, not in the game itself" },
+  unknown: { label: "Undated", help: "The sources give no date" },
+};
+
+const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "estimated", relative: "relative", unknown: "unknown" };
+
+/** A date with its justification: hover or focus to see why the date is what it is, and which records support it. */
+export function DatePill({ label, kind, basis, evidence = [], compact }: { label: string; kind: DateKind; basis?: string; evidence?: string[]; compact?: boolean }) {
+  const [open, setOpen] = useState(false);
+  const k = DATE_KIND[kind] ?? DATE_KIND.unknown;
+  const evs = evidence.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
+  return (
+    <span className="cite-wrap date-wrap" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button type="button" className={`date-pill dk-${kind}${compact ? " compact" : ""}`} onFocus={() => setOpen(true)} onBlur={() => setOpen(false)} onClick={() => setOpen(!open)} aria-label={`${label}: ${k.label} date`}>
+        <span className="dp-dot" aria-hidden />{label}
+      </button>
+      {open && (
+        <span className="cite-pop date-pop" role="tooltip">
+          <span className={`cite-pop-head dk-${kind}`}>{k.label} date · {k.help}</span>
+          <strong>{label}</strong>
+          {basis && <span>{basis}</span>}
+          {evs.length > 0 && (
+            <span className="dp-src">
+              {evs.map((e) => (
+                <Link key={e.id} to={`/evidence/${e.id}`} className="dp-src-row">
+                  <span aria-hidden>{gameMeta(e.game).emoji}</span> <span>{e.title}</span>
+                  <span className="muted small"> — {e.location}</span>
+                </Link>
+              ))}
+            </span>
+          )}
+        </span>
+      )}
+    </span>
+  );
+}
+
+export function EvidenceDate({ e, compact }: { e: Evidence; compact?: boolean }) {
+  const kind: DateKind = e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown";
+  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={[e.id]} compact={compact} />;
 }

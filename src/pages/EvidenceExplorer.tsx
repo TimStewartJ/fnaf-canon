@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { allTags, evidence, games, labelForEntity } from "../data/store";
 import { Empty, EvidenceCard, KIND_LABEL } from "../components/ui";
+import { gameMeta } from "../data/gameMeta";
 
 const PAGE = 60;
 
@@ -63,7 +64,7 @@ export default function EvidenceExplorer() {
         <input className="search" placeholder="Search claims, quotes, locations…" value={q} onChange={(e) => set("q", e.target.value)} />
         <select value={game} onChange={(e) => set("game", e.target.value)} aria-label="Source">
           <option value="">All sources</option>
-          {games.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}
+          {games.map((g) => <option key={g.id} value={g.id}>{gameMeta(g.id).emoji} {g.title}</option>)}
         </select>
         <select value={kind} onChange={(e) => set("kind", e.target.value)} aria-label="Kind">
           <option value="">All kinds</option>

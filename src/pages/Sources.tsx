@@ -1,6 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { evidence, gameById, games } from "../data/store";
-import { EvidenceCard, KIND_LABEL, Section } from "../components/ui";
+import { DatePill, EvidenceCard, GameIcon, KIND_LABEL, Section } from "../components/ui";
+import { gameMeta } from "../data/gameMeta";
+import { GAME_DATES } from "../data/dates";
+
+function SetIn({ id, fallback }: { id: string; fallback: string }) {
+  const d = GAME_DATES[id];
+  if (!d) return <span className="muted">{fallback}</span>;
+  return <DatePill label={d.label} kind={d.kind} basis={d.basis} evidence={d.evidence} />;
+}
 
 export default function Sources() {
   return (
@@ -12,10 +20,10 @@ export default function Sources() {
         <tbody>
           {games.map((g) => (
             <tr key={g.id}>
-              <td><Link to={`/sources/${g.id}`}>{g.title}</Link><div className="muted small">{g.summary}</div></td>
+              <td><Link to={`/sources/${g.id}`} className="src-title"><GameIcon id={g.id} size="1.3em" /> {g.title}</Link><div className="muted small">{g.summary}</div></td>
               <td className="mono">{g.released}</td>
               <td>{g.developer}</td>
-              <td>{g.settingYearLabel}</td>
+              <td><SetIn id={g.id} fallback={g.settingYearLabel} /></td>
               <td className="mono">{evidence.filter((e) => e.game === g.id).length}</td>
             </tr>
           ))}
@@ -35,8 +43,9 @@ export function SourceDetail() {
   return (
     <div className="page">
       <p className="crumbs"><Link to="/sources">Sources</Link> / {g.title}</p>
-      <h1>{g.title}</h1>
-      <p className="muted">Released {g.released} · {g.developer} · In-universe setting: {g.settingYearLabel}</p>
+      <h1><GameIcon id={g.id} /> {g.title}</h1>
+      <p className="muted small">Icon: {gameMeta(g.id).motif}</p>
+      <p className="muted">Released {g.released} · {g.developer} · In-universe setting: <SetIn id={g.id} fallback={g.settingYearLabel} /></p>
       <p className="big-claim">{g.summary}</p>
       <p className="chips">{[...byKind].map(([k, n]) => <Link key={k} className="tag" to={`/evidence?game=${g.id}&kind=${k}`}>{KIND_LABEL[k]} · {n}</Link>)}</p>
       <Section title={`Evidence from this source (${ev.length})`}>

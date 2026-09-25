@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { backlinksFor, evidenceById, gameById } from "../data/store";
-import { CertaintyBadge, CERTAINTY_HELP, Cite, EntityLink, EvidenceCard, GameBadge, KIND_LABEL, Section, Shot, StatusBadge } from "../components/ui";
+import { CertaintyBadge, CERTAINTY_HELP, Cite, EntityLink, EvidenceCard, EvidenceDate, GameBadge, KIND_LABEL, Section, Shot, StatusBadge } from "../components/ui";
 
 export default function EvidenceDetail() {
   const { id = "" } = useParams();
@@ -27,7 +27,7 @@ export default function EvidenceDetail() {
             <dt>Where exactly</dt><dd>{e.location}</dd>
             <dt>Type</dt><dd>{KIND_LABEL[e.kind] ?? e.kind}</dd>
             <dt>Certainty</dt><dd><CertaintyBadge c={e.certainty} /> <span className="muted">{CERTAINTY_HELP[e.certainty]}</span></dd>
-            <dt>In-universe time</dt><dd>{e.when.label} <span className="muted">({e.when.precision})</span>{e.when.basis && <div className="muted small">Basis: {e.when.basis}</div>}</dd>
+            <dt>In-universe time</dt><dd><EvidenceDate e={e} /> <span className="muted">({e.when.precision})</span>{e.when.basis && <div className="muted small">Basis: {e.when.basis}</div>}</dd>
             {!!e.people?.length && <><dt>People</dt><dd className="chips">{e.people.map((p) => <EntityLink key={p} id={p} />)}</dd></>}
             {!!e.places?.length && <><dt>Places</dt><dd className="chips">{e.places.map((p) => <EntityLink key={p} id={p} />)}</dd></>}
             {!!e.tags?.length && <><dt>Tags</dt><dd className="chips">{e.tags.map((t) => <Link key={t} className="tag" to={`/evidence?tag=${t}`}>#{t}</Link>)}</dd></>}
@@ -50,7 +50,7 @@ export default function EvidenceDetail() {
           </div>
           <div>
             <h3>Timeline events citing this</h3>
-            {bl.events.length ? <ul className="plain">{bl.events.map((t) => <li key={t.id}><StatusBadge status={t.status} /> <Link to={`/timeline#${t.id}`}>{t.yearLabel} — {t.title}</Link></li>)}</ul> : <p className="muted">None.</p>}
+            {bl.events.length ? <ul className="plain">{bl.events.map((t) => <li key={t.id}><StatusBadge status={t.status} /> <Link to={`/timeline?e=${t.id}`}>{t.yearLabel} — {t.title}</Link></li>)}</ul> : <p className="muted">None.</p>}
             <h3>Relationships it supports</h3>
             {bl.relations.length ? <ul className="plain">{bl.relations.map((r, i) => <li key={i}><StatusBadge status={r.status} /> <EntityLink id={r.from} /> <span className="muted">{r.kind.replace(/-/g, " ")}</span> <EntityLink id={r.to} /></li>)}</ul> : <p className="muted">None.</p>}
           </div>

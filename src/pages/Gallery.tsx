@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { credits, evidence } from "../data/store";
-import { shortGame } from "../components/ui";
+import { GameBadge } from "../components/ui";
 
 export default function Gallery() {
   const [zoom, setZoom] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export default function Gallery() {
                 <img src={`${import.meta.env.BASE_URL}img/${c.file}`} alt={c.caption} loading="lazy" />
               </button>
               <figcaption>
-                <span className="badge game">{shortGame(c.game)}</span> {c.caption}
+                <GameBadge id={c.game} short /> {c.caption}
                 <div className="small">
                   {uses.map((u) => <Link key={u.id} to={`/evidence/${u.id}`} className="tag">{u.title}</Link>)}
                   <a href={c.sourcePage} target="_blank" rel="noreferrer" className="muted"> source ↗</a>
