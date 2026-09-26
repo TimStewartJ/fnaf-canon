@@ -11,7 +11,7 @@ export const homeSummary: { title: string; status: Status; text: string }[] = [
 
 export const keyQuestions: { q: string; a: string; section: string }[] = [
   { q: "Who is the Purple Guy?", a: "William Afton. The purple car, the Spring Bonnie death, Springtrap, and Scraptrap's credit all connect.", section: "thesis" },
-  { q: "Is Golden Freddy the crying child?", a: "Probably not. The audit reversed this: the evidence favours Golden Freddy as the fifth missing child — a fifth body in Give Gifts, a golden-masked child in Happiest Day, and no fifth head in the good ending.", section: "golden" },
+  { q: "Is Golden Freddy the crying child?", a: "Probably not. The evidence favours Golden Freddy as the fifth missing child — a fifth body in Give Gifts, a golden-masked child in Happiest Day, and no fifth head in the good ending.", section: "golden" },
   { q: "Is the FNaF4 bite the Bite of '87?", a: "No. FNaF4 is anchored to 1983. The '87 bite is a later incident at a different restaurant.", section: "bite" },
   { q: "Who is Vanny — Vanessa or someone else?", a: "Vanessa, very probably, and possibly others: the rooftop unmasking and the V.A.N.N.I. mask suggest a role anyone can be pulled into (low confidence).", section: "vanny" },
   { q: "Who is the UCN protagonist?", a: "Probably Michael rather than William. He is taunted with Sister Location's shocks and Scooping Room, cannot perish, and is attacked by Afton. No line names him, so William remains the main alternative (medium confidence).", section: "ucn" },

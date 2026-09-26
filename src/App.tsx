@@ -13,13 +13,12 @@ import Theory from "./pages/Theory";
 import Sources, { SourceDetail } from "./pages/Sources";
 import Gallery from "./pages/Gallery";
 import Method from "./pages/Method";
-import Audit from "./pages/Audit";
 import { evidence } from "./data/store";
 
 const NAV = [
   ["/", "Overview"], ["/theory", "The Theory"], ["/timeline", "Timeline"], ["/evidence", "Evidence"],
   ["/people", "People"], ["/family", "Family Trees"], ["/graph", "Web"], ["/places", "Places"],
-  ["/sources", "Sources"], ["/gallery", "Gallery"], ["/audit", "Audit"], ["/method", "Method"],
+  ["/sources", "Sources"], ["/gallery", "Gallery"], ["/method", "Method"],
 ] as const;
 
 function ScrollTop() {
@@ -63,7 +62,6 @@ function Shell() {
           <Route path="/sources/:id" element={<SourceDetail />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/method" element={<Method />} />
-          <Route path="/audit" element={<Audit />} />
           <Route path="*" element={<p className="empty">Nothing here. The pizzeria is closed.</p>} />
         </Routes>
       </main>

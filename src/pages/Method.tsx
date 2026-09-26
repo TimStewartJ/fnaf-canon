@@ -40,8 +40,6 @@ export default function Method() {
         They are used only as transcripts of the games. Their interpretations, trivia sections and theories were not used.
         Screenshots were retrieved from the wiki's file pages and are credited on each image.
       </p>
-      <h2>Audit</h2>
-      <p>The theory was put through an adversarial review that checked every claim against the records it cites. Each problem found, and how it was resolved, is listed in the <Link to="/audit">audit ledger</Link>. The validator now enforces the rules that came out of it: no canon claim may rest only on implied records, and no printed date on implied records alone.</p>
       <h2>Known limits of v1</h2>
       <ul>
         <li>Coverage is broad but not exhaustive. The largest games (Security Breach, Help Wanted 2, Secret of the Mimic) have more collectibles than v1 records.</li>

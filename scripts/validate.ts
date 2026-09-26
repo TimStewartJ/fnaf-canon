@@ -11,7 +11,7 @@ import { theory } from "../src/data/theory";
 import { familyTrees } from "../src/data/familyTrees";
 import { homeSummary } from "../src/data/home";
 import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
-import { auditLedger } from "../src/data/audit";
+import { auditLedger } from "../research/audit-ledger";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors: string[] = [];

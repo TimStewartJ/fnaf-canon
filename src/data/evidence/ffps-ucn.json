@@ -2052,7 +2052,7 @@
     ],
     "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
     "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
-    "notes": "Re-verified during the theory audit. An earlier search of Scott's Reddit posts and Steam discussion comments found no use of the name, but that search did not cover Steam announcements; this announcement does use it."
+    "notes": "Verified against Steam's news API. This is a Steam announcement; Scott's Reddit posts and Steam discussion comments do not use the name."
   },
   {
     "id": "ucn-afton-always-come-back",
