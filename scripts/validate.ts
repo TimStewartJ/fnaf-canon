@@ -12,6 +12,8 @@ import { familyTrees } from "../src/data/familyTrees";
 import { homeSummary } from "../src/data/home";
 import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
 import { auditLedger } from "../research/audit-ledger";
+import { deaths } from "../src/data/deaths";
+import { LOCATION_SPANS } from "../src/data/locations";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors: string[] = [];
@@ -105,6 +107,29 @@ for (const sct of theory) if (sct.confidence !== "high" && sct.id !== "open" && 
 const sameAs = new Map<string, Set<string>>();
 for (const r of relations.filter((x) => x.kind === "same-as")) { (sameAs.get(r.from) ?? sameAs.set(r.from, new Set()).get(r.from)!).add(r.to); }
 for (const [from, tos] of sameAs) if (tos.size > 1) warnings.push(`identity: ${from} is same-as several records (${[...tos].join(", ")}); check they converge`);
+
+// Deaths and location spans
+const taggedPeople = new Set(evidence.flatMap((e) => e.people ?? []));
+const allPlaceIds = new Set([...placeIds, ...evidence.flatMap((e) => e.places ?? [])]);
+const dIds = new Set<string>();
+for (const d of deaths) {
+  if (dIds.has(d.id)) errors.push(`duplicate death ${d.id}`); dIds.add(d.id);
+  need(`death ${d.id}`, d.evidence); need(`death ${d.id} date`, d.date.evidence);
+  if (!d.evidence.length) errors.push(`death ${d.id}: no evidence`);
+  for (const x of [...d.victims, ...d.by]) if (!personIds.has(x) && !taggedPeople.has(x)) errors.push(`death ${d.id}: unknown person ${x}`);
+  if (d.place && !placeIds.has(d.place)) errors.push(`death ${d.id}: unknown place ${d.place}`);
+  if (!eraIds.has(d.era)) errors.push(`death ${d.id}: unknown era ${d.era}`);
+  if (d.status === "canon" && onlyImplied(d.evidence)) errors.push(`death ${d.id}: canon status rests only on implied evidence`);
+}
+for (const pid of allPlaceIds) {
+  const p = { id: pid };
+  const sp = LOCATION_SPANS[p.id];
+  if (!sp) { errors.push(`place ${p.id}: no timeline span in locations.ts`); continue; }
+  if (!sp.undated && !sp.outside && (!sp.from || !sp.to || !eraIds.has(sp.from) || !eraIds.has(sp.to))) errors.push(`place ${p.id}: bad span`);
+  if (sp.from && sp.to && eraOrder.indexOf(sp.from) > eraOrder.indexOf(sp.to)) errors.push(`place ${p.id}: span ends before it starts`);
+}
+for (const k of Object.keys(LOCATION_SPANS)) if (!placeIds.has(k)) errors.push(`locations.ts: span for unknown place ${k}`);
+for (const p of places) if (!PLACE_DATES[p.id]) errors.push(`place ${p.id}: no date justification in dates.ts`);
 
 const undefinedEntities = new Map<string, number>();
 for (const e of evidence) for (const x of [...(e.people ?? []), ...(e.places ?? [])]) if (!personIds.has(x) && !placeIds.has(x)) undefinedEntities.set(x, (undefinedEntities.get(x) ?? 0) + 1);

@@ -2541,5 +2541,32 @@
     ],
     "url": "https://web.archive.org/web/20150109005101/http://www.scottgames.com/",
     "verifiedVia": "Raw HTML of the Wayback capture"
+  },
+  {
+    "id": "scott-2017-retcon-seamless",
+    "title": "The one retcon was seamless and went unnoticed",
+    "claim": "In an edit to 'The retcon issue' and a follow-up comment the same day, Scott said the one retcon was integrated seamlessly, that most people did not notice it, and that if it were being argued about it would count as a failure.",
+    "quote": "To be clear, the one retcon mentioned was integrated pretty seamlessly, and most people didn't notice.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post 'The retcon issue' (edit) and comment dmjx7t9 by u/animdude, 2017-09-04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2017-09-04)",
+      "precision": "unknown",
+      "basis": "Developer statement; bounds the retcon to games released before this date (FNaF1 to Sister Location)."
+    },
+    "tags": [
+      "retcon",
+      "meta",
+      "continuity"
+    ],
+    "related": [
+      "scott-2017-one-retcon",
+      "scott-2017-sl-cleared-fnaf4-misconception"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
+    "verifiedVia": "Arctic Shift Reddit archive API (post 6y0qb1 and comment dmjx7t9, author animdude)",
+    "notes": "Comment wording: 'The retcon was actually very seamless and went unnoticed by most people. If the retcon was currently being argued about or debated, then that would mean it was a failure, and I would have addressed it here.'"
   }
 ]

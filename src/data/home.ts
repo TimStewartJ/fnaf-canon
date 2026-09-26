@@ -15,5 +15,7 @@ export const keyQuestions: { q: string; a: string; section: string }[] = [
   { q: "Is the FNaF4 bite the Bite of '87?", a: "No. FNaF4 is anchored to 1983. The '87 bite is a later incident at a different restaurant.", section: "bite" },
   { q: "Who is Vanny — Vanessa or someone else?", a: "Vanessa, very probably, and possibly others: the rooftop unmasking and the V.A.N.N.I. mask suggest a role anyone can be pulled into (low confidence).", section: "vanny" },
   { q: "Who is the UCN protagonist?", a: "Probably Michael rather than William. He is taunted with Sister Location's shocks and Scooping Room, cannot perish, and is attacked by Afton. No line names him, so William remains the main alternative (medium confidence).", section: "ucn" },
+  { q: "Who talks to the crying child through the Fredbear plush?", a: "No record puts a spirit in it. The model's pick: a watching, talking companion toy of the kind this world builds, seen through a terrified child's eyes; its 'put you back together' echoes the father (low confidence).", section: "plush" },
+  { q: "What was Scott's one retcon?", a: "Our stake: FNaF2's used spare suit, 'a yellow one', was only ever shown as the golden bear; FNaF3 quietly made the yellow suit Spring Bonnie. Unconfirmed, low confidence.", section: "retcon" },
   { q: "How does Secret of the Mimic fit?", a: "It is the oldest layer: the workshop that built springlocks 'for the diner', and the origin of the thing in the Pizzaplex sinkhole.", section: "mimic" },
 ];

@@ -5,6 +5,8 @@ import { places as placesData } from "./places";
 import { timeline, eras } from "./timeline";
 import { theory } from "./theory";
 import gamesJson from "./games.json";
+import { deaths } from "./deaths";
+import { LOCATION_SPANS } from "./locations";
 
 const evidenceModules = import.meta.glob<{ default: Evidence[] }>("./evidence/*.json", { eager: true });
 const creditModules = import.meta.glob<{ default: ImageCredit[] }>("./credits/*.json", { eager: true });
@@ -55,7 +57,7 @@ function stubPlaces(): Place[] {
 }
 export const people: Person[] = [...peopleData, ...stubPeople()];
 export const places: Place[] = [...placesData, ...stubPlaces()];
-export { relations, timeline, eras, theory };
+export { relations, timeline, eras, theory, deaths, LOCATION_SPANS };
 export const personById = new Map<string, Person>(people.map((p) => [p.id, p]));
 export const placeById = new Map<string, Place>(places.map((p) => [p.id, p]));
 

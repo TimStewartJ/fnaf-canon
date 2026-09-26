@@ -81,6 +81,16 @@ export const PLACE_DATES: Record<string, DateJustification> = {
   "silver-parasol-games-office": { kind: "derived", basis: "Before Special Delivery's Nov 2019 emails about scanned boards.", evidence: ["hw-tape-05", "sd-circuit-board-scan-virus"] },
   "mega-pizzaplex": { kind: "relative", basis: "No in-game year. It comes after Special Delivery's 2019–2020 emails.", evidence: ["security-breach-msg-sinkhole", "sd-circuit-board-does-what-we-tell-it"] },
   "the-sinkhole": { kind: "relative", basis: "Discovered during Pizzaplex construction.", evidence: ["security-breach-msg-sinkhole"] },
+  "freddy-fazbears-pizza-original": { kind: "derived", basis: "Before 1987: the old models there already smelled, and the site had been left to rot by the time the 1987 location opened.", evidence: ["fnaf2-call2-older-models", "fnaf2-call1-new-location"] },
+  "tape-sister-location": { kind: "relative", basis: "During the springlock era, before the suits were retired.", evidence: ["fnaf3-tape4-sister-location-springlock-failures"] },
+  "jrs": { kind: "unknown", basis: "Midnight Motorist gives no date.", evidence: ["ffps-midnight-motorist-jrs"] },
+  "michael-afton-home": { kind: "relative", basis: "After Sister Location's fake ending.", evidence: ["sl-fake-ending-home"] },
+  "freddy-fazbear-virtual-experience": { kind: "estimated", basis: "Released before Special Delivery's 2019–2020 emails about scanned boards.", evidence: ["hw-intro-complete-lunatic", "sd-circuit-board-scan-virus"] },
+  "buried-pizzeria": { kind: "relative", basis: "Already buried when the Pizzaplex was built over it. When it operated is not stated.", evidence: ["security-breach-underground-pizza-place", "security-breach-msg-old-elevator"] },
+  "fazbear-orientation-program": { kind: "relative", basis: "A Pizzaplex-era training program.", evidence: ["hw2-orientation-program-intro"] },
+  "the-pit": { kind: "unknown", basis: "Into the Pit's present has no year.", evidence: ["into-the-pit-jeffs-pizza-ball-pit"] },
+  "the-mill": { kind: "unknown", basis: "Into the Pit's present has no year.", evidence: ["into-the-pit-mill-closure"] },
+  "fnaf-world-sub-tunnel-4": { kind: "unknown", basis: "FNaF World sits outside the timeline.", evidence: ["fw-old-man-consequences"] },
   "jeffs-pizza": { kind: "unknown", basis: "Into the Pit's present has no year.", evidence: ["into-the-pit-jeffs-pizza-ball-pit"] },
 };
 

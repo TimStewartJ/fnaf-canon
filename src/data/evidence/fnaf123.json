@@ -1848,8 +1848,8 @@
   {
     "id": "fnaf3-tape2-dual-suits",
     "title": "Training tape: two suits that are both animatronic and suit",
-    "claim": "The first training tape (Night 2) says there are 'two specially designed suits that double as both animatronic and suit'. It says that in animatronic mode they walk toward sound, and that turning a hand crank compresses the parts so a person can climb inside, held by springlocks.",
-    "quote": "Right now we have two specially designed suits that double as both animatronic and suit. …",
+    "claim": "The first training tape (Night 2) welcomes the listener to a career as a performer for Freddy Fazbear's Pizza and says there are 'two specially designed suits that double as both animatronic and suit'. In animatronic mode they walk toward sound; a hand crank compresses the parts so a person can climb inside, held by springlocks.",
+    "quote": "Uh, welcome to your new career as a performer / entertainer for Freddy Fazbear's Pizza. … Right now we have two specially designed suits that double as both animatronic and suit.",
     "game": "fnaf3",
     "kind": "audio-tape",
     "location": "Night 2 training tape (Phone Guy recording)",
@@ -1869,8 +1869,8 @@
       "suits",
       "training-tape"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ralph/Audio",
-    "notes": "The two suits are not named on this tape. Night 5 names one 'the Spring Bonnie animatronic'. Stage01 shows a yellow bear beside Spring Bonnie. Fredbear is named only as a restaurant ('Fredbear's Family Diner', FNaF2) in FNaF1-3, so 'fredbear' is tagged for linking only. The voice is FNaF1/2's Phone Guy."
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Second_Call_FNaF3/Ralph/textonly",
+    "notes": "The two suits are not named on this tape; Night 5 names one 'the Spring Bonnie animatronic'. The tapes are recorded for Freddy Fazbear's Pizza, not Fredbear's Family Diner: every tape ends 'You are the face of Freddy Fazbear's Pizza'. The voice is FNaF1/2's Phone Guy."
   },
   {
     "id": "fnaf3-tape3-springlock-bleeding",
@@ -2730,5 +2730,39 @@
     "url": "https://web.archive.org/web/20150127133437/https://scottgames.com/",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's_3",
     "notes": "Verified against the archived image (always.jpg): purple text on black. Tying it to the purple figure rests only on the text color."
+  },
+  {
+    "id": "fnaf3-tapes-freddy-fazbears-pizza",
+    "title": "The springlock tapes belong to Freddy Fazbear's Pizza",
+    "claim": "The FNaF3 training tapes are addressed to Freddy Fazbear's Pizza staff: each ends 'You are the face of Freddy Fazbear's Pizza', and the Night 4 tape retires 'the classic suits' in the name of safety at Freddy Fazbear's Pizza.",
+    "quote": "Safety is top priority at Freddy Fazbear's Pizza, which is why the classic suits are being retired to an appropriate location while being looked at by our technicians.",
+    "game": "fnaf3",
+    "kind": "audio-tape",
+    "location": "Training tapes, Nights 2–6 (closing line of each; Night 4 body)",
+    "certainty": "stated",
+    "when": {
+      "label": "Springlock era (before the 1987 location)",
+      "precision": "relative",
+      "basis": "The suits are retired before the 1987 location, where only 'a spare' yellow suit remains in the back."
+    },
+    "people": [
+      "spring-bonnie",
+      "phone-guy"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-original"
+    ],
+    "tags": [
+      "springlock",
+      "suits",
+      "retcon"
+    ],
+    "related": [
+      "fnaf3-tape2-dual-suits",
+      "fnaf3-tape4-sister-location-springlock-failures",
+      "fnaf4-fredbear-spring-bonnie-shadows"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Fourth_Call_FNaF3",
+    "notes": "FNaF4 later shows the springlock pair (Fredbear and Spring Bonnie) performing at a Fredbear-themed diner in 1983. The two are compatible if the suits moved from the diner to Freddy's; the tapes themselves never mention the diner."
   }
 ]

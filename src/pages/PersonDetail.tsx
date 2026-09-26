@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
-import { evidenceForPerson, personById, relations, timeline } from "../data/store";
+import { deaths, evidenceForPerson, personById, relations, timeline } from "../data/store";
+import { DEATH_KIND } from "../data/deaths";
 import { membership, unifiedById, type Link as MLink } from "../data/model";
 import { CiteList, DatePill, EntityLink, EvidenceCard, GameBadge, RichText, Section, StatusBadge } from "../components/ui";
 import { eventDate } from "../data/dates";
@@ -46,6 +47,8 @@ export default function PersonDetail() {
   const ev = [...evMap.values()].sort((a, b) => (a.when.year ?? 9999) - (b.when.year ?? 9999));
   const rels = relations.filter((r) => members.includes(r.from) || members.includes(r.to));
   const events = timeline.filter((t) => t.people?.some((x) => members.includes(x))).sort((a, b) => a.year - b.year);
+  const died = deaths.filter((d) => d.victims.some((x) => members.includes(x)));
+  const killed = deaths.filter((d) => d.by.some((x) => members.includes(x)));
   const rootP = personById.get(m.root);
 
   return (
@@ -124,6 +127,14 @@ export default function PersonDetail() {
               );
             })}
           </ol>
+        </Section>
+      )}
+      {(died.length > 0 || killed.length > 0) && (
+        <Section title="Deaths">
+          <div className="death-cols">
+            {died.length > 0 && <div><h3>Died</h3><ul className="plain">{died.map((d) => <li key={d.id}>{DEATH_KIND[d.kind].icon} <Link to={`/timeline?e=${d.id}`}>{d.title}</Link> <span className="muted small">· {d.yearLabel}</span> <StatusBadge status={d.status} /></li>)}</ul></div>}
+            {killed.length > 0 && <div><h3>Responsible for</h3><ul className="plain">{killed.map((d) => <li key={d.id}>{DEATH_KIND[d.kind].icon} <Link to={`/timeline?e=${d.id}`}>{d.title}</Link> <span className="muted small">· {d.yearLabel}</span> <StatusBadge status={d.status} /></li>)}</ul></div>}
+          </div>
         </Section>
       )}
       <Section title={`Evidence (${ev.length})`} aside={isRoot && u && u.members.length + u.vessels.length + u.roles.length > 1 ? (
