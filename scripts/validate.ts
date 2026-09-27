@@ -13,6 +13,8 @@ import { homeSummary } from "../src/data/home";
 import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
 import { auditLedger } from "../research/audit-ledger";
 import { deaths } from "../src/data/deaths";
+import { boxAnswer, boxTimeline, boxGuesses } from "../src/data/box";
+import { theories as commTheories, interactions } from "../src/data/community";
 import { LOCATION_SPANS } from "../src/data/locations";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -107,6 +109,13 @@ for (const sct of theory) if (sct.confidence !== "high" && sct.id !== "open" && 
 const sameAs = new Map<string, Set<string>>();
 for (const r of relations.filter((x) => x.kind === "same-as")) { (sameAs.get(r.from) ?? sameAs.set(r.from, new Set()).get(r.from)!).add(r.to); }
 for (const [from, tos] of sameAs) if (tos.size > 1) warnings.push(`identity: ${from} is same-as several records (${[...tos].join(", ")}); check they converge`);
+
+// Box and community pages
+for (const a of boxAnswer) a.body.forEach((b) => textRefs(`box answer`, b));
+for (const b of boxTimeline) { textRefs(`box ${b.id}`, b.body); need(`box ${b.id}`, b.evidence); if (b.image && !fs.existsSync(path.join(root, "public/img", b.image))) errors.push(`box ${b.id}: image missing`); }
+for (const g of boxGuesses) textRefs(`box guess ${g.name}`, g.verdict);
+for (const t of commTheories) { for (const f of [t.right, t.wrong, t.scott ?? ""]) textRefs(`community ${t.id}`, f); if (t.modelSection && !theory.some((x) => x.id === t.modelSection)) errors.push(`community ${t.id}: unknown theory section ${t.modelSection}`); }
+for (const x of interactions) { textRefs(`interaction ${x.id}`, x.summary); need(`interaction ${x.id}`, x.evidence); }
 
 // Deaths and location spans
 const taggedPeople = new Set(evidence.flatMap((e) => e.people ?? []));

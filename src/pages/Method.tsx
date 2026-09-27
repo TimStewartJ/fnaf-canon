@@ -40,6 +40,8 @@ export default function Method() {
         They are used only as transcripts of the games. Their interpretations, trivia sections and theories were not used.
         Screenshots were retrieved from the wiki's file pages and are credited on each image.
       </p>
+      <h2>Fan theories</h2>
+      <p>Theories are never used as evidence. The <Link to="/community">Theorists &amp; Scott</Link> page references them to show what they got right and wrong against the records, and how Scott and the community influenced each other. Each judgement there cites evidence like everything else.</p>
       <h2>Known limits of v1</h2>
       <ul>
         <li>Coverage is broad but not exhaustive. The largest games (Security Breach, Help Wanted 2, Secret of the Mimic) have more collectibles than v1 records.</li>

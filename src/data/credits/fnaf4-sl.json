@@ -76,5 +76,11 @@
     "game": "fnaf4",
     "caption": "The Fredbear plush with its tracking white pupils (FNaF4 minigame sprite)",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Fredbear_Plush_Follow.gif"
+  },
+  {
+    "file": "fw-unused-open-box.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World's unused 'ChestOpen' asset: FNaF4's box, opened and empty",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ChestOpen.png"
   }
 ]

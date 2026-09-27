@@ -859,7 +859,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "Scott does not identify which teaser or which game; 'adult theory' is fan terminology (commonly about FNaF4's protagonist). Link to a specific teaser is NOT established by Scott."
+    "notes": "Scott doesn't identify the teaser. 'Adult theory' was a mid-2016 rumour that Sister Location's teasers (a chart in scottgames.com's page source) hinted at 'mature' content. Fans at the time credited a 'birthday' addition to the page source as Scott's debunk (Steam thread 'Fnaf SL DeBunk: The \"Adult\" Theory', 2016-06-20). It is not the FNaF4 'adult protagonist' idea."
   },
   {
     "id": "scott-2017-matpat-final-theory",
@@ -2568,5 +2568,200 @@
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (post 6y0qb1 and comment dmjx7t9, author animdude)",
     "notes": "Comment wording: 'The retcon was actually very seamless and went unnoticed by most people. If the retcon was currently being argued about or debated, then that would mean it was a failure, and I would have addressed it here.'"
+  },
+  {
+    "id": "scott-2015-dawko-razzbowski-early-access",
+    "title": "FNaF4 sneak peek given to Dawko and Razzbowski",
+    "claim": "Two days before FNaF4's release, Scott announced he had given an early sneak peek of the game to two YouTubers, Dawko and Razzbowski, and linked their reaction videos.",
+    "quote": "I gave an early sneak-peak to two youtubers who most of you are probably already familiar with- Dawko and Razzbowski.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'First Reaction Videos!' (FNaF 4), 2015-07-21",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2015-07-21)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "youtubers",
+      "meta"
+    ],
+    "url": "https://steamcommunity.com/games/388090/announcements/detail/423686857829695275",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'"
+  },
+  {
+    "id": "scott-2015-considered-opening-box",
+    "title": "Opening the box was one of the Halloween options",
+    "claim": "Scott said that while planning the Halloween 2015 update he had considered several options, including opening FNaF4's box, before deciding against it.",
+    "quote": "I started off a few months ago with several ideas in mind for what I wanted to release; ranging from DLC, to a new game, to opening the box (more on that later)",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Halloween Content Update' (FNaF 4), 2015-08-24, opening paragraph",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2015-08-24)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "box",
+      "meta"
+    ],
+    "related": [
+      "scott-2015-fnaf4-box-pieces-put-together",
+      "scott-2015-box-best-left-forgotten"
+    ],
+    "url": "https://steamcommunity.com/games/388090/announcements/detail/410179229588187100",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'"
+  },
+  {
+    "id": "scott-2015-community-expectations-halloween",
+    "title": "'The community's expectations demanded more'",
+    "claim": "Scott said he wanted the Halloween update not to change FNaF4's game or lore, but the community's expectations demanded more than a cheat menu. So he split it into a canon 1.1 update and a non-canon Halloween Edition.",
+    "quote": "It became clear to me that the community's expectations demanded more than just a cheat menu, so I was faced with my sticky situation yet again.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Halloween Content Update #2' (FNaF 4), 2015-10-20",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2015-10-20)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "canon",
+      "meta"
+    ],
+    "related": [
+      "scott-2015-fnaf4-halloween-canon-split"
+    ],
+    "url": "https://steamcommunity.com/games/388090/announcements/detail/371903707744245649",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'"
+  },
+  {
+    "id": "scott-2016-sl-delay-troll",
+    "title": "The fake Sister Location 'delay'",
+    "claim": "Three days before Sister Location's release, Scott posted that the game had become 'too dark' and that only a 'mature' version would come out, 'not as a part of the lore'. An edit then admitted it was a prank.",
+    "quote": "EDIT: (As most of you have figured out, the game's not delayed, see you Friday) ;)",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Official Game will be Delayed' (Sister Location), 2016-10-04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2016-10-04)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "troll",
+      "meta"
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/243582826903296995",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
+    "notes": "The linked 'MA' download was a joke game. The post shows Scott playing with the fandom's expectations about what counts as 'lore'."
+  },
+  {
+    "id": "scott-2018-box-meaning-changed",
+    "title": "2018: MatPat was 'absolutely right' that the box's meaning changed",
+    "claim": "In a 2018 interview, asked about MatPat's theory that the box's meaning had changed over time, Scott agreed ('He's absolutely right') and described trying to 'craft it into something better' as the story and the audience's reaction developed.",
+    "quote": "He's absolutely right",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (YouTube, 2018-08-08), c. 36:34",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement in an interview"
+    },
+    "tags": [
+      "box",
+      "community",
+      "matpat"
+    ],
+    "related": [
+      "scott-2015-fnaf4-box-pieces-put-together",
+      "scott-2024-box-interview"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2194s",
+    "verifiedVia": "Secondary: ScreenRant, GameRant and CBR recaps quoting the interview (YouTube captions could not be fetched)",
+    "notes": "Only these short fragments are verified; the fuller wording is unverified. No source says what the box originally held and what it was changed to."
+  },
+  {
+    "id": "scott-2016-dawko-dedication",
+    "title": "FNaF World Update 2 dedicated to Dawko",
+    "claim": "Scott dedicated FNaF World's Update 2 to the YouTuber Dawko, who was in hospital, calling him a vital part of the community.",
+    "quote": "He is such a vital part of the community, and I couldn't imagine it without him.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Thoughts and Prayers' (FNaF World), 2016-05-12",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2016-05-12)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "youtubers"
+    ],
+    "url": "https://steamcommunity.com/games/427920/announcements/detail/692804319776454462",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'"
+  },
+  {
+    "id": "scott-2017-fnaf6-not-a-troll",
+    "title": "'Would I ever troll you guys?'",
+    "claim": "Announcing that he had stopped work on the game he'd been hinting at ('call it FNaF 6'), Scott said mounting expectations were the pressure, floated a pizzeria tycoon game, and added a wink about trolling.",
+    "quote": "With each game's release, I think the expectations get higher and higher for the next, and rightfully so.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'An Update on the Project' (Sister Location), 2017-06-30",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2017-06-30)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "troll",
+      "ffps"
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/1343611811951288957",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
+    "notes": "The 'pizzeria tycoon' hint came true as Freddy Fazbear's Pizzeria Simulator, which opens as a fake tycoon game.",
+    "related": [
+      "scott-2017-fnaf6-cancelled-tycoon-hint"
+    ]
+  },
+  {
+    "id": "scott-2017-ffps-apology",
+    "title": "'Maybe I approached this wrong'",
+    "claim": "Just before FFPS's release, Scott apologised in case it had been hyped as more than 'a game for the community, something lite and without much consequence'.",
+    "quote": "I think maybe I approached this wrong.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Pizzeria Simulator Update' (Sister Location), 2017-12-04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2017-12-04)",
+      "precision": "unknown",
+      "basis": "Developer statement"
+    },
+    "tags": [
+      "community",
+      "troll",
+      "ffps"
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/1464097289865855649",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
+    "notes": "FFPS then turned out to be the story's climax, the Cassette Man's trap. This is Scott's biggest misdirection of the fandom.",
+    "related": [
+      "scott-2017-ffps-lite-announcement"
+    ]
   }
 ]

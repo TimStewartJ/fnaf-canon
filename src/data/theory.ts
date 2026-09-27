@@ -187,7 +187,7 @@ export const theory: TheorySection[] = [
       "**Which child is in which animatronic.** There are four names [[ffps-lorekeeper-gravestones]] and five masks [[fnaf3-happiest-day]], but the games never pair them.",
       "**The bodies in Save Them.** They could be new victims in 1987 or the earlier five [[fnaf2-save-them]].",
       "**Burntrap.** It could be Afton's body or the Mimic in a suit [[security-breach-burntrap-appearance]] [[ruin-ending-scooper]].",
-      "**What is in FNaF4's box.** It is locked, with the caption \"Perhaps some things are best left forgotten, for now.\" [[fnaf4-locked-box-ending]]. Scott never pursued a specific object for it [[scott-2024-box-interview]].",
+      "**What is in FNaF4's box.** Settled as far as it can be: in 2015 it held \"the pieces put together\", FNaF4's own story assembled [[scott-2015-fnaf4-box-pieces-put-together]]. Its meaning changed, and Scott never pursued the plan [[scott-2018-box-meaning-changed]] [[scott-2024-box-interview]]. See The Box page.",
       "**Gregory's origin.** He has no record anywhere [[security-breach-vanessa-no-record]]. A therapy client seen talking to something with rabbit ears [[security-breach-cd46-rabbit-ears]] is suggestive, but that client is never named.",
       "**Old Man Consequences.** He sits by the same lake in FNaF World and UCN [[fw-old-man-consequences]] [[ucn-omc-ending]], and nothing says who he is.",
     ],

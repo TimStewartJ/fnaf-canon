@@ -2618,5 +2618,31 @@
     "image": "fnaf4-plush-night6-dots.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ImHere.jpg (in-game frame; dots confirmed by pixel crop)",
     "notes": "The same image of floating eyes in the dark recurs in FNaF World's clock ending, where small yellow eyes repeat 'We are still your friends'."
+  },
+  {
+    "id": "fw-unused-open-box",
+    "title": "FNaF World's unused asset: the box, opened and empty",
+    "claim": "FNaF World's files contain an unused image of FNaF4's two-latch box standing open. The inside is dark and empty; no contents are drawn. It cannot be triggered in play.",
+    "game": "fnaf-world",
+    "kind": "hidden",
+    "location": "Unused asset 'ChestOpen.png' (documented among the first Glitch World files)",
+    "certainty": "shown",
+    "when": {
+      "label": "Out-of-universe (FNaF World files, 2016)",
+      "precision": "unknown",
+      "basis": "A game asset, not an in-universe event."
+    },
+    "tags": [
+      "box",
+      "unused",
+      "datamine"
+    ],
+    "related": [
+      "fnaf4-locked-box-ending",
+      "scott-2015-fnaf4-box-pieces-put-together"
+    ],
+    "image": "fw-unused-open-box.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Unused_and_Removed_Content_(FW) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:ChestOpen.png",
+    "notes": "Unused content: it shows what an opened box was drawn as, not what the box contains in the story. Which FNaF World version first shipped it, and who found it, are not documented; the wiki file page dates from 2019."
   }
 ]
