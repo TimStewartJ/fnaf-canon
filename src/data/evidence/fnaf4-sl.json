@@ -2521,5 +2521,102 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
     "notes": "Baby had said 'Ballora will not return to her body' — suggesting what follows is Ballora's insides rather than her shell (interpretation)."
+  },
+  {
+    "id": "fnaf4-plush-two-sprites",
+    "title": "The plush has two sprites: with pupils and without",
+    "claim": "FNaF4's minigames use two versions of the Fredbear plush sprite. One has small white pupils in its black eyes, which shift to track the crying child across frames. The other has plain black eyes and no pupils.",
+    "game": "fnaf4",
+    "kind": "environment",
+    "location": "End-of-night minigames: plush sprite assets (pupil-tracking sprite and eyeless sprite)",
+    "certainty": "shown",
+    "when": {
+      "label": "c. 1983 (minigame week)",
+      "precision": "approx",
+      "basis": "FNaF4's minigames count down to the party, whose only printed year is 1983."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "plush",
+      "eyes",
+      "pupils",
+      "sprite"
+    ],
+    "related": [
+      "fnaf4-plush-follows-child",
+      "fnaf4-plush-eyes-by-scene",
+      "fnaf4-plush-night6-pupils-only"
+    ],
+    "image": "fnaf4-plush-eyeless-vs-pupils.png",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Fredbear_Plush_Follow.gif ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Eyeless_Fredbear_Plush.png",
+    "notes": "Checked by pixel inspection of the wiki-hosted game sprites. The 'follow' sprite has 8 frames, each with its white pupils in a different position."
+  },
+  {
+    "id": "fnaf4-plush-eyes-by-scene",
+    "title": "Where the plush has pupils, and where it doesn't",
+    "claim": "In the house sequences (after Night 1: on the couch, on the grandfather clock, in the hallway, on the bed) the plush has white pupils that track the child. In the Night 3 outdoor scenes (as a flower head in the garden, in the yard, in the girl's bedroom doorway) it has no pupils, and it never physically appears inside the diner. The wiki captions the eyeless sprite as the one seen in the pre-Night 1 opening scene.",
+    "game": "fnaf4",
+    "kind": "environment",
+    "location": "End-of-night minigames, pre-Night 1 to post-Night 3 (plush placements)",
+    "certainty": "implied",
+    "when": {
+      "label": "c. 1983 — 5 to 2 days before the party",
+      "precision": "approx",
+      "basis": "The minigame week."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "plush",
+      "eyes",
+      "pupils"
+    ],
+    "related": [
+      "fnaf4-plush-two-sprites",
+      "fnaf4-plush-follows-child"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Five_Nights_at_Freddy%27s_4_Minigames.png (fan-compiled map of the minigame rooms, inspected by pixel crop)",
+    "notes": "'Implied' because the scene-by-scene mapping comes from a fan-compiled map of screenshots and small pixel crops, not a frame-accurate capture of every scene. The per-scene pattern is reliable enough to note but should not bear weight on its own. The wiki's own summary says the pupils 'always' follow the child, which these crops contradict."
+  },
+  {
+    "id": "fnaf4-plush-night6-pupils-only",
+    "title": "Night 6: 'I will put you back together' over two dots",
+    "claim": "In the Night 6 cutscene the plushies fade one by one. When 'I will put you back together.' appears, the Fredbear plush's body is gone and only two small white dots, its pupils, remain in the darkness.",
+    "quote": "I will put you back together.",
+    "game": "fnaf4",
+    "kind": "cutscene",
+    "location": "Night 6 ending cutscene (final lines)",
+    "certainty": "shown",
+    "when": {
+      "label": "After the Bite (FNaF4 Night 6 cutscene), c. 1983",
+      "precision": "approx",
+      "basis": "Follows the Bite at the end of the minigame week."
+    },
+    "people": [
+      "fredbear-plush",
+      "crying-child"
+    ],
+    "tags": [
+      "plush",
+      "eyes",
+      "pupils",
+      "put-back-together"
+    ],
+    "related": [
+      "fnaf4-i-will-put-you-back-together",
+      "fnaf4-plush-two-sprites",
+      "fw-clock-ending-still-your-friends"
+    ],
+    "image": "fnaf4-plush-night6-dots.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ImHere.jpg (in-game frame; dots confirmed by pixel crop)",
+    "notes": "The same image of floating eyes in the dark recurs in FNaF World's clock ending, where small yellow eyes repeat 'We are still your friends'."
   }
 ]
