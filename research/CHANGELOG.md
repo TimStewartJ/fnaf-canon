@@ -1,5 +1,14 @@
 # Model changelog
 
+## 2026-09-28: Scott & Faith
+- **Research:** Scott's Christian background from primary sources. The key source is the Geeks Under Grace written interview (2014-10-25), plus the 2021 Reddit post and archived Hope Animation pages. Hope Animation was David Hutter's UK Christian media site that hosted Scott's films; it was **not** Scott's studio, contrary to a common assumption.
+- **New evidence (Scott's words):** twelve years of Christian films and games; 'No' to hidden Christian messages (answering about FNaF1 and vice symbolism); faith and work; favourite verse Psalm 46:10 ('Be still'); the beaver-game origin; 'I can't explain Golden Freddy'; The Desolate Hope; 'I'm a Christian… I believe in God' (2021). Game: ffps-completion-peace-perhaps-more.
+- **New theory section 'faith' (medium):** the games' own afterlife vocabulary is read literally, not as allegory. Rest lines go to victims; the only Hell line goes to the killer; Remnant holds souls away from rest. The map is labelled as a reading, since the games never show final destinations.
+- **What changed in the model:** no identifications. UCN gained a supporting sentence (FFPS names Hell only for the killer; UCN's secret ending separates the player from 'the demon'), still medium. Golden Freddy notes that Scott disclosed no explanation in 2014.
+- **Ruled out:** the vice allegory for FNaF1's animatronics (Scott, 2014). Noted but not used: the Cassette Man's 'be still' echoing Psalm 46:10.
+- **New page /author**, a community interaction (i-gug), a home Q&A and a Method paragraph on author context.
+- **A reviewer pass corrected:** 'promises peace' became 'believes'; the moral map was downgraded from supported to consistent; the scope of the 2014 'No' was narrowed; the Desolate Hope-to-FNaF bridge was removed; 'first afterlife language' was fixed (FNaF World's 'Rest.' is earlier).
+
 ## 2026-09-26: The Box and Theorists pages
 - **The Box page:**
   - The 2015 contents are 'the pieces put together' in Scott's own words; the crying child and the promise to rebuild him is this archive's medium-low interpretation.

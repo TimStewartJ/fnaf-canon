@@ -2763,5 +2763,210 @@
     "related": [
       "scott-2017-ffps-lite-announcement"
     ]
+  },
+  {
+    "id": "scott-2014-christian-projects-before-fnaf",
+    "title": "Twelve years of Christian films and games before FNaF",
+    "claim": "Scott said that for about twelve years he spent his free time making Christian movies and later Christian video games, which were financial failures, and that he then stopped feeling 'led' to make another Christian game; the events of his life led him to the idea for FNaF.",
+    "quote": "For about twelve years I dedicated my free time to creating Christian movies and later Christian video games. … I just didn't feel \"led\" to make another Christian game.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "biography"
+    ],
+    "related": [
+      "scott-2014-no-hidden-christian-messages",
+      "scott-2021-i-am-a-christian"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "Scott names The Pilgrim's Progress as one of these projects in the same interview. The archived Hope Animation catalogue lists his films Noah's Ark (2004), The Pilgrim's Progress (2005), A Christmas Journey (2006) and The Jesus Kids Club, plus The Pilgrim's Progress video game (c. 2011). Hope Animation was a Christian media website run by David Hutter that hosted his work; it was not Scott's own company. In the same answer Scott describes a period of despair before FNaF."
+  },
+  {
+    "id": "scott-2014-no-hidden-christian-messages",
+    "title": "\"No\": FNaF has no hidden Christian messages",
+    "claim": "Asked whether his Christianity translated into FNaF, and whether there were hidden Christian messages such as the animals representing vices, Scott said no: FNaF is a simple horror game, though he tried to keep it clean, with no blood or guts.",
+    "quote": "No, Five Nights at Freddy's is just a simple horror game, although I did try to keep it relatively clean with no blood or guts.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "allegory",
+      "design"
+    ],
+    "related": [
+      "scott-2014-christian-projects-before-fnaf",
+      "scott-2014-faith-and-work"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "Said in October 2014, after FNaF1 and before FNaF2's release. It answers the question of allegory (animatronics standing for sins); it does not address the explicit afterlife language that later games (FFPS 2017, UCN 2018) put in characters' mouths."
+  },
+  {
+    "id": "scott-2014-faith-and-work",
+    "title": "\"It's not your work but you yourself that makes the difference\"",
+    "claim": "Scott said he first believed a Christian game-maker must make only Christian games, then decided that the person rather than the work makes the difference, while the work must still not go against God's purpose; he warned against games full of hate and gruesome imagery.",
+    "quote": "I think God granted me some wisdom in realizing that it's not your work but you yourself that makes the difference.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "design"
+    ],
+    "related": [
+      "scott-2014-no-hidden-christian-messages"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/"
+  },
+  {
+    "id": "scott-2014-favorite-verse-psalm-46-10",
+    "title": "Favourite verse: Psalm 46:10, \"Be still\"",
+    "claim": "Asked for his favourite Bible verse, Scott gave Psalm 46:10, which begins \"Be still, and know that I am God\".",
+    "quote": "Psalm 46:10, \"Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.\"",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "be-still"
+    ],
+    "related": [
+      "ffps-completion-give-up-spirits"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "FFPS's completion speech tells the machines' occupants to \"be still and give up your spirits\" [ffps-completion-give-up-spirits]. The two-word echo is noted by this archive; Scott has never linked them, and \"be still\" is a common phrase."
+  },
+  {
+    "id": "scott-2014-beaver-game-origin",
+    "title": "FNaF began with a beaver that looked like a scary animatronic",
+    "claim": "Scott said a family-friendly game about a beaver he had made was criticised online because its main character looked like a scary animatronic, and that he then resolved to make something much scarier.",
+    "quote": "I had made a family friendly game about a beaver before this but it was criticized online; people said the main character looked like a scary animatronic.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "origin"
+    ],
+    "related": [
+      "scott-2014-christian-projects-before-fnaf"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "He does not name the game here. It is generally identified as Chipper & Sons Lumber Co. (2013), which is secondary identification."
+  },
+  {
+    "id": "scott-2014-cant-explain-golden-freddy",
+    "title": "\"I can't explain Golden Freddy\" (2014)",
+    "claim": "Asked for the story behind Golden Freddy in October 2014, Scott said that sometimes things just 'happen' during the game-making process and that he couldn't explain Golden Freddy.",
+    "quote": "Sometimes things just \"happen\" during the game making process. I can't explain Golden Freddy.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "people": [
+      "golden-freddy"
+    ],
+    "tags": [
+      "author",
+      "golden-freddy"
+    ],
+    "related": [
+      "fnaf2-custom-night-names"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "Could be sincere or coy. Either way, in October 2014 Scott disclosed no explanation of Golden Freddy; the archive's reading of the character comes from later games."
+  },
+  {
+    "id": "scott-2014-desolate-hope-human-life",
+    "title": "The Desolate Hope: a machine protecting the smallest human life",
+    "claim": "Scott said The Desolate Hope was not designed with abortion in mind, but that its story follows the protagonist's quest to save a human fetus intended as a scientific specimen, and that the game places a very high value on human life, even at its smallest.",
+    "quote": "The game places a very high value on human life, even at it's smallest, and that draws a lot of anger from some people.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2014-10-25)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "desolate-hope"
+    ],
+    "related": [
+      "scott-2014-christian-projects-before-fnaf"
+    ],
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "notes": "The Desolate Hope (free on scottgames.com in 2013, on Steam in 2014) is his last major pre-FNaF game: a coffee-pot robot protects a human embryo on an abandoned station. It is recorded as biography only."
+  },
+  {
+    "id": "scott-2021-i-am-a-christian",
+    "title": "\"I'm a Christian… I believe in God\" (2021)",
+    "claim": "Responding to criticism of his political donations, Scott wrote that he is a Republican, a Christian and pro-life, and believes in God, and that he also believes in equality, science and common sense.",
+    "quote": "I'm a republican. I'm a Christian. I'm pro-life. I believe in God.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit r/fivenightsatfreddys, 'My response, and maybe last post.' by u/animdude, 2021-06-12",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (published 2021-06-12)",
+      "precision": "unknown",
+      "basis": "Developer statement about himself or his work; describes no in-universe date"
+    },
+    "tags": [
+      "author",
+      "faith",
+      "biography"
+    ],
+    "related": [
+      "scott-2014-christian-projects-before-fnaf",
+      "scottgames-site-2021-retirement-not-end"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/nybyo1/my_response_and_maybe_last_post/",
+    "verifiedVia": "https://web.archive.org/web/20210612173622/https://www.reddit.com/r/fivenightsatfreddys/comments/nybyo1/my_response_and_maybe_last_post/",
+    "notes": "He announced his retirement days later. The post is about his personal beliefs and says nothing about the games' lore."
   }
 ]

@@ -1192,7 +1192,46 @@
       "souls",
       "fire"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily"
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily",
+    "related": [
+      "ffps-completion-peace-perhaps-more",
+      "scott-2014-favorite-verse-psalm-46-10"
+    ]
+  },
+  {
+    "id": "ffps-completion-peace-perhaps-more",
+    "title": "Completion: 'peace, and perhaps more, waiting for you'",
+    "claim": "The Cassette Man tells the machines' occupants that for most of them he believes there is peace, and perhaps more, waiting after the smoke clears.",
+    "quote": "For most of you, I believe there is peace and perhaps more waiting for you after the smoke clears.",
+    "game": "ffps",
+    "kind": "cutscene",
+    "location": "Completion ending – Cassette Man speech",
+    "certainty": "stated",
+    "when": {
+      "label": "End of FFPS (after Saturday's shift)",
+      "precision": "relative",
+      "basis": "Plays after the final (Saturday) shift; no year given"
+    },
+    "people": [
+      "cassette-man",
+      "missing-children"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "souls",
+      "afterlife",
+      "rest",
+      "fire"
+    ],
+    "related": [
+      "ffps-completion-give-up-spirits",
+      "ffps-completion-old-friend-hell",
+      "ffps-completion-rest"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Henry_Emily (trivia quotes the line); punctuation may differ slightly from the in-game subtitles",
+    "notes": "The only line in the games that speaks of something beyond rest for the dead. It is the speaker's belief ('I believe'), not a shown fact."
   },
   {
     "id": "ffps-completion-old-friend-hell",

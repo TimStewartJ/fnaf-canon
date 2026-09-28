@@ -15,6 +15,7 @@ import { auditLedger } from "../research/audit-ledger";
 import { deaths } from "../src/data/deaths";
 import { boxAnswer, boxTimeline, boxGuesses } from "../src/data/box";
 import { theories as commTheories, interactions } from "../src/data/community";
+import { authorAnswer, authorTimeline, lexicon, readings } from "../src/data/author";
 import { LOCATION_SPANS } from "../src/data/locations";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -114,6 +115,11 @@ for (const [from, tos] of sameAs) if (tos.size > 1) warnings.push(`identity: ${f
 for (const a of boxAnswer) a.body.forEach((b) => textRefs(`box answer`, b));
 for (const b of boxTimeline) { textRefs(`box ${b.id}`, b.body); need(`box ${b.id}`, b.evidence); if (b.image && !fs.existsSync(path.join(root, "public/img", b.image))) errors.push(`box ${b.id}: image missing`); }
 for (const g of boxGuesses) textRefs(`box guess ${g.name}`, g.verdict);
+// Scott & Faith page
+for (const a of authorAnswer) a.body.forEach((b) => textRefs(`author answer`, b));
+for (const s of authorTimeline) { textRefs(`author ${s.id}`, s.body); need(`author ${s.id}`, s.evidence); if (s.image && !fs.existsSync(path.join(root, "public/img", s.image))) errors.push(`author ${s.id}: image missing`); }
+for (const g of lexicon) need(`lexicon ${g.id}`, g.lines.map((l) => (typeof l === "string" ? l : l[0])));
+for (const r of readings) { textRefs(`reading ${r.claim}`, r.body); if (r.section && !theory.some((x) => x.id === r.section)) errors.push(`reading: unknown theory section ${r.section}`); }
 for (const t of commTheories) { for (const f of [t.right, t.wrong, t.scott ?? ""]) textRefs(`community ${t.id}`, f); if (t.modelSection && !theory.some((x) => x.id === t.modelSection)) errors.push(`community ${t.id}: unknown theory section ${t.modelSection}`); }
 for (const x of interactions) { textRefs(`interaction ${x.id}`, x.summary); need(`interaction ${x.id}`, x.evidence); }
 

@@ -9,7 +9,7 @@ export default function Method() {
       <p>Only two things are admissible:</p>
       <ol>
         <li><strong>The games.</strong> Everything reachable in them: phone calls and tapes, printed text, minigames, cutscenes, environment art, mechanics, hidden screens, extras menus and endings.</li>
-        <li><strong>Scott Cawthon's own words.</strong> His Steam and Reddit posts and the teasers he published on scottgames.com.</li>
+        <li><strong>Scott Cawthon's own words.</strong> His Steam and Reddit posts, interviews in his own words, and the teasers he published on scottgames.com.</li>
       </ol>
       <p>
         The novels, the Fazbear Frights and Tales from the Pizzaplex anthologies, guidebooks, and the films are excluded. Scott called the first novel a separate continuity in 2015,
@@ -42,6 +42,8 @@ export default function Method() {
       </p>
       <h2>Fan theories</h2>
       <p>Theories are never used as evidence. The <Link to="/community">Theorists &amp; Scott</Link> page references them to show what they got right and wrong against the records, and how Scott and the community influenced each other. Each judgement there cites evidence like everything else.</p>
+      <h2>The author's background</h2>
+      <p>Scott's statements about himself, including his Christian faith, are recorded as evidence about the <em>author</em>. They never establish an in-universe fact. They are used only to judge how literally to read words the games already contain, such as "Hell" or "rest". Where Scott ruled a reading out (in 2014, FNaF's animatronics as a Christian allegory of vices), it stays out. See <Link to="/author">Scott &amp; Faith</Link>.</p>
       <h2>Known limits of v1</h2>
       <ul>
         <li>Coverage is broad but not exhaustive. The largest games (Security Breach, Help Wanted 2, Secret of the Mimic) have more collectibles than v1 records.</li>

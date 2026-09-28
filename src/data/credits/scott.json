@@ -70,5 +70,23 @@
     "game": "scottgames-site",
     "caption": "Scott Cawthon's retirement message 'See you on the flipside' (official scottgames.com file, Jun 2021; recompressed)",
     "sourcePage": "https://web.archive.org/web/20210617022949im_/http://www.scottgames.com/theflipside.jpg"
+  },
+  {
+    "file": "scott-pilgrims-progress-game-shot.jpg",
+    "game": "scott",
+    "caption": "The Pilgrim's Progress: The Video Game (Scott Cawthon, c. 2011): Christian battles a monster with 'Resist with Faith', 'Pray for', 'Blessings'",
+    "sourcePage": "https://web.archive.org/web/20120208223723/http://hopeanimation.com/shop/pilgrims-progress-video-game/"
+  },
+  {
+    "file": "scott-pilgrims-progress-game-cover.jpg",
+    "game": "scott",
+    "caption": "The Pilgrim's Progress: The Video Game, box art (Hope Animation shop, 2012)",
+    "sourcePage": "https://web.archive.org/web/20120208223723/http://hopeanimation.com/shop/pilgrims-progress-video-game/"
+  },
+  {
+    "file": "scott-desolate-hope-header.jpg",
+    "game": "scott",
+    "caption": "The Desolate Hope (Scott Cawthon, 2014), Steam header",
+    "sourcePage": "https://store.steampowered.com/app/298180/The_Desolate_Hope/"
   }
 ]
