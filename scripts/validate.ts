@@ -7,9 +7,10 @@ import { people } from "../src/data/people";
 import { relations } from "../src/data/relations";
 import { places } from "../src/data/places";
 import { timeline, eras } from "../src/data/timeline";
-import { theory } from "../src/data/theory";
+import { outsideStory, storyline, theory, theoryIntro, theoryParts } from "../src/data/theory";
+import { beatCitations, blockEvidenceIds, citationsIn, inlineCitations, sectionImages, sectionRefsInText, sectionTexts } from "../src/data/theoryText";
 import { familyTrees } from "../src/data/familyTrees";
-import { homeSummary } from "../src/data/home";
+import { homeSummary, keyQuestions } from "../src/data/home";
 import { EVENT_DATES, ERA_DATES, PLACE_DATES, GAME_DATES } from "../src/data/dates";
 import { auditLedger } from "../research/audit-ledger";
 import { deaths } from "../src/data/deaths";
@@ -66,21 +67,75 @@ for (const t of timeline) {
   for (const p of t.people ?? []) if (!personIds.has(p)) errors.push(`event ${t.id}: unknown person ${p}`);
   for (const p of t.places ?? []) if (!placeIds.has(p)) errors.push(`event ${t.id}: unknown place ${p}`);
 }
+const theoryIds = new Set(theory.map((x) => x.id));
 const textRefs = (where: string, s: string) => {
   for (const m of s.matchAll(/\[\[([a-z0-9-]+)\]\]/g)) if (!ids.has(m[1])) errors.push(`${where}: unknown citation ${m[1]}`);
+  for (const ref of sectionRefsInText(s)) if (!theoryIds.has(ref)) errors.push(`${where}: unknown theory chapter ((${ref}))`);
   for (const m of s.matchAll(/<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g)) {
     if (!["printed", "derived", "estimated", "relative", "teaser", "unknown"].includes(m[2])) errors.push(`${where}: bad date kind ${m[2]}`);
     for (const id of m[3].split(",").filter(Boolean)) if (!ids.has(id)) errors.push(`${where}: date token cites unknown ${id}`);
   }
   for (const m of s.matchAll(/\{\{([a-z0-9-]+)\}\}/g)) if (!personIds.has(m[1]) && !placeIds.has(m[1])) errors.push(`${where}: unknown entity ${m[1]}`);
 };
-for (const s of theory) { s.body.forEach((b) => textRefs(`theory ${s.id}`, b)); need(`theory ${s.id} counter`, s.counterEvidence ?? []); }
+// ── Theory: chapters, parts, storyline, intro (see the content contract in src/data/schema.ts) ──
+const imgDir = path.join(root, "public/img");
+const creditedFiles = new Set(credits.map((c) => c.file));
+const needImage = (where: string, file: string) => {
+  if (!fs.existsSync(path.join(imgDir, file))) errors.push(`${where}: image missing ${file}`);
+  else if (!creditedFiles.has(file)) errors.push(`${where}: image ${file} has no credit in src/data/credits`);
+};
+const partIds = new Set(theoryParts.map((p) => p.id));
+if (partIds.size !== theoryParts.length) errors.push("theoryParts: duplicate part id");
+const evQuote = new Map(evidence.map((e) => [e.id, e.quote]));
+const norm = (q: string) => q.replace(/[“”]/g, '"').replace(/[‘’]/g, "'").replace(/\s+/g, " ").trim();
+if (theoryIds.size !== theory.length) errors.push("theory: duplicate chapter id");
+for (const s of theory) {
+  const where = `theory ${s.id}`;
+  for (const t of sectionTexts(s)) textRefs(where, t);
+  need(`${where} counter`, s.counterEvidence ?? []);
+  need(`${where} further`, s.further ?? []);
+  for (const b of s.body) {
+    need(`${where} block`, blockEvidenceIds(b));
+    if (typeof b === "string") continue;
+    if (b.kind === "quote") {
+      const q = evQuote.get(b.evidence);
+      if (!q) errors.push(`${where}: quote block cites ${b.evidence}, which has no quote`);
+      else if (b.text && !norm(q).includes(norm(b.text))) errors.push(`${where}: quote block text is not a verbatim part of ${b.evidence}'s quote`);
+    }
+    if (b.kind === "compare" && b.columns.filter((c) => c.pick).length > 1) warnings.push(`${where}: compare block marks more than one column as the pick`);
+    if (b.kind === "table") for (const r of b.rows) if (r.length !== b.head.length) errors.push(`${where}: table row has ${r.length} cells, head has ${b.head.length}`);
+  }
+  for (const img of sectionImages(s)) needImage(where, img);
+  if (s.part && !partIds.has(s.part)) errors.push(`${where}: unknown part ${s.part}`);
+  if (theoryParts.length && !s.part) warnings.push(`${where}: no part assigned`);
+  for (const id of s.seeAlso ?? []) { if (!theoryIds.has(id)) errors.push(`${where}: seeAlso -> unknown chapter ${id}`); if (id === s.id) errors.push(`${where}: seeAlso points at itself`); }
+  const inline = new Set(citationsIn(s));
+  for (const id of s.further ?? []) if (inline.has(id)) warnings.push(`${where}: ${id} is in 'further' but already cited in the chapter`);
+}
+for (const p of theoryParts) { textRefs(`part ${p.id}`, p.blurb); if (!theory.some((s) => s.part === p.id)) warnings.push(`part ${p.id}: no chapters`); }
+textRefs("theoryIntro", theoryIntro.thesis); theoryIntro.howToRead.forEach((t) => textRefs("theoryIntro", t));
+const beatIds = new Set<string>();
+for (const b of storyline) {
+  if (beatIds.has(b.id)) errors.push(`storyline: duplicate beat ${b.id}`); beatIds.add(b.id);
+  textRefs(`beat ${b.id}`, b.when); textRefs(`beat ${b.id}`, b.text);
+  if (!b.sections.length) errors.push(`beat ${b.id}: no chapters listed`);
+  for (const id of b.sections) if (!theoryIds.has(id)) errors.push(`beat ${b.id}: unknown chapter ${id}`);
+  if (b.image) needImage(`beat ${b.id}`, b.image);
+  if (b.era && !eraIds.has(b.era)) errors.push(`beat ${b.id}: unknown era ${b.era}`);
+  if (!beatCitations(b).length) warnings.push(`beat ${b.id}: cites no evidence`);
+}
+const outsideIds = new Set<string>();
+for (const g of outsideStory) { textRefs(`outsideStory ${g.id}`, g.reason); need(`outsideStory ${g.id}`, g.ids); for (const id of g.ids) outsideIds.add(id); }
+// Book-only names must not be used as names in the model (they may be discussed on the Theorists page).
+const BOOK_ONLY = /\b(Henry|Charlie|Charlotte|Evan|Cassidy|Emily)\b/;
+for (const s of theory) for (const t of [s.title, s.question ?? "", ...sectionTexts(s)]) { const m = t.match(BOOK_ONLY); if (m) warnings.push(`theory ${s.id}: uses the book-only name "${m[1]}"`); }
+for (const b of storyline) for (const t of [b.title, b.text]) { const m = t.match(BOOK_ONLY); if (m) warnings.push(`beat ${b.id}: uses the book-only name "${m[1]}"`); }
 for (const t of timeline) textRefs(`event ${t.id}`, t.summary);
 for (const p of people) { textRefs(`person ${p.id}`, p.summary); if (p.theory) textRefs(`person ${p.id} theory`, p.theory); }
 for (const p of places) textRefs(`place ${p.id}`, p.summary);
 for (const h of homeSummary) textRefs(`home ${h.title}`, h.text);
+for (const q of keyQuestions) { textRefs(`home question ${q.q}`, q.a); if (!theoryIds.has(q.section)) errors.push(`home question "${q.q}": unknown theory chapter ${q.section}`); }
 for (const p of people) textRefs(`person ${p.id} status`, p.status);
-const theoryIds = new Set(theory.map((x) => x.id));
 for (const a of auditLedger) { textRefs(`audit ${a.id}`, a.problem + " " + a.resolution); need(`audit ${a.id}`, a.evidence); for (const sct of a.sections) if (!theoryIds.has(sct)) errors.push(`audit ${a.id}: unknown theory section ${sct}`); }
 for (const t of timeline) if (!EVENT_DATES[t.id]) errors.push(`event ${t.id}: no date justification`);
 for (const [k, d] of Object.entries({ ...EVENT_DATES, ...ERA_DATES, ...PLACE_DATES, ...GAME_DATES })) need(`date ${k}`, d.evidence);
@@ -150,9 +205,24 @@ const undefinedEntities = new Map<string, number>();
 for (const e of evidence) for (const x of [...(e.people ?? []), ...(e.places ?? [])]) if (!personIds.has(x) && !placeIds.has(x)) undefinedEntities.set(x, (undefinedEntities.get(x) ?? 0) + 1);
 if (undefinedEntities.size) warnings.push(`entities used on evidence without a page: ${[...undefinedEntities].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k}(${n})`).join(", ")}`);
 
-const cited = new Set<string>([...people.flatMap((p) => p.evidence), ...timeline.flatMap((t) => t.evidence), ...relations.flatMap((r) => r.evidence), ...theory.flatMap((s) => s.body.flatMap((b) => [...b.matchAll(/\[\[([a-z0-9-]+)\]\]/g)].map((m) => m[1])))]);
-console.log(`evidence=${evidence.length} credits=${credits.length} people=${people.length} places=${places.length} relations=${relations.length} events=${timeline.length} theory=${theory.length}`);
+const cited = new Set<string>([...people.flatMap((p) => p.evidence), ...timeline.flatMap((t) => t.evidence), ...relations.flatMap((r) => r.evidence), ...theory.flatMap((s) => citationsIn(s))]);
+console.log(`evidence=${evidence.length} credits=${credits.length} people=${people.length} places=${places.length} relations=${relations.length} events=${timeline.length} theory=${theory.length} parts=${theoryParts.length} beats=${storyline.length}`);
 console.log(`evidence cited by higher layers: ${[...ids].filter((i) => cited.has(i)).length}/${ids.size}`);
+
+// ── Coverage: every record should be cited by a chapter, filed under one, or listed in outsideStory ──
+const inlineAll = new Set(theory.flatMap((s) => inlineCitations(s)));
+const counterAll = new Set(theory.flatMap((s) => s.counterEvidence ?? []));
+const furtherAll = new Set(theory.flatMap((s) => s.further ?? []));
+const storyAll = new Set(storyline.flatMap((b) => beatCitations(b)));
+const inModel = new Set([...inlineAll, ...counterAll, ...furtherAll, ...storyAll]);
+for (const id of outsideIds) if (inlineAll.has(id) || counterAll.has(id) || furtherAll.has(id)) warnings.push(`coverage: ${id} is listed in outsideStory but also used by a chapter`);
+const unaccounted = [...ids].filter((i) => !inModel.has(i) && !outsideIds.has(i));
+console.log(`theory coverage: ${ids.size - unaccounted.length}/${ids.size} accounted (cited inline ${inlineAll.size}, counter-evidence ${counterAll.size}, filed as further ${furtherAll.size}, outside the story ${outsideIds.size}); unaccounted ${unaccounted.length}`);
+const byGame = new Map<string, number>();
+for (const id of unaccounted) { const g = evById.get(id)!.game; byGame.set(g, (byGame.get(g) ?? 0) + 1); }
+if (unaccounted.length) console.log(`  unaccounted by source: ${[...byGame].sort((a, b) => b[1] - a[1]).map(([g, n]) => `${g} ${n}`).join(", ")}`);
+if (process.argv.includes("--list-unaccounted")) for (const id of unaccounted) console.log(`  UNACCOUNTED ${id}`);
+if (process.argv.includes("--strict-coverage") && unaccounted.length) errors.push(`coverage: ${unaccounted.length} evidence records are not cited, filed or listed as outside the story (run with --list-unaccounted)`);
 for (const w of warnings) console.log("WARN", w);
 for (const e of errors) console.log("ERROR", e);
 if (errors.length) { console.log(`${errors.length} errors`); process.exit(1); }

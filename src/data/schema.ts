@@ -122,11 +122,113 @@ export interface TimelineEvent {
   image?: string;
 }
 
+export type Confidence = "high" | "medium" | "low";
+
+/** How a displayed date is supported. Rendered as a date pill (see RichText date tokens). */
+export type DateKind = "printed" | "derived" | "estimated" | "relative" | "teaser" | "unknown";
+
+/**
+ * ── Theory content contract ─────────────────────────────────────────────────────────────
+ * The Unified Model is: an intro, a short chronological storyline, and chapters grouped into parts.
+ *
+ * Every text field marked "RichText" may use these inline tokens (rendered by RichText in components/ui.tsx):
+ *   [[evidence-id]]              citation of an evidence record
+ *   {{entity-id}}                link to a person or place page
+ *   ((section-id))               link to another theory chapter, labelled with its title
+ *   ((section-id|custom label))  the same, with a custom label
+ *   **bold**   *italic*
+ *   <<label|kind|evidence-id,evidence-id|basis>>   a date pill (kind is a DateKind). Avoid " and ' inside the token.
+ */
+
+/** A part (act) of the model. Chapters name their part by id and are shown in theory.ts order. */
+export interface TheoryPart {
+  id: string;
+  title: string;
+  /** Short label shown above the title, e.g. an era or theme. The UI numbers parts itself. */
+  kicker?: string;
+  /** RichText. One to three sentences introducing the part. */
+  blurb: string;
+}
+
+/** Block-level content inside a chapter. A plain string is a paragraph. All text fields are RichText unless noted. */
+export type TheoryBlock =
+  | string
+  | { kind: "heading"; text: string }
+  | { kind: "list"; items: string[]; ordered?: boolean }
+  /** An image from public/img (must have an ImageCredit). `evidence` links the record it illustrates. */
+  | { kind: "figure"; image: string; caption?: string; evidence?: string }
+  /** A pull quote taken verbatim from an evidence record's `quote`. `text` may narrow it to an exact substring. */
+  | { kind: "quote"; evidence: string; text?: string }
+  /** key = the point to remember; note = aside; tension = evidence that pushes back; open = unresolved. */
+  | { kind: "callout"; tone: "key" | "note" | "tension" | "open"; title?: string; text: string }
+  /** Competing readings side by side. Mark the model's choice with `pick`. `verdict` is a short plain label. */
+  | { kind: "compare"; columns: { title: string; verdict?: string; pick?: boolean; text: string }[] }
+  /** A small table. Cells are RichText. */
+  | { kind: "table"; head: string[]; rows: string[][] }
+  /** An exhibit strip: the listed evidence records shown as cards. `title` is plain text. */
+  | { kind: "evidence"; ids: string[]; title?: string };
+
 export interface TheorySection {
   id: string;
   title: string;
-  /** Paragraph blocks; inline citations use [[evidence-id]] markers. */
-  body: string[];
-  confidence: "high" | "medium" | "low";
+  /** Paragraphs and other blocks. Inline citations use [[evidence-id]]. */
+  body: TheoryBlock[];
+  /** How well the chapter's main claim is supported. */
+  confidence: Confidence;
+  /** Records that cut against the chapter. */
   counterEvidence?: string[];
+  /** TheoryPart id. */
+  part?: string;
+  /** Plain text. The question this chapter answers. */
+  question?: string;
+  /** RichText. The model's answer in one or two sentences. */
+  answer?: string;
+  /** Lead image from public/img. */
+  hero?: { image: string; caption?: string };
+  /** RichText. How the model handles the counter-evidence. */
+  tension?: string;
+  /** RichText. What new evidence would change this chapter's answer. */
+  changesIf?: string;
+  /** Other chapter ids worth reading next to this one. */
+  seeAlso?: string[];
+  /** Evidence that belongs to this chapter's thread but is not cited inline ("further evidence filed here"). */
+  further?: string[];
+}
+
+/** One beat of the short, chronological telling of the whole story. */
+export interface StoryBeat {
+  id: string;
+  /** RichText. Usually a date pill or a short label such as "Years later". */
+  when: string;
+  title: string;
+  /** RichText. Two to five sentences. */
+  text: string;
+  /** The weakest link the beat depends on. */
+  confidence: Confidence;
+  /** Chapter ids that argue this beat. */
+  sections: string[];
+  /** Era id from timeline.ts, used for colour. */
+  era?: string;
+  /** Image from public/img. */
+  image?: string;
+}
+
+export interface TheoryIntro {
+  /** Page title of the model. */
+  title: string;
+  /** Plain text. One line under the title. */
+  standfirst: string;
+  /** RichText. The whole model in a short paragraph. */
+  thesis: string;
+  /** RichText paragraphs. How to read the model: what the confidence marks and citations mean. */
+  howToRead: string[];
+}
+
+/** Evidence records that are deliberately not part of the story, grouped by reason (e.g. non-canon per Scott, out-of-universe). */
+export interface OutsideStoryGroup {
+  id: string;
+  title: string;
+  /** RichText. Why these records carry no story weight. */
+  reason: string;
+  ids: string[];
 }

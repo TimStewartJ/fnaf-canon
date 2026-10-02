@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import type { Evidence, Status } from "../data/schema";
-import { creditByFile, evidenceById, gameById, labelForEntity, personById, placeById } from "../data/store";
+import type { DateKind, Evidence, Status } from "../data/schema";
+import { creditByFile, evidenceById, gameById, labelForEntity, personById, placeById, theoryById } from "../data/store";
 import { gameMeta } from "../data/gameMeta";
 
 export const KIND_LABEL: Record<string, string> = {
@@ -81,17 +81,29 @@ export function CiteList({ ids }: { ids: string[] }) {
   return <span className="cite-list">{ids.map((id) => <Cite key={id} id={id} />)}</span>;
 }
 
-/** Renders text containing [[evidence-id]] citations, {{entity-id}} links and **bold**. */
+/** Link to a theory chapter, labelled with its title unless a label is given. */
+export function SectionLink({ id, label }: { id: string; label?: string }) {
+  const s = theoryById.get(id);
+  if (!s) return <span className="cite missing" title="Missing theory chapter">?{id}</span>;
+  return <Link className="section-link" to={`/theory#${id}`}>{label ?? s.title}</Link>;
+}
+
+/**
+ * Renders RichText: [[evidence-id]] citations, {{entity-id}} links, ((section-id)) or ((section-id|label)) chapter links,
+ * **bold**, *italic* and <<label|kind|ids|basis>> date pills. Bold and italic may contain other tokens.
+ */
 export function RichText({ text }: { text: string }) {
   const out: ReactNode[] = [];
-  const re = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\*\*(.+?)\*\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
+  const re = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\|([^)]+))?\)\)|\*\*(.+?)\*\*|\*([^\s*](?:[^*]*[^\s*])?)\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
   let last = 0; let m: RegExpExecArray | null; let k = 0;
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(text.slice(last, m.index));
-    if (m[4]) out.push(<DatePill key={k++} label={m[4]} kind={m[5] as DateKind} evidence={m[6] ? m[6].split(",") : []} basis={m[7]} />);
+    if (m[7]) out.push(<DatePill key={k++} label={m[7]} kind={m[8] as DateKind} evidence={m[9] ? m[9].split(",") : []} basis={m[10]} />);
     else if (m[1]) out.push(<Cite key={k++} id={m[1]} />);
     else if (m[2]) out.push(<EntityLink key={k++} id={m[2]} />);
-    else out.push(<strong key={k++}>{m[3]}</strong>);
+    else if (m[3]) out.push(<SectionLink key={k++} id={m[3]} label={m[4]} />);
+    else if (m[5]) out.push(<strong key={k++}><RichText text={m[5]} /></strong>);
+    else out.push(<em key={k++}><RichText text={m[6]} /></em>);
     last = m.index + m[0].length;
   }
   if (last < text.length) out.push(text.slice(last));
@@ -157,7 +169,7 @@ export function Section({ title, children, aside }: { title: string; children: R
   );
 }
 
-export type DateKind = "printed" | "derived" | "estimated" | "relative" | "teaser" | "unknown";
+export type { DateKind };
 export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
   printed: { label: "Printed", help: "The date is printed or spoken in a game or in Scott's words" },
   derived: { label: "Derived", help: "Calculated from printed dates and stated intervals" },

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate": "tsx scripts/validate.ts",
+    "qa": "node scripts/qa.mjs"
   },
   "dependencies": {
     "d3-force": "^3.0.0",
@@ -16,6 +18,7 @@
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@types/d3-force": "^3.0.10",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",

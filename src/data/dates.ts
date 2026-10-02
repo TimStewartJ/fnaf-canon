@@ -1,4 +1,4 @@
-import type { DateKind } from "../components/ui";
+import type { DateKind } from "./schema";
 
 export const ERA_COLOR: Record<string, string> = {
   founding: "#ff8f5c", diner: "#f4c95d", murders: "#ff6b6b", pizzeria: "#e0a458",

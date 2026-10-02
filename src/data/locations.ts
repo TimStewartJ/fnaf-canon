@@ -1,4 +1,4 @@
-import type { DateKind } from "../components/ui";
+import type { DateKind } from "./schema";
 
 export type LocationKind = "venue" | "home" | "facility" | "hidden" | "virtual";
 

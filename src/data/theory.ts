@@ -1,12 +1,69 @@
-import type { TheorySection } from "./schema";
+import type { OutsideStoryGroup, StoryBeat, TheoryIntro, TheoryPart, TheorySection } from "./schema";
 
 /**
- * The Unified Model: this archive's single account. Each paragraph cites evidence with [[id]].
- * Written from the evidence up. Contradicting evidence goes in counterEvidence.
+ * The Unified Model: this archive's single account. Written from the evidence up.
+ * See the "Theory content contract" in schema.ts for the shapes and the RichText tokens.
+ *
+ * - theoryIntro   the title, standfirst, thesis and how-to-read note shown at the top of the model
+ * - theoryParts   the parts (acts); each chapter names its part
+ * - storyline     the short chronological telling; each beat points at the chapters that argue it
+ * - theory        the chapters. Contradicting evidence goes in counterEvidence; evidence that belongs to a
+ *                 chapter's thread but is not cited inline goes in `further`
+ * - outsideStory  records that deliberately carry no story weight, grouped by reason
+ *
+ * Every evidence record should end up cited by a chapter, filed under one (`further`), or listed in outsideStory.
+ * `npx tsx scripts/validate.ts` reports the accounting.
  */
+
+export const theoryIntro: TheoryIntro = {
+  title: "The Unified Model",
+  standfirst: "One account of Five Nights at Freddy's, built only from the games and Scott Cawthon's own words.",
+  thesis: "A robotics designer learns that something of a dead person can persist inside a machine. He uses that first to kill and then to outlast his own death. The haunted animatronics, the Afton family, the Cassette Man's trap and the Pizzaplex all follow from that discovery or from attempts to undo it.",
+  howToRead: [
+    "This is the archive's own reconstruction: one account that tries to fit every recorded piece of evidence with the fewest assumptions. It was built from the evidence locker up, not from community theories.",
+    "Every claim carries its citations. Each chapter says how strongly it is supported, and where evidence cuts against the model it is listed openly.",
+  ],
+};
+
+export const theoryParts: TheoryPart[] = [
+  { id: "frame", title: "The frame", kicker: "Before the story", blurb: "What counts as evidence, and the model in one paragraph." },
+  { id: "makers", title: "The makers", kicker: "Before 1983", blurb: "A costume workshop, two clients, and the suits that made a killer in a mascot possible." },
+  { id: "family", title: "The family", kicker: "c. 1983", blurb: "The household in FNaF4, the Bite, and the voice in the plush." },
+  { id: "murders", title: "The murders", kicker: "Before 1987 to 1987", blurb: "A daughter left outside, five missing children, and the year the pizzeria came apart." },
+  { id: "machines", title: "The machines", kicker: "Undated", blurb: "Afton Robotics, the killer's death in his own suit, and the son who was put back together." },
+  { id: "reckoning", title: "The reckoning", kicker: "Decades later", blurb: "A trap, a fire, and what the games say about where the dead belong." },
+  { id: "afterimage", title: "The afterimage", kicker: "2019 onward", blurb: "What survives the fire: code on old circuit boards, a rabbit costume, and a machine that learned by watching." },
+  { id: "apparatus", title: "The apparatus", kicker: "Method", blurb: "How the story is dated, the one retcon, and what the evidence does not settle." },
+];
+
+export const storyline: StoryBeat[] = [
+  {
+    id: "s-workshop", when: "Before <<1983|printed|fnaf4-fredbear-and-friends-1983|The diner is running by the one year printed in FNaF4.>>", title: "A workshop builds springlock suits for a diner",
+    text: "Edwin Murray's company builds suits and springlocks to order [[secret-of-the-mimic-log-build-to-spec]], and a batch is readied \"for the diner\" [[secret-of-the-mimic-mail-springlocks-hen]]. The suits double as animatronic and costume [[fnaf3-tape2-dual-suits]].",
+    confidence: "medium", sections: ["partners"], era: "founding",
+  },
+  {
+    id: "s-bite", when: "<<c. 1983|derived|fnaf4-minigame-countdown-to-party,fnaf4-fredbear-and-friends-1983|The party ends the five-day countdown, whose only printed year is 1983.>>", title: "A birthday at Fredbear's",
+    text: "A frightened boy is pushed into Fredbear's mouth by his older brother, and the jaw closes [[fnaf4-give-fredbear-a-kiss]] [[fnaf4-the-bite]]. A voice promises to put him back together [[fnaf4-i-will-put-you-back-together]].",
+    confidence: "medium", sections: ["afton-house", "bite", "plush"], era: "diner", image: "fnaf4-older-brother-and-bullies.png",
+  },
+  {
+    id: "s-springlock", when: "Undated", title: "The killer dies in his own suit",
+    text: "Cornered by the children he killed, the purple man climbs into the Spring Bonnie suit and the springlocks close [[fnaf3-n5-springlock-death]].",
+    confidence: "high", sections: ["springtrap"], era: "funtime", image: "fnaf3-springlock-death.png",
+  },
+  {
+    id: "s-fire", when: "Decades later", title: "The trap, and the fire",
+    text: "The Cassette Man gathers the last four haunted machines in one building and burns it [[ffps-completion-fire]].",
+    confidence: "high", sections: ["ffps", "faith"], era: "aftermath",
+  },
+];
+
+export const outsideStory: OutsideStoryGroup[] = [];
+
 export const theory: TheorySection[] = [
   {
-    id: "canon-rules", title: "Ground rules from Scott himself", confidence: "high",
+    id: "canon-rules", part: "frame", title: "Ground rules from Scott himself", confidence: "high",
     body: [
       "Before any reconstruction, it is worth settling what counts. In 2015 Scott said the first novel and the games are **separate continuities**, and that the book is not meant to fill in the games' gaps [[scott-2015-books-separate-continuity]] [[scott-2015-book-not-a-guide]]. In 2020 he said future games would look forward and the novels — meaning Fazbear Frights — would fill in some blanks about the past [[scott-2020-novels-fill-blanks]] [[scott-2020-novels-means-fazbear-frights]]. In 2024 he answered the book-canon debate only with an ambiguous \"yes\" [[scott-2024-books-canonicity-yes]]. This archive takes the strict line the brief demands: **games and Scott's own words only**. Every conclusion here therefore stands without the books.",
       "Scott also gave rulings on specific releases. FNaF4's 1.1 update is canon, but the Halloween Edition is not [[scott-2015-fnaf4-halloween-canon-split]]. Sister Location's Custom Night gameplay is not canon, but its **cutscenes are** [[scott-2016-sl-custom-night-not-canon]] [[scott-2016-cutscenes-are-canon]]; that is why Michael's walk home and the Golden Freddy monologue carry full weight here. Help Wanted is canon, and the only real-world thing it brings into the story is an in-universe developer who made games \"based on actual events\"; Scott himself is not part of the lore [[scott-2019-help-wanted-is-canon]] [[scott-2019-not-canon-list]].",
@@ -14,7 +71,7 @@ export const theory: TheorySection[] = [
     ],
   },
   {
-    id: "thesis", title: "Thesis: one man, a machine-made afterlife, and a remedy that keeps failing", confidence: "high",
+    id: "thesis", part: "frame", title: "Thesis: one man, a machine-made afterlife, and a remedy that keeps failing", confidence: "high",
     body: [
       "Read only the games and Scott's own words and FNaF becomes one story. **A robotics designer learns that something of a dead person can persist inside a machine. He uses that first to kill and then to outlast his own death.** The haunted animatronics, the Afton family, the Cassette Man's trap and the Pizzaplex all follow from that discovery or from attempts to undo it.",
       "Three findings carry the model. (1) **The salvaged Springtrap-like animatronic is William Afton.** The FFPS credits give that name to its voice [[ffps-credits-william-afton]], UCN's roster calls it \"Afton\" [[ucn-roster-afton]], and Scott's own Steam character guide says \"William Afton (AKA Scraptrap)\" [[scott-ucn-character-guide-afton]]. (2) What keeps the dead in machines is called **Remnant**, drawn on an Afton Robotics blueprint with an injector and a reservoir [[ffps-scup-blueprint]]. (3) The same blueprint proposes a remedy, noting that overheating **might** neutralize the effects permanently. Fire is the characters' repeated answer [[fnaf3-it-burns-newspaper]] [[ffps-completion-fire]], but the games also show it failing: Springtrap survives one fire [[fnaf3-it-burns-springtrap-hidden]], and the Mimic walks out of another [[secret-of-the-mimic-ending-unfinished-business]].",
@@ -23,7 +80,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf3-it-burns-springtrap-hidden", "secret-of-the-mimic-ending-unfinished-business", "security-breach-ending-burn-it-all-down"],
   },
   {
-    id: "partners", title: "Two clients and a costume workshop (Hen and W.A.)", confidence: "low",
+    id: "partners", part: "makers", title: "Two clients and a costume workshop (Hen and W.A.)", confidence: "low",
     body: [
       "The oldest layer is Secret of the Mimic. Edwin Murray's company builds suits and springlocks [[secret-of-the-mimic-log-build-to-spec]]. A batch of springlocks is readied \"for the diner\", with a warning to someone named **Hen** about their \"odd behaviors\" [[secret-of-the-mimic-mail-springlocks-hen]]. Letters signed **W.A.** claim Murray's land and catalogue and offer his staff jobs managing \"new franchise locations\" [[secret-of-the-mimic-mail-confidential-wa]] [[secret-of-the-mimic-mail-staff-contacts-wa]].",
       "Later games describe a matching pair. The Cassette Man built the machines the children are trapped in (\"prisons of my making\") [[ffps-insanity-small-souls-prisons]] and \"unwillingly\" helped create a monster [[ffps-insanity-monster-helped-create]], whom he calls \"old friend\" [[ffps-completion-old-friend-hell]]. The other half is a designer addressed as **Mr. Afton** [[sl-intro-mr-afton-board]]. This archive therefore *proposes* that W.A. is William Afton and Hen is the Cassette Man. Nothing in any game makes that connection. It rests on initials, a shortened name and matching roles, and it stays at theory level.",
@@ -32,7 +89,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["into-the-pit-strange-photo", "ffps-hry223-label", "secret-of-the-mimic-teaser-1979"],
   },
   {
-    id: "afton-house", title: "The Afton household", confidence: "medium",
+    id: "afton-house", part: "family", title: "The Afton household", confidence: "medium",
     body: [
       "FNaF4's minigames carry one printed date, <<1983|printed|fnaf4-fredbear-and-friends-1983|Printed in the title of the TV broadcast in FNaF4's minigames.>> on the TV [[fnaf4-fredbear-and-friends-1983]]. A small boy is locked in his room by an unnamed \"he\" [[fnaf4-plush-locked-in-room]] and left at the Fredbear restaurant he hates [[fnaf4-left-behind-at-diner]]. There he glimpses a purple man fitting a Spring Bonnie head onto someone [[fnaf4-purple-guy-suits-up-employee]]. His older brother terrorises him in a Foxy mask [[fnaf4-brother-foxy-mask-tv]]. The games never name the family. This archive argues it is the Aftons. The case has two parts of very different kinds.",
       "**Line 1: the purple car.** The killer who murders a child outside the pizzeria arrives in a purple car [[fnaf2-take-cake-to-the-children]]. Midnight Motorist's secret drive uses a dark purple car [[ffps-midnight-motorist-secret-drive]] that comes home to a boy's shut door (\"This is my house. He can't ignore me like that\") [[ffps-midnight-motorist-closed-door]] and a boy who has run off to \"that place\" [[ffps-midnight-motorist-ran-off]]. On its own this is only a motif. The driver, the boy and \"that place\" are never named, and FNaF4's \"he\" could just as well be the older brother.",
@@ -42,7 +99,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf4-kid-who-hides-under-table", "ffps-midnight-motorist-later-that-night", "fnaf4-plush-locked-in-room"],
   },
   {
-    id: "bite", title: "The Bite, and 'put you back together'", confidence: "medium",
+    id: "bite", part: "family", title: "The Bite, and 'put you back together'", confidence: "medium",
     body: [
       "On the child's birthday [[fnaf4-its-your-birthday]], the brother and his friends push his head into Fredbear's mouth [[fnaf4-give-fredbear-a-kiss]] and the jaw closes [[fnaf4-the-bite]]. Afterwards, in the dark, the brother apologises [[fnaf4-night6-brother-apology]]. The plush says \"You're broken\" [[fnaf4-youre-broken]] and then \"I will put you back together\" [[fnaf4-i-will-put-you-back-together]], and a flatline plays [[fnaf4-flatline]]. Rare hospital props appear by the bed [[fnaf4-bedside-items]], but the playable room is a house bedroom [[fnaf4-bedroom-setting]]. Whether the nights are a patient's nightmares or a memory is left open.",
       "\"Put back together\" recurs. Michael tells his father \"I put her back together, just like you asked me to\" [[sl-golden-freddy-cutscene-father]], and UCN's Nightmare Fredbear threatens to put the player back together and take them apart again [[ucn-nightmare-fredbear-lines]]. Scott said the contents of FNaF4's locked box are \"the pieces put together\" [[scott-2015-fnaf4-box-pieces-put-together]], and FNaF World tells someone \"The pieces are in place for you\" [[fw-clock-ending-pieces-in-place]]. In 2024 he said he never pursued a specific object for the box [[scott-2024-box-interview]]. Reading the plush's voice as the father's is **speculation**: nothing identifies who speaks through it.",
@@ -51,21 +108,37 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf2-no-bite-mention", "fnaf4-bedroom-setting"],
   },
   {
-    id: "plush", title: "Who speaks through the Fredbear plush?", confidence: "low",
+    // Worked example of the block format (see schema.ts): question/answer, hero, quote, compare, heading, figure, callout,
+    // tension, changesIf, seeAlso and further.
+    id: "plush", part: "family", title: "Who speaks through the Fredbear plush?", confidence: "low",
+    question: "Who talks to the crying child through the Fredbear plush?",
+    answer: "Most likely a built, watching companion toy, seen through a terrified child's eyes. No record puts a spirit in it, and nothing identifies the voice as his father's.",
+    hero: { image: "fnaf4-plush-with-pupils.png", caption: "The Fredbear plush as FNaF4's minigames draw it in the house: small white pupils that track the child." },
     body: [
-      "The plush is the only voice on the crying child's side. It knows what \"he\" did (\"He locked you in your room again\") [[fnaf4-plush-locked-in-room]]. It knows the boy was left behind and where the exit is [[fnaf4-left-behind-at-diner]]. It warns him about what will happen \"if he catches you\" [[fnaf4-fredbear-suit-employee-chase]] and tells him \"He hates you\" [[fnaf4-he-hates-you]]. Its pupils follow him from furniture, cars, flowers and drains, though it is never seen moving [[fnaf4-plush-follows-child]]. Its last words are \"I will put you back together\" [[fnaf4-i-will-put-you-back-together]].",
-      "**No record puts a spirit in it.** The minigames happen around the Bite in <<c. 1983|derived|fnaf4-minigame-countdown-to-party,fnaf4-fredbear-and-friends-1983|The party ends the five-day countdown, whose only printed year is 1983.>>. None of the games' identified ghosts — the five, Elizabeth, the killer himself — is dated earlier, and the Cassette Man's daughter's death is simply undated. The plush is not the crying child, since he is alive and it talks to him. The games leave three readings open.",
-      "**1. A built companion.** The same world is full of machines that watch, learn and repeat. The workshop that made springlocks \"for the diner\" also made a Fredbear prototype [[secret-of-the-mimic-rnd-proto-pizzeria]]. One of its music toys \"learned my child's musical tastes, but it also imitated everything it heard… even private conversations\" [[secret-of-the-mimic-mail-mushmen-return]]. Its machines advertise that they are \"always watching. Watching and learning\" [[secret-of-the-mimic-stay-up-latte]], and its babysitter speaks in a dead mother's voice [[secret-of-the-mimic-log-m1-as-fiona]]. On this reading, the plush repeats what it has heard in the house. A Fredbear plush also sits on the desk of Afton's monitoring office [[sl-private-room-fredbear-plush]], though nothing says it is the same one.",
-      "**2. The child's own mind.** The plush turns up where no toy could be and is never seen to move [[fnaf4-plush-follows-child]]. Its lines sound like a frightened child's self-talk (\"Don't be scared. I am here with you.\" \"Tomorrow is another day.\") [[fnaf4-tomorrow-is-another-day]]. Scott called the playable child one \"whose role is yet unknown\" [[scott-2015-fnaf4-store-child-role-unknown]].",
-      "**3. A presence the games never name.** FNaF World's clock ending gives the crying child's trophy while unnamed yellow eyes in the dark repeat FNaF4's line, \"We are still your friends\" [[fw-clock-ending-still-your-friends]], and FNaF4's last \"You're broken\" is shown in a different colour from the plush's other lines [[fnaf4-youre-broken]].",
-      "**The eyes: two sprites, and the pattern they follow.** The game draws the plush two ways: with small white pupils that shift to track the child, and with plain black, empty eyes [[fnaf4-plush-two-sprites]]. In the house after Night 1 (couch, clock, hallway, bed) the pupils are there and watching. In the Night 3 flower-bed and yard sightings they are gone, and the plush never physically enters the diner [[fnaf4-plush-eyes-by-scene]]. At the very end, as the plushies fade, \"I will put you back together\" is spoken over nothing but two white dots in the dark [[fnaf4-plush-night6-pupils-only]]. FNaF World's clock ending uses the same image: small eyes in darkness saying \"We are still your friends\" [[fw-clock-ending-still-your-friends]].",
-      "What that suggests, and what it doesn't: **it is not two characters.** The same plush speaks throughout, in the same voice, and the lines don't change with the sprite. The pupils mark something narrower. They are there when the plush is **watching** the child: tracking him through his own house, and in the final shot, where the watcher is all that is left. They are gone when it is only **present** as a sighting, a toy-shaped thing turning up where a toy can't be. That fits the model's two-part answer: a real watching device (the pupils) seen through a frightened child's eyes (the empty-eyed sightings). The mapping rests on screenshot crops, not a frame-by-frame capture of every scene, so it is recorded as a pattern, not a rule.",
-      "**The model's pick is reading 1**, with the impossible sightings explained by reading 2: a watching, talking toy (the pupils), seen through a terrified child's eyes (the empty-eyed sightings). Its final promise echoes a phrase that later belongs to the father. Michael reports \"I put her back together, just like you asked me to\" [[sl-golden-freddy-cutscene-father]]. That the plush speaks for William Afton is **not established**; it is only where the echo points.",
+      "The plush is the only voice on the crying child's side. It knows what \"he\" did (\"He locked you in your room again\") [[fnaf4-plush-locked-in-room]]. It knows the boy was left behind and where the exit is [[fnaf4-left-behind-at-diner]]. It warns him about what will happen \"if he catches you\" [[fnaf4-fredbear-suit-employee-chase]] and tells him \"He hates you\" [[fnaf4-he-hates-you]]. Its pupils follow him from furniture, cars, flowers and drains, though it is never seen moving [[fnaf4-plush-follows-child]]. Its last words are a promise.",
+      { kind: "quote", evidence: "fnaf4-i-will-put-you-back-together" },
+      "**No record puts a spirit in it.** The minigames happen around the Bite in <<c. 1983|derived|fnaf4-minigame-countdown-to-party,fnaf4-fredbear-and-friends-1983|The party ends the five-day countdown, whose only printed year is 1983.>>. None of the games' identified ghosts (the five, Elizabeth, the killer himself) is dated earlier, and the Cassette Man's daughter's death is simply undated. The plush is not the crying child, since he is alive and it talks to him. The games leave three readings open.",
+      {
+        kind: "compare", columns: [
+          { title: "A built companion", verdict: "The model's pick", pick: true, text: "The same world is full of machines that watch, learn and repeat. The workshop that made springlocks \"for the diner\" also made a Fredbear prototype [[secret-of-the-mimic-rnd-proto-pizzeria]]. One of its music toys \"learned my child's musical tastes, but it also imitated everything it heard… even private conversations\" [[secret-of-the-mimic-mail-mushmen-return]]. Its machines advertise that they are \"always watching. Watching and learning\" [[secret-of-the-mimic-stay-up-latte]], and its babysitter speaks in a dead mother's voice [[secret-of-the-mimic-log-m1-as-fiona]]. A Fredbear plush also sits on the desk of Afton's monitoring office [[sl-private-room-fredbear-plush]], though nothing says it is the same one." },
+          { title: "The child's own mind", verdict: "Explains the impossible sightings", text: "The plush turns up where no toy could be and is never seen to move [[fnaf4-plush-follows-child]]. Its lines sound like a frightened child's self-talk (\"Don't be scared. I am here with you.\" \"Tomorrow is another day.\") [[fnaf4-tomorrow-is-another-day]]. Scott called the playable child one \"whose role is yet unknown\" [[scott-2015-fnaf4-store-child-role-unknown]]." },
+          { title: "A presence the games never name", verdict: "Possible, unsupported", text: "FNaF World's clock ending gives the crying child's trophy while unnamed yellow eyes in the dark repeat FNaF4's line, \"We are still your friends\" [[fw-clock-ending-still-your-friends]], and FNaF4's last \"You're broken\" is shown in a different colour from the plush's other lines [[fnaf4-youre-broken]]." },
+        ],
+      },
+      { kind: "heading", text: "The eyes: two sprites, and the pattern they follow" },
+      "The game draws the plush two ways: with small white pupils that shift to track the child, and with plain black, empty eyes [[fnaf4-plush-two-sprites]]. In the house after Night 1 (couch, clock, hallway, bed) the pupils are there and watching. In the Night 3 flower-bed and yard sightings they are gone, and the plush never physically enters the diner [[fnaf4-plush-eyes-by-scene]]. At the very end, as the plushies fade, the promise is spoken over nothing but two white dots in the dark [[fnaf4-plush-night6-pupils-only]].",
+      { kind: "figure", image: "fnaf4-plush-eyeless-vs-pupils.png", caption: "Two sprites: empty eyes in the outdoor sightings, tracking pupils in the house.", evidence: "fnaf4-plush-two-sprites" },
+      "**It is not two characters.** The same plush speaks throughout, in the same voice, and the lines don't change with the sprite. The pupils mark something narrower. They are there when the plush is *watching* the child: tracking him through his own house, and in the final shot, where the watcher is all that is left. They are gone when it is only *present* as a sighting, a toy-shaped thing turning up where a toy can't be.",
+      { kind: "callout", tone: "key", title: "The model's pick", text: "A watching, talking toy (the pupils), seen through a terrified child's eyes (the empty-eyed sightings). Its final promise echoes a phrase that later belongs to the father: Michael reports \"I put her back together, just like you asked me to\" [[sl-golden-freddy-cutscene-father]]. That the plush speaks for William Afton is **not established**; it is only where the echo points. See ((bite))." },
     ],
     counterEvidence: ["fnaf4-youre-broken", "fnaf4-plush-eyes-by-scene"],
+    tension: "The last \"You're broken\" is drawn in a different colour from the plush's other lines [[fnaf4-youre-broken]], which could mean a second speaker. The per-scene eye pattern rests on screenshot crops, not a frame-by-frame capture of every scene [[fnaf4-plush-eyes-by-scene]], so it is recorded as a pattern, not a rule.",
+    changesIf: "A game that shows who is on the other end of the plush, or one that dates a death before the Bite and ties it to the toy.",
+    seeAlso: ["afton-house", "bite"],
+    further: ["fnaf4-still-your-friends"],
   },
   {
-    id: "golden", title: "Golden Freddy is the fifth child", confidence: "medium",
+    id: "golden", part: "murders", title: "Golden Freddy is the fifth child", confidence: "medium",
     body: [
       "**Golden Freddy is best read as the fifth missing child.** Give Gifts, Give Life shows four dead children receiving the masks of Freddy, Bonnie, Chica and Foxy, and a fifth body appears for one frame before Golden Freddy's jumpscare [[fnaf2-give-gifts-give-life]]. In FNaF3's Happiest Day, the children at the table wear Freddy, Bonnie, Chica, Foxy **and golden Freddy** masks, and all of them vanish together [[fnaf3-happiest-day]]. The bad ending shows a faint fifth head [[fnaf3-bad-ending-heads]]; the good ending has none [[fnaf3-good-ending-heads]]. FNaF1's newspaper links **five** children to the case [[fnaf1-news-five-children]].",
       "So Golden Freddy is bound to a golden bear like the other four were to theirs. His appearances — the child's laugh [[fnaf1-golden-freddy-poster-office]], \"IT'S ME\" [[fnaf1-its-me-hallucinations]], the custom-night roster [[fnaf2-custom-night-names]] — are one of the five making himself seen. UCN's Death Coin trick, where removing Golden Freddy summons Fredbear [[ucn-death-coin-fredbear]], ties the two yellow bears together but does not identify who is inside either. Some overlap between Golden Freddy and Fredbear, and so with the crying child, cannot be excluded. It is simply not needed to explain the evidence. In October 2014 Scott said only \"I can't explain Golden Freddy\" [[scott-2014-cant-explain-golden-freddy]] and disclosed no explanation, so this reading is built from later games.",
@@ -74,7 +147,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["ucn-death-coin-fredbear", "ucn-golden-freddy-final-cutscene"],
   },
   {
-    id: "murders", title: "The murders: a daughter, the five, and 1987", confidence: "medium",
+    id: "murders", part: "murders", title: "The murders: a daughter, the five, and 1987", confidence: "medium",
     body: [
       "**The child outside.** In Take Cake to the Children, a child cries outside, a purple car pulls up, and the purple man kills them [[fnaf2-take-cake-to-the-children]]. Security Puppet shows the same scene from the machine's side: the Puppet guards one assigned child [[ffps-security-puppet-assignment]], a box is placed over its box [[ffps-security-puppet-trapped]], and it finds the child dead in the rain [[ffps-security-puppet-dead-child]]. The Cassette Man says his daughter was \"shut out and left to die\" [[ffps-completion-shut-out]]. This archive reads the Take Cake child as his daughter, living on in the Puppet. One detail pushes back: Take Cake's voice spells \"SAVE HIM\". That may refer to the Puppet's request rather than to the child, but it is recorded as a tension. When she died, relative to the others, is not given.",
       "**The five.** A man in a mascot costume lures children into a back room on the night of <<June 26th|printed|fnaf1-news-kids-vanish|The day and month are printed in FNaF1's newspaper; the year and the building are not.>> [[fnaf1-news-kids-vanish]], and five are linked to the case [[fnaf1-news-five-children]]. The records bound the date: by the 1987 location, the old models \"from the previous location\" already smell [[fnaf2-call2-older-models]], and by FNaF1 the tragedy was \"many years ago\" [[fnaf1-news-closing]]. So the murders most likely happened **before 1987, at an earlier location**. The costume is the yellow rabbit: Fruity Maze puts Spring Bonnie behind a crying girl [[ffps-fruity-maze-follow-me]]. Into the Pit tells a similar story, a yellow rabbit and a room of dead children [[into-the-pit-prologue-mci]], but it shows six bodies, not five, and its 1985 setting is only implied [[into-the-pit-past-year-1985]]. It is a parallel depiction, not a reconstruction.",
@@ -84,7 +157,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf1-call1-twenty-years", "into-the-pit-prologue-mci", "fnaf2-save-them"],
   },
   {
-    id: "funtimes", title: "Afton Robotics: machines built to take children", confidence: "high",
+    id: "funtimes", part: "machines", title: "Afton Robotics: machines built to take children", confidence: "high",
     body: [
       "A board member presses Mr. Afton on Circus Baby's \"design choices\", and he lists her features, including ice cream [[sl-intro-mr-afton-board]]. The Baby minigame shows ice cream used to draw a lone child close before a claw extends [[sl-baby-minigame-girl-grabbed]], and blueprints of every Funtime flash on screen [[sl-blueprint-screens]]. Scott's hidden teaser report says Circus Baby's Pizza World was cancelled over \"gas leaks\", only a handful of kids ever saw inside, and the equipment left under tarps at night [[scottgames-site-sl-news-gas-leak-cancellation]] [[scottgames-site-sl-news-kids-tested]] [[scottgames-site-sl-news-equipment-removed]].",
       "The first child taken is his own daughter. She begs to play with Baby [[sl-girl-daddy-let-me-play]], and Baby recalls that when one little girl was alone she \"was no longer myself\" [[sl-baby-ice-cream-story]]. From then on Baby speaks with a child's agenda: she learns to pretend [[sl-baby-how-to-pretend]] and says something bad is inside her [[sl-baby-something-bad-inside]]. As Scrap Baby, the Cassette Man calls her Elizabeth [[ffps-completion-connection-terminated-elizabeth]]. The girl's voice says \"I know it was an accident\" [[sl-fake-ending-girl-voice]].",
@@ -92,7 +165,7 @@ export const theory: TheorySection[] = [
     ],
   },
   {
-    id: "springtrap", title: "The killer's death: Springtrap", confidence: "high",
+    id: "springtrap", part: "machines", title: "The killer's death: Springtrap", confidence: "high",
     body: [
       "After the murders the killer returns to the old animatronics. A shadow Freddy leads each one into a back room, where the purple man takes it apart [[fnaf3-eon-shadow-freddy-follow-me]] [[fnaf3-eon-purple-guy-dismantles]]. Then the dead children come for him [[fnaf3-n5-ghosts-safe-room]]. Cornered, he climbs into the empty Spring Bonnie suit and laughs, and the springlocks snap shut [[fnaf3-n5-springlock-death]]. That is the failure the training tapes warned about [[fnaf3-tape3-springlock-bleeding]]. Hidden rooms like this were sealed with nothing removed first [[fnaf3-tape6-safe-rooms-sealed]]. The games do not date his death.",
       "He does not stay dead. Decades later, a horror attraction finds \"a real one\" behind a boarded-up wall [[fnaf3-call1-boarded-room-lead]] [[fnaf3-call2-found-a-real-one]]. It is labelled Springtrap [[fnaf3-springtrap-name]] and has what looks like a human body inside [[fnaf3-springtrap-corpse-screens]]. Scott's teasers read \"I am still here.\" and \"He always does.\" [[scottgames-fnaf3-teaser-still-here]] [[scottgames-fnaf3-teaser-he-always-does]].",
@@ -101,7 +174,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf3-bad-ending-heads", "ffps-completion-my-daughter"],
   },
   {
-    id: "michael", title: "Michael: the son who was put back together", confidence: "high",
+    id: "michael", part: "machines", title: "Michael: the son who was put back together", confidence: "high",
     body: [
       "In Sister Location, Michael follows instructions into his father's own facility. HandUnit's autocorrect names him \"Eggs Benedict\" [[sl-eggs-benedict]]. Baby guides him to the scooping room, where the Funtimes' combined mass takes his body because \"if we looked like you\" they could leave [[sl-real-ending-if-we-looked-like-you]] [[sl-real-ending-scooped-mirror]].",
       "The body keeps walking. His skin darkens to purple as the neighbours grow alarmed [[sl-custom-night-decay]], Ennard pours out into a drain [[sl-custom-night-ennard-ejected]], and a voice insists \"You won't die\" as he stands back up [[sl-you-wont-die]]. In the burned wreck of Fazbear's Fright he tells his father he found \"it\" where he was told and put her back together; he should be dead; he will come find him [[sl-golden-freddy-cutscene-father]] [[sl-golden-freddy-cutscene-come-find-you]]. Springtrap steps out of the dark [[sl-golden-freddy-cutscene-springtrap]]. Scott ruled that these cutscenes are canon [[scott-2016-cutscenes-are-canon]].",
@@ -109,7 +182,7 @@ export const theory: TheorySection[] = [
     ],
   },
   {
-    id: "ffps", title: "The trap: FFPS and the fire", confidence: "high",
+    id: "ffps", part: "reckoning", title: "The trap: FFPS and the fire", confidence: "high",
     body: [
       "Freddy Fazbear's Pizzeria Simulator is the Cassette Man's trap. The franchise is a cover [[ffps-tutorial-franchisee]]. Salvaged animatronics keep turning up in the alley \"and we aren't sure why\" [[ffps-salvage-first-tape-alley]], and the company wants \"them all\" in one place by Saturday [[ffps-tutorial-all-in-one-place]]. Four arrive: Molten Freddy, Scraptrap, Scrap Baby and Lefty [[ffps-salvage-order]].",
       "Each one is someone. Scraptrap says \"I always come back\" and \"it's still me\" [[ffps-scraptrap-always-come-back]] [[ffps-scraptrap-still-me]], and is credited as **William Afton** [[ffps-credits-william-afton]]. Scrap Baby is Elizabeth [[ffps-completion-connection-terminated-elizabeth]]. Lefty was built to lure and encapsulate [[ffps-lefte-blueprint]], and its arm shows the Puppet's stripes [[ffps-lefty-alley-puppet-arm]]. Molten Freddy is a mass of wires singing about one big happy family [[ffps-molten-freddy-lines]]; this archive reads it as what was left of Ennard.",
@@ -117,7 +190,7 @@ export const theory: TheorySection[] = [
     ],
   },
   {
-    id: "ucn", title: "UCN: the son who cannot die", confidence: "medium",
+    id: "ucn", part: "reckoning", title: "UCN: the son who cannot die", confidence: "medium",
     body: [
       "**The records lean towards Michael as UCN's player.** The clues are circumstantial: no line names the player, but several characters taunt him with details from Sister Location. Scrap Baby offers \"your controlled shock\" [[ucn-scrap-baby-lines]], the job Michael did there [[sl-controlled-shocks]]. Circus Baby asks \"Want to see the Scooping Room?\" [[ucn-circus-baby-lines]], where Michael was scooped [[sl-real-ending-scooped-mirror]]. Ballora asks why he hides inside these walls [[ucn-ballora-lines]]. Nightmare Freddy calls him \"a victim that can't perish\" [[ucn-nightmare-freddy-cant-perish]]; Sister Location told Michael \"You won't die\" [[sl-you-wont-die]].",
       "Two more details fit. Afton appears on the roster as an animatronic that **attacks** the player [[ucn-roster-afton]], which is awkward if the player *is* Afton. Old Man Consequences tells the player to \"leave the demon to his demons. Rest your own soul\" [[ucn-omc-ending]], which treats the player and the demon as two different people. \"He tried to release us… no matter how many times they burn us\" [[ucn-orville-he-tried-to-release]] puts the player among those burned in FFPS, and Michael stayed in that fire [[ffps-completion-brave-volunteer]].",
@@ -126,7 +199,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["ucn-protagonist-unnamed-killer", "ucn-rockstar-bonnie-truest-friend", "ucn-mr-hippo-just-a-story"],
   },
   {
-    id: "digital", title: "Glitchtrap: something in the circuit boards", confidence: "medium",
+    id: "digital", part: "afterimage", title: "Glitchtrap: something in the circuit boards", confidence: "medium",
     body: [
       "Help Wanted's tapes say the client sent old circuit boards to be scanned so the studio could skip programming, and code on them \"took hold by itself\" until \"he\" appeared [[hw-tape-05]]. Fazbear's own guide admits it used vintage control boards to recreate \"personalities from the past\" [[hw-handunit-vintage-control-boards]]. The anomaly is a purple rabbit [[hw-tape-room-glitchtrap]]. In the hidden Princess Quest, a cipher and reversed audio decode to \"I always come back. Let me out.\" [[hw-mobile-princess-quest-ending]], echoing Scraptrap's own line [[ffps-scraptrap-always-come-back]]. The wording depends on fan decoding.",
       "This archive reads Glitchtrap as **Afton-derived code**: a personality carried on boards from his machines. The games establish the boards, the personality and the line. They do not establish personal continuity, so an imitation, a copy, or the man himself all remain possible. The status is theory.",
@@ -135,7 +208,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["hw-tape-girl-calls-it-the-anomaly", "hw-mobile-princess-quest-ending"],
   },
   {
-    id: "vanny", title: "Vanny: Vanessa, and possibly more than one wearer", confidence: "low",
+    id: "vanny", part: "afterimage", title: "Vanny: Vanessa, and possibly more than one wearer", confidence: "low",
     body: [
       "Security Breach ties the name to one person. Freddy notes that \"Vanny\" sounds like both Vanessa and Bunny [[security-breach-freddy-vanny-vanessa-bunny]], and Vanessa's therapy notes show her buying fake fur for a secret costume because \"He said he would always be watching\" [[security-breach-cd-vanessa-costume-fur]]. The Special Delivery \"Ness\", who is linked to an IT worker named Luis just as Vanessa is [[security-breach-cd-vanessa-encrypted-conversation]] [[sd-ness-interested-in-it]], is plausibly Vanessa earlier on.",
       "One ending complicates this. The Vanny unmasked on the roof is a blonde woman [[security-breach-rooftop-unmasked]], and the same ending shows Vanessa alive on the roof afterwards [[security-breach-rooftop-vanessa-alive]]. This archive offers a **hypothesis**. RUIN's Security Mask introduces its AI as the Virtual Augmented Neural Network Integration unit [[ruin-mask-bot-helpi-vanni]], and Help Wanted 2 calls its trainee's headset \"the Vanny mask\" [[hw2-pq4-vanny-mask-trade]]. \"Vanny\" may name a role anyone can be pulled into, not a single woman. The games never say so outright.",
@@ -144,7 +217,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["security-breach-rooftop-unmasked", "security-breach-ending-redemption"],
   },
   {
-    id: "burntrap", title: "Beneath the Pizzaplex: the burnt rabbit", confidence: "low",
+    id: "burntrap", part: "afterimage", title: "Beneath the Pizzaplex: the burnt rabbit", confidence: "low",
     body: [
       "The Pizzaplex was built over a sinkhole [[security-breach-msg-sinkhole]], and something below draws power [[security-breach-msg-power-drain]]. An old elevator shaft [[security-breach-msg-old-elevator]] leads to a buried pizzeria signed \"Freddy Fazbear's Pizza Place\" [[security-breach-underground-pizza-place]]. Inside is a burnt rabbit animatronic with a human-looking jawbone and purple eyes [[security-breach-burntrap-appearance]]. It rises from a recharge station and takes remote control of Freddy (\"I AM NOT ME\") [[security-breach-freddy-i-am-not-me]].",
       "Two identities fit, and the games settle neither. **Afton's burnt body**: the resemblance to Springtrap, the human jaw, and control of other machines like Glitchtrap's virus. **The Mimic in a costume**: the Mimic wears mascot suits elsewhere [[ruin-ending-scooper]], was built to copy [[secret-of-the-mimic-dispatch-briefing-origin]], and is what RUIN finds in the sinkhole [[ruin-mimic-reveal]]. Neither name appears in Security Breach, and even \"Burntrap\" comes only from the game files [[security-breach-burntrap-name-not-in-game]]. In one ending the Tangle drags it away [[security-breach-ending-burn-it-all-down]].",
@@ -152,7 +225,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["secret-of-the-mimic-mimic-ruin-appearance-link", "ruin-ending-scooper"],
   },
   {
-    id: "mimic", title: "The Mimic: the other way a machine learns to kill", confidence: "high",
+    id: "mimic", part: "afterimage", title: "The Mimic: the other way a machine learns to kill", confidence: "high",
     body: [
       "Secret of the Mimic adds a second horror with nothing supernatural in it. Edwin Murray built a learning endoskeleton to babysit his son [[secret-of-the-mimic-log-training-m1]]. It copied everything around it, including violence [[secret-of-the-mimic-dispatch-briefing-origin]]: \"It mimics rage\" [[secret-of-the-mimic-mail-received-5-min-ago]]. When Edwin lies paralysed, it answers him in his own dismissive phrases [[secret-of-the-mimic-log-turn-around]]. Nothing haunts it; it learned to be what it saw.",
       "The link to RUIN is by design and name, not by stated history. The thing that imitates Gregory by reusing his own lines [[ruin-mimic-reuses-gregory-lines]] is an endoskeleton [[ruin-mimic-reveal]] of the Mimic's design [[secret-of-the-mimic-mimic-ruin-appearance-link]]. RUIN's M.X.E.S. program \"kept it hidden\" [[ruin-gregory-mxes-explanation]]. Murray's basement machine had an M.X.E.S. subterminal of similar design [[secret-of-the-mimic-mxes-machine]]. Whether it is the *same* system or a later one built on it, the games don't say. The Mimic survives the fire in one ending [[secret-of-the-mimic-ending-unfinished-business]].",
@@ -160,7 +233,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["secret-of-the-mimic-mxes-machine"],
   },
   {
-    id: "timeline-math", title: "Dating the story", confidence: "medium",
+    id: "timeline-math", part: "apparatus", title: "Dating the story", confidence: "medium",
     body: [
       "Only a few years are printed: <<1983|printed|fnaf4-fredbear-and-friends-1983|Printed in the title of the TV broadcast in FNaF4's minigames.>> on FNaF4's TV [[fnaf4-fredbear-and-friends-1983]], <<11-12-1987|printed|fnaf2-paycheck-1987|Printed on Jeremy Fitzgerald's Night 5 check.>> and <<11-13-1987|printed|fnaf2-overtime-robots-scrapped|Printed on the Night 6 overtime check.>> on FNaF2's cheques, and <<Nov 2019 – Mar 2020|printed|sd-ness-blood-eagle-calendar,sd-circuit-board-does-what-we-tell-it|Printed on Special Delivery's in-game emails.>> on Special Delivery's emails. Beyond these, every date is derived or estimated, and the timeline says which. Undated events are placed by their relationships to dated ones, and that position is a convention, not a claim about the year.",
       "FNaF1 comes <<after '87|derived|fnaf1-call1-bite-of-87,fnaf1-paycheck-night5|The Bite of 87 is in the past; the check year is printed as xx.>>, since the Bite of '87 is in the past; its cheques blank the year as \"xx\" [[fnaf1-paycheck-night5]]. FNaF3 is set <<thirty years|printed|scott-fnaf3-steam-description,fnaf3-coming-soon-newspaper|The interval is stated; which closure starts it is not.>> after \"Freddy Fazbear's Pizza\" closed, without saying which closure [[scott-fnaf3-steam-description]].",
@@ -169,7 +242,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf1-call1-twenty-years", "fnaf1-news-closing"],
   },
   {
-    id: "faith", title: "The moral map: rest for the innocent, Hell for the killer", confidence: "medium",
+    id: "faith", part: "reckoning", title: "The moral map: rest for the innocent, Hell for the killer", confidence: "medium",
     body: [
       "Scott is a Christian [[scott-2021-i-am-a-christian]] who spent about twelve years making Christian films and games before FNaF [[scott-2014-christian-projects-before-fnaf]]. In October 2014, after FNaF1, he rejected the idea that FNaF hid Christian messages such as animatronics standing for vices [[scott-2014-no-hidden-christian-messages]]. The archive takes both seriously: it does not decode the series as an allegory, but it reads the afterlife language that later games put in characters' mouths literally.",
       "That language is consistent. **Rest** is what the dead children are owed and denied: \"they will never find rest now\" [[ffps-insanity-tiny-breaths]], \"It's time to rest\" [[ffps-completion-rest]], FNaF World's single word \"Rest.\" [[fw-clock-ending-pieces-in-place]]. The occupants' spirits \"don't belong\" to the machines [[ffps-completion-give-up-spirits]], and the Cassette Man says he believes most of them will find \"peace and perhaps more\" [[ffps-completion-peace-perhaps-more]]. The only line in the records that names **Hell** is addressed to one person, the killer [[ffps-completion-old-friend-hell]].",
@@ -178,7 +251,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["scott-2014-no-hidden-christian-messages", "ucn-mr-hippo-just-a-story"],
   },
   {
-    id: "retcon", title: "Scott's one retcon: our stake is the yellow suit", confidence: "low",
+    id: "retcon", part: "apparatus", title: "Scott's one retcon: our stake is the yellow suit", confidence: "low",
     body: [
       "Scott said he made exactly one real retcon, and wouldn't say where [[scott-2017-one-retcon]]. The same day he added three constraints. It was \"integrated pretty seamlessly, and most people didn't notice\". If it were being argued about, that would mean it had failed [[scott-2017-retcon-seamless]]. And clarifications such as Sister Location clearing up FNaF4 are \"not really a retcon\" [[scott-2017-sl-cleared-fnaf4-misconception]]. The post is dated <<2017-09-04|printed|scott-2017-one-retcon|Date of the Reddit post.>>, so the retcon has to sit in games released by then: FNaF1 through Sister Location, plus FNaF World.",
       "That rules out anything fans were openly fighting over at the time. Two months later Scott named some of those fights himself: \"1983 vs 1987\", Purple Guy being literally purple, and \"Miketrap\" [[scott-2017-matpat-final-theory]]. A seamless retcon needs an earlier game that points one way without saying so outright, and a later game that fills the gap differently without contradicting any printed line. **No game or statement identifies it**, so what follows is this archive's proposal.",
@@ -190,7 +263,7 @@ export const theory: TheorySection[] = [
     counterEvidence: ["fnaf2-call6-yellow-suit", "fnaf2-give-gifts-give-life", "fnaf1-news-five-children"],
   },
   {
-    id: "open", title: "What the evidence does not settle", confidence: "low",
+    id: "open", part: "apparatus", title: "What the evidence does not settle", confidence: "low",
     body: [
       "**Mike Schmidt vs. Michael Afton.** They share a first name and nothing else in the games [[fnaf1-paycheck-night5]]. The model allows it but never relies on it.",
       "**Which child is in which animatronic.** There are four names [[ffps-lorekeeper-gravestones]] and five masks [[fnaf3-happiest-day]], but the games never pair them.",

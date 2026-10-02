@@ -3,7 +3,8 @@ import { people as peopleData } from "./people";
 import { relations } from "./relations";
 import { places as placesData } from "./places";
 import { timeline, eras } from "./timeline";
-import { theory } from "./theory";
+import { outsideStory, storyline, theory, theoryIntro, theoryParts } from "./theory";
+import { citationsIn, evidenceFiledUnder } from "./theoryText";
 import gamesJson from "./games.json";
 import { deaths } from "./deaths";
 import { LOCATION_SPANS } from "./locations";
@@ -57,7 +58,9 @@ function stubPlaces(): Place[] {
 }
 export const people: Person[] = [...peopleData, ...stubPeople()];
 export const places: Place[] = [...placesData, ...stubPlaces()];
-export { relations, timeline, eras, theory, deaths, LOCATION_SPANS };
+export { relations, timeline, eras, theory, theoryIntro, theoryParts, storyline, outsideStory, deaths, LOCATION_SPANS };
+export { citationsIn, evidenceFiledUnder };
+export const theoryById = new Map<string, TheorySection>(theory.map((s) => [s.id, s]));
 export const personById = new Map<string, Person>(people.map((p) => [p.id, p]));
 export const placeById = new Map<string, Place>(places.map((p) => [p.id, p]));
 
@@ -68,22 +71,16 @@ export interface Backlinks {
   events: TimelineEvent[];
   relations: Relation[];
   theory: TheorySection[];
+  /** Chapters that file this record as further evidence without citing it inline. */
+  filed: TheorySection[];
   evidence: Evidence[];
-}
-
-const citeRe = /\[\[([a-z0-9-]+)\]\]/g;
-export function citationsIn(section: TheorySection): string[] {
-  const ids = new Set<string>();
-  for (const block of section.body) for (const m of block.matchAll(citeRe)) ids.add(m[1]);
-  for (const c of section.counterEvidence ?? []) ids.add(c);
-  return [...ids];
 }
 
 const backlinkIndex = new Map<string, Backlinks>();
 function bl(id: string): Backlinks {
   let b = backlinkIndex.get(id);
   if (!b) {
-    b = { people: [], places: [], events: [], relations: [], theory: [], evidence: [] };
+    b = { people: [], places: [], events: [], relations: [], theory: [], filed: [], evidence: [] };
     backlinkIndex.set(id, b);
   }
   return b;
@@ -93,11 +90,12 @@ for (const p of places) for (const id of p.evidence) bl(id).places.push(p);
 for (const t of timeline) for (const id of t.evidence) bl(id).events.push(t);
 for (const r of relations) for (const id of r.evidence) bl(id).relations.push(r);
 for (const s of theory) for (const id of citationsIn(s)) bl(id).theory.push(s);
+for (const s of theory) { const cited = new Set(citationsIn(s)); for (const id of s.further ?? []) if (!cited.has(id)) bl(id).filed.push(s); }
 for (const e of evidence) for (const id of e.related ?? []) {
   bl(id).evidence.push(e);
 }
 export function backlinksFor(id: string): Backlinks {
-  return backlinkIndex.get(id) ?? { people: [], places: [], events: [], relations: [], theory: [], evidence: [] };
+  return backlinkIndex.get(id) ?? { people: [], places: [], events: [], relations: [], theory: [], filed: [], evidence: [] };
 }
 
 /** Evidence directly tagged with a person (plus what the person record cites). */
