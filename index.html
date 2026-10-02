@@ -1,12 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="night" data-cites="show" data-text="normal">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Fazbear Canon Archive</title>
+    <meta name="description" content="An evidence-first reconstruction of the Five Nights at Freddy's story, built only from the games and Scott Cawthon's own words. One theory, argued chapter by chapter, with every claim's source one step away." />
+    <meta name="theme-color" content="#121110" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fnaf-canon</title>
+    <script>
+      // Apply the reader's saved settings before first paint (see src/components/shell/prefs.ts).
+      try {
+        var p = JSON.parse(localStorage.getItem("fca:prefs") || "{}"), r = document.documentElement;
+        if (p.theme === "paper" || p.theme === "night") r.dataset.theme = p.theme;
+        if (p.cites === "hide" || p.cites === "show") r.dataset.cites = p.cites;
+        if (p.text === "small" || p.text === "large" || p.text === "normal") r.dataset.text = p.text;
+        if (p.theme === "paper") document.querySelector('meta[name="theme-color"]').setAttribute("content", "#f5f0e6");
+      } catch (e) {}
+    </script>
   </head>
   <body>
+    <noscript>The Fazbear Canon Archive needs JavaScript to run.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

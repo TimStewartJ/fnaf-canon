@@ -1,0 +1,233 @@
+/*
+ * Base layer: reset, element defaults, typography, links, focus, and a few utilities.
+ * Shared and frozen after phase 1. Page CSS must not restyle bare elements globally.
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--c-line-strong) var(--c-bg);
+  scroll-padding-top: calc(var(--sticky-top) + var(--sp-5));
+  background: var(--c-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  line-height: var(--lh-ui);
+  font-optical-sizing: auto;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  isolation: isolate;
+  overflow-wrap: break-word;
+}
+
+/* Faint static behind everything. It is a background, so it never sits on top of text or images. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--grain);
+  opacity: var(--grain-opacity);
+}
+
+::selection { background: var(--c-selection); }
+
+/* ── Headings ─────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 { margin: 0 0 0.5em; text-wrap: balance; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: var(--w-display);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-display);
+}
+h1 { font-size: var(--fs-3xl); line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-lg); letter-spacing: -0.01em; }
+h4, h5, h6 { font-family: var(--font-ui); font-size: var(--fs-base); font-weight: 650; line-height: var(--lh-snug); }
+
+p { margin: 0 0 1em; }
+ul, ol { margin: 0 0 1em; padding-left: 1.4em; }
+li { margin: 0.25em 0; }
+dl, dd { margin: 0; }
+strong, b { font-weight: var(--w-strong); }
+small { font-size: var(--fs-sm); }
+hr { border: 0; border-top: 1px solid var(--c-line); margin: var(--sp-6) 0; }
+img, svg, video { max-width: 100%; }
+img { height: auto; }
+figure { margin: 0; }
+table { border-collapse: collapse; }
+summary { cursor: pointer; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+blockquote {
+  margin: 1em 0;
+  padding: 0 0 0 var(--sp-4);
+  border-left: 2px solid var(--c-accent-line);
+  font-family: var(--font-text);
+  font-style: italic;
+  color: var(--c-text);
+}
+
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: 0.92em; }
+kbd {
+  font-size: var(--fs-2xs);
+  padding: 0.15em 0.45em;
+  border: 1px solid var(--c-line-strong);
+  border-bottom-width: 2px;
+  border-radius: var(--r-sm);
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  white-space: nowrap;
+}
+
+/* ── Links ────────────────────────────────────────────────────────
+ * Links are underlined by default so they are never told apart from text by colour alone.
+ * Controls that are obviously controls (nav items, buttons, cards, chips) remove the underline in their own CSS. */
+a {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--c-accent-line);
+  transition: color var(--dur-1) var(--ease), text-decoration-color var(--dur-1) var(--ease);
+}
+a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+
+/* ── Focus ────────────────────────────────────────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+[tabindex="-1"]:focus-visible { outline: none; }
+
+/* ── Form elements ────────────────────────────────────────────── */
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+
+input[type="text"], input[type="search"], input:not([type]), select, textarea {
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  min-height: 2.5rem;
+  padding: 0.45rem 0.75rem;
+  color: var(--c-text);
+  background: var(--c-bg-sunk);
+  border: 1px solid var(--c-line-control);
+  border-radius: var(--r-md);
+  max-width: 100%;
+}
+input::placeholder { color: var(--c-text-3); opacity: 1; }
+input:hover, select:hover, textarea:hover { border-color: var(--c-text-3); }
+select { padding-right: 2rem; text-overflow: ellipsis; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--c-accent-fill); width: 1.05rem; height: 1.05rem; margin: 0; }
+
+/* ── Text utilities ───────────────────────────────────────────── */
+.muted { color: var(--c-text-2); }
+.faint { color: var(--c-text-3); }
+.small { font-size: var(--fs-sm); }
+.mono { font-family: var(--font-mono); font-size: 0.92em; font-variant-numeric: tabular-nums; }
+.serif { font-family: var(--font-text); }
+.nowrap { white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Small uppercase mono label: part numbers, field names, exhibit tags. */
+.label, .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-text-3);
+  margin: 0;
+}
+.kicker { color: var(--c-accent); margin-bottom: var(--sp-3); }
+
+/* The opening paragraph of a page. */
+.lede {
+  font-family: var(--font-text);
+  font-size: var(--fs-lg);
+  font-weight: var(--w-text);
+  line-height: 1.55;
+  color: var(--c-text-2);
+  max-width: var(--measure);
+  margin: 0 0 var(--sp-5);
+  text-wrap: pretty;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── Layout primitives ────────────────────────────────────────── */
+
+/* The standard page container. Every page's root is .page (see <Page>). */
+.page {
+  width: 100%;
+  max-width: calc(var(--page-max) + 2 * var(--page-pad));
+  margin-inline: auto;
+  padding: var(--sp-6) var(--page-pad) var(--sp-8);
+}
+.page--narrow { max-width: calc(52rem + 2 * var(--page-pad)); }
+.page--flush { max-width: none; padding: 0; }
+
+/* A full-width band whose content lines up with .page. */
+.band { padding-inline: var(--page-pad); }
+.band > .band__inner { max-width: var(--page-max); margin-inline: auto; }
+
+/* Vertical stack with a consistent gap. Set --gap to change it. */
+.stack { display: flex; flex-direction: column; gap: var(--gap, var(--sp-4)); }
+.stack > * { margin-block: 0; }
+
+/* Items in a row that wrap. */
+.cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap, var(--sp-2)); }
+
+/* Responsive card grid: as many columns of at least --min as fit. Never overflows a phone. */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--min, 18rem)), 1fr));
+  gap: var(--gap, var(--sp-4));
+}
+
+/* A horizontally scrollable region with fading edges, for wide tables and charts. */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-line-strong) transparent;
+}
+
+ul.plain, ol.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
+ul.plain > li, ol.plain > li { margin: 0; }
+
+/* Page-enter fade. Pages opt in with .page (it is cheap and off under reduced motion). */
+@media (prefers-reduced-motion: no-preference) {
+  .page, .page-enter { animation: page-in var(--dur-3) var(--ease) both; }
+  @keyframes page-in { from { opacity: 0; } }
+}
+
+@media print {
+  body::before { display: none; }
+}

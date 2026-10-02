@@ -1,0 +1,215 @@
+/*
+ * Long-form text and everything RichText renders: prose, the article layout, citation markers,
+ * popovers, entity links, chapter links and date pills. Shared and frozen after phase 1.
+ */
+
+/* ── Long-form text ────────────────────────────────────────────────
+ * .prose   a block of serif text at reading size, limited to the reading measure.
+ * .article the same typography for a whole article: every direct child sits on the reading
+ *          measure; add .wide to let a figure or table run to the wide measure, .full to take the
+ *          whole column. .article--center centres the columns (essays without a side rail). */
+.prose, .article {
+  font-family: var(--font-text);
+  font-size: var(--fs-read);
+  font-weight: var(--w-text);
+  line-height: var(--lh-read);
+  color: var(--c-text-read);
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  text-wrap: pretty;
+  min-width: 0;
+}
+.prose { max-width: var(--measure); }
+.article > * { max-width: var(--measure); }
+.article > .wide { max-width: var(--measure-wide); }
+.article > .full { max-width: none; }
+.article--center > * { margin-inline: auto; }
+
+:is(.prose, .article) > * { margin-block: 0; }
+:is(.prose, .article) > * + * { margin-top: 1.15em; }
+:is(.prose, .article) p { margin: 0; }
+:is(.prose, .article) p + p { margin-top: 1.15em; }
+:is(.prose, .article) strong { color: var(--c-text); }
+:is(.prose, .article) > h2 { font-size: var(--fs-2xl); margin-top: 2.1em; color: var(--c-text); }
+:is(.prose, .article) > h3 { font-size: var(--fs-xl); margin-top: 1.9em; color: var(--c-text); }
+:is(.prose, .article) > :is(h2, h3) + * { margin-top: 0.75em; }
+:is(.prose, .article) > h4 { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); margin-top: 2.4em; }
+/* Plain lists only: :where() keeps these weaker than any component class used inside an article. */
+:where(.prose, .article) :where(ul, ol):not([class]) { padding-left: 1.3em; }
+:where(.prose, .article) :where(ul, ol):not([class]) > li { margin: 0; padding-left: 0.2em; }
+:where(.prose, .article) :where(ul, ol):not([class]) > li + li { margin-top: 0.5em; }
+:where(.prose, .article) :where(ul, ol):not([class]) > li::marker { color: var(--c-text-3); font-family: var(--font-ui); font-size: 0.85em; }
+:is(.prose, .article) > :is(.figure, .callout, .table-wrap) { margin-block: 2em; }
+:is(.prose, .article) .callout__body { font-size: 0.94em; line-height: 1.6; }
+
+/* Serif reading text without the measure or the block spacing (cards, panels). */
+.read { font-family: var(--font-text); font-weight: var(--w-text); color: var(--c-text-read); line-height: 1.6; }
+
+/* ── Citation markers ──────────────────────────────────────────────
+ * Small superscript numbers. A run of adjacent citations is one cluster: 1,2,3 */
+.cites {
+  font-family: var(--font-ui);
+  font-size: 0.66em;
+  font-weight: 560;
+  font-style: normal;
+  line-height: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  font-variant-numeric: lining-nums proportional-nums;
+  vertical-align: super;
+  white-space: nowrap;
+  margin-left: 0.06em;
+}
+.cite-wrap { display: inline; }
+.cite {
+  color: var(--c-accent);
+  text-decoration: none;
+  padding: 0.45em 0.12em;
+  margin: -0.45em -0.08em;
+  border-radius: var(--r-xs);
+}
+.cite:hover, .cite:focus-visible { color: var(--c-accent-strong); background: var(--c-accent-soft); text-decoration: underline; }
+.cites__sep { color: var(--c-text-3); margin-inline: 0.04em 0.1em; }
+.cite--missing { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-tension); border: 1px dashed var(--c-tension-line); border-radius: var(--r-xs); padding: 0 0.3em; }
+
+/* Reader setting: clean reading, no markers in running text. */
+:root[data-cites="hide"] .cites { display: none; }
+
+@media (pointer: coarse) {
+  .cites { font-size: 0.72em; }
+  /* A taller, wider hit area that overlaps its neighbours a little instead of opening gaps in the line. */
+  .cite { padding: 0.8em 0.3em; margin: -0.8em -0.24em; }
+  .cites__sep { margin-inline: 0.06em 0.16em; }
+}
+
+/* Source chips: explicit lists of records outside running prose. */
+.src-list { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; vertical-align: middle; }
+.src-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.18em 0.55em 0.16em 0.45em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.src-chip:hover, .src-chip:focus-visible { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); text-decoration: none; }
+@media (pointer: coarse) { .src-chip { padding-block: 0.45em; } }
+
+/* ── Popovers (previews for citations and dates) ───────────────── */
+.pop {
+  position: absolute;
+  inset: auto;
+  margin: 0;
+  width: min(22.5rem, calc(100vw - 1rem));
+  max-height: min(26rem, calc(100vh - 1rem));
+  overflow: auto;
+  padding: var(--sp-3) var(--sp-4);
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--c-overlay);
+  color: var(--c-text);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-2);
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  cursor: auto;
+}
+.pop:popover-open { display: flex; }
+@supports not selector(:popover-open) { .pop { display: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .pop:popover-open { animation: pop-in var(--dur-2) var(--ease); }
+  @keyframes pop-in { from { opacity: 0; transform: translateY(3px); } }
+}
+.pop > * { display: block; }
+.pop__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--c-text-3); }
+.pop__kind { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-2); }
+.pop__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: 560; line-height: 1.25; color: var(--c-text); }
+.pop__text { color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden; }
+.pop__quote { font-family: var(--font-text); font-style: italic; color: var(--c-text); padding-left: var(--sp-3); border-left: 2px solid var(--c-accent-line); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+.pop__meta { font-size: var(--fs-xs); color: var(--c-text-3); }
+.pop__hint { margin-top: 0.2rem; padding-top: 0.5rem; border-top: 1px solid var(--c-line); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-3); }
+.pop__records { display: grid; gap: 0.15rem; margin-top: 0.2rem; padding-top: 0.5rem; border-top: 1px solid var(--c-line); }
+.pop__record { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; align-items: baseline; padding: 0.3rem 0.4rem; margin-inline: -0.4rem; border-radius: var(--r-sm); color: var(--c-text); text-decoration: none; }
+.pop__record:hover, .pop__record:focus-visible { background: var(--c-surface-2); color: var(--c-accent-strong); }
+
+/* One line saying where a record comes from. */
+.source-line { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.85rem; font-family: var(--font-ui); font-size: var(--fs-xs); color: var(--c-text-3); min-width: 0; }
+.source-line__kind { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; }
+.source-line__loc { color: var(--c-text-2); }
+
+/* ── Entity links ──────────────────────────────────────────────── */
+.entity--inline { color: inherit; text-decoration: underline dotted; text-decoration-color: var(--c-text-3); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.entity--inline:hover { color: var(--c-accent-strong); text-decoration-style: solid; text-decoration-color: currentColor; }
+.entity--chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.14em 0.6em 0.14em 0.45em;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  line-height: 1.35;
+  color: var(--c-text-2);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  max-width: 100%;
+}
+.entity--chip .icon { color: var(--c-text-3); }
+.entity--chip:hover { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); }
+
+/* ── Chapter links ─────────────────────────────────────────────── */
+.chapter-link { font-style: italic; }
+em .chapter-link, i .chapter-link { font-style: normal; }
+
+/* ── Date pills ────────────────────────────────────────────────── */
+.date-wrap { display: inline; }
+.date {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32em;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: var(--r-xs);
+  cursor: help;
+}
+.date .firm-glyph { align-self: center; }
+.date--inline { white-space: nowrap; font-variant-numeric: lining-nums; text-decoration: underline dotted; text-decoration-color: var(--c-text-3); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.date--inline .firm-glyph { width: 0.56em; height: 0.56em; }
+.date--inline:hover, .date[aria-expanded="true"].date--inline { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.date--tag {
+  align-items: center;
+  padding: 0.22em 0.6em 0.2em 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.35;
+  color: var(--c-text);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-sm);
+  vertical-align: middle;
+}
+.date--tag:hover, .date--tag[aria-expanded="true"] { border-color: var(--c-accent-line); background: var(--c-accent-soft); }
+.date--compact { font-size: var(--fs-2xs); padding: 0.16em 0.5em 0.14em 0.42em; }
+@media (pointer: coarse) { .date--tag { padding-block: 0.45em; } }

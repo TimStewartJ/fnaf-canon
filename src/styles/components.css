@@ -1,0 +1,344 @@
+/*
+ * Shared components: icons, firmness marks, game marks, buttons, chips, tags, toggles, tabs,
+ * filters, page header, sections, callouts, tables, facts. Shared and frozen after phase 1.
+ * Markup for each lives in src/components; see DESIGN.md.
+ */
+
+/* ── Tones ─────────────────────────────────────────────────────────
+ * data-tone picks one of the semantic colour families. Components read --tone, --tone-soft, --tone-line. */
+[data-tone="accent"], [data-tone="key"] { --tone: var(--c-accent); --tone-soft: var(--c-accent-soft); --tone-line: var(--c-accent-line); }
+[data-tone="ok"] { --tone: var(--c-ok); --tone-soft: var(--c-ok-soft); --tone-line: var(--c-ok-line); }
+[data-tone="tension"] { --tone: var(--c-tension); --tone-soft: var(--c-tension-soft); --tone-line: var(--c-tension-line); }
+[data-tone="open"] { --tone: var(--c-open); --tone-soft: var(--c-open-soft); --tone-line: var(--c-open-line); }
+[data-tone="neutral"], [data-tone="note"] { --tone: var(--c-text-2); --tone-soft: var(--c-surface); --tone-line: var(--c-line-strong); }
+
+/* ── Icons ─────────────────────────────────────────────────────── */
+.icon { flex: none; display: inline-block; vertical-align: -0.16em; }
+
+/* ── Firmness: one grammar for certainty, status and confidence ────
+ * firm = filled disc + solid line, partial = half disc + dashed, tentative = ring + dotted. */
+.firm-glyph { flex: none; display: inline-block; vertical-align: -0.02em; color: var(--c-accent); }
+.firm { display: inline-flex; align-items: center; gap: 0.38em; white-space: nowrap; }
+.firm--inline { color: var(--c-text); font-weight: 550; }
+.firm--tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.22em 0.6em 0.2em 0.5em;
+  color: var(--c-text-2);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-sm);
+  vertical-align: middle;
+}
+.firm--tag[data-level="partial"] { border-style: dashed; }
+.firm--tag[data-level="tentative"] { border-style: dotted; }
+.firm--glyph { vertical-align: baseline; }
+
+/* Line-style hooks for borders and SVG strokes: put data-level (firm | partial | tentative) on the element. */
+[data-level="firm"] { --firm-style: solid; --firm-dash: var(--dash-firm); }
+[data-level="partial"] { --firm-style: dashed; --firm-dash: var(--dash-partial); }
+[data-level="tentative"] { --firm-style: dotted; --firm-dash: var(--dash-tentative); }
+
+/* ── Game mark: swatch + short code ────────────────────────────── */
+.game {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--c-text-2);
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+.game__swatch { width: 0.55em; height: 0.55em; border-radius: 1px; background: var(--hue, var(--c-text-3)); flex: none; }
+.game--full { font-family: var(--font-ui); font-size: inherit; color: inherit; white-space: normal; }
+.game--dot { gap: 0; }
+a.game:hover { color: var(--c-text); text-decoration: underline; }
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 2.5rem;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  font-weight: 560;
+  line-height: 1.2;
+  color: var(--c-text);
+  background: transparent;
+  border: 1px solid var(--c-line-control);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+.btn:hover { color: var(--c-text); border-color: var(--c-text-2); background: var(--c-surface-2); text-decoration: none; }
+.btn--primary { color: var(--c-accent-ink); background: var(--c-accent-fill); border-color: var(--c-accent-fill); font-weight: 650; }
+.btn--primary:hover { color: var(--c-accent-ink); background: var(--c-accent-fill-hover); border-color: transparent; }
+.btn--quiet { border-color: transparent; color: var(--c-accent); padding-inline: 0.5rem; text-decoration: underline; text-decoration-color: var(--c-accent-line); text-underline-offset: 0.2em; }
+.btn--quiet:hover { background: var(--c-accent-soft); border-color: transparent; color: var(--c-accent-strong); text-decoration: underline; }
+.btn--sm { min-height: 2rem; padding: 0.25rem 0.7rem; font-size: var(--fs-sm); }
+.btn.on { border-color: var(--c-accent); color: var(--c-accent); }
+.btn:disabled { opacity: 0.5; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  padding: 0;
+  color: var(--c-text-2);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+.icon-btn:hover, .icon-btn[aria-expanded="true"] { color: var(--c-text); background: var(--c-surface-2); }
+
+/* ── Chips, tags ───────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2em 0.55em;
+  color: var(--tone, var(--c-text-2));
+  border: 1px solid var(--tone-line, var(--c-line-strong));
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  line-height: 1.3;
+  padding: 0.2em 0.6em;
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  max-width: 100%;
+}
+a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); text-decoration: none; }
+
+/* Toggleable filter chip. State is shown by a tick and a border, not by colour alone. */
+.chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 2rem;
+  padding: 0.2rem 0.75rem;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  line-height: 1.2;
+  color: var(--c-text-2);
+  background: transparent;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+.chip-btn:hover { color: var(--c-text); border-color: var(--c-text-3); }
+.chip-btn.on { color: var(--c-text); background: var(--c-surface-2); border-color: var(--c-text-2); font-weight: 560; }
+.chip-btn.on::before {
+  content: "";
+  width: 0.34em;
+  height: 0.62em;
+  margin: -0.18em 0.1em 0 0.1em;
+  border: solid var(--c-accent);
+  border-width: 0 1.6px 1.6px 0;
+  transform: rotate(45deg);
+  flex: none;
+}
+.chip-btn__count { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+
+/* On/off switch. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.75rem 0.2rem 0.3rem;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  background: transparent;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+}
+.toggle__knob, .toggle .knob { position: relative; width: 1.9rem; height: 1.1rem; border-radius: var(--r-pill); background: var(--c-surface-2); border: 1px solid var(--c-line-control); flex: none; transition: background var(--dur-2) var(--ease); }
+.toggle__knob::after, .toggle .knob::after { content: ""; position: absolute; top: 2px; left: 2px; width: calc(1.1rem - 6px); height: calc(1.1rem - 6px); border-radius: 50%; background: var(--c-text-2); transition: transform var(--dur-2) var(--ease), background var(--dur-2) var(--ease); }
+.toggle.on { color: var(--c-text); border-color: var(--c-text-2); }
+.toggle.on .toggle__knob, .toggle.on .knob { background: var(--c-accent-fill); border-color: var(--c-accent-fill); }
+.toggle.on .toggle__knob::after, .toggle.on .knob::after { transform: translateX(0.8rem); background: var(--c-accent-ink); }
+
+/* Tabs. */
+.tabs { display: flex; flex-wrap: wrap; gap: 0 var(--sp-1); border-bottom: 1px solid var(--c-line); margin: var(--sp-4) 0; }
+.tab {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  margin-bottom: -1px;
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  color: var(--c-text-2);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.tab:hover { color: var(--c-text); }
+.tab.on { color: var(--c-text); font-weight: 600; border-bottom-color: var(--c-accent); }
+
+/* Segmented control. */
+.segmented { display: inline-flex; padding: 2px; gap: 2px; border: 1px solid var(--c-line-control); border-radius: var(--r-md); background: var(--c-bg-sunk); }
+.segmented__opt { min-height: 2rem; padding: 0.2rem 0.75rem; font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--c-text-2); background: none; border: 0; border-radius: var(--r-sm); cursor: pointer; }
+.segmented__opt:hover { color: var(--c-text); }
+.segmented__opt.on { color: var(--c-text); background: var(--c-surface-2); font-weight: 600; box-shadow: inset 0 0 0 1px var(--c-line-strong); }
+
+/* ── Filters ───────────────────────────────────────────────────── */
+/* A simple row of inputs and selects that wraps. */
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin: var(--sp-4) 0; }
+.filters > select { flex: 1 1 11rem; min-width: 0; }
+.filters > .search, .filters > .search-field { flex: 2 1 16rem; min-width: 0; }
+.search { width: 100%; }
+
+.search-field { position: relative; display: flex; align-items: center; min-width: 0; }
+.search-field > .icon { position: absolute; left: 0.75rem; color: var(--c-text-3); pointer-events: none; }
+.search-field > input { width: 100%; padding-left: 2.3rem; }
+
+.check { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2rem; font-size: var(--fs-sm); color: var(--c-text-2); cursor: pointer; }
+
+/* A panel of labelled filter groups. Chips wrap onto new lines; nothing scrolls sideways. */
+.filter-bar { display: grid; gap: var(--sp-3); padding: var(--sp-4); margin: var(--sp-4) 0; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
+.filter-group { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--sp-2) var(--sp-3); align-items: start; }
+.filter-group__label { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); padding-top: 0.6rem; }
+.filter-group__items { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); min-width: 0; }
+@media (max-width: 640px) {
+  .filter-group { grid-template-columns: 1fr; }
+  .filter-group__label { padding-top: 0; }
+}
+
+/* ── Page header, crumbs, sections ─────────────────────────────── */
+.page-header { margin-bottom: var(--sp-6); }
+.page-header__title { margin-bottom: var(--sp-4); }
+.page-header .lede:last-child { margin-bottom: 0; }
+.page-header--split { display: grid; gap: var(--sp-6); align-items: center; }
+@media (min-width: 900px) {
+  .page-header--split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--sp-7); }
+}
+
+.crumbs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.5rem; margin: 0 0 var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
+.crumbs a { color: var(--c-text-2); }
+.crumbs a:hover { color: var(--c-accent-strong); }
+.crumbs__sep { color: var(--c-line-strong); }
+
+.section { margin-top: var(--sp-7); }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-1) var(--sp-4); padding-bottom: var(--sp-2); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line); }
+.section-head h2 { margin: 0; }
+.section-head__aside { font-size: var(--fs-sm); color: var(--c-text-2); }
+.section-lead { max-width: var(--measure-wide); margin: calc(-1 * var(--sp-2)) 0 var(--sp-4); font-size: var(--fs-sm); color: var(--c-text-2); }
+
+.empty { padding: var(--sp-7) var(--sp-5); text-align: center; color: var(--c-text-2); border: 1px dashed var(--c-line-strong); border-radius: var(--r-lg); }
+.empty__title { font-family: var(--font-display); font-size: var(--fs-lg); color: var(--c-text); margin-bottom: var(--sp-2); }
+.empty__text { margin: 0 auto; max-width: 40ch; }
+.empty > :last-child { margin-bottom: 0; }
+
+.loading { display: flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 40vh; padding: var(--sp-8) var(--page-pad); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); }
+.loading__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--c-accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .loading__dot { animation: loading-pulse 1.2s var(--ease) infinite; }
+  @keyframes loading-pulse { 50% { opacity: 0.25; } }
+}
+
+/* ── Collapsible ───────────────────────────────────────────────── */
+.collapsible { border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); }
+.collapsible + .collapsible { border-top: 0; }
+.collapsible > summary { display: flex; align-items: center; gap: var(--sp-3); min-height: var(--tap); padding: var(--sp-2) 0; list-style: none; font-family: var(--font-ui); }
+.collapsible > summary::-webkit-details-marker { display: none; }
+.collapsible__title { font-weight: 600; color: var(--c-text); }
+.collapsible__meta { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
+.collapsible__chev { margin-left: auto; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
+.collapsible[open] > summary .collapsible__chev { transform: rotate(180deg); }
+.collapsible > summary:hover .collapsible__title { color: var(--c-accent-strong); }
+.collapsible__body { padding: var(--sp-2) 0 var(--sp-5); }
+
+/* ── Callout ───────────────────────────────────────────────────── */
+.callout {
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--tone-soft, var(--c-surface));
+  border: 1px solid var(--tone-line, var(--c-line-strong));
+  border-left-width: 3px;
+  border-radius: var(--r-md);
+}
+.callout[data-tone="open"] { border-style: dashed; border-left-style: solid; }
+.callout__label { display: flex; align-items: center; gap: 0.5em; margin: 0 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--tone, var(--c-text-2)); }
+.callout__body > :last-child { margin-bottom: 0; }
+/* Legacy name used by a few pages for a plain aside. */
+.note { padding: var(--sp-3) var(--sp-4); margin: var(--sp-4) 0; background: var(--c-surface); border: 1px solid var(--c-line-strong); border-left: 3px solid var(--c-accent-line); border-radius: var(--r-md); color: var(--c-text-2); }
+
+/* ── Tables ────────────────────────────────────────────────────── */
+.table { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
+.table th { text-align: left; vertical-align: bottom; padding: var(--sp-2) var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); border-bottom: 1px solid var(--c-line-strong); white-space: nowrap; }
+.table td { padding: var(--sp-3); vertical-align: top; border-bottom: 1px solid var(--c-line); }
+.table th:first-child, .table td:first-child { padding-left: 0; }
+.table th:last-child, .table td:last-child { padding-right: 0; }
+
+/* Scroll box for wide tables and charts. Shadows at the edges show there is more to scroll to. */
+.table-wrap {
+  max-width: 100%;
+  --scroll-bg: var(--c-bg);
+  background:
+    linear-gradient(to right, var(--scroll-bg) 40%, transparent) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--scroll-bg) 40%, transparent) right center / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, var(--c-line-strong), transparent) left center / 0.75rem 100% no-repeat scroll,
+    linear-gradient(to left, var(--c-line-strong), transparent) right center / 0.75rem 100% no-repeat scroll;
+}
+.table-wrap > table { min-width: 100%; }
+
+/* ── Facts (definition list) ───────────────────────────────────── */
+.facts { display: grid; gap: var(--sp-3); margin: 0; }
+.fact { display: grid; gap: 0.2rem; min-width: 0; }
+.fact > dt { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); }
+.fact > dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+/* A bordered panel. */
+.panel { padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
+
+/* Bigger touch targets on touch screens. */
+@media (pointer: coarse) {
+  .btn { min-height: var(--tap); }
+  .btn--sm, .chip-btn, .toggle, .segmented__opt { min-height: 2.5rem; }
+  .icon-btn { width: var(--tap); height: var(--tap); }
+  .tab { min-height: var(--tap); }
+}
+
+/* The key to the firmness marks (see <FirmnessLegend>). */
+.firm-legend { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: var(--fs-sm); }
+.firm-legend th, .firm-legend td { padding: 0.45rem 0.75rem 0.45rem 0; text-align: left; border-bottom: 1px solid var(--c-line); }
+.firm-legend thead th { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text-3); }
+.firm-legend tbody th { width: 1.5rem; font-size: var(--fs-md); }
+.firm-legend tbody tr:last-child > * { border-bottom: 0; }

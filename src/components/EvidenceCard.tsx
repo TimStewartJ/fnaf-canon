@@ -1,0 +1,87 @@
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { CornerDownRight } from "lucide-react";
+import type { Evidence } from "../data/schema";
+import { evidenceById } from "../data/store";
+import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
+import { CERTAINTY } from "./labels";
+import { evidencePath } from "./links";
+import { FirmGlyph, Firmness } from "./Firmness";
+import { Figure } from "./Figure";
+import { GameMark } from "./GameMark";
+import { Icon } from "./Icon";
+import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
+
+/** A link to an evidence record that opens the drawer (or the full page with `open="page"`). */
+export function EvidenceLink({ id, group, open = "drawer", className, children }: { id: string; group?: string[]; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
+  const drawer = useEvidenceDrawer();
+  return (
+    <Link
+      to={evidencePath(id)}
+      className={className}
+      aria-haspopup={open === "drawer" ? "dialog" : undefined}
+      onClick={(e) => { if (open !== "drawer" || !isPlainClick(e)) return; e.preventDefault(); drawer.open(id, group); }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+/**
+ * The full evidence card: source, certainty, title, claim, quote, image, exact location, date and
+ * the people and places involved. The title opens the record in the drawer (`open="page"` goes to
+ * the record's own page instead).
+ */
+export function EvidenceCard({ e, showImage = true, open = "drawer", group }: { e: Evidence; showImage?: boolean; open?: "drawer" | "page"; group?: string[] }) {
+  const entities = [...(e.people ?? []), ...(e.places ?? [])];
+  return (
+    <article className="ev-card">
+      <header className="ev-card__meta">
+        <SourceLine e={e} location={false} />
+        <Firmness scale="certainty" value={e.certainty} />
+      </header>
+      <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{e.title}</EvidenceLink></h3>
+      <p className="ev-card__claim">{e.claim}</p>
+      {e.quote && <blockquote className="ev-card__quote">“{e.quote}”</blockquote>}
+      {showImage && e.image && <Figure file={e.image} compact />}
+      <footer className="ev-card__foot">
+        <span className="ev-card__loc"><Icon icon={CornerDownRight} /> {e.location}</span>
+        <EvidenceDate e={e} compact />
+      </footer>
+      {entities.length > 0 && <p className="ev-card__entities">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</p>}
+    </article>
+  );
+}
+
+/**
+ * One record on one or two lines: certainty glyph, title, the claim, and where it comes from.
+ * For source lists, counter-evidence, "further evidence" and anywhere a full card is too much.
+ *  - n       a number shown before the row (a chapter's source list)
+ *  - claim   set false to show the title only
+ */
+export function EvidenceRow({ e, n, group, claim = true, open = "drawer", as: Tag = "li" }: { e: Evidence; n?: number; group?: string[]; claim?: boolean; open?: "drawer" | "page"; as?: "li" | "div" }) {
+  const c = CERTAINTY[e.certainty];
+  return (
+    <Tag className="ev-row" id={n != null ? `source-${n}` : undefined}>
+      {n != null && <span className="ev-row__n">{n}</span>}
+      <span className="ev-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
+      <span className="ev-row__main">
+        <EvidenceLink id={e.id} group={group} open={open} className="ev-row__title">{e.title}</EvidenceLink>
+        {claim && <span className="ev-row__claim">{e.claim}</span>}
+        <span className="ev-row__meta"><GameMark id={e.game} /> <span>{e.location}</span></span>
+      </span>
+    </Tag>
+  );
+}
+
+/** A list of evidence rows from ids (unknown ids are skipped). `numbers` maps an id to its citation number. */
+export function EvidenceList({ ids, numbers, claim = true, open, className }: { ids: readonly string[]; numbers?: (id: string) => number | undefined; claim?: boolean; open?: "drawer" | "page"; className?: string }) {
+  const rows = ids.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
+  if (!rows.length) return null;
+  const group = rows.length > 1 ? rows.map((e) => e.id) : undefined;
+  return (
+    <ul className={`ev-list${className ? ` ${className}` : ""}`}>
+      {rows.map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} claim={claim} open={open} />)}
+    </ul>
+  );
+}

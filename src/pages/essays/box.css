@@ -1,0 +1,8 @@
+/* The Box. Cluster D. Shared essay pieces are in essays.css. */
+.guess-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--sp-4); }
+.guess { display: grid; gap: var(--sp-2); align-content: start; padding: var(--sp-4); border: 1px dashed var(--c-line-strong); border-radius: var(--r-md); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.guess > * { margin: 0; }
+.guess h3 { font-size: var(--fs-lg); color: var(--c-text); }
+.guess .label { display: block; margin-bottom: 0.2rem; }
+.guess__src { font-size: var(--fs-xs); }
+.guess__src a { color: var(--c-text-2); }

@@ -1,0 +1,7 @@
+/* The web (force graph). Cluster C. Edge and legend styles are in relgraph.css. */
+.graph-svg { display: block; width: 100%; min-width: 46rem; height: auto; touch-action: none; }
+.gnode { cursor: grab; }
+.gnode circle { stroke: var(--c-bg); stroke-width: 2; }
+.gnode.focus circle { stroke: var(--c-text); stroke-width: 2.5; }
+.gnode text { fill: var(--c-text); font-family: var(--font-ui); font-size: 11px; paint-order: stroke; stroke: var(--c-surface); stroke-width: 3px; stroke-linejoin: round; }
+.graph-swatch { display: inline-block; width: 0.65rem; height: 0.65rem; border-radius: 50%; }

@@ -1,0 +1,295 @@
+import { Fragment, type MouseEvent, type ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { CornerDownRight, MapPin, User } from "lucide-react";
+import type { DateKind, Evidence } from "../data/schema";
+import { evidenceById, labelForEntity, personById, placeById, theoryById } from "../data/store";
+import { gameById } from "../data/store";
+import { useCiteNumbering } from "./citeScope";
+import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
+import { CERTAINTY, DATE_KIND, kindLabel } from "./labels";
+import { chapterPath, evidencePath, personPath, placePath } from "./links";
+import { usePopover } from "./popover";
+import { Pop } from "./Popover";
+import { FirmGlyph, Firmness } from "./Firmness";
+import { GameMark } from "./GameMark";
+import { Icon } from "./Icon";
+import { SOURCE_KIND_ICON } from "./icons";
+import { gameMeta } from "../data/gameMeta";
+
+/* ── Evidence preview (the hover card behind citation markers) ─────────────────── */
+
+/** One line saying where a record comes from: source, kind of source, exact spot. */
+export function SourceLine({ e, location = true }: { e: Evidence; location?: boolean }) {
+  return (
+    <span className="source-line">
+      <GameMark id={e.game} />
+      <span className="source-line__kind"><Icon icon={SOURCE_KIND_ICON[e.kind]} /> {kindLabel(e.kind)}</span>
+      {location && <span className="source-line__loc">{e.location}</span>}
+    </span>
+  );
+}
+
+export function EvidencePreview({ e }: { e: Evidence }) {
+  return (
+    <>
+      <span className="pop__head">
+        <SourceLine e={e} location={false} />
+        <Firmness scale="certainty" value={e.certainty} variant="inline" />
+      </span>
+      <strong className="pop__title">{e.title}</strong>
+      <span className="pop__text">{e.claim}</span>
+      {e.quote && <q className="pop__quote">{e.quote}</q>}
+      <span className="pop__meta"><Icon icon={CornerDownRight} /> {e.location}</span>
+      <span className="pop__hint">Click to open the record</span>
+    </>
+  );
+}
+
+/* ── Citations ─────────────────────────────────────────────────────────────────── */
+
+function useOpenEvidence(id: string, group: string[] | undefined, after?: () => void) {
+  const drawer = useEvidenceDrawer();
+  return (ev: MouseEvent) => {
+    if (!isPlainClick(ev)) return; // let Ctrl/Cmd/middle click open the full record in a new tab
+    ev.preventDefault();
+    after?.();
+    drawer.open(id, group);
+  };
+}
+
+/**
+ * An inline citation marker: a small superscript number. Hover or focus previews the record;
+ * click or tap opens it in the evidence drawer over the page. Usually produced by <RichText>.
+ */
+export function Cite({ id, group }: { id: string; group?: string[] }) {
+  const e = evidenceById.get(id);
+  const numbering = useCiteNumbering();
+  const [pop, anchorRef] = usePopover();
+  const open = useOpenEvidence(id, group, pop.hide);
+  if (!e) return <span className="cite cite--missing" title="Missing evidence record">?{id}</span>;
+  const n = numbering ? numbering.number(id) : null;
+  return (
+    <span className="cite-wrap" {...pop.wrapProps}>
+      <Link
+        ref={anchorRef}
+        to={evidencePath(id)}
+        className="cite"
+        aria-label={`Source${n ? ` ${n}` : ""}: ${e.title} (${gameMeta(e.game).short}, ${CERTAINTY[e.certainty].word.toLowerCase()})`}
+        aria-haspopup="dialog"
+        onClick={open}
+      >
+        {n ?? "•"}
+      </Link>
+      {pop.open && <Pop control={pop} className="pop--cite"><EvidencePreview e={e} /></Pop>}
+    </span>
+  );
+}
+
+/** Citations that sit next to each other, drawn as one cluster: ¹,²,³ */
+export function CiteGroup({ ids }: { ids: string[] }) {
+  const unique = [...new Set(ids)];
+  const group = unique.length > 1 ? unique : undefined;
+  return (
+    <span className="cites">
+      {unique.map((id, i) => (
+        <Fragment key={id}>
+          {i > 0 && <span className="cites__sep" aria-hidden>,</span>}
+          <Cite id={id} group={group} />
+        </Fragment>
+      ))}
+    </span>
+  );
+}
+
+/**
+ * A source chip for explicit lists of records ("Evidence: …"): certainty glyph plus the source's
+ * short code. Same behaviour as a citation marker.
+ */
+export function SourceChip({ id, group }: { id: string; group?: string[] }) {
+  const e = evidenceById.get(id);
+  const [pop, anchorRef] = usePopover();
+  const open = useOpenEvidence(id, group, pop.hide);
+  if (!e) return <span className="cite cite--missing" title="Missing evidence record">?{id}</span>;
+  const c = CERTAINTY[e.certainty];
+  return (
+    <span className="cite-wrap" {...pop.wrapProps}>
+      <Link
+        ref={anchorRef}
+        to={evidencePath(id)}
+        className="src-chip"
+        data-level={c.level}
+        aria-label={`${e.title} (${gameById.get(e.game)?.title ?? e.game}, ${c.word.toLowerCase()})`}
+        aria-haspopup="dialog"
+        onClick={open}
+      >
+        <FirmGlyph level={c.level} />
+        {gameMeta(e.game).short}
+      </Link>
+      {pop.open && <Pop control={pop} className="pop--cite"><EvidencePreview e={e} /></Pop>}
+    </span>
+  );
+}
+
+/** A row of source chips, for "Evidence:" and "Rests on:" lines outside running prose. */
+export function CiteList({ ids }: { ids: string[] }) {
+  const unique = [...new Set(ids)];
+  if (!unique.length) return null;
+  return <span className="src-list">{unique.map((id) => <SourceChip key={id} id={id} group={unique.length > 1 ? unique : undefined} />)}</span>;
+}
+
+/* ── Entity and chapter links ──────────────────────────────────────────────────── */
+
+/**
+ * Link to a person or place page (or to the evidence filed under an entity with no page).
+ *  - variant "inline" (default): a text link for running prose
+ *  - variant "chip": a small labelled chip with a person or place icon, for lists of entities
+ */
+export function EntityLink({ id, variant = "inline", children }: { id: string; variant?: "inline" | "chip"; children?: ReactNode }) {
+  const isPerson = personById.has(id), isPlace = placeById.has(id);
+  const to = isPerson ? personPath(id) : isPlace ? placePath(id) : `/evidence?entity=${id}`;
+  const kind = isPerson ? "person" : isPlace ? "place" : "unknown";
+  return (
+    <Link className={`entity entity--${variant} entity--${kind}`} to={to}>
+      {variant === "chip" && <Icon icon={isPlace ? MapPin : User} />}
+      {children ?? labelForEntity(id)}
+    </Link>
+  );
+}
+
+/** Link to a theory chapter, labelled with its title unless a label is given. */
+export function ChapterLink({ id, label }: { id: string; label?: ReactNode }) {
+  const s = theoryById.get(id);
+  if (!s) return <span className="cite cite--missing" title="Missing theory chapter">?{id}</span>;
+  return <Link className="chapter-link" to={chapterPath(id)}>{label ?? s.title}</Link>;
+}
+
+/* ── Dates ─────────────────────────────────────────────────────────────────────── */
+
+/** Glyph for how a date is supported. Printed, derived and estimated reuse the firmness glyph. */
+export function DateGlyph({ kind }: { kind: DateKind }) {
+  if (kind === "printed") return <FirmGlyph level="firm" />;
+  if (kind === "derived") return <FirmGlyph level="partial" />;
+  if (kind === "estimated") return <FirmGlyph level="tentative" />;
+  return (
+    <svg className="firm-glyph" viewBox="0 0 12 12" width="0.72em" height="0.72em" aria-hidden focusable="false" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      {kind === "relative" && <path d="M1.5 6h9M3.8 3.6 1.4 6l2.4 2.4M8.2 3.6 10.6 6 8.2 8.4" />}
+      {kind === "teaser" && <path d="M6 1.3 10.7 6 6 10.7 1.3 6z" />}
+      {kind === "unknown" && <circle cx="6" cy="6" r="4.4" strokeDasharray="1.6 2.2" />}
+    </svg>
+  );
+}
+
+const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "estimated", relative: "relative", unknown: "unknown" };
+
+/**
+ * A date with its justification. Hover, focus or tap shows why the date is what it is and which
+ * records support it.
+ *  - variant "tag" (default): a compact mono label, for cards, tables and headers
+ *  - variant "inline": sits in a sentence without changing its rhythm (what <RichText> uses)
+ */
+export function DatePill({ label, kind, basis, evidence = [], compact, variant = "tag" }: { label: string; kind: DateKind; basis?: string; evidence?: string[]; compact?: boolean; variant?: "tag" | "inline" }) {
+  const [pop, anchorRef] = usePopover();
+  const drawer = useEvidenceDrawer();
+  const k = DATE_KIND[kind] ?? DATE_KIND.unknown;
+  const evs = evidence.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
+  const ids = evs.map((e) => e.id);
+  return (
+    <span className="date-wrap" {...pop.wrapProps}>
+      <button
+        type="button"
+        ref={anchorRef}
+        className={`date date--${variant}${compact ? " date--compact" : ""}`}
+        data-kind={kind}
+        aria-expanded={pop.open}
+        aria-label={`${label}: ${k.label.toLowerCase()} date. Why this date?`}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); pop.toggle(); }}
+      >
+        <DateGlyph kind={kind} />
+        <span className="date__label">{label}</span>
+      </button>
+      {pop.open && (
+        <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
+          <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
+          <strong className="pop__title">{label}</strong>
+          <span className="pop__text">{basis || k.help}</span>
+          {basis && <span className="pop__meta">{k.help}.</span>}
+          {evs.length > 0 && (
+            <span className="pop__records">
+              <span className="label">Rests on</span>
+              {evs.map((e) => (
+                <Link
+                  key={e.id}
+                  to={evidencePath(e.id)}
+                  className="pop__record"
+                  onClick={(ev) => { if (!isPlainClick(ev)) return; ev.preventDefault(); pop.hide(); drawer.open(e.id, ids.length > 1 ? ids : undefined); }}
+                >
+                  <GameMark id={e.game} />
+                  <span>{e.title}</span>
+                </Link>
+              ))}
+            </span>
+          )}
+        </Pop>
+      )}
+    </span>
+  );
+}
+
+/** The in-universe date of an evidence record, as a date pill. */
+export function EvidenceDate({ e, compact, variant }: { e: Evidence; compact?: boolean; variant?: "tag" | "inline" }) {
+  const kind: DateKind = e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown";
+  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={[e.id]} compact={compact} variant={variant} />;
+}
+
+/* ── RichText ──────────────────────────────────────────────────────────────────── */
+
+const TOKEN_RE = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\|([^)]+))?\)\)|\*\*(.+?)\*\*|\*([^\s*](?:[^*]*[^\s*])?)\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
+
+type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "node"; node: ReactNode };
+
+/**
+ * Renders RichText (see the grammar in data/schema.ts):
+ *   [[evidence-id]]               citation marker; adjacent citations are grouped into one cluster
+ *   {{entity-id}}                 link to a person or place
+ *   ((chapter-id)) ((id|label))   link to a theory chapter
+ *   **bold**  *italic*            may contain other tokens
+ *   <<label|kind|ids|basis>>      a date pill
+ */
+export function RichText({ text }: { text: string }) {
+  const pieces: Piece[] = [];
+  let last = 0;
+  let k = 0;
+  for (const m of text.matchAll(TOKEN_RE)) {
+    const between = text.slice(last, m.index);
+    const prev = pieces[pieces.length - 1];
+    if (m[1]) {
+      // A citation: join the previous cluster when only white space separates them.
+      if (prev?.t === "cites" && between.trim() === "") prev.ids.push(m[1]);
+      else {
+        if (between) pieces.push({ t: "text", s: between });
+        pieces.push({ t: "cites", ids: [m[1]] });
+      }
+    } else {
+      if (between) pieces.push({ t: "text", s: between });
+      let node: ReactNode;
+      if (m[7]) node = <DatePill key={k++} variant="inline" label={m[7]} kind={m[8] as DateKind} evidence={m[9] ? m[9].split(",") : []} basis={m[10]} />;
+      else if (m[2]) node = <EntityLink key={k++} id={m[2]} />;
+      else if (m[3]) node = <ChapterLink key={k++} id={m[3]} label={m[4]} />;
+      else if (m[5]) node = <strong key={k++}><RichText text={m[5]} /></strong>;
+      else node = <em key={k++}><RichText text={m[6]} /></em>;
+      pieces.push({ t: "node", node });
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) pieces.push({ t: "text", s: text.slice(last) });
+
+  const out: ReactNode[] = [];
+  pieces.forEach((p, i) => {
+    if (p.t === "text") {
+      // A marker hugs the word before it: drop the space the author typed before [[…]].
+      out.push(pieces[i + 1]?.t === "cites" ? p.s.replace(/\s+$/, "") : p.s);
+    } else if (p.t === "cites") out.push(<CiteGroup key={`c${i}`} ids={p.ids} />);
+    else out.push(p.node);
+  });
+  return <>{out}</>;
+}

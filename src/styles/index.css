@@ -1,0 +1,12 @@
+/*
+ * The shared stylesheet. Order matters: tokens, then base, then shared components, then the shell.
+ * Page styles are NOT listed here: each page imports its own CSS file, which loads with the page.
+ */
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./components.css";
+@import "./richtext.css";
+@import "./records.css";
+@import "./figure.css";
+@import "./shell.css";

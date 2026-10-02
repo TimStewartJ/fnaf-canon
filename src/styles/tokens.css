@@ -1,0 +1,212 @@
+/*
+ * Design tokens for the Fazbear Canon Archive.
+ * This file (with fonts.css) is the only place a colour or font literal may appear.
+ * Everything else reads these custom properties. Data-driven colours (a game's hue, an era's hue)
+ * arrive through inline custom properties such as --hue and are mixed with tokens in component CSS.
+ *
+ * Themes: "night" (default, dark) and "paper" (light). Set with <html data-theme="paper">.
+ */
+
+:root {
+  /* ── Type families ───────────────────────────────────────────── */
+  --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-text: "Literata Variable", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* ── Type scale (see DESIGN.md for when to use each step) ─────── */
+  --fs-2xs: 0.6875rem;  /* 11px  micro labels, always uppercase mono */
+  --fs-xs: 0.75rem;     /* 12px  captions, metadata */
+  --fs-sm: 0.8125rem;   /* 13px  small interface text */
+  --fs-base: 0.9375rem; /* 15px  interface text */
+  --fs-md: 1.0625rem;   /* 17px  card text, compact prose */
+  --fs-read: calc(clamp(1.0625rem, 0.98rem + 0.4vw, 1.1875rem) * var(--read-scale, 1)); /* 17-19px long-form body */
+  --fs-lg: 1.25rem;     /* 20px  ledes, small headings */
+  --fs-xl: 1.5rem;      /* 24px  section headings, answers */
+  --fs-2xl: clamp(1.625rem, 1.4rem + 1vw, 2.125rem);   /* 26-34px  h2 of an article */
+  --fs-3xl: clamp(2rem, 1.5rem + 2.4vw, 3.125rem);     /* 32-50px  page titles */
+  --fs-4xl: clamp(2.375rem, 1.5rem + 4.4vw, 4.5rem);   /* 38-72px  cover and hero display */
+
+  --lh-tight: 1.06;   /* display */
+  --lh-snug: 1.22;    /* headings */
+  --lh-ui: 1.45;      /* interface */
+  --lh-read: 1.68;    /* long-form body */
+
+  --ls-display: -0.018em;
+  --ls-caps: 0.13em;  /* uppercase mono labels */
+
+  --w-text: 400;      /* long-form body weight; the night theme sets it a little lighter */
+  --w-strong: 640;
+  --w-display: 540;
+
+  /* The reading measure, as a fixed length (not em) so headings and captions share one column.
+     Literata is a wide face: 33 times the reading size is roughly 66 characters a line. */
+  --measure: calc(var(--fs-read) * 33);
+  --measure-wide: calc(var(--fs-read) * 47);
+
+  /* ── Space (4px base) ────────────────────────────────────────── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* ── Layout ──────────────────────────────────────────────────── */
+  --page-max: 76rem;
+  --page-pad: clamp(1rem, 4vw, 2.5rem);
+  --header-h: 3.5rem;
+  /* Distance from the viewport top to where a sticky element may sit (0 on phones: the header scrolls away). */
+  --sticky-top: var(--header-h);
+  --tap: 2.75rem; /* minimum touch target, 44px */
+
+  /* ── Radii: small, like index cards ──────────────────────────── */
+  --r-xs: 2px;
+  --r-sm: 3px;
+  --r-md: 5px;
+  --r-lg: 8px;
+  --r-pill: 999px;
+
+  /* ── Layers ──────────────────────────────────────────────────── */
+  --z-raised: 2;
+  --z-sticky: 20;
+  --z-header: 40;
+  --z-popover: 60;
+  --z-drawer: 80;
+  --z-modal: 90;
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+
+  /* ── Texture: faint static, drawn behind the page, never over text ── */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* ── Firmness line styles (one grammar for certainty, status and confidence) ── */
+  --dash-firm: none;
+  --dash-partial: 7 4;
+  --dash-tentative: 1.5 4.5;
+}
+
+/* ── Night (default) ──────────────────────────────────────────── */
+:root,
+:root[data-theme="night"] {
+  color-scheme: dark;
+
+  --c-bg: #121110;
+  --c-bg-sunk: #0b0a09;
+  --c-surface: #1a1816;
+  --c-surface-2: #23201d;
+  --c-overlay: #1f1d1a;
+  --c-line: #2f2b27;
+  --c-line-strong: #4d4740;
+  --c-line-control: #756d61;  /* borders of inputs and other controls (3:1 against the page) */
+
+  --c-text: #ece6da;
+  --c-text-read: #ddd6c9;   /* long-form body: a little softer than headings to cut glare */
+  --c-text-2: #bdb5a7;
+  --c-text-3: #999184;
+
+  /* The one accent: stage-light amber. */
+  --c-accent: #f0b54a;
+  --c-accent-strong: #ffd27f;
+  --c-accent-fill: #f0b54a;
+  --c-accent-fill-hover: #f7c873;
+  --c-accent-ink: #1e1505;
+  --c-accent-soft: rgba(240, 181, 74, 0.1);
+  --c-accent-line: rgba(240, 181, 74, 0.42);
+
+  /* Meaning colours, each always paired with a word or an icon. */
+  --c-tension: #ee8f7b;                       /* evidence that pushes back */
+  --c-tension-soft: rgba(238, 143, 123, 0.1);
+  --c-tension-line: rgba(238, 143, 123, 0.42);
+  --c-open: #9dbdd1;                          /* unresolved, undecided */
+  --c-open-soft: rgba(157, 189, 209, 0.09);
+  --c-open-line: rgba(157, 189, 209, 0.38);
+  --c-ok: #a7cb96;                            /* confirmed, settled */
+  --c-ok-soft: rgba(167, 203, 150, 0.09);
+  --c-ok-line: rgba(167, 203, 150, 0.38);
+
+  --c-mat: #080706;          /* the mat behind a screenshot, dark in both themes */
+  --c-mat-text: #cfc8bb;
+  --c-scrim: rgba(5, 4, 3, 0.66);
+  --c-focus: #ffd27f;
+  --c-selection: rgba(240, 181, 74, 0.3);
+  --c-glow: rgba(240, 181, 74, 0.07);   /* the stage light behind a hero */
+  --grain-opacity: 0.035;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 24px 70px rgba(0, 0, 0, 0.7), 0 4px 14px rgba(0, 0, 0, 0.5);
+
+  --w-text: 380;
+}
+
+/* ── Paper (light) ────────────────────────────────────────────── */
+:root[data-theme="paper"] {
+  color-scheme: light;
+
+  --c-bg: #f5f0e6;
+  --c-bg-sunk: #ebe4d5;
+  --c-surface: #fcf9f2;
+  --c-surface-2: #f0e9db;
+  --c-overlay: #fffdf8;
+  --c-line: #ddd4c3;
+  --c-line-strong: #b3a791;
+  --c-line-control: #8c8170;
+
+  --c-text: #231f19;
+  --c-text-read: #2c2720;
+  --c-text-2: #524a3f;
+  --c-text-3: #6c6356;
+
+  --c-accent: #875600;
+  --c-accent-strong: #5e3c00;
+  --c-accent-fill: #e6a631;
+  --c-accent-fill-hover: #eeb64f;
+  --c-accent-ink: #1e1505;
+  --c-accent-soft: rgba(203, 135, 12, 0.12);
+  --c-accent-line: rgba(135, 86, 0, 0.45);
+
+  --c-tension: #a3351f;
+  --c-tension-soft: rgba(163, 53, 31, 0.08);
+  --c-tension-line: rgba(163, 53, 31, 0.4);
+  --c-open: #2c5d79;
+  --c-open-soft: rgba(44, 93, 121, 0.08);
+  --c-open-line: rgba(44, 93, 121, 0.4);
+  --c-ok: #3c6a2c;
+  --c-ok-soft: rgba(60, 106, 44, 0.08);
+  --c-ok-line: rgba(60, 106, 44, 0.4);
+
+  --c-mat: #14120f;
+  --c-mat-text: #cfc8bb;
+  --c-scrim: rgba(35, 31, 25, 0.5);
+  --c-focus: #875600;
+  --c-selection: rgba(230, 166, 49, 0.4);
+  --c-glow: rgba(230, 166, 49, 0.1);
+  --grain-opacity: 0.05;
+
+  --shadow-1: 0 1px 2px rgba(60, 45, 20, 0.12);
+  --shadow-2: 0 10px 30px rgba(60, 45, 20, 0.18), 0 2px 6px rgba(60, 45, 20, 0.1);
+  --shadow-3: 0 24px 70px rgba(60, 45, 20, 0.28), 0 4px 14px rgba(60, 45, 20, 0.14);
+
+  --w-text: 400;
+}
+
+/* Reader text size (settings menu). */
+:root[data-text="small"] { --read-scale: 0.92; }
+:root[data-text="large"] { --read-scale: 1.12; }
+
+/* Phones: the header is not sticky, so sticky elements sit at the very top. */
+@media (max-width: 899px) {
+  :root { --sticky-top: 0px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; }
+}

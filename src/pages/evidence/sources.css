@@ -1,0 +1,10 @@
+/* Sources index and source page. Cluster B. */
+.src-table { min-width: 44rem; }
+.src-table__source { min-width: 18rem; max-width: 34rem; }
+.src-title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: 560; color: var(--c-text); text-decoration-color: var(--c-line-strong); }
+.src-title:hover { color: var(--c-accent-strong); }
+.src-table__meta { margin: 0.2rem 0; }
+.src-table__num { text-align: right; }
+.src-head { display: grid; gap: var(--sp-3); margin-bottom: var(--sp-6); }
+.src-head > * { margin: 0; }
+.src-head__meta { font-size: var(--fs-sm); color: var(--c-text-2); }

@@ -1,0 +1,38 @@
+/* Theorists & Scott. Cluster D. Shared essay pieces are in essays.css. */
+.not-evidence { max-width: var(--measure-wide); }
+
+.inter-tl { list-style: none; margin: var(--sp-4) 0 0; padding: 0; position: relative; }
+.inter-tl::before { content: ""; position: absolute; left: calc(6.5rem + var(--sp-3) + 1.125rem - 0.5px); top: 0.5rem; bottom: 0; width: 1px; background: var(--c-line-strong); }
+.inter { display: grid; grid-template-columns: 6.5rem 2.25rem minmax(0, 1fr); gap: var(--sp-3); align-items: start; margin: 0; padding: var(--sp-2) 0; }
+.inter-date { padding-top: 0.6rem; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); text-align: right; }
+.inter-dot { position: relative; display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; color: var(--c-text-2); background: var(--c-bg); border: 1px solid var(--c-line-strong); border-radius: 50%; }
+.inter-body { min-width: 0; padding: var(--sp-3) var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.inter-body > * { margin: 0; }
+.inter-body > * + * { margin-top: var(--sp-2); }
+.inter-body h3 { font-size: var(--fs-lg); }
+.inter-kind { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+.inter-text { max-width: var(--measure); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.6; color: var(--c-text-read); }
+.inter-foot { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-5); font-size: var(--fs-sm); color: var(--c-text-2); }
+@media (max-width: 760px) {
+  .inter-tl::before { left: calc(1.125rem - 0.5px); }
+  .inter { grid-template-columns: 2.25rem minmax(0, 1fr); }
+  .inter-date { grid-column: 2; order: -1; padding: 0; text-align: left; }
+  .inter-dot { grid-row: 1 / span 2; }
+}
+
+.verdict-bar { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0 0 var(--sp-5); }
+.th-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr)); gap: var(--sp-4); align-items: start; }
+.th-card { display: flex; flex-direction: column; gap: var(--sp-3); min-width: 0; padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
+.th-card > * { margin: 0; }
+.th-card__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); }
+.th-year { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); }
+.th-games { display: inline-flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); margin-left: auto; }
+.th-card h3 { font-size: var(--fs-xl); line-height: 1.15; }
+.th-aka { font-size: var(--fs-sm); color: var(--c-text-2); }
+.th-claim { font-family: var(--font-text); font-style: italic; font-size: var(--fs-md); line-height: 1.5; color: var(--c-text); }
+.th-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--sp-4); }
+.th-cols .label, .th-scott .label { display: flex; align-items: center; gap: 0.4em; margin: 0 0 var(--sp-1); color: var(--tone, var(--c-text-2)); }
+.th-cols p, .th-scott p { margin: 0; font-size: var(--fs-sm); line-height: 1.55; color: var(--c-text-2); }
+.th-scott { padding: var(--sp-3) var(--sp-4); background: var(--c-accent-soft); border: 1px solid var(--c-accent-line); border-radius: var(--r-md); }
+.th-scott .label { color: var(--c-accent); }
+.th-card__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2); margin-top: auto; }

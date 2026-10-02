@@ -1,0 +1,108 @@
+/*
+ * Evidence records wherever they appear: the card, the compact row, and the drawer.
+ * Shared and frozen after phase 1.
+ */
+
+/* ── Card ──────────────────────────────────────────────────────── */
+.ev-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: var(--sp-4); align-items: start; }
+.ev-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+  padding: var(--sp-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+.ev-card__meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2); }
+.ev-card__title { margin: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: 560; line-height: 1.3; letter-spacing: -0.005em; }
+.ev-card__title a { color: var(--c-text); text-decoration: none; }
+.ev-card__title a:hover { color: var(--c-accent-strong); text-decoration: underline; }
+.ev-card__claim { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-read); }
+.ev-card__quote { margin: 0; padding-left: var(--sp-3); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text); }
+.ev-card__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2); margin-top: var(--sp-1); }
+.ev-card__loc { flex: 1 1 10rem; min-width: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
+.ev-card__entities { display: flex; flex-wrap: wrap; gap: var(--sp-1); margin: var(--sp-1) 0 0; }
+.ev-card .figure { margin-top: var(--sp-1); }
+
+/* ── Row ───────────────────────────────────────────────────────── */
+.ev-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.ev-row { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-3) 0; border-top: 1px solid var(--c-line); font-family: var(--font-ui); font-size: var(--fs-base); }
+.ev-row:first-child { border-top: 0; }
+.ev-row:has(> .ev-row__n) { grid-template-columns: 1.6rem auto minmax(0, 1fr); }
+.ev-row__n { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--c-accent); text-align: right; }
+.ev-row__mark { display: inline-flex; }
+.ev-row__main { display: grid; gap: 0.15rem; min-width: 0; }
+.ev-row__title { justify-self: start; font-weight: 600; line-height: 1.35; color: var(--c-text); text-decoration: none; }
+.ev-row__title:hover { color: var(--c-accent-strong); text-decoration: underline; }
+.ev-row__claim { font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.ev-row__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.75rem; font-size: var(--fs-xs); color: var(--c-text-3); }
+.ev-row:target { background: var(--c-accent-soft); }
+
+/* ── Drawer ────────────────────────────────────────────────────────
+ * A side drawer on desktop, a bottom sheet on a phone. Rendered by the shell. */
+html.has-modal { overflow: hidden; }
+
+dialog.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(31rem, 100vw);
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  color: var(--c-text);
+  background: var(--c-overlay);
+  border: 0;
+  border-left: 1px solid var(--c-line-strong);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+dialog.drawer[open] { display: flex; }
+dialog.drawer::backdrop { background: var(--c-scrim); }
+.drawer__bar { display: flex; align-items: center; gap: var(--sp-1); padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-5); border-bottom: 1px solid var(--c-line); flex: none; }
+.drawer__bar > .label { flex: 1; }
+.drawer__pager { display: inline-flex; }
+.drawer__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-4); }
+.drawer__body > * { margin: 0; }
+.drawer__source { font-size: var(--fs-sm); }
+.drawer__title { font-size: var(--fs-xl); line-height: 1.2; }
+.drawer__claim { font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.6; color: var(--c-text-read); }
+.drawer__quote { font-size: var(--fs-md); line-height: 1.55; }
+.drawer__facts { padding: var(--sp-4) 0; border-block: 1px solid var(--c-line); font-size: var(--fs-sm); }
+.drawer__url { overflow-wrap: anywhere; }
+.drawer__section { display: grid; gap: var(--sp-2); font-size: var(--fs-base); }
+.drawer__section > .label { margin: 0; }
+.drawer__section li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+.drawer__section .ev-row { display: grid; }
+.drawer__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-3) var(--sp-5); border-top: 1px solid var(--c-line); flex: none; }
+.drawer__id { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); overflow-wrap: anywhere; min-width: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  dialog.drawer[open] { animation: drawer-in var(--dur-3) var(--ease); }
+  dialog.drawer[open]::backdrop { animation: scrim-in var(--dur-3) var(--ease); }
+  @keyframes drawer-in { from { transform: translateX(1.5rem); opacity: 0; } }
+  @keyframes scrim-in { from { opacity: 0; } }
+}
+
+@media (max-width: 640px) {
+  dialog.drawer {
+    inset: auto 0 0 0;
+    width: 100%;
+    height: auto;
+    max-height: 88dvh;
+    border-left: 0;
+    border-top: 1px solid var(--c-line-strong);
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+  }
+  .drawer__bar { padding-left: var(--sp-4); }
+  .drawer__body { padding: var(--sp-4); }
+  .drawer__foot { padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); }
+  @media (prefers-reduced-motion: no-preference) {
+    dialog.drawer[open] { animation-name: sheet-in; }
+    @keyframes sheet-in { from { transform: translateY(2rem); opacity: 0; } }
+  }
+}

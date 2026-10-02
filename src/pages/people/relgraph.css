@@ -1,0 +1,29 @@
+/*
+ * Shared by the Family Trees and Web pages (cluster C): SVG edges and nodes, and the panel that
+ * shows the evidence behind a selected tie.
+ *
+ * A tie's firmness is its line style (solid = canon, dashed = strong inference, dotted = theory),
+ * set by data-level on the edge. Its family (data-tie) sets the colour, with the word always
+ * available in the legend and in the detail panel.
+ */
+.tree-wrap, .graph-wrap { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-2); }
+.edge { cursor: pointer; --tie: var(--c-text-2); }
+.edge[data-tie="identity"] { --tie: var(--c-accent); }
+.edge[data-tie="harm"] { --tie: var(--c-tension); }
+.edge[data-tie="made"] { --tie: var(--c-open); }
+.edge-hit { stroke: transparent; stroke-width: 16; fill: none; }
+.edge-line { fill: none; stroke: var(--tie); stroke-width: 1.8; stroke-dasharray: var(--firm-dash, none); stroke-linecap: round; }
+.edge:hover .edge-line { stroke-width: 3; }
+.edge.sel .edge-line { stroke-width: 4; }
+.edge.dim, .gnode.dim { opacity: 0.14; }
+
+.rel-detail { margin-top: var(--sp-4); padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); }
+.rel-detail h3 { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0 0 var(--sp-2); font-family: var(--font-ui); font-size: var(--fs-md); font-weight: 600; letter-spacing: 0; }
+.rel-detail p { margin: var(--sp-2) 0 0; }
+.rel-under { padding-top: var(--sp-3); margin-top: var(--sp-3); border-top: 1px solid var(--c-line); }
+.rel-under:first-of-type { border-top: 0; padding-top: 0; }
+
+.tie-legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-5); margin: var(--sp-3) 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.tie-legend span { display: inline-flex; align-items: center; gap: 0.5em; }
+.tie-legend svg { flex: none; }
+.tie-legend line { stroke: var(--tie, var(--c-text-2)); stroke-width: 2; stroke-linecap: round; }
