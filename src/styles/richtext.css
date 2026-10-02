@@ -82,23 +82,29 @@
 }
 
 /* Source chips: explicit lists of records outside running prose. */
-.src-list { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; vertical-align: middle; }
+.src-list { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; vertical-align: middle; min-width: 0; max-width: 100%; }
+.src-list > .cite-wrap { display: inline-flex; min-width: 0; max-width: 100%; }
 .src-chip {
   display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  padding: 0.18em 0.55em 0.16em 0.45em;
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  font-weight: 500;
+  align-items: baseline;
+  gap: 0.45em;
+  min-width: 0;
+  max-width: min(100%, 21rem);
+  padding: 0.2em 0.6em 0.2em 0.5em;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  font-style: normal;
+  font-weight: 400;
   line-height: 1.35;
   color: var(--c-text-2);
   background: var(--c-surface);
   border: 1px solid var(--c-line-strong);
   border-radius: var(--r-sm);
   text-decoration: none;
-  white-space: nowrap;
 }
+.src-chip .firm-glyph { align-self: center; }
+.src-chip__code { flex: none; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-text-2); white-space: nowrap; }
+.src-chip__title { min-width: 0; color: var(--c-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .src-chip:hover, .src-chip:focus-visible { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); text-decoration: none; }
 @media (pointer: coarse) { .src-chip { padding-block: 0.45em; } }
 

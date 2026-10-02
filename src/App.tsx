@@ -33,6 +33,7 @@ const Community = lazy(() => import("./pages/essays/Community"));
 const Author = lazy(() => import("./pages/essays/Author"));
 const Method = lazy(() => import("./pages/essays/Method"));
 const DevBlocks = lazy(() => import("./pages/dev/Blocks"));
+const DevKit = lazy(() => import("./pages/dev/Kit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SearchPalette = lazy(() => import("./components/shell/SearchPalette"));
 
@@ -63,7 +64,7 @@ function Shell() {
       <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(location.key)} />
       <main id="main" className="site-main" tabIndex={-1}>
         <CiteScope key={location.pathname}>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<div data-route-loading><Loading /></div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/theory" element={<TheoryCover />} />
@@ -85,6 +86,7 @@ function Shell() {
               <Route path="/box" element={<Box />} />
               <Route path="/author" element={<Author />} />
               <Route path="/dev/blocks" element={<DevBlocks />} />
+              <Route path="/dev/kit" element={<DevKit />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

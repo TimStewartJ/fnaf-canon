@@ -23,6 +23,8 @@ const KIND_STYLE: Partial<Record<RelationKind, { label: string; tie: Tie }>> = {
   controls: { label: "controls", tie: "made" },
 };
 const TIE_LABEL: Record<Tie, string> = { family: "Family and partners", identity: "Identity: haunts, wore, became, same as", harm: "Killed", made: "Created or controls" };
+/** The data's description of the Afton tree explains the old line styles; the legend below replaces that sentence. */
+const LINE_KEY_SENTENCE = /\s*Solid lines are[^.]*\./;
 const RANK: Record<Status, number> = { canon: 3, strong: 2, theory: 1 };
 const W = 196, H = 66, GX = 34, GY = 92;
 
@@ -92,7 +94,7 @@ export default function FamilyTrees() {
         lede="Who is tied to whom, and how firmly. Select a line to see the evidence behind it, or a person to open their page. Folding merges the records the model treats as one person."
       />
       <Tabs label="Family" tabs={familyTrees.map((t) => ({ id: t.id, label: t.title }))} value={treeId} onChange={(id) => { setTreeId(id); setSel(null); }} />
-      {tree && <p className="tree-desc">{tree.description}</p>}
+      {tree && <p className="tree-desc">{tree.description.replace(LINE_KEY_SENTENCE, "")}</p>}
       <FilterBar>
         <FilterGroup label="Unified view">
           <Toggle on={foldIds} onChange={setFoldIds}>Fold identities <span className="faint">(same as)</span></Toggle>

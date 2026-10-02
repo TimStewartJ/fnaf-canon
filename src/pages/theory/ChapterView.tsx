@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useId, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
@@ -37,6 +37,13 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
   const conf = CONFIDENCE[s.confidence];
   const part = ctx.group?.part;
 
+  const uid = useId();
+  const sourcesRef = useRef<HTMLDivElement | null>(null);
+  const openSources = () => {
+    const d = sourcesRef.current?.querySelector("details");
+    if (d) { d.open = true; d.scrollIntoView({ block: "start" }); (d.querySelector("summary") as HTMLElement | null)?.focus({ preventScroll: true }); }
+  };
+
   // Reaching the end of the chapter marks it as read.
   const endRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
@@ -66,7 +73,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
           </div>
           <p className="chapter-head__meta">
             {readingMinutes(s)} min read<span aria-hidden> · </span>
-            <a href="#sources" onClick={(e) => { e.preventDefault(); const d = document.getElementById("sources") as HTMLDetailsElement | null; if (d) { d.open = true; d.scrollIntoView({ block: "start" }); } }}>{cited.length} record{cited.length === 1 ? "" : "s"} cited</a>
+            <button type="button" className="chapter-head__sources" onClick={openSources}>{cited.length} record{cited.length === 1 ? "" : "s"} cited</button>
             {counter.length > 0 && <><span aria-hidden> · </span>{counter.length} push{counter.length === 1 ? "es" : ""} back</>}
           </p>
         </header>
@@ -85,8 +92,8 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
         <Blocks blocks={s.body} />
 
         {(counter.length > 0 || s.tension) && (
-          <section className="pushback" id="pushes-back" aria-labelledby="h-pushback">
-            <h2 id="h-pushback"><Icon icon={TriangleAlert} className="pushback__icon" /> What pushes back</h2>
+          <section className="pushback" aria-labelledby={`${uid}-pushback`}>
+            <h2 id={`${uid}-pushback`}><Icon icon={TriangleAlert} className="pushback__icon" /> What pushes back</h2>
             {counter.length > 0 && (
               <>
                 <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${counter.length} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
@@ -111,8 +118,8 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
         )}
 
         {seeAlso.length > 0 && (
-          <section className="see-also" aria-labelledby="h-seealso">
-            <h2 id="h-seealso" className="label">Read alongside</h2>
+          <section className="see-also" aria-labelledby={`${uid}-seealso`}>
+            <h2 id={`${uid}-seealso`} className="label">Read alongside</h2>
             <ul className="see-also__list">
               {seeAlso.map((c) => (
                 <li key={c.id}>
@@ -127,8 +134,8 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
           </section>
         )}
 
-        <div className="chapter-end">
-          <Collapsible id="sources" summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
+        <div className="chapter-end" ref={sourcesRef}>
+          <Collapsible summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (

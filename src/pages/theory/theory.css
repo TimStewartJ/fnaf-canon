@@ -217,7 +217,8 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter-head__count { color: var(--c-text-3); }
 .chapter-head__title { margin: 0; font-size: var(--fs-3xl); line-height: 1.04; letter-spacing: -0.022em; }
 .chapter-head__meta { margin: var(--sp-4) 0 0; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
-.chapter-head__meta a { color: var(--c-text-2); }
+.chapter-head__sources { padding: 0; font: inherit; color: var(--c-text-2); background: none; border: 0; text-decoration: underline; text-decoration-color: var(--c-line-strong); text-underline-offset: 0.2em; cursor: pointer; }
+.chapter-head__sources:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 
 /* Question, answer, confidence. The left rule is drawn in the firmness line style of the chapter. */
 .verdict { display: grid; gap: var(--sp-4); margin-top: var(--sp-6); padding: var(--sp-1) 0 var(--sp-1) var(--sp-5); border-left: 3px var(--firm-style, solid) var(--c-accent); }
@@ -231,6 +232,8 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter > .chapter-hero { margin-block: var(--sp-6) var(--sp-7); }
 .chapter-hero .figure__frame img { max-height: min(27rem, 56vh); }
 .chapter-note { font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+
+.chapter-figure .figure__frame img { max-height: 27rem; }
 
 /* Pull quote */
 .pullquote { position: relative; margin-block: 2.2em; padding-left: clamp(1.6rem, 4vw, 2.6rem); }

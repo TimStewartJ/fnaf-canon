@@ -2,12 +2,13 @@ import { Fragment, type MouseEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CornerDownRight, MapPin, User } from "lucide-react";
 import type { DateKind, Evidence } from "../data/schema";
-import { evidenceById, labelForEntity, personById, placeById, theoryById } from "../data/store";
+import { evidenceById, labelForEntity, personById, placeById } from "../data/store";
 import { gameById } from "../data/store";
 import { useCiteNumbering } from "./citeScope";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { CERTAINTY, DATE_KIND, kindLabel } from "./labels";
-import { chapterPath, evidencePath, personPath, placePath } from "./links";
+import { evidencePath, personPath, placePath } from "./links";
+import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
@@ -102,10 +103,11 @@ export function CiteGroup({ ids }: { ids: string[] }) {
 }
 
 /**
- * A source chip for explicit lists of records ("Evidence: …"): certainty glyph plus the source's
- * short code. Same behaviour as a citation marker.
+ * A source chip for explicit lists of records ("Evidence: …"): certainty glyph, the source's short
+ * code and the record's title. Same behaviour as a citation marker. `variant="code"` drops the title
+ * for very tight spots.
  */
-export function SourceChip({ id, group }: { id: string; group?: string[] }) {
+export function SourceChip({ id, group, variant = "full" }: { id: string; group?: string[]; variant?: "full" | "code" }) {
   const e = evidenceById.get(id);
   const [pop, anchorRef] = usePopover();
   const open = useOpenEvidence(id, group, pop.hide);
@@ -118,23 +120,28 @@ export function SourceChip({ id, group }: { id: string; group?: string[] }) {
         to={evidencePath(id)}
         className="src-chip"
         data-level={c.level}
-        aria-label={`${e.title} (${gameById.get(e.game)?.title ?? e.game}, ${c.word.toLowerCase()})`}
+        aria-label={variant === "code" ? `${e.title} (${gameById.get(e.game)?.title ?? e.game}, ${c.word.toLowerCase()})` : undefined}
         aria-haspopup="dialog"
         onClick={open}
       >
         <FirmGlyph level={c.level} />
-        {gameMeta(e.game).short}
+        <span className="src-chip__code">{gameMeta(e.game).short}</span>
+        {variant === "full" && <span className="src-chip__title">{e.title}</span>}
+        {variant === "full" && <span className="sr-only">({c.word.toLowerCase()})</span>}
       </Link>
       {pop.open && <Pop control={pop} className="pop--cite"><EvidencePreview e={e} /></Pop>}
     </span>
   );
 }
 
-/** A row of source chips, for "Evidence:" and "Rests on:" lines outside running prose. */
-export function CiteList({ ids }: { ids: string[] }) {
+/**
+ * A list of source chips, for "Evidence:" and "Rests on:" lines outside running prose.
+ * `variant="code"` shows short codes only.
+ */
+export function CiteList({ ids, variant = "full" }: { ids: string[]; variant?: "full" | "code" }) {
   const unique = [...new Set(ids)];
   if (!unique.length) return null;
-  return <span className="src-list">{unique.map((id) => <SourceChip key={id} id={id} group={unique.length > 1 ? unique : undefined} />)}</span>;
+  return <span className="src-list">{unique.map((id) => <SourceChip key={id} id={id} variant={variant} group={unique.length > 1 ? unique : undefined} />)}</span>;
 }
 
 /* ── Entity and chapter links ──────────────────────────────────────────────────── */
@@ -158,9 +165,10 @@ export function EntityLink({ id, variant = "inline", children }: { id: string; v
 
 /** Link to a theory chapter, labelled with its title unless a label is given. */
 export function ChapterLink({ id, label }: { id: string; label?: ReactNode }) {
-  const s = theoryById.get(id);
+  const chapters = useChapterResolver();
+  const s = chapters.find(id);
   if (!s) return <span className="cite cite--missing" title="Missing theory chapter">?{id}</span>;
-  return <Link className="chapter-link" to={chapterPath(id)}>{label ?? s.title}</Link>;
+  return <Link className="chapter-link" to={chapters.pathOf(id)}>{label ?? s.title}</Link>;
 }
 
 /* ── Dates ─────────────────────────────────────────────────────────────────────── */

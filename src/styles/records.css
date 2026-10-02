@@ -10,6 +10,12 @@
   flex-direction: column;
   gap: var(--sp-2);
   min-width: 0;
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  font-style: normal;
+  line-height: var(--lh-ui);
+  color: var(--c-text);
+  text-align: left;
   padding: var(--sp-4);
   background: var(--c-surface);
   border: 1px solid var(--c-line);
@@ -38,7 +44,6 @@
 .ev-row__title:hover { color: var(--c-accent-strong); text-decoration: underline; }
 .ev-row__claim { font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .ev-row__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.75rem; font-size: var(--fs-xs); color: var(--c-text-3); }
-.ev-row:target { background: var(--c-accent-soft); }
 
 /* ── Drawer ────────────────────────────────────────────────────────
  * A side drawer on desktop, a bottom sheet on a phone. Rendered by the shell. */

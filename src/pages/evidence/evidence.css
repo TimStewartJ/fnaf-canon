@@ -1,6 +1,8 @@
 /* Evidence locker (explorer) and the evidence record page. Cluster B. */
 
 .ev-filters { margin-block: var(--sp-5) var(--sp-3); }
+.ev-filters > .search { flex: 1 1 100%; }
+.ev-filters > select { flex: 1 1 9.5rem; }
 .ev-count { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); min-height: 2rem; margin: 0 0 var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); }
 .ev-more { display: flex; justify-content: center; margin: var(--sp-6) 0 0; }
 

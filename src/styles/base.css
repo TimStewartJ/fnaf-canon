@@ -161,7 +161,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--c-accent-fill)
 /* The opening paragraph of a page. */
 .lede {
   font-family: var(--font-text);
-  font-size: var(--fs-lg);
+  font-size: clamp(1.0625rem, 0.98rem + 0.45vw, 1.25rem);
   font-weight: var(--w-text);
   line-height: 1.55;
   color: var(--c-text-2);

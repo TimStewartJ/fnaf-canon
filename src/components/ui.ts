@@ -9,6 +9,7 @@ export * from "./palette";
 export * from "./icons";
 export * from "./hooks";
 export * from "./citeScope";
+export * from "./chapterResolver";
 export * from "./evidenceDrawer";
 export * from "./popover";
 export * from "./richTextPlain";

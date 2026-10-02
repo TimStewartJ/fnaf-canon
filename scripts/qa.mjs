@@ -7,7 +7,8 @@
  *
  * Usage:
  *   node scripts/qa.mjs --base http://127.0.0.1:5191 --out /path/to/dir
- *     [--routes /,/theory,/timeline]   routes to visit (default: every top-level route plus sample detail pages)
+ *     [--routes /,/theory,/timeline]   routes to visit (default: every top-level route, sample detail pages,
+ *                                      two theory chapters and the /dev/blocks fixture)
  *     [--widths 1440,390]              viewport widths (heights: 900 for >=700px wide, else 844)
  *     [--full]                         full-page screenshots, clipped to --max-height (default 12000)
  *     [--scroll 1200,2400]             extra viewport screenshots at these scroll offsets
@@ -30,7 +31,7 @@ const out = opt("out", "/tmp/fnaf-qa");
 const hash = !flag("no-hash");
 const widths = opt("widths", "1440,390").split(",").map(Number);
 const DEFAULT_ROUTES = [
-  "/", "/theory", "/timeline", "/evidence", "/evidence/fnaf2-take-cake-to-the-children", "/people", "/people/william-afton",
+  "/", "/theory", "/theory/plush", "/theory/thesis", "/dev/blocks", "/dev/kit", "/timeline", "/evidence", "/evidence/fnaf2-take-cake-to-the-children", "/people", "/people/william-afton",
   "/people/crying-child", "/family", "/graph", "/places", "/places/fredbears-family-diner", "/sources", "/sources/fnaf4",
   "/gallery", "/box", "/community", "/author", "/method", "/this-route-does-not-exist",
 ];
@@ -64,6 +65,9 @@ for (const width of widths) {
     const t0 = Date.now();
     await page.goto("about:blank");
     await page.goto(url, { waitUntil: "networkidle" });
+    // Pages are lazy chunks: wait until the route's content has replaced the loading placeholder.
+    await page.waitForFunction(() => !document.querySelector("[data-route-loading]") && (document.querySelector("main")?.children.length ?? 0) > 0, null, { timeout: 20000 })
+      .catch(() => errs.push("timeout: the page content never appeared"));
     await page.waitForTimeout(route.startsWith("/graph") ? 2500 : 700);
     const m = await page.evaluate(() => {
       const de = document.documentElement;
