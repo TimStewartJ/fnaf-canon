@@ -1653,10 +1653,9 @@
     "location": "scottgames.com teaser image (posted and removed March 11, 2019)",
     "certainty": "stated",
     "when": {
-      "year": 2019,
-      "label": "March 11, 2019 (teaser post date)",
-      "precision": "exact",
-      "basis": "Date the teaser was posted"
+      "label": "Undated (Help Wanted teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date. It was posted and taken down on 11 March 2019, a real-world day"
     },
     "tags": [
       "teaser",
@@ -1664,11 +1663,13 @@
       "anomaly"
     ],
     "related": [
-      "hw-game-over-remember-jeremy"
+      "hw-game-over-remember-jeremy",
+      "scottgames-site-hw-working-as-intended",
+      "scottgames-site-hw-alt-remember-jeremy"
     ],
     "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/",
     "verifiedVia": "Wayback Machine capture of scottgames.com at 2019-03-11 23:16 (page source: img src hw.jpg, alt=\"remember Jeremy\") and the archived hw.jpg from that capture, contrast-enhanced to read the four faint lines",
-    "notes": "Verified from the primary source: the archived page source and image, not the wiki. Scott took the teaser down after learning that its artwork had used fan art and fan models as references ('traced fan-models at worst', in his words); the later version keeps the caption (scottgames-site-hw-working-as-intended in the Scott file)."
+    "notes": "Verified from the primary source: the archived page source and image, not the wiki. Scott took the teaser down after learning that its artwork had used fan art and fan models as references ('traced fan-models at worst', in his words); the later version keeps the caption. The same teaser is recorded in the Scott file as scottgames-site-hw-working-as-intended (the caption) and scottgames-site-hw-alt-remember-jeremy (the alt text); they are three records of one teaser."
   },
   {
     "id": "scott-silver-parasol-website",
@@ -1681,9 +1682,8 @@
     "certainty": "stated",
     "when": {
       "label": "Out-of-universe statement (posted 2019-05-26)",
-      "precision": "exact",
-      "year": 2019,
-      "basis": "Reddit post date"
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
     },
     "people": [
       "silver-parasol-games"
@@ -1692,14 +1692,17 @@
       "meta",
       "studio-name"
     ],
+    "related": [
+      "scott-2019-silver-parasol-logo"
+    ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/btaxrx/silver_parasol_games/",
     "verifiedVia": "Arctic Shift Reddit archive, post id btaxrx (r/fivenightsatfreddys, 2019-05-26), full text read",
-    "notes": "Wording verified against the archived post. Scott adds that he 'decided to leave the logo in the game (since it was in-game after all.)'. The studio name is not spoken in Help Wanted, and the post does not say which developer 'the other game developer' is. The same post is recorded in the Scott file as scott-2019-silver-parasol-logo."
+    "notes": "Wording verified against the archived post. Scott adds that he 'decided to leave the logo in the game (since it was in-game after all.)'. The studio name is not spoken in Help Wanted, and the post does not say which developer 'the other game developer' is. The same post is recorded in the Scott file as scott-2019-silver-parasol-logo; they are two records of one post."
   },
   {
     "id": "scott-not-part-of-lore",
     "title": "Scott: he himself is not part of the lore",
-    "claim": "After Help Wanted's intro showed his photo as the 'indie developer', Scott Cawthon wrote that he is not part of the lore; only the existence of a game developer who supposedly made games based on actual events is canon.",
+    "claim": "After Help Wanted's intro showed his photo as the 'indie developer', Scott Cawthon asked whether he is now part of FNaF's lore and answered no.",
     "quote": "Is Scott Cawthon now a part of FNAF lore? The short answer is: No.",
     "game": "scott",
     "kind": "scott-statement",
@@ -1707,9 +1710,8 @@
     "certainty": "stated",
     "when": {
       "label": "Out-of-universe statement (posted 2019-09-29)",
-      "precision": "exact",
-      "year": 2019,
-      "basis": "Reddit post date"
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
     },
     "tags": [
       "meta",
@@ -1717,11 +1719,14 @@
     ],
     "related": [
       "hw-intro-indie-developer-poster",
-      "hw-tape-13-fe-hired-developer"
+      "hw-tape-13-fe-hired-developer",
+      "scott-2019-not-canon-list",
+      "scott-2019-help-wanted-is-canon",
+      "scott-2019-indie-dev-photo"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/a_lore_question_about_help_wanted_and_an_answer/",
     "verifiedVia": "Arctic Shift Reddit archive, post id daxx9z (r/fivenightsatfreddys, 2019-09-29), full text read",
-    "notes": "Wording verified against the archived post. He continues: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' He says the device lets one canon game hold canon, 'questionably canon' and all-timeline characters. The same post is recorded in the Scott file (scott-2019-not-canon-list, scott-2019-help-wanted-is-canon)."
+    "notes": "Wording verified against the archived post. He continues: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' He says the device lets one canon game hold canon, 'questionably canon' and all-timeline characters. The same post is recorded in the Scott file (scott-2019-not-canon-list, scott-2019-help-wanted-is-canon, scott-2019-indie-dev-photo); they are records of one post."
   },
   {
     "id": "codb-handunit-no-hidden-intent",
@@ -1759,10 +1764,9 @@
     "location": "Curse of Dreadbear Halloween Hub (stage behind the player)",
     "certainty": "stated",
     "when": {
-      "label": "'83 (banner text; inside a VR recreation)",
-      "precision": "approx",
-      "year": 1983,
-      "basis": "The banner prints 83; the setting is a level of the VR game, so this dates the fair depicted, not the VR game's present"
+      "label": "Undated (a staged prop reads 83')",
+      "precision": "unknown",
+      "basis": "The banner reads FALLFEST 83'. It is a prop in the hub of the company's VR game and dates nothing in that game"
     },
     "places": [
       "freddy-fazbear-virtual-experience"
@@ -1777,7 +1781,7 @@
     ],
     "image": "codb-fallfest-83-banner.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Curse_of_Dreadbear_(Mode)",
-    "notes": "Read from the wiki's screenshot. FNaF4's TV shows the year 1983 (fnaf4-fredbear-and-friends-1983); the banner, a prop in the hub of the company's VR game, gives only 83'. Help Wanted 2 has a 'FALL FEST' poster dated 1970 (hw2-fall-fest-1970-poster), and Secret of the Mimic's Fiona leaves to help a Fall Fest installation (secret-of-the-mimic-log-installation-worries)."
+    "notes": "Read from the wiki's screenshot. FNaF4's TV shows the year 1983 (fnaf4-fredbear-and-friends-1983); the banner, a prop in the hub of the company's VR game, gives only 83'. Help Wanted 2 has a 'FALL FEST' poster marked '19 70' (hw2-fall-fest-1970-poster), and Secret of the Mimic's Fiona leaves to help a Fall Fest installation (secret-of-the-mimic-log-installation-worries)."
   },
   {
     "id": "codb-fnaf4-house-on-hill",
@@ -2064,10 +2068,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. November 28, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent November 28, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 28 November 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2091,10 +2094,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. December 2, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 2, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 2 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2118,10 +2120,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. December 4, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 4, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 4 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2147,10 +2148,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. December 6, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 6, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 6 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2173,10 +2173,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. December 8, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 8, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 8 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2199,10 +2198,9 @@
     "location": "Story email '(no subject)' from luis.cabrera",
     "certainty": "stated",
     "when": {
-      "label": "c. December 9, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 9, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 9 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "luis-cabrera",
@@ -2230,10 +2228,9 @@
     "location": "Story emails 'Can I use power tools?' / 'Come drill for me?' (Daniel Rocha, Anna Kwemto, Raha Salib)",
     "certainty": "stated",
     "when": {
-      "label": "c. November 29, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent November 29, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; several of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "The emails reached players on 29 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "daniel-rocha",
@@ -2262,10 +2259,9 @@
     "location": "Story emails 'system glitch' (Steven Wilson) and 'virus detected' (Daniel Rocha)",
     "certainty": "stated",
     "when": {
-      "label": "c. December 5, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 5, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "The two emails reached players on 30 November and 5 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "steven-wilson",
@@ -2294,10 +2290,9 @@
     "location": "Story email 'IMMEDIATE ACTION REQUIRED' from Fazbear Entertainment Office of Legal Affairs",
     "certainty": "stated",
     "when": {
-      "label": "c. December 1, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 1, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 1 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "kayla-stringer",
@@ -2326,10 +2321,9 @@
     "location": "Story emails 'URGENT: Virus caused by FE circuit board upload' and 'URGENT: virus'",
     "certainty": "stated",
     "when": {
-      "label": "c. December 7, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 7, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "The two emails reached players on 7 and 10 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "steven-wilson",
@@ -2353,10 +2347,9 @@
     "location": "Email 'Staff Advisory: Mail Server' (Fazbear Entertainment Office of Legal Affairs to All Staff)",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery launch period, 2019",
-      "year": 2019,
-      "precision": "approx",
-      "basis": "Default email received by all new players"
+      "label": "Undated; the email that every new player of Special Delivery receives",
+      "precision": "unknown",
+      "basis": "A default email, received by every new player; it carries no date."
     },
     "people": [
       "fazbear-entertainment"
@@ -2378,13 +2371,11 @@
     "location": "Email 'Couple of weird customer reports' (Isolde, Customer Service, to Tristan, Compliance)",
     "certainty": "stated",
     "when": {
-      "label": "c. February 12, 2020 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "The wiki records this email as sent February 12, 2020, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Reached players on 12 February 2020, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
-      "springtrap",
       "isolde-sd",
       "tristan-sd",
       "fazbear-funtime-service"
@@ -2410,10 +2401,9 @@
     "location": "Emails 'Circuit board changes?' / 'Re: Circuit board changes?' (Charles QA / Tristan Compliance)",
     "certainty": "stated",
     "when": {
-      "label": "c. March 12, 2020 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "The wiki records this email as sent March 12, 2020, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails",
+      "precision": "unknown",
+      "basis": "The two emails reached players on 11 and 12 March 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "tristan-sd",
@@ -2437,10 +2427,9 @@
     "location": "Special Delivery intro cinematic / launch ad",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery present (c. 2019)",
-      "year": 2019,
-      "precision": "approx",
-      "basis": "Game's contemporary setting and email dates"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "fazbear-funtime-service",
@@ -2462,10 +2451,9 @@
     "location": "Special Delivery tutorial",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery present (c. 2019)",
-      "year": 2019,
-      "precision": "approx",
-      "basis": "Game's contemporary setting"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "tutorial-unit",
@@ -2487,10 +2475,9 @@
     "location": "Springtrap encounter voice lines",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery present (c. 2020)",
-      "year": 2020,
-      "precision": "approx",
-      "basis": "Springtrap added to the service in early 2020"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date. Springtrap was added to the service in early 2020, in the real world."
     },
     "people": [
       "springtrap"
@@ -2833,7 +2820,6 @@
     "certainty": "shown",
     "when": {
       "label": "Code 1983 (the game never says what it dates)",
-      "year": 1983,
       "precision": "unknown",
       "basis": "Keypad code, not an explicit date"
     },
@@ -3150,7 +3136,6 @@
     "certainty": "shown",
     "when": {
       "label": "Code 1979 (not stated as a date)",
-      "year": 1979,
       "precision": "unknown",
       "basis": "Keypad code; in-game meaning unstated"
     },
@@ -3994,10 +3979,9 @@
     "location": "Special Delivery tutorial (Remnant collection); tutorial email 'Using Remnant'",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery's present (c. 2019-2020)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The game gives no in-universe year; this rests on its real-world release and the days its emails reached players"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "tutorial-unit",
@@ -4024,10 +4008,9 @@
     "location": "Special Delivery tutorial (Remnant collection)",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery's present (c. 2019-2020)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The game gives no in-universe year; this rests on its real-world release and the days its emails reached players"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "tutorial-unit"
@@ -4054,10 +4037,9 @@
     "location": "Tutorial emails 'Using CPUs' and 'Using Plushsuits'; workshop screen",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery's present (c. 2019-2020)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The game gives no in-universe year; this rests on its real-world release and the days its emails reached players"
+      "label": "Undated; Special Delivery's tutorial emails and workshop screen",
+      "precision": "unknown",
+      "basis": "Tutorial emails reach each player as they play; the game gives no in-universe date."
     },
     "people": [
       "fazbear-funtime-service",
@@ -4085,10 +4067,9 @@
     "location": "Story emails 'Re: (no subject)' (Mark Cho and Raha Salib)",
     "certainty": "stated",
     "when": {
-      "label": "c. November 28, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent November 28, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Both emails reached players on 28 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "mark-cho",
@@ -4115,10 +4096,9 @@
     "location": "Story emails 'Fwd: IMMEDIATE ACTION REQUIRED' and replies (Anna Kwemto, Steven Wilson, Mark Cho, Raha Salib)",
     "certainty": "stated",
     "when": {
-      "label": "c. December 2-3, 2019 (days the emails reached players; no date in the text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki lists the forward between emails it dates December 2 and December 3, 2019, and the replies on December 3. These are real-world delivery days; the email text carries no date."
+      "label": "Undated; several of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "The wiki gives no day for the forward or its replies; it lists them between emails that reached players on 2 and 3 December 2019, real-world days. The emails carry no date."
     },
     "people": [
       "anna-kwemto",
@@ -4148,10 +4128,9 @@
     "location": "Story emails 'Re: system glitch' (Raha Salib, Steven Wilson)",
     "certainty": "stated",
     "when": {
-      "label": "c. December 3, 2019 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The wiki records this email as sent December 3, 2019, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails, in the order they reached players",
+      "precision": "relative",
+      "basis": "Both emails reached players on 3 December 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "raha-salib",
@@ -4180,10 +4159,9 @@
     "location": "Story emails 'New Multarticulus Model Delays' and reply (Tristan, Compliance Team; Nora, R&D)",
     "certainty": "stated",
     "when": {
-      "label": "c. March 3, 2020 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "The wiki records this email as sent March 3, 2020, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails",
+      "precision": "unknown",
+      "basis": "The two emails reached players on 3 and 5 March 2020, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "tristan-sd",
@@ -4214,10 +4192,9 @@
     "location": "Email 'Troubleshooting Guide: Errata for the Mangle' (Fazbear Entertainment to customers)",
     "certainty": "stated",
     "when": {
-      "label": "c. March 2020 (sent when the Mangle joined the service; no date in the text)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "The wiki gives no send date for this email; the R&D email about the Mangle reached players on March 3, 2020. Real-world delivery, not a date printed in the game."
+      "label": "Undated; one of Special Delivery's emails",
+      "precision": "unknown",
+      "basis": "The wiki lists this email with the tutorial emails and gives no day for it. The email carries no date."
     },
     "people": [
       "fazbear-entertainment",
@@ -4245,10 +4222,9 @@
     "location": "Story emails 'Not cool' and reply (Tristan, Compliance Team; Nora, R&D)",
     "certainty": "stated",
     "when": {
-      "label": "c. January 31, 2020 (day the email reached players; no date in the email text)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "The wiki records this email as sent January 31, 2020, the real-world day it arrived in players' in-game inboxes. The email text carries no date, and whether the inbox screen showed one was not verified, so this is a delivery date, not a date printed in the game."
+      "label": "Undated; two of Special Delivery's emails",
+      "precision": "unknown",
+      "basis": "The two emails reached players on 31 January and 4 February 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. Whether the inbox screen showed a date was not verified."
     },
     "people": [
       "nora-sd",
@@ -4277,10 +4253,9 @@
     "location": "Circus Baby encounter voice lines",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery's present (c. 2019-2020)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The game gives no in-universe year; this rests on its real-world release and the days its emails reached players"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "circus-baby"
@@ -4309,10 +4284,9 @@
     "location": "Springtrap encounter voice lines",
     "certainty": "stated",
     "when": {
-      "label": "Special Delivery's present (c. 2020)",
-      "precision": "approx",
-      "year": 2020,
-      "basis": "Springtrap joined the service in February 2020 in the real world; the game gives no in-universe year"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date. Springtrap joined the service in February 2020, in the real world."
     },
     "people": [
       "springtrap"
@@ -4339,10 +4313,9 @@
     "location": "Dark Circus: Encore! ending cutscene (the last story content released for the game)",
     "certainty": "shown",
     "when": {
-      "label": "Special Delivery's present (c. 2019-2020)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "The game gives no in-universe year; this rests on its real-world release and the days its emails reached players"
+      "label": "During Special Delivery (undated)",
+      "precision": "unknown",
+      "basis": "The game gives no in-universe date."
     },
     "people": [
       "golden-freddy"
@@ -4641,10 +4614,9 @@
     "location": "Collectible prize poster (texture T_Poster_Fallfest); Fall Fest artwork also backs the Cupcake Bonanza prize machine",
     "certainty": "stated",
     "when": {
-      "label": "1970 (year printed on the poster)",
-      "precision": "exact",
-      "year": 1970,
-      "basis": "The poster prints 19 70; it dates the fair it advertises, not Help Wanted 2's present"
+      "label": "Undated (a staged prop reads 1970)",
+      "precision": "unknown",
+      "basis": "The poster reads 19 70. It is a prop in a company product, read from its texture; it advertises a fair and dates nothing in Help Wanted 2"
     },
     "places": [
       "fazbear-orientation-program"
@@ -4865,10 +4837,9 @@
     "location": "scottgames.com HTML source, meta tags (name/content pairs), from 2019-08-08 at the latest",
     "certainty": "stated",
     "when": {
-      "label": "Out-of-universe (page source, 2019-08-08 to at least 2021-02-25)",
-      "precision": "approx",
-      "year": 2019,
-      "basis": "Dates of the Wayback Machine captures in which the tags appear. A capture from 2019-05-28 does not have them and one from 2021-12-16 has them emptied, so the true start lies between late May and August 8, 2019."
+      "label": "Undated (Security Breach teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date. The tags are in Wayback Machine captures from 2019-08-08 to at least 2021-02-25, real-world days; a capture from 2019-05-28 does not have them and one from 2021-12-16 has them emptied"
     },
     "tags": [
       "teaser",
@@ -4880,10 +4851,11 @@
       "codb-mask-plush-voice",
       "codb-mask-plush-voice-opening",
       "scottgames-site-sb-obey",
-      "sd-ness-voices-at-screen"
+      "sd-ness-voices-at-screen",
+      "scottgames-site-sb-source-stay-the-course"
     ],
     "url": "https://web.archive.org/web/20190808234549/http://www.scottgames.com/",
     "verifiedVia": "Wayback Machine captures of scottgames.com from 2019-08-08 to 2021-02-25 (ten captures read; all carry the tags), page source read directly",
-    "notes": "The eight phrases are split across the name and content attributes of five meta tags; the quote gives them in reading order. Neither speaker is named. The tags were present under every Security Breach teaser image in turn (the atrium, 'ROCK!', Montgomery, the title, 'PROTECT' and 'OBEY') and are empty in a December 2021 capture. They were in place at least ten weeks before the hidden call in Curse of Dreadbear, in which a woman answers a voice the player cannot hear (codb-mask-plush-voice)."
+    "notes": "The eight phrases are split across the name and content attributes of five meta tags; the quote gives them in reading order. Neither speaker is named. The tags were present under every Security Breach teaser image in turn (the atrium, 'ROCK!', Montgomery, the title, 'PROTECT' and 'OBEY') and are empty in a December 2021 capture. They were in place at least ten weeks before the hidden call in Curse of Dreadbear, in which a woman answers a voice the player cannot hear (codb-mask-plush-voice). The same page source is recorded in the Scott file as scottgames-site-sb-source-stay-the-course; they are two records of one text."
   }
 ]
