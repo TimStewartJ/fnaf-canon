@@ -52,7 +52,7 @@ function Readings() {
       kicker="Applied"
       title="Readings, tested against this background"
       lead={<p>Each reading is judged on the games first. Scott’s faith only affects how literally the games’ own words are taken.</p>}
-      actions={<EssayToggleAll control={tested} />}
+      actions={<EssayToggleAll control={tested} what="readings" />}
     >
       <EssayRows control={tested} label="Readings, tested against this background">
         {readings.map((r, i) => <ReadingRow key={READING_IDS[i]} r={r} id={READING_IDS[i]} />)}
@@ -101,7 +101,7 @@ function History() {
       kicker="The record, in order"
       title="From Christian films to Freddy’s"
       lead={<p>{count(authorTimeline.length, "dated step")}, {yearSpan(authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
-      actions={<EssayToggleAll control={steps} />}
+      actions={<EssayToggleAll control={steps} what="steps" />}
     >
       <EssayRows control={steps} variant="spine" label="From Christian films to Freddy’s">
         {authorTimeline.map((s) => <StepRow key={s.id} s={s} />)}

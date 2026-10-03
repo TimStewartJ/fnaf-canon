@@ -3,7 +3,7 @@
 /* The notice sits between the lede and the short answers; on a wide screen it moves beside them. */
 .cmty-notice { max-width: var(--measure); margin-top: var(--sp-5); }
 @media (min-width: 900px) {
-  .cmty-page > .page-header > .page-header__main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27rem); column-gap: var(--sp-7); align-items: start; }
+  .cmty-page > .page-header > .page-header__main { display: grid; grid-template-columns: minmax(0, 1fr) clamp(20rem, 36%, 27rem); column-gap: var(--sp-7); align-items: start; }
   .cmty-page > .page-header > .page-header__main > * { grid-column: 1; }
   .cmty-page > .page-header > .page-header__main > .cmty-notice { grid-column: 2; grid-row: 1 / span 6; margin-top: var(--sp-6); }
 }

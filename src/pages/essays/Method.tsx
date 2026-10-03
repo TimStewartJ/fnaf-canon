@@ -2,9 +2,9 @@ import { memo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
-import { citationsIn, evidence, evidenceById, evidenceFiledUnder, games, outsideStory, people, relations, storyline, theory, timeline } from "../../data/store";
+import { citationsIn, evidence, evidenceById, evidenceFiledUnder, outsideStory, people, relations, storyline, theory, timeline } from "../../data/store";
 import {
-  ButtonLink, CERTAINTY, CONFIDENCE, CiteGroup, CiteList, CiteScope, Collapsible, DATE_KIND, DATE_KINDS, DateGlyph, EntityLink, EvidenceList, Fact, Facts, FirmnessLegend,
+  ButtonLink, CERTAINTY, CONFIDENCE, CiteGroup, CiteList, CiteScope, Collapsible, DATE_KIND, DATE_KINDS, DateGlyph, EntityLink, EvidenceList, Fact, Facts, FirmGlyph, FirmnessLegend,
   GameMark, Page, PageHeader, RichText, STATUS, chapterPath, partGroups, readingOrder, smartQuotes, useMediaQuery, type FirmnessInfo,
 } from "../../components/ui";
 import { modelCoverage, type Coverage } from "./coverage";
@@ -49,6 +49,9 @@ const SAMPLE = (() => {
 const SAMPLE_DATE = storyline.map((b) => b.when.match(/<<[^>]+>>/)?.[0]).find(Boolean);
 /** People the games never name, shown as the archive names them. Stub pages are left out. */
 const DESCRIPTORS = people.filter((p) => p.nameStatus === "descriptor" && p.group !== "other");
+
+/** Sources that have at least one record (a source can be listed before anything is recorded from it). */
+const SOURCE_COUNT = new Set(evidence.map((e) => e.game)).size;
 
 const CERTAINTY_TALLY = tally(evidence, (e) => e.certainty);
 const STATUS_TALLY = tally([...relations, ...timeline], (x) => x.status);
@@ -172,7 +175,7 @@ function Scales() {
   return (
     <div className={`method-scales${fold ? " method-scales--fold" : ""}`}>
       <Scale fold={fold} title="A record: certainty" about="How directly the source supports the claim." levels={CERTAINTY} tallies={CERTAINTY_TALLY} noun={["record", "records"]} />
-      <Scale fold={fold} title="A link or an event: support" about="How well the cited records establish it. These are the three layers of the reconstruction." levels={STATUS} tallies={STATUS_TALLY} noun={["link or event", "links and events"]} />
+      <Scale fold={fold} title="A link or event: support" about="How well the cited records establish it. These are the three layers of the reconstruction." levels={STATUS} tallies={STATUS_TALLY} noun={["link or event", "links and events"]} />
       <Scale fold={fold} title="A chapter: confidence" about="How well the chapter’s main claim holds." levels={CONFIDENCE} tallies={CONFIDENCE_TALLY} noun={["chapter", "chapters"]} />
     </div>
   );
@@ -202,7 +205,12 @@ function Apart() {
 const ANSWERS: EssayAnswerItem[] = [
   { q: "What counts as evidence?", a: "The games, and Scott Cawthon’s own words. Nothing else: no novels, no guidebooks, no films.", to: "evidence-rule", more: "The source rule" },
   { q: "What is a record?", a: "One fact from one exact place in a game or in a post by Scott, graded by how directly the source supports it.", to: "records", more: "Records" },
-  { q: "How firm is a claim?", a: "One mark answers that everywhere: a filled disc for firm, a half disc for partial, a ring for tentative.", to: "firmness", more: "The marks" },
+  {
+    q: "How firm is a claim?",
+    // The marks themselves, not a description of them: the same glyph the rest of the site draws.
+    a: <>One mark, used everywhere: <span className="nowrap"><FirmGlyph level="firm" /> firm,</span> <span className="nowrap"><FirmGlyph level="partial" /> partial,</span> <span className="nowrap"><FirmGlyph level="tentative" /> tentative.</span></>,
+    to: "firmness", more: "The marks",
+  },
   { q: "How do I check a claim?", a: "Follow its number. Every claim cites its records, and a record opens over the page you are reading.", to: "citations", more: "Citations" },
 ];
 
@@ -220,7 +228,7 @@ function Method() {
               <p className="label">The archive today</p>
               <Facts>
                 <Fact label="Records"><span className="method-today__v"><Link to="/evidence">{count(evidence.length, "record")}</Link><span className="method-today__more">, one fact each</span></span></Fact>
-                <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{count(games.length, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
+                <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{count(SOURCE_COUNT, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
                 <Fact label="The theory"><span className="method-today__v"><Link to="/theory">{count(theory.length, "chapter")}</Link> in {count(partGroups.length, "part")}</span></Fact>
                 {c.total > 0 && (
                   <Fact label="Placed in the theory">
@@ -271,7 +279,7 @@ function Method() {
             <p>
               The basic unit is the evidence record: one claim, one exact place in a source, one time inside the story. A record quotes the source when a short
               quote carries the point, says where to find it (a night’s phone call, a named minigame, a dated post), and notes anything ambiguous about it.
-              The archive holds {count(evidence.length, "record")} from {count(games.length, "source")}.
+              The archive holds {count(evidence.length, "record")} from {count(SOURCE_COUNT, "source")}.
             </p>
             <p>
               A record never holds a conclusion. “Purple Guy is William Afton” is not a record; the in-game facts that connect the two are, and the
@@ -317,8 +325,9 @@ function Method() {
           {SAMPLE.length > 0 && <p className="essay-evidence"><span className="label">For example</span> <CiteList ids={SAMPLE} /></p>}
           <div className="prose">
             <p>
-              Every chapter, and each of the essays, ends with the records it cites, in order, under the same numbers. If the numbers get in the way, the
-              reading settings in the page header can hide them: the text reads the same without them, and the lists at the end remain.
+              Every chapter of the theory, and each of the three essays, ends with the records it cites, in order, under the same numbers. If the numbers
+              get in the way, Reading settings (in the header, or in the menu on a phone) can hide them: the text reads the same without them, and the
+              lists at the end remain.
             </p>
           </div>
         </EssaySection>
@@ -340,14 +349,14 @@ function Method() {
           </dl>
           <div className="prose">
             <p>
-              Every event, era and place on the timeline has a written reason for its date, and a date marked printed has to rest on at least one record
-              that states or shows it. A record’s own date is the time inside the story that the fact belongs to, not the day the game came out. Scott’s
+              Every event, era and place on the timeline has a written reason for its date, and an event’s date can only be marked printed if at least
+              one record states or shows it. A record’s own date is the time inside the story that the fact belongs to, not the day the game came out. Scott’s
               posts sit outside the story’s clock; their records give the day he posted instead.
             </p>
           </div>
         </EssaySection>
 
-        <EssaySection id="accounting" kicker={kicker("accounting")} title="Every record is accounted for">
+        <EssaySection id="accounting" kicker={kicker("accounting")} title="Accounting for every record">
           <div className="prose">
             <p>
               The theory has to answer to the whole evidence locker, not only to the records that suit it. So each record must end up in one of three places:

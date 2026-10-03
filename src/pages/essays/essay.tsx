@@ -140,7 +140,8 @@ export function EssaySection({ id, kicker, title, lead, actions, children, class
 export function EssayRows({ control, variant = "ledger", label, children }: { control?: RowsControl; variant?: "ledger" | "spine"; label: string; children: ReactNode }) {
   return (
     <RowsContext.Provider value={control ?? null}>
-      <ol className={`essay-rows essay-rows--${variant}`} aria-label={label}>{children}</ol>
+      {/* role="list": Safari drops list semantics from a list without markers. */}
+      <ol className={`essay-rows essay-rows--${variant}`} role="list" aria-label={label}>{children}</ol>
     </RowsContext.Provider>
   );
 }
@@ -183,13 +184,17 @@ export function EssayRow({ id, when, node, kicker, title, sub, children }: { id?
   );
 }
 
-/** Opens every row of a list, or closes them all once they are all open. */
-export function EssayToggleAll({ control }: { control: RowsControl }) {
+/**
+ * Opens every row of a list, or closes them all once they are all open.
+ *  - what   names the rows for assistive technology ("theories" → "Open all theories")
+ */
+export function EssayToggleAll({ control, what }: { control: RowsControl; what: string }) {
   if (control.total < 2) return null;
   const allOpen = control.openCount === control.total;
+  const words = allOpen ? "Close all" : "Open all";
   return (
-    <Button variant="quiet" size="sm" icon={allOpen ? ChevronsDownUp : ChevronsUpDown} onClick={() => control.setAll(!allOpen)}>
-      {allOpen ? "Close all" : "Open all"}
+    <Button variant="quiet" size="sm" icon={allOpen ? ChevronsDownUp : ChevronsUpDown} aria-label={`${words} ${what}`} onClick={() => control.setAll(!allOpen)}>
+      {words}
     </Button>
   );
 }

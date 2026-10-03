@@ -110,7 +110,7 @@ function Theories() {
       kicker="The scorecard"
       title="The theories, scored"
       lead={<p>Judged against the evidence, not against each other, in the order they emerged. Open one for what it got right and wrong.</p>}
-      actions={<EssayToggleAll control={scored} />}
+      actions={<EssayToggleAll control={scored} what="theories" />}
     >
       <FilterGroup label="Verdict">
         <FilterChip on={!verdict} count={theories.length} onClick={() => setVerdict(null)}>All</FilterChip>
@@ -171,7 +171,7 @@ function Moments() {
           Open one for the passage and the records behind it.
         </p>
       }
-      actions={<EssayToggleAll control={moments} />}
+      actions={<EssayToggleAll control={moments} what="moments" />}
     >
       <EssayRows control={moments} variant="spine" label="Scott and the community, over time">
         {MOMENTS.map((x) => <MomentRow key={x.id} x={x} />)}

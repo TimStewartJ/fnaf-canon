@@ -55,7 +55,7 @@ function History() {
       kicker="The record, in order"
       title="The box, step by step"
       lead={<p>{count(boxTimeline.length, "dated step")}, {yearSpan(boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
-      actions={<EssayToggleAll control={steps} />}
+      actions={<EssayToggleAll control={steps} what="steps" />}
     >
       <EssayRows control={steps} variant="spine" label="The box, step by step">
         {boxTimeline.map((s) => <StepRow key={s.id} s={s} />)}
