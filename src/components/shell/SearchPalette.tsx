@@ -9,6 +9,7 @@ import { useMediaQuery, useModalDialog } from "../hooks";
 import { SECTION_ICON } from "../icons";
 import { Icon } from "../Icon";
 import { chapterPath, personPath, placePath, timelineEventPath } from "../links";
+import { aliasParts, capitalise, foldText as fold, namesOf } from "../names";
 import { plainText } from "../richTextPlain";
 import { smartQuotes } from "../typography";
 import { chapterNumber, readingOrder } from "../chapterOrder";
@@ -27,6 +28,8 @@ interface Entry {
   names: string[];
   /** Breaks ties between equal hits: how much the archive has on it. */
   weight: number;
+  /** A person's other names, as the data writes them: each with the mark that says where it comes from. */
+  aliases?: readonly string[];
 }
 
 const KIND_HEAD: Record<Kind, string> = { page: "Pages", chapter: "Theory chapters", person: "People", place: "Places", event: "Timeline", evidence: "Evidence records" };
@@ -36,12 +39,8 @@ const LIMIT: Record<Kind, number> = { page: 4, chapter: 6, person: 6, place: 4, 
 const BEST = 3;
 const EXACT = 180;
 
-/**
- * Text as the search compares it: lower case, no accents, and no apostrophes or quotation marks
- * of either kind, so "Fredbear’s", "Fredbear's" and "fredbears" are one word, and "’87" is "87".
- * The site prints curly quotes and phones type them; the data is written with straight ones.
- */
-const fold = (s: string): string => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[\u2018\u2019\u02BC'`"\u201C\u201D]/g, "");
+// `fold` is the shared foldText (names.ts): text as the search compares it, so that "Fredbear’s",
+// "Fredbear's" and "fredbears" are one word, and "’87" is "87".
 const bare = (s: string): string => s.replace(/^(?:the|a|an) /, "");
 const names = (...all: string[]): string[] => [...new Set(all.map(fold).flatMap((n) => [n, bare(n)]))];
 
@@ -68,7 +67,15 @@ function buildIndex(): Entry[] {
     more: [s.answer ?? "", ...s.body.flatMap((b) => (typeof b === "string" ? [b] : blockTexts(b))), s.tension ?? "", s.id].map(plainText).join(" "),
     names: names(s.title), weight: 0, to: chapterPath(s.id), icon: SECTION_ICON.theory,
   }));
-  for (const p of people) add({ kind: "person", id: p.id, title: p.name, sub: p.aliases.slice(0, 3).join(" · ") || plainText(p.status).slice(0, 80), lead: p.aliases.join(" "), more: p.id, names: names(p.name, ...p.aliases), weight: filed.get(p.id) ?? 0, to: personPath(p.id), icon: SECTION_ICON.people });
+  // A person is found by the name and by every alias ("glitchtrap" finds the rabbit in the code). The
+  // marks that say where an alias comes from are shown with it and are not searched.
+  for (const p of people) {
+    const called = namesOf(p);
+    add({
+      kind: "person", id: p.id, title: capitalise(p.name), sub: p.aliases.slice(0, ALIASES_SHOWN).join(" · ") || plainText(p.status).slice(0, 80),
+      lead: called.slice(1).join(" "), more: p.id, names: names(...called), aliases: p.aliases, weight: filed.get(p.id) ?? 0, to: personPath(p.id), icon: SECTION_ICON.people,
+    });
+  }
   for (const p of places) add({ kind: "place", id: p.id, title: p.name, sub: p.years, more: p.id, names: names(p.name), weight: filed.get(p.id) ?? 0, to: placePath(p.id), icon: SECTION_ICON.places });
   for (const t of timeline) add({ kind: "event", id: t.id, title: t.title, sub: t.yearLabel, lead: t.yearLabel, names: names(t.title), weight: 0, to: timelineEventPath(t.id), icon: SECTION_ICON.timeline });
   for (const e of evidence) add({
@@ -78,6 +85,20 @@ function buildIndex(): Entry[] {
   WORDS = new Map();
   for (const e of out) if (e.kind !== "evidence") for (const n of e.names) for (const w of n.split(/[^a-z0-9]+/)) if (w.length >= 4) WORDS.set(w, (WORDS.get(w) ?? 0) + 1 + e.weight);
   return out;
+}
+
+/** How many of a person's other names a result shows under the name. */
+const ALIASES_SHOWN = 3;
+/**
+ * The line under a result. For a person found by an alias, the alias that was asked for comes
+ * first, so the reader sees why "the rabbit in the code" answers "glitchtrap"; each alias keeps
+ * its mark ("Scott's working name", "a fan name").
+ */
+function subOf(e: Entry, tokens: readonly string[]): string {
+  if (!e.aliases?.length || !tokens.length) return e.sub;
+  const asked = (alias: string) => { const name = fold(aliasParts(alias).name); return tokens.some((t) => name.includes(t)); };
+  const first = e.aliases.filter(asked);
+  return first.length ? [...first, ...e.aliases.filter((a) => !asked(a))].slice(0, ALIASES_SHOWN).join(" · ") : e.sub;
 }
 
 /** Words that carry no meaning in a question typed whole ("who is the purple guy"). */
@@ -161,6 +182,8 @@ interface Found {
   instead: string | null;
   /** True when nothing has every word, and what is shown has some of them. */
   partial: boolean;
+  /** The words that were searched for, folded. */
+  tokens: string[];
 }
 /** With fewer than this many pages, chapters, people or places that have every word, those that have some are shown as well. */
 const FEW = 3;
@@ -168,18 +191,18 @@ const FEW = 3;
 function search(q: string): Found {
   INDEX ??= buildIndex();
   const query = fold(q.trim()).replace(/\s+/g, " ");
-  const pack = (parts: { key: string; head: string; items: Entry[] }[], instead: string | null = null, partial = false): Found => {
+  const pack = (parts: { key: string; head: string; items: Entry[] }[], instead: string | null = null, partial = false, tokens: string[] = []): Found => {
     const groups: Group[] = [];
     let from = 0;
     for (const p of parts) if (p.items.length) { groups.push({ ...p, from }); from += p.items.length; }
-    return { groups, flat: groups.flatMap((g) => g.items), instead, partial };
+    return { groups, flat: groups.flatMap((g) => g.items), instead, partial, tokens };
   };
   if (!query) return pack([{ key: "pages", head: "Jump to", items: INDEX.filter((e) => e.kind === "page") }]);
   // The words that carry the meaning: a question typed whole is searched by its subject, and
   // an entry that also holds the whole phrase ranks above the rest.
   const all = query.split(" ");
   const content = all.filter((t) => !STOP.has(t));
-  const tokens = content.length ? content : all;
+  let tokens = content.length ? content : all;
   let graded = grade(INDEX, tokens, query);
   let n = tokens.length;
   let instead: string | null = null;
@@ -188,7 +211,7 @@ function search(q: string): Found {
     const near = tokens.map((t) => (INDEX!.some((e) => e.hay.includes(t)) ? t : nearest(t) ?? t));
     if (near.join(" ") !== tokens.join(" ")) {
       const again = grade(INDEX, near, near.join(" "));
-      if (again.some((h) => h.hits === near.length)) { graded = again; n = near.length; instead = near.join(" "); }
+      if (again.some((h) => h.hits === near.length)) { graded = again; n = near.length; instead = near.join(" "); tokens = near; }
     }
   }
   // Everything with every word. When that is little, also what has some of the words, most words
@@ -213,7 +236,7 @@ function search(q: string): Found {
     { key: "best", head: "Best match", items: best },
     ...KIND_ORDER.map((k) => ({ key: k, head: KIND_HEAD[k], items: picked.filter((e) => e.kind === k) })),
     { key: "more", head: "More", items: [locker] },
-  ], instead, !full.length && scored.length > 0);
+  ], instead, !full.length && scored.length > 0, tokens);
 }
 
 /** A value once it has stopped changing for `ms`: what a screen reader is told, so it is not told on every key. */
@@ -289,7 +312,12 @@ export default function SearchPalette({ onClose, initial = "" }: { onClose: () =
       <p className="sr-only" role="status">{said}</p>
       {found.instead && hits > 0 && <p className="palette__instead">Nothing matches “{q.trim()}”. Showing results for <strong>{found.instead}</strong>.</p>}
       {found.partial && !found.instead && hits > 0 && <p className="palette__instead">Nothing has every word of “{q.trim()}”. These have some of them.</p>}
-      {searching && hits === 0 && <p className="palette__instead">Nothing matches “{q.trim()}”. Try a name, a game, or a word from a quote.</p>}
+      {searching && hits === 0 && (
+        <p className="palette__instead">
+          Nothing matches “{q.trim()}”. Try a name, a game, or a word from a quote. The archive uses only names that the games print or
+          speak. <a href="#/method#names" onClick={(ev) => { ev.preventDefault(); onClose(); void navigate("/method#names"); }}>How the archive names people</a>
+        </p>
+      )}
       {results.length === 0
         ? <p className="palette__empty">Nothing to show.</p>
         : (
@@ -314,7 +342,7 @@ export default function SearchPalette({ onClose, initial = "" }: { onClose: () =
                       <Icon icon={e.icon} className="palette__icon" />
                       <span className="palette__text">
                         <span className="palette__title">{smartQuotes(e.title)}</span>
-                        {/[\p{L}\p{N}]/u.test(e.sub) && <span className="palette__sub">{smartQuotes(e.sub)}</span>}
+                        {/[\p{L}\p{N}]/u.test(e.sub) && <span className="palette__sub">{smartQuotes(subOf(e, found.tokens))}</span>}
                       </span>
                       {i === cur && !phone && <Icon icon={CornerDownLeft} className="palette__enter" />}
                     </div>

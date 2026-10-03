@@ -5,7 +5,7 @@ import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
   CiteList, Collapsible, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Missing, Page, PageHeader,
-  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
+  RichText, Segmented, StatusMark, aliasParts, capitalise, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -17,7 +17,7 @@ import { Name } from "./Names";
 import { Portrait } from "./Portrait";
 import { DeathRows, EventRows } from "./Story";
 import { OwnTies } from "./Ties";
-import { STATUSES, TIE_FAMILIES, plural, tieWords } from "./ties";
+import { STATUSES, TIE_FAMILIES, plural, tieSaid, tieWords } from "./ties";
 import "./common.css";
 import "./people.css";
 
@@ -39,12 +39,28 @@ function Standing({ node, being }: { node: BeingNode; being: Being }) {
   const between = hangs ? [] : chain.slice(chain.indexOf(head) + 1, -1);
   const reading = node.kind === "identity" ? "as the same being as" : node.kind === "form" ? "as a form of" : node.kind === "vessel" ? "as haunted by" : "as a role worn by";
   const evidence = [...new Set(chain.flatMap((n) => n.step?.evidence ?? []))];
+  // Where the data gives the link in the records' own words, those are the sentence: "a form of" or
+  // "the same being as" would say more than they do. This page's own record is "this figure".
+  const told = node.step?.says ? node.step : null;
+  const said = told ? tieSaid(told) : null;
+  const next = node.parent ?? being.root;
   return (
     <div className="person-standing" data-level={levelOf(node.status)}>
       <p className="person-standing__line">
-        The model reads this figure {reading} <Name id={head.id} as="title" />
-        {between.length > 0 && <>, by way of {between.map((n, i) => <span key={n.id}>{i > 0 && " and "}<Name id={n.id} as="title" /></span>)}</>}.
-        {head !== being.root && <> <Name id={head.id} as="plain" /> in turn belongs to <Name id={being.root.id} as="title" />.</>}
+        {told && said ? (
+          <>
+            {told.from === node.id
+              ? <>This figure{said.before && ` ${said.before}`} <Name id={told.to} as="title" />{said.after}.</>
+              : <><Name id={told.from} as="title" alone />{said.before && ` ${said.before}`} this figure{said.after}.</>}
+            {next !== being.root && <> <Name id={next.id} as="plain" alone /> in turn belongs to <Name id={being.root.id} as="title" />.</>}
+          </>
+        ) : (
+          <>
+            The model reads this figure {reading} <Name id={head.id} as="title" />
+            {between.length > 0 && <>, by way of {between.map((n, i) => <span key={n.id}>{i > 0 && " and "}<Name id={n.id} as="title" /></span>)}</>}.
+            {head !== being.root && <> <Name id={head.id} as="plain" alone /> in turn belongs to <Name id={being.root.id} as="title" />.</>}
+          </>
+        )}
       </p>
       <p className="person-standing__how">
         <StatusMark value={node.status} variant="inline" long />
@@ -105,15 +121,35 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
   ];
 
   return (
-    <Page title={p.name} kind="Person" className="person-page">
+    <Page title={capitalise(p.name)} kind="Person" className="person-page">
       <PageHeader
         className="ppl-head"
-        crumbs={[{ to: "/people", label: "People" }, { label: p.name }]}
+        crumbs={[{ to: "/people", label: "People" }, { label: capitalise(p.name) }]}
         kicker={`${GROUP_LABEL[p.group] ?? "People"} · ${descriptor ? "Descriptor" : "Canon name"}`}
-        title={<span className={descriptor ? "name-desc" : "name-canon"}>{smartQuotes(p.name)}</span>}
+        title={<span className={descriptor ? "name-desc" : "name-canon"}>{smartQuotes(capitalise(p.name))}</span>}
         aside={p.image ? <Portrait file={p.image} /> : undefined}
       >
-        {p.aliases.length > 0 && <p className="person-head__aliases"><span className="label">Also</span> {p.aliases.map(smartQuotes).join(" · ")}</p>}
+        {/* What the name is, and every other name with the mark the data gives it: a descriptor is
+            the archive's own wording, and the names beside it say what the games, Scott or fans
+            call the same figure. */}
+        {(descriptor || p.aliases.length > 0) && (
+          <dl className="person-names">
+            {descriptor && <div><dt className="label">Name</dt><dd>This is the archive’s descriptor; no game prints it.</dd></div>}
+            {p.aliases.length > 0 && (
+              <div>
+                <dt className="label">Also</dt>
+                <dd>
+                  <ul className="person-names__list">
+                    {p.aliases.map((a) => {
+                      const { name, mark } = aliasParts(a);
+                      return <li key={a}><span className="person-names__name">{smartQuotes(name)}</span>{mark && <span className="alias-mark"> ({smartQuotes(mark)})</span>}</li>;
+                    })}
+                  </ul>
+                </dd>
+              </div>
+            )}
+          </dl>
+        )}
         {me.parent && <Standing node={me} being={being} />}
         <p className="ppl-summary"><RichText text={p.summary} /></p>
       </PageHeader>
@@ -127,11 +163,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
         )}
         <Facts className="ppl-file__facts">
           <Fact label="First appearance"><GameMark id={p.firstAppearance} variant="full" link /></Fact>
-          <Fact label="Name">
-            {descriptor
-              ? <>The games never give this name. “{smartQuotes(p.name)}” is the archive’s own neutral descriptor.</>
-              : <>A name the canon gives.</>}
-          </Fact>
+          {!descriptor && <Fact label="Name">A name the canon gives.</Fact>}
           {p.evidence.length > 0 && <Fact label="Established by"><CiteList ids={p.evidence} variant="code" /></Fact>}
           {view.places.length > 0 && (
             <Fact label="Places in the records">

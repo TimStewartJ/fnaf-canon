@@ -260,7 +260,8 @@ function Method() {
               archive as records{BOOKS_CHAPTER && <>, and the chapter <Link to={chapterPath(BOOKS_CHAPTER.id)}>{smartQuotes(BOOKS_CHAPTER.title)}</Link> weighs them</>}.
               The archive takes the strict line regardless: every conclusion has to stand on the games and Scott’s words alone.
             </p>
-            <p>
+            {/* The anchor that "nobody by that name" links to, from the People search and the search palette. */}
+            <p id="names">
               One consequence is that names found only in the books are never used here. Where the games give no name, the archive uses a plain descriptor
               and sets it in italic wherever people are listed.
             </p>
@@ -341,7 +342,7 @@ function Method() {
           <div className="prose">
             <p>
               The games print very few dates, so every date on this site says what kind of date it is. Select a date to see the reasoning and the records
-              behind it{SAMPLE_DATE && <>, as with this one from the storyline: <RichText text={SAMPLE_DATE} /></>}.
+              behind it{SAMPLE_DATE && <>, as with this one from the storyline: <RichText text={SAMPLE_DATE} opens={false} /></>}.
             </p>
           </div>
           <dl className="method-dates">

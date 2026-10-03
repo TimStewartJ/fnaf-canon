@@ -47,8 +47,10 @@ const DEFAULT_ROUTES = [
   "/timeline", "/timeline?view=locations", "/timeline?era=murders",
   // Evidence: the explorer plain and filtered, a record, sources (one full, one with a single group, one with no records), the gallery.
   "/evidence", "/evidence?game=fnaf4&img=1", "/evidence/fnaf2-take-cake-to-the-children", "/sources", "/sources/fnaf4", "/sources/fnaf4-halloween", "/sources/freddy-in-space-2", "/gallery",
-  // People and places: the register, the people with most on them, the trees, the web, places.
-  "/people", "/people/william-afton", "/people/fazbear-entertainment", "/people/crying-child", "/family", "/graph", "/places", "/places/fredbears-family-diner", "/places/private-room",
+  // People and places: the register (plain, found by an alias, nobody found), the people with most on them, a descriptor with
+  // marked aliases and a long name, the trees, the web, places.
+  "/people", "/people?q=glitchtrap", "/people?q=henry", "/people/william-afton", "/people/fazbear-entertainment", "/people/crying-child", "/people/scraptrap",
+  "/family", "/family?tree=pizzaplex", "/graph", "/places", "/places/fredbears-family-diner", "/places/private-room",
   // Essays, the fixtures, and every kind of dead end.
   "/box", "/community", "/author", "/method", "/dev/blocks", "/dev/kit", ...NOT_FOUND,
 ];

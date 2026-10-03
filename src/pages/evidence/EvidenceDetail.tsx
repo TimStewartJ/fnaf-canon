@@ -6,7 +6,7 @@ import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
-  RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieWords, timelineEventPath,
+  RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
 import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
@@ -243,12 +243,16 @@ export default function EvidenceDetail() {
               {bl.relations.length > 0 && (
                 <Block label="Relationships it supports">
                   <ul className="evx-rels">
-                    {bl.relations.map((r, i) => (
-                      <li key={i}>
-                        <StatusMark value={r.status} variant="glyph" />
-                        <span><EntityLink id={r.from} /> <span className="muted">{tieWords(r.kind).says}</span> <EntityLink id={r.to} /></span>
-                      </li>
-                    ))}
+                    {bl.relations.map((r, i) => {
+                      // The tie in the records' own words where the data gives them, else the kind's verb.
+                      const said = tieSaid(r);
+                      return (
+                        <li key={i}>
+                          <StatusMark value={r.status} variant="glyph" />
+                          <span><EntityLink id={r.from} alone /> <span className="muted">{said.before}</span> <EntityLink id={r.to} />{said.after && <span className="muted">{said.after}</span>}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </Block>
               )}

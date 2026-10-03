@@ -3,7 +3,7 @@ import type { Relation, Status } from "../../data/schema";
 import { CiteList, FirmGlyph, firmness, levelOf, smartQuotes } from "../../components/ui";
 import { GroupLabel } from "./Dossier";
 import { Name } from "./Names";
-import { TIE_FAMILY_LABEL, byFamily, sentenceCase, tieWords } from "./ties";
+import { TIE_FAMILY_LABEL, byFamily, sentenceCase, tieSaid, tieWords, type TieTold } from "./ties";
 
 /**
  * One tie as a row: the firmness glyph, a sentence, the firmness in words, a note, and the
@@ -23,14 +23,32 @@ export function TieRow({ status, children, note, evidence, extra }: { status: St
   );
 }
 
-/** The sentence of a tie with both ends named: "William Afton is the parent of Michael Afton". */
-export function TieSentence({ r }: { r: { from: string; to: string; kind: string } }) {
-  return <><Name id={r.from} /> {tieWords(r.kind).says} <Name id={r.to} /></>;
+/**
+ * The sentence of a tie with both ends named: "William Afton is the parent of Michael". Where the
+ * data gives the tie in the records' own words, those stand in place of the kind's verb.
+ */
+export function TieSentence({ r }: { r: TieTold }) {
+  const { before, after } = tieSaid(r);
+  return <><Name id={r.from} alone />{before && ` ${before}`} <Name id={r.to} />{after}</>;
+}
+
+/**
+ * A tie in the records' own words, told by its first end, without that end's name: "Calls William
+ * Afton “old friend”". `capital` is for a phrase that opens a row or a sentence.
+ */
+export function TieSaid({ r, capital = false }: { r: TieTold; capital?: boolean }) {
+  const { before, after } = tieSaid(r);
+  return before
+    ? <>{capital ? sentenceCase(before) : before} <Name id={r.to} />{after}</>
+    : <><Name id={r.to} alone={capital} />{after}</>;
 }
 
 /**
  * A person's ties to others, each told from that person's side ("Parent of …", "Killed by …").
- * A tie that belongs to another record of the same person says so ("As the Purple Man, killed …").
+ * A tie that belongs to another record of the same person says so ("As the purple man, killed …").
+ * A tie the data gives in the records' own words runs from its first name to its second and
+ * cannot be turned round: the first end tells it ("Calls … “old friend”"), and on the page of the
+ * second it is given whole.
  */
 export function OwnTies({ rels, all = rels, pageId, scope }: { rels: readonly Relation[]; all?: readonly Relation[]; pageId: string; scope: ReadonlySet<string> }) {
   const groups = byFamily(rels, (r) => r.kind);
@@ -51,7 +69,8 @@ export function OwnTies({ rels, all = rels, pageId, scope }: { rels: readonly Re
               const viaAlias = subject !== pageId;
               return (
                 <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}>
-                  {!w.known ? <TieSentence r={r} />
+                  {!w.known || (r.says && !fromSide) ? <TieSentence r={r} />
+                    : r.says ? (viaAlias ? <>As <Name id={subject} />, <TieSaid r={r} /></> : <TieSaid r={r} capital />)
                     : viaAlias ? <>As <Name id={subject} />, {phrase} <Name id={other} /></>
                     : <>{sentenceCase(phrase)} <Name id={other} /></>}
                 </TieRow>

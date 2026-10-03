@@ -4,8 +4,8 @@ import type { Person } from "../../data/schema";
 import { people } from "../../data/store";
 import { isFoldedAway, unifiedPeople } from "../../data/model";
 import {
-  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, Thumb, levelOf, personPath, plainText,
-  smartQuotes, useAddressText, settleHeader,
+  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, aliasParts, firmness, foldText, Thumb, levelOf,
+  namesOf, personPath, plainText, smartQuotes, sortName, useAddressText, settleHeader,
 } from "../../components/ui";
 import { DossierSection, JumpLinks } from "./Dossier";
 import { beingOf, evidenceOf, type BeingNode, type NodeKind } from "./identity";
@@ -24,11 +24,32 @@ interface Entry {
   others: BeingNode[];
   records: number;
   image?: string;
-  /** Lower-cased names and aliases per record id, for the search. */
+  /** Names and aliases per record id, as the search compares them. */
   hay: Map<string, string>;
 }
 
-const hayOf = (p: Person) => `${p.name} ${p.aliases.join(" ")}`.toLowerCase();
+/** What a person is found by: the name and every alias, without the marks that say where an alias comes from. */
+const hayOf = (p: Person) => foldText(namesOf(p).join(" \n "));
+
+/**
+ * The alias that answers a search when the name itself does not: a reader who types "glitchtrap"
+ * is shown the rabbit in the code, and has to be told why. Returned as the data writes it, with
+ * its mark ("Glitchtrap (Scott's working name)"): a name that is not the archive's own is never
+ * shown without one.
+ */
+function aliasHit(p: Person, needle: string): string | null {
+  if (!needle || foldText(p.name).includes(needle)) return null;
+  // The alias that is what was typed, before one that starts with it, before one that only contains it.
+  const rank = (a: string) => { const name = foldText(aliasParts(a).name); return name === needle ? 0 : name.startsWith(needle) ? 1 : name.includes(needle) ? 2 : 3; };
+  const best = [...p.aliases].sort((a, b) => rank(a) - rank(b))[0];
+  return best !== undefined && rank(best) < 3 ? best : null;
+}
+
+/** An alias with its mark, the mark set quieter. */
+function AliasText({ alias }: { alias: string }) {
+  const { name, mark } = aliasParts(alias);
+  return <>{smartQuotes(name)}{mark && <span className="alias-mark"> ({smartQuotes(mark)})</span>}</>;
+}
 
 function buildEntries(): Entry[] {
   const out: Entry[] = [];
@@ -50,20 +71,30 @@ function buildEntries(): Entry[] {
 /** The folded records of a person whose name or alias contains the search text, as one string (so a row re-renders only when its own hits change). */
 const hitsOf = (entry: Entry, needle: string) => (needle ? entry.others.filter((n) => entry.hay.get(n.id)?.includes(needle)).map((n) => n.id).join(" ") : "");
 
+/**
+ * The aliases that answer the search for a person and the records folded into them, where the
+ * names the row prints do not: "record id, tab, alias" per line. One string, like `hitsOf`, so a
+ * row is drawn again only when what it has to say changes.
+ */
+const viaOf = (entry: Entry, needle: string): string =>
+  needle ? [entry.root, ...entry.others.map((n) => n.person)].flatMap((who) => { const alias = aliasHit(who, needle); return alias ? [`${who.id}\t${alias}`] : []; }).join("\n") : "";
+
 /** One person: the name leads, then what became of them; the records folded into them sit below, smaller. */
-const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits: string }) {
+const PersonRow = memo(function PersonRow({ entry, hits, via: found }: { entry: Entry; hits: string; via: string }) {
   const p = entry.root;
   const status = plainText(p.status);
   const hitIds = new Set(hits ? hits.split(" ") : []);
+  // Found by an alias that the row does not print: say which, and whose it is.
+  const via = found ? found.split("\n").map((line) => { const [id, alias] = line.split("\t"); return { id, alias }; }) : [];
   return (
     <li className="ppl-row">
       <div className="ppl-row__who">
-        <h3 className="ppl-row__name"><Name id={p.id} as="title" /></h3>
+        <h3 className="ppl-row__name"><Name id={p.id} as="title" alone /></h3>
         <p className="ppl-row__meta"><GameMark id={p.firstAppearance} /> <span>{plural(entry.records, "record")}</span></p>
       </div>
       <div className="ppl-row__what">
         {/[\p{L}\p{N}]/u.test(status) && <p className="ppl-row__status">{smartQuotes(status)}</p>}
-        {entry.others.length > 0 && (
+        {(entry.others.length > 0 || via.length > 0) && (
           <dl className="ppl-row__aka">
             {AKA.map(([kind, label]) => {
               const nodes = entry.others.filter((n) => n.kind === kind).sort((a, b) => STATUS_RANK[b.status] - STATUS_RANK[a.status]);
@@ -83,7 +114,7 @@ const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits:
                           title={`${f.word}${n.step ? `: ${n.step.note ?? tieSentence(n.step)}` : ""}`}
                         >
                           <FirmGlyph level={levelOf(n.status)} />
-                          <Name id={n.id} as="plain" />
+                          <Name id={n.id} as="plain" alone />
                           <span className="sr-only"> ({f.word.toLowerCase()})</span>
                         </Link>
                       );
@@ -92,6 +123,18 @@ const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits:
                 </div>
               );
             })}
+            {via.length > 0 && (
+              <div className="ppl-aka ppl-aka--match">
+                <dt className="label">Match</dt>
+                <dd>
+                  {via.map(({ id, alias }) => (
+                    <span key={id} className="ppl-aka__match">
+                      <AliasText alias={alias} />{id !== p.id && <>, a name for <Name id={id} as="plain" /></>}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            )}
           </dl>
         )}
       </div>
@@ -104,11 +147,11 @@ const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits:
   );
 });
 
-/** Minor figures as an index: one short line each, under its first letter. */
-const MinorIndex = memo(function MinorIndex({ list }: { list: readonly Person[] }) {
+/** Minor figures as an index: one short line each, under its first letter. With a search, a figure found by an alias shows the alias. */
+const MinorIndex = memo(function MinorIndex({ list, needle = "" }: { list: readonly Person[]; needle?: string }) {
   const letters = new Map<string, Person[]>();
   for (const p of list) {
-    const first = p.name.replace(/^The /, "")[0]?.toUpperCase() ?? "#";
+    const first = sortName(p.name)[0]?.toUpperCase() ?? "#";
     const key = /[A-Z]/.test(first) ? first : "#";
     letters.set(key, [...(letters.get(key) ?? []), p]);
   }
@@ -118,15 +161,21 @@ const MinorIndex = memo(function MinorIndex({ list }: { list: readonly Person[] 
         <div key={letter} className="ppl-index__group">
           <h3 className="label ppl-index__letter">{letter}</h3>
           <ul className="ppl-index__list">
-            {ps.map((p) => (
-              <li key={p.id}>
-                <Link to={personPath(p.id)} className="ppl-index__link">
-                  <GameMark id={p.firstAppearance} variant="dot" />
-                  <span className="ppl-index__name">{smartQuotes(p.name)}</span>
-                  <span className="ppl-index__n" aria-label={plural(p.evidence.length, "record")}>{p.evidence.length}</span>
-                </Link>
-              </li>
-            ))}
+            {ps.map((p) => {
+              const also = aliasHit(p, needle);
+              return (
+                <li key={p.id}>
+                  <Link to={personPath(p.id)} className="ppl-index__link">
+                    <GameMark id={p.firstAppearance} variant="dot" />
+                    <span className="ppl-index__name">
+                      <Name id={p.id} as="plain" alone />
+                      {also && <span className="ppl-index__also">also <AliasText alias={also} /></span>}
+                    </span>
+                    <span className="ppl-index__n" aria-label={plural(p.evidence.length, "record")}>{p.evidence.length}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ))}
@@ -138,9 +187,9 @@ export default function People() {
   const [q, setQ] = useAddressText("q");
   // The box answers each keystroke at once; the list follows a moment behind, and rows that do not change are not drawn again.
   const asked = useDeferredValue(q.trim());
-  const needle = asked.toLowerCase();
+  const needle = foldText(asked);
   const entries = useMemo(() => buildEntries(), []);
-  const minor = useMemo(() => people.filter((p) => p.group === "other" && !isFoldedAway(p.id)).sort((a, b) => a.name.replace(/^The /, "").localeCompare(b.name.replace(/^The /, ""))), []);
+  const minor = useMemo(() => people.filter((p) => p.group === "other" && !isFoldedAway(p.id)).sort((a, b) => sortName(a.name).localeCompare(sortName(b.name), undefined, { sensitivity: "base" })), []);
   const folded = useMemo(() => entries.reduce((n, e) => n + e.others.length, 0), [entries]);
 
   const shown = useMemo(() => (needle ? entries.filter((e) => [...e.hay.values()].some((h) => h.includes(needle))) : entries), [entries, needle]);
@@ -204,7 +253,7 @@ export default function People() {
             count={plural(list.length, "profile")}
             lead={needle ? undefined : g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other figure")} folded into them.` : undefined}
           >
-            <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} hits={hitsOf(e, needle)} />)}</ul>
+            <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} hits={hitsOf(e, needle)} via={viaOf(e, needle)} />)}</ul>
           </DossierSection>
         );
       })}
@@ -218,12 +267,17 @@ export default function People() {
           lead="Named or shown in the evidence, without a profile of their own. Each opens the records filed under it."
         >
           {needle
-            ? <MinorIndex list={shownMinor} />
+            ? <MinorIndex list={shownMinor} needle={needle} />
             : <Collapsible summary="Every minor figure, A to Z" meta={plural(minor.length, "name")}>{() => <MinorIndex list={minor} />}</Collapsible>}
         </DossierSection>
       )}
 
-      {nobody && <Empty title="Nobody by that name">No person, alias or minor figure matches “{asked}”.</Empty>}
+      {nobody && (
+        <Empty title="Nobody by that name">
+          No person, alias or minor figure matches “{asked}”. The archive uses only names that the games print or
+          speak. <Link to="/method#names">How the archive names people</Link>
+        </Empty>
+      )}
     </Page>
   );
 }

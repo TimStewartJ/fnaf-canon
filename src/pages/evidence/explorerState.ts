@@ -20,7 +20,7 @@
 import type { Evidence } from "../../data/schema";
 import { allTags, evidence, games, labelForEntity, personById, placeById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
-import { CERTAINTY, KIND_LABEL, smartQuotes } from "../../components/ui";
+import { CERTAINTY, KIND_LABEL, entityName, namesOf, smartQuotes, sortName } from "../../components/ui";
 import { isPlace, placeOf, type Place } from "./coverage";
 
 export type Sort = "match" | "time" | "game";
@@ -109,6 +109,9 @@ export function appliedCount(query: Query): number {
 
 /* ── Search text ───────────────────────────────────────────────────────────────── */
 
+/** Every name of a person or place: its own, and for a person each alias without its mark. */
+const everyName = (id: string): string[] => { const p = personById.get(id); return p ? namesOf(p) : [labelForEntity(id)]; };
+
 /** Lower case, with typographic quotes and dashes made plain so a phone keyboard's “smart” punctuation still matches. */
 export const fold = (s: string): string =>
   s.toLowerCase().replace(/[\u2018\u2019\u02BC]/g, "'").replace(/[\u201C\u201D]/g, '"').replace(/[\u2013\u2014]/g, "-");
@@ -143,7 +146,8 @@ function index(): Entry[] {
     const ents = [...(e.people ?? []), ...(e.places ?? [])];
     const title = fold(e.title), claim = fold(e.claim), quote = fold(e.quote ?? ""), location = fold(e.location);
     const rest = fold([
-      e.notes ?? "", (e.tags ?? []).join(" "), ents.join(" "), ents.map(labelForEntity).join(" "),
+      // A record is found by every name of the people filed on it: the archive's own and each alias ("Glitchtrap").
+      e.notes ?? "", (e.tags ?? []).join(" "), ents.join(" "), ents.flatMap(everyName).join(" "),
       titles.get(e.game) ?? "", gameMeta(e.game).short, KIND_LABEL[e.kind] ?? e.kind, e.when.label,
     ].join(" \n "));
     return {
@@ -268,17 +272,23 @@ export function runQuery(query: Query, text: string): Outcome {
 
 /* ── Options for the two pickers ───────────────────────────────────────────────── */
 
-export interface Option { id: string; label: string; count: number; hint?: "Person" | "Place" | "Person or place" }
+export interface Option {
+  id: string; label: string; count: number; hint?: "Person" | "Place" | "Person or place";
+  /** Other names the entry answers to, as the data writes them (each with its mark, if it has one). */
+  aliases?: readonly string[];
+}
 
 /** What an id names. The store knows every id used on a record; an id that only a URL carries is not guessed at. */
 export const entityKind = (id: string): "Person" | "Place" | "Person or place" => (personById.has(id) ? "Person" : placeById.has(id) ? "Place" : "Person or place");
 
-let everyEntity: { id: string; label: string; hint: Option["hint"] }[] | null = null;
+let everyEntity: Omit<Option, "count">[] | null = null;
+/** An entry of the picker: the name as it stands alone, and the aliases it can also be found by. */
+const entityOption = (id: string): Omit<Option, "count"> => ({ id, label: entityName(id, true), hint: entityKind(id), aliases: personById.get(id)?.aliases });
 /** Every person and place id that appears on a record, with its name, in order of name. Built once. */
 function entityList() {
   return (everyEntity ??= [...new Set(index().flatMap((x) => x.entities))]
-    .map((id) => ({ id, label: labelForEntity(id), hint: entityKind(id) }))
-    .sort((a, b) => a.label.localeCompare(b.label)));
+    .map(entityOption)
+    .sort((a, b) => sortName(a.label).localeCompare(sortName(b.label), undefined, { sensitivity: "base" })));
 }
 
 /** Most used first. The sort is stable, so entries with the same count keep their order by name. */
@@ -296,7 +306,7 @@ export function tagOptions(counts: Map<string, number>, current: string): Option
 /** The same for people and places. */
 export function entityOptions(counts: Map<string, number>, current: string): Option[] {
   const all = entityList();
-  const list = current && !all.some((x) => x.id === current) ? [...all, { id: current, label: labelForEntity(current), hint: entityKind(current) }] : all;
+  const list = current && !all.some((x) => x.id === current) ? [...all, entityOption(current)] : all;
   return list.map((x) => ({ ...x, count: counts.get(x.id) ?? 0 })).sort(byUse);
 }
 

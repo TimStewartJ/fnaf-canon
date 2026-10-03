@@ -1,5 +1,5 @@
 /** Measuring hooks and helpers for the diagrams. No components here. */
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /**
  * The width of an element's content box, kept up to date. Put the returned ref on the element.
@@ -49,6 +49,40 @@ export function textWidth(text: string, sizePx: number, token: string, style = "
 
 /** The reader's base font size as a multiple of the usual 16px (1.25 when their browser is set to 20px). Sizes given in rem grow by this. */
 export const remScale = (): number => (typeof document === "undefined" ? 1 : (parseFloat(getComputedStyle(document.documentElement).fontSize) || 16) / 16);
+
+/**
+ * A design token that holds a length ("--fs-xs"), in pixels, as the page resolves it now. The type
+ * tokens are written in rem, and the small ones step up on a phone, so a diagram that lays text
+ * out in pixels asks here and never carries a size of its own.
+ */
+export function tokenPx(token: string): number {
+  if (typeof document === "undefined") return 0;
+  const style = getComputedStyle(document.documentElement);
+  const raw = style.getPropertyValue(token).trim();
+  const n = parseFloat(raw);
+  if (!Number.isFinite(n)) return 0;
+  return raw.endsWith("rem") ? n * (parseFloat(style.fontSize) || 16) : n;
+}
+
+/**
+ * The page's type scale, kept up to date: `rem` is the base size as a multiple of 16px, `px` the
+ * given tokens in pixels. It changes with the reader's text-size setting, with the browser's own
+ * base size, and when the window crosses the width at which the small sizes step up. Pass a
+ * constant list of tokens.
+ */
+export function useTypeScale(tokens: readonly string[]): { rem: number; px: number[] } {
+  const read = useCallback(() => [remScale(), ...tokens.map(tokenPx)].join("|"), [tokens]);
+  const [scale, setScale] = useState(read);
+  useEffect(() => {
+    const again = () => setScale(read());
+    // The reader's settings are attributes of the root element; a type breakpoint is crossed by a resize.
+    const seen = new MutationObserver(again);
+    seen.observe(document.documentElement, { attributes: true });
+    window.addEventListener("resize", again);
+    return () => { seen.disconnect(); window.removeEventListener("resize", again); };
+  }, [read]);
+  return useMemo(() => { const [rem, ...px] = scale.split("|").map(Number); return { rem, px }; }, [scale]);
+}
 
 /** Forgets measured widths (call when the fonts have finished loading: widths taken before were of a fallback face). */
 export function forgetTextWidths() {

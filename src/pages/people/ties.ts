@@ -5,10 +5,9 @@
  * on from here so the cluster has one place to import from. No components here.
  */
 import type { Relation, Status } from "../../data/schema";
-import { labelForEntity } from "../../data/store";
-import { TIE_FAMILIES, tieSentence, tieWords, type TieFamily } from "../../components/ui";
+import { TIE_FAMILIES, entityName, tieSentence, tieWords, type TieFamily } from "../../components/ui";
 
-export { TIE_FAMILIES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, tieSentence, tieWords, type TieFamily, type TieWords } from "../../components/ui";
+export { TIE_FAMILIES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, tieSaid, tieSentence, tieWords, type TieFamily, type TieTold, type TieWords } from "../../components/ui";
 
 /** The relation kinds the identity model is built from. A tie of this kind inside one being is part of its identity. */
 const IDENTITY_KINDS = new Set(["same-as", "possesses", "wore", "became"]);
@@ -18,9 +17,6 @@ export const STATUS_RANK: Record<Status, number> = { canon: 3, strong: 2, theory
 export const STATUSES: Status[] = ["canon", "strong", "theory"];
 export const weakest = (list: Status[]): Status => list.reduce<Status>((w, s) => (STATUS_RANK[s] < STATUS_RANK[w] ? s : w), "canon");
 export const strongest = (list: Status[]): Status => list.reduce<Status>((w, s) => (STATUS_RANK[s] > STATUS_RANK[w] ? s : w), "theory");
-
-/** "The Cassette Man" → "the Cassette Man" inside a sentence; other names are left alone. */
-export const midSentence = (name: string): string => name.replace(/^The /, "the ");
 
 /** First letter upper-cased, for a phrase that opens a row. */
 export const sentenceCase = (text: string): string => (text ? text[0].toUpperCase() + text.slice(1) : text);
@@ -61,6 +57,6 @@ const statusWord: Record<Status, string> = { canon: "canon", strong: "strong inf
 export function tieTitle(tie: DrawnTie): string {
   const said = tie.rels.map((r) => `${tieSentence(r)} (${statusWord[r.status] ?? r.status})`).join("; ");
   if (!tie.folds.length) return said;
-  const folds = tie.folds.map((f) => `${labelForEntity(f.record)} is shown as ${labelForEntity(f.into)} (${statusWord[f.status] ?? f.status})`).join("; ");
+  const folds = tie.folds.map((f) => `${entityName(f.record, true)} is shown as ${entityName(f.into)} (${statusWord[f.status] ?? f.status})`).join("; ");
   return `${said}. ${folds}. Drawn as ${statusWord[tie.status] ?? tie.status}.`;
 }

@@ -21,6 +21,12 @@
 .ppl-aka__link.is-hit { color: var(--c-text); font-weight: 600; text-decoration-color: var(--c-accent); background: var(--c-accent-soft); box-shadow: 0 0 0 3px var(--c-accent-soft); }
 /* Stacked rows of these touch each other, so on a touch screen each is a full 40px tall. */
 @media (pointer: coarse) { .ppl-aka__link { padding-block: 0.6rem; } }
+/* Found by an alias the row does not print: the alias with its mark, and whose name it is. */
+.ppl-aka--match > dd { display: grid; gap: 0.15rem; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text); }
+.ppl-aka__match { padding-block: 0.125rem; }
+.alias-mark { color: var(--c-text-2); }
+/* The italic text face runs smaller than the interface face beside it: a step up, as on chips (richtext.css). */
+.ppl-aka__link .name-desc, .ppl-aka__match .name-desc, .ppl-index__name .name-desc { font-size: 1.07em; }
 
 /* Minor figures: an index in columns, one short line each. */
 .ppl-index { columns: 13rem auto; column-gap: var(--sp-6); }
@@ -32,14 +38,20 @@
 .ppl-index__link:hover { color: var(--c-accent-strong); }
 .ppl-index__link:hover .ppl-index__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 .ppl-index__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+.ppl-index__also { display: block; line-height: 1.4; color: var(--c-text-2); }
 @media (max-width: 40em) { .ppl-index { columns: 2; column-gap: var(--sp-4); } }
 @media (pointer: coarse) { .ppl-index__link { padding-block: 0.6rem; } }
 
 /* ── Person page ───────────────────────────────────────────────────
  * A dossier: who this is, what became of them, who else they are, who they are tied to, where they
  * appear in the story and in the theory, then the evidence. Sections are .ppl-sec (common.css). */
-.person-head__aliases { margin: 0 0 var(--sp-4); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
-.person-head__aliases > .label { display: inline; margin-right: 0.5em; }
+/* Under the name: what kind of name it is, and each other name on a line of its own with the mark the data gives it. */
+.person-names { display: grid; gap: 0.3rem; max-width: var(--measure); margin: 0 0 var(--sp-4); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.person-names > div { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; }
+.person-names dd { margin: 0; }
+.person-names__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.person-names__list > li { margin: 0; }
+.person-names__name { color: var(--c-text); }
 
 /* For a record folded into another: what the model reads it as. The left rule is drawn in the firmness of the chain. */
 .person-standing { max-width: var(--measure); margin: 0 0 var(--sp-5); padding: var(--sp-1) 0 var(--sp-1) var(--sp-4); border-left: 3px var(--firm-style, solid) var(--c-accent); }
@@ -73,6 +85,7 @@
 .person-tree__name a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
 .person-tree__name a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 .person-tree__how { margin: 0.15rem 0 0; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-2); }
+.person-tree__said { max-width: 38rem; margin: 0.3rem 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text); text-wrap: pretty; }
 .person-tree__note { max-width: 38rem; margin: 0.3rem 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
 .person-tree__also { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-3); margin: var(--sp-2) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .person-tree__also-status { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); white-space: nowrap; }

@@ -1,4 +1,5 @@
 import { useCallback, useDeferredValue, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, games } from "../../data/store";
@@ -184,6 +185,8 @@ export default function EvidenceExplorer() {
           {results.length === 0 ? (
             <Empty title="No records match" action={<Button onClick={clearAll}>Clear all filters</Button>}>
               {text.trim() && filters > 0 ? "Try fewer filters, or a different word." : text.trim() ? "Try a different word, or fewer words." : "No record fits every filter that is set. Remove one to widen the search."}
+              {/* A name from the novels, typed here or sent on from the search palette, finds nothing by design: say why. */}
+              {text.trim() && <> The archive uses only names that the games print or speak. <Link to="/method#names">How the archive names people</Link></>}
             </Empty>
           ) : (
             <div ref={listRef} className={`evx-results evx-results--${query.view}`}>

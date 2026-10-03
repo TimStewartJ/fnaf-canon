@@ -59,6 +59,18 @@ export const fxChapters: TheorySection[] = [
       },
       { kind: "evidence", title: "An exhibit strip with a title", ids: ["fnaf1-news-five-children", "ffps-scup-blueprint", "fnaf2-give-gifts-give-life", "fnaf3-n5-springlock-death", "this-id-does-not-exist"] },
       { kind: "evidence", ids: ["ucn-omc-ending"] },
+      { kind: "heading", text: "Names where a sentence starts" },
+      // Names are stored as they run in a sentence; RichText gives one a capital where a sentence starts.
+      "{{glitchtrap}} opens this paragraph, so the name starts with a capital. Inside a sentence {{glitchtrap}} keeps its small letter. After a full stop and a marker it has a capital again [[ffps-completion-fire]]. {{cassette-man}} follows the marker. He says “I am nearby.” {{crying-child}} follows a closing quotation mark. Who is it? {{puppet}} follows a question. A name in bold inside a sentence stays small, as in **{{scraptrap}}**. **{{scraptrap}}** in bold where a sentence starts does not. Mr. {{william-afton}} and c. {{crying-child}} follow short forms, which end nothing.",
+      { kind: "list", items: ["{{crying-child}} opens a list item.", "A second item names {{crying-child}} inside its sentence."] },
+      {
+        kind: "table", head: ["Who", "Where the name stands"],
+        rows: [
+          ["{{glitchtrap}}", "{{glitchtrap}} opens a cell; later in the cell {{glitchtrap}} does not."],
+          ["{{cassette-man}}", "A cell that starts with other words, then {{cassette-man}}."],
+        ],
+      },
+      { kind: "figure", image: "fnaf4-plush-with-pupils.png", caption: "{{crying-child}} opens a caption; inside it {{crying-child}} keeps the small letter." },
       "A closing paragraph after the blocks, citing a record that does not exist [[this-id-does-not-exist]] to show how a broken citation looks.",
     ],
     counterEvidence: ["ucn-omc-ending", "scott-2017-one-retcon", "fnaf1-call1-bite-of-87"],

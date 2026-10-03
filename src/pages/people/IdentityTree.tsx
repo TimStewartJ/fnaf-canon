@@ -1,6 +1,6 @@
-import { CiteList, FirmGlyph, GameMark, firmness, levelOf, smartQuotes } from "../../components/ui";
+import { CiteList, FirmGlyph, GameMark, entityName, firmness, levelOf, smartQuotes } from "../../components/ui";
 import { Name } from "./Names";
-import { TieSentence } from "./Ties";
+import { TieSaid, TieSentence } from "./Ties";
 import type { Being, BeingNode, NodeKind } from "./identity";
 
 /** What a record is to the record it hangs from. */
@@ -20,15 +20,20 @@ function TreeItem({ node, currentId, rootName }: { node: BeingNode; currentId: s
         {!root && <span className="person-tree__link" aria-hidden><LinkLine /><FirmGlyph level={step.level} /></span>}
         <div className="person-tree__main">
           <p className="person-tree__name">
-            {current ? <span aria-current="page"><Name id={node.id} as="plain" /></span> : <Name id={node.id} as="title" />}
+            {current ? <span aria-current="page"><Name id={node.id} as="plain" alone /></span> : <Name id={node.id} as="title" alone />}
             <GameMark id={node.person.firstAppearance} />
             {current && <span className="chip" data-tone="accent">This page</span>}
           </p>
           <p className="person-tree__how">
             {root
               ? "The figure the others fold into"
+              : node.step?.says ? step.word
               : <>{KIND_WORD[node.kind]}<span aria-hidden> · </span><span className="sr-only">, </span>{step.word}</>}
           </p>
+          {/* The link in the records' own words, where the data gives them: "same being" or "form" would say more than they do. */}
+          {!root && node.step?.says && (
+            <p className="person-tree__said">{node.step.from === node.id ? <TieSaid r={node.step} capital /> : <TieSentence r={node.step} />}.</p>
+          )}
           {node.step?.note && <p className="person-tree__note">{smartQuotes(node.step.note)}</p>}
           {!root && node.status !== node.stepStatus && (
             <p className="person-tree__note">A link higher up is weaker, so the tie to {rootName} is {firmness("status", node.status).word.toLowerCase()} at best.</p>
@@ -60,8 +65,8 @@ function TreeItem({ node, currentId, rootName }: { node: BeingNode; currentId: s
  */
 export function IdentityTree({ being, currentId }: { being: Being; currentId: string }) {
   return (
-    <ul className="person-tree" aria-label={`The figures the model folds into ${being.root.person.name}`}>
-      <TreeItem node={being.root} currentId={currentId} rootName={being.root.person.name} />
+    <ul className="person-tree" aria-label={`The figures the model folds into ${entityName(being.root.id)}`}>
+      <TreeItem node={being.root} currentId={currentId} rootName={entityName(being.root.id)} />
     </ul>
   );
 }
