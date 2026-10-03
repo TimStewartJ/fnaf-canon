@@ -1,11 +1,11 @@
 import { memo, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Image as ImageIcon, X } from "lucide-react";
 import type { Evidence } from "../../data/schema";
-import { gameById, labelForEntity } from "../../data/store";
+import { gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
-  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, sourceKindIcon, firmness, kindLabel, smartQuotes, sourceWordsPlain, useDrawerRecord,
-  useModalDialog, useSheetPull,
+  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, aliasParts, entityName, sourceKindIcon, firmness, kindLabel, smartQuotes, sourceWordsPlain,
+  useDrawerRecord, useModalDialog, useSheetPull,
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
 import "./evidence.css";
@@ -182,7 +182,7 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
             <Combo label="Tag" placeholder="Find a tag" options={tags} value={query.tag} valueLabel={query.tag ? `#${query.tag}` : ""} onChange={(id) => actions.set({ tag: id })} />
             <Combo
               label="Person or place" placeholder="Find a person or place" options={entities} value={query.entity}
-              valueLabel={query.entity ? labelForEntity(query.entity) : ""}
+              valueLabel={query.entity ? entityName(query.entity, true) : ""}
               onChange={(id) => actions.set({ entity: id })}
             />
             <label className="evx-field">
@@ -202,6 +202,9 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
 
 /* ── A small searchable picker ─────────────────────────────────────────────────── */
 
+/** The alias of an entry that holds what was typed, as the data writes it (with its mark), or undefined. */
+const aliasFor = (o: Option, typed: string): string | undefined => o.aliases?.find((a) => fold(aliasParts(a).name).includes(typed));
+
 const SHOWN = 30;
 
 /**
@@ -216,21 +219,23 @@ export function Combo({ label, placeholder, options: getOptions, value, valueLab
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const options = useMemo(() => (open ? getOptions() : []), [open, getOptions]);
+  const typed = fold(text.trim()).replace(/^#/, "");
   const found = useMemo(() => {
-    const t = fold(text.trim()).replace(/^#/, "");
+    const t = typed;
     const live = (o: Option) => o.count > 0;
     if (!t) return options;
     // Names that start with what was typed come first, and entries with records before those
-    // without; each bucket keeps the incoming order (most used first).
+    // without; each bucket keeps the incoming order (most used first). A person is also found by
+    // an alias ("glitchtrap"); the row then says which.
     const buckets: Option[][] = [[], [], [], []];
     for (const o of options) {
       const name = fold(o.label).replace(/^#/, "");
       const starts = name.startsWith(t) || o.id.startsWith(t);
-      if (!starts && !name.includes(t) && !o.id.includes(t)) continue;
+      if (!starts && !name.includes(t) && !o.id.includes(t) && !aliasFor(o, t)) continue;
       buckets[(live(o) ? 0 : 2) + (starts ? 0 : 1)].push(o);
     }
     return buckets.flat();
-  }, [options, text]);
+  }, [options, typed]);
   const root = useRef<HTMLDivElement | null>(null);
   // On touch the keyboard takes the lower half of the screen, so the picker always moves to the top of its box.
   useEffect(() => { if (open) reveal(root.current, window.matchMedia("(pointer: coarse)").matches); }, [open]);
@@ -287,7 +292,10 @@ export function Combo({ label, placeholder, options: getOptions, value, valueLab
                 onMouseEnter={live ? () => setActive(pickable.indexOf(o)) : undefined}
                 onClick={live ? () => pick(o) : undefined}
               >
-                <span className="evx-combo__name">{smartQuotes(o.label)}{o.hint && <span className="evx-combo__hint"> {o.hint}</span>}</span>
+                <span className="evx-combo__name">
+                  {smartQuotes(o.label)}{o.hint && <span className="evx-combo__hint"> {o.hint}</span>}
+                  {typed && !fold(o.label).includes(typed) && aliasFor(o, typed) && <span className="evx-combo__also">also {smartQuotes(aliasFor(o, typed)!)}</span>}
+                </span>
                 <span className="evx-opt__n">{count(o.count)}</span>
               </li>
             );
@@ -339,7 +347,7 @@ export function AppliedChips({ query, text, sort, searching, actions, after }: {
   if (query.tag) items.push({ key: "tag", name: "Tag", value: `#${query.tag}`, label: `Tag ${query.tag}`, remove: () => actions.set({ tag: "" }) });
   if (query.entity) {
     const kind = entityKind(query.entity);
-    const name = labelForEntity(query.entity);
+    const name = entityName(query.entity, true);
     items.push({ key: "entity", name: kind, value: smartQuotes(name), label: `${kind} ${name}`, remove: () => actions.set({ entity: "" }) });
   }
   if (query.img) items.push({ key: "img", name: "Only", value: "with a screenshot", label: "Only records with a screenshot", remove: () => actions.set({ img: false }) });

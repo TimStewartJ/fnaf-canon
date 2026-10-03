@@ -84,6 +84,7 @@
 .evx-combo__opt.is-dead { color: var(--c-text-3); cursor: default; }
 .evx-combo__opt.is-dead .evx-combo__name { opacity: 0.7; }
 .evx-combo__name { min-width: 0; overflow-wrap: anywhere; }
+.evx-combo__also { display: block; color: var(--c-text-3); }
 .evx-combo__hint { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.04em; text-transform: uppercase; color: var(--c-text-3); }
 .evx-combo__note { margin: 0; padding: 0.35rem 0.75rem; font-size: var(--fs-xs); color: var(--c-text-3); border-top: 1px solid var(--c-line); }
 .evx-combo__note:empty { display: none; }

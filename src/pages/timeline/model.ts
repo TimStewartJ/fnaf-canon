@@ -13,7 +13,10 @@ import { DEATH_KIND, type Death, type DeathKind } from "../../data/deaths";
 import { numberWord } from "../../components/typography";
 import { LOCATION_KIND, type LocationSpan } from "../../data/locations";
 import type { Status, TimelineEvent } from "../../data/schema";
-import { STATUS, chapterNumber, timelineEventPath } from "../../components/ui";
+import { STATUS, chapterNumber, entityName, timelineEventPath } from "../../components/ui";
+
+/** True for a person whose name is the archive's own descriptor (set in italic where people are listed). */
+export { isDescriptor } from "../../components/ui";
 
 export type Era = (typeof eras)[number];
 export type Layer = "all" | "events" | "deaths";
@@ -294,10 +297,9 @@ export const killerOptions: { key: string; n: number }[] = (() => {
 })();
 export const placeOptions = places.filter((p) => LOCATION_SPANS[p.id]);
 
-const dropThe = (name: string) => name.replace(/^The /, "");
-export const personName = (id: string): string => dropThe(labelForEntity(id));
-export const isDescriptor = (id: string): boolean => personById.get(id)?.nameStatus === "descriptor";
-export const killerName = (key: string): string => (key === UNKNOWN_KILLER ? "Unknown or not stated" : dropThe(labelForEntity(key)));
+/** A person's name on a chip, where it stands alone: with its capital, and with its article ("The one you should not have killed"). */
+export const personName = (id: string): string => entityName(id, true);
+export const killerName = (key: string): string => (key === UNKNOWN_KILLER ? "Unknown or not stated" : entityName(key, true));
 export const isUnknownKiller = (key: string): boolean => key === UNKNOWN_KILLER;
 export const placeName = (id: string): string => placeById.get(id)?.name ?? labelForEntity(id);
 export const causeLabel = (kind: string): string => (DEATH_KIND as Record<string, { label: string } | undefined>)[kind]?.label ?? kind;
