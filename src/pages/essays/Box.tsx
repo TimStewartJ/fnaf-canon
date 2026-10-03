@@ -7,7 +7,7 @@ import {
   EssayAnswers, EssayArgument, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
   type EssayAnswerItem,
 } from "./essay";
-import { answerId, citedIn, count, knownRecords, readingMinutes, recordOfImage, yearSpan } from "./essayModel";
+import { answerId, citedIn, countOverYears, facts, knownRecords, readingMinutes, recordOfImage } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./box.css";
@@ -29,7 +29,7 @@ const CITED = knownRecords([
   ...boxGuesses.flatMap((g) => citedIn(g.verdict)),
 ]);
 const ANSWERS: EssayAnswerItem[] = boxAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }));
-const FACTS = [count(boxTimeline.length, "dated step")];
+const FACTS = facts([boxTimeline.length, "dated step"]);
 const MINUTES = readingMinutes(boxAnswer.flatMap((a) => [a.short, ...a.body]));
 
 const StepRow = memo(function StepRow({ s }: { s: BoxStep }) {
@@ -54,7 +54,7 @@ function History() {
       id="history"
       kicker="The record, in order"
       title="The box, step by step"
-      lead={<p>{count(boxTimeline.length, "dated step")}, {yearSpan(boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+      lead={<p>{countOverYears(boxTimeline.length, "dated step", boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
       actions={<EssayToggleAll control={steps} what="steps" />}
     >
       <EssayRows control={steps} variant="spine" label="The box, step by step">
@@ -80,23 +80,26 @@ function Box() {
 
         <EssayArgument answers={boxAnswer} shown={HERO} />
 
-        <History />
+        {/* A list with nothing in it is not announced: the section goes with it. */}
+        {boxTimeline.length > 0 && <History />}
 
-        <EssaySection
-          id="guesses"
-          kicker="Not evidence"
-          title="What the community guessed"
-          lead={<p>Referenced, not used as evidence. See <Link to="/community">Theorists &amp; Scott</Link> for the wider picture.</p>}
-        >
-          <EssayRows label="What the community guessed">
-            {boxGuesses.map((g) => (
-              <EssayRow key={g.name} title={g.name} sub={smartQuotes(g.idea)}>
-                <p className="essay-text"><span className="label box-guess__label">Against the evidence</span><RichText text={g.verdict} /></p>
-                {g.source && <EssayRefs items={[g.source]} label="Where it was argued" />}
-              </EssayRow>
-            ))}
-          </EssayRows>
-        </EssaySection>
+        {boxGuesses.length > 0 && (
+          <EssaySection
+            id="guesses"
+            kicker="Not evidence"
+            title="What the community guessed"
+            lead={<p>Referenced, not used as evidence. See <Link to="/community">Theorists &amp; Scott</Link> for the wider picture.</p>}
+          >
+            <EssayRows label="What the community guessed">
+              {boxGuesses.map((g, i) => (
+                <EssayRow key={i} title={g.name} sub={smartQuotes(g.idea)}>
+                  <p className="essay-text"><span className="label box-guess__label">Against the evidence</span><RichText text={g.verdict} /></p>
+                  {g.source && <EssayRefs items={[g.source]} label="Where it was argued" />}
+                </EssayRow>
+              ))}
+            </EssayRows>
+          </EssaySection>
+        )}
 
         <EssaySources ids={CITED} />
         <EssayMore current="/box" />

@@ -8,7 +8,7 @@ import {
 import {
   EssayAnswers, EssayChapterLink, EssayEntry, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssayToggleAll, type EssayAnswerItem,
 } from "./essay";
-import { citedIn, count, knownRecords, sentenceList, tally, yearSpan } from "./essayModel";
+import { citedIn, count, countOverYears, facts, knownRecords, sentenceList, tally } from "./essayModel";
 import { hashTarget, useEssayAddress, useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./community.css";
@@ -23,7 +23,14 @@ const TALLY = tally(theories, (t) => t.verdict);
 /** The verdicts that at least one theory carries, in the scale's own order. */
 const PRESENT = VERDICTS.filter((v) => TALLY.get(v));
 const INFERRED = MOMENTS.filter((x) => x.confirmed !== "scott-confirmed").length;
-const SPAN = yearSpan(MOMENTS.map((x) => x.date));
+/** "24 dated moments, 2014 to 2024". */
+const MOMENTS_COUNTED = countOverYears(MOMENTS.length, "dated moment", MOMENTS.map((x) => x.date));
+/** How many of the moments rest on what: said once in the timeline's lead. */
+const MOMENTS_BASIS = INFERRED === 0
+  ? "All rest on Scott’s own words."
+  : INFERRED === MOMENTS.length
+    ? `${INFERRED === 1 ? "It is" : "All are"} fan-inferred and marked.`
+    : `${MOMENTS.length - INFERRED} ${MOMENTS.length - INFERRED === 1 ? "rests" : "rest"} on Scott’s own words; ${INFERRED} ${INFERRED === 1 ? "is" : "are"} fan-inferred and marked.`;
 /** Every record the page cites, in reading order. It fixes the citation numbers and is the source list. */
 const CITED = knownRecords([
   ...THEORIES.flatMap((t) => citedIn(t.right, t.wrong, t.scott)),
@@ -41,11 +48,11 @@ const ANSWERS: EssayAnswerItem[] = [
   }] : []),
   ...(MOMENTS.length ? [{
     q: "How did Scott respond?",
-    a: `He read the theories, gave YouTubers early access, answered on Steam and Reddit, pranked the fandom and put nods to it inside the games: ${count(MOMENTS.length, "dated moment")}${SPAN ? `, ${SPAN}` : ""}.`,
+    a: `He read the theories, gave YouTubers early access, answered on Steam and Reddit, pranked the fandom and put nods to it inside the games: ${MOMENTS_COUNTED}.`,
     to: "timeline", more: "The timeline",
   }] : []),
 ];
-const FACTS = [count(theories.length, "theory scored", "theories scored"), count(MOMENTS.length, "dated moment")];
+const FACTS = facts([theories.length, "theory scored", "theories scored"], [MOMENTS.length, "dated moment"]);
 const SOURCES_NOTE = "These records are the evidence for the judgements above. The theories and videos themselves are not evidence.";
 
 /** A theory: the row, and under it the verdict in a sentence, both sides of the ledger, Scott's reply, the archive's chapter, where it came from. */
@@ -164,11 +171,7 @@ function Moments() {
       title="Scott and the community, over time"
       lead={
         <p>
-          {count(MOMENTS.length, "dated moment")}{SPAN ? `, ${SPAN}` : ""}.{" "}
-          {INFERRED > 0
-            ? `${MOMENTS.length - INFERRED} rest on Scott’s own words; ${INFERRED} ${INFERRED === 1 ? "is" : "are"} fan-inferred and marked.`
-            : "All rest on Scott’s own words."}{" "}
-          Open one for the passage and the records behind it.
+          {MOMENTS_COUNTED}. {MOMENTS_BASIS} Open one for the passage and the records behind it.
         </p>
       }
       actions={<EssayToggleAll control={moments} what="moments" />}
@@ -199,8 +202,9 @@ function Community() {
           <EssayMeta facts={FACTS} cited={CITED.length} />
         </PageHeader>
 
-        <Theories />
-        <Moments />
+        {/* A list with nothing in it is not announced: the section goes with it. */}
+        {THEORIES.length > 0 && <Theories />}
+        {MOMENTS.length > 0 && <Moments />}
 
         <EssaySources ids={CITED} note={SOURCES_NOTE} />
         <EssayMore current="/community" />

@@ -101,6 +101,7 @@ export function EssayMeta({ minutes, cited, facts = [] }: { minutes?: number; ci
     ...facts,
     ...(cited > 0 ? [<button key="cited" type="button" className="essay-meta__sources" onClick={openSources}>{count(cited, "record")} cited</button>] : []),
   ];
+  if (parts.length === 0) return null;
   return (
     <p className="essay-meta">
       {parts.map((p, i) => <span key={i}>{i > 0 && <span aria-hidden> · </span>}{p}</span>)}
@@ -230,7 +231,7 @@ export function EssayRefs({ items, label = "Outside links", chip }: { items: rea
               {s.url
                 ? <a href={s.url} target="_blank" rel="noreferrer">{text}<Icon icon={ArrowUpRight} /><span className="sr-only"> (opens in a new tab)</span></a>
                 : <span>{text}</span>}
-              {s.reliability !== "primary" && <Chip>{chip ?? s.reliability}</Chip>}
+              {s.reliability && s.reliability !== "primary" && <Chip>{chip ?? s.reliability}</Chip>}
             </li>
           );
         })}

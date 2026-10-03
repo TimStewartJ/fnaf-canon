@@ -6,7 +6,7 @@ import {
   EssayAnswers, EssayArgument, EssayChapterLink, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
   type EssayAnswerItem,
 } from "./essay";
-import { answerId, citedIn, count, knownRecords, readingMinutes, yearSpan } from "./essayModel";
+import { answerId, citedIn, countOverYears, facts, knownRecords, readingMinutes } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./author.css";
@@ -30,9 +30,11 @@ const CITED = knownRecords([
   ...authorTimeline.flatMap((s) => [...citedIn(s.body), ...s.evidence]),
 ]);
 const ANSWERS: EssayAnswerItem[] = authorAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }));
-const FACTS = [count(readings.length, "reading tested", "readings tested"), count(authorTimeline.length, "dated step")];
+const FACTS = facts([readings.length, "reading tested", "readings tested"], [authorTimeline.length, "dated step"]);
 const MINUTES = readingMinutes(authorAnswer.flatMap((a) => [a.short, ...a.body]));
-const LINE_COUNT = lexicon.reduce((n, g) => n + g.lines.filter((l) => evidenceById.has(lineId(l))).length, 0);
+/** The vocabulary as it can be shown: lines whose record the archive holds, and the groups that still have a line. */
+const LEXICON = lexicon.map((g) => ({ ...g, lines: g.lines.filter((l) => evidenceById.has(lineId(l))) })).filter((g) => g.lines.length > 0);
+const LINE_COUNT = LEXICON.reduce((n, g) => n + g.lines.length, 0);
 
 const ReadingRow = memo(function ReadingRow({ r, id }: { r: Reading; id: string }) {
   return (
@@ -100,7 +102,7 @@ function History() {
       id="history"
       kicker="The record, in order"
       title="From Christian films to Freddy’s"
-      lead={<p>{count(authorTimeline.length, "dated step")}, {yearSpan(authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+      lead={<p>{countOverYears(authorTimeline.length, "dated step", authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
       actions={<EssayToggleAll control={steps} what="steps" />}
     >
       <EssayRows control={steps} variant="spine" label="From Christian films to Freddy’s">
@@ -130,30 +132,37 @@ function Author() {
 
         <EssayArgument answers={authorAnswer} shown={HERO} />
 
-        <Readings />
+        {/* A list with nothing in it is not announced: the section goes with it. */}
+        {readings.length > 0 && <Readings />}
 
-        <EssaySection
-          id="vocabulary"
-          kicker="In the games’ words"
-          title="The games’ own vocabulary"
-          lead={<p>The {LINE_COUNT} religious and afterlife lines in the archive’s records, grouped by what they do in the story. Select a line to open its record.</p>}
-        >
-          <div className="author-lex">
-            {lexicon.map((g) => {
-              const lines = g.lines.filter((l) => evidenceById.has(lineId(l)));
-              const group = lines.map(lineId);
-              return (
-                <section key={g.id} className="author-lex__group" aria-labelledby={`lex-${g.id}`}>
-                  <h3 className="author-lex__theme" id={`lex-${g.id}`}><EssaySwatch hue={hueOf(LEXICON_HUE, g.id)} />{smartQuotes(g.theme)}</h3>
-                  <p className="author-lex__gloss">{smartQuotes(g.gloss)}</p>
-                  <ul className="author-lex__lines">{lines.map((l) => <LexRow key={lineId(l)} line={l} group={group} />)}</ul>
-                </section>
-              );
-            })}
-          </div>
-        </EssaySection>
+        {LINE_COUNT > 0 && (
+          <EssaySection
+            id="vocabulary"
+            kicker="In the games’ words"
+            title="The games’ own vocabulary"
+            lead={
+              <p>
+                {LINE_COUNT === 1 ? "The one religious or afterlife line" : `The ${LINE_COUNT} religious and afterlife lines`} in the archive’s records,
+                grouped by what they do in the story. Select a line to open its record.
+              </p>
+            }
+          >
+            <div className="author-lex">
+              {LEXICON.map((g) => {
+                const group = g.lines.map(lineId);
+                return (
+                  <section key={g.id} className="author-lex__group" aria-labelledby={`lex-${g.id}`}>
+                    <h3 className="author-lex__theme" id={`lex-${g.id}`}><EssaySwatch hue={hueOf(LEXICON_HUE, g.id)} />{smartQuotes(g.theme)}</h3>
+                    <p className="author-lex__gloss">{smartQuotes(g.gloss)}</p>
+                    <ul className="author-lex__lines">{g.lines.map((l) => <LexRow key={lineId(l)} line={l} group={group} />)}</ul>
+                  </section>
+                );
+              })}
+            </div>
+          </EssaySection>
+        )}
 
-        <History />
+        {authorTimeline.length > 0 && <History />}
 
         <EssaySources ids={CITED} />
         <EssayMore current="/author" />

@@ -48,6 +48,16 @@ export function yearSpan(dates: readonly string[]): string {
   return first === last ? first : `${first} to ${last}`;
 }
 
+/** "9 dated steps, 2015 to 2024": a count with the years it covers, when the dates carry years. */
+export function countOverYears(n: number, one: string, dates: readonly string[], many?: string): string {
+  const span = yearSpan(dates);
+  return span ? `${count(n, one, many)}, ${span}` : count(n, one, many);
+}
+
+/** Header facts such as "9 dated steps": one for each list that has something in it. */
+export const facts = (...items: [n: number, one: string, many?: string][]): string[] =>
+  items.filter(([n]) => n > 0).map(([n, one, many]) => count(n, one, many));
+
 /** True when a free-text confidence is exactly one of the shared scale's values, so it can be drawn as a mark. */
 export const isConfidence = (c: string | undefined): c is Confidence => c === "high" || c === "medium" || c === "low";
 

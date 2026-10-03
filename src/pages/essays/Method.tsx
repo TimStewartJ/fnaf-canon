@@ -192,10 +192,10 @@ function Apart() {
     <EssaySection
       id="apart"
       kicker={kicker("apart")}
-      title="What is kept apart from the evidence"
-      lead={<p>Three things the archive uses or discusses without ever counting them as evidence.</p>}
+      title="What is kept apart"
+      lead={<p>Three things the archive uses or discusses without letting them settle anything in the story.</p>}
     >
-      <EssayRows control={apart} label="What is kept apart from the evidence">
+      <EssayRows control={apart} label="What is kept apart">
         {APART.map((a) => (
           <EssayRow key={a.id} id={a.id} title={a.title} sub={a.rule}>
             <p className="essay-text">{a.body}</p>
@@ -305,8 +305,9 @@ function Method() {
           <Scales />
           <div className="prose">
             <p>
-              Two rules are enforced by the archive’s own checks: nothing is marked canon on implied records alone, and a chapter below high confidence is
-              flagged if it lists no evidence against itself.
+              A strong inference is one that could only be rejected by assuming the games are wrong. Anything marked theory is this archive’s own
+              reconstruction, and it always carries that label. Two rules are enforced by the archive’s own checks: nothing is marked canon on implied
+              records alone, and a chapter below high confidence is flagged if it lists no evidence against itself.
             </p>
           </div>
         </EssaySection>
