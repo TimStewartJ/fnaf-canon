@@ -8,6 +8,7 @@ import {
   Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
   personPath, smartQuotes, useMediaQuery,
 } from "../../components/ui";
+import { WhenOpened } from "./Dossier";
 import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
 import { Name } from "./Names";
 import { TieBar, TieLegend } from "./RelParts";
@@ -317,12 +318,18 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
                 summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} /> <Name id={n.id} as="plain" /></>}
                 meta={`${GROUP_LABEL[n.group] ?? n.group} · ${plural(ties.length, "tie")}`}
               >
-                {n.folded.length > 0 && <p className="graph-list__with">Shown as one with {n.folded.map((id, i) => <span key={id}>{i > 0 && ", "}<Name id={id} /></span>)}.</p>}
-                <OwnTies rels={ties} pageId={n.id} scope={new Set([n.id, ...n.folded])} />
-                <p className="graph-list__links">
-                  <Link to={personPath(n.id)}>Open their page <Icon icon={ArrowRight} /></Link>
-                  {n.id !== focus && <Button variant="quiet" size="sm" onClick={() => set({ focus: n.id, tie: null })}>Focus the picture on them</Button>}
-                </p>
+                <WhenOpened open={n.id === focus}>
+                  {() => (
+                    <>
+                      {n.folded.length > 0 && <p className="graph-list__with">Shown as one with {n.folded.map((id, i) => <span key={id}>{i > 0 && ", "}<Name id={id} /></span>)}.</p>}
+                      <OwnTies rels={ties} pageId={n.id} scope={new Set([n.id, ...n.folded])} />
+                      <p className="graph-list__links">
+                        <Link to={personPath(n.id)}>Open their page <Icon icon={ArrowRight} /></Link>
+                        {n.id !== focus && <Button variant="quiet" size="sm" onClick={() => set({ focus: n.id, tie: null })}>Focus the picture on them</Button>}
+                      </p>
+                    </>
+                  )}
+                </WhenOpened>
               </Collapsible>
             );
           })}

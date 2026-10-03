@@ -9,7 +9,7 @@ import {
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
-import { Capped, DossierSection, GroupLabel, JumpLinks } from "./Dossier";
+import { Capped, DossierSection, GroupLabel, JumpLinks, WhenOpened } from "./Dossier";
 import { EvidenceRows } from "./EvidenceFile";
 import { IdentityTree } from "./IdentityTree";
 import { beingOf, chainTo, evidenceOf, isInsideBeing, linkCounts, subtree, type Being, type BeingNode } from "./identity";
@@ -213,8 +213,14 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
         {view.groups.length > 1 ? (
           view.groups.map((g, i) => (
             <Collapsible key={g.node.id} defaultOpen={i === 0} summary={<>Filed under <Name id={g.node.id} as="plain" /></>} meta={plural(g.records.length, "record")}>
-              <EvidenceRows records={g.records} cap={cap("evidence")} />
-              <p className="ppl-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
+              <WhenOpened open={i === 0}>
+                {() => (
+                  <>
+                    <EvidenceRows records={g.records} cap={cap("evidence")} />
+                    <p className="ppl-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
+                  </>
+                )}
+              </WhenOpened>
             </Collapsible>
           ))
         ) : view.records.length > 0 ? (

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button, smartQuotes } from "../../components/ui";
@@ -77,3 +77,28 @@ export function JumpLinks({ items, label = "On this page" }: { items: readonly {
     </nav>
   );
 }
+
+/**
+ * The body of a fold that starts closed, drawn only once the fold is opened (and kept from then on).
+ * A page with many closed folds (a list of people, each with their ties; the evidence of each record)
+ * would otherwise draw every hidden row up front. Put it directly inside a <Collapsible>.
+ * The body is ready before the fold opens (it listens for the press on the summary), so nothing flickers.
+ */
+export function WhenOpened({ open = false, children }: { open?: boolean; children: () => ReactNode }) {
+  const [seen, setSeen] = useState(open);
+  const marker = useRef<HTMLSpanElement | null>(null);
+  useEffect(() => {
+    if (seen) return;
+    const details = marker.current?.closest("details");
+    if (!details) { setSeen(true); return; }
+    if (details.open) { setSeen(true); return; }
+    const show = () => setSeen(true);
+    const summary = details.querySelector("summary");
+    // The press comes before the fold opens; "toggle" covers every other way of opening it (find in page, a script).
+    summary?.addEventListener("click", show);
+    details.addEventListener("toggle", show);
+    return () => { summary?.removeEventListener("click", show); details.removeEventListener("toggle", show); };
+  }, [seen]);
+  return seen ? <>{children()}</> : <span ref={marker} hidden />;
+}
+

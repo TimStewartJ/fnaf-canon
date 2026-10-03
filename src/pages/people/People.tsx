@@ -7,7 +7,7 @@ import {
   Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, imgUrl, levelOf, personPath, plainText,
   smartQuotes,
 } from "../../components/ui";
-import { DossierSection, JumpLinks } from "./Dossier";
+import { DossierSection, JumpLinks, WhenOpened } from "./Dossier";
 import { beingOf, evidenceOf, type BeingNode, type NodeKind } from "./identity";
 import { Name } from "./Names";
 import { STATUS_RANK, plural, tieSentence } from "./ties";
@@ -208,7 +208,7 @@ export default function People() {
         >
           {needle
             ? <MinorIndex list={shownMinor} />
-            : <Collapsible summary="Every minor figure, A to Z" meta={plural(minor.length, "name")}><MinorIndex list={minor} /></Collapsible>}
+            : <Collapsible summary="Every minor figure, A to Z" meta={plural(minor.length, "name")}><WhenOpened>{() => <MinorIndex list={minor} />}</WhenOpened></Collapsible>}
         </DossierSection>
       )}
 

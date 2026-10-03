@@ -7,7 +7,7 @@ import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
   Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery,
 } from "../../components/ui";
-import { GroupLabel } from "./Dossier";
+import { GroupLabel, WhenOpened } from "./Dossier";
 import { useContentWidth } from "./measure";
 import { buildTree, defaultKinds, describeTree, routingOf, tiesWithin, type TreeEdge } from "./familyModel";
 import { TieBar, TieLegend } from "./RelParts";
@@ -31,14 +31,16 @@ const sameNumbers = (a: readonly number[], b: readonly number[]) => a.length ===
 const TieList = memo(function TieList({ drawn }: { drawn: readonly Relation[] }) {
   return (
     <Collapsible className="fam-list" summary="The ties drawn, as a list" meta={plural(drawn.length, "tie")}>
-      {byFamily(drawn, (r) => r.kind).map((g) => (
-        <div key={g.family} className="ppl-tie-group">
-          <GroupLabel as="h2" count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
-          <ul className="ppl-ties">
-            {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
-          </ul>
-        </div>
-      ))}
+      <WhenOpened>
+        {() => byFamily(drawn, (r) => r.kind).map((g) => (
+          <div key={g.family} className="ppl-tie-group">
+            <GroupLabel as="h2" count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
+            <ul className="ppl-ties">
+              {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
+            </ul>
+          </div>
+        ))}
+      </WhenOpened>
     </Collapsible>
   );
 });
