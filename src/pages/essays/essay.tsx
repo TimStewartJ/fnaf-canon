@@ -7,12 +7,12 @@
  * the theory's cover and chapters without importing from them.
  */
 import { memo, type CSSProperties, type ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, ArrowUpRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } from "lucide-react";
 import type { Source } from "../../data/community";
 import { evidenceById, theoryById } from "../../data/store";
 import {
-  Button, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, smartQuotes,
+  Button, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, smartQuotes, useAddress,
 } from "../../components/ui";
 import { ESSAYS, SOURCES_ID, answerExhibits, answerId, count, isConfidence, pad2, recordOfImage } from "./essayModel";
 import { RowsContext, useRows, type RowsControl } from "./essayRows";
@@ -24,16 +24,16 @@ import { RowsContext, useRows, type RowsControl } from "./essayRows";
  * keyboard focus there (the target needs tabIndex={-1}) and works when the hash is already set.
  */
 export function EssayJump({ to, children, className }: { to: string; children: ReactNode; className?: string }) {
-  const { search, hash } = useLocation();
+  const { anchor, link } = useAddress();
   return (
     <Link
-      to={{ search, hash: `#${to}` }}
+      to={link(to)}
       className={className}
       onClick={(e) => {
         if (!isPlainClick(e)) return;
         const el = document.getElementById(to);
         el?.focus({ preventScroll: true });
-        if (hash === `#${to}`) { e.preventDefault(); el?.scrollIntoView({ block: "start" }); }
+        if (anchor === to) { e.preventDefault(); el?.scrollIntoView({ block: "start" }); }
       }}
     >
       {children}

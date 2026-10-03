@@ -4,9 +4,9 @@ import { ArrowRight, CircleHelp } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, gameById, games } from "../../data/store";
 import {
-  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, SOURCE_KIND_ICON, Section, kindLabel, smartQuotes, sourcePath, type LucideIcon,
+  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, SOURCE_KIND_ICON, Section, kindLabel, listParam, smartQuotes, sourcePath, type LucideIcon,
 } from "../../components/ui";
-import { listOf, useAddressState } from "./addressState";
+import { useAddressState } from "./addressState";
 import { PLACE, PLACES, accounted, count, isPlace, percent, placeOf, records, tally, type Place } from "./coverage";
 import { PlaceSwatch, ResultRow } from "./explorerParts";
 import { Accounted, CoverageBar, CoverageKey, SetIn } from "./sourceParts";
@@ -34,8 +34,8 @@ const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<strin
 interface SourceView { use: Place[]; more: [kind: string, shown: number][] }
 function readView(sp: URLSearchParams): SourceView {
   return {
-    use: PLACES.filter((p) => listOf(sp.get("use")).filter(isPlace).includes(p)),
-    more: listOf(sp.get("more")).map((v): [string, number] => { const i = v.lastIndexOf("."); return [v.slice(0, i), Number(v.slice(i + 1)) || 0]; }).filter(([k, n]) => k && n > 0),
+    use: PLACES.filter((p) => listParam(sp.get("use")).filter(isPlace).includes(p)),
+    more: listParam(sp.get("more")).map((v): [string, number] => { const i = v.lastIndexOf("."); return [v.slice(0, i), Number(v.slice(i + 1)) || 0]; }).filter(([k, n]) => k && n > 0),
   };
 }
 function writeView(v: SourceView, current: URLSearchParams): URLSearchParams {

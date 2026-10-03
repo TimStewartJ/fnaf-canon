@@ -1,7 +1,7 @@
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { ArrowDown, ArrowRight, BookOpenText } from "lucide-react";
 import { outsideStory, storyline, theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Page, RichText, chapterPath, smartQuotes } from "../../components/ui";
+import { ButtonLink, Page, RichText, chapterPath, smartQuotes, useAddress } from "../../components/ui";
 import { ChapterContents } from "./Contents";
 import { HowToRead, OutsideStory } from "./CoverParts";
 import { Storyline } from "./Storyline";
@@ -10,9 +10,8 @@ import "./theory.css";
 
 /** /theory: the cover of the model. Old links of the form /theory#chapter-id are sent on to the chapter. */
 export default function TheoryCover() {
-  const { hash } = useLocation();
+  const { anchor: legacy } = useAddress();
   const { read, last } = useReadingProgress();
-  const legacy = hash ? decodeURIComponent(hash.slice(1)) : "";
   if (legacy && theoryById.has(legacy)) return <Navigate to={chapterPath(legacy)} replace />;
 
   const first = ordered[0];

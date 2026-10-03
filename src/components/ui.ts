@@ -1,7 +1,7 @@
 /**
  * The shared component layer, in one import:
  *   import { RichText, EvidenceCard, Figure, PageHeader, StatusMark } from "../../components/ui";
- * See DESIGN.md for what each piece is for. Shared files are frozen after phase 1.
+ * See DESIGN.md for what each piece is for.
  */
 export * from "./labels";
 export * from "./links";
@@ -12,6 +12,8 @@ export * from "./citeScope";
 export * from "./chapterResolver";
 export * from "./chapterOrder";
 export * from "./evidenceDrawer";
+export { useAddress, useAddressWrite, useAddressText, listParam } from "./address";
+export type { Address, AddressChange, AddressPatch, AddressView, WriteHow } from "./address";
 export * from "./deferred";
 export * from "./popover";
 export * from "./richTextPlain";

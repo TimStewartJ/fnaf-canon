@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, Tabs, eraHue, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
 import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
-import { landOn, useReturnVisit, useUrlState } from "./hooks";
+import { landOn, useReturnVisit } from "./hooks";
 import {
   type EraGroup, type FilterChange, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords,
   isFiltered, kindOfId, plural, readFilters, sameFilters, titleOfId, within, writeFilters,
@@ -87,7 +87,10 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
 }
 
 export default function Timeline() {
-  const [sp, update] = useUrlState();
+  // The page's state lives in the address. Filters and open rows replace the current history entry
+  // (Back leaves the page, and coming back restores the view); a change of view or a jump to an era
+  // adds one, so that Back undoes it.
+  const { params: sp, write: update } = useAddress();
   const fkey = filtersKey(sp);
   const f = useMemo(() => readFilters(new URLSearchParams(fkey)), [fkey]);
   const line = useMemo(() => buildLineup(f), [f]);

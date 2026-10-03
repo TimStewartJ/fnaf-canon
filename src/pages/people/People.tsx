@@ -5,13 +5,12 @@ import { people } from "../../data/store";
 import { isFoldedAway, unifiedPeople } from "../../data/model";
 import {
   Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, imgUrl, levelOf, personPath, plainText,
-  smartQuotes,
+  smartQuotes, useAddressText,
 } from "../../components/ui";
 import { DossierSection, JumpLinks, WhenOpened } from "./Dossier";
 import { beingOf, evidenceOf, type BeingNode, type NodeKind } from "./identity";
 import { Name } from "./Names";
 import { STATUS_RANK, plural, tieSentence } from "./ties";
-import { useUrlText } from "./urlState";
 import "./common.css";
 import "./people.css";
 
@@ -136,7 +135,7 @@ const MinorIndex = memo(function MinorIndex({ list }: { list: readonly Person[] 
 });
 
 export default function People() {
-  const [q, setQ] = useUrlText("q");
+  const [q, setQ] = useAddressText("q");
   // The box answers each keystroke at once; the list follows a moment behind, and rows that do not change are not drawn again.
   const asked = useDeferredValue(q.trim());
   const needle = asked.toLowerCase();

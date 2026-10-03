@@ -69,11 +69,12 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
 
 /** The site header: brand, grouped navigation (a menu button below 900px), search and reader settings. */
 export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () => void }) {
-  const location = useLocation();
-  // The open menu is tied to the history entry, so any navigation closes it without an effect.
+  const { pathname } = useLocation();
+  // The open menu is tied to the page it was opened on, so going anywhere closes it without an
+  // effect. (Not to the history entry: a page rewrites its own entry whenever a filter changes.)
   const [menu, setMenu] = useState<{ id: string; at: string } | null>(null);
-  const openId = menu && menu.at === location.key ? menu.id : null;
-  const open = (id: string) => setMenu({ id, at: location.key });
+  const openId = menu && menu.at === pathname ? menu.id : null;
+  const open = (id: string) => setMenu({ id, at: pathname });
   const close = (id: string) => setMenu((m) => (m?.id === id ? null : m));
   const settingsRef = useRef<HTMLDivElement | null>(null);
   useOutsidePointer([settingsRef], () => close("settings"), openId === "settings");
@@ -87,7 +88,7 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
             g.items ? (
               <NavMenu key={g.id} group={g} open={openId === g.id} onOpen={() => open(g.id)} onClose={() => close(g.id)} />
             ) : (
-              <NavLink key={g.id} to={g.to!} className={`nav-link${isInGroup(g, location.pathname) ? " is-active" : ""}`}>{g.label}</NavLink>
+              <NavLink key={g.id} to={g.to!} className={`nav-link${isInGroup(g, pathname) ? " is-active" : ""}`}>{g.label}</NavLink>
             ),
           )}
         </nav>

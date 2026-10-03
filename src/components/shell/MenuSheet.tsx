@@ -12,7 +12,7 @@ export function MenuSheet({ onClose, onSearch }: { onClose: () => void; onSearch
   return (
     <dialog className="menu-sheet" aria-label="Menu" {...dialogProps}>
       <div className="menu-sheet__bar">
-        <Brand />
+        <Brand onClick={onClose} />
         <button type="button" className="icon-btn" onClick={onClose} aria-label="Close menu" autoFocus><Icon icon={X} size="1.25em" /></button>
       </div>
       <div className="menu-sheet__body">

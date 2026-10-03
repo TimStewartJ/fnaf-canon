@@ -8,15 +8,20 @@ import { createContext, useContext } from "react";
 export interface DrawerState {
   /** The record being shown. */
   id: string;
-  /** Other records cited at the same spot; the drawer pages through them. */
+  /** The records it was opened among (cited at the same spot, or the list it was in); the drawer pages through them. */
   group?: string[];
+  /** What that set is, to finish "Record 2 of 5 …": "cited here", "in this list". */
+  of?: string;
   /** True when opening pushed a history entry (so closing can go back). */
   pushed?: boolean;
 }
 
 export interface EvidenceDrawerApi {
-  /** Opens a record. `group` lists the records cited together at that spot. */
-  open(id: string, group?: string[]): void;
+  /**
+   * Opens a record. `group` lists the records the reader can page through from it, and `of` says
+   * in a few words what that set is, to finish "Record 2 of 5 …" (default: "in this list").
+   */
+  open(id: string, group?: string[], of?: string): void;
   close(): void;
 }
 

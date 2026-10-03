@@ -1,11 +1,11 @@
 import { memo, useCallback, useEffect, useRef, useState, type SyntheticEvent } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Maximize2 } from "lucide-react";
 import type { Evidence, ImageCredit } from "../../data/schema";
 import { credits, evidence, gameById, games } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
-import { Collapsible, EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, evidencePath, imgSize, imgUrl, isPlainClick, smartQuotes, sourcePath, useEvidenceDrawer, useMediaQuery } from "../../components/ui";
-import { listOf, useAddressState } from "./addressState";
+import { Collapsible, EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, evidencePath, imgSize, imgUrl, isPlainClick, listParam, smartQuotes, sourcePath, useAddress, useEvidenceDrawer, useMediaQuery } from "../../components/ui";
+import { useAddressState } from "./addressState";
 import { count, records } from "./coverage";
 import "./gallery.css";
 
@@ -35,7 +35,7 @@ function crisp(ev: SyntheticEvent<HTMLImageElement>) {
 }
 
 /** ?open=fnaf2+scott lists the groups shown in full. Other parameters are left alone. */
-const readOpen = (sp: URLSearchParams): string[] => listOf(sp.get("open"));
+const readOpen = (sp: URLSearchParams): string[] => listParam(sp.get("open"));
 function writeOpen(open: string[], current: URLSearchParams): URLSearchParams {
   const next = new URLSearchParams(current);
   if (open.length) next.set("open", open.join(" ")); else next.delete("open");
@@ -124,7 +124,6 @@ function useCrispZoom() {
 }
 
 export default function Gallery() {
-  const [sp] = useSearchParams();
   const drawer = useEvidenceDrawer();
   // The grid's column count, in step with gallery.css, so that a folded group shows whole rows.
   const c3 = useMediaQuery("(min-width: 560px)"), c4 = useMediaQuery("(min-width: 900px)"), c5 = useMediaQuery("(min-width: 1200px)");
@@ -152,17 +151,17 @@ export default function Gallery() {
     return z && g ? { group: z.group, at: (z.at + d + g.shots.length) % g.shots.length } : z;
   });
   /** One modal at a time: the viewer closes, then the record opens over the gallery. */
-  const openRecords = (ids: string[], id: string) => { setZoom(null); drawer.open(id, ids.length > 1 ? ids : undefined); };
+  const openRecords = (ids: string[], id: string) => { setZoom(null); drawer.open(id, ids.length > 1 ? ids : undefined, "for this image"); };
 
   const zoomRef = useCrispZoom();
   const phone = useMediaQuery("(max-width: 640px)");
-  // A jump keeps the groups that are open, as the page has them now (the address may be a moment behind).
-  const jumpSearch = writeOpen(open, sp).toString();
+  // A jump keeps the rest of the address: the groups that are open.
+  const { link } = useAddress();
   const index = (
     <ul className="gal-index__list">
       {GROUPS.map((g) => (
         <li key={g.id}>
-          <Link to={{ search: jumpSearch, hash: `g-${g.id}` }} className="tag gal-index__link" title={g.title}>
+          <Link to={link(`g-${g.id}`)} className="tag gal-index__link" title={g.title}>
             <GameMark id={g.id} /> <span className="gal-index__n">{g.shots.length}</span>
           </Link>
         </li>

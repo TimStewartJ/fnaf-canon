@@ -55,7 +55,7 @@ function useOpenEvidence(id: string, group: string[] | undefined, after?: () => 
     if (!isPlainClick(ev)) return; // let Ctrl/Cmd/middle click open the full record in a new tab
     ev.preventDefault();
     after?.();
-    drawer.open(id, group);
+    drawer.open(id, group, "cited here");
   };
 }
 
@@ -233,7 +233,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
                   key={e.id}
                   to={evidencePath(e.id)}
                   className="pop__record"
-                  onClick={(ev) => { if (!isPlainClick(ev)) return; ev.preventDefault(); pop.hide(); drawer.open(e.id, ids.length > 1 ? ids : undefined); }}
+                  onClick={(ev) => { if (!isPlainClick(ev)) return; ev.preventDefault(); pop.hide(); drawer.open(e.id, ids.length > 1 ? ids : undefined, "behind this date"); }}
                 >
                   <GameMark id={e.game} />
                   <span>{smartQuotes(e.title)}</span>

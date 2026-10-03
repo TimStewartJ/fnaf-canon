@@ -5,7 +5,7 @@ import type { Relation } from "../../data/schema";
 import { labelForEntity, personById } from "../../data/store";
 import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
-  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery,
+  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { GroupLabel, WhenOpened } from "./Dossier";
 import { useContentWidth } from "./measure";
@@ -14,7 +14,6 @@ import { TieBar, TieLegend } from "./RelParts";
 import { TieRow, TieSentence } from "./Ties";
 import { TIE_FAMILIES, TIE_FAMILY_LABEL, byFamily, plural, tieTitle, tieWords } from "./ties";
 import { LANE_GAP, arrowHead, roundedPath, routePoints, type Geometry } from "./treeLayout";
-import { listParam, useUrlState } from "./urlState";
 import "./common.css";
 import "./relgraph.css";
 import "./family.css";
@@ -46,13 +45,13 @@ const TieList = memo(function TieList({ drawn }: { drawn: readonly Relation[] })
 });
 
 function TreeView({ tree }: { tree: FamilyTree }) {
-  const url = useUrlState();
+  const url = useAddress();
   const phone = useMediaQuery("(max-width: 640px)");
   const folds = listParam(url.get("fold"), FOLDS);
   const foldIds = folds.includes("ids"), foldVessels = folds.includes("vessels");
-  // Handlers work from the address bar as it is when they run (see urlState.ts), so two quick clicks both count.
-  const flipFold = (which: (typeof FOLDS)[number]) => url.set((now) => {
-    const on = listParam(now("fold"), FOLDS);
+  // Handlers work from the address as it is when they run (see components/address.ts), so two quick clicks both count.
+  const flipFold = (which: (typeof FOLDS)[number]) => url.write((now) => {
+    const on = listParam(now.get("fold"), FOLDS);
     return { fold: FOLDS.filter((f) => (f === which ? !on.includes(f) : on.includes(f))).join(",") || null, tie: null };
   });
 
@@ -71,8 +70,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
     const usual = new Set(defaultKinds(kindIds));
     return kindIds.filter((k) => (usual.has(k) ? !tokens.has(`-${k}`) : tokens.has(k)));
   }, [linesParam, kindIds]);
-  const toggleKind = (kind: string) => url.set((now) => {
-    const tokens = new Set(now("lines").split(",").filter(Boolean));
+  const toggleKind = (kind: string) => url.write((now) => {
+    const tokens = new Set((now.get("lines") ?? "").split(",").filter(Boolean));
     const token = defaultKinds([kind]).length ? `-${kind}` : kind;
     if (tokens.has(token)) tokens.delete(token); else tokens.add(token);
     return { lines: [...tokens].join(",") || null, tie: null };
@@ -82,7 +81,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
   const at = useMemo(() => new Map(model.nodes.map((n) => [n.id, n])), [model]);
   const edgeByKey = useMemo(() => new Map(model.edges.map((e) => [e.key, e])), [model]);
   const selected = edgeByKey.get(url.get("tie"));
-  const select = (e: TreeEdge | null) => url.set((now) => ({ tie: e && now("tie") !== e.key ? e.key : null }));
+  const select = (e: TreeEdge | null) => url.write((now) => ({ tie: e && now.get("tie") !== e.key ? e.key : null }));
 
   /*
    * Sizes. The columns share the width there is. When that would squeeze them, the gutters close up
@@ -304,7 +303,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
 }
 
 export default function FamilyTrees() {
-  const url = useUrlState();
+  const url = useAddress();
   const wanted = url.get("tree");
   const tree = familyTrees.find((t) => t.id === wanted) ?? familyTrees[0];
   return (
@@ -316,7 +315,7 @@ export default function FamilyTrees() {
       />
       {tree ? (
         <>
-          <Tabs label="Family" tabs={familyTrees.map((t) => ({ id: t.id, label: smartQuotes(t.title) }))} value={tree.id} onChange={(id) => url.set({ tree: id === familyTrees[0]?.id ? null : id, tie: null })} />
+          <Tabs label="Family" tabs={familyTrees.map((t) => ({ id: t.id, label: smartQuotes(t.title) }))} value={tree.id} onChange={(id) => url.write({ tree: id === familyTrees[0]?.id ? null : id, tie: null })} />
           <TreeView key={tree.id} tree={tree} />
         </>
       ) : <Empty title="No family trees yet">The data holds no family tree.</Empty>}

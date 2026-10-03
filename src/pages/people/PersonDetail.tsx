@@ -5,7 +5,7 @@ import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
   ButtonLink, CiteList, Collapsible, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, Page, PageHeader,
-  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery,
+  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -18,7 +18,6 @@ import { Portrait } from "./Portrait";
 import { DeathRows, EventRows } from "./Story";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, plural, tieWords } from "./ties";
-import { useAnchor, useUrlState, type UrlState } from "./urlState";
 import "./common.css";
 import "./people.css";
 
@@ -31,7 +30,7 @@ const hasText = (text: string | undefined): text is string => !!text && /[\p{L}\
 
 /** For a record that is folded into another: what the model reads it as, how firmly, and on what. */
 function Standing({ node, being }: { node: BeingNode; being: Being }) {
-  const anchor = useAnchor();
+  const { link: anchor } = useAddress();
   const chain = chainTo(node);
   const hangs = node.kind === "vessel" || node.kind === "role";
   // An identity or a form belongs to the head of its own group; a vessel or a role to the record that haunts or wore it.
@@ -60,7 +59,7 @@ function Standing({ node, being }: { node: BeingNode; being: Being }) {
  * The page for one record. Memoised on what it shows (the record and the ?scope= choice), so
  * jumping to a section, which only changes the URL's hash, does not draw the whole file again.
  */
-const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: boolean; set: UrlState["set"] }) {
+const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: boolean; set: Address["write"] }) {
   const phone = useMediaQuery("(max-width: 640px)");
   const cap = (list: keyof typeof CAPS) => CAPS[list][phone ? 1 : 0];
   const being = beingOf(p.id)!;
@@ -239,7 +238,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
 
 export default function PersonDetail() {
   const { id = "" } = useParams();
-  const url = useUrlState();
+  const url = useAddress();
   const p = personById.get(id);
   if (!p) {
     return (
@@ -249,5 +248,5 @@ export default function PersonDetail() {
     );
   }
   // Keyed by id so the folds and "show all" states start fresh on each person.
-  return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.set} />;
+  return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.write} />;
 }

@@ -1,8 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { Button, smartQuotes } from "../../components/ui";
-import { useAnchor } from "./urlState";
+import { Button, smartQuotes, useAddress } from "../../components/ui";
 
 /**
  * A section of a dossier page (person, place): the heading, a count and a one-line lead sit in a
@@ -67,7 +66,7 @@ export function Capped<T>({ items, cap, noun, children }: { items: readonly T[];
  * add a hash (which the shell scrolls to) and keep the page's query string.
  */
 export function JumpLinks({ items, label = "On this page" }: { items: readonly { id: string; label: string; n?: number }[]; label?: string }) {
-  const anchor = useAnchor();
+  const { link: anchor } = useAddress();
   if (items.length < 2) return null;
   return (
     <nav className="ppl-toc" aria-label={label}>

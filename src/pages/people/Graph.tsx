@@ -6,7 +6,7 @@ import { labelForEntity, personById } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import {
   Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
-  personPath, smartQuotes, useMediaQuery,
+  personPath, smartQuotes, useMediaQuery, listParam, useAddress, type Address,
 } from "../../components/ui";
 import { WhenOpened } from "./Dossier";
 import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
@@ -15,7 +15,6 @@ import { TieBar, TieLegend } from "./RelParts";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, byFamily, plural, tieTitle, tieWords } from "./ties";
 import { arrowHead } from "./treeLayout";
-import { listParam, useAnchor, useUrlState, type UrlState } from "./urlState";
 import { layoutWeb, nameLines, placeLabels, tiePath, type Chord, type LabelSpec, type Placed, type PlacedLabel } from "./webLayout";
 import { buildWeb, neighbourhood, type Web, type WebNode, type WebTie } from "./webModel";
 import "./common.css";
@@ -276,7 +275,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
 
 /** The bar for the person in focus: who they are, what is folded into them, and where to read their ties. */
 function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: () => void }) {
-  const anchor = useAnchor();
+  const { link: anchor } = useAddress();
   // Counted as recorded, like the list below (two records of one tie can share a line in the picture).
   const ties = web.relsOf.get(node.id) ?? [];
   const counts = byFamily(ties, (t) => t.kind).map((g) => `${g.items.length} ${FAMILY_SHORT[g.family]}`);
@@ -301,7 +300,7 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
  * The same web in words: each person with their ties as recorded, following the filters above.
  * Memoised, because it is long and picking a line in the picture changes nothing in it.
  */
-const WebList = memo(function WebList({ web, focus, near, applied, unified, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: UrlState["set"] }) {
+const WebList = memo(function WebList({ web, focus, near, applied, unified, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: Address["write"] }) {
   const sorted = useMemo(() => [...web.nodes].sort(byName), [web]);
   const listed = focus ? [web.byId.get(focus)!, ...sorted.filter((n) => n.id !== focus && near?.has(n.id))] : sorted;
   // On a phone a name and its group do not fit side by side; the swatch still gives the group.
@@ -351,7 +350,7 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
 });
 
 export default function Graph() {
-  const url = useUrlState();
+  const url = useAddress();
   const supportParam = url.get("support");
   const support = useMemo(() => supportOf(supportParam), [supportParam]);
   const unified = url.get("unified") !== "0";
@@ -363,9 +362,9 @@ export default function Graph() {
   const focus = web.byId.has(asked) ? asked : unified && web.byId.has(canonicalId(asked)) ? canonicalId(asked) : "";
   const near = useMemo(() => (focus ? neighbourhood(web, focus) : null), [web, focus]);
   const selected = web.ties.find((t) => t.key === url.get("tie"));
-  // Handlers that flip something work from the address bar as it is when they run (see urlState.ts), so two quick clicks both count.
-  const toggleSupport = (s: Status) => url.set((now) => {
-    const on = supportOf(now("support"));
+  // Handlers that flip something work from the address as it is when they run (see components/address.ts), so two quick clicks both count.
+  const toggleSupport = (s: Status) => url.write((now) => {
+    const on = supportOf(now.get("support") ?? "");
     const next = STATUSES.filter((x) => (x === s ? !on.includes(x) : on.includes(x)));
     return { support: next.length === STATUSES.length ? null : next.join(",") || "none", tie: null };
   });
@@ -389,12 +388,12 @@ export default function Graph() {
       <div className="graph-bar">
         <label className="graph-bar__focus">
           <span className="label">Focus on</span>
-          <select value={focus} onChange={(e) => url.set({ focus: e.target.value || null, tie: null })}>
+          <select value={focus} onChange={(e) => url.write({ focus: e.target.value || null, tie: null })}>
             <option value="">Everyone</option>
             {sorted.map((n) => <option key={n.id} value={n.id}>{labelForEntity(n.id)}</option>)}
           </select>
         </label>
-        <Toggle on={unified} onChange={() => url.set((now) => ({ unified: now("unified") === "0" ? null : "0", tie: null }))}>Unified people</Toggle>
+        <Toggle on={unified} onChange={() => url.write((now) => ({ unified: now.get("unified") === "0" ? null : "0", tie: null }))}>Unified people</Toggle>
         <div className="graph-bar__support" role="group" aria-label="Show ties rated">
           <span className="label">Show ties rated</span>
           {STATUSES.map((s) => <FilterChip key={s} on={support.includes(s)} onClick={() => toggleSupport(s)}>{firmness("status", s).word}</FilterChip>)}
@@ -403,9 +402,9 @@ export default function Graph() {
 
       {web.nodes.length > 0 ? (
         <div className="graph-frame">
-          <WebCanvas web={web} focus={focus} near={near} selected={selected} onFocus={(id) => url.set({ focus: id || null, tie: null })} onSelect={(t) => url.set((now) => ({ tie: t && now("tie") !== t.key ? t.key : null }))} />
-          {selected ? <TieBar tie={selected} onClose={() => url.set({ tie: null })} />
-            : focus ? <PersonBar node={web.byId.get(focus)!} web={web} onClose={() => url.set({ focus: null })} />
+          <WebCanvas web={web} focus={focus} near={near} selected={selected} onFocus={(id) => url.write({ focus: id || null, tie: null })} onSelect={(t) => url.write((now) => ({ tie: t && now.get("tie") !== t.key ? t.key : null }))} />
+          {selected ? <TieBar tie={selected} onClose={() => url.write({ tie: null })} />
+            : focus ? <PersonBar node={web.byId.get(focus)!} web={web} onClose={() => url.write({ focus: null })} />
             : (
               <div className="graph-foot">
                 <p className="graph-foot__hint">
@@ -417,7 +416,7 @@ export default function Graph() {
             )}
         </div>
       ) : (
-        <Empty title="No ties to draw" action={<Button onClick={() => url.set({ support: null })}>Show every tie</Button>}>No tie has the firmness picked above.</Empty>
+        <Empty title="No ties to draw" action={<Button onClick={() => url.write({ support: null })}>Show every tie</Button>}>No tie has the firmness picked above.</Empty>
       )}
 
       {web.nodes.length > 0 && (
@@ -430,7 +429,7 @@ export default function Graph() {
         </>
       )}
 
-      <WebList web={web} focus={focus} near={near} applied={applied} unified={unified} set={url.set} />
+      <WebList web={web} focus={focus} near={near} applied={applied} unified={unified} set={url.write} />
     </Page>
   );
 }

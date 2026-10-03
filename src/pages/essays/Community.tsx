@@ -1,15 +1,14 @@
 import { memo } from "react";
-import { useLocation } from "react-router-dom";
 import { Check, PenLine, X } from "lucide-react";
 import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Interaction, type Verdict } from "../../data/community";
 import {
-  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, VERDICT_TONE, smartQuotes,
+  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, VERDICT_TONE, smartQuotes, useAddress,
 } from "../../components/ui";
 import {
   EssayAnswers, EssayChapterLink, EssayEntry, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssayToggleAll, type EssayAnswerItem,
 } from "./essay";
 import { citedIn, count, countOverYears, facts, knownRecords, sentenceList, tally } from "./essayModel";
-import { hashTarget, useEssayAddress, useEssayRows } from "./essayRows";
+import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./community.css";
 
@@ -92,23 +91,18 @@ const TheoryRow = memo(function TheoryRow({ t }: { t: CommunityTheory }) {
 
 /** The scorecard: the verdict filter (kept in the address) and the theories it leaves on show. */
 function Theories() {
-  const { search, hash } = useLocation();
-  const address = useEssayAddress();
-  const asked = new URLSearchParams(search).get("verdict");
+  const address = useAddress();
+  const asked = address.params.get("verdict");
   // A link to one theory (…#its-id) always shows it: a filter that would hide it is not applied.
-  const linked = THEORY_BY_ID.get(hashTarget(hash));
+  const linked = THEORY_BY_ID.get(address.anchor);
   const verdict = asked && Object.hasOwn(VERDICT, asked) && !(linked && linked.verdict !== asked) ? (asked as Verdict) : null;
   const shown = verdict ? THEORIES.filter((t) => t.verdict === verdict) : THEORIES;
   const scored = useEssayRows(shown.map((t) => t.id));
 
   const setVerdict = (v: Verdict | null) => {
-    const now = address.read();
-    const params = new URLSearchParams(now.search);
-    if (v) params.set("verdict", v); else params.delete("verdict");
-    const text = params.toString();
     // The address may name an open theory. If the new filter hides that theory, the name has to go, or it would overrule the filter.
-    const named = THEORY_BY_ID.get(hashTarget(now.hash));
-    address.write({ search: text ? `?${text}` : "", hash: named && v && named.verdict !== v ? "" : now.hash });
+    const named = THEORY_BY_ID.get(address.now().anchor);
+    address.write({ verdict: v }, { anchor: named && v && named.verdict !== v ? "" : undefined });
   };
 
   return (

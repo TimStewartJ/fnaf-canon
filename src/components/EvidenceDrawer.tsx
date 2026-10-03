@@ -71,7 +71,7 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
   const group = (state.group ?? []).filter((id) => evidenceById.has(id));
   const idx = group.indexOf(state.id);
   const paged = group.length > 1 && idx >= 0;
-  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], group);
+  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], group, state.of);
   return (
     <dialog
       className="drawer"
@@ -84,7 +84,7 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       }}
     >
       <header className="drawer__bar">
-        <span className="label">{paged ? `Record ${idx + 1} of ${group.length} cited here` : "Evidence record"}</span>
+        <span className="label">{paged ? `Record ${idx + 1} of ${group.length} ${state.of ?? "in this list"}` : "Evidence record"}</span>
         {paged && (
           <span className="drawer__pager">
             <IconButton icon={ChevronLeft} label="Previous record" onClick={() => go(-1)} />

@@ -1,5 +1,6 @@
 import { Suspense, lazy, memo, useEffect, useMemo, useState, type ReactNode } from "react";
 import { HashRouter, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
+import { useAddressRouter } from "./components/address";
 import { CiteScope } from "./components/CiteScope";
 import { deferred } from "./components/deferred";
 import { Loading } from "./components/layout";
@@ -43,24 +44,28 @@ const SearchPalette = deferred(() => import("./components/shell/SearchPalette"))
 const isTyping = (el: EventTarget | null) => el instanceof HTMLElement && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
 
 /**
- * What a page sees as the current location: the URL only. History state (where the open evidence
- * drawer lives) and the entry key are left out, so opening or closing the drawer re-renders the
- * shell and the drawer, never the page underneath. The shell itself still reads the real location.
+ * What a page gets from the router: its path, and nothing else. The query and the anchor come
+ * from the address layer (components/address.ts), which shows a change the moment it is made; the
+ * router's own copy arrives a render later, as a transition. History state (where the open
+ * evidence drawer lives) and the entry key are left out too. So a change of filter, an anchor, or
+ * the drawer opening re-renders the shell, and the parts of a page that read the address, never
+ * the whole page through the router. The shell itself still reads the real location.
  *
  * react-router marks its location context "UNSAFE" because it is not a documented API; this is the
  * same provider <Routes location> renders, with a value that keeps its identity. If the router is
- * upgraded and this breaks, removing <PageLocation> restores correct (but slower) behaviour.
+ * upgraded and this breaks, removing <PageLocation> restores correct (but slower) behaviour for
+ * everything except `useSearchParams` and `useLocation().search`, which pages do not use.
  */
 function PageLocation({ children }: { children: ReactNode }) {
-  const { pathname, search, hash } = useLocation();
+  const { pathname } = useLocation();
   const value = useMemo(
-    () => ({ location: { pathname, search, hash, state: null, key: `${pathname}${search}${hash}` }, navigationType: NavigationType.Pop }),
-    [pathname, search, hash],
+    () => ({ location: { pathname, search: "", hash: "", state: null, key: pathname }, navigationType: NavigationType.Pop }),
+    [pathname],
   );
   return <LocationContext.Provider value={value}>{children}</LocationContext.Provider>;
 }
 
-/** The routed pages. Memoised with no props: only a change of URL (through PageLocation) re-renders it. */
+/** The routed pages. Memoised with no props: only a change of path (through PageLocation) re-renders it. */
 const Pages = memo(function Pages() {
   const { pathname } = useLocation();
   return (
@@ -101,11 +106,13 @@ const Pages = memo(function Pages() {
 });
 
 function Shell() {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const [search, setSearch] = useState(false);
-  // The phone menu belongs to the history entry it was opened on, so navigating closes it.
+  // The phone menu belongs to the page it was opened on, so going anywhere closes it. (Not to the
+  // history entry: a page rewrites its own entry whenever a filter changes.)
   const [menuAt, setMenuAt] = useState<string | null>(null);
   usePrefs();
+  useAddressRouter();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -122,12 +129,12 @@ function Shell() {
   return (
     <DrawerHost>
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a>
-      <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(location.key)} />
+      <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(pathname)} />
       <main id="main" className="site-main" tabIndex={-1}>
         <PageLocation><Pages /></PageLocation>
       </main>
       <Footer />
-      {menuAt === location.key && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
+      {menuAt === pathname && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
       <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => setSearch(false)} />
     </DrawerHost>
   );
