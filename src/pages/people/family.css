@@ -13,7 +13,18 @@
 .fam-kind::before { content: ""; flex: none; width: 0.85rem; height: 2px; border-radius: 1px; background: var(--tie); }
 
 .fam-frame { position: relative; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
-.fam-scroll { padding: var(--sp-2); }
+/* A tree wider than its frame: a soft shadow at whichever edge has more beyond it. (The shadows
+   stay with the frame; two patches of the frame's own colour travel with the tree and cover them
+   at its two ends.) */
+.fam-scroll {
+  padding: var(--sp-2);
+  background:
+    linear-gradient(to right, var(--c-surface) 40%, transparent) left / 2.25rem 100% no-repeat local,
+    linear-gradient(to left, var(--c-surface) 40%, transparent) right / 2.25rem 100% no-repeat local,
+    linear-gradient(to right, var(--c-scrim), transparent) left / 0.75rem 100% no-repeat scroll,
+    linear-gradient(to left, var(--c-scrim), transparent) right / 0.75rem 100% no-repeat scroll;
+}
+.fam-wide { margin: 0; padding: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text); border-bottom: 1px solid var(--c-line); }
 @media (max-width: 40em) { .fam-scroll { padding: var(--sp-1); } }
 .fam-grid { position: relative; display: grid; margin-inline: auto; }
 .fam-lines { position: absolute; left: 0; top: 0; z-index: 0; max-width: none; overflow: visible; }
@@ -37,7 +48,6 @@
 
 .fam-foot { padding: var(--sp-2) var(--sp-4) var(--sp-3); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); border-top: 1px solid var(--c-line); }
 .fam-foot > p { margin: 0; }
-.fam-foot__wide { padding-bottom: var(--sp-2); color: var(--c-text); }
 .fam-foot__key { display: flex; flex-wrap: wrap; gap: 0.15rem var(--sp-5); }
 .fam-list { margin-top: var(--sp-5); }
 .fam-notes { margin-top: var(--sp-5); }

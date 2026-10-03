@@ -162,16 +162,18 @@ export default function People() {
         </>}
       >
         <SearchField className="ppl-search" label="Find a person" placeholder="Name or alias, like Springtrap" value={q} onChange={setQ} />
-        <p className="ppl-key">
-          <span className="label">How firmly a figure belongs</span>
-          <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
-          <span className="ppl-key__note">Names in <em className="name-desc">italics</em> are the archive’s own descriptors; the games never print them.</span>
-        </p>
+        {/* The count sits directly under the field, and on a phone the key steps aside while a name
+            is being typed: the matches must show above the keyboard. */}
         {needle && !nobody && (
           <p className="ppl-found" role="status">
             {plural(shown.length, "profile")} and {plural(shownMinor.length, "minor figure")} match “{asked}”.
           </p>
         )}
+        <p className="ppl-key" data-quiet={needle ? "" : undefined}>
+          <span className="label">How firmly a figure belongs</span>
+          <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
+          <span className="ppl-key__note">Names in <em className="name-desc">italics</em> are the archive’s own descriptors; the games never print them.</span>
+        </p>
       </PageHeader>
 
       {!needle && (

@@ -6,7 +6,7 @@ import { deaths, eras, evidenceForPlace, personById, placeById, places, timeline
 import { LOCATION_KIND, type LocationKind, type LocationSpan } from "../../data/locations";
 import { ERA_DATES, PLACE_DATES } from "../../data/dates";
 import {
-  Button, ButtonLink, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Page,
+  Button, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Missing, Page,
   PageHeader, RichText, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
@@ -260,12 +260,6 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
 export function PlaceDetail() {
   const { id = "" } = useParams();
   const p = placeById.get(id);
-  if (!p) {
-    return (
-      <Page title="Place not found" narrow>
-        <Empty heading title="Unknown place" action={<ButtonLink to="/places" variant="primary">All places</ButtonLink>}>There is no place page for “{id}”.</Empty>
-      </Page>
-    );
-  }
+  if (!p) return <Missing what="place" id={id} list={{ to: "/places", label: "All places" }} />;
   return <PlaceDossier key={p.id} p={p} />;
 }
