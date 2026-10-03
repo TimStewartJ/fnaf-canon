@@ -2,7 +2,7 @@ import type { RefObject } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import {
-  Button, FilterBar, deathKindIcon, FilterChip, FilterGroup, FirmGlyph, GameMark, Icon, IconButton, STATUS, Segmented, smartQuotes, useModalDialog,
+  Button, FilterBar, deathKindIcon, FilterChip, FilterGroup, FirmGlyph, GameMark, Icon, IconButton, STATUS, Segmented, smartQuotes, useModalDialog, useSheetPull,
 } from "../../components/ui";
 import {
   type FilterChange, type Filters, type Layer, type Lineup, DEATH_KINDS, STATUSES, appliedFilters, causeLabel, countPhrase, isDescriptor, isUnknownKiller, killerName, killerOptions,
@@ -94,9 +94,10 @@ export function FilterPanel({ f, set, locationsTo, bare = false, onLeave }: { f:
 export function FilterSheet({ f, set, line, onClear, onClose, locationsTo }: { f: Filters; set: (change: FilterChange) => void; line: Lineup; onClear: () => void; onClose: () => void; locationsTo: URLSearchParams }) {
   const dialogProps = useModalDialog(true, onClose);
   const n = appliedFilters(f).length;
+  const pull = useSheetPull(onClose);
   return (
     <dialog className="tl-sheet tl-sheet--filters" aria-label="Filters" {...dialogProps}>
-      <header className="tl-sheet__bar">
+      <header className="tl-sheet__bar sheet-bar" {...pull}>
         <span className="tl-sheet__title">Filters</span>
         <IconButton icon={X} label="Close" onClick={onClose} autoFocus />
       </header>

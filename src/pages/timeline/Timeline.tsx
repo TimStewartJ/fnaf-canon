@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, settleHeader, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
@@ -174,6 +174,7 @@ export default function Timeline() {
     const el = document.getElementById(`era-${id}`);
     if (!el) return;
     jump.current = null;
+    settleHeader();
     el.scrollIntoView({ block: "start", behavior: "instant" });
     focusHeading(el);
   }, [edit]);
@@ -221,7 +222,7 @@ export default function Timeline() {
     lastView.current = view;
     if (!viewJump.current) return;
     viewJump.current = false;
-    if (!here && bar.current && bar.current.getBoundingClientRect().top < 0) bar.current.scrollIntoView({ block: "start", behavior: "instant" });
+    if (!here && bar.current && bar.current.getBoundingClientRect().top < 0) { settleHeader(); bar.current.scrollIntoView({ block: "start", behavior: "instant" }); }
     if (!document.activeElement || document.activeElement === document.body) panel.current?.focus({ preventScroll: true });
   });
 

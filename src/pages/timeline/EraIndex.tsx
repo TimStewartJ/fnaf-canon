@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, List, X } from "lucide-react";
-import { Icon, IconButton, isPlainClick, smartQuotes, useModalDialog } from "../../components/ui";
+import { Icon, IconButton, isPlainClick, smartQuotes, useModalDialog, useSheetPull } from "../../components/ui";
 import { useCurrentEra } from "./hooks";
 import { plural, within } from "./model";
 
@@ -76,9 +76,10 @@ export function EraRail({ entries, sp, onGo }: { entries: EraEntry[]; sp: URLSea
 
 function EraSheet({ entries, current, sp, onPick, onClose }: { entries: EraEntry[]; current: string; sp: URLSearchParams; onPick: (id: string) => void; onClose: () => void }) {
   const dialogProps = useModalDialog(true, onClose);
+  const pull = useSheetPull(onClose);
   return (
     <dialog className="tl-sheet tl-sheet--side" aria-label="Eras" {...dialogProps}>
-      <header className="tl-sheet__bar">
+      <header className="tl-sheet__bar sheet-bar" {...pull}>
         <span className="tl-sheet__title">Eras</span>
         <IconButton icon={X} label="Close" onClick={onClose} autoFocus />
       </header>
@@ -113,7 +114,7 @@ export function EraBar({ entries, sp, onGo }: { entries: EraEntry[]; sp: URLSear
   const prev = entries.find((e) => e.id === ids[at - 1]);
   const next = entries.find((e) => e.id === ids[at + 1]);
   return (
-    <div className="tl-erabar" style={hueStyle(here.hue)}>
+    <div className="tl-erabar pin" style={hueStyle(here.hue)}>
       <button type="button" className="tl-erabar__btn" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-label={`Eras. Reading era ${here.n} of ${entries.length}: ${here.name}`}>
         <Icon icon={List} />
         <span className="tl-erabar__n">{pad2(here.n)}</span>
