@@ -46,7 +46,7 @@ export default function EvidenceDetail() {
             <Fact label="Where exactly">{smartQuotes(e.location)}</Fact>
             <Fact label="Kind of source">{KIND_LABEL[e.kind] ?? e.kind}</Fact>
             <Fact label="Certainty"><CertaintyMark value={e.certainty} variant="inline" /> <span className="muted">{CERTAINTY[e.certainty].help}.</span></Fact>
-            <Fact label="In-universe time"><EvidenceDate e={e} /> <span className="muted">({e.when.precision})</span>{e.when.basis && <div className="muted small">Basis: {e.when.basis}</div>}</Fact>
+            <Fact label="In-universe time"><EvidenceDate e={e} /> <span className="muted">({e.when.precision})</span>{e.when.basis && <div className="muted small">Basis: {smartQuotes(e.when.basis)}</div>}</Fact>
             {!!e.people?.length && <Fact label="People"><span className="cluster">{e.people.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
             {!!e.places?.length && <Fact label="Places"><span className="cluster">{e.places.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
             {!!e.tags?.length && <Fact label="Tags"><span className="cluster">{e.tags.map((t) => <Tag key={t} to={`/evidence?tag=${t}`}>#{t}</Tag>)}</span></Fact>}

@@ -10,6 +10,11 @@
     <meta name="referrer" content="no-referrer" />
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- The three faces every page shows at once (headings, body, interface). Fetching them with the
+         page, not after the stylesheet has been parsed, shortens the moment of fallback type. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2" />
     <script>
       // Apply the reader's saved settings before first paint (see src/components/shell/prefs.ts).
       try {

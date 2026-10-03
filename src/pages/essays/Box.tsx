@@ -22,7 +22,7 @@ export default function Box() {
         {boxAnswer.map((a) => (
           <article key={a.q} className="answer-card">
             <h2>{a.q}</h2>
-            <p className="answer-card__short">{a.short}</p>
+            <p className="answer-card__short">{smartQuotes(a.short)}</p>
             <div className="prose">{a.body.map((b, i) => <p key={i}><RichText text={b} /></p>)}</div>
             <p className="answer-card__conf"><span className="label">Confidence</span>{a.confidence}</p>
           </article>

@@ -205,7 +205,7 @@ export default function Timeline() {
                 <div>
                   <h2>{era.name}</h2>
                   <p className="tl-era__range"><DatePill label={era.range} kind={ERA_DATES[era.id]?.kind ?? "unknown"} basis={ERA_DATES[era.id]?.basis} evidence={ERA_DATES[era.id]?.evidence} /></p>
-                  <p className="tl-era__sum">{era.summary}</p>
+                  <p className="tl-era__sum">{smartQuotes(era.summary)}</p>
                 </div>
               </div>
               <ol className="tl-spine">
@@ -286,7 +286,7 @@ function DeathItem({ d, side, open, now, refFn, onSelect }: { d: Death } & ItemP
             <dt>By</dt><dd>{d.byLabel}</dd>
             <dt>Where</dt><dd>{d.place ? <Link to={placePath(d.place)}>{placeById.get(d.place)?.name ?? d.place}</Link> : <span className="muted">{d.placeLabel ?? "Not stated"}</span>}</dd>
           </dl>
-          {d.note && <p className="tl-sum small">{d.note}</p>}
+          {d.note && <p className="tl-sum small">{smartQuotes(d.note)}</p>}
           <div className="tl-foot">
             <span className="tl-games">{gamesOfIds(d.evidence).map((g) => <GameMark key={g} id={g} />)}</span>
             <EvidenceToggle open={open} n={d.evidence.length} onSelect={onSelect} />

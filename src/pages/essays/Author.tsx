@@ -40,7 +40,7 @@ export default function Author() {
         {authorAnswer.map((a) => (
           <article key={a.q} className="answer-card">
             <h2>{a.q}</h2>
-            <p className="answer-card__short">{a.short}</p>
+            <p className="answer-card__short">{smartQuotes(a.short)}</p>
             <div className="prose">{a.body.map((b, i) => <p key={i}><RichText text={b} /></p>)}</div>
             <p className="answer-card__conf">{isConfidence(a.confidence) ? <ConfidenceMark value={a.confidence} variant="inline" long /> : <><span className="label">Confidence</span>{a.confidence}</>}</p>
           </article>
@@ -52,7 +52,7 @@ export default function Author() {
           {readings.map((r) => (
             <article key={r.claim} className="reading">
               <span className="verdict-tag" data-tone={READING_TONE[r.status]}>{READING_STATUS[r.status].label}</span>
-              <h3>{r.claim}</h3>
+              <h3>{smartQuotes(r.claim)}</h3>
               <p><RichText text={r.body} /></p>
               {r.section && theoryById.has(r.section) && <Tag to={chapterPath(r.section)}>In the theory <Icon icon={ArrowRight} /></Tag>}
             </article>

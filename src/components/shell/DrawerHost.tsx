@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { deferred } from "../deferred";
+import { evidencePath } from "../links";
 import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, type EvidenceDrawerApi } from "../evidenceDrawer";
 
 // A separate chunk that never suspends (see deferred.ts): the first citation opens as fast as the rest.
@@ -47,7 +48,11 @@ export function DrawerHost({ children }: { children: ReactNode }) {
     <EvidenceDrawerContext.Provider value={api}>
       <EvidenceDrawerRecordContext.Provider value={drawer?.id ?? null}>
         {children}
-        <EvidenceDrawer props={drawer && { state: drawer, onClose: api.close }} />
+        <EvidenceDrawer
+          props={drawer && { state: drawer, onClose: api.close }}
+          // The drawer's code could not be fetched, even after a reload: show the record's own page.
+          onFail={() => { const d = latest.current.drawer; if (d) latest.current.navigate(evidencePath(d.id), { replace: true }); }}
+        />
       </EvidenceDrawerRecordContext.Provider>
     </EvidenceDrawerContext.Provider>
   );

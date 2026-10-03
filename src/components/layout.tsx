@@ -1,4 +1,4 @@
-import { Fragment, type ReactNode } from "react";
+import { Fragment, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, CircleHelp, Info, KeyRound, TriangleAlert, type LucideIcon } from "lucide-react";
 import { usePageTitle } from "./hooks";
@@ -78,10 +78,15 @@ export function Empty({ title, children, action }: { title?: string; children?: 
   );
 }
 
-/** A collapsed section the reader can open. `meta` is a quiet note on the summary row, such as a count. */
+/**
+ * A collapsed section the reader can open. `meta` is a quiet note on the summary row, such as a count.
+ * `defaultOpen` is read once, when the section first appears. After that the reader owns it: a
+ * later render never opens or closes a section they are using, whatever value is passed.
+ */
 export function Collapsible({ summary, meta, children, defaultOpen = false, id, className }: { summary: ReactNode; meta?: ReactNode; children: ReactNode; defaultOpen?: boolean; id?: string; className?: string }) {
+  const [startOpen] = useState(defaultOpen);
   return (
-    <details className={`collapsible${className ? ` ${className}` : ""}`} open={defaultOpen || undefined} id={id}>
+    <details className={`collapsible${className ? ` ${className}` : ""}`} open={startOpen || undefined} id={id}>
       <summary>
         <span className="collapsible__title">{typeset(summary)}</span>
         {meta && <span className="collapsible__meta">{meta}</span>}

@@ -129,7 +129,7 @@ export default function SearchPalette({ onClose }: { onClose: () => void }) {
                 <Icon icon={e.icon} className="palette__icon" />
                 <span className="palette__text">
                   <span className="palette__title">{smartQuotes(e.title)}</span>
-                  <span className="palette__sub">{smartQuotes(e.sub)}</span>
+                  {/[\p{L}\p{N}]/u.test(e.sub) && <span className="palette__sub">{smartQuotes(e.sub)}</span>}
                 </span>
                 {i === cur && <Icon icon={CornerDownLeft} className="palette__enter" />}
               </div>

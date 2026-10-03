@@ -218,3 +218,6 @@ dialog.palette::backdrop { background: var(--c-scrim); }
 .site-footer__links { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); }
 .site-footer__links a { color: var(--c-text-2); }
 .site-footer__links a:hover { color: var(--c-accent-strong); }
+
+/* ── A page that failed to load (PageBoundary) ─────────────────── */
+.page-error__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); margin-top: var(--sp-4); }

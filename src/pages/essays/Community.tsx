@@ -27,7 +27,7 @@ function TheoryCard({ t }: { t: CommunityTheory }) {
         <span className="th-games">{t.games.map((g) => <GameMark key={g} id={g} />)}</span>
       </header>
       <h3>{t.name}</h3>
-      {t.aka && t.aka.length > 0 && <p className="th-aka">Also: {t.aka.join(" · ")}</p>}
+      {t.aka && t.aka.length > 0 && <p className="th-aka">Also: {smartQuotes(t.aka.join(" · "))}</p>}
       <p className="th-claim">“{t.claim}”</p>
       <div className="th-cols">
         <div><h4 className="label" data-tone="ok">What it got right</h4><p><RichText text={t.right} /></p></div>

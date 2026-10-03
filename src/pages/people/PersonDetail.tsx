@@ -126,7 +126,7 @@ export default function PersonDetail() {
                     <td className="rel-table__kind">{r.kind.replace(/-/g, " ")}</td>
                     <td><EntityLink id={r.to} /></td>
                     <td><StatusMark value={r.status} /></td>
-                    <td><CiteList ids={r.evidence} />{r.note && <div className="muted small">{r.note}</div>}</td>
+                    <td><CiteList ids={r.evidence} />{r.note && <div className="muted small">{smartQuotes(r.note)}</div>}</td>
                   </tr>
                 ))}
               </tbody>

@@ -4,7 +4,7 @@ import { labelForEntity, personById, relations } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import { familyTrees } from "../../data/familyTrees";
 import type { Relation, RelationKind, Status } from "../../data/schema";
-import { CiteList, EntityLink, FilterBar, FilterChip, FilterGroup, Page, PageHeader, StatusMark, Tabs, Toggle, levelOf, personPath } from "../../components/ui";
+import { CiteList, EntityLink, FilterBar, FilterChip, FilterGroup, Page, PageHeader, StatusMark, Tabs, Toggle, levelOf, personPath, smartQuotes } from "../../components/ui";
 import "./relgraph.css";
 import "./family.css";
 
@@ -176,13 +176,13 @@ export default function FamilyTrees() {
           {sel.rels.map((r, i) => (
             <div key={i} className="rel-under">
               {sel.rels.length > 1 && <span className="small"><EntityLink id={r.from} /> → <EntityLink id={r.to} /> <StatusMark value={r.status} /></span>}
-              {r.note && <p>{r.note}</p>}
+              {r.note && <p>{smartQuotes(r.note)}</p>}
               <p className="cluster"><span className="label">Evidence</span> <CiteList ids={r.evidence} /></p>
             </div>
           ))}
         </div>
       ) : <p className="muted small tree-hint">Select a line to see the evidence behind a relationship.</p>}
-      {tree?.notes && <div className="note">{tree.notes}</div>}
+      {tree?.notes && <div className="note">{smartQuotes(tree.notes)}</div>}
     </Page>
   );
 }

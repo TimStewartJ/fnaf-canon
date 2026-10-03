@@ -4,7 +4,7 @@ import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation, f
 import { evidenceForPerson, labelForEntity, people, personById, relations } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import type { Person, Relation, Status } from "../../data/schema";
-import { CiteList, EntityLink, FilterBar, FilterChip, FilterGroup, GROUP_HUE, GROUP_LABEL, Page, PageHeader, STATUS, StatusMark, Toggle, levelOf, personPath } from "../../components/ui";
+import { CiteList, EntityLink, FilterBar, FilterChip, FilterGroup, GROUP_HUE, GROUP_LABEL, Page, PageHeader, STATUS, StatusMark, Toggle, levelOf, personPath, smartQuotes } from "../../components/ui";
 import "./relgraph.css";
 import "./graph.css";
 
@@ -136,7 +136,7 @@ export default function Graph() {
       {sel && (
         <div className="rel-detail" role="status">
           <h3><EntityLink id={sel.from} /> <span className="muted">{sel.kind.replace(/-/g, " ")}</span> <EntityLink id={sel.to} /> <StatusMark value={sel.status} long /></h3>
-          {sel.note && <p>{sel.note}</p>}
+          {sel.note && <p>{smartQuotes(sel.note)}</p>}
           <p className="cluster"><span className="label">Evidence</span> <CiteList ids={sel.evidence} /></p>
         </div>
       )}

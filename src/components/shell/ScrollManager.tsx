@@ -89,7 +89,7 @@ export function ScrollManager() {
       const saved = positions.current!.get(key);
       if (saved != null) restore(saved);
       else if (location.hash) toAnchor(location.hash);
-      else restore(0);
+      else window.scrollTo(0, 0);
       return;
     }
     const samePath = before.pathname === location.pathname;

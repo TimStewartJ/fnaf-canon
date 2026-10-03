@@ -30,7 +30,7 @@ export default function Places() {
             <div className="place-card__body">
               <h3><Link to={placePath(p.id)}>{smartQuotes(p.name)}</Link></h3>
               <p><PlaceYears id={p.id} years={p.years} /></p>
-              <p className="place-card__sum">{p.summary}</p>
+              <p className="place-card__sum">{smartQuotes(p.summary)}</p>
               <p className="place-card__n">{evidenceForPlace(p.id).length} records</p>
             </div>
           </article>

@@ -7,6 +7,7 @@ import { DrawerHost } from "./components/shell/DrawerHost";
 import { Footer } from "./components/shell/Footer";
 import { Header } from "./components/shell/Header";
 import { MenuSheet } from "./components/shell/MenuSheet";
+import { PageBoundary } from "./components/shell/PageBoundary";
 import { usePrefs } from "./components/shell/prefs";
 import { ScrollManager } from "./components/shell/ScrollManager";
 
@@ -63,37 +64,39 @@ function PageLocation({ children }: { children: ReactNode }) {
 const Pages = memo(function Pages() {
   const { pathname } = useLocation();
   return (
-    // The boundary sits outside the per-page key on purpose. Navigation is a transition, and a
-    // boundary that is already showing content keeps the old page up until the new one is ready;
-    // a boundary remounted with each page would flash "Loading" on every first visit instead.
-    <Suspense fallback={<div data-route-loading><Loading /></div>}>
-      <CiteScope key={pathname}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/theory" element={<TheoryCover />} />
-          <Route path="/theory/:chapterId" element={<TheoryChapter />} />
-          <Route path="/timeline" element={<Timeline />} />
-          <Route path="/evidence" element={<EvidenceExplorer />} />
-          <Route path="/evidence/:id" element={<EvidenceDetail />} />
-          <Route path="/people" element={<People />} />
-          <Route path="/people/:id" element={<PersonDetail />} />
-          <Route path="/family" element={<FamilyTrees />} />
-          <Route path="/graph" element={<Graph />} />
-          <Route path="/places" element={<Places />} />
-          <Route path="/places/:id" element={<PlaceDetail />} />
-          <Route path="/sources" element={<Sources />} />
-          <Route path="/sources/:id" element={<SourceDetail />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/method" element={<Method />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/box" element={<Box />} />
-          <Route path="/author" element={<Author />} />
-          <Route path="/dev/blocks" element={<DevBlocks />} />
-          <Route path="/dev/kit" element={<DevKit />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </CiteScope>
-    </Suspense>
+    // The Suspense boundary sits outside the per-page key on purpose. Navigation is a transition,
+    // and a boundary that is already showing content keeps the old page up until the new one is
+    // ready; a boundary remounted with each page would flash "Loading" on every first visit.
+    <PageBoundary resetKey={pathname}>
+      <Suspense fallback={<div data-route-loading><Loading /></div>}>
+        <CiteScope key={pathname}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/theory" element={<TheoryCover />} />
+            <Route path="/theory/:chapterId" element={<TheoryChapter />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/evidence" element={<EvidenceExplorer />} />
+            <Route path="/evidence/:id" element={<EvidenceDetail />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/people/:id" element={<PersonDetail />} />
+            <Route path="/family" element={<FamilyTrees />} />
+            <Route path="/graph" element={<Graph />} />
+            <Route path="/places" element={<Places />} />
+            <Route path="/places/:id" element={<PlaceDetail />} />
+            <Route path="/sources" element={<Sources />} />
+            <Route path="/sources/:id" element={<SourceDetail />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/method" element={<Method />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/box" element={<Box />} />
+            <Route path="/author" element={<Author />} />
+            <Route path="/dev/blocks" element={<DevBlocks />} />
+            <Route path="/dev/kit" element={<DevKit />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </CiteScope>
+      </Suspense>
+    </PageBoundary>
   );
 });
 
@@ -125,7 +128,7 @@ function Shell() {
       </main>
       <Footer />
       {menuAt === location.key && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
-      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} />
+      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => setSearch(false)} />
     </DrawerHost>
   );
 }
