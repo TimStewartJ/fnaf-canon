@@ -1466,7 +1466,7 @@
   },
   {
     "id": "security-breach-ending-redemption",
-    "title": "Redemption: Princess Quest 3 frees Vanessa",
+    "title": "Redemption ending: after Princess Quest 3 the rabbit mask lies on the floor and Vanessa waits at the doors",
     "claim": "After beating Princess Quest 1-3, the PQ3 screen errors out; S.T.A.F.F. bots have collapsed, Vanny's mask and bowtie lie on the floor, and Vanessa waits at the doors; post-credits Gregory, Freddy's head and Vanessa eat ice cream on a hill.",
     "game": "security-breach",
     "kind": "ending",
@@ -1492,7 +1492,7 @@
       "princess-quest",
       "vanny-vanessa"
     ],
-    "notes": "'Freed from Glitchtrap's control' is the wiki's reading. In the post-credits image Gregory wears a purple shirt and eats a Golden Freddy ice-cream pop with part of the head bitten off (shown; significance is interpretation).",
+    "notes": "That Vanessa was freed from the rabbit's control is the wiki's reading; the game shows the mask on the floor and Vanessa at the doors, and says nothing more. In the post-credits image Gregory wears a purple shirt and eats a Golden Freddy ice-cream pop with part of the head bitten off (shown; significance is interpretation).",
     "related": [
       "security-breach-msg-arcade-conspiracy",
       "security-breach-pq3-help-wanted-hub-trapped-door",
@@ -5830,7 +5830,7 @@
     ],
     "image": "sotm-work-order-1979.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Arnold_work_order_1.png",
-    "notes": "Read from the document image on the wiki, which captions it 'Arnold's work order found within the Van'. The date appears twice: printed in the header and handwritten beside the employee signature. Service $30.00, gas $8.45, job total $38.45. In month/day order 9/07/79 is 7 September 1979, exactly five weeks (35 days) after the 'Aug 3rd' on the Inventor's House mailbox, whose message says the last mail came 'five weeks ago' (secret-of-the-mimic-mail-foreclosure). This is a date printed inside the game, not only the teaser's '1979'."
+    "notes": "Read from the document image on the wiki, which captions it 'Arnold's work order found within the Van'. The date appears twice: printed in the header and handwritten beside the employee signature. Service $30.00, gas $8.45, job total $38.45. In month/day order 9/07/79 is 7 September 1979, exactly five weeks (35 days) after the 'Aug 3rd' on the Inventor's House mailbox, whose message says the last mail came 'five weeks ago' (secret-of-the-mimic-mail-foreclosure). So the year is on a document among the game's files as well as in the teaser. The document was read from the wiki's copy of the image; whether the date can be read in play has not been confirmed, so the archive does not call it printed."
   },
   {
     "id": "secret-of-the-mimic-credential-form-1979",

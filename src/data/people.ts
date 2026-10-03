@@ -234,14 +234,14 @@ export const people: Person[] = [
     theory: "The caller of 1987 is most likely the guard who worked the office before FNaF1's player (medium-high): in 1987 he says he will probably take the night shift himself when the place reopens [[fnaf2-call6-birthday-day-shift]]. He is most likely the voice of FNaF3's training tapes as well (medium; the one record for it is an implied one). One thing counts against the tapes: their voice names the Spring Bonnie suit [[fnaf3-tape5-spring-bonnie-moved]], and the caller of 1987 can say only \"a yellow one\" [[fnaf2-call6-yellow-suit]]. See ((fnaf1-restaurant)) and ((november-1987)).",
   },
   {
-    id: "phone-dude", name: "the attraction's caller", aliases: [], nameStatus: "descriptor", group: "staff",
+    id: "phone-dude", name: "the attraction's caller", aliases: ["Phone Dude (a fan name)"], nameStatus: "descriptor", group: "staff",
     summary: "The caller on the first two nights of FNaF3, one of the people setting up the horror attraction Fazbear's Fright. He says the attraction opens in about a week and that the guard is part of the show [[fnaf3-call1-attraction-opens]]. He passes on a lead about \"an extra room that got boarded up\" [[fnaf3-call1-boarded-room-lead]], and on the second night he announces \"We found one. A real one.\" [[fnaf3-call2-found-a-real-one]] He is not heard again: from the third night the old training tapes play alone. The game gives him no name.",
     status: "Unknown. He is not heard after the second night.",
     firstAppearance: "fnaf3",
     evidence: ["fnaf3-call1-attraction-opens", "fnaf3-call1-boarded-room-lead", "fnaf3-call2-found-a-real-one"],
   },
   {
-    id: "tape-girl", name: "the tape speaker", aliases: ["QA (the credits)"], nameStatus: "descriptor", group: "staff",
+    id: "tape-girl", name: "the tape speaker", aliases: ["QA (the credits)", "Tape Girl (a fan name)"], nameStatus: "descriptor", group: "staff",
     summary: "The voice on the hidden tapes of Help Wanted: a tester at the studio that first built Fazbear Entertainment's virtual reality game. The game never names her, and its credits list the part only as \"QA\" [[hw-credits-tape-girl-qa]]. She says the game holds \"some kind of malicious code\" that her team could not contain or understand [[hw-tape-01]]. The client sent old circuit boards to be scanned, usable code on some of them \"seemed to take hold by itself\", and then \"he started appearing\" [[hw-tape-05]]. She reports emails showing that Fazbear Entertainment hired the developer of the earlier games, which \"were designed to conceal and make light of what happened\" [[hw-tape-13-fe-hired-developer]]. She calls the figure \"the anomaly\" [[hw-tape-girl-calls-it-the-anomaly]]. Her sixteenth tape gives a way to kill it, and adds \"I hope\" [[hw-tape-16]].",
     status: "Unknown after her tapes.",
     firstAppearance: "help-wanted", image: "hw-tape-room.jpg",
@@ -618,7 +618,7 @@ export const people: Person[] = [
     theory: "Most likely what is left of Ennard after the group threw Baby out (medium-high). Where the five children are between the dismantling of the four mascots and the Cassette Man's call is not shown, and no record puts them in this machine: its own lines say \"I\" and \"me\" [[ffps-molten-freddy-knock-knock]]. The mass of parts under the Pizzaplex may be its remains, since the one clear face on that mass is a Funtime Freddy face (low-medium). See ((salvage)) and ((burntrap)).",
   },
   {
-    id: "the-blob", name: "the mass of parts", aliases: [], nameStatus: "descriptor", group: "entity",
+    id: "the-blob", name: "the mass of parts", aliases: ["the Blob (a fan name)", "Tangle (a file name)"], nameStatus: "descriptor", group: "entity",
     summary: "A giant, tentacled mass of old animatronic parts under the Pizzaplex. It sleeps near the entrance to the buried pizzeria, attacks Gregory if he is outside Freddy, and has one clear face, a white bear with pink cheeks and a small top hat [[security-breach-tangle-composition]]. In the one ending that goes underground it seizes the burnt rabbit under the Pizzaplex as the place burns, and pulls it into the ceiling [[security-breach-ending-burn-it-all-down]]. In RUIN the voice posing as Gregory says \"Something tunneled down... broke everything.\" [[ruin-something-tunneled]] The game gives it no name.",
     status: "Last seen pulling the burnt rabbit under the Pizzaplex into the ceiling, in one ending.",
     firstAppearance: "security-breach", image: "sb-burntrap-and-tangle.jpg",
@@ -657,7 +657,7 @@ export const people: Person[] = [
     evidence: ["fnaf1-custom-night-names", "fnaf1-call2-freddy-dark-foxy-cove", "fnaf2-give-gifts-give-life", "fnaf2-old-models-walk-from-night2", "fnaf3-eon-purple-guy-dismantles"],
   },
   {
-    id: "shadow-freddy", name: "the dark bear", aliases: [], nameStatus: "descriptor", group: "entity",
+    id: "shadow-freddy", name: "the dark bear", aliases: ["Shadow Freddy (a fan name)"], nameStatus: "descriptor", group: "entity",
     summary: "A dark purple version of the slumped yellow bear, with glowing white eyes and teeth. In FNaF2 it sits, rarely, against the wall of Parts and Service, where the older Bonnie normally sits [[fnaf2-shadow-freddy]]. In FNaF3's minigames a dark purple bear says \"follow me.\" and leads Freddy, Bonnie, Chica and Foxy in turn to the place where the purple figure takes each apart [[fnaf3-eon-shadow-freddy-follow-me]] [[fnaf3-eon-purple-guy-dismantles]]. No game shows a name for it.",
     status: "Unexplained.",
     firstAppearance: "fnaf2", image: "fnaf2-shadow-freddy-parts-service.jpg",
@@ -665,7 +665,7 @@ export const people: Person[] = [
     theory: "The games name and explain neither of the dark figures. The model reads the dark bear as the killer's lure (low-medium), from what it does and not from its colour. Against that, following it ends with the ghosts free. The Cassette Man's words \"He lured them all back.\" can be read as this sequence [[ffps-insanity-lured-back]]. See ((open)).",
   },
   {
-    id: "shadow-bonnie", name: "the dark rabbit", aliases: [], nameStatus: "descriptor", group: "entity",
+    id: "shadow-bonnie", name: "the dark rabbit", aliases: ["Shadow Bonnie (a fan name)", "RWQFSFASXC (a file name)"], nameStatus: "descriptor", group: "entity",
     summary: "A dark silhouette shaped like a rabbit. In FNaF2 it appears in the office, very rarely, and the game closes if the player stares at it [[fnaf2-shadow-bonnie-office]]. In FNaF3 a dark rabbit figurine on the desk starts a hidden minigame, in which a black rabbit flies and passes between the other minigames' rooms to a place where a crying child can be given cake [[fnaf3-shadow-bonnie-minigame]]. No game shows a name for it.",
     status: "Unexplained.",
     firstAppearance: "fnaf2",
@@ -681,7 +681,7 @@ export const people: Person[] = [
     theory: "Who he is stays open: the constants are the lake and the seat. On its plain sense his line in Ultimate Custom Night is spoken to someone who is not the demon. Who that listener is depends on who is in the office, and the model does not choose (see ((ucn)) and ((faith))). The old man of the later Princess Quest games is a different sprite that the games never call by this name (see {{pq-old-man}}).",
   },
   {
-    id: "the-entity", name: "the rabbit-shaped figure from the M.X.E.S. cabinet", aliases: ["that rabbit thing (RUIN's words)"], nameStatus: "descriptor", group: "entity",
+    id: "the-entity", name: "the rabbit-shaped figure from the M.X.E.S. cabinet", aliases: ["that rabbit thing (RUIN's words)", "the Entity (a fan name)"], nameStatus: "descriptor", group: "entity",
     summary: "A glitching, rabbit-shaped figure in RUIN. It appears when Cassie wears the Security Mask too long, and alerts the animatronics to her [[ruin-the-entity]]. The voice posing as Gregory calls it \"That rabbit thing\" and promises to jam it [[ruin-fake-gregory-signal-jammer]]. At the deepest level, beside a cabinet with the nameplate M.X.E.S., it comes out of the machine and is pulled back in [[ruin-mxes-hub]]. Gregory says that the M.X.E.S. security program \"was designed to keep it hidden\", meaning the thing in the sinkhole [[ruin-gregory-mxes-explanation]]. In Help Wanted 2 the same figure comes out of a matching cabinet in a van and is pulled back in [[hw2-mimic-teaser-mxes-ending]].",
     status: "Last seen pulled back into the M.X.E.S. cabinet, after the last security node is switched off.",
     firstAppearance: "ruin",

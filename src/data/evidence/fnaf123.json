@@ -1770,7 +1770,7 @@
   },
   {
     "id": "fnaf2-shadow-freddy",
-    "title": "Shadow Freddy in Parts/Service",
+    "title": "The dark bear in Parts/Service",
     "claim": "Rarely, a dark purple version of the slumped yellow bear, with glowing white eyes and teeth and a microphone in its hand, sits against the wall of Parts/Service in the place where the older Bonnie normally sits.",
     "game": "fnaf2",
     "kind": "hidden",
@@ -1805,7 +1805,7 @@
   },
   {
     "id": "fnaf2-shadow-bonnie-office",
-    "title": "Shadow Bonnie (RWQFSFASXC) in the office",
+    "title": "The dark rabbit in the office",
     "claim": "Very rarely, a dark silhouette shaped like Toy Bonnie appears in the office. If the player stares at it without flashing the light, the game closes.",
     "game": "fnaf2",
     "kind": "hidden",
@@ -1893,12 +1893,12 @@
   },
   {
     "id": "fnaf3-call1-attraction-opens",
-    "title": "Phone Dude: attraction opens in a week; guard is part of the show",
-    "claim": "On Night 1 Phone Dude says they found new relics over the weekend and the attraction opens in about a week. Guests will pass the guard's office on the way out, and the guard will star as 'the security guard'.",
+    "title": "The attraction's caller: attraction opens in a week; guard is part of the show",
+    "claim": "On Night 1 the attraction's caller says they found new relics over the weekend and the attraction opens in about a week. Guests will pass the guard's office on the way out, and the guard will star as 'the security guard'.",
     "quote": "Like, the attraction opens in like a week, so we had to make sure everything works, and nothing catches on fire!",
     "game": "fnaf3",
     "kind": "phone-call",
-    "location": "Night 1 phone call (Phone Dude)",
+    "location": "Night 1 phone call (the attraction's caller)",
     "certainty": "stated",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -1921,11 +1921,11 @@
   {
     "id": "fnaf3-call1-relics-foxy-head",
     "title": "Relics: drawings, a Foxy head, a desk fan",
-    "claim": "Phone Dude says they found another set of drawings, a Foxy head that might be authentic 'or another crappy cosplay', and an old metal desk fan.",
+    "claim": "The attraction's caller says they found another set of drawings, a Foxy head that might be authentic 'or another crappy cosplay', and an old metal desk fan.",
     "quote": "We found another set of drawings, always nice, and a Foxy head! Which we think could be authentic! Then again it might just be another crappy cosplay.",
     "game": "fnaf3",
     "kind": "phone-call",
-    "location": "Night 1 phone call (Phone Dude)",
+    "location": "Night 1 phone call (the attraction's caller)",
     "certainty": "stated",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -1950,11 +1950,11 @@
   {
     "id": "fnaf3-call1-boarded-room-lead",
     "title": "Lead on a boarded-up extra room",
-    "claim": "Phone Dude says someone who helped design one of the buildings told them there was an extra room that got boarded up, and they are going to take a look.",
+    "claim": "The attraction's caller says someone who helped design one of the buildings told them there was an extra room that got boarded up, and they are going to take a look.",
     "quote": "some guy who helped design one of the buildings says there was like an extra room that got boarded up, or uh, something like that.",
     "game": "fnaf3",
     "kind": "phone-call",
-    "location": "Night 1 phone call (Phone Dude)",
+    "location": "Night 1 phone call (the attraction's caller)",
     "certainty": "stated",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -1985,11 +1985,11 @@
   {
     "id": "fnaf3-call1-ventilation-hallucinations",
     "title": "Ventilation failure causes 'crazy stuff'",
-    "claim": "Phone Dude warns that if the ventilation goes offline 'you'll start seeing some crazy stuff'. He also says the vintage equipment is barely functional and fire is a real risk.",
+    "claim": "The attraction's caller warns that if the ventilation goes offline 'you'll start seeing some crazy stuff'. He also says the vintage equipment is barely functional and fire is a real risk.",
     "quote": "if you let that ventilation go offline, then you'll start seeing some crazy stuff man. Keep that air blowing!",
     "game": "fnaf3",
     "kind": "phone-call",
-    "location": "Night 1 phone call (Phone Dude)",
+    "location": "Night 1 phone call (the attraction's caller)",
     "certainty": "stated",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -2017,11 +2017,11 @@
   {
     "id": "fnaf3-call2-found-a-real-one",
     "title": "'We found one. A real one.'",
-    "claim": "On Night 2 Phone Dude says they found vintage training cassettes to play over the speakers and, better, 'We found one. A real one.' He says it's somewhere in the attraction, then hurriedly leaves.",
+    "claim": "On Night 2 the attraction's caller says they found vintage training cassettes to play over the speakers and, better, 'We found one. A real one.' He says it's somewhere in the attraction, then hurriedly leaves.",
     "quote": "But I have an even better surprise for you, and you're not gonna believe this! We found one. A real one. Uh-oh-uh, gotta go man.",
     "game": "fnaf3",
     "kind": "phone-call",
-    "location": "Night 2 phone call (Phone Dude)",
+    "location": "Night 2 phone call (the attraction's caller)",
     "certainty": "stated",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -2435,7 +2435,7 @@
   {
     "id": "fnaf3-n5-ghosts-safe-room",
     "title": "Night 5 minigame: crying ghost chases the purple figure",
-    "claim": "After Night 5 the player controls a crying, grey child figure with no Shadow Freddy guide. In the room above the pile of parts, four more such figures block the exit, and the panicking purple figure runs from them. The room holds three arcade cabinets and an empty yellow rabbit suit.",
+    "claim": "After Night 5 the player controls a crying, grey child figure with no dark bear to follow. In the room above the pile of parts, four more such figures block the exit, and the panicking purple figure runs from them. The room holds three arcade cabinets and an empty yellow rabbit suit.",
     "game": "fnaf3",
     "kind": "minigame",
     "location": "Post-Night 5 minigame",
@@ -2774,7 +2774,7 @@
   },
   {
     "id": "fnaf3-shadow-bonnie-minigame",
-    "title": "Shadow Bonnie (RWQFSFASXC) glitch minigame",
+    "title": "The dark rabbit's glitch minigame",
     "claim": "Double-clicking a dark rabbit figurine on the Office desk (Night 5) starts a glitchy minigame. The player controls a black silhouette rabbit that can fly and phase between other minigames' rooms and a purple room, where a crying child can be given cake.",
     "game": "fnaf3",
     "kind": "minigame",
@@ -4593,7 +4593,7 @@
     "claim": "FNaF3 gives its player character no name. It has no paycheck and no pink slip: the screens after Night 5 and after Nightmare are the row of heads and the fire newspaper.",
     "game": "fnaf3",
     "kind": "ending",
-    "location": "Night 5 and Nightmare completion screens; Phone Dude's calls",
+    "location": "Night 5 and Nightmare completion screens; the calls of the attraction's caller",
     "certainty": "implied",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
