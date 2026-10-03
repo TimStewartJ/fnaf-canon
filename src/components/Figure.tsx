@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ImageOff, Maximize2, X } from "lucide-react";
 import { creditByFile, evidenceById } from "../data/store";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
-import { useModalDialog } from "./hooks";
+import { useFlick, useModalDialog } from "./hooks";
 import { ExternalLink } from "./controls";
 import { evidencePath, imgSize, imgUrl } from "./links";
 import { Icon } from "./Icon";
@@ -122,7 +122,8 @@ export function FigureFrame({ file, alt, eager = false, near: whenNear = false, 
 
 /**
  * Full-screen image viewer. Escape, the close button, or a click on the backdrop closes it;
- * focus returns to whatever opened it. Pass onPrev/onNext to page through a set (arrow keys work).
+ * focus returns to whatever opened it. Pass onPrev/onNext to page through a set: the arrow keys
+ * work, and so does a flick of a finger to either side. A pull downwards closes it.
  */
 export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { file: string; caption?: ReactNode; onClose: () => void; onPrev?: () => void; onNext?: () => void; counter?: string }) {
   const credit = creditByFile.get(file);
@@ -136,6 +137,8 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
     const el = dialog.current;
     if (el && !el.contains(document.activeElement)) el.querySelector<HTMLElement>(".lightbox__nav:last-of-type, .lightbox__bar .icon-btn")?.focus();
   }, [dialog, file]);
+  // A finger moves the picture it is on: flicked left, the next one comes in from the right.
+  const flick = useFlick({ onSide: (dir) => (dir < 0 ? onNext : onPrev)?.(), onDown: onClose });
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft" && onPrev) { e.preventDefault(); onPrev(); }
@@ -150,7 +153,7 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
         <span className="label">{counter ?? "Exhibit"}</span>
         <button type="button" className="icon-btn" onClick={onClose} aria-label="Close image viewer" autoFocus><Icon icon={X} /></button>
       </div>
-      <div className="lightbox__stage" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="lightbox__stage" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }} {...flick}>
         {onPrev && <button type="button" className="icon-btn lightbox__nav" onClick={onPrev} aria-label="Previous image"><Icon icon={ChevronLeft} /></button>}
         {failed === file
           ? <Unavailable alt={alt} />

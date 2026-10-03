@@ -4,7 +4,7 @@ import { CornerDownRight, MapPin, User } from "lucide-react";
 import type { DateKind, Evidence } from "../data/schema";
 import { evidenceById, labelForEntity, personById, placeById } from "../data/store";
 import { gameById } from "../data/store";
-import { useCiteNumbering } from "./citeScope";
+import { type CiteNumbering, useCiteNumbering } from "./citeScope";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { DATE_KIND, firmness, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
@@ -20,11 +20,11 @@ import { gameMeta } from "../data/gameMeta";
 
 /* ── Evidence preview (the hover card behind citation markers) ─────────────────── */
 
-/** One line saying where a record comes from: source, kind of source, exact spot. */
-export function SourceLine({ e, location = true }: { e: Evidence; location?: boolean }) {
+/** One line saying where a record comes from: source, kind of source, exact spot. `full` names the source in full, not by its code. */
+export function SourceLine({ e, location = true, full = false }: { e: Evidence; location?: boolean; full?: boolean }) {
   return (
     <span className="source-line">
-      <GameMark id={e.game} />
+      <GameMark id={e.game} variant={full ? "full" : "code"} />
       <span className="source-line__kind"><Icon icon={sourceKindIcon(e.kind)} /> {kindLabel(e.kind)}</span>
       {location && <span className="source-line__loc">{smartQuotes(e.location)}</span>}
     </span>
@@ -49,13 +49,20 @@ export function EvidencePreview({ e }: { e: Evidence }) {
 
 /* ── Citations ─────────────────────────────────────────────────────────────────── */
 
-function useOpenEvidence(id: string, group: string[] | undefined, after?: () => void) {
+/**
+ * Opens a record from a citation. A numbered marker opens it among everything numbered on the
+ * page, in order: the drawer then reads "Source 18 of 35", which confirms which marker was hit
+ * (on a phone two of them can sit under one finger) and its arrows walk the page's sources.
+ */
+function useOpenEvidence(id: string, group: string[] | undefined, after?: () => void, numbered?: CiteNumbering | null) {
   const drawer = useEvidenceDrawer();
   return (ev: MouseEvent) => {
     if (!isPlainClick(ev)) return; // let Ctrl/Cmd/middle click open the full record in a new tab
     ev.preventDefault();
     after?.();
-    drawer.open(id, group, "cited here");
+    const all = numbered?.ids();
+    if (all && all.length > 1 && all.includes(id)) drawer.open(id, all, "", "Source");
+    else drawer.open(id, group, "cited here");
   };
 }
 
@@ -67,7 +74,7 @@ export function Cite({ id, group }: { id: string; group?: string[] }) {
   const e = evidenceById.get(id);
   const numbering = useCiteNumbering();
   const [pop, anchorRef] = usePopover();
-  const open = useOpenEvidence(id, group, pop.hide);
+  const open = useOpenEvidence(id, group, pop.hide, numbering);
   if (!e) return <span className="cite cite--missing" title="Missing evidence record">?{id}</span>;
   const n = numbering ? numbering.number(id) : null;
   return (

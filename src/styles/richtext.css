@@ -77,8 +77,13 @@
 
 @media (pointer: coarse) {
   .cites { font-size: max(0.72em, 0.6875rem); }
-  /* A taller, wider hit area that overlaps its neighbours a little instead of opening gaps in the line. */
-  .cite { padding: 0.8em 0.3em; margin: -0.8em -0.24em; }
+  /* A taller, wider hit area that reaches past the number instead of opening gaps in the line.
+     The two ends of a run reach further out than its inner joins, so a marker on its own is at
+     least 24px wide. Neighbours in a run still share a fingertip: the drawer says which one
+     opened ("Source 18 of 35") and its arrows step to the next. */
+  .cite { padding: 0.9em 0.45em; margin: -0.9em -0.33em; }
+  .cites > .cite-wrap:first-child .cite { padding-left: 0.85em; margin-left: -0.73em; }
+  .cites > .cite-wrap:last-child .cite { padding-right: 0.85em; margin-right: -0.73em; }
   .cites__sep { margin-inline: 0.06em 0.16em; }
 }
 

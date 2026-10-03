@@ -51,6 +51,11 @@
 .ev-row__main { display: grid; gap: 0.15rem; min-width: 0; }
 .ev-row__title { justify-self: start; font-weight: 600; line-height: 1.35; color: var(--c-text); text-decoration: none; }
 .ev-row__title:hover { color: var(--c-accent-strong); text-decoration: underline; }
+/* Under a finger the whole row opens the record: the title is the link, stretched over the row. */
+@media (pointer: coarse) {
+  .ev-row { position: relative; }
+  .ev-row__title::after { content: ""; position: absolute; inset: 0; }
+}
 /* A sentence in a wide column is still set to a readable line: about 80 characters. */
 .ev-row__claim { max-width: 80ch; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .ev-row__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.75rem; font-size: var(--fs-xs); color: var(--c-text-3); }
@@ -75,6 +80,8 @@ dialog.drawer {
   border-left: 1px solid var(--c-line-strong);
   box-shadow: var(--shadow-3);
   overflow: hidden;
+  /* A phone on its side: clear of the notch or the rounded corner. */
+  padding-right: env(safe-area-inset-right, 0px);
 }
 dialog.drawer[open] { display: flex; }
 dialog.drawer::backdrop { background: var(--c-scrim); }
@@ -93,9 +100,7 @@ dialog.drawer::backdrop { background: var(--c-scrim); }
 .drawer__section > .label { margin: 0; }
 .drawer__section li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
 .drawer__section .ev-row { display: grid; }
-.drawer__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-3) var(--sp-5); border-top: 1px solid var(--c-line); flex: none; }
-.drawer__id { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); overflow-wrap: anywhere; min-width: 0; }
-.drawer__id-label { letter-spacing: var(--ls-caps); text-transform: uppercase; margin-right: 0.4em; }
+.drawer__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-3) var(--sp-5) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--c-line); flex: none; }
 /* A very short window (a phone on its side, a page zoomed to 400%): the bar and the foot would
    leave three lines for the record, so the whole drawer scrolls as one. */
 @media (max-height: 30rem) {

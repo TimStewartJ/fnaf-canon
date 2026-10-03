@@ -71,6 +71,14 @@ dialog.lightbox[open] { display: grid; }
 .lightbox__stage { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); min-height: 0; min-width: 0; padding: 0 var(--sp-2); cursor: zoom-out; }
 .lightbox__stage img { flex: 1 1 0; min-width: 0; width: 100%; height: 100%; object-fit: contain; }
 .lightbox__nav { flex: none; }
+/* A phone: the picture takes the whole width, and the arrows lie over its edges. (A flick to
+   either side changes the picture too, and a pull downwards closes the viewer: Figure.tsx.) */
+@media (max-width: 40em) {
+  .lightbox__stage { position: relative; padding: 0; gap: 0; }
+  .lightbox__nav { position: absolute; top: 50%; z-index: 1; width: var(--tap); height: var(--tap); transform: translateY(-50%); background: color-mix(in srgb, var(--c-mat) 62%, transparent); }
+  .lightbox__nav:first-child { left: var(--sp-1); }
+  .lightbox__nav:last-child { right: var(--sp-1); }
+}
 .lightbox__caption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: var(--sp-1) var(--sp-4); padding: var(--sp-3) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); font-size: var(--fs-sm); text-align: center; }
 .lightbox__caption > span:first-child { max-width: 70ch; }
 .lightbox .figure__credit { color: var(--c-mat-text); }
