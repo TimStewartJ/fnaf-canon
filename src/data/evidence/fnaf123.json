@@ -341,7 +341,7 @@
     "quote": "Kids vanish at local pizzaria- bodies not found. Two local children were reportedly lured into a back room during the late hours of operation at Freddy Fazbear's Pizza on the night of June 26th.",
     "game": "fnaf1",
     "kind": "text",
-    "location": "East Hall Corner camera (CAM 4B), rare poster replacement #1",
+    "location": "East Hall Corner camera (CAM 4B), rare poster replacement ('Kids vanish at local pizzaria')",
     "certainty": "stated",
     "when": {
       "label": "June 26 (year not given), before FNaF1",
@@ -1527,7 +1527,7 @@
   {
     "id": "fnaf2-give-gifts-give-life",
     "title": "Give Gifts, Give Life minigame",
-    "claim": "In this random death minigame the player, as the Puppet, first gives gifts ('Give Gifts.') to four grey, dead-looking children. Then ('Give Life.') the player gives each a Freddy, Bonnie, Chica or Foxy mask/head, while a voice spells H-E-L-P-T-H-E-M. It ends with Golden Freddy's jumpscare, and a fifth body is visible for one frame before it.",
+    "claim": "In this random death minigame the player, as the Puppet, first gives gifts ('Give Gifts.') to four grey, dead-looking children. Then ('Give Life.') the player gives each a Freddy, Bonnie, Chica or Foxy mask/head, while a voice spells H-E-L-P-T-H-E-M. It ends with Golden Freddy's jumpscare. A fifth body is reported to show in the middle of the room for one frame before it.",
     "quote": "Give Gifts. / Give Life.",
     "game": "fnaf2",
     "kind": "minigame",
@@ -1559,7 +1559,7 @@
     ],
     "image": "fnaf2-give-gifts-give-life.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Give_Gifts,_Give_Life",
-    "notes": "The game shows the masks placed on the children. That this 'puts them inside' the animatronics is an interpretation. The fifth body appears only for a frame."
+    "notes": "The game shows the masks placed on the children. That this 'puts them inside' the animatronics is an interpretation. The one-frame fifth body is the wiki's report ('Upon close inspection, a fifth body may be seen in the middle of the room a single frame before Golden Freddy's jumpscare'); the wiki's page has no image of that frame and no capture is on file here, so the archive tells it as reported."
   },
   {
     "id": "fnaf2-take-cake-to-the-children",
@@ -3198,7 +3198,7 @@
   {
     "id": "fnaf1-news-suspect-captured",
     "title": "Clipping: the man was identified on video and captured the next morning",
-    "claim": "The first clipping says video surveillance identified the man responsible for luring the two children and led to his capture the following morning.",
+    "claim": "The 'Kids vanish' clipping says video surveillance identified the man responsible for luring the two children and led to his capture the following morning.",
     "quote": "led to his capture the following morning, the children themselves were never found and are presumed dead.",
     "game": "fnaf1",
     "kind": "text",
@@ -3229,7 +3229,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Read from the in-game screenshot. The sentence begins 'While video surveliance identified the man responsible and' (the clipping's spelling, as far as it can be read). The man is not named or described. Apart from the second clipping's 'charged' and 'convicted', this is the only statement in FNaF1 to FNaF3 that anyone was caught: no call, tape, minigame or later newspaper in these games mentions an arrest, a trial or a prisoner, and FNaF3's newspaper calls the events 'the unsolved mysteries of Freddy Fazbear's Pizza' (fnaf3-coming-soon-newspaper). 'purple-guy' is tagged only for theory linking."
+    "notes": "Read from the in-game screenshot. The sentence begins 'While video surveliance identified the man responsible and' (the clipping's spelling, as far as it can be read). The man is not named or described. Apart from the five-children clipping's 'charged' and 'convicted', this is the only statement in FNaF1 to FNaF3 that anyone was caught: no call, tape, minigame or later newspaper in these games mentions an arrest, a trial or a prisoner, and FNaF3's newspaper calls the events 'the unsolved mysteries of Freddy Fazbear's Pizza' (fnaf3-coming-soon-newspaper). 'purple-guy' is tagged only for theory linking. The game shows the four clippings at random and gives them no order; the numbers in the wiki's file names are not the game's."
   },
   {
     "id": "fnaf1-news-dressed-as-mascot",
@@ -3857,7 +3857,7 @@
     ],
     "image": "fnaf2-save-them-purple-figure.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Purple_man.png",
-    "notes": "Read from the sprite and compared with the sprites of the other two minigames. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. FNaF3's purple figure has white eyes and no chest mark. This is the only time the purple figure is shown in a building that can be identified as the 1987 restaurant."
+    "notes": "Read from the sprite and compared with two others, the purple figures of Take Cake to the Children and Foxy Go! Go! Go!; no other game's sprite was compared for this record. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. FNaF3's purple figure has white eyes and no chest mark. A checker who looked at the wiki's capture of FNaF4's back-room scene reports a yellow mark on that purple figure's chest too (seen 2026-10-03; not yet recorded on its own). This is the only time the purple figure is shown in a building that can be identified as the 1987 restaurant."
   },
   {
     "id": "fnaf2-save-them-golden-freddy",
