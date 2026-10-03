@@ -1,21 +1,26 @@
 import { Link, Navigate } from "react-router-dom";
 import { ArrowDown, ArrowRight, BookOpenText } from "lucide-react";
 import { outsideStory, storyline, theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Page, RichText, chapterPath, smartQuotes, useAddress } from "../../components/ui";
+import { ButtonLink, Page, RichText, Segmented, chapterPath, smartQuotes, useAddress, useMediaQuery, useStored } from "../../components/ui";
 import { ChapterContents } from "./Contents";
 import { HowToRead, OutsideStory } from "./CoverParts";
 import { StoryProgress, Storyline } from "./Storyline";
-import { chapterNumber, minutesFor, ordered, partGroups, roman, useReadingProgress } from "./model";
+import { chapterNumber, minutesFor, ordered, partGroups, roman, useContinue, useReadingProgress } from "./model";
 import "./theory.css";
 
 /** /theory: the cover of the model. Old links of the form /theory#chapter-id are sent on to the chapter. */
 export default function TheoryCover() {
   const { anchor: legacy } = useAddress();
-  const { read, last } = useReadingProgress();
+  const { read } = useReadingProgress();
+  const resume = useContinue();
+  // The contents with every answer is the whole model at a skim, and twenty screens on a phone:
+  // there it starts as questions only. The reader's own choice, once made, is kept.
+  const phone = useMediaQuery("(max-width: 640px)");
+  const [chosen, setChosen] = useStored<"answers" | "questions" | null>("fca:contents", null);
+  const show = chosen ?? (phone ? "questions" : "answers");
   if (legacy && theoryById.has(legacy)) return <Navigate to={chapterPath(legacy)} replace />;
 
   const first = ordered[0];
-  const resume = last && theoryById.has(last) && last !== first?.id ? theoryById.get(last)! : null;
   const readCount = [...read].filter((id) => theoryById.has(id)).length;
 
   return (
@@ -34,7 +39,7 @@ export default function TheoryCover() {
               <div className="cover-hero__actions">
                 {storyline.length > 0 && <ButtonLink to="/theory#storyline" variant="primary" icon={BookOpenText}>Read the story first</ButtonLink>}
                 {resume
-                  ? <ButtonLink to={chapterPath(resume.id)} iconEnd={ArrowRight}>Continue: chapter {chapterNumber(resume.id)}</ButtonLink>
+                  ? <ButtonLink to={resume.to} iconEnd={ArrowRight}>Continue: chapter {resume.number}</ButtonLink>
                   : first && <ButtonLink to={chapterPath(first.id)} iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
                 <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
               </div>
@@ -60,7 +65,7 @@ export default function TheoryCover() {
       <section className="cover-section band" aria-labelledby="h-howto">
         <div className="band__inner">
           <h2 id="h-howto" className="cover-section__title">How to read it</h2>
-          <HowToRead paragraphs={theoryIntro.howToRead} />
+          <HowToRead paragraphs={theoryIntro.howToRead} folded={phone} />
         </div>
       </section>
 
@@ -105,7 +110,10 @@ export default function TheoryCover() {
               </Link>
             ))}
           </nav>
-          <ChapterContents groups={partGroups} numberOf={chapterNumber} read={read} />
+          <div className="contents-show">
+            <Segmented label="Show" value={show} onChange={setChosen} options={[{ id: "questions", label: "Questions" }, { id: "answers", label: "With answers" }]} />
+          </div>
+          <ChapterContents groups={partGroups} numberOf={chapterNumber} read={read} answers={show === "answers"} />
         </div>
       </section>
 

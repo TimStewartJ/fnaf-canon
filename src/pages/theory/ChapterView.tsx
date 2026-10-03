@@ -1,9 +1,10 @@
 import { useEffect, useId, useMemo, useRef } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes } from "../../components/ui";
+import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
 import { type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
@@ -40,11 +41,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   const part = ctx.group?.part;
 
   const uid = useId();
-  const sourcesRef = useRef<HTMLDivElement | null>(null);
-  const openSources = () => {
-    const d = sourcesRef.current?.querySelector("details");
-    if (d) { d.open = true; d.scrollIntoView({ block: "start" }); (d.querySelector("summary") as HTMLElement | null)?.focus({ preventScroll: true }); }
-  };
+  // One column of cards (a phone): the way on comes first, the way back second and smaller.
+  const stacked = useMediaQuery("(max-width: 640px)");
 
   // Reaching the end of the chapter marks it as read.
   const endRef = useRef<HTMLElement | null>(null);
@@ -75,7 +73,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
           </div>
           <p className="chapter-head__meta">
             {readingMinutes(s)} min read<span aria-hidden> · </span>
-            <button type="button" className="chapter-head__sources" onClick={openSources}>{cited.length} record{cited.length === 1 ? "" : "s"} cited</button>
+            {/* A link to the list at the foot (an anchor, so Back returns here); landing on it opens it. */}
+            <Link to={`${ctx.pathOf(s.id)}#sources`} className="chapter-head__sources">{cited.length} record{cited.length === 1 ? "" : "s"} cited</Link>
             {counter.length > 0 && <><span aria-hidden> · </span>{counter.length} push{counter.length === 1 ? "es" : ""} back</>}
           </p>
         </header>
@@ -119,6 +118,16 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
           </Callout>
         )}
 
+        {/* The argument ends here. Where there is no list of chapters beside it, the way on is offered at once. */}
+        {ctx.next && (
+          <p className="chapter-onward">
+            <Link to={ctx.pathOf(ctx.next.id)} rel="next">
+              <span className="label">Next · {pad2(ctx.numberOf(ctx.next.id))}</span>
+              <span className="chapter-onward__title">{smartQuotes(ctx.next.title)} <Icon icon={ArrowRight} /></span>
+            </Link>
+          </p>
+        )}
+
         {seeAlso.length > 0 && (
           <section className="see-also" aria-labelledby={`${uid}-seealso`}>
             <h2 id={`${uid}-seealso`} className="label">Read alongside</h2>
@@ -136,8 +145,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
           </section>
         )}
 
-        <div className="chapter-end" ref={sourcesRef}>
-          <Collapsible print summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
+        <div className="chapter-end">
+          <Collapsible print id="sources" summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
@@ -147,29 +156,32 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
           )}
         </div>
 
-        <nav className="chapter-pager full" aria-label="Previous and next chapter" ref={endRef}>
-          {ctx.prev ? (
-            <Link to={ctx.pathOf(ctx.prev.id)} className="chapter-pager__link" rel="prev">
-              <span className="label"><Icon icon={ArrowLeft} /> Previous · {pad2(ctx.numberOf(ctx.prev.id))}</span>
-              <span className="chapter-pager__title">{smartQuotes(ctx.prev.title)}</span>
-            </Link>
-          ) : (
-            <Link to={ctx.coverPath} className="chapter-pager__link">
-              <span className="label"><Icon icon={ArrowLeft} /> Back to</span>
-              <span className="chapter-pager__title">The cover and contents</span>
-            </Link>
-          )}
-          {ctx.next ? (
-            <Link to={ctx.pathOf(ctx.next.id)} className="chapter-pager__link chapter-pager__link--next" rel="next">
-              <span className="label">Next · {pad2(ctx.numberOf(ctx.next.id))} <Icon icon={ArrowRight} /></span>
-              <span className="chapter-pager__title">{smartQuotes(ctx.next.title)}</span>
-            </Link>
-          ) : (
-            <Link to={`${ctx.coverPath}#contents`} className="chapter-pager__link chapter-pager__link--next">
-              <span className="label">The end <Icon icon={ArrowRight} /></span>
-              <span className="chapter-pager__title">Back to the contents</span>
-            </Link>
-          )}
+        <nav className={`chapter-pager full${stacked ? " chapter-pager--stacked" : ""}`} aria-label="Previous and next chapter" ref={endRef}>
+          {((): ReactNode => {
+            const back = ctx.prev ? (
+              <Link key="prev" to={ctx.pathOf(ctx.prev.id)} className="chapter-pager__link chapter-pager__link--prev" rel="prev">
+                <span className="label"><Icon icon={ArrowLeft} /> Previous · {pad2(ctx.numberOf(ctx.prev.id))}</span>
+                <span className="chapter-pager__title">{smartQuotes(ctx.prev.title)}</span>
+              </Link>
+            ) : (
+              <Link key="prev" to={ctx.coverPath} className="chapter-pager__link chapter-pager__link--prev">
+                <span className="label"><Icon icon={ArrowLeft} /> Back to</span>
+                <span className="chapter-pager__title">The cover and contents</span>
+              </Link>
+            );
+            const on = ctx.next ? (
+              <Link key="next" to={ctx.pathOf(ctx.next.id)} className="chapter-pager__link chapter-pager__link--next" rel="next">
+                <span className="label">Next · {pad2(ctx.numberOf(ctx.next.id))} <Icon icon={ArrowRight} /></span>
+                <span className="chapter-pager__title">{smartQuotes(ctx.next.title)}</span>
+              </Link>
+            ) : (
+              <Link key="next" to={`${ctx.coverPath}#contents`} className="chapter-pager__link chapter-pager__link--next">
+                <span className="label">The end <Icon icon={ArrowRight} /></span>
+                <span className="chapter-pager__title">Back to the contents</span>
+              </Link>
+            );
+            return stacked ? [on, back] : [back, on];
+          })()}
         </nav>
       </article>
     </CiteScope>

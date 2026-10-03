@@ -15,13 +15,35 @@ export function OutsideStory({ groups }: { groups: OutsideStoryGroup[] }) {
   );
 }
 
-/** How the marks on the page work, taught once. */
-export function HowToRead({ paragraphs }: { paragraphs: string[] }) {
+/**
+ * How the marks on the page work, taught once. `folded` (a phone) shows the opening paragraph and
+ * keeps the rest, with the key, behind one line to open: the story should start on the next screen.
+ */
+export function HowToRead({ paragraphs, folded = false }: { paragraphs: string[]; folded?: boolean }) {
+  const key = <HowToKey />;
+  if (folded && paragraphs.length > 1) {
+    return (
+      <div className="howto howto--folded">
+        <div className="howto__text prose"><p><RichText text={paragraphs[0]} /></p></div>
+        <Collapsible print summary="The marks, and what they mean" meta="How sure a sentence is, and where it comes from">
+          <div className="howto__text prose">{paragraphs.slice(1).map((t, i) => <p key={i}><RichText text={t} /></p>)}</div>
+          {key}
+        </Collapsible>
+      </div>
+    );
+  }
   return (
     <div className="howto">
       <div className="howto__text prose">
         {paragraphs.map((t, i) => <p key={i}><RichText text={t} /></p>)}
       </div>
+      {key}
+    </div>
+  );
+}
+
+function HowToKey() {
+  return (
       <div className="howto__key">
         <p className="label">How firm is it</p>
         <FirmnessLegend />
@@ -36,6 +58,5 @@ export function HowToRead({ paragraphs }: { paragraphs: string[] }) {
           </div>
         </dl>
       </div>
-    </div>
   );
 }
