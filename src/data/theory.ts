@@ -29,10 +29,10 @@ import { chapters as apparatus } from "./chapters/apparatus";
 export const theoryIntro: TheoryIntro = {
   title: "The Unified Model",
   standfirst: "A killer in the company's own costume, the machines that kept his victims, and the copies that came after: one story, built only from the games and Scott Cawthon's own words.",
-  thesis: "Five Nights at Freddy's is one story: what a machine keeps of a person, and a company that keeps putting it back on stage. William Afton kills children, and the mascot machines keep them. He dies in a rabbit suit and comes back in it. Decades later his old friend calls four haunted machines into one building and stays as it burns. The story seems to end there, on six graves. Then come the copies: in the company's code, most likely, something of the killer; under its newest building, a machine built to imitate.",
+  thesis: "Five Nights at Freddy's is one story: what a machine keeps of a person, and a company that keeps putting it back on stage. William Afton kills children, and the mascot machines keep them. He dies in a rabbit suit and, decades later, comes back in it. His old friend calls four haunted machines into one building and stays as it burns. It seems to end there, on six graves. Then come the copies: in the company's code, a rabbit in the killer's image; under its newest building, a machine built to imitate.",
   howToRead: [
-    "This is the archive's own account of the story, built from two things only: the games themselves, and Scott Cawthon's own words. The novels, the guidebooks, the films and fan theory are left out. The storyline tells the whole of it in twenty beats. The parts that follow argue it in order, and the last part is the method: the rules, the dates, what each game adds, and what stays open.",
-    "Each chapter asks one question and answers it before arguing it. A small number in the text opens the record behind a claim: the exact line, screen or post. Three phrases say how a sentence stands. A plain statement with a record behind it means that a game says or shows it. **Most likely** marks a short inference. **The model reads** marks this archive's own interpretation.",
+    "This is the archive's own account of the story, built from two things only: the games themselves, and Scott Cawthon's own words. The novels, the guidebooks, the films and fan theory are left out, by this archive's own rule. The storyline tells the whole of it in twenty beats. The parts that follow argue it in order, and the last part is the method: the rules, the dates, what each game adds, and what stays open.",
+    "Each chapter asks one question and answers it before arguing it. A small number in the text opens the record behind a claim: the exact line, screen or post. Three markers say how a sentence stands. A plain statement with a record behind it means that a game says or shows it. **Most likely** marks a short inference. **The model reads** marks this archive's own interpretation. **May be**, given with its reason, marks a possibility the model holds loosely.",
     "Every chapter, and every beat of the storyline, carries one of three marks. **High** means stated or shown, or a step that every later game relies on. **Medium** means the best reading, with a real alternative beside it. **Low** means a lean, or an honest guess. A chapter takes the mark of the weakest claim its answer depends on. Where the games give no date, the storyline says so, and it says when a placement is only the model's convention.",
     "Under each chapter, \"what pushes back\" lists the records that cut against it and how the model answers them, and \"what would change this\" names the evidence that would overturn it. People the games never name are called by description: the Cassette Man, the crying child, the older brother, the fifth child.",
   ],
@@ -46,7 +46,7 @@ export const theoryParts: TheoryPart[] = [
   { id: "nightshift", title: "The night shift", kicker: "1987 and after", blurb: "Two restaurants and the guards who watched them: the week the new one came apart, the old one reopened on a smaller budget, and the night the killer came back to it." },
   { id: "machines", title: "The machines", kicker: "Undated", blurb: "What Afton built under his own name: machines made to lure a child and take it, one blueprint with the word Remnant on it, and what the machines did to his son. The games give none of it a date, and its place in the order is the model's convention." },
   { id: "reckoning", title: "The reckoning", kicker: "Thirty years later", blurb: "A horror attraction finds the rabbit, an old friend sets a trap, a building burns, and one voice refuses release." },
-  { id: "afterimage", title: "The afterimage", kicker: "After the fire", blurb: "What comes back when the company does: its own history as a game, a rabbit in the code, a woman who follows it, and one night in its largest building." },
+  { id: "afterimage", title: "The afterimage", kicker: "The modern era", blurb: "What the company brings back: its own history as a game, a rabbit in the code, a woman who follows it, and one night in its largest building." },
   { id: "underground", title: "Under the Pizzaplex", kicker: "The newest building", blurb: "What stands in the ruin beneath it, what waits behind poured concrete, and what the whole story keeps coming back to." },
   { id: "apparatus", title: "The apparatus", kicker: "Method", blurb: "How this was built: what counts as evidence, what sits at the edge of the story, how it is dated, what each game adds, and what stays open." },
 ];
@@ -54,27 +54,27 @@ export const theoryParts: TheoryPart[] = [
 /** The short telling, in the model's order of events. A beat's confidence rates what happens in it; its `when` says how the date or the placement is supported. */
 export const storyline: StoryBeat[] = [
   {
-    id: "s-costume-company", when: "<<1965 to 1979|printed|secret-of-the-mimic-mcm-net-earnings-1965-1975,secret-of-the-mimic-work-order-1979|Years printed on the costume company paperwork and on the Fazbear work order.>>",
+    id: "s-costume-company", when: "<<1965 to 1977|estimated|secret-of-the-mimic-mcm-net-earnings-1965-1975,secret-of-the-mimic-mcm-order-forms-1973-1977|Years on the costume company earnings chart and order forms. They were read from images of the documents and have not yet been confirmed in play, so they are not entered as printed.>>",
     title: "A costume company builds suits that are also machines",
-    text: "Murray's Costume Manor, a family firm, works under contract for Fazbear Entertainment [[secret-of-the-mimic-dispatch-contractor-murray]]. Edwin Murray builds, and his wife Fiona designs the characters [[secret-of-the-mimic-log-creepy]]. Among its work are springlocks \"for the diner\", most likely Fredbear's Family Diner, a poster for which is in the building [[secret-of-the-mimic-mail-springlocks-hen]] [[secret-of-the-mimic-fredbears-diner-poster]]. A springlock suit is a costume and a machine at once: \"two specially designed suits that double as both animatronic and suit\" [[fnaf3-tape2-dual-suits]]. And every restaurant is built with one room that is on no map its machines or cameras can see [[fnaf3-tape3-safe-room]].",
+    text: "Murray's Costume Manor, a family firm, works under contract for Fazbear Entertainment [[secret-of-the-mimic-dispatch-contractor-murray]]. Edwin Murray builds, and his wife Fiona designs the characters [[secret-of-the-mimic-log-creepy]]. Among its work are springlocks \"for the diner\" [[secret-of-the-mimic-mail-springlocks-hen]]. That is most likely Fredbear's Family Diner: prototypes of its bear and its rabbit, Fredbear and Spring Bonnie, stand in a mock-up pizzeria on Murray's research floor [[secret-of-the-mimic-rnd-proto-pizzeria]], and the diner's name is on one of the game's posters, though where it hangs has not been checked [[secret-of-the-mimic-fredbears-diner-poster]]. A springlock suit is a costume and a machine at once: \"two specially designed suits that double as both animatronic and suit\" [[fnaf3-tape2-dual-suits]]. And every restaurant is built with one room that is on no map its machines or cameras can see [[fnaf3-tape3-safe-room]].",
     confidence: "high", sections: ["springlocks"], era: "founding", image: "sotm-fredbears-diner-poster.jpg",
   },
   {
     id: "s-two-machines", when: "Before 1979",
     title: "For his own son, a machine that copies",
-    text: "Fiona Murray dies, and Edwin is left to raise their son David alone [[secret-of-the-mimic-log-death]]. He builds an endoskeleton, M1, to mind the boy: \"Think of it as your new babysitter.\" [[secret-of-the-mimic-log-training-m1]] It takes on Fiona's voice [[secret-of-the-mimic-log-m1-as-fiona]]. Then David dies too, and at M1's urging Edwin builds a second machine, M2, from a copy of its program [[secret-of-the-mimic-log-try-again-build-another]] [[secret-of-the-mimic-mail-received-5-min-ago]]. It sounds like his son [[secret-of-the-mimic-log-incident]], he loses his temper with it [[secret-of-the-mimic-log-turn-around-lost-temper]], and it learns that too: \"It mimics rage.\"",
+    text: "Fiona Murray dies, and Edwin is left to raise their son David alone [[secret-of-the-mimic-log-death]]. He builds an endoskeleton, M1, to mind the boy: \"Think of it as your new babysitter.\" [[secret-of-the-mimic-log-training-m1]] It takes on Fiona's voice [[secret-of-the-mimic-log-m1-as-fiona]]. Then David dies too, and at M1's urging Edwin builds a second machine, M2, from a copy of its program [[secret-of-the-mimic-log-try-again-build-another]] [[secret-of-the-mimic-mail-received-5-min-ago]]. It sounds like his son [[secret-of-the-mimic-log-incident]], and he loses his temper with it [[secret-of-the-mimic-log-turn-around-lost-temper]]. \"It mimics rage,\" the first machine warns, and the rage is most likely his.",
     confidence: "high", sections: ["two-machines"], era: "founding", image: "sotm-m1-birthday-cake-film-reel.jpg",
   },
   {
-    id: "s-1979", when: "<<7 September 1979|printed|secret-of-the-mimic-work-order-1979,secret-of-the-mimic-credential-form-1979|The work order in the van is dated 9/07/79 and the credential form expires in 1979. The day is read month first.>>",
-    title: "Fazbear comes for the machine",
-    text: "A man who signs himself \"W.A.\" writes that \"we now technically own the land\", wants Murray's software and his whole catalogue, and recruits his staff [[secret-of-the-mimic-mail-confidential-wa]] [[secret-of-the-mimic-mail-staff-contacts-wa]]. He is most likely William Afton. On the night printed on a work order, Fazbear Entertainment sends a technician into the shuttered workshop for the design, because \"everything he's been working on for us is now legally ours\" [[secret-of-the-mimic-dispatch-contract-legally-ours]]. The voice guiding him over the radio is M1 [[secret-of-the-mimic-f10n4-reveal]], and M2 has already left earlier technicians dead inside mascot costumes [[secret-of-the-mimic-previous-technicians]]. The game ends three ways, and the model does not choose between them.",
+    id: "s-1979", when: "<<1979, most likely 7 September|teaser|secret-of-the-mimic-teaser-1979,secret-of-the-mimic-work-order-1979,secret-of-the-mimic-credential-form-1979|The year ends the official teaser for the game. A Fazbear work order dated 9/07/79 and a credential that expires in 1979 carry it too, but both were read from images and have not yet been confirmed in play. The day is read month first.>>",
+    title: "1979: the company comes to collect",
+    text: "Letters signed \"W.A.\" tell Murray that \"we now technically own the land\", bid for his software and his whole catalogue, and ask for his staff's contact details [[secret-of-the-mimic-mail-confidential-wa]] [[secret-of-the-mimic-mail-staff-contacts-wa]]. The writer is most likely William Afton, writing for Fazbear Entertainment. Murray goes quiet, and one night the company sends a technician into the shuttered workshop for the blueprints [[secret-of-the-mimic-work-order-1979]]: \"everything he's been working on for us is now legally ours\", his dispatcher says [[secret-of-the-mimic-dispatch-contract-legally-ours]]. Inside, the voice that guides him over the radio is not his dispatcher's. It is M1 [[secret-of-the-mimic-f10n4-reveal]]. M2 is loose in the building, and earlier visitors lie dead inside mascot costumes [[secret-of-the-mimic-previous-technicians]]. The game ends three ways, and the model does not choose between them.",
     confidence: "high", sections: ["two-machines", "partners"], era: "founding", image: "sotm-work-order-1979.jpg",
   },
   {
     id: "s-house", when: "<<c. 1983|estimated|fnaf4-minigame-countdown-to-party,fnaf4-fredbear-and-friends-1983|The week counts down to a party, and the only year printed in it is 1983, on a television. The title card dates the show, so the week is in that year or soon after.>>",
     title: "A house with a toy that talks",
-    text: "A small boy lives in dread of his older brother and of the restaurant where his birthday party will be held [[fnaf4-brother-foxy-mask-tv]] [[fnaf4-left-behind-at-diner]]. A Fredbear plush talks to him: \"He locked you in your room again. Don't be scared. I am here with you.\" [[fnaf4-plush-locked-in-room]] The nights of that week, as the game plays them, are spent holding his bedroom doors against monstrous versions of the restaurant's mascots, which a later game calls \"illusion\" [[fnaf4-nightmare-animatronics]] [[ucn-nightmare-fredbear-lines]]. In a later game a locked room in William Afton's facility has that bedroom on its monitors, and the same plush on its desk with a handset in its lap [[sl-private-room-monitor-bedroom]] [[sl-private-room-handset-beside-plush]]. So the house is most likely Afton's own, and the boys his sons.",
+    text: "A small boy lives in dread of his older brother and of the restaurant where his birthday party will be held [[fnaf4-brother-foxy-mask-tv]] [[fnaf4-left-behind-at-diner]]. A Fredbear plush talks to him: \"He locked you in your room again. Don't be scared. I am here with you.\" [[fnaf4-plush-locked-in-room]] The nights of that week, as the game plays them, are spent holding his bedroom doors against monstrous versions of the restaurant's mascots, which a later game calls \"illusion\" [[fnaf4-nightmare-animatronics]] [[ucn-nightmare-fredbear-lines]]. In Sister Location a locked room in William Afton's facility has that bedroom on its monitors, and the same plush on its desk with a handset in its lap [[sl-private-room-monitor-bedroom]] [[sl-private-room-handset-beside-plush]]. So the house is most likely Afton's own, and the boys his sons.",
     confidence: "medium", sections: ["afton-house", "plush", "nightmares"], era: "diner", image: "sl-private-room-1983-monitors.jpg",
   },
   {
@@ -92,13 +92,13 @@ export const storyline: StoryBeat[] = [
   {
     id: "s-five", when: "<<June 26th|printed|fnaf1-news-kids-vanish|The day and month are printed in a clipping, for two children. No year is printed. The model estimates a year between 1980 and 1986, before the 1987 restaurant opened.>>",
     title: "June 26th",
-    text: "\"Two local children were reportedly lured into a back room during the late hours of operation at Freddy Fazbear's Pizza on the night of June 26th.\" [[fnaf1-news-kids-vanish]] Police think the man dressed as a company mascot [[fnaf1-news-dressed-as-mascot]]. Five children are linked to it in the end, and no bodies are found [[fnaf1-news-five-children]]. A man was caught the next morning and charged [[fnaf1-news-suspect-captured]]. The killer is William Afton, most likely in the yellow rabbit suit, at the older restaurant: the one luring the games show has that rabbit behind a crying girl, and gives the lie that was told, \"He's not really dead.\" [[ffps-fruity-maze-follow-me]]",
+    text: "\"Two local children were reportedly lured into a back room during the late hours of operation at Freddy Fazbear's Pizza on the night of June 26th.\" [[fnaf1-news-kids-vanish]] Police think the man dressed as a company mascot [[fnaf1-news-dressed-as-mascot]]. Five children are linked to it in the end, and no bodies are found [[fnaf1-news-five-children]]. A man was caught the next morning and charged [[fnaf1-news-suspect-captured]]. The killer is William Afton. Most likely this was at the chain's old location, before the restaurant of 1987 opened, and the costume was the yellow rabbit, Spring Bonnie: the one luring the games show has that rabbit behind a crying girl, and gives the lie that was told, \"He's not really dead.\" [[ffps-fruity-maze-follow-me]]",
     confidence: "medium", sections: ["murders", "killer"], era: "murders", image: "fnaf1-missing-children-newspapers.jpg",
   },
   {
     id: "s-children-stay", when: "Afterwards",
     title: "The children stay",
-    text: "The restaurant is threatened with closure over a foul smell from its mascots, and \"what appeared to be blood and mucus around the eyes and mouths\" [[fnaf1-news-sanitation]]. The model reads that as the bodies hidden inside the four mascots, which no game shows. One scene shows the Puppet setting a mascot's head on each of four dead children, while a fifth appears for an instant with the yellow bear [[fnaf2-give-gifts-give-life]]. The children stay on in the machines. How, even the man who built them never learned: decades later he says, \"I don't know how those tiny breaths of life came to inhabit those machines.\" [[ffps-insanity-tiny-breaths]]",
+    text: "The restaurant is threatened with closure over a foul smell from its mascots, and \"what appeared to be blood and mucus around the eyes and mouths\" [[fnaf1-news-sanitation]]. The model reads that as the bodies hidden inside the four mascots, which no game shows. One scene shows the Puppet setting a mascot's head on each of four dead children, while a fifth appears for an instant with the yellow bear [[fnaf2-give-gifts-give-life]]. The children stay on in the machines. How, even the man who calls those machines \"prisons of my making\" never learned [[ffps-insanity-small-souls-prisons]]. Decades later he says: \"I don't know how those tiny breaths of life came to inhabit those machines.\" [[ffps-insanity-tiny-breaths]]",
     confidence: "medium", sections: ["golden", "remnant"], era: "murders", image: "fnaf2-give-gifts-give-life.png",
   },
   {
@@ -122,7 +122,7 @@ export const storyline: StoryBeat[] = [
   {
     id: "s-springlock", when: "After that restaurant closed, most likely",
     title: "He dies in the suit",
-    text: "A purple figure comes back to the empty building and takes the four machines apart, one a night [[fnaf3-eon-purple-guy-dismantles]]. On the fifth night the ghosts of five children corner him in the hidden room [[fnaf3-n5-ghosts-safe-room]]. He climbs into the yellow rabbit suit, it snaps shut on him, and he slumps to the floor [[fnaf3-n5-springlock-death]]. The room had been walled up with its contents inside [[fnaf3-tape6-safe-rooms-sealed]], and no game shows how he got in. Three games later the credits give the rabbit's voice a name: William Afton [[ffps-credits-william-afton]].",
+    text: "A purple figure comes back to the empty building and takes the four machines apart, one a night [[fnaf3-eon-purple-guy-dismantles]]. On the fifth night the ghosts of five children corner him in the hidden room [[fnaf3-n5-ghosts-safe-room]]. He climbs into the yellow rabbit, the Spring Bonnie suit; it snaps shut on him, and he slumps to the floor [[fnaf3-n5-springlock-death]]. The room had been walled up with its contents inside [[fnaf3-tape6-safe-rooms-sealed]], and no game shows how he got in. Three games later the credits give the rabbit's voice a name: William Afton [[ffps-credits-william-afton]].",
     confidence: "medium", sections: ["springtrap", "killer"], era: "pizzeria", image: "fnaf3-springlock-death.png",
   },
   {
@@ -140,37 +140,37 @@ export const storyline: StoryBeat[] = [
   {
     id: "s-trap-fire", when: "After that fire",
     title: "The trap and the fire",
-    text: "The Cassette Man, the old friend who built the first machines, opens a pizzeria as bait: \"I have to call them all back. All of them. Together in one place\" [[ffps-insanity-tape-call-them-back]]. Four machines come: Afton in what is left of the rabbit, his daughter in what is left of Circus Baby, the fused remains of the other rental machines, and, most likely, the Puppet, inside a bear built to catch it [[ffps-salvage-order]] [[ffps-lefte-blueprint]]. The manager who lets them in is most likely Michael. The building burns, and the Cassette Man stays: \"I am remaining as well. I am nearby.\" [[ffps-completion-remaining-nearby]] The game does not show who lights the fire [[ffps-completion-fire]]. After the credits it shows six graves [[ffps-lorekeeper-gravestones]].",
+    text: "The Cassette Man, the killer's old friend, opens a pizzeria as bait: \"I have to call them all back. All of them. Together in one place\" [[ffps-insanity-tape-call-them-back]]. Four machines come: Afton in what is left of the rabbit, his daughter in what is left of Circus Baby, the fused remains of the other rental machines, and, most likely, the Puppet, inside a bear built to catch it [[ffps-salvage-order]] [[ffps-lefte-blueprint]]. The manager who lets them in is most likely Michael. The building burns, and the Cassette Man stays: \"I am remaining as well. I am nearby.\" [[ffps-completion-remaining-nearby]] The game does not show who lights the fire [[ffps-completion-fire]]. It presents that fire as the end, the killer's included, and after the credits it shows six graves [[ffps-lorekeeper-gravestones]].",
     confidence: "medium", sections: ["ffps", "salvage", "michael"], era: "aftermath", image: "ffps-lorekeeper-the-end.jpg",
   },
   {
     id: "s-night-without-end", when: "After the fire",
     title: "The night without end",
-    text: "The Cassette Man's last words to his old friend were that \"the darkest pit of Hell has opened to swallow you whole\" [[ffps-completion-old-friend-hell]]. In Ultimate Custom Night someone who has killed sits in an office that every machine in the series attacks, with no way to win [[ucn-protagonist-unnamed-killer]]. The voices name who keeps him there, \"the one you should not have killed\", and one will not let go: \"I will hold you here. I will keep you here.\" [[ucn-nightmare-freddy-toysnhk]] [[ucn-orville-he-tried-to-release]] The model leans to William Afton, kept by one of his victims, and it is no more than a lean: his son Michael is the other reading. Another voice tells someone to stop: \"Leave the demon to his demons. Rest your own soul.\" [[ucn-omc-ending]]",
-    confidence: "low", sections: ["ucn", "faith"], era: "aftermath", image: "ucn-golden-freddy-final-cutscene.jpg",
+    text: "Ultimate Custom Night comes after the fire, and it is one night with no morning. Someone who has killed sits in an office under attack from the machines of every earlier game, and the voices say that whoever it is cannot die [[ucn-protagonist-unnamed-killer]]. They speak of \"the one you should not have killed\" [[ucn-nightmare-freddy-toysnhk]], and one of them will not let go: \"I will hold you here. I will keep you here.\" [[ucn-orville-he-tried-to-release]] Another voice tells someone to stop: \"Leave the demon to his demons. Rest your own soul.\" [[ucn-omc-ending]] No line names the one in the office. The two readings are the killer and his son; the game does not say which, and ((ucn|the chapter on that night)) weighs them.",
+    confidence: "medium", sections: ["ucn", "faith"], era: "aftermath", image: "ucn-golden-freddy-final-cutscene.jpg",
   },
   {
-    id: "s-rabbit-in-code", when: "When the company comes back",
+    id: "s-rabbit-in-code", when: "Undated. Told after the fire by convention.",
     title: "The rabbit in the code",
-    text: "Fazbear Entertainment returns, calls its history \"total fabrications from the mind of a complete lunatic\", and has a virtual-reality game made to laugh it off [[hw-intro-complete-lunatic]] [[hw-intro-vr-game-to-move-past-ghost-stories]]. The developers are sent old circuit boards to scan [[hw-tape-05]]. Something on the boards takes hold in the code and begins to appear to the testers: a grinning, man-shaped figure in a yellow rabbit costume [[hw-rabbit-figure-appearance]]. It \"wants to escape\", a hidden tape warns, through \"someone plugged into this game\" [[hw-tape-16]]. The model reads it as something of William Afton, not the whole man; which board it came from, no game says [[sd-which-board-unknown]].",
+    text: "Fazbear Entertainment calls its own history \"total fabrications from the mind of a complete lunatic\", and has a virtual-reality game made to laugh it off [[hw-intro-complete-lunatic]] [[hw-intro-vr-game-to-move-past-ghost-stories]]. The developers are sent old circuit boards to scan [[hw-tape-05]]. Something on the boards takes hold in the code and begins to appear to the testers: a grinning, man-shaped figure in a yellow rabbit costume [[hw-rabbit-figure-appearance]]. It presents as the killer, and a hidden tape warns that it \"wants to escape\" through \"someone plugged into this game\" [[hw-tape-16]]. A second firm scans a board and sets \"a virus\" loose, and the company's lawyers halt all work on \"vintage hardware\" [[sd-circuit-board-scan-virus]] [[sd-fe-legal-halt-vintage-hardware]]. Which board the figure came from, no game says [[sd-which-board-unknown]]. The model reads it as something William Afton left behind.",
     confidence: "medium", sections: ["cover-story", "digital"], era: "digital", image: "hw-glitchtrap-behind-player.jpg",
   },
   {
     id: "s-follower", when: "During the testing, and after",
     title: "The follower",
-    text: "One tester follows the instructions on the hidden tapes; the figure withdraws behind a sealed door and leaves her a plush rabbit [[hw-trapped-ending]] [[hw-trapped-ending-plush]]. Later, in a rabbit mask, she answers a voice nobody else can hear: \"Yes, I have it. I made it myself\" [[codb-mask-plush-voice]]. She is most likely Vanessa, afterwards the night guard of the company's largest building, who walks it in a rabbit costume under the name Vanny [[security-breach-freddy-vanny-vanessa-bunny]]. A second firm scanning old boards also sets \"a virus\" loose, and the company's lawyers halt all work on \"vintage hardware\" [[sd-circuit-board-scan-virus]] [[sd-fe-legal-halt-vintage-hardware]].",
+    text: "One tester follows the instructions on the hidden tapes. The figure withdraws behind a sealed door, and a plush rabbit is left on the floor [[hw-trapped-ending]] [[hw-trapped-ending-plush]]. When someone in a rabbit mask picks it up, a woman's voice answers a caller nobody else can hear: \"Yes, I have it. I made it myself\" [[codb-mask-plush-voice]]. The tester, the woman on the call and Vanessa, the night guard of the company's largest building, are most likely one person: the woman who walks that building in a rabbit costume under the name Vanny [[security-breach-freddy-vanny-vanessa-bunny]]. One page of one ending shows Vanessa standing on the roof while the masked woman lies fallen below [[security-breach-rooftop-vanessa-alive]], and the model has no account of it.",
     confidence: "medium", sections: ["vanny", "digital"], era: "digital", image: "hw-trapped-ending-plush.jpg",
   },
   {
     id: "s-pizzaplex", when: "Later. No date is given.",
     title: "One night at the Pizzaplex",
-    text: "The company's largest building stands over a ruin whose sign still reads \"Freddy Fazbear's Pizza Place\" [[security-breach-underground-pizza-place]]. One night a boy named Gregory, whom the building's systems do not know [[security-breach-intro-not-in-database]], is shut in with the woman in the rabbit costume. The game ends several ways. In the one the model follows, three hidden arcade games called Princess Quest are played to the end, and Vanessa is found waiting at the doors with the mask on the floor [[security-breach-ending-redemption]]: the rabbit is beaten from inside its own game. In another, a burnt rabbit rises from a charging station in the ruin below [[security-breach-burntrap-appearance]]; what it is, is among the model's least firm readings.",
+    text: "The company's largest building stands over a ruin whose sign still reads \"Freddy Fazbear's Pizza Place\" [[security-breach-underground-pizza-place]]. One night a boy named Gregory, for whom the building has no guest profile [[security-breach-intro-not-in-database]], is shut inside and hunted by the woman in the rabbit costume: \"that rabbit lady\", he calls her [[security-breach-gregory-finds-vanny-hideout]]. The night ends several ways, and the sequel follows no single one of them. In one, three hidden arcade games called Princess Quest are played to the end, and Vanessa is found waiting at the doors with the mask on the floor [[security-breach-ending-redemption]]; the model reads that as her release, and holds it loosely. In another, down in the ruin, a burnt rabbit rises from a recharge station [[security-breach-burntrap-appearance]] and seizes Freddy, the stage bear who has been hiding the boy: \"He is trying to take control of me.\" [[security-breach-freddy-take-control]] It may be what the fire left of the killer's rabbit, since the ruin is most likely the building that burned.",
     confidence: "medium", sections: ["pizzaplex", "vanny", "burntrap"], era: "pizzaplex", image: "sb-pizza-place-sign-sinkhole.webp",
   },
   {
     id: "s-mimic", when: "After that night",
     title: "Behind the concrete",
-    text: "The Pizzaplex lies wrecked [[ruin-pizzaplex-abandoned-earthquake]]. A girl named Cassie, wearing a mask \"left behind by some Faz-Technician\" [[ruin-security-mask-left-by-faz-technician]], goes in after Gregory, whose voice on her radio begs her to turn off the security, node by node [[ruin-fake-gregory-turn-off-security]]. At the bottom is a door that someone has poured concrete over, and behind it is not Gregory: it is an endoskeleton that has been using his voice [[ruin-concrete-poured-over-door]] [[ruin-mimic-reveal]]. The real Gregory tells her what she has done: \"it's been trapped down here for a really long time. The M.X.E.S. security program was designed to keep it hidden\" [[ruin-gregory-mxes-explanation]]. It is Edwin Murray's copying machine, and the initials of its guard are spelled out on a terminal in Murray's own house [[secret-of-the-mimic-mxes-acronym-on-screen]].",
+    text: "A message in Gregory's voice says he is trapped in what is left of the Pizzaplex [[ruin-cassie-seeks-gregory]]. His friend Cassie goes in after him, wearing a mask \"left behind by some Faz-Technician\" [[ruin-security-mask-left-by-faz-technician]], and the voice on her radio begs her to turn off the security, node by node [[ruin-fake-gregory-turn-off-security]]. At the bottom is a door that someone has poured concrete over, and behind it is not Gregory: it is an endoskeleton that has been using his voice [[ruin-concrete-poured-over-door]] [[ruin-mimic-reveal]]. The real Gregory tells her what she has done: \"it's been trapped down here for a really long time. The M.X.E.S. security program was designed to keep it hidden\" [[ruin-gregory-mxes-explanation]]. Its room holds mascot costumes from Edwin Murray's workshop [[ruin-mimic-lair-mcm-mascot-suits]], and the letters of its guard's name head a terminal in Murray's own house [[secret-of-the-mimic-mxes-acronym-on-screen]]. It is one of his copying machines, most likely the second: the one that learned rage.",
     confidence: "high", sections: ["mimic", "two-machines"], era: "pizzaplex", image: "ruin-mimic-elevator.jpg",
   },
 ];
@@ -198,18 +198,18 @@ export const outsideStory: OutsideStoryGroup[] = [
     ],
   },
   {
-    id: "stories-within", title: "Other tales inside a game",
-    reason: "Self-contained tales carried inside a game, with no claim on the main story: Into the Pit's secret minigames. Into the Pit's main records, Candy Cadet's stories and Ultimate Custom Night's cartoons are filed under ((edges)), because the model uses them as corroboration.",
+    id: "unplaced-adaptation", title: "Into the Pit",
+    reason: "An adaptation of a book story, which no main-line game refers to and which Scott has not placed. Where its background agrees with the story a chapter may say so, and nothing rests on it. The records that ((edges)) weighs are filed there. The rest are listed here, the game's secret minigames included.",
     ids: [
       "into-the-pit-collect-the-hats-purple-guy", // Minigame: Purple Guy drops a sixth party hat
+      "into-the-pit-light-of-87", // Achievement 'The Light of '87'
       "into-the-pit-secret-minigames-other-stories", // Three hidden minigames tell other stories, one ending at Funtime Freddy's hand
     ],
   },
   {
-    id: "company-set-dressing", title: "Set dressing inside Fazbear's own products",
-    reason: "Scenery in a company recreation shows what the company staged, and these items stage nothing the story uses. A staged scene that the model discusses as a staging is filed under ((cover-story)) instead.",
+    id: "company-set-dressing", title: "The level as built, inside Fazbear's own products",
+    reason: "Scenery in a company recreation shows what the company staged, and these items stage nothing the story uses. The frame around such a product, and whatever intrudes on it, are story: they are argued in ((cover-story)) and ((digital)). A staged prop that a chapter shows agreeing with the story is cited there, as a staged prop.",
     ids: [
-      "codb-dancing-glitchtrap", // The rabbit figure dances on a distant hill
       "codb-dreadbear-focus-testing", // Dreadbear to be introduced to children
       "codb-dreadbear-reanimate", // Dreadbear: reanimating the inanimate
       "codb-game-over-its-only-a-dream", // Halloween game-over TV: 'It's only a dream.'
@@ -221,7 +221,7 @@ export const outsideStory: OutsideStoryGroup[] = [
   },
   {
     id: "mechanics-and-rosters", title: "Mechanics and rosters",
-    reason: "How to play: controls, difficulty settings, roster blurbs and collectibles. A roster or a control scheme tells no story. A mechanic that a chapter relies on stays with that chapter.",
+    reason: "A tuning value or a control scheme tells no story: controls, difficulty settings, roster blurbs that only instruct, and collectibles. A mechanic that a character, a document or a screen in the game explains or names is a story record, and its chapter cites it as a mechanic.",
     ids: [
       "ffps-insanity-egg-baby-trigger", // Egg Baby unlocks the Insanity ending
       "fnaf1-1987-code", // 1/9/8/7 custom night code
@@ -234,7 +234,7 @@ export const outsideStory: OutsideStoryGroup[] = [
   },
   {
     id: "not-evidence", title: "Cut, unused, data-only or unverified",
-    reason: "Under this archive's source policy, only what can be reached in play, or what Scott said, is evidence. These records are kept so that nobody adds them again as facts: unused audio and assets, data labels, file names never shown on screen, and wording that could not be verified.",
+    reason: "Under this archive's source policy, only what can be reached in play, or what Scott said, is evidence. These records are kept so that nobody adds them again as facts: unused audio and assets, data labels, file names never shown on screen, and wording that could not be verified. Each is listed for what it is, not for which way it points. A texture whose place in play is unconfirmed is not of this kind: chapters cite it with that status.",
     ids: [
       "ffps-hry223-label", // Insanity-ending tape labelled 'HRY223' (reported)
       "ffps-midnight-motorist-later-that-night", // Internal label 'Later that night' on the secret area
@@ -245,7 +245,7 @@ export const outsideStory: OutsideStoryGroup[] = [
   },
   {
     id: "development-commentary", title: "How the games were made",
-    reason: "Out-of-universe: Scott on tools, schedules, patches and working names. Statements of his that work as rulings on the story are cited by the chapters and are not here.",
+    reason: "Out-of-universe: Scott on tools, schedules, patches and working names. Statements of his that work as rulings on the story are cited by the chapters and are not here; nor is his account of two working names, which ((canon-rules)) relies on.",
     ids: [
       "fnaf3-newspaper-developer-notes", // The newspapers' side columns are Scott's development notes
       "fnaf4-making-of-extras", // 'Making Foxy' / 'Making Fredbear' extras
@@ -261,7 +261,7 @@ export const outsideStory: OutsideStoryGroup[] = [
   },
   {
     id: "promotion", title: "Promotion and release logistics",
-    reason: "Sales copy, release dates and gameplay previews make no claim about the story. A teaser that carries in-world text is evidence, and is filed under a chapter.",
+    reason: "Sales copy, release dates and gameplay previews make no claim about the story. A teaser that carries in-world text is evidence, and is filed under a chapter. So is the year that ends the teaser for Secret of the Mimic: it is the year the game is set in, not a release date.",
     ids: [
       "scott-2017-ffps-store-text", // FFPS Steam description: 'lighter touch for the holidays'
       "scott-2020-unreleased-teasers-dance-party", // Unreleased teasers: 'DANCE!' and 'PARTY!' silhouettes
@@ -282,10 +282,9 @@ export const outsideStory: OutsideStoryGroup[] = [
   },
   {
     id: "jokes-and-trolls", title: "Jokes, trolls and hoaxes",
-    reason: "Not offered as story by their author: fake cancellations and delays, mock reviews, joke answers and comic one-offs. If a chapter quotes one to make a point, it is cited there and leaves this group.",
+    reason: "Not offered as story by their author: fake cancellations and delays, mock reviews, joke answers and comic one-offs. A joke that a chapter quotes to make a point is cited there, as a joke, and is not listed here as well.",
     ids: [
       "ffps-lawsuit-ground-gave-way", // Lawsuit: the ground gave way and a boy was trapped below for thirteen hours
-      "into-the-pit-light-of-87", // Achievement 'The Light of '87'
       "scott-2015-mangle-gender-yes", // Mangle's gender: 'The answer is- Yes.'
       "scott-2016-box-sarcasm", // Sarcastic 'open the box by beating nightmare mode twice'
       "scott-2016-sl-delay-troll", // The fake Sister Location 'delay'
