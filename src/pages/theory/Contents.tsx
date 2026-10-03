@@ -8,9 +8,10 @@ type NumberOf = (id: string) => number;
 
 /**
  * The contents of the model by part. Each chapter shows its title, its question and its answer,
- * so a reader can skim every answer before reading a word of argument.
+ * so a reader can skim every answer before reading a word of argument. `answers={false}` leaves
+ * the answers out: the list is then a page or two on a phone, not twenty.
  */
-export function ChapterContents({ groups, numberOf, read, pathOf = chapterPath }: { groups: PartGroup[]; numberOf: NumberOf; read: Set<string>; pathOf?: (id: string) => string }) {
+export function ChapterContents({ groups, numberOf, read, pathOf = chapterPath, answers = true }: { groups: PartGroup[]; numberOf: NumberOf; read: Set<string>; pathOf?: (id: string) => string; answers?: boolean }) {
   return (
     <div className="contents">
       {groups.map((g) => (
@@ -31,7 +32,8 @@ export function ChapterContents({ groups, numberOf, read, pathOf = chapterPath }
                     <span className="contents-item__body">
                       <span className="contents-item__title">{smartQuotes(s.title)}</span>
                       {q && <span className="contents-item__q">{q}</span>}
-                      {gist.text && <span className={`contents-item__a${gist.derived ? " is-derived" : ""}`}>{smartQuotes(gist.text)}</span>}
+                      {/* Without the answers, a chapter with no question of its own still says what it is about. */}
+                      {gist.text && (answers || !q) && <span className={`contents-item__a${gist.derived ? " is-derived" : ""}`}>{smartQuotes(gist.text)}</span>}
                       <span className="contents-item__meta">
                         <ConfidenceMark value={s.confidence} variant="inline" long />
                         {read.has(s.id) && <span className="contents-item__read"><Icon icon={Check} /> Read</span>}

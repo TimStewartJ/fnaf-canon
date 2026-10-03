@@ -138,7 +138,8 @@ export default function EvidenceExplorer() {
 
   const filters = appliedCount({ ...query, q: "" });
   const filtered = filters > 0 || text.trim() !== "";
-  const facets = (skip: boolean) => <Facets query={query} outcome={outcome} searching={searching} actions={actions} options={OPTIONS} skipTo={skip ? "evx-results" : undefined} />;
+  // In the rail (skip = true) sources go by their codes, two to a line; in the sheet there is room for their names.
+  const facets = (skip: boolean) => <Facets query={query} outcome={outcome} searching={searching} actions={actions} options={OPTIONS} skipTo={skip ? "evx-results" : undefined} names={skip ? "code" : "full"} />;
   const viewSwitch = <Segmented label="Show results as" options={VIEWS} value={query.view} onChange={(view) => update({ view })} />;
   const span = `${start > 0 ? `${count(start + 1)}–${count(end)}` : count(end)} of ${count(results.length)} shown`;
 
@@ -149,7 +150,7 @@ export default function EvidenceExplorer() {
         title="Evidence locker"
         lede="Every record is one fact, pinned to an exact spot in a game or in Scott’s own words. Nothing here is a theory."
       />
-      <div className="evx-top" role="search" aria-label="Search and filter the evidence">
+      <div className="evx-top pin" role="search" aria-label="Search and filter the evidence">
         <SearchField className="evx-search" label="Search the evidence: titles, claims, quotes, locations and ids" placeholder="Search claims, quotes, locations, ids" value={text} onChange={setText} />
         {!wide && (
           <Button icon={SlidersHorizontal} className="evx-filters-btn" aria-haspopup="dialog" onClick={() => setSheet(true)}>

@@ -96,13 +96,54 @@
 .era-row__sum { max-width: 68ch; margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 
 /* Numbers and exhibits */
-.stat-row { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); border-left: 1px solid var(--c-line); }
+/* Six figures and four exhibits, in rows that divide evenly (2, 3 or 6 across; 2 or 4 across):
+   never five and one, or three and one. The column they sit in is measured, not the window. */
+.home-numbers { container-type: inline-size; }
+.stat-row { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); border-left: 1px solid var(--c-line); }
+@container (min-width: 27rem) { .stat-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container (min-width: 54rem) { .stat-row { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .stat-row > li { margin: 0; }
 .stat { display: grid; gap: 0.1rem; height: 100%; padding: var(--sp-4); color: inherit; border-right: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); text-decoration: none; }
 .stat:hover { background: var(--c-surface); color: inherit; }
 .stat__n { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 500; line-height: 1; letter-spacing: -0.02em; color: var(--c-text); font-variant-numeric: lining-nums; }
 .stat__label { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text-2); }
 .stat:hover .stat__label { color: var(--c-accent-strong); }
-.exhibit-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--sp-5) var(--sp-4); margin-top: var(--sp-6); align-items: start; }
+.exhibit-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-5) var(--sp-4); margin-top: var(--sp-6); align-items: start; }
+@container (min-width: 50rem) { .exhibit-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .exhibit-strip .figure__frame img { height: 9.5rem; object-fit: cover; }
 .exhibit-strip .figure__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+
+/* ── A returning reader: the way back to the chapter they were in ── */
+.path__resume { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem var(--sp-4); padding: var(--sp-3) var(--sp-5); color: var(--c-text); background: var(--c-accent-soft); border: 1px solid var(--c-accent-line); border-radius: var(--r-lg); text-decoration: none; }
+.path__resume:hover { color: var(--c-text); border-color: var(--c-accent); }
+.path__resume .label { color: var(--c-accent-strong); }
+.path__resume-title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600; line-height: 1.25; }
+.path__resume-title .icon { vertical-align: -0.14em; color: var(--c-accent); }
+
+/* ── A phone: the questions and the findings open on a tap, the eras are names and dates ──
+ * (Home.tsx draws them as <details> under 40em: a reader on a phone should reach the story or the
+ * case in a few screens, not after nineteen.) */
+.qa--fold { display: block; padding: 0; margin: 0; }
+.qa--fold > summary { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); min-height: var(--tap); padding: var(--sp-3) 0; list-style: none; cursor: pointer; }
+.qa--fold > summary::-webkit-details-marker { display: none; }
+.qa--fold > summary::after, .finding--fold > summary::after { content: ""; flex: none; align-self: center; width: 0.5rem; height: 0.5rem; margin-right: 0.3rem; border-right: 1.5px solid var(--c-text-3); border-bottom: 1.5px solid var(--c-text-3); transform: translateY(-25%) rotate(45deg); transition: transform var(--dur-1) var(--ease); }
+.qa--fold[open] > summary::after, .finding--fold[open] > summary::after { transform: translateY(15%) rotate(-135deg); }
+.qa--fold > .qa__a { margin: 0 0 var(--sp-2); }
+.qa--fold > .qa__where { display: inline-flex; align-items: center; gap: 0.4em; min-height: var(--tap); margin-bottom: var(--sp-2); font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: 560; color: var(--c-accent); }
+/* (justify-items is reset: on a block it now makes the children shrink to their content.) */
+.finding--fold { display: block; justify-items: normal; border-bottom: 1px solid var(--c-line); }
+.finding--fold > summary > .firm { justify-self: start; }
+.finding--fold > summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-3); align-items: start; padding: var(--sp-3) 0; list-style: none; cursor: pointer; }
+.finding--fold > summary::-webkit-details-marker { display: none; }
+.finding--fold > summary > .finding__title { grid-column: 1; margin: 0; font-size: var(--fs-lg); }
+.finding--fold > summary::after { grid-column: 2; grid-row: 1 / span 2; }
+.finding--fold > .finding__text { margin: 0 0 var(--sp-4); }
+@media (max-width: 40em) {
+  .findings { gap: 0; border-top: 1px solid var(--c-line-strong); }
+  .era-row { padding: var(--sp-2) 0 var(--sp-3); }
+  .era-row__sum { display: none; }
+  .era-row__when { margin-bottom: 0; }
+  /* Two things to tap in a row, one above the other: the era (to the timeline) and its date (how it is known). */
+  .era-row__name { margin-bottom: 0.15rem; }
+  .era-row__name a { display: inline-flex; align-items: center; min-height: 2.5rem; }
+}

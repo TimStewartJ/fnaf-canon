@@ -291,6 +291,9 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .empty__text { margin: 0 auto; max-width: 40ch; }
 .empty > :last-child { margin-bottom: 0; }
 
+/* While the first page is on its way the main area is a screen tall, so the footer starts below
+   it and does not jump when the page arrives. */
+[data-route-loading] { min-height: 100vh; }
 .loading { display: flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 40vh; padding: var(--sp-8) var(--page-pad); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); }
 .loading__dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--c-accent); }
 @media (prefers-reduced-motion: no-preference) {
@@ -401,4 +404,18 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
   .tab.on { border-bottom-color: Highlight; }
   .nav-link.is-active::after { background: Highlight; }
   .game__swatch, [class*="swatch"], [class*="__dot"], .era-row__n::before { forced-color-adjust: none; }
+}
+
+/* ── An address that leads nowhere (Missing) ───────────────────── */
+.missing { padding-block: var(--sp-9); }
+.missing code { overflow-wrap: anywhere; }
+.missing__actions { --gap: var(--sp-3); margin-top: var(--sp-5); }
+
+/* ── The bar of a bottom sheet ─────────────────────────────────── */
+/* On a phone a sheet's bar is its handle: pulled down, it takes the sheet with it (useSheetPull
+   in hooks.ts). The short line says so; the sheet goes back up when let go too soon. */
+@media (max-width: 40em) {
+  .sheet-bar { position: relative; touch-action: none; }
+  .sheet-bar::before { content: ""; position: absolute; left: 50%; top: 0.3rem; width: 2.25rem; height: 0.25rem; margin-left: -1.125rem; border-radius: var(--r-pill); background: var(--c-line-strong); }
+  dialog:has(> .sheet-bar) { transition: transform var(--dur-2) var(--ease); }
 }

@@ -1,22 +1,31 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { StoryBeat, TheorySection } from "../../data/schema";
-import { theoryById } from "../../data/store";
-import { ConfidenceMark, Figure, RichText, chapterPath, eraHue, smartQuotes } from "../../components/ui";
+import { evidenceById, theoryById } from "../../data/store";
+import { citationsInText } from "../../data/theoryText";
+import { ConfidenceMark, Figure, RichText, chapterPath, eraHue, smartQuotes, useEvidenceDrawer } from "../../components/ui";
 import { chapterNumber, pad2 } from "./model";
 
 /**
  * The short chronological telling, as a numbered sequence: when, what happened, how sure the model
- * is, and which chapters argue it. Beats with an image show it as an exhibit beside the text.
+ * is, the records it rests on, and which chapters argue it. Beats with an image show it as an
+ * exhibit beside the text (under the title where there is one column, so that a picture never
+ * reads as the opening of the beat after it).
+ *
+ * Each beat has one "sources" link that opens its records in the drawer, to step through. On a
+ * phone that link stands in for the numbers in the text (theory.css hides them there): a story
+ * with a marker every other line reads like a brief, and the proof is still one tap away.
  *  - compact   a tighter list without images (the home page)
  *  - chapters  lookup for chapter ids (defaults to the real theory; the fixture passes its own)
  */
 export function Storyline({ beats, compact = false, chapters }: { beats: StoryBeat[]; compact?: boolean; chapters?: (id: string) => TheorySection | undefined }) {
   const find = chapters ?? ((id: string) => theoryById.get(id));
+  const drawer = useEvidenceDrawer();
   return (
     <ol className={`story${compact ? " story--compact" : ""}`}>
       {beats.map((b, i) => {
         const argued = b.sections.map(find).filter((s): s is TheorySection => !!s);
+        const sources = [...new Set([...citationsInText(b.when), ...citationsInText(b.text)])].filter((id) => evidenceById.has(id));
         return (
           <li key={b.id} className={`beat${b.image && !compact ? " beat--figure" : ""}`} id={compact ? undefined : b.id} style={{ "--hue": eraHue(b.era) } as CSSProperties}>
             <span className="beat__n" aria-hidden>{pad2(i + 1)}</span>
@@ -26,6 +35,11 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
               <p className="beat__text"><RichText text={b.text} /></p>
               <p className="beat__foot">
                 <ConfidenceMark value={b.confidence} variant="inline" long />
+                {sources.length > 0 && (
+                  <button type="button" className="beat__sources" aria-haspopup="dialog" onClick={() => drawer.open(sources[0], sources, "for this beat", "Source")}>
+                    {sources.length} source{sources.length === 1 ? "" : "s"}<span className="sr-only"> for “{b.title}”</span>
+                  </button>
+                )}
                 {argued.length > 0 && (
                   <span className="beat__argued">
                     <span className="beat__argued-label">Argued in</span>
@@ -84,7 +98,7 @@ export function StoryProgress({ beats }: { beats: StoryBeat[] }) {
   const beat = beats[at.i];
   if (!beat) return null;
   return (
-    <div className="story-progress" data-on={at.on ? "" : undefined} aria-hidden style={{ "--hue": eraHue(beat.era), "--p": (at.i + 1) / beats.length } as CSSProperties}>
+    <div className="story-progress pin" data-on={at.on ? "" : undefined} aria-hidden style={{ "--hue": eraHue(beat.era), "--p": (at.i + 1) / beats.length } as CSSProperties}>
       <div className="story-progress__bar">
         <span className="story-progress__n">{pad2(at.i + 1)}<span className="story-progress__of"> of {beats.length}</span></span>
         <span className="story-progress__title">{smartQuotes(beat.title)}</span>

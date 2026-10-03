@@ -1,5 +1,6 @@
 /** Hooks for the timeline page. No components here. */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { settleHeader } from "../../components/ui";
 
 /**
  * Which era the reader is in: the last era section whose top has passed a line a third of the way
@@ -52,6 +53,7 @@ export function landOn(el: HTMLElement): () => void {
   const apply = () => {
     if (stopped || !el.isConnected) return;
     if (!Number.isNaN(mine) && Math.abs(window.scrollY - mine) > 2) { stop(); return; }
+    settleHeader();
     el.scrollIntoView({ block: "start", behavior: "instant" });
     mine = window.scrollY;
   };

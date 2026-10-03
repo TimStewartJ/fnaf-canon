@@ -10,24 +10,28 @@ export interface DrawerState {
   id: string;
   /** The records it was opened among (cited at the same spot, or the list it was in); the drawer pages through them. */
   group?: string[];
-  /** What that set is, to finish "Record 2 of 5 …": "cited here", "in this list". */
+  /** What that set is, to finish "Record 2 of 5 …": "cited here", "in this list" (the default), or "" for nothing. */
   of?: string;
+  /** What one of the set is called, in place of "Record": "Source" for a numbered citation, whose place in the set is its number. */
+  noun?: string;
   /** True when opening pushed a history entry (so closing can go back). */
   pushed?: boolean;
   /**
-   * How many history steps closing goes back over; 1 unless said. It is 2 for a record opened
-   * from an overlay that was itself opened over the drawer (search, from inside a record): the
-   * drawer then has two entries, the record it showed before and this one.
+   * How many history steps closing goes back over; 1 unless said. Stepping through the set the
+   * record was opened among stays on one step. Going on from a record to another that is not
+   * in that set (one related to it, one found by search from inside it) adds a step, so Back
+   * returns to the record before.
    */
   steps?: number;
 }
 
 export interface EvidenceDrawerApi {
   /**
-   * Opens a record. `group` lists the records the reader can page through from it, and `of` says
-   * in a few words what that set is, to finish "Record 2 of 5 …" (default: "in this list").
+   * Opens a record. `group` lists the records the reader can page through from it, `of` says
+   * in a few words what that set is, to finish "Record 2 of 5 …" (default: "in this list"), and
+   * `noun` replaces "Record" ("Source 9 of 35").
    */
-  open(id: string, group?: string[], of?: string): void;
+  open(id: string, group?: string[], of?: string, noun?: string): void;
   close(): void;
 }
 

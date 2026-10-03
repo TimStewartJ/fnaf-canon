@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { credits, eras, evidence, games, people, relations, storyline, theory, theoryById, theoryIntro, timeline } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
 import * as home from "../../data/home";
-import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, numberWord, plainText, smartQuotes } from "../../components/ui";
+import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, numberWord, plainText, smartQuotes, useContinue, useMediaQuery } from "../../components/ui";
 import { Storyline } from "../theory/Storyline";
-import { chapterNumber, partGroups } from "../theory/model";
+import { chapterNumber, minutesFor, partGroups } from "../theory/model";
 import "../theory/theory.css";
 import "./home.css";
 
@@ -15,7 +15,9 @@ const { homeSummary, keyQuestions } = home;
  * The headline: what this is, in a few words. The data may supply one (`homeHeadline` in
  * data/home.ts); until it does, this one stands, made of words the page already uses.
  */
-const HEADLINE = (home as { homeHeadline?: string }).homeHeadline ?? "One story, from the evidence up.";
+const optional = (from: object, name: string): unknown => (from as Record<string, unknown>)[name];
+const supplied = optional(home, "homeHeadline");
+const HEADLINE = typeof supplied === "string" && supplied.trim() ? supplied : "One story, from the evidence up.";
 const HERO_IMAGE = "fnaf2-take-cake-to-the-children.png";
 const BEATS_ON_HOME = 6;
 const STRIP = ["fnaf4-fredbear-and-friends-1983-tv.png", "fnaf1-missing-children-newspapers.jpg", "fnaf3-springlock-death.png", "ffps-insanity-scup-blueprint.png"];
@@ -38,8 +40,7 @@ function HomeSection({ id, kicker, title, lead, more, children }: { id: string; 
 }
 
 export default function Home() {
-  const storyWords = storyline.map((b) => plainText(b.text)).join(" ").split(/\s+/).length;
-  const storyMinutes = Math.max(1, Math.round(storyWords / 200));
+  const storyMinutes = minutesFor(storyline.map((b) => b.text));
   const heroImage = credits.find((c) => c.file === HERO_IMAGE)?.file ?? credits[0]?.file;
   const sources = games.filter((g) => evidence.some((e) => e.game === g.id)).length;
   const strip = STRIP.filter((f) => credits.some((c) => c.file === f));
@@ -52,6 +53,12 @@ export default function Home() {
     [credits.length, "screenshots", "/gallery"],
   ];
   const questions = keyQuestions.filter((q) => theoryById.has(q.section));
+  const resume = useContinue();
+  // A phone shows the questions and the findings as lists to open, not as a wall: the page should
+  // send its reader into the story or the case within a few screens.
+  const phone = useMediaQuery("(max-width: 640px)");
+  // The beat the full story takes up from, for a reader who has just read the first few here.
+  const nextBeat = storyline[BEATS_ON_HOME];
 
   return (
     <Page title={null} flush className="home">
@@ -66,6 +73,12 @@ export default function Home() {
           </div>
 
           <nav className="path" aria-label="Where to start">
+            {resume && (
+              <Link to={resume.to} className="path__resume">
+                <span className="label">Continue reading</span>
+                <span className="path__resume-title">Chapter {resume.number}: {smartQuotes(resume.chapter.title)} <Icon icon={ArrowRight} /></span>
+              </Link>
+            )}
             <Link to="/theory#storyline" className="path__step path__step--first">
               <span className="path__n">1</span>
               <span className="path__title">Read the story <Icon icon={ArrowRight} /></span>
@@ -97,7 +110,7 @@ export default function Home() {
         >
           <Storyline beats={storyline.slice(0, BEATS_ON_HOME)} compact />
           {storyline.length > BEATS_ON_HOME && (
-            <p className="home-more"><Link to="/theory#storyline">…and {storyline.length - BEATS_ON_HOME} more beats, to the end of the story<Icon icon={ArrowRight} /></Link></p>
+            <p className="home-more"><Link to={`/theory#${nextBeat.id}`}>…and {storyline.length - BEATS_ON_HOME} more beats, to the end of the story<Icon icon={ArrowRight} /></Link></p>
           )}
         </HomeSection>
       )}
@@ -113,11 +126,19 @@ export default function Home() {
           <ul className="qa-list">
             {questions.map((q) => (
               <li key={q.q}>
-                <Link to={chapterPath(q.section)} className="qa">
-                  <span className="qa__q">{smartQuotes(q.q)}</span>
-                  <span className="qa__a">{smartQuotes(q.a)}</span>
-                  <span className="qa__where">Chapter {chapterNumber(q.section)} · {smartQuotes(theoryById.get(q.section)?.title ?? "")}</span>
-                </Link>
+                {phone ? (
+                  <details className="qa qa--fold">
+                    <summary className="qa__q">{smartQuotes(q.q)}</summary>
+                    <p className="qa__a">{smartQuotes(q.a)}</p>
+                    <Link to={chapterPath(q.section)} className="qa__where">Chapter {chapterNumber(q.section)} · {smartQuotes(theoryById.get(q.section)?.title ?? "")} <Icon icon={ArrowRight} /></Link>
+                  </details>
+                ) : (
+                  <Link to={chapterPath(q.section)} className="qa">
+                    <span className="qa__q">{smartQuotes(q.q)}</span>
+                    <span className="qa__a">{smartQuotes(q.a)}</span>
+                    <span className="qa__where">Chapter {chapterNumber(q.section)} · {smartQuotes(theoryById.get(q.section)?.title ?? "")}</span>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -132,13 +153,21 @@ export default function Home() {
         more={<Link to="/method">How the archive decides what counts<Icon icon={ArrowRight} /></Link>}
       >
         <div className="findings">
-          {homeSummary.map((s) => (
+          {homeSummary.map((s) => (phone ? (
+            <details key={s.title} className="finding finding--fold">
+              <summary>
+                <StatusMark value={s.status} long />
+                <h3 className="finding__title">{smartQuotes(s.title)}</h3>
+              </summary>
+              <p className="finding__text"><RichText text={s.text} /></p>
+            </details>
+          ) : (
             <article key={s.title} className="finding">
               <StatusMark value={s.status} long />
               <h3 className="finding__title">{smartQuotes(s.title)}</h3>
               <p className="finding__text"><RichText text={s.text} /></p>
             </article>
-          ))}
+          )))}
         </div>
       </HomeSection>
 
@@ -170,12 +199,14 @@ export default function Home() {
         lead="The archive is built from single facts, each with its source. Books, films and fan theories are left out by design."
         more={<Link to="/gallery">All {credits.length} screenshots<Icon icon={ArrowRight} /></Link>}
       >
-        <ul className="stat-row">
-          {stats.map(([n, label, to]) => (
-            <li key={label}><Link to={to} className="stat"><span className="stat__n">{n}</span><span className="stat__label">{label}</span></Link></li>
-          ))}
-        </ul>
-        {strip.length > 0 && <div className="exhibit-strip">{strip.map((f) => <Figure key={f} file={f} />)}</div>}
+        <div className="home-numbers">
+          <ul className="stat-row">
+            {stats.map(([n, label, to]) => (
+              <li key={label}><Link to={to} className="stat"><span className="stat__n">{n.toLocaleString("en-GB")}</span><span className="stat__label">{label}</span></Link></li>
+            ))}
+          </ul>
+          {strip.length > 0 && <div className="exhibit-strip">{strip.map((f) => <Figure key={f} file={f} />)}</div>}
+        </div>
       </HomeSection>
     </Page>
   );

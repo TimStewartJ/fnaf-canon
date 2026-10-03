@@ -12,7 +12,7 @@ import { ArrowDown, ArrowRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } fr
 import type { Source } from "../../data/community";
 import { evidenceById, theoryById } from "../../data/store";
 import {
-  Button, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, longDate, smartQuotes, useAddress,
+  Button, ButtonLink, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, longDate, settleHeader, smartQuotes, useAddress,
 } from "../../components/ui";
 import { ESSAYS, SOURCES_ID, answerExhibits, answerId, count, isConfidence, pad2, recordOfImage } from "./essayModel";
 import { RowsContext, useRows, type RowsControl } from "./essayRows";
@@ -33,7 +33,7 @@ export function EssayJump({ to, children, className }: { to: string; children: R
         if (!isPlainClick(e)) return;
         const el = document.getElementById(to);
         el?.focus({ preventScroll: true });
-        if (anchor === to) { e.preventDefault(); el?.scrollIntoView({ block: "start" }); }
+        if (anchor === to) { e.preventDefault(); settleHeader(); el?.scrollIntoView({ block: "start" }); }
       }}
     >
       {children}
@@ -90,6 +90,7 @@ function openSources() {
   const d = document.getElementById(SOURCES_ID);
   if (!(d instanceof HTMLDetailsElement)) return;
   d.open = true;
+  settleHeader();
   d.scrollIntoView({ block: "start" });
   d.querySelector("summary")?.focus({ preventScroll: true });
 }
@@ -345,10 +346,22 @@ export const EssaySources = memo(function EssaySources({ ids, note }: { ids: rea
   );
 });
 
-/** The other long-form pages, at the foot of each. */
-export const EssayMore = memo(function EssayMore({ current, label = "More essays" }: { current: string; label?: string }) {
+/**
+ * The foot of an essay: the way back into the theory (an essay stands beside the argument; it is
+ * not the argument), then the other long-form pages. `theory={false}` leaves the first part out,
+ * for a page that ends with its own way on.
+ */
+export const EssayMore = memo(function EssayMore({ current, label = "More essays", theory = true }: { current: string; label?: string; theory?: boolean }) {
   const others = ESSAYS.filter((e) => e.to !== current);
   return (
+    <>
+    {theory && (
+      <div className="essay-onward">
+        <p className="essay-onward__text">This page stands beside the theory. The story itself, and the case for it, are in the chapters.</p>
+        <ButtonLink to="/theory#storyline" variant="primary" iconEnd={ArrowRight}>Read the story</ButtonLink>
+        <ButtonLink to="/theory#contents">The full case, chapter by chapter</ButtonLink>
+      </div>
+    )}
     <nav className="essay-more" aria-labelledby="essay-more-title">
       <h2 className="label" id="essay-more-title">{label}</h2>
       <ul className="essay-more__list">
@@ -363,5 +376,6 @@ export const EssayMore = memo(function EssayMore({ current, label = "More essays
         ))}
       </ul>
     </nav>
+    </>
   );
 });

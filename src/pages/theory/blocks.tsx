@@ -43,11 +43,11 @@ function Compare({ columns }: { columns: CompareColumn[] }) {
 /**
  * One block of a chapter body.
  *  - fig    the running figure number, for a figure
- *  - id     the anchor of a heading (see chapterHeads)
+ *  - id     the anchor of a heading (see chapterHeads), or of a paragraph ("p12": where "Continue" picks up)
  *  - label  what a table is called, for anyone who cannot see where it sits: "Table 2: The dates"
  */
 export function Block({ block, fig, id, label }: { block: TheoryBlock; fig?: number; id?: string; label?: string }) {
-  if (typeof block === "string") return <p><RichText text={block} /></p>;
+  if (typeof block === "string") return <p id={id}><RichText text={block} /></p>;
   switch (block.kind) {
     case "heading":
       return <h2 id={id}><RichText text={block.text} /></h2>;
@@ -101,15 +101,16 @@ export function Block({ block, fig, id, label }: { block: TheoryBlock; fig?: num
 
 /**
  * Renders a chapter body: numbers its figures, gives each heading its anchor (`heads`, from
- * chapterHeads, in the same order) and names each table after the heading it stands under.
+ * chapterHeads, in the same order), numbers its paragraphs (p1, p2…: the places a reader can be
+ * returned to) and names each table after the heading it stands under.
  */
 export function Blocks({ blocks, heads = [] }: { blocks: TheoryBlock[]; heads?: SectionHead[] }) {
   const tables = blocks.filter((b) => typeof b !== "string" && b.kind === "table").length;
-  let fig = 0, table = 0, head = -1;
+  let fig = 0, table = 0, head = -1, para = 0;
   return (
     <>
       {blocks.map((b, i) => {
-        if (typeof b === "string") return <Block key={i} block={b} />;
+        if (typeof b === "string") return <Block key={i} block={b} id={`p${++para}`} />;
         if (b.kind === "figure") return <Block key={i} block={b} fig={++fig} />;
         if (b.kind === "heading") return <Block key={i} block={b} id={heads[++head]?.id} />;
         if (b.kind === "table") {

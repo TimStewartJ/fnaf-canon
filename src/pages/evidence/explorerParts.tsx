@@ -5,7 +5,7 @@ import { gameById, labelForEntity } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, sourceKindIcon, firmness, kindLabel, smartQuotes, sourceWordsPlain, useDrawerRecord,
-  useModalDialog,
+  useModalDialog, useSheetPull,
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
 import "./evidence.css";
@@ -93,11 +93,11 @@ function Opt({ checked, n, label, shown, onChange, children, title }: { checked:
   );
 }
 
-function Facet({ label, wide, children }: { label: string; wide?: boolean; children: ReactNode }) {
+function Facet({ label, wide, long, children }: { label: string; wide?: boolean; /** Options with long names: always one to a line. */ long?: boolean; children: ReactNode }) {
   return (
     <fieldset className="evx-facet">
       <legend className="evx-facet__label">{label}</legend>
-      <div className={`evx-facet__opts${wide ? " evx-facet__opts--pairs" : ""}`}>{children}</div>
+      <div className={`evx-facet__opts${wide ? " evx-facet__opts--pairs" : ""}${long ? " evx-facet__opts--long" : ""}`}>{children}</div>
     </fieldset>
   );
 }
@@ -115,7 +115,7 @@ export interface FacetActions {
  * number of records it would give; the rest sit under "More filters". Shown as a rail beside the
  * results on a wide screen and inside a sheet on a narrow one.
  */
-export const Facets = memo(function Facets({ query, outcome, searching, actions, options, skipTo }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions; skipTo?: string }) {
+export const Facets = memo(function Facets({ query, outcome, searching, actions, options, skipTo, names = "code" }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions; skipTo?: string; /** How a source is named: by its code (the rail, where two fit a line) or in full (the sheet on a phone). */ names?: "code" | "full" }) {
   const { counts } = outcome;
   // Every option the archive has is always listed, so the lists do not jump as filters change;
   // a value that only the URL knows about is added so that it can be unticked.
@@ -126,7 +126,7 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
   const tags = useCallback(() => tagOptions(counts.tag, query.tag), [counts.tag, query.tag]);
   const entities = useCallback(() => entityOptions(counts.entity, query.entity), [counts.entity, query.entity]);
   const defaultSort: Sort = searching ? "match" : "time";
-  const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (query.img ? 1 : 0) + (outcome.sort !== defaultSort ? 1 : 0);
+  const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (outcome.sort !== defaultSort ? 1 : 0);
   const more = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const el = more.current;
@@ -139,10 +139,10 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
   return (
     <div className="evx-facets">
       {skipTo && <button type="button" className="evx-skip" onClick={() => document.getElementById(skipTo)?.focus()}>Skip the filters</button>}
-      <Facet label="Source" wide>
+      <Facet label="Source" wide={names === "code"} long={names === "full"}>
         {sources.map((id) => (
-          <Opt key={id} checked={query.game.includes(id)} n={counts.game.get(id) ?? 0} label={gameById.get(id as never)?.title ?? id} shown={gameMeta(id).short} onChange={() => actions.toggle("game", id)}>
-            <GameMark id={id} />
+          <Opt key={id} checked={query.game.includes(id)} n={counts.game.get(id) ?? 0} label={gameById.get(id as never)?.title ?? id} shown={names === "code" ? gameMeta(id).short : undefined} onChange={() => actions.toggle("game", id)}>
+            <GameMark id={id} variant={names} />
           </Opt>
         ))}
       </Facet>
@@ -156,6 +156,12 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
           );
         })}
       </Facet>
+      {/* Records that can be looked at: asked for often enough to stand with the first filters. */}
+      <div className="evx-facet evx-facet--one">
+        <Opt checked={query.img} n={query.img ? outcome.results.length : counts.img} label="With a screenshot" onChange={(on) => actions.set({ img: on })}>
+          <Icon icon={ImageIcon} /> With a screenshot
+        </Opt>
+      </div>
       <Facet label="Kind of source">
         {kinds.map((id) => (
           <Opt key={id} checked={query.kind.includes(id)} n={counts.kind.get(id) ?? 0} label={kindLabel(id)} onChange={() => actions.toggle("kind", id)}>
@@ -166,11 +172,6 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
       <div ref={more}>
         <Collapsible summary="More filters" meta={folded ? `${folded} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
           <div className="evx-facets evx-facets--more">
-            <div className="evx-facet">
-              <Opt checked={query.img} n={query.img ? outcome.results.length : counts.img} label="With a screenshot" onChange={(on) => actions.set({ img: on })}>
-                <Icon icon={ImageIcon} /> With a screenshot
-              </Opt>
-            </div>
             <Facet label="Place in the theory">
               {PLACES.map((p) => (
                 <Opt key={p} checked={query.use.includes(p)} n={counts.use.get(p) ?? 0} label={PLACE[p].word} title={PLACE[p].help} onChange={() => actions.toggle("use", p)}>
@@ -302,9 +303,10 @@ export function Combo({ label, placeholder, options: getOptions, value, valueLab
 
 export function FilterSheet({ onClose, children, foot }: { onClose: () => void; children: ReactNode; foot: ReactNode }) {
   const dialogProps = useModalDialog(true, onClose);
+  const pull = useSheetPull(onClose);
   return (
     <dialog className="evx-sheet" aria-label="Filters" {...dialogProps}>
-      <header className="evx-sheet__bar">
+      <header className="evx-sheet__bar sheet-bar" {...pull}>
         <span className="label">Filters</span>
         <IconButton icon={X} label="Close filters" onClick={onClose} autoFocus />
       </header>

@@ -104,7 +104,7 @@ export function LocationsView({ f, sp, onLeave }: { f: Filters; sp: URLSearchPar
           <span>set there in each era</span>
         </p>
       </header>
-      <nav className="tl-loc__head" aria-label="Eras">
+      <nav className="tl-loc__head pin" aria-label="Eras">
         <span className="tl-loc__head-label label" aria-hidden>Place</span>
         <div className="tl-loc__eras">
           {eras.map((e, i) => (

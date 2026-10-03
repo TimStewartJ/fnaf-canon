@@ -5,7 +5,7 @@ import type { Evidence, TheorySection } from "../../data/schema";
 import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
-  ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, Empty, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Page,
+  CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
   RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieWords, timelineEventPath,
 } from "../../components/ui";
 import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
@@ -118,16 +118,7 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
 export default function EvidenceDetail() {
   const { id = "" } = useParams();
   const e = evidenceById.get(id);
-  if (!e) {
-    return (
-      <Page title="Record not found" narrow>
-        <h1 className="sr-only">Record not found</h1>
-        <Empty title="No such record" action={<ButtonLink to="/evidence" variant="primary">Open the evidence locker</ButtonLink>}>
-          There is no evidence record with the id “{id}”.
-        </Empty>
-      </Page>
-    );
-  }
+  if (!e) return <Missing what="evidence record" id={id} list={{ to: "/evidence", label: "Open the evidence locker" }} />;
   const bl = backlinksFor(id);
   const game = gameById.get(e.game);
   const place = placeOf(id);

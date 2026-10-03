@@ -165,7 +165,8 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
   .tl-row:not(.is-open) .tl-row__main:hover { background: var(--c-surface); }
   .tl-row__head:hover .tl-row__toggle { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 }
-.tl-row__chev { position: absolute; top: 0.3rem; right: 0; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
+/* Drawn over the row's button, and not part of it: a tap on it must reach the button underneath. */
+.tl-row__chev { position: absolute; top: 0.3rem; right: 0; color: var(--c-text-3); pointer-events: none; transition: transform var(--dur-2) var(--ease); }
 .tl-row.is-open .tl-row__chev { transform: rotate(180deg); }
 .tl-row__excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; max-width: var(--measure-wide); margin: 0.3rem 0 0; overflow: hidden; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-base) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); }
 /* The gap trails a fact instead of leading the next, so a fact that wraps starts flush with the line. */

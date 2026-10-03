@@ -8,8 +8,6 @@ import type { TheoryBlock, TheorySection } from "../../data/schema";
 import { partGroups, readingOrder, type PartGroup } from "../../components/chapterOrder";
 import { blockEvidenceIds, blockTexts, citationsInText } from "../../data/theoryText";
 import { excerpt, plainText } from "../../components/richTextPlain";
-import { useCallback, useMemo } from "react";
-import { useStored } from "../../components/hooks";
 
 // The ordering itself lives in components/chapterOrder.ts so the search palette shares it.
 export { groupByPart, partGroups, chapterNumber, type PartGroup } from "../../components/chapterOrder";
@@ -102,15 +100,5 @@ export function readingMinutes(s: TheorySection): number {
   return minutesFor([s.answer ?? "", ...s.body.flatMap((b) => (typeof b === "string" ? [b] : blockTexts(b))), s.tension ?? "", s.changesIf ?? ""]);
 }
 
-/* ── Reading progress, remembered on this device ─────────────────── */
-const NONE: string[] = [];
-
-/** Chapters the reader has finished, and the last one they opened. The setters are stable. */
-export function useReadingProgress() {
-  const [read, setRead] = useStored<string[]>("fca:read", NONE);
-  const [last, setLast] = useStored<string | null>("fca:last", null);
-  const markRead = useCallback((id: string) => setRead((prev) => (prev.includes(id) ? prev : [...prev, id])), [setRead]);
-  const markOpened = useCallback((id: string) => setLast(id), [setLast]);
-  const readSet = useMemo(() => new Set(read), [read]);
-  return { read: readSet, last, markRead, markOpened };
-}
+// Reading progress (what has been read, and where "Continue" leads) lives in components/reading.ts: the home page and the menu use it too.
+export { useReadingProgress, useContinue, saveReadingPlace } from "../../components/reading";

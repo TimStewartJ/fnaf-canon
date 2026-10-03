@@ -9,11 +9,14 @@ import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, t
 const EvidenceDrawer = deferred(() => import("../EvidenceDrawer"));
 
 interface WithDrawer { [DRAWER_KEY]?: DrawerState }
+const sameList = (a?: string[], b?: string[]): boolean => !!a && !!b && a.length === b.length && a.every((x, i) => x === b[i]);
 
 /**
  * Provides the evidence drawer to everything below it and renders the drawer itself. The open
  * record is stored in the current history entry's state: opening pushes an entry (so Back closes
- * the drawer and nothing else), moving between records replaces it.
+ * the drawer and nothing else), stepping through the set it was opened among replaces it, and
+ * going on from it to some other record (one related to it) pushes again, so Back returns to the
+ * record the reader came from.
  */
 export function DrawerHost({ children }: { children: ReactNode }) {
   const location = useLocation();
@@ -35,16 +38,18 @@ export function DrawerHost({ children }: { children: ReactNode }) {
       return { d: state[DRAWER_KEY], go: latest.current.navigate, here: { pathname, search: live.search, hash: live.hash }, state };
     };
     return {
-      open(id, group, of) {
+      open(id, group, of, noun) {
         // A filter still on its way to the address is written first: the drawer's entry, and the one under it, both say what the reader sees.
         settleAddress();
         const { d, go, here, state } = now();
         // Opened from another overlay (a search result, a record named under an enlarged image):
         // the drawer takes that overlay's place in the history, so Back from the drawer is the page.
         const { [OVERLAY_KEY]: overlay, ...rest } = state as WithDrawer & Record<string, unknown>;
-        const steps = (d?.steps ?? 1) + (d && overlay ? 1 : 0);
+        // A step within the set the open record belongs to, or a move on to another record.
+        const paging = !!d && !overlay && sameList(d.group, group);
+        const steps = (d?.steps ?? 0) + (paging ? 0 : 1);
         if (!d && !overlay) notePlace();
-        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, pushed: d ? d.pushed : true, steps } }, replace: !!d || !!overlay });
+        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, noun, pushed: d ? d.pushed : true, steps } }, replace: paging || !!overlay });
       },
       close() {
         const { d, go, here, state } = now();

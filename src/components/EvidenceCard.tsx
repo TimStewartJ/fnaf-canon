@@ -13,15 +13,19 @@ import { Icon } from "./Icon";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { smartQuotes, sourceWords } from "./typography";
 
-/** A link to an evidence record that opens the drawer (or the full page with `open="page"`). */
-export function EvidenceLink({ id, group, open = "drawer", className, children }: { id: string; group?: string[]; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
+/**
+ * A link to an evidence record that opens the drawer (or the full page with `open="page"`).
+ * `group` is the set the reader can step through from it; `of` and `noun` word the drawer's
+ * "Record 2 of 5 in this list" for that set (see EvidenceDrawerApi.open).
+ */
+export function EvidenceLink({ id, group, of, noun, open = "drawer", className, children }: { id: string; group?: string[]; of?: string; noun?: string; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
   const drawer = useEvidenceDrawer();
   return (
     <Link
       to={evidencePath(id)}
       className={className}
       aria-haspopup={open === "drawer" ? "dialog" : undefined}
-      onClick={(e) => { if (open !== "drawer" || !isPlainClick(e)) return; e.preventDefault(); drawer.open(id, group); }}
+      onClick={(e) => { if (open !== "drawer" || !isPlainClick(e)) return; e.preventDefault(); drawer.open(id, group, of, noun); }}
     >
       {children}
     </Link>
@@ -64,14 +68,14 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
  *  - n       a number shown before the row (a chapter's source list)
  *  - claim   set false to show the title only
  */
-export function EvidenceRow({ e, n, group, claim = true, open = "drawer", as: Tag = "li" }: { e: Evidence; n?: number; group?: string[]; claim?: boolean; open?: "drawer" | "page"; as?: "li" | "div" }) {
+export function EvidenceRow({ e, n, group, of, noun, claim = true, open = "drawer", as: Tag = "li" }: { e: Evidence; n?: number; group?: string[]; of?: string; noun?: string; claim?: boolean; open?: "drawer" | "page"; as?: "li" | "div" }) {
   const c = firmness("certainty", e.certainty);
   return (
     <Tag className="ev-row">
       {n != null && <span className="ev-row__n">{n}</span>}
       <span className="ev-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <span className="ev-row__main">
-        <EvidenceLink id={e.id} group={group} open={open} className="ev-row__title">{smartQuotes(e.title)}</EvidenceLink>
+        <EvidenceLink id={e.id} group={group} of={of} noun={noun} open={open} className="ev-row__title">{smartQuotes(e.title)}</EvidenceLink>
         {claim && <span className="ev-row__claim">{smartQuotes(e.claim)}</span>}
         <span className="ev-row__meta"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></span>
       </span>

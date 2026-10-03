@@ -4,13 +4,13 @@ import { ArrowRight } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, gameById, games } from "../../data/store";
 import {
-  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, sourceKindIcon, Section, isRelease, kindLabel, listParam, longDate, smartQuotes, sourcePath,
+  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Missing, Page, PageHeader, sourceKindIcon, Section, isRelease, kindLabel, listParam, longDate, smartQuotes, sourcePath,
 } from "../../components/ui";
 import { useAddressState } from "./addressState";
 import { PLACE, PLACES, accounted, count, isPlace, percent, placeOf, records, tally, type Place } from "./coverage";
 import { PlaceSwatch, ResultRow } from "./explorerParts";
 import { Accounted, CoverageBar, CoverageKey, SetIn } from "./sourceParts";
-import { byKind, recordsOf } from "./sourceModel";
+import { byKind, hasSetIn, recordsOf } from "./sourceModel";
 import "./sources.css";
 
 const NO_TERMS: string[] = [];
@@ -65,6 +65,7 @@ export default function Sources() {
               ? <>Every one of the {count(all.total)} records from {used} sources is accounted for.</>
               : <><strong>{count(done)}</strong> of {count(all.total)} records from {used} sources so far, {percent(done, all.total)} percent.</>}
             {" "}A record is accounted for when a chapter cites it, a chapter files it as further evidence, or the theory sets it aside as outside the story and says why.
+            {games.length > used && <> Of the {games.length} sources listed here, {games.length - used} {games.length - used === 1 ? "has" : "have"} no records yet.</>}
           </p>
         </div>
         <div className="srcs-overall__figure">
@@ -84,7 +85,7 @@ export default function Sources() {
                   <GameMark id={g.id} />
                   {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
                   <span><span className="srcs-item__k">By</span> {g.developer}</span>
-                  <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>
+                  {hasSetIn(g.id, g.settingYearLabel) && <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>}
                 </p>
                 <p className="srcs-item__sum">{smartQuotes(g.summary)}</p>
               </div>
@@ -121,14 +122,7 @@ export function SourceDetail() {
     focusAt.current = null;
     if (f) document.getElementById(`k-${f.kind}`)?.closest("section")?.querySelectorAll<HTMLElement>(".evx-row__title")[f.at]?.focus({ preventScroll: true });
   }, [view.more]);
-  if (!g) {
-    return (
-      <Page title="Source not found" narrow>
-        <h1 className="sr-only">Source not found</h1>
-        <Empty title="Unknown source" action={<ButtonLink to="/sources" variant="primary">All sources</ButtonLink>}>There is no source with the id “{id}”.</Empty>
-      </Page>
-    );
-  }
+  if (!g) return <Missing what="source" id={id} list={{ to: "/sources", label: "All sources" }} />;
   const t = tally(all);
   const groups = byKind(shown);
   const showAll = () => setView((v) => ({ ...v, use: [] }));
@@ -146,7 +140,7 @@ export function SourceDetail() {
           <GameMark id={g.id} />
           {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
           <span><span className="srcs-item__k">By</span> {g.developer}</span>
-          <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>
+          {hasSetIn(g.id, g.settingYearLabel) && <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>}
         </p>
         <p className="lede">{smartQuotes(g.summary)}</p>
       </PageHeader>

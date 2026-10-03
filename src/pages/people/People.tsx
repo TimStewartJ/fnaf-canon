@@ -5,7 +5,7 @@ import { people } from "../../data/store";
 import { isFoldedAway, unifiedPeople } from "../../data/model";
 import {
   Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, Thumb, levelOf, personPath, plainText,
-  smartQuotes, useAddressText,
+  smartQuotes, useAddressText, settleHeader,
 } from "../../components/ui";
 import { DossierSection, JumpLinks } from "./Dossier";
 import { beingOf, evidenceOf, type BeingNode, type NodeKind } from "./identity";
@@ -161,17 +161,29 @@ export default function People() {
           person: {entries.length} profiles, with {folded} other figures folded into them, and {minor.length} minor figures.
         </>}
       >
-        <SearchField className="ppl-search" label="Find a person" placeholder="Name or alias, like Springtrap" value={q} onChange={setQ} />
-        <p className="ppl-key">
-          <span className="label">How firmly a figure belongs</span>
-          <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
-          <span className="ppl-key__note">Names in <em className="name-desc">italics</em> are the archive’s own descriptors; the games never print them.</span>
-        </p>
+        {/* On a phone the keyboard takes the lower half of the screen: the field goes to the top of
+            what is left when it is tapped, the count sits directly under it, and the key steps
+            aside while a name is being typed, so the matches show above the keyboard. */}
+        <div
+          className="ppl-search-wrap"
+          onFocus={(ev) => {
+            if (!window.matchMedia("(pointer: coarse) and (max-width: 40em)").matches) return;
+            settleHeader();
+            ev.currentTarget.scrollIntoView({ block: "start", behavior: "smooth" });
+          }}
+        >
+          <SearchField className="ppl-search" label="Find a person" placeholder="Name or alias, like Springtrap" value={q} onChange={setQ} />
+        </div>
         {needle && !nobody && (
           <p className="ppl-found" role="status">
             {plural(shown.length, "profile")} and {plural(shownMinor.length, "minor figure")} match “{asked}”.
           </p>
         )}
+        <p className="ppl-key" data-quiet={needle ? "" : undefined}>
+          <span className="label">How firmly a figure belongs</span>
+          <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
+          <span className="ppl-key__note">Names in <em className="name-desc">italics</em> are the archive’s own descriptors; the games never print them.</span>
+        </p>
       </PageHeader>
 
       {!needle && (
@@ -190,7 +202,7 @@ export default function People() {
             id={`group-${g}`}
             title={GROUP_LABEL[g] ?? g}
             count={plural(list.length, "profile")}
-            lead={g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other figure")} folded into them.` : undefined}
+            lead={needle ? undefined : g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other figure")} folded into them.` : undefined}
           >
             <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} hits={hitsOf(e, needle)} />)}</ul>
           </DossierSection>

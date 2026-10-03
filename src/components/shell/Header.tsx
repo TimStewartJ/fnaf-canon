@@ -4,6 +4,7 @@ import { ALargeSmall, ChevronDown, Menu, Search } from "lucide-react";
 import { useOutsidePointer } from "../hooks";
 import { Icon } from "../Icon";
 import { Brand } from "./Brand";
+import { useHeaderReveal } from "./headerReveal";
 import { NAV, isInGroup, type NavGroup } from "./nav";
 import { ReaderSettings } from "./ReaderSettings";
 
@@ -72,15 +73,18 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
 /**
  * The header's layouts, roomiest first. It takes the first one whose parts fit side by side:
  * the brand's second line goes first, then the search field's shortcut and its width, then its
- * word; when the navigation still does not fit as a bar, it becomes the menu button.
+ * word; when the navigation still does not fit as a bar, it becomes the menu button. With the
+ * menu button, the reading settings keep their own button for as long as there is room (they
+ * are in the menu as well).
  */
-const LAYOUTS: { nav: "bar" | "menu"; brand: "full" | "short"; search: "full" | "short" | "icon" }[] = [
+const LAYOUTS: { nav: "bar" | "menu"; brand: "full" | "short"; search: "full" | "short" | "icon"; settings?: "menu" }[] = [
   { nav: "bar", brand: "full", search: "full" },
   { nav: "bar", brand: "short", search: "full" },
   { nav: "bar", brand: "short", search: "short" },
   { nav: "bar", brand: "short", search: "icon" },
   { nav: "menu", brand: "full", search: "icon" },
   { nav: "menu", brand: "short", search: "icon" },
+  { nav: "menu", brand: "short", search: "icon", settings: "menu" },
 ];
 
 /**
@@ -109,6 +113,7 @@ function useHeaderFit(): [RefObject<HTMLElement | null>, RefObject<HTMLDivElemen
         el.setAttribute("data-nav", l.nav);
         el.setAttribute("data-brand", l.brand);
         el.setAttribute("data-search", l.search);
+        el.toggleAttribute("data-settings-in-menu", l.settings === "menu");
         if (fits()) return;
       }
       // Not even the smallest layout fits (a very large font on a very small screen): the name gives way, the page never scrolls sideways.
@@ -137,6 +142,7 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
   const settingsBtn = useRef<HTMLButtonElement | null>(null);
   useOutsidePointer([settingsRef], () => close("settings"), openId === "settings");
   const [headerRef, rowRef] = useHeaderFit();
+  useHeaderReveal(headerRef);
 
   return (
     <header className="site-header" ref={headerRef}>

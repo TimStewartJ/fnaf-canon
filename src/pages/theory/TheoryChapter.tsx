@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, List, X } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
 import { theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Empty, Icon, Page, chapterPath, useModalDialog, smartQuotes } from "../../components/ui";
+import { Icon, Missing, Page, chapterPath, useModalDialog, useSheetPull, smartQuotes } from "../../components/ui";
 import { ChapterView, type ChapterContext } from "./ChapterView";
 import { ChapterNav } from "./Contents";
-import { type SectionHead, chapterHeads, chapterNumber, neighbours, ordered, pad2, partGroups, partOfChapter, useReadingProgress } from "./model";
+import { type SectionHead, chapterHeads, chapterNumber, neighbours, ordered, pad2, partGroups, partOfChapter, saveReadingPlace, useReadingProgress } from "./model";
 import "./theory.css";
 
 /** A thin bar showing how far down the page the reader is. */
@@ -27,7 +27,7 @@ function ReadingProgress() {
     update();
     return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); if (raf) cancelAnimationFrame(raf); };
   }, []);
-  return <div className="reading-progress" ref={ref} aria-hidden />;
+  return <div className="reading-progress pin" ref={ref} aria-hidden />;
 }
 
 /**
@@ -59,12 +59,37 @@ function useCurrentSection(ids: string[]): string | null {
   return at;
 }
 
+/**
+ * Keeps a note of the place the reader has reached in the chapter (the paragraph or heading at
+ * the top of the window), so that "Continue", on the cover, the home page and in the menu, brings
+ * them back to it. Noted when the page has been still for a moment, not on every frame.
+ */
+function useNotedPlace(id: string): void {
+  useEffect(() => {
+    let timer = 0;
+    const note = () => {
+      timer = 0;
+      const marks = document.querySelectorAll<HTMLElement>(".chapter > p[id], .chapter > h2[id]");
+      // The line a link to an anchor would put it on, and a little under: the block being read from.
+      const line = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + 96;
+      let at: string | undefined;
+      for (const el of marks) { if (el.getBoundingClientRect().top > line) break; at = el.id; }
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      saveReadingPlace({ id, at, part: max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0 });
+    };
+    const on = () => { window.clearTimeout(timer); timer = window.setTimeout(note, 400); };
+    window.addEventListener("scroll", on, { passive: true });
+    return () => { window.removeEventListener("scroll", on); window.clearTimeout(timer); };
+  }, [id]);
+}
+
 /** The contents as a sheet, for screens too narrow for the rail. */
 function ContentsSheet({ current, read, onClose, sections, section }: { current: string; read: Set<string>; onClose: () => void; sections: SectionHead[]; section: string | null }) {
   const dialogProps = useModalDialog(true, onClose);
+  const pull = useSheetPull(onClose);
   return (
     <dialog className="contents-sheet" aria-label="Contents" {...dialogProps}>
-      <header className="contents-sheet__bar">
+      <header className="contents-sheet__bar sheet-bar" {...pull}>
         <Link to="/theory" className="contents-sheet__home" onClick={onClose}>{smartQuotes(theoryIntro.title)}</Link>
         <button type="button" className="icon-btn" onClick={onClose} aria-label="Close contents" autoFocus><Icon icon={X} /></button>
       </header>
@@ -81,6 +106,7 @@ function ChapterScreen({ s }: { s: TheorySection }) {
   const number = chapterNumber(s.id);
   const { prev, next } = neighbours(s.id);
   useEffect(() => { markOpened(s.id); }, [s.id, markOpened]);
+  useNotedPlace(s.id);
   const onEnd = useCallback(() => markRead(s.id), [markRead, s.id]);
   const heads = useMemo(() => chapterHeads(s), [s]);
   const section = useCurrentSection(useMemo(() => heads.map((h) => h.id), [heads]));
@@ -102,7 +128,7 @@ function ChapterScreen({ s }: { s: TheorySection }) {
   return (
     <Page title={s.title} kind="Chapter" flush className="chapter-page">
       <ReadingProgress />
-      <div className="chapter-bar">
+      <div className="chapter-bar pin">
         <button type="button" className="chapter-bar__contents" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-label={`Contents. Chapter ${number}: ${s.title}`}>
           <Icon icon={List} />
           <span className="chapter-bar__n">{pad2(number)}</span>
@@ -132,14 +158,6 @@ function ChapterScreen({ s }: { s: TheorySection }) {
 export default function TheoryChapter() {
   const { chapterId = "" } = useParams();
   const s = theoryById.get(chapterId);
-  if (!s) {
-    return (
-      <Page title="Chapter not found" narrow>
-        <Empty heading title="There is no chapter with that address." action={<ButtonLink to="/theory" variant="primary">See all chapters</ButtonLink>}>
-          The model has no chapter called “{chapterId}”. It may have been renamed.
-        </Empty>
-      </Page>
-    );
-  }
+  if (!s) return <Missing what="chapter" id={chapterId} list={{ to: "/theory#contents", label: "See all chapters" }} />;
   return <ChapterScreen s={s} />;
 }

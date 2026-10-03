@@ -1,10 +1,10 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Evidence } from "../data/schema";
 import { backlinksFor, evidenceById } from "../data/store";
 import { type DrawerState, useEvidenceDrawer } from "./evidenceDrawer";
-import { useModalDialog } from "./hooks";
+import { useFlick, useModalDialog, useSheetPull } from "./hooks";
 import { firmness } from "./labels";
 import { chapterPath, evidencePath } from "./links";
 import { ButtonLink, ExternalLink, IconButton, Tag } from "./controls";
@@ -23,7 +23,8 @@ function Record({ e }: { e: Evidence }) {
   const chapters = [...bl.theory, ...bl.filed.filter((s) => !bl.theory.includes(s))];
   return (
     <>
-      <p className="drawer__source"><SourceLine e={e} /></p>
+      {/* The source by its full name: a reader checking a claim may not know what "FFPS" stands for. */}
+      <p className="drawer__source"><SourceLine e={e} full /></p>
       <h2 className="drawer__title" id="drawer-title" tabIndex={-1}>{smartQuotes(e.title)}</h2>
       <p className="drawer__claim">{smartQuotes(e.claim)}</p>
       {e.quote && <blockquote className="drawer__quote">“{sourceWords(e.quote)}”</blockquote>}
@@ -53,7 +54,7 @@ function Record({ e }: { e: Evidence }) {
       {related.length > 0 && (
         <section className="drawer__section">
           <h3 className="label">Related records</h3>
-          <ul className="ev-list">{related.map((r) => <EvidenceRow key={r.id} e={r} group={relatedIds} claim={false} />)}</ul>
+          <ul className="ev-list">{related.map((r) => <EvidenceRow key={r.id} e={r} group={relatedIds} of="" noun="Related record" claim={false} />)}</ul>
         </section>
       )}
     </>
@@ -72,18 +73,27 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
   // Focus starts at the record's title: reading keys (Page Down, Space) then move the record, and
   // Tab goes on into it. The same when the record changes under a reader whose focus was inside
   // the one that has gone; on the pager's own buttons it stays put.
+  const shown = useRef(false);
   useLayoutEffect(() => {
     const el = dialog.current;
     if (!el) return;
     const at = document.activeElement;
-    if (at && at !== el && el.contains(at) && at.closest(".drawer__bar") && at.getAttribute("aria-label") !== "Close") return;
-    el.querySelector<HTMLElement>("#drawer-title")?.focus({ preventScroll: true });
+    // (Not on opening: the dialog itself has just put focus on its first button, which is then the pager's.)
+    const paging = shown.current && at && at !== el && el.contains(at) && at.closest(".drawer__bar") && at.getAttribute("aria-label") !== "Close";
+    shown.current = true;
+    if (!paging) el.querySelector<HTMLElement>("#drawer-title")?.focus({ preventScroll: true });
   }, [dialog, state.id]);
   const e = evidenceById.get(state.id);
   const group = (state.group ?? []).filter((id) => evidenceById.has(id));
   const idx = group.indexOf(state.id);
   const paged = group.length > 1 && idx >= 0;
-  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], group, state.of);
+  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], state.group, state.of, state.noun);
+  // On a phone the drawer is a sheet, and a sheet can be pulled down by its bar.
+  const pull = useSheetPull(onClose);
+  // A flick across the record steps to the next of its set (finger to the left) or the one before.
+  const flick = useFlick({ onSide: (dir) => { if (paged) go(dir < 0 ? 1 : -1); } });
+  const noun = state.noun ?? "Record";
+  const of = state.of ?? "in this list";
   return (
     <dialog
       className="drawer"
@@ -97,23 +107,22 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
         if (ev.key === "ArrowRight") go(1);
       }}
     >
-      <header className="drawer__bar">
-        <span className="label">{paged ? `Record ${idx + 1} of ${group.length} ${state.of ?? "in this list"}` : "Evidence record"}</span>
+      <header className="drawer__bar sheet-bar" {...pull}>
+        <span className="label">{paged ? `${noun} ${idx + 1} of ${group.length}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
         {paged && (
           <span className="drawer__pager">
-            <IconButton icon={ChevronLeft} label="Previous record" onClick={() => go(-1)} />
-            <IconButton icon={ChevronRight} label="Next record" onClick={() => go(1)} />
+            <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} onClick={() => go(-1)} />
+            <IconButton icon={ChevronRight} label={`Next ${noun.toLowerCase()}`} onClick={() => go(1)} />
           </span>
         )}
         <IconButton icon={X} label="Close" onClick={onClose} />
       </header>
-      <div className="drawer__body" key={state.id}>
+      <div className="drawer__body" key={state.id} {...flick}>
         {e ? <Record e={e} /> : <p className="muted" id="drawer-title" tabIndex={-1}>There is no evidence record with the id “{state.id}”.</p>}
       </div>
       {e && (
         <footer className="drawer__foot">
           <ButtonLink to={evidencePath(e.id)} iconEnd={ArrowRight}>Open the full record</ButtonLink>
-          <span className="drawer__id"><span className="drawer__id-label">Record id</span> {e.id}</span>
         </footer>
       )}
     </dialog>

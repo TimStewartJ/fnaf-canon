@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
-  ButtonLink, CiteList, Collapsible, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Page, PageHeader,
+  CiteList, Collapsible, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Missing, Page, PageHeader,
   RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
@@ -244,13 +244,7 @@ export default function PersonDetail() {
   const { id = "" } = useParams();
   const url = useAddress();
   const p = personById.get(id);
-  if (!p) {
-    return (
-      <Page title="Person not found" narrow>
-        <Empty heading title="Unknown person" action={<ButtonLink to="/people" variant="primary">See everyone</ButtonLink>}>There is no person page for “{id}”.</Empty>
-      </Page>
-    );
-  }
+  if (!p) return <Missing what="person" id={id} list={{ to: "/people", label: "See everyone" }} />;
   // Keyed by id so the folds and "show all" states start fresh on each person.
   return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.write} />;
 }

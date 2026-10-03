@@ -137,13 +137,13 @@ export default function Gallery() {
       <PageHeader
         kicker="Evidence"
         title="Gallery"
-        lede={<>{count(total)} screenshots of the moments the evidence rests on, grouped by source. Each one opens larger, with the records it illustrates and the page it was retrieved from.</>}
+        lede={<>{count(total)} screenshots of the moments the evidence rests on, grouped by the {GROUPS.length} sources that have pictures. Each one opens larger, with the records it illustrates and the page it was retrieved from.</>}
       />
 
       {GROUPS.length > 1 && (
         <nav className="gal-index" aria-label="Jump to a source">
           {/* A row or two of chips where there is room; folded to one line on a phone, where it would fill the screen. */}
-          {phone ? <Collapsible summary="Jump to a source" meta={`${GROUPS.length} sources`}>{index}</Collapsible> : <><span className="label">Jump to</span>{index}</>}
+          {phone ? <Collapsible summary="Jump to a source" meta={`${GROUPS.length} sources with pictures`}>{index}</Collapsible> : <><span className="label">Jump to</span>{index}</>}
         </nav>
       )}
 

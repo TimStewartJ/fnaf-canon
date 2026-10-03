@@ -198,6 +198,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
 
       {/* Escape lets go of a chosen line, from anywhere in the picture or its bar. */}
       <div className="fam-frame" onKeyDown={(ev) => { if (ev.key === "Escape" && selected) { ev.preventDefault(); select(null); } }}>
+        {/* Said above the picture, where it is read before the picture is: on a phone the far side of a wide tree is out of sight. */}
+        {rows?.overflow && <p className="fam-wide">Wider than the screen: scroll it sideways, fold records to narrow it, or read the same ties in the list below.</p>}
         {/* A tree wider than its frame scrolls sideways; only then is the frame a stop for the keyboard. */}
         <div className="fam-scroll scroll-x" ref={scrollRef} {...(rows?.overflow ? { role: "region", "aria-label": `${tree.title}: family tree, scrolls sideways`, tabIndex: 0 } : {})}>
           {ready && (
@@ -283,7 +285,6 @@ function TreeView({ tree }: { tree: FamilyTree }) {
         </div>
         {selected ? <TieBar tie={selected} onClose={() => select(null)} /> : (
           <div className="fam-foot">
-            {rows?.overflow && <p className="fam-foot__wide">Wider than the screen: scroll it sideways, fold records to narrow it, or read the same ties in the list below.</p>}
             <p className="fam-foot__key">
               <span>{model.edges.length > 0 ? "Select a line for its evidence, a person for their page." : "Select a person to open their page."}</span>
               {hasDescriptor && <span><em className="name-desc">Italic</em> a descriptor, not a name the games print</span>}
