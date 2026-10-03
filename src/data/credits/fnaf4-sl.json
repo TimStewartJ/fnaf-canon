@@ -14,7 +14,7 @@
   {
     "file": "fnaf4-purple-guy-spring-bonnie-suit.png",
     "game": "fnaf4",
-    "caption": "Post-Night 2 minigame: a purple figure fits a Spring Bonnie head onto another person in the diner's back room.",
+    "caption": "Post-Night 2 minigame: a purple figure fits a Spring Bonnie head onto another person in a back room of the restaurant.",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAF4-PurpleGuy-SpringBonnie.png"
   },
   {
@@ -44,7 +44,7 @@
   {
     "file": "sl-custom-night-michael-ejects-ennard.png",
     "game": "sister-location",
-    "caption": "Custom Night final walking cutscene: the purple man about to eject Ennard (first frame, 3x nearest-neighbour upscale).",
+    "caption": "Custom Night final walking cutscene: the purple man bent forward, before he brings up a mass of wires and eyes (first frame, 3x nearest-neighbour upscale).",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:AftonPuke.gif"
   },
   {
@@ -56,7 +56,7 @@
   {
     "file": "sl-real-ending-purple-eyes.png",
     "game": "sister-location",
-    "caption": "Real Ending: the silhouette in the mirror opens purple animatronic eyes (final frame).",
+    "caption": "Real Ending: the silhouette in the mirror opens glowing purple eyes (final frame).",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Eggs_Benedict_Opening_Eyes.gif"
   },
   {
@@ -68,7 +68,7 @@
   {
     "file": "fnaf4-plush-night6-dots.jpg",
     "game": "fnaf-world",
-    "caption": "MISFILED: this is FNaF World's opening screen ('I will put you back together.' over two dots), not FNaF4's Night 6. No record uses it any more; see fw-opening-put-you-back-together.png.",
+    "caption": "FNaF World's opening screen: 'I will put you back together.' over two white dots. The file name is a misfiling (this is not FNaF4's Night 6), and no record uses the image; see fw-opening-put-you-back-together.png.",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ImHere.jpg"
   },
   {
@@ -80,7 +80,7 @@
   {
     "file": "fw-unused-open-box.png",
     "game": "fnaf-world",
-    "caption": "FNaF World's unused 'ChestOpen' asset: FNaF4's box, opened and empty",
+    "caption": "FNaF World's unused 'ChestOpen' asset: FNaF4's two-latch box, standing open and empty (cannot be triggered in play)",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ChestOpen.png"
   },
   {
@@ -194,7 +194,7 @@
   {
     "file": "fw-opening-put-you-back-together.png",
     "game": "fnaf-world",
-    "caption": "FNaF World first-launch opening: two yellow dots in the dark, 'I will put you back together.' (official IndieDB screenshot).",
+    "caption": "FNaF World first-launch opening: two white dots in the dark, 'I will put you back together.' (official IndieDB screenshot).",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaFWorld_IndieDB-Screenshot4.jpg"
   },
   {

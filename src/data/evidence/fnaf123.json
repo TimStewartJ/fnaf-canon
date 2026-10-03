@@ -93,8 +93,8 @@
   },
   {
     "id": "fnaf1-call1-twenty-years",
-    "title": "Animatronics have sung for ~twenty years",
-    "claim": "Phone Guy jokes that the animatronics have been forced to sing the same songs for twenty years without a bath.",
+    "title": "Phone Guy: 'those same stupid songs for twenty years'",
+    "claim": "Phone Guy says that if he were forced to sing 'those same stupid songs for twenty years' and never got a bath, he would be irritable at night too.",
     "quote": "If I were forced to sing those same stupid songs for twenty years and I never got a bath, I'd probably be a bit irritable at night too.",
     "game": "fnaf1",
     "kind": "phone-call",
@@ -191,7 +191,7 @@
   },
   {
     "id": "fnaf1-call1-stuffed-into-suit",
-    "title": "Guards seen as endoskeletons get stuffed into suits",
+    "title": "Phone Guy's warning: stuffed into a Freddy Fazbear suit",
     "claim": "Phone Guy says the animatronics will likely see a person after hours as a metal endoskeleton without its costume and try to forcefully stuff them into a Freddy Fazbear suit, which would be fatal.",
     "quote": "Now since that's against the rules here at Freddy Fazbear's Pizza, they'll probably try to... forcefully stuff you inside a Freddy Fazbear suit.",
     "game": "fnaf1",
@@ -276,7 +276,7 @@
   {
     "id": "fnaf1-call4-phone-guy-attacked",
     "title": "Phone Guy's last call",
-    "claim": "On Night 4 Phone Guy says he may not be around tomorrow, asks the player to check inside the suits in the back room, and the call ends with animatronic music, a scream and static while banging is heard.",
+    "claim": "On Night 4 Phone Guy says he may not be around tomorrow and asks the player to check inside the suits in the back room. The transcript marks banging through the message, and music, a scream and static at its end.",
     "quote": "Uh hey, do me a favor. Uh maybe sometime, uh, you could check inside those suits... ..uh in the back room? Uh, I'm gonna try to hold out until someone...checks.",
     "game": "fnaf1",
     "kind": "phone-call",
@@ -309,7 +309,7 @@
   {
     "id": "fnaf1-call5-garbled",
     "title": "Night 5 call is distorted voices",
-    "claim": "The Night 5 'call' is not Phone Guy: it is deep, distorted voices ending in static and an animatronic screech. These are the same sounds used in the game's hallucinations.",
+    "claim": "The Night 5 'call' is deep, distorted voices that end in static and a screech.",
     "game": "fnaf1",
     "kind": "phone-call",
     "location": "Night 5 phone call",
@@ -332,7 +332,7 @@
       "fnaf1-calls-prerecorded"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_5_(FNaF1)",
-    "notes": "Fans have matched the reversed audio to an excerpt from 'Autobiography of a Yogi'. That is fan analysis, not stated in the game. Night 6 and the Custom Night have no call at all."
+    "notes": "The wiki says the call is not spoken by Phone Guy, and that the same voices play when Bonnie's and Chica's heads twitch on the hall-corner cameras and when the yellow bear appears; neither was checked by ear. Fans have matched the reversed audio to an excerpt from 'Autobiography of a Yogi'. That is fan analysis, not stated in the game. Night 6 and the Custom Night have no call at all."
   },
   {
     "id": "fnaf1-news-kids-vanish",
@@ -367,11 +367,11 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Headline uses the in-game misspelling 'pizzaria'. The body also says police 'think that the suspect dressed as a company mascot to earn the children's trust.' The killer is unnamed. Tying him to the minigames' purple figure is a later reading, and 'purple-guy' is tagged here only for theory linking. The clipping names 'Freddy Fazbear's Pizza' but does not say it was the FNaF1 building. Text re-read from the in-game screenshot. The capture and the costume have their own records (fnaf1-news-suspect-captured, fnaf1-news-dressed-as-mascot)."
+    "notes": "Headline uses the in-game misspelling 'pizzaria'. The body also says police 'think that the suspect dressed as a company mascot to earn the children's trust.' The suspect is unnamed. Tying him to the minigames' purple figure is a later reading, and 'purple-guy' is tagged here only for theory linking. The clipping names 'Freddy Fazbear's Pizza' but does not say it was the FNaF1 building. Text re-read from the in-game screenshot. The capture and the costume have their own records (fnaf1-news-suspect-captured, fnaf1-news-dressed-as-mascot)."
   },
   {
     "id": "fnaf1-news-five-children",
-    "title": "Newspaper: five children, suspect convicted",
+    "title": "Newspaper: 'Five children now reported missing. Suspect convicted.'",
     "claim": "A rare East Hall Corner newspaper says five children are now linked to the incident at Freddy Fazbear's Pizza, where a man dressed as a cartoon mascot lured them into a back room. The suspect was charged, but the bodies were never found.",
     "quote": "Five children now reported missing. Suspect convicted. Five children are now linked to the incident at Freddy Fazbear's Pizza, where a man dressed as a cartoon mascot lured them into a back room.",
     "game": "fnaf1",
@@ -406,7 +406,7 @@
   },
   {
     "id": "fnaf1-news-sanitation",
-    "title": "Newspaper: blood and mucus on mascots",
+    "title": "Newspaper: 'what appeared to be blood and mucus' on the mascots",
     "claim": "A rare East Hall Corner newspaper says the pizzeria has been threatened again with shutdown by the health department over a foul odor coming from the mascots, and that police were contacted after parents saw what appeared to be blood and mucus around the mascots' eyes and mouths.",
     "quote": "Police were contacted when parents reportedly noticed what appeared to be blood and mucus around the eyes and mouths of the mascots. One parent alikened them to \"reanimated carcasses\".",
     "game": "fnaf1",
@@ -479,12 +479,12 @@
   },
   {
     "id": "fnaf1-its-me-hallucinations",
-    "title": "'IT'S ME' hallucinations",
+    "title": "'IT'S ME' screen flashes",
     "claim": "At random (and whenever Golden Freddy appears in the office), 'IT'S ME' flashes on screen with alternating images of a black-eyed Bonnie and a Freddy with human-looking eyes.",
     "quote": "IT'S ME",
     "game": "fnaf1",
     "kind": "hidden",
-    "location": "Random visual hallucination (any camera/office view)",
+    "location": "Random screen flash (any camera/office view)",
     "certainty": "shown",
     "when": {
       "label": "During FNaF1 (year not stated in game)",
@@ -671,7 +671,7 @@
     ],
     "image": "fnaf1-paycheck-night5.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF1)",
-    "notes": "The game deliberately hides the year ('xx'). Mike Schmidt's name appears in FNaF1 only on the two cheques, this one and the Night 6 overtime cheque (fnaf1-paycheck-night6). FNaF2's Night 5 check carries the same day and month with the year filled in, 11-12-1987 (fnaf2-paycheck-1987)."
+    "notes": "The year is printed as 'xx'. Mike Schmidt's name appears in FNaF1 only on the two cheques, this one and the Night 6 overtime cheque (fnaf1-paycheck-night6). FNaF2's Night 5 check carries the same day and month with the year filled in, 11-12-1987 (fnaf2-paycheck-1987)."
   },
   {
     "id": "fnaf1-paycheck-night6",
@@ -883,7 +883,7 @@
       "fnaf2-call1-building-cannot-run-out"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ralph/Audio",
-    "notes": "Which earlier building 'the old location' is (for example the FNaF1 building) is not specified. 'Left to rot for quite a while' has the old restaurant standing unused for some time before November 1987. The place tag is the site's 'original location' entry; tagging FNaF1's building here would be a theory step."
+    "notes": "Which earlier building 'that old restaurant' is (for example the FNaF1 building) is not specified. 'Left to rot for quite a while' has the old restaurant standing unused for some time before November 1987. The place tag is the site's 'original location' entry; tagging FNaF1's building here would be a theory step."
   },
   {
     "id": "fnaf2-call1-criminal-database",
@@ -1086,7 +1086,7 @@
   },
   {
     "id": "fnaf2-call3-rumors",
-    "title": "Company denies tragic local rumors",
+    "title": "Phone Guy: 'nothing to do with our establishment'",
     "claim": "Phone Guy assures the guard that whatever tragic thing is happening 'out there' has nothing to do with the restaurant. He adds that the day guard, on watch from opening to close, has reported nothing unusual.",
     "quote": "I can personally assure you, that, whatever is going on out there, however tragic it may be, has nothing to do with our establishment.",
     "game": "fnaf2",
@@ -1146,8 +1146,8 @@
   },
   {
     "id": "fnaf2-call4-facial-recognition-tampered",
-    "title": "Facial recognition tampered; animatronics stare at adults",
-    "claim": "Phone Guy says someone may have tampered with the animatronics' facial recognition. They act aggressive toward staff: fine with kids, but they just stare at adults.",
+    "title": "Facial recognition may have been tampered with; animatronics stare at adults",
+    "claim": "Phone Guy says someone may have tampered with the animatronics' facial recognition. He says the characters have been acting 'almost aggressive towards the staff': fine with kids, but they just stare at adults.",
     "quote": "someone may have tampered with their facial recognition systems, we're not sure. But the characters have been acting very unusual, almost aggressive towards the staff.",
     "game": "fnaf2",
     "kind": "phone-call",
@@ -1205,7 +1205,7 @@
   },
   {
     "id": "fnaf2-call5-fredbears-family-diner",
-    "title": "Original restaurant: Fredbear's Family Diner",
+    "title": "Original restaurant: 'Fredbear's Family Diner or something like that'",
     "claim": "Phone Guy says they will try to contact the original restaurant owner, naming the place as 'Fredbear's Family Diner or something like that', and says it was closed for years.",
     "quote": "Uh, we're gonna try to contact the original restaurant owner. Uh, I think the name of the place was... ..Fredbear's Family Diner or something like that. It was closed for years though",
     "game": "fnaf2",
@@ -1237,7 +1237,7 @@
   {
     "id": "fnaf2-call6-yellow-suit",
     "title": "Someone used the spare yellow suit",
-    "claim": "On Night 6 Phone Guy says the place is closed because someone used a spare suit from the back, 'a yellow one', and now none of the animatronics are acting right.",
+    "claim": "On Night 6 Phone Guy says the place is closed, that someone used a spare suit from the back, 'a yellow one', and that now none of the animatronics are acting right.",
     "quote": "Someone used one of the suits. We had a spare in the back, a yellow one. Someone used it. Now none of them are acting right.",
     "game": "fnaf2",
     "kind": "phone-call",
@@ -1269,7 +1269,7 @@
       "fnaf1-news-dressed-as-mascot"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ralph/Audio",
-    "notes": "Who used the suit and what for is not stated, and the suit is not named. Up to this game the only empty yellow costume shown is the slumped yellow bear (fnaf1-golden-freddy-office-figure, fnaf2-golden-freddy-office), and that bear first becomes active on this night (fnaf2-golden-freddy-night6-only). Chica is yellow too, but is a working animatronic, and the older Chica sits in the back room in plain view. FNaF3 later speaks of two springlock suits and names one 'Spring Bonnie' (fnaf3-tape2-dual-suits, fnaf3-tape5-spring-bonnie-moved). Which yellow suit this is, and that its user was the killer, are theory steps; 'purple-guy' is tagged only for theory linking. Wording cross-checked with a speech-to-text pass on the game audio (Call 6b.ogg)."
+    "notes": "Who used the suit and what for is not stated, and the suit is not named. Up to this game the only yellow figure that sits limp like an empty costume is the slumped yellow bear (fnaf1-golden-freddy-office-figure, fnaf2-golden-freddy-office), and that bear first becomes active on this night (fnaf2-golden-freddy-night6-only). Chica is yellow too, but is a working animatronic, and the older Chica sits in the back room in plain view. FNaF3 later speaks of two springlock suits and names one 'Spring Bonnie' (fnaf3-tape2-dual-suits, fnaf3-tape5-spring-bonnie-moved). Which yellow suit this is, and that its user was the killer, are theory steps; 'purple-guy' is tagged only for theory linking. Wording cross-checked with a speech-to-text pass on the game audio (Call 6b.ogg)."
   },
   {
     "id": "fnaf2-call6-birthday-day-shift",
@@ -1310,7 +1310,7 @@
   {
     "id": "fnaf2-no-bite-mention",
     "title": "FNaF2 calls never mention a bite",
-    "claim": "No FNaF2 phone call (Nights 1-6) contains the word 'bite' or describes a bite incident. The only explicit Bite reference in FNaF1-3 is FNaF1 Night 1's 'The Bite of '87'.",
+    "claim": "No FNaF2 phone call (Nights 1-6) contains the word 'bite' or describes a bite incident. The only explicit Bite reference this archive has found in FNaF1-3 is FNaF1 Night 1's 'The Bite of '87'.",
     "game": "fnaf2",
     "kind": "phone-call",
     "location": "Nights 1-6 phone calls (full transcripts)",
@@ -1487,12 +1487,12 @@
       "fnaf2-golden-freddy-night6-only"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_7_(FNaF2)",
-    "notes": "The game calls the older models just 'Freddy', 'Bonnie', 'Chica' and 'Foxy'. 'Withered' is a fan/wiki label. This is the first in-game use of the name 'Golden Freddy'. The Puppet is not on this screen."
+    "notes": "The game calls the older models just 'Freddy', 'Bonnie', 'Chica' and 'Foxy'. 'Withered' is not printed in FNaF2; Ultimate Custom Night's roster and Scott's character guide for it later use 'Withered Chica' and 'Withered Bonnie'. This is the first in-game use of the name 'Golden Freddy'. The Puppet is not on this screen."
   },
   {
     "id": "fnaf2-cutscenes-its-me",
-    "title": "Dream cutscenes end in 'it's me'",
-    "claim": "Short cutscenes after Nights 2-4 show a first-person view through a Freddy head, facing the original-style Bonnie and Chica. Golden Freddy appears after Night 3 and the Puppet after Night 4. Each ends on a black screen with 'it's me' in the top-left. The first-launch version ends with 'err'.",
+    "title": "Cutscenes between nights end in 'it's me'",
+    "claim": "Short cutscenes after Nights 2-4 show a first-person view through the eye holes of a mask or head, facing the original-style Bonnie and Chica. Golden Freddy appears after Night 3 and the Puppet after Night 4. Each ends on a black screen with 'it's me' in the top-left. The first-launch version ends with 'err'.",
     "quote": "it's me",
     "game": "fnaf2",
     "kind": "cutscene",
@@ -1564,7 +1564,7 @@
   {
     "id": "fnaf2-take-cake-to-the-children",
     "title": "Take Cake to the Children minigame",
-    "claim": "Playing as Freddy, the player serves cake to six children ('Take cake to the children.') while a grey child cries outside. A purple car pulls up, a purple figure gets out and kills the crying child, then leaves. A voice spells S-A-V-E-H-I-M and the minigame ends with the Puppet's jumpscare.",
+    "claim": "Playing as Freddy, the player serves cake to six children ('Take cake to the children.') while a grey child cries outside. A purple car pulls up, a purple figure gets out and kills the child outside, then leaves. A voice spells S-A-V-E-H-I-M and the minigame ends with the Puppet's jumpscare.",
     "quote": "Take cake to the children.",
     "game": "fnaf2",
     "kind": "minigame",
@@ -1592,7 +1592,7 @@
     ],
     "image": "fnaf2-take-cake-to-the-children.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Take_Cake_to_the_Children",
-    "notes": "The victim is unnamed and has no stated gender in FNaF2, while the audio says 'SAVE HIM'. The 'cassette-mans-daughter' id is the site's descriptor for this child and comes from later games; FNaF2 says nothing about her family. The Puppet jumpscare at the end is a presentational link only."
+    "notes": "The victim is unnamed and has no stated gender in FNaF2, while the audio says 'SAVE HIM'. The 'cassette-mans-daughter' id is the site's descriptor for this child and comes from later games; FNaF2 says nothing about the child's family. The minigame ends on the Puppet's jumpscare; FNaF2 does not say what links the child and the Puppet."
   },
   {
     "id": "fnaf2-foxy-go-go-go",
@@ -1832,11 +1832,11 @@
       "fnaf3-shadow-bonnie-minigame"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF2)",
-    "notes": "'RWQFSFASXC' is the name in the game's files and is not shown on screen. 'Shadow Bonnie' is a fan name."
+    "notes": "'RWQFSFASXC' is the name in the game's files and is not shown on screen. 'Shadow Bonnie' is the players' name and is not shown in FNaF2 either; Scott's Ultimate Custom Night character guide later has 'RXQ aka Shadow Bonnie'."
   },
   {
     "id": "fnaf2-jj-endo-puppet-visions",
-    "title": "JJ, Endo-02 and Puppet camera visions",
+    "title": "Rare extras: a figure under the desk, a spare endoskeleton, the Puppet in static",
     "claim": "Rare FNaF2 extras include a recolored Balloon Boy-like figure under the desk, a spare endoskeleton in the Prize Corner or left vent, and brief transparent images of the Puppet in camera static after it leaves the box.",
     "game": "fnaf2",
     "kind": "hidden",
@@ -1859,13 +1859,13 @@
       "rare-screen"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF2)",
-    "notes": "'JJ' and 'Endo-02' are wiki/Scott-era labels not shown on screen."
+    "notes": "'JJ' and 'Endo-02' are not shown on screen in FNaF2. 'JJ' is the name Ultimate Custom Night's roster and Scott's character guide later give the figure under the desk; 'Endo-02' is a label from outside the game."
   },
   {
     "id": "fnaf3-coming-soon-newspaper",
     "title": "'COMING SOON! Fazbear's Fright'",
     "claim": "FNaF3's intro newspaper says a local amusement park is opening a horror attraction based on 'the unsolved mysteries of Freddy Fazbear's Pizza', featuring actual relics from 'the decades-old pizzeria'.",
-    "quote": "COMING SOON! Fazbear's Fright: The Horror Attraction! Local amusement park is getting ready to scare your socks off with a new attraction based on the unsolved mysteries of Freddy Fazbear's Pizza.",
+    "quote": "COMING SOON! Fazbear's Fright: The Horror Attraction! Local amusement park is getting ready to scare your socks off with a new attraction based on the unsolved mysteries of Freddy Fazbear's Pizza. Featuring actual relics from the decades-old pizzeria …",
     "game": "fnaf3",
     "kind": "text",
     "location": "New Game intro newspaper ('COMING SOON!')",
@@ -2046,7 +2046,7 @@
       "scott-fnaf3-trailer-tagline"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Phone_Dude",
-    "notes": "'One' is implied to be a real animatronic, which is Springtrap in gameplay. That it came from the boarded-up room is implied by the Night 1 lead, not stated. He adds 'it's in there somewhere, I'm sure you'll see it'. This is the last time Phone Dude speaks; from Night 3 the tapes play alone."
+    "notes": "'One' is implied to be a real animatronic, which is Springtrap in gameplay. That it came from the boarded-up room is implied by the Night 1 lead, not stated. He adds 'it's in there somewhere, I'm sure you'll see it'. This is the last time the attraction's caller speaks; from Night 3 the tapes play alone."
   },
   {
     "id": "fnaf3-tape2-dual-suits",
@@ -2055,7 +2055,7 @@
     "quote": "Right now we have two specially designed suits that double as both animatronic and suit.",
     "game": "fnaf3",
     "kind": "audio-tape",
-    "location": "Night 2 training tape (Phone Guy recording)",
+    "location": "Night 2 training tape",
     "certainty": "stated",
     "when": {
       "label": "Undated past (era of the springlock suits, recorded on training tapes)",
@@ -2142,7 +2142,7 @@
   {
     "id": "fnaf3-tape4-sister-location-springlock-failures",
     "title": "Multiple springlock failures at 'the sister location'",
-    "claim": "The Night 4 tape says that after 'an unfortunate incident at the sister location involving multiple and simultaneous springlock failures', the suits are unfit for employees. The classic suits are being retired and are not to be touched, activated or worn.",
+    "claim": "The Night 4 tape says that after 'an unfortunate incident at the sister location involving multiple and simultaneous springlock failures', the company has deemed the suits temporarily unfit for employees. The classic suits are being retired and are not to be touched, activated or worn.",
     "quote": "After learning of an unfortunate incident at the sister location involving multiple and simultaneous springlock failures, the company has deemed the suits temporarily unfit for employees.",
     "game": "fnaf3",
     "kind": "audio-tape",
@@ -2238,7 +2238,7 @@
   {
     "id": "fnaf3-springtrap-name",
     "title": "Extras menu names 'Springtrap'",
-    "claim": "FNaF3's Extras > Animatronics viewer labels the attraction's decayed rabbit animatronic 'Springtrap', and the hallucinations 'Phantom Freddy', 'Phantom Chica', 'Phantom Foxy', 'Phantom BB' and 'Phantom Puppet'.",
+    "claim": "FNaF3's Extras > Animatronics viewer labels the attraction's decayed rabbit animatronic 'Springtrap', and five other figures 'Phantom Freddy', 'Phantom Chica', 'Phantom Foxy', 'Phantom BB' and 'Phantom Puppet'.",
     "game": "fnaf3",
     "kind": "hidden",
     "location": "Extras menu > Animatronics (unlocked after Night 5)",
@@ -2269,7 +2269,7 @@
   },
   {
     "id": "fnaf3-springtrap-corpse-screens",
-    "title": "Rare Springtrap screens show remains inside",
+    "title": "Rare Springtrap screens: what looks like a body inside the suit",
     "claim": "Three rare Springtrap close-ups (after the warning screen, after game over, at night start) show what looks like a decayed human body inside the suit.",
     "game": "fnaf3",
     "kind": "hidden",
@@ -2301,8 +2301,8 @@
   },
   {
     "id": "fnaf3-spring-bonnie-posters",
-    "title": "Rare Spring Bonnie posters",
-    "claim": "Very rarely, the cartoon Freddy posters in CAM 02 and CAM 10 are replaced with matching posters of a yellow rabbit (Spring Bonnie).",
+    "title": "Rare posters of a yellow rabbit",
+    "claim": "Very rarely, the cartoon Freddy posters in CAM 02 and CAM 10 are replaced with matching posters of a yellow rabbit.",
     "game": "fnaf3",
     "kind": "hidden",
     "location": "CAM 02 / CAM 10 rare poster swap",
@@ -2322,11 +2322,12 @@
       "spring-bonnie",
       "rare-screen"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF3)"
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF3)",
+    "notes": "The posters carry no name. 'Spring Bonnie' is the name the Night 5 tape gives one of the springlock suits (fnaf3-tape5-spring-bonnie-moved); that the yellow rabbit is that suit is the usual reading, and the person tag follows it."
   },
   {
     "id": "fnaf3-phantom-hallucinations",
-    "title": "Phantom animatronics are non-lethal hallucinations",
+    "title": "Phantom animatronics cannot kill; they knock systems offline",
     "claim": "Burnt-looking 'Phantom' versions of earlier animatronics (Freddy, Chica, Foxy, BB, Mangle, Puppet) appear on cameras or in the office. Their jumpscares don't kill; they knock systems offline (ventilation, audio, cameras). Only Springtrap can end the night.",
     "game": "fnaf3",
     "kind": "mechanic",
@@ -2360,7 +2361,7 @@
       "scottgames-site-fnaf3-all-in-your-mind"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Phantom_Animatronics",
-    "notes": "Calling them hallucinations is supported by Phone Dude's ventilation warning and by gameplay (they cannot kill), not by a direct in-game label. Scott said that extra Springtraps seen during a ventilation error are hallucinations (scott-2015-fnaf3-multiple-springtraps-hallucinations), and a teaser showing two Phantoms read 'It's all in your mind.' (scottgames-site-fnaf3-all-in-your-mind)."
+    "notes": "Calling them hallucinations is supported by the ventilation warning of the attraction's caller and by gameplay (they cannot kill), not by a direct in-game label. Scott said that extra Springtraps seen during a ventilation error are hallucinations (scott-2015-fnaf3-multiple-springtraps-hallucinations), and a teaser showing two Phantoms read 'It's all in your mind.' (scottgames-site-fnaf3-all-in-your-mind)."
   },
   {
     "id": "fnaf3-eon-shadow-freddy-follow-me",
@@ -2399,7 +2400,7 @@
       "ffps-insanity-lured-back"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF3)",
-    "notes": "The map's layout is recorded in fnaf3-eon-map-fnaf1-layout. The game shows no name for the dark bear; 'Shadow Freddy' is the name in the wiki and, it says, in the files. On Night 5, when the player is a child's ghost, the dark bear does not appear."
+    "notes": "The map's layout is recorded in fnaf3-eon-map-fnaf1-layout. The game shows no name for the dark bear; 'Shadow Freddy' is the name in the wiki and, it says, in the files. On Night 5, when the player is a crying grey child figure, the dark bear does not appear."
   },
   {
     "id": "fnaf3-eon-purple-guy-dismantles",
@@ -2434,7 +2435,7 @@
   },
   {
     "id": "fnaf3-n5-ghosts-safe-room",
-    "title": "Night 5 minigame: crying ghost chases the purple figure",
+    "title": "Night 5 minigame: the purple figure runs from crying grey child figures",
     "claim": "After Night 5 the player controls a crying, grey child figure with no dark bear to follow. In the room above the pile of parts, four more such figures block the exit, and the panicking purple figure runs from them. The room holds three arcade cabinets and an empty yellow rabbit suit.",
     "game": "fnaf3",
     "kind": "minigame",
@@ -2470,8 +2471,8 @@
   },
   {
     "id": "fnaf3-n5-springlock-death",
-    "title": "Purple figure dies inside the Spring Bonnie suit",
-    "claim": "Cornered, the purple figure climbs into the empty yellow rabbit suit and appears to laugh. The suit then snaps shut on him, blood pours out, and he slumps to the floor. The ghost figures fade away.",
+    "title": "The yellow rabbit suit snaps shut on the purple figure",
+    "claim": "Cornered, the purple figure climbs into the empty yellow rabbit suit and appears to laugh. The suit then snaps shut on him, blood pours out, and he slumps to the floor. The grey child figures fade away.",
     "game": "fnaf3",
     "kind": "minigame",
     "location": "Post-Night 5 minigame",
@@ -2506,7 +2507,7 @@
     ],
     "image": "fnaf3-springlock-death.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF3)",
-    "notes": "The shown facts are that a purple figure dies in a springlock-type failure inside a yellow rabbit suit. Named 'Spring Bonnie' by the Night 5 tape, not on screen here. The game never states that this body is Springtrap 30 years later, which is a strong but separate inference; Scott said in 2018 that the purple guy's corpse is inside Springtrap (scott-2018-interview-purple-guy-in-springtrap). The wiki's 'leaking roof' cause is interpretation; its audio table lists a rain track for these minigames (fnaf3-eon-puddles-empty-building)."
+    "notes": "The shown facts are that a yellow rabbit suit snaps shut on a purple figure, who bleeds and slumps to the floor. That this is a springlock failure, and that he dies, is the usual reading, from the tapes. The name 'Spring Bonnie' is the Night 5 tape's, not on screen here. The game never states that this body is Springtrap 30 years later, which is a strong but separate inference; Scott said in 2018 that the purple guy's corpse is inside Springtrap (scott-2018-interview-purple-guy-in-springtrap). The wiki's 'leaking roof' cause is interpretation; its audio table lists a rain track for these minigames (fnaf3-eon-puddles-empty-building)."
   },
   {
     "id": "fnaf3-bad-ending-heads",
@@ -2544,12 +2545,12 @@
   },
   {
     "id": "fnaf3-good-ending-heads",
-    "title": "Good ending: heads with empty eyes",
+    "title": "'the end' (the players' good ending): four heads with unlit eyes",
     "claim": "With all hidden cake endings done, the Night 5 end screen shows the four heads with dark, unlit eyes and no fifth head, captioned 'the end'.",
     "quote": "the end",
     "game": "fnaf3",
     "kind": "ending",
-    "location": "Post-Night 5 ending screen (good)",
+    "location": "Post-Night 5 ending screen (all cake endings done)",
     "certainty": "shown",
     "when": {
       "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
@@ -2633,11 +2634,11 @@
       "fnaf3-it-burns-newspaper"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF3)",
-    "notes": "Implies Springtrap survived. Needs image brightening."
+    "notes": "Usually read as Springtrap having survived the fire; the newspaper does not say so. Needs image brightening."
   },
   {
     "id": "fnaf3-stage01-fredbear-spring-bonnie",
-    "title": "Stage01: yellow bear and Spring Bonnie on stage",
+    "title": "Stage01: a yellow bear and a yellow rabbit on stage",
     "claim": "The hidden 'Stage01' minigame opens on a stage with a yellow bear animatronic in a hat and bow tie next to a yellow rabbit animatronic, with children in green cheering in front. The player controls the yellow bear.",
     "game": "fnaf3",
     "kind": "minigame",
@@ -2674,7 +2675,7 @@
   {
     "id": "fnaf3-stage01-cake-crying-child",
     "title": "Stage01 cake ending: crying child",
-    "claim": "In Stage01's hidden area, the yellow bear can reach a crying grey child. If the cake from Mangle's Quest has been collected, he gives it cake, which unlocks that child's spirit in Happiest Day.",
+    "claim": "In Stage01's hidden area, the yellow bear can reach a crying grey child. If the cake from Mangle's Quest has been collected, he gives it cake, which unlocks one of the children at the table in Happiest Day.",
     "game": "fnaf3",
     "kind": "minigame",
     "location": "Hidden minigame 'Stage01' secret area",
@@ -2696,7 +2697,7 @@
       "fnaf3-happiest-day"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Stage01",
-    "notes": "The wiki calls this spirit 'Fritz'. That name comes only from the books/FFPS-era sources, not FNaF3, so it is not used here."
+    "notes": "The wiki calls this child 'Fritz'. FNaF3 gives no name. The name is on a gravestone in Pizzeria Simulator (ffps-lorekeeper-gravestones); pairing it with this child is the wiki's, so it is not used here."
   },
   {
     "id": "fnaf3-mangles-quest",
@@ -2746,7 +2747,7 @@
       "cake-ending"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Chica's_Party",
-    "notes": "The wiki calls the spirit 'Susie'. That is a book name, not used in FNaF3."
+    "notes": "The wiki calls this child 'Susie'. FNaF3 gives no name. The name is on a gravestone in Pizzeria Simulator (ffps-lorekeeper-gravestones); pairing it with this child is the wiki's."
   },
   {
     "id": "fnaf3-bbs-air-adventure",
@@ -2770,7 +2771,7 @@
       "cake-ending"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/BB's_Air_Adventure",
-    "notes": "The wiki calls the spirit 'Gabriel'. That is a book name, not used in FNaF3. Hint 'BBdblclick' appears in the post-Night 1 minigame."
+    "notes": "The wiki calls this child 'Gabriel'. FNaF3 gives no name. The name is on a gravestone in Pizzeria Simulator (ffps-lorekeeper-gravestones); pairing it with this child is the wiki's. Hint 'BBdblclick' appears in the post-Night 1 minigame."
   },
   {
     "id": "fnaf3-shadow-bonnie-minigame",
@@ -2778,7 +2779,7 @@
     "claim": "Double-clicking a dark rabbit figurine on the Office desk (Night 5) starts a glitchy minigame. The player controls a black silhouette rabbit that can fly and phase between other minigames' rooms and a purple room, where a crying child can be given cake.",
     "game": "fnaf3",
     "kind": "minigame",
-    "location": "Hidden 'glitch' minigame (Night 5 desk figurine)",
+    "location": "Hidden minigame (Night 5 desk figurine; the players' 'glitch minigame')",
     "certainty": "shown",
     "when": {
       "label": "Past event depicted in a FNaF3 minigame (undated)",
@@ -2799,7 +2800,7 @@
       "fnaf2-shadow-bonnie-office"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitch_Minigame",
-    "notes": "The game shows no name. 'RWQFSFASXC'/'Shadow Bonnie' are file/fan names. The wiki calls this spirit 'Jeremy', a book name, not used here. The figurine hint appears in the post-Night 4 minigame."
+    "notes": "The game shows no name. 'RWQFSFASXC' is a file name and 'Shadow Bonnie' the players' name; neither is shown in FNaF3. Scott's Ultimate Custom Night character guide later has 'RXQ aka Shadow Bonnie'. The wiki calls this child 'Jeremy'. FNaF3 gives no name. The name is on a gravestone in Pizzeria Simulator (ffps-lorekeeper-gravestones); pairing it with this child is the wiki's. The figurine hint appears in the post-Night 4 minigame."
   },
   {
     "id": "fnaf3-happiest-day",
@@ -2839,8 +2840,8 @@
   },
   {
     "id": "fnaf3-good-ending-requirements",
-    "title": "Good ending needs every cake ending",
-    "claim": "The good ending (empty-eyed heads) is unlocked only by giving cake to the hidden crying child in BB's Air Adventure, Chica's Party, Stage01 and the glitch minigame (using Mangle's Quest's cake), and then completing Happiest Day.",
+    "title": "The players' good ending needs every cake ending",
+    "claim": "The ending players call the good ending (the heads with unlit eyes) is unlocked only by giving cake to the hidden crying child in BB's Air Adventure, Chica's Party, Stage01 and the glitch minigame (using Mangle's Quest's cake), and then completing Happiest Day.",
     "game": "fnaf3",
     "kind": "mechanic",
     "location": "Hidden minigame progression / Night 5 ending",
@@ -2967,7 +2968,7 @@
   {
     "id": "scottgames-fnaf3-teaser-still-here",
     "title": "Teaser: 'I am still here.'",
-    "claim": "The first FNaF3 teaser on scottgames.com (January 2015) showed a dimly lit Springtrap face with the text 'I am still here.'",
+    "claim": "A FNaF3 teaser on scottgames.com (January 2015) showed a dimly lit Springtrap face with the text 'I am still here.'",
     "quote": "I am still here.",
     "game": "scottgames-site",
     "kind": "teaser",
@@ -3056,7 +3057,7 @@
       "fnaf4-fredbear-spring-bonnie-shadows"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Fourth_Call_FNaF3",
-    "notes": "FNaF4 later shows the springlock pair (Fredbear and Spring Bonnie) performing at a Fredbear-themed diner in 1983. The two are compatible if the suits moved from the diner to Freddy's; the tapes themselves never mention the diner. The 'before 1987' placement is this record's reading, not a statement on the tapes; the other tape records are filed as undated."
+    "notes": "FNaF4 later shows a yellow bear and a yellow rabbit performing at a restaurant that game never names (fnaf4-diner-unnamed). The two are compatible if the suits moved from one place to the other; the tapes themselves never mention a diner. The 'before 1987' placement is this record's reading, not a statement on the tapes; the other tape records are filed as undated."
   },
   {
     "id": "fnaf1-calls-prerecorded",
@@ -3128,7 +3129,7 @@
   },
   {
     "id": "fnaf1-game-over-eyes-teeth",
-    "title": "Game over: human eyes and teeth in a Freddy suit",
+    "title": "Game over: human-looking eyes and small teeth in a Freddy suit",
     "claim": "FNaF1's game-over screen shows a Freddy suit slumped in the Backstage room, with two human-looking eyeballs hanging loose at its eye holes and a row of small teeth inside its mouth.",
     "game": "fnaf1",
     "kind": "cutscene",
@@ -3234,7 +3235,7 @@
   {
     "id": "fnaf1-news-dressed-as-mascot",
     "title": "Clippings: the man was dressed as a mascot; which one is not said",
-    "claim": "Both clippings about the disappearances say the man was dressed as a mascot: police think he 'dressed as a company mascot', and the later clipping calls him 'a man dressed as a cartoon mascot'. Neither says which character it was or what colour the costume was.",
+    "claim": "Both clippings about the disappearances say the man was dressed as a mascot: police think he 'dressed as a company mascot', and the five-children clipping calls him 'a man dressed as a cartoon mascot'. Neither says which character it was or what colour the costume was.",
     "quote": "Police think that the suspect dressed as a company mascot to earn the children's trust.",
     "game": "fnaf1",
     "kind": "text",
@@ -3268,7 +3269,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Read from the in-game screenshots. FNaF1 shows no costume in use. The first yellow suit tied to trouble comes in FNaF2 ('a yellow one', fnaf2-call6-yellow-suit) and the first rabbit suit in FNaF3 (fnaf3-n5-springlock-death). Which costume the clippings mean is supplied by later games, not by FNaF1. 'purple-guy' is tagged only for theory linking."
+    "notes": "Read from the in-game screenshots. FNaF1 shows no costume in use. The first yellow suit tied to trouble comes in FNaF2 ('a yellow one', fnaf2-call6-yellow-suit) and the first rabbit suit in FNaF3 (fnaf3-n5-springlock-death). FNaF1 does not say which costume the clippings mean; tying them to either later suit is a reading. 'purple-guy' is tagged only for theory linking."
   },
   {
     "id": "fnaf1-news-charged-vs-convicted",
@@ -3596,7 +3597,7 @@
       "fnaf2-call1-new-location"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:First_Call_FNaF2",
-    "notes": "He introduces it as 'the quirky modern design of the building. You may have noticed there are no doors for you to close'. FNaF1's office has two doors and a limited power supply that can run out before morning, which Scott's store text puts down to 'corporate budget cuts' (scott-fnaf1-steam-budget-cuts). The 1987 building is a different building from FNaF1's."
+    "notes": "He introduces it as 'the quirky modern design of the building. You may have noticed there are no doors for you to close'. FNaF1's office has two doors and a limited power supply that can run out before morning, which Scott's store text puts down to 'corporate budget cuts' (scott-fnaf1-steam-budget-cuts). The 1987 office differs from FNaF1's on both points; neither game says in words whether the two are the same building."
   },
   {
     "id": "fnaf2-call2-the-smell",
@@ -3680,7 +3681,7 @@
   {
     "id": "fnaf2-old-models-walk-from-night2",
     "title": "The older models 'shouldn't be able to walk around', and do",
-    "claim": "On Night 2 Phone Guy says the older models in the back room shouldn't be able to walk around. In play they are inactive on Night 1, the older Foxy becomes active on Night 2, and the older Freddy, Bonnie and Chica on Night 3.",
+    "claim": "On Night 2 Phone Guy says the older models in the back room shouldn't be able to walk around. By the wiki's per-night activity tables they are inactive on Night 1, the older Foxy becomes active on Night 2, and the older Freddy, Bonnie and Chica on Night 3.",
     "quote": "Uh, those older ones shouldn't be able to walk around, but if they do, the whole Freddy head trick should work on them too, so... whatever.",
     "game": "fnaf2",
     "kind": "phone-call",
@@ -3753,7 +3754,7 @@
       "fnaf2-pink-slip-fritz-smith"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Fifth_Call_FNaF2",
-    "notes": "The day shift was held by the first night guard, moved there before the game began (fnaf2-call1-second-guard) and still 'on watch from opening till close' on Night 3 (fnaf2-call3-rumors). Phone Guy does not say why that post is now empty. He says it straight after the lockdown and the words 'previous employees'. A 'replacement for your shift' fits the Custom Night's guard, Fritz Smith, employee #03, fired on his first day (fnaf2-pink-slip-fritz-smith). Wording cross-checked with a speech-to-text pass on the game audio (Call 5b.ogg)."
+    "notes": "On Night 1 the first guard is said to have been switched to the day shift (fnaf2-call1-second-guard), and on Night 3 the day guard is 'on watch from opening till close' (fnaf2-call3-rumors). That the open position is his is a reading; Phone Guy does not say which post it is or why it is empty. He says it straight after the lockdown and the words 'previous employees'. A 'replacement for your shift' fits the Custom Night's guard, Fritz Smith, employee #03, fired on his first day (fnaf2-pink-slip-fritz-smith). Wording cross-checked with a speech-to-text pass on the game audio (Call 5b.ogg)."
   },
   {
     "id": "fnaf2-call6-night-shift-myself",
@@ -3791,8 +3792,8 @@
   },
   {
     "id": "fnaf2-golden-freddy-night6-only",
-    "title": "Golden Freddy is inactive until Night 6",
-    "claim": "In FNaF2's story nights Golden Freddy's activity level is zero on Nights 1 to 5. He first becomes active on Night 6.",
+    "title": "By the wiki's activity tables, Golden Freddy is inactive until Night 6",
+    "claim": "The wiki's per-night activity tables give Golden Freddy a level of zero on Nights 1 to 5 of FNaF2's story nights, and above zero on Night 6.",
     "game": "fnaf2",
     "kind": "mechanic",
     "location": "Nights 1–6 gameplay (activity levels)",
@@ -3857,7 +3858,7 @@
     ],
     "image": "fnaf2-save-them-purple-figure.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Purple_man.png",
-    "notes": "Read from the sprite and compared with two others, the purple figures of Take Cake to the Children and Foxy Go! Go! Go!; no other game's sprite was compared for this record. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. FNaF3's purple figure has white eyes and no chest mark. A checker who looked at the wiki's capture of FNaF4's back-room scene reports a yellow mark on that purple figure's chest too (seen 2026-10-03; not yet recorded on its own). This is the only time the purple figure is shown in a building that can be identified as the 1987 restaurant."
+    "notes": "Read from the sprite and compared with two others, the purple figures of Take Cake to the Children and Foxy Go! Go! Go!; the other games' sprites were not compared side by side for this record. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. In the capture on file FNaF3's purple figure has white eyes and no chest mark (fnaf3-n5-ghosts-safe-room). A checker who looked at the wiki's capture of FNaF4's back-room scene reports a yellow mark on that purple figure's chest too (seen 2026-10-03; not yet recorded on its own). As far as this archive's records go, this is the only purple figure shown in a building that can be read as the 1987 restaurant."
   },
   {
     "id": "fnaf2-save-them-golden-freddy",
@@ -3894,7 +3895,7 @@
   },
   {
     "id": "fnaf2-cutscenes-old-stage-through-eye-holes",
-    "title": "Cutscenes: FNaF1's stage, seen through the eye holes of a head",
+    "title": "Cutscenes: a show stage seen through the eye holes of a head",
     "claim": "FNaF2's cutscenes are seen through the two eye holes of a mask or head, from the middle of a show stage, with Bonnie and Chica of the older design standing on either side and party tables beyond. Both are whole, with their faces and limbs, unlike the damaged older models in the same game's Parts/Service room.",
     "game": "fnaf2",
     "kind": "cutscene",
@@ -4018,7 +4019,7 @@
   },
   {
     "id": "fnaf2-parts-service-old-models",
-    "title": "Parts/Service: the older models sit damaged and incomplete",
+    "title": "Parts/Service: the older Bonnie sits with its face and one arm missing",
     "claim": "On the Parts/Service camera the older Bonnie sits slumped against the wall with its face and left arm missing and wires hanging out, and the older Freddy lies on the floor beside it.",
     "game": "fnaf2",
     "kind": "environment",
@@ -4121,7 +4122,7 @@
       "fnaf3-n5-springlock-death"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Second_Call_FNaF3/Ralph/textonly",
-    "notes": "The sentence before it, as the wiki transcribes it: 'For ease of operation the animatronics are set to turn and walk toward sound cues.' The quote is the clause on which the wiki transcript and a speech-to-text pass on the game audio agree; the sentence goes on 'for maximum entertainment / crowd-pleasing value'. In FNaF3's play the one surviving springlock suit is moved about in just this way, with a child's voice (fnaf3-audio-lure-mechanic)."
+    "notes": "The sentence before it, as the wiki transcribes it: 'For ease of operation the animatronics are set to turn and walk toward sound cues.' The quote is the clause on which the wiki transcript and a speech-to-text pass on the game audio agree; the sentence goes on 'for maximum entertainment / crowd-pleasing value'. In FNaF3's play Springtrap is moved about in just this way, with a clip of Balloon Boy's laugh (fnaf3-audio-lure-mechanic)."
   },
   {
     "id": "fnaf3-tape2-crank-from-manufacturer",
@@ -4155,7 +4156,7 @@
       "secret-of-the-mimic-log-build-to-spec"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Second_Call_FNaF3/Ralph/textonly",
-    "notes": "The tape treats the maker of the suits as a third party and does not name it. In the Night 5 minigame the purple figure climbs into the suit in a hurry and no crank is shown (fnaf3-n5-springlock-death). Later games name makers of springlock suits; this tape does not. Wording cross-checked with a speech-to-text pass on the game audio."
+    "notes": "The tape says 'the manufacturer' and does not name it; taking this as an outside maker of the suits is a small reading. In the Night 5 minigame the purple figure climbs into the suit in a hurry and no crank is shown (fnaf3-n5-springlock-death). Later games name makers of springlock suits; this tape does not. Wording cross-checked with a speech-to-text pass on the game audio."
   },
   {
     "id": "fnaf3-tape3-bleeding-out",
@@ -4296,7 +4297,7 @@
       "fnaf3-eon-map-fnaf1-layout"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Sixth_Call_FNaF3",
-    "notes": "The tape gives 'budget restrictions' as the reason for sealing the rooms 'at most locations. Including this one.' The Night 5 tape says the safe room 'is reserved for equipment and/or other properties not being currently used', and in the Night 5 minigame the hidden room holds a yellow rabbit suit and three arcade cabinets (fnaf3-n5-ghosts-safe-room). The tape does not list what was left inside. If the room was walled up, how the purple figure later comes to be in it is not shown. Wording cross-checked with a speech-to-text pass on the game audio."
+    "notes": "The tape gives 'budget restrictions' as the reason for sealing the rooms 'at most locations. Including this one.' The Night 5 tape says the safe room 'is reserved for equipment and/or other properties not being currently used', and in the Night 5 minigame the hidden room holds a yellow rabbit suit and three arcade cabinets (fnaf3-n5-ghosts-safe-room). The tape does not list what was left inside. Whether the Night 5 minigame, with the purple figure in the hidden room, comes before or after the sealing is not shown. Wording cross-checked with a speech-to-text pass on the game audio."
   },
   {
     "id": "fnaf3-tape6-not-to-be-mentioned",
@@ -4332,11 +4333,11 @@
       "fnaf3-call1-boarded-room-lead"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Sixth_Call_FNaF3",
-    "notes": "The tape gives no reason for the secrecy. Thirty years later the attraction's staff learn of such a room only from 'some guy who helped design one of the buildings' (fnaf3-call1-boarded-room-lead). Wording cross-checked with a speech-to-text pass on the game audio."
+    "notes": "The tape gives no reason for the secrecy. In FNaF3 the attraction's staff learn of such a room only from 'some guy who helped design one of the buildings' (fnaf3-call1-boarded-room-lead). Wording cross-checked with a speech-to-text pass on the game audio."
   },
   {
     "id": "fnaf3-tapes-hello-hello-greeting",
-    "title": "The tapes open with Phone Guy's 'hello, hello'",
+    "title": "The tapes open with the 'hello, hello' of the FNaF1 and FNaF2 calls",
     "claim": "Each of FNaF3's five training tapes opens with a 'hello, hello' greeting, the greeting that opens the phone messages of FNaF1 and FNaF2. No game names the speaker of the tapes or says that he is the caller.",
     "quote": "Hello, hello?",
     "game": "fnaf3",
@@ -4365,11 +4366,11 @@
       "fnaf4-reversed-phone-guy"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Template:Fifth_Call_FNaF3",
-    "notes": "Openings as transcribed. FNaF1: 'Hello, hello?' (Night 1), 'Uh, hello? Hello?' (2), 'Hello, hello!' (3 and 4). FNaF2: 'Uh, hello? Hello, hello?' (1) and 'hello hello' on every later night. FNaF3 tapes: 'Uh hello? Hello hello!' (Nights 2 and 4), 'Uh, hello hello!' (3), 'Hello, hello?' (5), 'Uh hello, hello?' (6). The halting delivery is the same as well. That this is one man is the small reading: same greeting, same manner, and a speaker who trains staff for the company the caller works for. The tapes are spoken as management announcements ('Management has also been made aware'), a different job from the night guard's. Phone Dude says only that they were 'training tapes, for like other employees'. If it is one man, the tapes were recorded before the Night 4 message of FNaF1."
+    "notes": "Openings as transcribed. FNaF1: 'Hello, hello?' (Night 1), 'Uh, hello? Hello?' (2), 'Hello, hello!' (3 and 4). FNaF2: 'Uh, hello? Hello, hello?' (1) and 'hello hello' on every later night. FNaF3 tapes: 'Uh hello? Hello hello!' (Nights 2 and 4), 'Uh, hello hello!' (3), 'Hello, hello?' (5), 'Uh hello, hello?' (6). The halting delivery is the same as well. That this is one man is the small reading: same greeting, same manner, and a speaker who trains staff for the company the caller works for. The tapes are spoken as management announcements ('Management has also been made aware'), a different job from the night guard's. The attraction's caller says only that they were 'training tapes, for like other employees'. If it is one man, the tapes were recorded before the Night 4 message of FNaF1."
   },
   {
     "id": "fnaf3-audio-lure-mechanic",
-    "title": "Springtrap is led about by the sound of a child's voice",
+    "title": "Springtrap walks toward a played clip of Balloon Boy's laugh",
     "claim": "In FNaF3 the guard keeps Springtrap away by playing a clip of Balloon Boy's laugh through the audio device of a room next to the one he is in. Springtrap then walks to that room.",
     "game": "fnaf3",
     "kind": "mechanic",
@@ -4399,7 +4400,7 @@
       "fnaf3-springtrap-corpse-screens"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Maintenance_Panel",
-    "notes": "The wiki describes the sound as a 'sound byte of BB's laugh' and says Springtrap has a small chance of ignoring it. The behaviour is what the Night 2 tape says the springlock suits were built to do in animatronic form (fnaf3-tape2-sound-cues). The game does not remark on why a child's voice works."
+    "notes": "The wiki describes the sound as a 'sound byte of BB's laugh' and says Springtrap has a small chance of ignoring it. The behaviour is what the Night 2 tape says the springlock suits were built to do in animatronic form (fnaf3-tape2-sound-cues). The game does not remark on why this sound works."
   },
   {
     "id": "fnaf3-eon-map-fnaf1-layout",
@@ -4447,7 +4448,7 @@
   },
   {
     "id": "fnaf3-eon-puddles-empty-building",
-    "title": "The minigame building is empty of people and marked with dark puddles",
+    "title": "The minigame building is empty of people and marked with dark patches",
     "claim": "In the end-of-night minigames the building's floors and tables carry dark puddle-shaped patches, and no staff or customers appear. The only figures are the four animatronics, the dark bear, the purple figure and, on the last night, the grey children.",
     "game": "fnaf3",
     "kind": "minigame",
@@ -4483,7 +4484,7 @@
   {
     "id": "fnaf3-office-slumped-bear",
     "title": "A slumped bear sometimes sits in the FNaF3 office",
-    "claim": "Rarely, a slumped, eyeless bear in a top hat sits on the floor at the far left of the FNaF3 office, in the pose of the yellow bear of FNaF1 and FNaF2. It is dark in colour, does nothing, and is not listed in the Extras menu.",
+    "claim": "Rarely, a slumped, eyeless bear in a top hat sits on the floor at the far left of the FNaF3 office, in the pose of the yellow bear of FNaF1 and FNaF2. It looks dark in the office's green light, does nothing, and is not listed in the Extras menu.",
     "game": "fnaf3",
     "kind": "hidden",
     "location": "The Office (rare, far left)",
@@ -4515,7 +4516,7 @@
     ],
     "image": "fnaf3-shadow-freddy-office.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:GoldenFreddyInOffice.png",
-    "notes": "Read from the in-game image. The wiki identifies the figure as Shadow Freddy, while the screenshot's own file name calls it Golden Freddy; in the office's green light its colour cannot settle the matter, so both ids are tagged. 'Crumpled Freddy suit' is a guidebook label and is not used. The pose is that of the slumped bear of FNaF1 (fnaf1-golden-freddy-office-figure) and FNaF2 (fnaf2-golden-freddy-office, fnaf2-shadow-freddy)."
+    "notes": "Read from the in-game image. The wiki identifies the figure as the dark bear (its 'Shadow Freddy'), while the screenshot's own file name calls it Golden Freddy; in the office's green light its colour cannot settle the matter, so both ids are tagged. 'Crumpled Freddy suit' is a guidebook label and is not used. The pose is that of the slumped bear of FNaF1 (fnaf1-golden-freddy-office-figure) and FNaF2 (fnaf2-golden-freddy-office, fnaf2-shadow-freddy)."
   },
   {
     "id": "fnaf3-office-box-toy-heads",
@@ -4558,12 +4559,12 @@
     ],
     "image": "fnaf3-office-relic-box.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:GoldenFreddyInOffice.png",
-    "notes": "Read from the in-game office image. The wiki identifies the half-hidden head as Toy Freddy's, the arm and guitar as Toy Bonnie's, the hook arm as the older Foxy's and the paper-plate figure as the one from FNaF2's party room; those four identifications go beyond what the image alone shows. The heads belong to the cast of the 1987 restaurant, which its closing newspaper said would be scrapped (fnaf2-news-originals-kept). The Freddy suit, the hook and the Foxy head Phone Dude mentions (fnaf3-call1-relics-foxy-head) belong to the older characters. Scott's store text lists the finds as 'empty shells, a hand, a hook, an old paper-plate doll' (scott-fnaf3-steam-description). Every shell is empty; none is a working animatronic."
+    "notes": "Read from the in-game office image. The wiki identifies the half-hidden head as Toy Freddy's, the arm and guitar as Toy Bonnie's, the hook arm as the older Foxy's and the paper-plate figure as the one from FNaF2's party room; those four identifications go beyond what the image alone shows. The heads belong to the cast of the 1987 restaurant, which its closing newspaper said would be scrapped (fnaf2-news-originals-kept). The Freddy suit and the Foxy head the attraction's caller mentions (fnaf3-call1-relics-foxy-head) are of the older characters; the caller is not sure the head is authentic, and whose hook it is the image does not show. Scott's store text lists the finds as 'empty shells, a hand, a hook, an old paper-plate doll' (scott-fnaf3-steam-description). Every shell is empty; none is a working animatronic."
   },
   {
     "id": "fnaf3-newspaper-developer-notes",
-    "title": "The newspapers' side columns are Scott's development notes",
-    "claim": "The blurred columns on either side of FNaF3's 'COMING SOON!' and 'IT BURNS!' newspapers are out-of-universe notes by Scott about making the first game: the broken-down robots in his older games, choosing this idea over two others, a crowdfunding campaign that raised nothing, the characters' names starting as nicknames, Freddy at first not being meant to move, a sleepwalking nightmare about Bonnie, and modelling Foxy on a car journey in the summer of 2014.",
+    "title": "The newspapers' blurred side columns: Scott's development notes, by the wiki's transcript",
+    "claim": "The columns on either side of FNaF3's 'COMING SOON!' and 'IT BURNS!' newspapers are too blurred to read cleanly in play. As the wiki transcribes them, they are out-of-universe notes by Scott about making the first game: the broken-down robots in his older games, choosing this idea over two others, a crowdfunding campaign that raised nothing, the characters' names starting as nicknames, Freddy at first not being meant to move, a sleepwalking nightmare about Bonnie, and modelling Foxy on a car journey in the summer of 2014.",
     "game": "fnaf3",
     "kind": "text",
     "location": "Intro and Nightmare-ending newspapers (side columns)",
@@ -4620,7 +4621,7 @@
       "fnaf3-it-burns-newspaper"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "A negative observation from the game's end screens and both Phone Dude calls. FNaF1 and FNaF2 name their guards only on those documents (Mike Schmidt, Jeremy Fitzgerald, Fritz Smith). Phone Dude's first call opens 'glad you came back for another night', so the game's Night 1 is not the guard's first shift. Any identification of this guard with a named character comes from outside FNaF3."
+    "notes": "A negative observation from the game's end screens and both calls of the attraction's caller. FNaF1 and FNaF2 name their guards only on those documents (Mike Schmidt, Jeremy Fitzgerald, Fritz Smith). The caller's first call opens 'glad you came back for another night', so the game's Night 1 is not the guard's first shift. Any identification of this guard with a named character comes from outside FNaF3."
   },
   {
     "id": "scott-fnaf1-steam-budget-cuts",
@@ -4699,12 +4700,12 @@
     ],
     "url": "https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/",
     "verifiedVia": "https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/",
-    "notes": "Fetched from the Steam appdetails API. The text is written as if FNaF2 follows FNaF1 ('Welcome back', 'old and aging'), and the first teaser read 'Grand Reopening 2015' (scottgames-site-fnaf2-grand-reopening). Only the check at the end of Night 5 puts the game in 1987 (fnaf2-paycheck-1987). On either order the older animatronics exist before the new ones."
+    "notes": "Fetched from the Steam appdetails API. The text is written as if FNaF2 follows FNaF1 ('Welcome back', 'old and aging'), and the first teaser read 'Grand Reopening 2015' (scottgames-site-fnaf2-grand-reopening). Only the two checks, at the end of Night 5 and of Night 6, put the game in 1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). On either order the older animatronics exist before the new ones."
   },
   {
     "id": "scott-fnaf2-trailer-captions",
     "title": "FNaF2 trailer: 'forgotten', 'dismantled', 'deactivated'",
-    "claim": "Scott's official FNaF2 trailer shows the older, damaged animatronics and the Parts & Service door under the captions 'forgotten', 'dismantled' and 'deactivated', and later uses the captions 'REDESIGNED', 'REACTIVATED' and 'MALFUNCTIONING'.",
+    "claim": "Scott's official FNaF2 trailer shows the captions 'forgotten', 'dismantled' and 'deactivated' between shots of the older, damaged animatronics and the Parts & Service door, and later uses the captions 'REDESIGNED', 'REACTIVATED' and 'MALFUNCTIONING'.",
     "quote": "forgotten / dismantled / deactivated",
     "game": "scott",
     "kind": "teaser",

@@ -103,6 +103,14 @@ export interface Relation {
   status: Status;
   evidence: string[];
   note?: string;
+  /**
+   * The tie in the records' own words, where the kind's verb would say more than the records do.
+   * Written to follow the first person's name and to be followed by the second's, for example
+   * `calls` ... `"old friend"` is written as: says: "calls {to} \"old friend\"". `{to}` marks where the
+   * other person's name goes; if it is absent the name follows the phrase. The pages print this in place
+   * of the kind's verb; the kind still decides the line's colour and family.
+   */
+  says?: string;
 }
 
 export interface Place {
@@ -207,9 +215,9 @@ export interface StoryBeat {
   /** RichText. Usually a date pill or a short label such as "Years later". */
   when: string;
   title: string;
-  /** RichText. Two to five sentences. */
+  /** RichText. One short paragraph: at most 130 words, in short sentences. */
   text: string;
-  /** The weakest link the beat depends on. */
+  /** The mark of the weakest thing the beat tells. */
   confidence: Confidence;
   /** Chapter ids that argue this beat. */
   sections: string[];

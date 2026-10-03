@@ -62,7 +62,7 @@
   },
   {
     "id": "hw-tape-03",
-    "title": "Tape 3: Lawsuit and incident in the building",
+    "title": "Tape 3: 'There has to be a lawsuit'; 'it happened in this building'",
     "claim": "The tape speaker overhears manager Dale in a heated phone call and is sure there is a lawsuit, because 'it happened in this building just a few doors down from me'. Jeremy had tried to tell the team something was wrong, and they treated it as a bug to find and fix.",
     "quote": "There has to be a lawsuit. There's no way there isn't. It happened in this building just a few doors down from me.",
     "game": "help-wanted",
@@ -94,7 +94,7 @@
   {
     "id": "hw-tape-04",
     "title": "Tape 4: Guillotine paper slicer",
-    "claim": "The tape speaker describes a guillotine paper slicer in the studio's supply room, says she always knew how dangerous one looked, and notes that Jeremy used to do design work, which is how he knew it was there.",
+    "claim": "The tape speaker describes a guillotine paper slicer in the studio's supply room, says she always knew how dangerous one looked, and notes that Jeremy used to do design work, which she guesses is how he knew it was there.",
     "quote": "Jeremy used to do design work. I guess that's how he knew it was there.",
     "game": "help-wanted",
     "kind": "audio-tape",
@@ -155,7 +155,7 @@
       "sd-which-board-unknown"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
-    "notes": "The tape never says which machines the boards came from, and never names 'he'. The first half of the tape (the drawers emptied overnight) is hw-tape-05-client-sent-junk-to-scan. Tape 13 identifies the client as Fazbear Entertainment."
+    "notes": "The tape never says which machines the boards came from, and never names 'he'. The first half of the tape (the drawers emptied overnight) is hw-tape-05-client-sent-junk-to-scan. On Tape 13 a hard drive sent by the client holds Fazbear Entertainment's emails (hw-tape-13-fe-hired-developer)."
   },
   {
     "id": "hw-tape-06",
@@ -221,7 +221,7 @@
   {
     "id": "hw-tape-08",
     "title": "Tape 8: Paper trail to discredit Jeremy",
-    "claim": "The tape speaker believes the written warnings Jeremy was receiving were a paper trail built not because of anything he did wrong but because the company knew he had seen something and needed to discredit him.",
+    "claim": "The tape speaker believes the written warnings Jeremy was receiving were a paper trail built not because of anything he did wrong: 'They just knew he'd seen something. They needed to discredit him.'",
     "quote": "They just knew he'd seen something. They needed to discredit him.",
     "game": "help-wanted",
     "kind": "audio-tape",
@@ -249,7 +249,7 @@
   },
   {
     "id": "hw-tape-09",
-    "title": "Tape 9: 'Halloween mask' and ink in the testing room",
+    "title": "Tape 9: a 'Halloween mask' and what she takes for ink on the floor; Jeremy in the visor",
     "claim": "The tape speaker finds something that looked like a Halloween mask on the floor and what she takes for spilled ink. She then sees Jeremy in the testing room with the visor on, the front of his shirt black in the dark; he turns his head toward her without seeming to know she is there.",
     "quote": "There was something that looked like a Halloween mask laying on the floor. I didn't understand. Ink must have spilled.",
     "game": "help-wanted",
@@ -518,12 +518,12 @@
       "scott-not-part-of-lore"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
-    "notes": "The developer is never named in the game; the intro shows a photo of Scott Cawthon for this person (hw-intro-indie-developer-poster), and Scott later said he himself is not part of the lore (scott-not-part-of-lore). The speaker says the games 'make light of what happened': on her account something real happened, and the games are the cover for it."
+    "notes": "The developer is never named in the game. The intro's poster sequence includes a photograph of Scott Cawthon (hw-intro-indie-developer-poster), usually read as this person; Scott later said he himself is not part of the lore (scott-not-part-of-lore). The speaker says the games 'make light of what happened': on her account something real happened, and the games are the cover for it."
   },
   {
     "id": "hw-jeremy-self-injury-implied",
-    "title": "Jeremy's injury implied across tapes 4 and 9",
-    "claim": "Read together, tapes 3, 4 and 9 imply that Jeremy used the supply room's guillotine paper slicer on his own face: the slicer he knew about from design work, the 'Halloween mask' and 'ink' on the floor, Jeremy in the visor with a blackened shirt, and afterwards an incident 'a few doors down' and a presumed lawsuit.",
+    "title": "Jeremy and the paper slicer: what tapes 3, 4 and 9 imply",
+    "claim": "Read together, tapes 3, 4 and 9 imply that Jeremy used the supply room's guillotine paper slicer on his own face: the slicer he knew about from design work, the 'Halloween mask' and 'ink' on the floor, Jeremy in the visor with a blackened shirt, and an incident 'a few doors down' with a presumed lawsuit.",
     "game": "help-wanted",
     "kind": "audio-tape",
     "location": "Hidden tapes #3, #4 and #9 (Tape Room)",
@@ -552,8 +552,8 @@
   },
   {
     "id": "hw-tape-girl-calls-it-the-anomaly",
-    "title": "What the game calls the entity: 'the anomaly'",
-    "claim": "The tape speaker never names the rabbit figure. She calls it 'the anomaly', 'this thing', 'this virus... or whatever it is' and 'he'; HandUnit calls it 'an undesirable anomaly'. No name for it is printed or spoken anywhere in Help Wanted.",
+    "title": "What Help Wanted calls it: 'the anomaly'",
+    "claim": "The tape speaker never gives the thing she describes a name. She calls it 'the anomaly', 'this thing', 'this virus... or whatever it is' and 'he'; HandUnit calls it 'an undesirable anomaly'. No name for it is printed or spoken in Help Wanted, as far as its transcripts show.",
     "quote": "Today was my last day of beta testing and the anomaly that I've been seeing is nowhere to be found.",
     "game": "help-wanted",
     "kind": "audio-tape",
@@ -577,7 +577,7 @@
       "hw-rabbit-figure-appearance"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
-    "notes": "'Glitchtrap' is not printed or spoken in Help Wanted, Curse of Dreadbear, Special Delivery, Security Breach, RUIN or Help Wanted 2 as far as their transcripts show; it is a fan and merchandise name (the wiki reports the character's file name as 'SpringBonnieMAN'). This archive's person id 'glitchtrap' is only a handle."
+    "notes": "'Glitchtrap' is not printed or spoken in Help Wanted, Curse of Dreadbear, Special Delivery, Security Breach, RUIN or Help Wanted 2 as far as their transcripts show; it is a merchandise and fan name, and Scott Cawthon said in 2024 that it began as his own temporary planning name (scott-2024-interview-placeholder-names-canon, a transcript) (the wiki reports the character's file name as 'SpringBonnieMAN'). This archive's person id 'glitchtrap' is only a handle."
   },
   {
     "id": "hw-credits-tape-girl-qa",
@@ -687,12 +687,12 @@
     ],
     "image": "hw-glitchtrap-behind-player.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitchtrap/History",
-    "notes": "Consistent with Tape 15's warning that reassembling the logs reassembles the entity. For its appearance see hw-rabbit-figure-appearance."
+    "notes": "Consistent with Tape 15's warning that reassembling the logs will reassemble the thing she tried to destroy. For its appearance see hw-rabbit-figure-appearance."
   },
   {
     "id": "hw-glitchtrap-uses-tape-girl-voice",
-    "title": "The rabbit figure's ambient voice is the tape speaker's, pitched down",
-    "claim": "When the rabbit figure is near, a distorted, pitched-down copy of the tape speaker's first-tape greeting plays. In the hub this borrowed greeting is the only speech heard from it.",
+    "title": "Near the rabbit figure, a pitched-down copy of the first tape's greeting plays (per the wiki)",
+    "claim": "When the rabbit figure is near, a distorted, low-pitched clip plays; the wiki's audio page identifies it as the first tape's greeting, pitched down. No other speech plays in the hub when the figure is near.",
     "quote": "Hello. Can you hear me?",
     "game": "help-wanted",
     "kind": "hidden",
@@ -716,11 +716,11 @@
       "hw2-mystic-hippo-hello"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitchtrap/Audio",
-    "notes": "The wiki's audio page identifies the clip as a pitched-down version of the first tape. The entity reusing a recorded human voice is recorded as a fact; what that says about its nature is for the theory."
+    "notes": "The identification of the clip is the wiki's. That the clip is the figure's own voice is a reading; what it would say about the figure is for the theory."
   },
   {
     "id": "hw-intro-loosely-based-on-actual-events",
-    "title": "Fazbear admits some stories were based on real events",
+    "title": "Fazbear admits some stories were 'loosely based on actual events'",
     "claim": "In the intro, HandUnit (for Fazbear Entertainment) admits some stories associated with the company were loosely based on actual events.",
     "quote": "We know that Fazbear Entertainment has developed something of a bad reputation over the last few decades, and while it's true that some stories associated with our name were loosely based on actual events,",
     "game": "help-wanted",
@@ -747,7 +747,7 @@
   },
   {
     "id": "hw-intro-complete-lunatic",
-    "title": "The rest blamed on 'a complete lunatic (lawsuits pending)'",
+    "title": "The majority blamed on 'a complete lunatic (lawsuits pending)'",
     "claim": "HandUnit says most stories were fabrications from the mind of a complete lunatic, with lawsuits pending, and that the VR game recreates these 'completely fictitious scenarios (lies)' so people can move past 'childish ghost stories'.",
     "quote": "the majority of them were total fabrications from the mind of a complete lunatic (lawsuits pending).",
     "game": "help-wanted",
@@ -779,9 +779,9 @@
   },
   {
     "id": "hw-intro-vr-game-to-move-past-ghost-stories",
-    "title": "The VR game exists to laugh off the stories",
+    "title": "HandUnit: the stories remade as 'a hilarious VR Game' to move past them",
     "claim": "HandUnit presents the Virtual Experience as a 'hilarious VR Game' recreating the 'completely fictitious scenarios (lies)' the public has been fed 'over the last several years', so that the company can move past 'these childish ghost stories', build a new relationship with customers and their kids, and sell merchandise.",
-    "quote": "That's why we have recreated many of these completely fictitious scenarios (lies) that you've been fed over the last several years, into a hilarious VR Game",
+    "quote": "That's why we have recreated many of these completely fictitious scenarios (lies) that you've been fed over the last several years, into a hilarious VR Game in the hopes that we can finally move past these childish ghost stories …",
     "game": "help-wanted",
     "kind": "dialogue",
     "location": "Intro ride narration",
@@ -808,7 +808,7 @@
   {
     "id": "hw-waiver-qa-team",
     "title": "The player is joining Fazbear's QA team",
-    "claim": "The in-game waiver welcomes the player to the Fazbear Entertainment Quality Assurance team, i.e. the player is an in-universe beta tester.",
+    "claim": "The in-game waiver welcomes the player to the Fazbear Entertainment Quality Assurance team.",
     "quote": "Welcome to the Fazbear Entertainment Quality Assurance team.",
     "game": "help-wanted",
     "kind": "text",
@@ -889,7 +889,7 @@
   },
   {
     "id": "hw-handunit-scanned-photos-original-routines",
-    "title": "Built from scanned photographs and original routines",
+    "title": "HandUnit: scanned photographs 'for reference' and original performance routines",
     "claim": "After the player first enters the Tape Room, HandUnit says the game used scanned photographs and original performance routines.",
     "quote": "We went to great lengths to create an authentic VR experience, including using scanned photographs for reference and using original performance routines where applicable.",
     "game": "help-wanted",
@@ -1059,13 +1059,13 @@
       "scott-silver-parasol-website"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
-    "notes": "The studio is never named in Help Wanted's dialogue. Scott Cawthon gave its name as 'Silver Parasol Games' and said he left its logo in the game (scott-silver-parasol-website); where the logo appears was not verified."
+    "notes": "The studio is never named in Help Wanted's dialogue. In a post titled 'Silver Parasol Games' Scott Cawthon wrote that he had a logo made for the mysterious 'other game developer' mentioned in the game and left it in the game (scott-silver-parasol-website). That this developer is the first development team is the usual reading; where the logo appears was not verified."
   },
   {
     "id": "hw-handunit-anomaly-fun-fact",
-    "title": "'A hilarious mistake' let an anomaly in",
+    "title": "'A hilarious mistake' that 'may or may not' have let an anomaly in",
     "claim": "HandUnit's 'funny fun fact': a previous development team made a mistake that may or may not have let an undesirable anomaly into the game's code.",
-    "quote": "One of the previous development teams made a hilarious mistake. One that may or may not have resulted in an undesirable anomaly entering the game's code.",
+    "quote": "One of the previous development teams made a hilarious mistake. One that may or may not have resulted in an undesirable anomaly entering the game's code. Please accept that statement as our full legal disclaimer and absolution of responsibility and potential harm to you.",
     "game": "help-wanted",
     "kind": "dialogue",
     "location": "Hub line after 25 challenges",
@@ -1153,7 +1153,7 @@
   {
     "id": "hw-handunit-pizza-party-glitch",
     "title": "Stage announcement glitches in Pizza Party",
-    "claim": "Walking onto the show stage in Pizza Party, HandUnit's Freddy Fazbear announcement glitches out mid-sentence.",
+    "claim": "Walking onto the show stage in Pizza Party, HandUnit's stage announcement glitches out mid-sentence, before it names anyone.",
     "quote": "Fazbear Entertainment would like you to put your hands together for the one, the only, The only, only, only-ly-ly-ly-ly-ly",
     "game": "help-wanted",
     "kind": "dialogue",
@@ -1208,7 +1208,7 @@
   },
   {
     "id": "hw-pns-foxy-former-employee",
-    "title": "A former employee used the wrong fuse on Foxy",
+    "title": "HandUnit: 'a former employee' used an incorrect fuse on Foxy",
     "claim": "In Parts and Service: Foxy, HandUnit says a former employee attempted to repair Foxy's chest motor using an incorrect fuse.",
     "quote": "Oh no. It looks like a former employee attempted to repair Foxy's chest motor using an incorrect fuse.",
     "game": "help-wanted",
@@ -1262,7 +1262,7 @@
   },
   {
     "id": "hw-pizza-party-spring-bonnie-plush",
-    "title": "Pizza Party: a yellow rabbit plush follows the player",
+    "title": "Pizza Party: a yellow rabbit plush turns up in every room",
     "claim": "Pizza Party begins in a FNaF4-style bedroom with a purple, star-patterned curtain across the back of the room. Among the plushes is a yellow rabbit plush (the wiki calls it a Spring Bonnie plush), which then turns up in every room the player enters.",
     "game": "help-wanted",
     "kind": "minigame",
@@ -1341,7 +1341,7 @@
   },
   {
     "id": "hw-pizza-party-ending",
-    "title": "Pizza Party ending: the rabbit figure beckons, player ends up on stage as Freddy",
+    "title": "Pizza Party ending: the rabbit figure beckons; the player ends up on a stage holding a microphone",
     "claim": "In the party room the figure in the rabbit costume steps out from behind a curtain and gestures for the player to follow. After darkness the player is on a stage, seeing from a performer's position and holding a microphone, while the credits roll and the rabbit figure dances in the background.",
     "game": "help-wanted",
     "kind": "ending",
@@ -1370,11 +1370,11 @@
       "codb-dancing-glitchtrap"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "That the player is inside Freddy is implied by the view; the game never states it. The wiki's reading that this re-enacts past murders is interpretation. Secret of the Mimic's 'Clock Out' ending shows the same thing done to its technician (secret-of-the-mimic-ending-clock-out)."
+    "notes": "That the player is inside Freddy is implied by the view; the game never states it. The wiki's reading that this re-enacts past murders is interpretation. Compare the Secret of the Mimic ending in which the technician wakes inside a suit on a stage (secret-of-the-mimic-ending-clock-out)."
   },
   {
     "id": "hw-merge-ending",
-    "title": "Merge ending: the rabbit figure takes over the player",
+    "title": "Merge ending: the player ends up on the stage as the rabbit figure",
     "claim": "After all 16 tapes are collected, the rabbit figure appears by the main stage and begins to merge with the player. If Tape 16's instructions are not followed, the view fades to a glitching purple screen; when it clears, the player is standing on the stage as the rabbit figure. The game then goes to the game-over room.",
     "game": "help-wanted",
     "kind": "ending",
@@ -1400,11 +1400,11 @@
       "hw-tape-16"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "'The entity leaves the game through the player' is the implied reading, matching Tape 16's warning; the game does not narrate it."
+    "notes": "That the figure leaves the game through the player is the implied reading, matching Tape 16's warning; the game does not narrate it."
   },
   {
     "id": "hw-trapped-ending",
-    "title": "Trapped ending: the rabbit figure behind a sealed door, a plush left behind",
+    "title": "Trapped ending: the rabbit figure behind a metal door; a rabbit plush in the hub",
     "claim": "If Tape 16's instructions are followed, the player is taken to a dark space in front of a huge metal door marked with handprints and scratches. When its sliding hatch is opened, the rabbit figure looks out, raises a finger to its lips, and steps back into the darkness. Back in the hub, a rabbit plush sits on the floor beside the player.",
     "game": "help-wanted",
     "kind": "ending",
@@ -1433,7 +1433,7 @@
     ],
     "image": "hw-trapped-ending-door.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Whether the entity is contained is left open: it hushes the player and withdraws, and its plush stays behind. The plush is used in the Curse of Dreadbear mask secret and reappears in Security Breach's and Help Wanted 2's Princess Quest games (hw-trapped-ending-plush)."
+    "notes": "Whether the rabbit figure is contained is left open: it hushes the player and withdraws, and a rabbit plush stays behind. The plush is used in the Curse of Dreadbear mask secret; a plush of the same design appears in Security Breach's and Help Wanted 2's Princess Quest games (hw-trapped-ending-plush)."
   },
   {
     "id": "hw-game-over-remember-jeremy",
@@ -1492,7 +1492,7 @@
       "fazbear-framing"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Game_Over_Room",
-    "notes": "Appears on the screen you see after being killed by an animatronic — deliberate irony."
+    "notes": "The message is shown in the Game Over Room, where the player is sent after a game over."
   },
   {
     "id": "hw-game-over-court-of-law",
@@ -1548,7 +1548,7 @@
       "hw-mobile-princess-quest-final-room"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
-    "notes": "Security Breach later refers to this in-universe as 'that old mobile game' (security-breach-msg-pq1-maint-log)."
+    "notes": "A Security Breach message says its Princess Quest 1 arcade was pulled 'from that old mobile game' (security-breach-msg-pq1-maint-log); the message does not name the mobile game."
   },
   {
     "id": "hw-mobile-princess-quest-ending",
@@ -1579,15 +1579,15 @@
       "hw-mobile-princess-quest-final-room"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
-    "notes": "What is actually on screen is recorded separately (hw-mobile-princess-quest-final-room). Certainty is 'implied' and the record carries no quote, because the wording depends on a fan substitution cipher and on reversing and speeding up the audio, as documented on the wiki, not on anything the game prints or says in English. The glyph line's letter pattern fits 'I ALWAYS COME BACK' (see the other record); 'Let me out' rests on the audio alone and was not checked by ear. If the decode is right, the phrase is the one Scraptrap and UCN's Afton speak (ffps-scraptrap-always-come-back, ucn-afton-always-come-back)."
+    "notes": "What is actually on screen is recorded separately (hw-mobile-princess-quest-final-room). Certainty is 'implied' and the record carries no quote, because the wording depends on a fan substitution cipher and on reversing and speeding up the audio, as documented on the wiki, not on anything the game prints or says in English. The glyph line's letter pattern fits 'I ALWAYS COME BACK' (see the other record); 'Let me out' rests on the audio alone and was not checked by ear. If the decode is right, the phrase is the one the salvaged rabbit of Pizzeria Simulator and UCN's 'Afton' speak (ffps-scraptrap-always-come-back, ucn-afton-always-come-back)."
   },
   {
     "id": "hw-mobile-princess-quest-graveyard",
     "title": "Princess Quest graveyard",
-    "claim": "Princess Quest's route crosses an outdoor graveyard with six gravestones, each with a torch brazier in front of it. No names are shown on the stones.",
+    "claim": "In the wiki's screenshot of Princess Quest's outdoor graveyard there are six gravestones, each with a torch brazier in front of it. No names are shown on the stones.",
     "game": "help-wanted",
     "kind": "minigame",
-    "location": "Help Wanted (mobile port) — Princess Quest cemetery",
+    "location": "Princess Quest cemetery (wiki screenshot; Help Wanted mobile port or Security Breach arcade version, not stated)",
     "certainty": "shown",
     "when": {
       "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
@@ -1611,8 +1611,8 @@
   },
   {
     "id": "hw-intro-indie-developer-poster",
-    "title": "Intro shows a photo of the 'indie developer'",
-    "claim": "The intro ride displays a poster/photo of Scott Cawthon, representing the in-universe indie developer whose stories Fazbear blames; HandUnit's narration calls that person 'a complete lunatic'.",
+    "title": "Intro poster: a photograph of Scott Cawthon, read as the 'indie developer'",
+    "claim": "One poster in the intro ride's sequence is a photograph of Scott Cawthon; the game does not name him. HandUnit's narration on the ride blames 'a complete lunatic' for most of the stories.",
     "game": "help-wanted",
     "kind": "environment",
     "location": "Intro ride (poster sequence)",
@@ -1641,13 +1641,13 @@
     ],
     "image": "hw-intro-indie-developer-poster.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Freddy_Fazbear_Virtual_Experience",
-    "notes": "The person in the image is not named in the game. Other posters in the same sequence show the title card, merchandise, and a closed, police-taped restaurant (hw-intro-closed-police-line-poster)."
+    "notes": "The person in the image is not named in the game. That the photograph stands for that 'lunatic', and for Tape 13's 'indie developer', is the usual reading. Other posters in the same sequence show the title card, merchandise, and a closed, police-taped restaurant (hw-intro-closed-police-line-poster)."
   },
   {
     "id": "scottgames-hw-teaser-hidden-text",
     "title": "Help Wanted teaser hidden text",
     "claim": "The Help Wanted teaser Scott posted on scottgames.com on March 11, 2019 carries the visible caption '\"Everything is working as intended!\" -Fazbear Entertainment' and, very faintly in the dark background, four lines: 'Don't listen to them.', 'We let something inside.', 'It was an accident.', 'Remember Jeremy.' The page's image alt text was 'remember Jeremy'.",
-    "quote": "We let something inside.",
+    "quote": "Don't listen to them. / We let something inside. / It was an accident. / Remember Jeremy.",
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com teaser image (posted and removed March 11, 2019)",
@@ -1668,13 +1668,13 @@
     ],
     "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/",
     "verifiedVia": "Wayback Machine capture of scottgames.com at 2019-03-11 23:16 (page source: img src hw.jpg, alt=\"remember Jeremy\") and the archived hw.jpg from that capture, contrast-enhanced to read the four faint lines",
-    "notes": "Verified from the primary source: the archived page source and image, not the wiki. Scott replaced the image within hours because some artwork had been traced from fan renders; the later version keeps the caption (scottgames-site-hw-working-as-intended in the Scott file)."
+    "notes": "Verified from the primary source: the archived page source and image, not the wiki. Scott took the teaser down after learning that its artwork had used fan art and fan models as references ('traced fan-models at worst', in his words); the later version keeps the caption (scottgames-site-hw-working-as-intended in the Scott file)."
   },
   {
     "id": "scott-silver-parasol-website",
-    "title": "Scott: the studio is 'Silver Parasol Games'; planned website scrapped",
-    "claim": "Scott Cawthon wrote that he had planned a real-world website for the fictional studio behind the VR game, Silver Parasol Games, but dropped it because it would cross from in-game storytelling into lying. He left the studio's logo in the game.",
-    "quote": "there is a fine line between crafting an in-game story and just outwardly lying about something. I didn’t want to cross that line.",
+    "title": "Scott's post 'Silver Parasol Games': a logo for the 'other game developer'; planned website scrapped",
+    "claim": "In a post titled 'Silver Parasol Games', Scott Cawthon wrote that he had a logo made for the mysterious 'other game developer' mentioned in the game and had planned a real-world website for it, but dropped the website because it would cross from in-game storytelling into lying. He left the logo in the game.",
+    "quote": "…a logo for the mysterious “other game developer” mentioned in the game, so I had a logo created for it. … there is a fine line between crafting an in-game story and just outwardly lying about something. I didn’t want to cross that line.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Scott Cawthon Reddit post 'Silver Parasol Games' (r/fivenightsatfreddys, 2019)",
@@ -1694,7 +1694,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/btaxrx/silver_parasol_games/",
     "verifiedVia": "Arctic Shift Reddit archive, post id btaxrx (r/fivenightsatfreddys, 2019-05-26), full text read",
-    "notes": "Wording verified against the archived post. Scott adds that he 'decided to leave the logo in the game (since it was in-game after all.)'. The studio name is not spoken in Help Wanted. The same post is recorded in the Scott file as scott-2019-silver-parasol-logo (duplicate; the lead should keep one)."
+    "notes": "Wording verified against the archived post. Scott adds that he 'decided to leave the logo in the game (since it was in-game after all.)'. The studio name is not spoken in Help Wanted, and the post does not say which developer 'the other game developer' is. The same post is recorded in the Scott file as scott-2019-silver-parasol-logo."
   },
   {
     "id": "scott-not-part-of-lore",
@@ -1721,7 +1721,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/a_lore_question_about_help_wanted_and_an_answer/",
     "verifiedVia": "Arctic Shift Reddit archive, post id daxx9z (r/fivenightsatfreddys, 2019-09-29), full text read",
-    "notes": "Wording verified against the archived post. He continues: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' He says the device lets one canon game hold canon, 'questionably canon' and all-timeline characters. The same post is recorded in the Scott file (scott-2019-not-canon-list, scott-2019-help-wanted-is-canon); the lead should keep one set."
+    "notes": "Wording verified against the archived post. He continues: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' He says the device lets one canon game hold canon, 'questionably canon' and all-timeline characters. The same post is recorded in the Scott file (scott-2019-not-canon-list, scott-2019-help-wanted-is-canon)."
   },
   {
     "id": "codb-handunit-no-hidden-intent",
@@ -1777,12 +1777,12 @@
     ],
     "image": "codb-fallfest-83-banner.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Curse_of_Dreadbear_(Mode)",
-    "notes": "Read from the wiki's screenshot. The same year is printed on FNaF4's TV (fnaf4-fredbear-and-friends-1983). Help Wanted 2 has a 'FALL FEST' poster dated 1970 (hw2-fall-fest-1970-poster), and Secret of the Mimic's Fiona leaves to help a Fall Fest installation (secret-of-the-mimic-log-installation-worries)."
+    "notes": "Read from the wiki's screenshot. FNaF4's TV shows the year 1983 (fnaf4-fredbear-and-friends-1983); the banner, a prop in the hub of the company's VR game, gives only 83'. Help Wanted 2 has a 'FALL FEST' poster dated 1970 (hw2-fall-fest-1970-poster), and Secret of the Mimic's Fiona leaves to help a Fall Fest installation (secret-of-the-mimic-log-installation-worries)."
   },
   {
     "id": "codb-fnaf4-house-on-hill",
-    "title": "FNaF4's house on the hill in the background",
-    "claim": "The FNaF4 menu house sits on a hill in the hub's background, and the sky can randomly turn red/orange like FNaF4's menu.",
+    "title": "A house on a hill in the hub's background, like FNaF4's menu house",
+    "claim": "A house on a hill in the hub's background looks like the house on FNaF4's menu, and the sky can randomly turn red/orange as on that menu.",
     "game": "curse-of-dreadbear",
     "kind": "environment",
     "location": "Curse of Dreadbear Halloween Hub (background)",
@@ -2084,8 +2084,8 @@
   {
     "id": "sd-ness-compliance-searches",
     "title": "Ness searched 'how to induce compliance in human subjects'",
-    "claim": "Luis tells Ness her searches 'how to induce compliance in human subjects' and 'how to induce self-compliance(?)' got his attention, followed by a search for just 'help'.",
-    "quote": "the sentence how to induce compliance in human subjects, and how to induce self-compliance(?) did actually get my attention.",
+    "claim": "Luis tells Ness her searches 'how to induce compliance in human subjects' and 'how to induce self-compliance(?)' got his attention, and asks whether she searched for 'help' by itself.",
+    "quote": "the sentence how to induce compliance in human subjects, and how to induce self-compliance(?) did actually get my attention. … Did you search for 'help' by itself?",
     "game": "special-delivery",
     "kind": "text",
     "location": "Story email '(no subject)' from luis.cabrera",
@@ -2250,12 +2250,12 @@
       "hw-tape-05"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The contractor is never named. Its staff (Anna Kwemto, Raha Salib, Mark Cho, Daniel Rocha, Steven Wilson) share no names with Help Wanted's first studio (Dale, Jeremy and the tape speaker), it handles whole animatronics where that studio was sent loose 'junk', and it has 'other contracts' (sd-fe-halts-all-contractors). Emails that were data-mined but never delivered tie the two together; they are not in the released game."
+    "notes": "The contractor is never named. Its staff (Anna Kwemto, Raha Salib, Mark Cho, Daniel Rocha, Steven Wilson) share no names with Help Wanted's first studio (Dale, Jeremy and the tape speaker), it handles whole animatronics where that studio was sent loose 'junk', and it has 'other contracts' (sd-fe-halts-all-contractors). Emails that were data-mined but never delivered are not in the released game and are not used here."
   },
   {
     "id": "sd-circuit-board-scan-virus",
-    "title": "Scanning an FE circuit board released a virus",
-    "claim": "Steven Wilson is locked out of the contractor's system with an 'unknown error' just after scanning the last set of circuit boards. Days later Daniel Rocha reports that scanning that last circuit board released a virus that is spreading fast.",
+    "title": "Scanning the last circuit board released a virus",
+    "claim": "Steven Wilson is locked out of the contractor's system with an 'unknown error' just after scanning the last set of circuit boards. In a later email Daniel Rocha reports that scanning that last circuit board released a virus that is spreading fast.",
     "quote": "Turns out that wasn't just a glitch, we released a virus when we scanned that last circuit board. It's spreading really fast, we're going to need all hands on deck.",
     "game": "special-delivery",
     "kind": "text",
@@ -2282,7 +2282,7 @@
       "sd-which-board-unknown"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "Two emails: 'system glitch' (Steven Wilson, sent November 30, 2019 per the wiki) and 'virus detected' (Daniel Rocha, December 5). The emails never describe the virus as a rabbit or give it a name, and never say which animatronic the board came from (sd-which-board-unknown)."
+    "notes": "Two emails: 'system glitch' (Steven Wilson, delivered to players November 30, 2019 per the wiki) and 'virus detected' (Daniel Rocha, December 5). The emails never describe the virus as a rabbit or give it a name, and never say which animatronic the board came from (sd-which-board-unknown)."
   },
   {
     "id": "sd-fe-legal-halt-vintage-hardware",
@@ -2314,7 +2314,7 @@
       "sd-circuit-board-scan-virus"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "Sent the day after Steven Wilson was locked out and four days before the contractor realised it was a virus (delivery dates per the wiki). Anna Kwemto reads it as a halt for every contractor (sd-fe-halts-all-contractors)."
+    "notes": "Delivered to players one day after the 'system glitch' email and four days before the 'virus detected' email (delivery days per the wiki; the emails carry no dates). Anna Kwemto reads it as a halt for every contractor (sd-fe-halts-all-contractors)."
   },
   {
     "id": "sd-virus-traced-to-fe-board",
@@ -2341,11 +2341,11 @@
       "virus"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The follow-up ('URGENT: virus', sent December 10, 2019 per the wiki) is addressed to James Campbell and Anna Kwemto and says the virus is 'causing serious problems'. No reply is delivered."
+    "notes": "The follow-up ('URGENT: virus', delivered to players December 10, 2019 per the wiki) is addressed to James Campbell and Anna Kwemto and says the virus is 'causing serious problems'. No reply is delivered."
   },
   {
     "id": "sd-mail-server-advisory",
-    "title": "Why the player sees these emails",
+    "title": "Staff advisory: the mail server may misdirect email",
     "claim": "A Fazbear Legal staff advisory says the mail server may be directing email to incorrect recipients and that reading email not addressed to you violates company policy.",
     "quote": "Due to technical complications, our mail server may be directing email to incorrect recipients.",
     "game": "special-delivery",
@@ -2366,7 +2366,7 @@
       "emails"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The only story email every new player receives. It frames the player as a customer accidentally receiving Fazbear Entertainment's internal mail."
+    "notes": "The only story email every new player receives. The usual reading is that this advisory is why the player receives the story emails."
   },
   {
     "id": "sd-vintage-bonnie-reports",
@@ -2398,7 +2398,7 @@
       "sd-rebuilds-of-original-animatronics"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The email does not name the animatronic; it coincides with Springtrap being added to the game. Unlike the service's own machines, which its staff call 'rebuilds' (sd-rebuilds-of-original-animatronics), this one is described as old, unlisted and foul-smelling."
+    "notes": "The email does not name the animatronic; it coincides with Springtrap being added to the game. Compliance elsewhere speaks of 'our rebuilds' of one model (sd-rebuilds-of-original-animatronics); this animatronic is described as vintage, unlisted and foul-smelling."
   },
   {
     "id": "sd-circuit-board-does-what-we-tell-it",
@@ -2425,7 +2425,7 @@
       "denial"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "QA's question was sent March 11, 2020 and the reply March 12 (per the wiki). The wiki template lists the reply's sender and recipient the wrong way round; the text is signed 'Tristan'. A second round follows in April 2020: R&D insists it 'HAS NOT TOUCHED THE ANIMATRONICS' while testers still complain about aggressiveness."
+    "notes": "QA's question was delivered to players on March 11, 2020 and the reply on March 12 (delivery days per the wiki). The wiki template lists the reply's sender and recipient the wrong way round; the text is signed 'Tristan'. A second round was delivered in April 2020: R&D insists it 'HAS NOT TOUCHED THE ANIMATRONICS' while testers still complain about aggressiveness."
   },
   {
     "id": "sd-ffs-never-alone-ad",
@@ -2536,11 +2536,11 @@
       "hw2-remove-mask-real-world"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program",
-    "notes": "The store synopsis calls the player a 'brand new Fazbear employee'; that is marketing copy, not in-game text. The in-game statement of the player's job is Glamrock Freddy's (hw2-glam-freddy-fazbear-technician). The wording of the narrated intro slideshow could not be verified."
+    "notes": "The store synopsis calls the player a 'brand new Fazbear employee'; that is marketing copy, not in-game text. The one in-game line found about the player's job is Glamrock Freddy's question (hw2-glam-freddy-fazbear-technician). The wording of the narrated intro slideshow could not be verified."
   },
   {
     "id": "hw2-remove-mask-real-world",
-    "title": "Removing the mask reveals a ruined real world",
+    "title": "Removing the mask shows the hub as a dark, derelict room",
     "claim": "After the player disables a device in the hidden room with the Faz-Wrench, the 'Remove Mask' control works: lifting the mask shows that the bright hub is really a dark, derelict room, and harder versions of the levels become available. The achievement text reads 'See the world as it really is.'",
     "quote": "See the world as it really is.",
     "game": "help-wanted-2",
@@ -2569,7 +2569,7 @@
     ],
     "image": "hw2-hub-real-world.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
-    "notes": "Help Wanted 2 never names the mask on screen; RUIN calls the same design the Security Mask and its system V.A.N.N.I. (ruin-mask-bot-helpi-vanni), and RUIN's Helpi calls the blocking device an 'AR Inhibitor'. A poster in the hidden room tells staff to take their mask off when clocking out (hw2-poster-take-off-your-mask). The same line appears among the unused 'Vanny' recordings (hw2-unused-vanny-dont-help-it-escape)."
+    "notes": "Help Wanted 2 never names the mask on screen; RUIN calls the same design the Security Mask and its system V.A.N.N.I. (ruin-mask-bot-helpi-vanni), and RUIN's Helpi calls the blocking device an 'AR Inhibitor'. A poster in the hidden room tells staff to take their mask off when clocking out (hw2-poster-take-off-your-mask)."
   },
   {
     "id": "hw2-faz-wrench-after-16-prizes",
@@ -2654,8 +2654,8 @@
   },
   {
     "id": "hw2-faz-force-ending",
-    "title": "Faz Force ending: a rabbit arm from a recharge station, S.T.A.F.F. bots, a mask handed to a girl",
-    "claim": "Combining all six Faz Force figures makes a large box appear on the hub stage. Unwinding it reveals a recharge station from which a rabbit-costumed arm emerges, while S.T.A.F.F. bots with painted Nightmarionne faces close in on the player. The view then cuts to a S.T.A.F.F. bot starting up and holding a rabbit mask out to a girl.",
+    "title": "Faz Force ending: a rabbit-costumed arm from a recharge station, S.T.A.F.F. bots, a mask held out to a girl",
+    "claim": "By the wiki's summaries of the ending, combining all six Faz Force figures makes a large box appear on the hub stage. Unwinding it uncovers a recharge station from which a rabbit-costumed arm emerges, while S.T.A.F.F. bots with painted Nightmarionne faces close in on the player. The view then cuts to a S.T.A.F.F. bot starting up and holding a rabbit mask out to a girl.",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Main ending (all 6 Faz Force figures)",
@@ -2685,12 +2685,12 @@
       "hw2-faz-force-six-figures"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Described from the wiki's ending summaries; the scene itself was not watched. The wiki identifies the girl as RUIN's Cassie and the bot as RUIN's Mask Bot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni), and says the last shot is in first person from the bot. Security Breach's burnt rabbit animatronic also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading."
+    "notes": "Described from the wiki's ending summaries; the scene itself was not watched. The wiki identifies the girl as RUIN's Cassie and the bot as RUIN's Mask Bot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni), and says the last shot is in first person from the bot. In Security Breach the burnt rabbit under the Pizzaplex also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading."
   },
   {
     "id": "hw2-faz-force-achievement",
     "title": "'Batteries Not Included': 'Take this mask.'",
-    "claim": "The main-ending achievement 'Batteries Not Included' reads 'Take this mask. Take this mask.' It echoes, without matching exactly, RUIN's Mask Bot line 'Take a mask. Take a mask.'",
+    "claim": "The main-ending achievement 'Batteries Not Included' reads 'Take this mask. Take this mask.' RUIN's Mask Bot says 'Take a mask. Take a mask.'; the two wordings are close but not the same.",
     "quote": "Take this mask. Take this mask.",
     "game": "help-wanted-2",
     "kind": "text",
@@ -2820,7 +2820,7 @@
       "ffps-lorekeeper-gravestones"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
-    "notes": "Which 'Jeremy' is meant is not stated. The title reuses Help Wanted's 'Remember Jeremy.' (hw-game-over-remember-jeremy), and its icon is the only place a game pairs the name Jeremy with Bonnie. FFPS has a 'Jeremy' gravestone (ffps-lorekeeper-gravestones); FNaF2's guard is Jeremy Fitzgerald. The pairing is suggestive, not a statement."
+    "notes": "Which 'Jeremy' is meant is not stated. The title reuses Help Wanted's 'Remember Jeremy.' (hw-game-over-remember-jeremy), and its icon is the only place this archive has found a game pairing the name Jeremy with Bonnie. FFPS has a 'Jeremy' gravestone (ffps-lorekeeper-gravestones); FNaF2's guard is Jeremy Fitzgerald. The pairing is suggestive, not a statement."
   },
   {
     "id": "hw2-puppet-master-1983",
@@ -2853,12 +2853,12 @@
       "hw2-memory-dolls"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Sister_Location_(FNaF:_HW2)",
-    "notes": "Sister Location's Private Room keypad is also reported to take 1983 (wiki; the Sister Location file had no record of it when this was written), and this level is set in that same Private Room. After the December 2024 update the same keypad takes 1979 (hw2-mimic-teaser-1979-white-tiger)."
+    "notes": "Sister Location's Private Room keypad takes 1-9-8-3 as well (sl-private-room-keypad-1983; there the digits rest on the wiki's text), and this level restages that room. After the December 2024 update the same keypad takes 1979 (hw2-mimic-teaser-1979-white-tiger)."
   },
   {
     "id": "hw2-pq4-unlock",
-    "title": "Princess Quest IV unlocked by the memories",
-    "claim": "Collecting all six memory dolls and inserting a corrupted (purple) Faz-Token given by Mystic Hippo starts the 'Princess Quest IV' cabinet in the hidden room. Its title screen reads 'Princess Quest (Alpha)'.",
+    "title": "Princess Quest IV starts after six dolls and a purple Faz-Token",
+    "claim": "Collecting all six memory dolls and inserting a purple Faz-Token given by Mystic Hippo starts the 'Princess Quest IV' cabinet in the hidden room. Its title screen reads 'Princess Quest (Alpha)'.",
     "game": "help-wanted-2",
     "kind": "hidden",
     "location": "Hidden conduit room: Princess Quest IV cabinet",
@@ -2885,8 +2885,8 @@
   },
   {
     "id": "hw2-pq4-old-man",
-    "title": "Princess Quest IV: the Old Man",
-    "claim": "In Princess Quest IV an old man sprite gives the Princess the sword of light and later makes a trade. His on-screen lines include 'You are Won. And you remain.', 'What is left that is hidden.', 'Now go to next room.' and 'It is a fair trade'.",
+    "title": "Princess Quest IV: the old man's lines",
+    "claim": "In Princess Quest IV an old man sprite gives the Princess a sword and later makes a trade. His on-screen lines include 'You are Won. And you remain.', 'What is left that is hidden.', 'Now go to next room.' and 'It is a fair trade'.",
     "quote": "It is a fair trade",
     "game": "help-wanted-2",
     "kind": "minigame",
@@ -2913,7 +2913,7 @@
   },
   {
     "id": "hw2-pq4-player-enters-game",
-    "title": "PQ IV: the Princess pulls the player into the game",
+    "title": "PQ IV: struck by the Princess, the player is inside the game",
     "claim": "Midway through Princess Quest IV, the Princess appears beside the player and, when she strikes them, the player is transported inside the game, continuing in first person with her sword.",
     "game": "help-wanted-2",
     "kind": "minigame",
@@ -3014,7 +3014,7 @@
     "claim": "At the end of Princess Quest IV the old man gives the player the glowing green rabbit plush in exchange for the rabbit mask the player has worn throughout Help Wanted 2, with the on-screen line 'It is a fair trade'.",
     "game": "help-wanted-2",
     "kind": "minigame",
-    "location": "Princess Quest IV (Old Man trade)",
+    "location": "Princess Quest IV (the old man's trade)",
     "certainty": "shown",
     "when": {
       "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
@@ -3082,7 +3082,7 @@
   },
   {
     "id": "hw2-pq4-vanny-crushes-glitchtrap",
-    "title": "PQ IV ending: the giant rabbit-masked figure crushes the tiny rabbit",
+    "title": "PQ IV ending: the giant rabbit-headed figure crushes the tiny rabbit",
     "claim": "The giant rabbit-headed figure takes the plush, draws a tiny copy of Help Wanted's rabbit figure out of the prize chute, crushes it between its hands, and fades into the darkness.",
     "game": "help-wanted-2",
     "kind": "ending",
@@ -3174,16 +3174,16 @@
     ],
     "image": "hw2-white-tiger-hand.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program",
-    "notes": "The game never says 1979 is a year, but Mystic Hippo's hint for this secret is 'A gift awaits you in the distant past.' (hw2-mystic-hippo-gift-distant-past), and the same keypad's other code is 1983. In Secret of the Mimic the White Tiger doll is what calms the Mimic (secret-of-the-mimic-ending-story-time). A poster of the Jackie jack-in-the-box also appears on the level's desk after the update."
+    "notes": "The game never says 1979 is a year, but Mystic Hippo's hint for this secret is 'A gift awaits you in the distant past.' (hw2-mystic-hippo-gift-distant-past), and the same keypad's other code is 1983. In Secret of the Mimic's Story Time ending Arnold brings the White Tiger doll and the story quilt to the Mimic before it sleeps (secret-of-the-mimic-ending-story-time). A poster of the Jackie jack-in-the-box also appears on the level's desk after the update."
   },
   {
     "id": "hw2-mimic-teaser-mxes-ending",
-    "title": "Puzzle ending: the costume shop and the M.X.E.S. van",
-    "claim": "Completing a jigsaw printed 'MCM DOUBLE-VISION PUZZLE', which shows a shopfront signed 'MASKS' and 'GIFTS HERE', makes that building appear beside the hub with a mailbox numbered 4625. Removing the mask reveals a white van; its doors open on a machine with a keypad, and entering 4625 shows a glitching rabbit-shaped figure emerge from the machine, get pulled back in, and the van drive away.",
+    "title": "Puzzle ending: the 'MASKS' shopfront and the white van",
+    "claim": "Completing a jigsaw lettered 'MCM DOUBLE-VISION PUZZLE', which shows a shopfront signed 'MASKS' and 'GIFTS HERE', makes that building appear beside the hub with a mailbox numbered 4625. With the mask off, a white van stands there; its doors open on a machine with a keypad, and entering 4625 shows a glitching rabbit-shaped figure emerge from the machine, get pulled back in, and the van drive away.",
     "quote": "4625",
     "game": "help-wanted-2",
     "kind": "ending",
-    "location": "Teaser area (1.017 update) — M.X.E.S. Code ending",
+    "location": "Teaser area (1.017 update): the jigsaw ending (the wiki's 'M.X.E.S. Code ending')",
     "certainty": "shown",
     "when": {
       "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
@@ -3205,7 +3205,7 @@
     ],
     "image": "hw2-mcm-puzzle.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Secret of the Mimic names the building Murray's Costume Manor and uses 4625 as a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); the wiki calls the figure the M.X.E.S. Entity, and RUIN's Helpi calls it 'the entity'."
+    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; in the RUIN dialogue checked it is 'that rabbit thing' (ruin-the-entity)."
   },
   {
     "id": "hw2-mystic-hippo-hello",
@@ -3264,7 +3264,7 @@
       "rabbit-figure"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
-    "notes": "Said when directing the player to use the Faz-Wrench on the hidden room; she also says 'The key is familiar to you.' The unused 'Vanny' recordings say the same thing more plainly: 'I was able to upload some helpful code... It should look like a key.'"
+    "notes": "She also says 'The key is familiar to you.' The usual reading is that the key is the Faz-Wrench, which opens the hidden room (hw2-faz-wrench-after-16-prizes)."
   },
   {
     "id": "hw2-mystic-hippo-she-needs-you",
@@ -3346,7 +3346,7 @@
       "lure"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fazbear_Orientation_Program",
-    "notes": "Allegorical. Mapping it onto particular characters is interpretation; RUIN's Candy Cadet tells a different story about a monster locked in a basement (ruin-candy-cadet-story)."
+    "notes": "Often read as an allegory. Mapping it onto particular characters is interpretation; RUIN's Candy Cadet tells a different story about a monster locked in a basement (ruin-candy-cadet-story)."
   },
   {
     "id": "hw2-candy-cadet-family-story",
@@ -3402,7 +3402,7 @@
   },
   {
     "id": "hw2-fazerblast-fire-springtrap",
-    "title": "Fazerblast fire reveals a Springtrap cutout",
+    "title": "After the Fazerblast fire: a Springtrap cutout to defeat",
     "claim": "Triggering a chain reaction sets Fazerblast on fire at the end of the FNAF 2 level; in the unlocked FNAF 3 level the burned Carnie powers down and a cardboard cutout of Springtrap behind him must be defeated.",
     "quote": "Where ya' goin'? Don't let a little fire stop the fun! Come on back!",
     "game": "help-wanted-2",
@@ -3430,11 +3430,11 @@
   },
   {
     "id": "hw2-springtrap-cutout-pq3-scream",
-    "title": "Springtrap cutout shares the scream that ends Princess Quest III",
+    "title": "Wiki: the Springtrap cutout's scream is the sound that ends Princess Quest III",
     "claim": "According to the wiki's audio listing, the scream the Springtrap cutout makes when defeated is the same sound that plays when Security Breach's Princess Quest III ends.",
     "game": "help-wanted-2",
     "kind": "hidden",
-    "location": "Fazerblast: FNAF 3 (defeat sound; shared audio file)",
+    "location": "Fazerblast: FNAF 3 (defeat sound; audio file as listed by the wiki)",
     "certainty": "implied",
     "when": {
       "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
@@ -3454,12 +3454,12 @@
       "rabbit-figure"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
-    "notes": "A shared sound file reported by the wiki; not checked by ear. If right, the game uses one voice for Springtrap and for whatever is behind the Princess Quest III door."
+    "notes": "A shared sound file reported by the wiki; not checked by ear. If right, one sound file serves both moments; what that means is for the theory."
   },
   {
     "id": "hw2-endo-warehouse",
-    "title": "Endo Warehouse: teaching personalities to endos",
-    "claim": "The Endo Warehouse level has the player feed behavior data to learning endoskeletons, framed as preparing endos for life in the Pizzaplex.",
+    "title": "Endo Warehouse: 'Prepare Endos for life in the Pizza Plex'",
+    "claim": "By the wiki's description, the Endo Warehouse level has the player feed behavior data to learning endoskeletons; the menu synopsis frames it as preparing endos for life in the Pizzaplex.",
     "quote": "Teaching time! Prepare Endos for life in the Pizza Plex.",
     "game": "help-wanted-2",
     "kind": "minigame",
@@ -3485,8 +3485,8 @@
   },
   {
     "id": "hw2-roxy-repair-mask",
-    "title": "Repair Roxy: the player fits a shattered Roxanne with a face mask",
-    "claim": "In Salon: Roxy Repair, the mask-off version of the makeover level, the salon is derelict as in RUIN and Roxanne Wolf is shattered, her face more damaged than at the end of Security Breach. The player repairs her and fits her with a face mask; she says 'Just give me that mask and get out!'",
+    "title": "Repair Roxy: the player fits the wrecked Roxanne with a face mask",
+    "claim": "In Salon: Roxy Repair, the mask-off version of the makeover level, the salon is derelict as in RUIN and Roxanne Wolf is wrecked, her face more damaged than at the end of Security Breach. The player repairs her and fits her with a face mask; she says 'Just give me that mask and get out!'",
     "quote": "Just give me that mask and get out!",
     "game": "help-wanted-2",
     "kind": "minigame",
@@ -3512,7 +3512,7 @@
       "hw2-roxy-he-is-still-out-there"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Roxanne_Wolf/Audio",
-    "notes": "The mask is the one Roxanne wears in RUIN, per the wiki. This places Help Wanted 2's real-world scenes after Security Breach's night and before RUIN. Her other lines here are in hw2-roxy-he-is-still-out-there."
+    "notes": "The mask is the one Roxanne wears in RUIN, per the wiki. On that reading Help Wanted 2's mask-off scenes fall after Security Breach's night and before RUIN; the game gives no date. Her other lines here are in hw2-roxy-he-is-still-out-there."
   },
   {
     "id": "hw2-cold-storage-jimmy-cake",
@@ -3568,7 +3568,7 @@
       "rabbit-figure"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
-    "notes": "Cut content found in the files, never played in the game, so weaker than anything heard in play. It separates an 'it' that is using the player from a 'his' whose code has nearly gone. Other unused lines: 'I was able to upload some helpful code... It should look like a key.', 'It kept you for a reason.', 'You are the last.', 'Deactivate the inhibitor.', 'Remove your Mask.', 'See the world as it really is.', 'Bring him to me.'"
+    "notes": "Cut content found in the files and never played in the game. The recording uses 'it', 'she' and 'his'; it does not say whether 'it' and 'his' are the same thing. Other unused lines: 'I was able to upload some helpful code... It should look like a key.', 'It kept you for a reason.', 'You are the last.', 'Deactivate the inhibitor.', 'Remove your Mask.', 'See the world as it really is.', 'Bring him to me.'"
   },
   {
     "id": "hw2-unused-vanny-bound-to-past",
@@ -3599,7 +3599,7 @@
       "hw2-memory-dolls"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
-    "notes": "Cut content; it shows what the developers once meant the memory dolls to be, but is not heard in play."
+    "notes": "Cut content, not heard in play. That 'its memories' are the dolls the player collects is a reading."
   },
   {
     "id": "hw-tape-05-client-sent-junk-to-scan",
@@ -3632,12 +3632,12 @@
       "sd-fe-legal-halt-vintage-hardware"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tapes",
-    "notes": "That the client took the material back is the speaker's inference. In Special Delivery, Fazbear's legal office likewise stops a contractor's work on 'vintage hardware' the day after a scan goes wrong (sd-fe-legal-halt-vintage-hardware)."
+    "notes": "That the client took the material back is the speaker's inference. In Special Delivery, Fazbear's legal office likewise stops a contractor's work on 'vintage hardware' after a scan goes wrong (sd-fe-legal-halt-vintage-hardware)."
   },
   {
     "id": "hw-rabbit-figure-appearance",
-    "title": "What the anomaly looks like: a man-shaped figure in a yellow rabbit costume",
-    "claim": "The anomaly appears as a grinning, man-shaped figure in a golden-yellow rabbit costume, with a purple star-speckled vest, a purple bow tie, two buttons, stitching across its hand and glowing purple eyes. It is translucent at first and waves at the player.",
+    "title": "What the anomaly looks like: a person-shaped figure in a yellow rabbit costume",
+    "claim": "The anomaly appears as a grinning, person-shaped figure in a golden-yellow rabbit costume, with a purple star-speckled vest, a purple bow tie, two buttons, stitching across its hand and glowing purple eyes. It is translucent at first and waves at the player.",
     "game": "help-wanted",
     "kind": "environment",
     "location": "Help Wanted hub and levels (the figure as it appears once tapes are being collected)",
@@ -3699,7 +3699,7 @@
     ],
     "image": "hw-intro-closed-poster.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:IntroPoster_Shutdown.png",
-    "notes": "The company's own introduction pictures a closure with police involvement as part of its past, alongside HandUnit's admission that some stories 'were loosely based on actual events'. The other posters in the sequence are the title card ('Five Nights at Freddy's VR: Help Wanted'), a merchandise display and the developer photo. Which narration line each poster accompanies was not checked."
+    "notes": "The poster is part of the company's own introduction, in which HandUnit also says some stories 'were loosely based on actual events' (hw-intro-loosely-based-on-actual-events). The poster does not say which closure it pictures. The other posters in the sequence are the title card ('Five Nights at Freddy's VR: Help Wanted'), a merchandise display and the developer photo. Which narration line each poster accompanies was not checked."
   },
   {
     "id": "hw-intro-waiver-not-based-on-testing-injuries",
@@ -3868,7 +3868,7 @@
   {
     "id": "hw-pizza-party-coming-soon-construction",
     "title": "Hidden exit: a building under construction and a 'Coming soon' sign",
-    "claim": "After the rabbit plush has been obtained, an Employees Only door with snow blowing through it appears backstage in Pizza Party. Beyond it is a snowy site with a large structure under construction, a wooden cart, a small house and a sign reading 'Coming soon'.",
+    "claim": "By the wiki's description, after the rabbit plush has been obtained an Employees Only door with snow blowing through it appears backstage in Pizza Party. Beyond it is a snowy site with a large structure under construction, a wooden cart, a small house and a sign reading 'Coming soon'.",
     "quote": "Coming soon",
     "game": "help-wanted",
     "kind": "hidden",
@@ -3954,12 +3954,12 @@
       "scottgames-sb-source-stay-the-course"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Vanessa/Audio",
-    "notes": "She is answering instructions. Who is speaking to her is never heard or named."
+    "notes": "Only her side is heard; her replies read like answers to instructions. Who is speaking to her is never heard or named."
   },
   {
     "id": "codb-hallway-ends-in-fnaf4-bedroom",
     "title": "Hallway Crawl ends in FNaF4's bedroom",
-    "claim": "The Hallway level has the player walk a dark, storm-lit corridor past the four Nightmare animatronics. It ends at a white door that opens into the bedroom from FNaF4.",
+    "claim": "By the wiki's level description, the Hallway level has the player walk a dark, storm-lit corridor past the four Nightmare animatronics. It ends at a white door that opens into the bedroom from FNaF4.",
     "game": "curse-of-dreadbear",
     "kind": "minigame",
     "location": "Spooky Mansion: Hallway ('Hallway Crawl')",
@@ -3982,7 +3982,7 @@
       "codb-fallfest-83-banner"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Spooky_Mansion",
-    "notes": "From the wiki's level description. With the house on the hub's hill and the banner's 83, this is the add-on's third pointer at FNaF4's setting and year."
+    "notes": "From the wiki's level description. Compare the house on the hub's hill (codb-fnaf4-house-on-hill) and the Fall Fest banner's 83 (codb-fallfest-83-banner); the add-on does not say what any of the three refers to."
   },
   {
     "id": "sd-tutorial-remnant-collection",
@@ -4017,7 +4017,7 @@
   {
     "id": "sd-shadowy-remnant-surprise",
     "title": "Tutorial Unit warns of 'Shadowy Remnant'",
-    "claim": "Tutorial Unit warns that 'Shadowy Remnant' guards the bright kind and that the player 'may get a surprise you won't like at all'. Collecting enough of the dark kind summons a hostile shadow rabbit.",
+    "claim": "Tutorial Unit warns that 'Shadowy Remnant' guards the bright kind and that the player 'may get a surprise you won't like at all'.",
     "quote": "Be careful to avoid the Sh-hadowy Remnant guarding it or you may get a surprise you won't like at all.",
     "game": "special-delivery",
     "kind": "dialogue",
@@ -4042,7 +4042,7 @@
       "fnaf3-shadow-bonnie-minigame"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tutorial_Unit",
-    "notes": "The dialogue does not name the surprise. The wiki identifies it as the shadow Bonnie of FNaF2 and FNaF3 and says it appears when enough dark Remnant is collected in a short time."
+    "notes": "The dialogue does not name the surprise. The wiki says that collecting enough of the dark kind in a short time brings out a hostile dark rabbit, which it identifies with the dark rabbit of FNaF2 and FNaF3."
   },
   {
     "id": "sd-cpu-whole-new-personality",
@@ -4073,12 +4073,12 @@
       "sd-circuit-board-does-what-we-tell-it"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The workshop description is from the wiki's game page. The game's mechanics treat a character's personality as something carried on a swappable board, the premise behind Help Wanted's 'personalities from the past' recreated from vintage control boards."
+    "notes": "The workshop description is from the wiki's game page. The game's mechanics treat a character's personality as something carried on a swappable board. Compare HandUnit's account in Help Wanted of characters recreated from vintage control boards (hw-handunit-vintage-control-boards); that the two games mean the same thing is a reading."
   },
   {
     "id": "sd-contractor-storing-animatronics",
     "title": "Contractor staff: 'These things are creeping me out'",
-    "claim": "Two of the contractor's staff complain about the animatronics delivered to their premises: they are creepy, there is no room for them, and they do not know why their manager agreed to the job.",
+    "claim": "Two of the contractor's staff complain about things kept at their premises, which these replies do not name: they are creepy, there is no room for them, and the two do not know why their manager agreed to the job.",
     "quote": "We don't have room for them, I don't know why Anna agreed to take this job.",
     "game": "special-delivery",
     "kind": "text",
@@ -4103,11 +4103,11 @@
       "sd-contractor-circuit-boards-drilled"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "Mark Cho opens with 'These things are creeping me out'; the exchange ends '$$$$$' / 'More like $'. The wiki files these replies under the same subject line as Luis Cabrera's first email to Ness, sent the same day; they read as a separate thread."
+    "notes": "Mark Cho opens with 'These things are creeping me out'; the exchange ends '$$$$$' / 'More like $'. The wiki files these replies under the same subject line as Luis Cabrera's first email to Ness, delivered the same day; they read as a separate thread. The next thread speaks of 'the casings on the animatronics' (sd-contractor-circuit-boards-drilled)."
   },
   {
     "id": "sd-fe-halts-all-contractors",
-    "title": "Anna Kwemto: Fazbear is halting work with all its contractors",
+    "title": "Anna Kwemto: 'It sounds like they're halting work with all their contractors'",
     "claim": "Forwarding the legal notice to her staff, Anna Kwemto says Fazbear has ordered them to stop and that it sounds as if it is halting work with all its contractors, not only hers. Staff will be paid for work to date; one says they have other contracts, another that this was a big job.",
     "quote": "It sounds like they're halting work with all their contractors, not just us.",
     "game": "special-delivery",
@@ -4142,7 +4142,7 @@
     "id": "sd-which-board-unknown",
     "title": "'Which circuit board did you scan?' 'Whatever Dan brought me'",
     "claim": "Asked which circuit board he scanned before the system locked him out, Steven Wilson answers only 'Whatever Dan brought me'. The delivered emails never say which animatronic the board came from.",
-    "quote": "Steve, which circuit board did you scan?",
+    "quote": "Steve, which circuit board did you scan? / Whatever Dan brought me",
     "game": "special-delivery",
     "kind": "text",
     "location": "Story emails 'Re: system glitch' (Raha Salib, Steven Wilson)",
@@ -4168,12 +4168,12 @@
       "hw-tape-05"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "Neither Help Wanted nor Special Delivery names the machine whose board carried the code. Any link to Springtrap or Scraptrap rests on the rabbit figure's look and on the decoded Princess Quest line, not on a statement."
+    "notes": "Neither Help Wanted nor Special Delivery names the machine whose board carried the code. Any link to Springtrap or to the salvaged rabbit of Pizzeria Simulator rests on the rabbit figure's look and on the fan decode of the Princess Quest glyph line (hw-mobile-princess-quest-final-room), not on a statement."
   },
   {
     "id": "sd-rebuilds-of-original-animatronics",
-    "title": "Fazbear staff call the service's animatronics 'rebuilds' of 'the original'",
-    "claim": "Inside Fazbear Entertainment, Compliance complains that 'the original' Mangle 'was purportedly able to move along the ceiling' while 'our rebuilds' can barely move on level ground. R&D replies that it warned management that 'reproducing the more exotic endoskeletons' would be a problem.",
+    "title": "Compliance on a new model: 'the original' against 'our rebuilds'",
+    "claim": "Inside Fazbear Entertainment, Compliance complains that 'the original' of a new model 'was purportedly able to move along the ceiling' while 'our rebuilds' can barely move on level ground. R&D replies that it warned management that 'reproducing the more exotic endoskeletons' would be a problem. The emails do not name the model.",
     "quote": "The original was purportedly able to move along the ceiling, and from what I'm seeing here, we're having issues getting our rebuilds to even move on level ground properly.",
     "game": "special-delivery",
     "kind": "text",
@@ -4202,7 +4202,7 @@
       "sd-mangle-original-restaurants"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "Company staff, writing privately, treat the FNaF2-era Mangle as a real machine that once existed and is known to them by reputation ('purportedly'). The service's own animatronics are new builds; R&D speaks of 'a new model based on the same bipedal chassis'."
+    "notes": "The usual reading is that the model is the Mangle, which joined the service when these emails reached players (sd-mangle-original-restaurants); the emails do not name it or say where 'the original' ran. Compliance speaks of 'the original' as a machine known by report ('purportedly'). R&D contrasts it with 'a new model based on the same bipedal chassis'."
   },
   {
     "id": "sd-mangle-original-restaurants",
@@ -4265,7 +4265,7 @@
       "fnaf2-call4-facial-recognition-tampered"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "FNaF2's Toy animatronics also had facial recognition (fnaf2-call1-criminal-database). An earlier pair of emails (January 17, 2020) reports a tester seeing a Toy model's eyes change colour 'before the behavioral matrix went haywire'; R&D has it logged as 'Cannot Reproduce'."
+    "notes": "FNaF2's Toy animatronics also had facial recognition (fnaf2-call1-criminal-database). An earlier pair of emails (delivered to players January 17, 2020) reports a tester seeing a Toy model's eyes change colour 'before the behavioral matrix went haywire'; R&D has it logged as 'Cannot Reproduce'."
   },
   {
     "id": "sd-circus-baby-something-bad-inside",
@@ -4297,7 +4297,7 @@
       "sd-cpu-whole-new-personality"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "Other verified lines: 'There is something bad... inside of me...', 'Five... four... three... two... one... none.', 'Would you like me to make ice cream for you?'. These restage Sister Location (sl-baby-something-bad-inside, sl-real-ending-if-we-looked-like-you). The service's machines are company rebuilds running swappable CPUs, so the lines show a rebuilt machine reproducing the original's words; the game does not say why it can."
+    "notes": "Other verified lines: 'There is something bad... inside of me...', 'Five... four... three... two... one... none.', 'Would you like me to make ice cream for you?'. The lines repeat or come close to ones spoken in Sister Location (sl-baby-something-bad-inside, sl-real-ending-if-we-looked-like-you). The game does not say how the service's Circus Baby comes to have them."
   },
   {
     "id": "sd-springtrap-pulled-apart-put-back-together",
@@ -4333,7 +4333,7 @@
   {
     "id": "sd-dark-circus-encore-ending",
     "title": "Dark Circus: Encore! ends on Golden Freddy's eyes lighting blue",
-    "claim": "The cutscene closing the Dark Circus: Encore! episode shows the circus animatronics the player defeated lying broken: Ballora with a fractured skull, Ringmaster Foxy impaled, and a tangled endoskeleton beside a magician-costumed Golden Freddy, whose eyes then light up blue.",
+    "claim": "By the wiki's description, the cutscene closing the Dark Circus: Encore! episode shows the circus animatronics the player defeated lying broken: Ballora with a fractured skull, Ringmaster Foxy impaled, and a tangled endoskeleton beside a magician-costumed Golden Freddy, whose eyes then light up blue.",
     "game": "special-delivery",
     "kind": "cutscene",
     "location": "Dark Circus: Encore! ending cutscene (the last story content released for the game)",
@@ -4357,7 +4357,7 @@
   {
     "id": "hw2-glam-freddy-fazbear-technician",
     "title": "Glamrock Freddy: 'you are a Fazbear technician - are you not?'",
-    "claim": "In Cold Storage, a frozen Glamrock Freddy who cannot see the player says he knows he is in good hands because the player is a Fazbear technician.",
+    "claim": "In Cold Storage, a frozen Glamrock Freddy who cannot see the player says he knows he is in good hands and asks whether the player is not a Fazbear technician.",
     "quote": "Although we have just met, I know I am in good hands. After all, you are a Fazbear technician - are you not?",
     "game": "help-wanted-2",
     "kind": "dialogue",
@@ -4386,12 +4386,12 @@
       "hw2-cold-storage-jimmy-cake"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
-    "notes": "The only in-game line that states the player's job. He adds: 'My ocular fluids have crystalized. I am unable to process your appearance.' It is phrased as a question inside a training level, so it identifies the role, not the person. RUIN's item text says its rabbit mask was 'left behind by some Faz-Technician'."
+    "notes": "The only in-game line this archive has found that speaks of the player's job. He adds: 'My ocular fluids have crystalized. I am unable to process your appearance.' It is phrased as a question inside a training level, so it identifies the role, not the person. RUIN's item text says its rabbit mask was 'left behind by some Faz-Technician'."
   },
   {
     "id": "hw2-roxy-he-is-still-out-there",
-    "title": "Shattered Roxanne: 'He did this to me... he's still out there'",
-    "claim": "In the mask-off Roxy Repair level the shattered Roxanne Wolf says 'he' did this to her, that the player is wasting time because 'he's still out there', and wonders where 'he' could be hiding.",
+    "title": "The wrecked Roxanne: 'He did this to me... he's still out there'",
+    "claim": "In the mask-off Roxy Repair level the wrecked Roxanne Wolf says 'he' did this to her, that the player is wasting time because 'he's still out there', and wonders where 'he' could be hiding.",
     "quote": "You're wasting time, he's still out there.",
     "game": "help-wanted-2",
     "kind": "dialogue",
@@ -4420,7 +4420,7 @@
       "ruin-roxy-final-node"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Roxanne_Wolf/Audio",
-    "notes": "Other lines: 'He did this to me.', 'I need to think. Where could he be hiding?', 'I'm not a monster.' She does not name 'he'; in Security Breach it is the player character, Gregory, who takes her eyes. She speaks as if her hunt for him is still going on, which puts this scene soon after that night."
+    "notes": "Other lines: 'He did this to me.', 'I need to think. Where could he be hiding?', 'I'm not a monster.' She does not name 'he'; in Security Breach it is the player character, Gregory, who takes her eyes. If 'he' is Gregory, she speaks as if her hunt for him is still going on; the game does not say how long after that night this is."
   },
   {
     "id": "hw2-hub-helpi-pushes-gift",
@@ -4489,7 +4489,7 @@
       "hw2-job-interview-ice-cream"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "The game does not say why the player would be recognised. An unused 'Vanny' recording says 'It kept you for a reason.' and 'You are the last.' (cut content)."
+    "notes": "The game does not say why the player would be recognised."
   },
   {
     "id": "hw2-job-interview-ice-cream",
@@ -4525,12 +4525,12 @@
       "hw2-sister-location-section"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "Other lines: 'When the lights go out, we pass the time by playing make-believe.', 'I like it here. It's safe, safe forever.', 'Go on, eat it.', 'Go on, take it.' The ice cream held out from the hatch restages the way Sister Location says a girl was taken (sl-baby-ice-cream-story). Help Wanted's Chica level uses the same prompts over a slice of pizza: 'Go on. Take it.' 'Eat it.'"
+    "notes": "Other lines: 'When the lights go out, we pass the time by playing make-believe.', 'I like it here. It's safe, safe forever.', 'Go on, eat it.', 'Go on, take it.' Compare Circus Baby's account in Sister Location of her stomach opening with ice cream when a girl was alone with her (sl-baby-ice-cream-story). Help Wanted's Chica level uses the same prompts over a slice of pizza: 'Go on. Take it.' 'Eat it.'"
   },
   {
     "id": "hw2-sister-location-section",
     "title": "A 'Sister Location' section restages that game for staff training",
-    "claim": "One of the six level groups is titled Sister Location. Its levels restage that game's Ballora Gallery crossing, Breaker Room reset and Private Room night against Ennard, with the HandUnit voice giving instructions; the mask-off versions add 'Funtime Gang', 'Puppet Master' and Circus Baby's 'Job Interview'.",
+    "claim": "One of the six level groups is titled Sister Location. Its levels restage that game's Ballora Gallery crossing, Breaker Room reset and Private Room night against Ennard, with a HandUnit-style guide voice giving instructions; the mask-off versions add 'Funtime Gang', 'Puppet Master' and Circus Baby's 'Job Interview'.",
     "quote": "Sleepover time! Join the Funtime Gang for a night in Circus Baby's Entertainment and Rental.",
     "game": "help-wanted-2",
     "kind": "minigame",
@@ -4561,7 +4561,7 @@
       "hw2-job-interview-ice-cream"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Sister_Location_(FNaF:_HW2)",
-    "notes": "Other menu synopses: 'Dance! Welcome to Ballora's Party Room and Dance Studio.', 'Restricted area.', 'This custom night is just for you.', 'Circus Baby would like to play a game.' As in Help Wanted, the company packages the underground rental facility as entertainment inside its own software."
+    "notes": "Other menu synopses: 'Dance! Welcome to Ballora's Party Room and Dance Studio.', 'Restricted area.', 'This custom night is just for you.', 'Circus Baby would like to play a game.' As in Help Wanted, the company's software stages Circus Baby's Entertainment and Rental as a level."
   },
   {
     "id": "hw2-first-aid-simulated-pizza-place",
@@ -4633,8 +4633,8 @@
   },
   {
     "id": "hw2-fall-fest-1970-poster",
-    "title": "A 'FALL FEST' poster dated 1970",
-    "claim": "A poster among Help Wanted 2's prizes reads 'AUTUMN ARRIVES', '19 70', 'FALL FEST' and 'PAY AT THE GATE - DOORS OPEN AT 11AM', around a striped tent and pumpkins.",
+    "title": "A 'FALL FEST' poster marked '19 70'",
+    "claim": "A poster texture from Help Wanted 2, which the wiki lists as a collectible prize, reads 'AUTUMN ARRIVES', '19 70', 'FALL FEST' and 'PAY AT THE GATE - DOORS OPEN AT 11AM', around a striped tent and pumpkins.",
     "quote": "PAY AT THE GATE - DOORS OPEN AT 11AM",
     "game": "help-wanted-2",
     "kind": "environment",
@@ -4660,12 +4660,12 @@
     ],
     "image": "hw2-fall-fest-1970-poster.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:T_Poster_Fallfest.png",
-    "notes": "Text read from the poster's texture on the wiki. The wiki says it is a collectible prize; where it hangs in the game was not checked. With Curse of Dreadbear's 'FALLFEST 83'' banner this makes Fall Fest a named event with two printed years. Secret of the Mimic's Fiona leaves to help a Fall Fest installation; that game gives no year."
+    "notes": "Text read from the poster's texture on the wiki. The wiki says it is a collectible prize; where it hangs in the game was not checked. Compare Curse of Dreadbear's banner reading FALLFEST 83' (codb-fallfest-83-banner). Both are props inside company products, and neither game says that such a fair took place. Secret of the Mimic's Fiona leaves to help a Fall Fest installation; that game gives no year."
   },
   {
     "id": "hw2-credits-vanny",
     "title": "Cast credits list a 'Vanny' role",
-    "claim": "Help Wanted 2's cast credits read 'Marta Svetek - Roxanne Wolf / Vanny / Mystic Hippo'. No scene in the game names anyone Vanny.",
+    "claim": "Help Wanted 2's cast credits read 'Marta Svetek - Roxanne Wolf / Vanny / Mystic Hippo'. No scene checked in the game names anyone Vanny.",
     "game": "help-wanted-2",
     "kind": "text",
     "location": "Help Wanted 2 credits (Cast)",
@@ -4691,7 +4691,7 @@
       "hw2-mystic-hippo-hello"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Help_Wanted_2/Credits",
-    "notes": "From the wiki's transcription of the credits. No 'Vanny' dialogue is heard in the finished game (the recordings are unused), so the credit covers cut lines or the wordless giant figure in the secret ending. The same actress voices Mystic Hippo, whose hub hints cover the ground of the cut lines. The wiki also lists a Vanny model among the hub gallery's selectable characters; whether the gallery prints the name was not checked. The credits give 'Andy Field - Dread Unit' for the HandUnit-style voice."
+    "notes": "From the wiki's transcription of the credits. No 'Vanny' dialogue was found in the finished game, and the credits do not say what the role covers. The same actress is credited as Mystic Hippo. The wiki also lists a Vanny model among the hub gallery's selectable characters; whether the gallery prints the name was not checked. The credits give 'Andy Field - Dread Unit' for the HandUnit-style voice."
   },
   {
     "id": "hw2-pq4-alpha-take-it",
@@ -4759,7 +4759,7 @@
     ],
     "image": "hw2-poster-take-off-your-mask.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:T_Poster_Mask2.png",
-    "notes": "Read from the poster texture and from the wiki's screenshot of the room. It presents the rabbit mask as ordinary staff equipment worn on shift. That bears on whether the mask marks one person or a role: the company issues it, so the mask alone identifies nobody."
+    "notes": "Read from the poster texture and from the wiki's screenshot of the room. The poster shows the rabbit mask as something worn at work and taken off when clocking out. What that says about who wears such a mask elsewhere is for the theory."
   },
   {
     "id": "hw2-real-hub-pit-pizzeria",
@@ -4794,7 +4794,7 @@
     ],
     "image": "hw2-hub-real-world.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear's_Pizza_Place",
-    "notes": "The derelict room is verified from screenshots; that it is the same buried pizzeria is the wiki's identification from its layout (the pit said to lead to the burner rooms, the main stage), which is why this is 'implied'. No sign in the hub was checked. If right, the trainee is working underneath the Pizzaplex, in the place where Security Breach's burnt rabbit animatronic and RUIN's endoskeleton are found."
+    "notes": "The derelict room is verified from screenshots; that it is the same buried pizzeria is the wiki's identification from its layout (the pit said to lead to the burner rooms, the main stage), which is why this is 'implied'. No sign in the hub was checked. If right, the trainee is working underneath the Pizzaplex, in the place where the burnt rabbit under the Pizzaplex and RUIN's endoskeleton are found."
   },
   {
     "id": "hw2-mystic-hippo-gift-distant-past",
@@ -4829,7 +4829,7 @@
       "secret-of-the-mimic-teaser-1979"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
-    "notes": "The second line reads: 'A key piece of advice for your second night of work. Start with 1. stop. Add 8. stop. Take 2. stop. Return 2.' A third, 'A hidden performer is ready to take a bow.', points at the endoskeleton that then appears in the gallery. This is the one place a game, rather than a trailer, ties 1979 to the past."
+    "notes": "The second line reads: 'A key piece of advice for your second night of work. Start with 1. stop. Add 8. stop. Take 2. stop. Return 2.' A third reads 'A hidden performer is ready to take a bow.'; an endoskeleton then appears in the gallery. Read together, the hints put the code 1-9-7-9 beside the words 'the distant past'; the game does not say the code is a year."
   },
   {
     "id": "hw2-achievement-ggy",
@@ -4853,7 +4853,7 @@
       "ggy"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Achievements_(FNaF:_HW2)",
-    "notes": "According to the wiki the same three letters top the arcade high-score tables in Security Breach; this archive has no record of that. On its own the achievement says only that those initials are the scores to beat."
+    "notes": "According to the wiki the same three letters top the arcade high-score tables in Security Breach; this archive has no record of that. On its own the achievement gives only the three letters and the task."
   },
   {
     "id": "scottgames-sb-source-stay-the-course",
@@ -4884,6 +4884,6 @@
     ],
     "url": "https://web.archive.org/web/20190808234549/http://www.scottgames.com/",
     "verifiedVia": "Wayback Machine captures of scottgames.com from 2019-08-08 to 2021-02-25 (ten captures read; all carry the tags), page source read directly",
-    "notes": "The eight phrases are split across the name and content attributes of five meta tags; the quote gives them in reading order. Neither speaker is named. The tags were present under every Security Breach teaser image in turn (the atrium, 'ROCK!', Montgomery, the title, 'PROTECT' and 'OBEY') and are empty in a December 2021 capture. They went up about ten weeks before the hidden call in Curse of Dreadbear, which has the same shape (codb-mask-plush-voice). The record sits in this file because it bears on this slice; the lead may prefer to move it to the Scott file."
+    "notes": "The eight phrases are split across the name and content attributes of five meta tags; the quote gives them in reading order. Neither speaker is named. The tags were present under every Security Breach teaser image in turn (the atrium, 'ROCK!', Montgomery, the title, 'PROTECT' and 'OBEY') and are empty in a December 2021 capture. They were in place at least ten weeks before the hidden call in Curse of Dreadbear, in which a woman answers a voice the player cannot hear (codb-mask-plush-voice)."
   }
 ]
