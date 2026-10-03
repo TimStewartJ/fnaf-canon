@@ -1,4 +1,49 @@
-/* Gallery. Cluster B. */
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr)); gap: var(--sp-6) var(--sp-5); align-items: start; }
-.gal-item .figure__frame img { aspect-ratio: 16 / 10; object-fit: cover; max-height: none; }
-.gal-item__uses { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+/* Gallery. Cluster B. Every selector starts from a gal- class. */
+
+/* Jump to a source */
+.gal-index { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-6); }
+.gal-index > .collapsible { flex: 1 1 100%; }
+.gal-index__list { display: flex; flex-wrap: wrap; gap: var(--sp-2); list-style: none; margin: 0; padding: 0; min-width: 0; }
+.gal-index__list > li { margin: 0; }
+.gal-index__link { gap: 0.5em; min-height: 2rem; }
+.gal-index__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+@media (pointer: coarse) { .gal-index__link { min-height: 2.5rem; padding-inline: 0.75em; } }
+
+/* One group per source */
+.gal-group { margin-top: var(--sp-7); scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
+.gal-group:first-of-type { margin-top: 0; }
+.gal-group__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-1) var(--sp-4); padding-bottom: var(--sp-2); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line-strong); }
+.gal-group__title { margin: 0; font-size: var(--fs-xl); min-width: 0; }
+.gal-group__title > a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
+.gal-group__title > a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.gal-group__n { display: inline-flex; align-items: baseline; gap: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); white-space: nowrap; }
+@media (max-width: 640px) { .gal-group { margin-top: var(--sp-6); } }
+
+/* The grid: two columns on a phone, up to five. Gallery.tsx folds groups by these same steps. */
+.gal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4) var(--sp-3); list-style: none; margin: 0; padding: 0; }
+@media (min-width: 560px) { .gal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5) var(--sp-4); } }
+@media (min-width: 900px) { .gal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .gal-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.gal-tile { margin: 0; min-width: 0; }
+/* A tile is the shared figure (frame, caption, credit), laid out for a grid: every frame the same
+   shape, the whole screenshot fitted inside it on the mat and never cropped, the caption two lines. */
+.gal-tile .figure__frame { aspect-ratio: 16 / 10; }
+.gal-tile .figure__frame img { height: 100%; max-height: none; object-fit: contain; }
+.gal-tile .figure__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+/* A taller hit area for the two small links on touch, without pushing the rows apart. */
+@media (pointer: coarse) { .gal-tile .figure__credit { padding-block: 0.5rem; margin-block: -0.5rem; } }
+/* The last cell of a folded group: the rest of its images. */
+.gal-tile__more { display: grid; place-content: center; justify-items: center; gap: 0.15rem; width: 100%; aspect-ratio: 16 / 10; padding: 0; font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--c-text-2); background: transparent; border: 1px dashed var(--c-line-strong); border-radius: var(--r-md); cursor: pointer; transition: border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease); }
+.gal-tile__more:hover { color: var(--c-text); background: var(--c-surface); border-color: var(--c-text-3); }
+.gal-tile__more-n { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--w-display); line-height: 1; color: var(--c-text); }
+
+/* Inside the shared lightbox: the records an image illustrates */
+.gal-zoom__records { display: block; margin-top: 0.3rem; color: var(--c-mat-text); }
+/* The viewer's mat is dark in both themes, so the link keeps the mat's text colour when hovered too (the site's link hover colour is dark on paper). */
+.gal-zoom__record, .gal-zoom__record:hover { color: inherit; }
+/* The shared viewer is 100vw wide, which on a desktop with classic scrollbars runs under the page's
+   reserved scrollbar gutter and cuts the close and next buttons. Sized by its insets it stops at the gutter. */
+.gal-zoom dialog.lightbox { width: auto; }
+/* Pixel art is drawn pixelated only when it is really enlarged (measured in Gallery.tsx). */
+.gal-zoom img[data-crisp="true"] { image-rendering: pixelated; }
+.gal-zoom img[data-crisp="false"] { image-rendering: auto; }
