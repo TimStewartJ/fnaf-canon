@@ -560,7 +560,7 @@ export const people: Person[] = [
   },
   {
     id: "fredbear", name: "Fredbear", aliases: ["the yellow bear of FNaF4's stage"], nameStatus: "canon-name", group: "entity",
-    summary: "The yellow bear on the stage of FNaF4's restaurant, a place that no screen of that game names [[fnaf4-diner-unnamed]]. A television in FNaF4 shows \"Fredbear & Friends!\" over the year 1983 [[fnaf4-fredbear-and-friends-1983]]. It performs on a stage beside a yellow rabbit [[fnaf4-fredbear-spring-bonnie-shadows]]. A hidden FNaF3 minigame shows an unlabelled yellow bear and a yellow rabbit on one stage, which the model reads as the same pair [[fnaf3-stage01-fredbear-spring-bonnie]]. At the party the older brother and his friends push the crying child's head into its mouth [[fnaf4-give-fredbear-a-kiss]], and the jaw closes [[fnaf4-the-bite]]. In November 1987 the caller, speaking of \"the original restaurant owner\", half remembers the name of the place: \"Fredbear's Family Diner or something like that\" [[fnaf2-call5-fredbears-family-diner]].",
+    summary: "The yellow bear on the stage of FNaF4's restaurant, a place that no screen of that game names [[fnaf4-diner-unnamed]]. A television in FNaF4 shows \"Fredbear & Friends!\" over the year 1983 [[fnaf4-fredbear-and-friends-1983]]. It performs on a stage beside a rabbit [[fnaf4-fredbear-spring-bonnie-shadows]]. A hidden FNaF3 minigame shows an unlabelled yellow bear and a yellow rabbit on one stage, which the model reads as the same pair [[fnaf3-stage01-fredbear-spring-bonnie]]. At the party the older brother and his friends push the crying child's head into its mouth [[fnaf4-give-fredbear-a-kiss]], and the jaw closes [[fnaf4-the-bite]]. In November 1987 the caller, speaking of \"the original restaurant owner\", half remembers the name of the place: \"Fredbear's Family Diner or something like that\" [[fnaf2-call5-fredbears-family-diner]].",
     status: "Not shown in the story after the bite. On the model's reading of the yellow suit (low-medium) it is the slumped yellow bear of the first two games (see {{golden-freddy}}).",
     firstAppearance: "fnaf4", image: "fnaf4-bite-fredbear-stage.png",
     evidence: ["fnaf4-fredbear-and-friends-1983", "fnaf4-fredbear-spring-bonnie-shadows", "fnaf3-stage01-fredbear-spring-bonnie", "fnaf4-give-fredbear-a-kiss", "fnaf4-the-bite", "fnaf2-call5-fredbears-family-diner", "fnaf4-diner-unnamed"],
@@ -601,7 +601,7 @@ export const people: Person[] = [
   {
     id: "ennard", name: "Ennard", aliases: [], nameStatus: "canon-name", group: "entity",
     summary: "The clown-faced figure of trailing wires in Sister Location [[scottgames-site-sl-little-of-me]], which the records imply is the Funtime machines' insides in one body. In the scooping room a voice says that Funtime Foxy, Funtime Freddy, Ballora and Circus Baby have each \"already been here today\" [[sl-real-ending-already-been-here-today]], and that \"if we looked like you, then we could hide\" [[sl-real-ending-if-we-looked-like-you]]; then the technician is scooped [[sl-real-ending-scooped-mirror]]. In the last of the cutscenes that follow, a man who has turned purple throws up a mass of wires and eyes into a drain [[sl-custom-night-ennard-ejected]]. The name is on Ultimate Custom Night's roster, which lists Ennard and Molten Freddy as separate figures [[ucn-roster-two-forms-at-once]].",
-    status: "Most likely the mass of wires and eyes that the purple man throws up into a drain [[sl-custom-night-ennard-ejected]]: the cutscene does not label it, and the wiki identifies it as Ennard.",
+    status: "Most likely the mass of wires and eyes that the walker, by then purple, throws up into a drain [[sl-custom-night-ennard-ejected]]: the cutscene does not label it, and the wiki identifies it as Ennard.",
     firstAppearance: "sister-location",
     evidence: ["sl-real-ending-if-we-looked-like-you", "sl-real-ending-scooped-mirror", "sl-custom-night-ennard-ejected", "ucn-roster-two-forms-at-once", "sl-real-ending-already-been-here-today", "scottgames-site-sl-little-of-me"],
     theory: "Molten Freddy is most likely what is left of it after the group threw Baby out (medium-high): a mound of wires and eyes topped by a rusted bear face [[ffps-molten-freddy-alley-wires-eyes]], with the voice actor of Funtime Freddy [[ffps-credits-returning-voices]]. That it wore the scooped technician's body is implied by the eyes in the mirror and by the speech in the scooping room [[sl-real-ending-scooped-mirror]]. In the archive's records Pizzeria Simulator never says the name Ennard. See ((michael)) and ((salvage)).",
@@ -1271,10 +1271,10 @@ export const people: Person[] = [
   },
   {
     id: "rockstar-bonnie", name: "Rockstar Bonnie", aliases: [], nameStatus: "canon-name", group: "other",
-    summary: "A figure of Ultimate Custom Night. It greets the player \"So good to see you again, my truest friend. But now your life must end.\" [[ucn-rockstar-bonnie-truest-friend]]",
+    summary: "An animatronic that the franchisee of Pizzeria Simulator can buy from the catalogue for the pizzeria [[ffps-catalog-rockstar-bonnie]], and a figure of Ultimate Custom Night. There it greets the player \"So good to see you again, my truest friend. But now your life must end.\" [[ucn-rockstar-bonnie-truest-friend]]",
     status: "—",
-    firstAppearance: "ucn",
-    evidence: ["ucn-rockstar-bonnie-truest-friend"],
+    firstAppearance: "ffps",
+    evidence: ["ffps-catalog-rockstar-bonnie", "ucn-rockstar-bonnie-truest-friend"],
   },
   {
     id: "dee-dee", name: "Dee Dee", aliases: [], nameStatus: "canon-name", group: "other",

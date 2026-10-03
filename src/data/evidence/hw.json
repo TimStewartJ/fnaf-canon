@@ -492,7 +492,7 @@
     "id": "hw-tape-13-fe-hired-developer",
     "title": "Tape 13: Fazbear Entertainment hired the indie developer",
     "claim": "A hard drive the client sent by mistake held emails between Fazbear Entertainment and 'a certain indie developer'. The tape speaker says Fazbear Entertainment hired that developer, and that the indie games were designed to conceal and make light of what happened: an elaborate coverup to discredit everything.",
-    "quote": "Fazbear Entertainment hired the game developer. Those indie games were designed to conceal and make light of what happened. This isn’t just an attempt to rebrand, it’s an elaborate coverup- A campaign to discredit everything.",
+    "quote": "Fazbear Entertainment hired the game developer. Those indie games were designed to conceal and make light of what happened. This isn't just an attempt to rebrand, it's an elaborate coverup- A campaign to discredit everything.",
     "game": "help-wanted",
     "kind": "audio-tape",
     "location": "Hidden tape #13 (cassette collectible; played in the Tape Room)",
@@ -768,7 +768,6 @@
     ],
     "tags": [
       "fazbear-framing",
-      "indie-developer",
       "meta"
     ],
     "related": [
@@ -879,10 +878,6 @@
     ],
     "places": [
       "freddy-fazbear-virtual-experience"
-    ],
-    "tags": [
-      "rabbit-figure",
-      "anomaly"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
     "notes": "The line ends: 'We'll weed them out eventually (there's no guarantee that we'll weed them out eventually).'"
@@ -1659,8 +1654,7 @@
     },
     "tags": [
       "teaser",
-      "jeremy",
-      "anomaly"
+      "jeremy"
     ],
     "related": [
       "hw-game-over-remember-jeremy",
@@ -1675,7 +1669,7 @@
     "id": "scott-silver-parasol-website",
     "title": "Scott's post 'Silver Parasol Games': a logo for the 'other game developer'; planned website scrapped",
     "claim": "In a post titled 'Silver Parasol Games', Scott Cawthon wrote that he had a logo made for the mysterious 'other game developer' mentioned in the game and had planned a real-world website for it, but dropped the website because it would cross from in-game storytelling into lying. He left the logo in the game.",
-    "quote": "…a logo for the mysterious “other game developer” mentioned in the game, so I had a logo created for it. … there is a fine line between crafting an in-game story and just outwardly lying about something. I didn’t want to cross that line.",
+    "quote": "…a logo for the mysterious \"other game developer\" mentioned in the game, so I had a logo created for it. … there is a fine line between crafting an in-game story and just outwardly lying about something. I didn't want to cross that line.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Scott Cawthon Reddit post 'Silver Parasol Games' (r/fivenightsatfreddys, 2019)",
@@ -1772,7 +1766,7 @@
       "freddy-fazbear-virtual-experience"
     ],
     "tags": [
-      "1983",
+      "83",
       "fall-fest"
     ],
     "related": [
@@ -2078,7 +2072,6 @@
     ],
     "tags": [
       "ness",
-      "follower",
       "emails"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
@@ -2104,7 +2097,6 @@
     ],
     "tags": [
       "ness",
-      "follower",
       "control"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
@@ -2129,8 +2121,7 @@
       "ness"
     ],
     "tags": [
-      "ness",
-      "follower"
+      "ness"
     ],
     "related": [
       "hw-tape-04",
@@ -2158,7 +2149,6 @@
     ],
     "tags": [
       "ness",
-      "follower",
       "masks"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails"
@@ -2182,8 +2172,7 @@
       "ness"
     ],
     "tags": [
-      "ness",
-      "follower"
+      "ness"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
     "notes": "Could imply Ness probing the IT staffer; the email doesn't say why."
@@ -2208,7 +2197,6 @@
     ],
     "tags": [
       "ness",
-      "follower",
       "voices"
     ],
     "related": [
@@ -2381,7 +2369,6 @@
       "fazbear-funtime-service"
     ],
     "tags": [
-      "springtrap",
       "smell"
     ],
     "related": [
@@ -2503,9 +2490,9 @@
     "location": "New game start screen",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "fazbear-entertainment",
@@ -2535,9 +2522,9 @@
     "location": "Hub: locked conduit room (AR inhibitor) → removing the mask; achievement 'Open Your Eyes'",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "hw2-protagonist"
@@ -2567,9 +2554,9 @@
     "location": "Hub prize machine → locked conduit door",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "hw2-protagonist"
@@ -2598,9 +2585,9 @@
     "location": "Backstage: S.T.A.F.F. Makeover, Glam Makeover (Roxy), Repair Roxy",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glitchtrap"
@@ -2623,9 +2610,9 @@
     "location": "Fazcade: Bonk a' Bon: Bonus Round",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glitchtrap"
@@ -2648,9 +2635,9 @@
     "location": "Main ending (all 6 Faz Force figures)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glitchtrap",
@@ -2684,9 +2671,9 @@
     "location": "Achievement 'Batteries Not Included'",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mask-bot"
@@ -2710,9 +2697,9 @@
     "location": "Hub Faz Force adverts and figure prizes (handed out by the cartoon bear on the hub screen)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "freddy-fazbear",
@@ -2746,9 +2733,9 @@
     "location": "Memory dolls: Fazbear Theater (Chica), Log Ride (Foxy), Fazerblast: FNAF 3 (Freddy), Bonk a' Bon: Bonus Round (Bonnie), Fizzy Faz Night 3 'graveyard' drink (Golden Freddy), Puppet Master keypad 1983 (Puppet)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glitchtrap",
@@ -2786,9 +2773,9 @@
     "location": "Achievement 'Remember Jeremy?'",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "bonnie"
@@ -2850,9 +2837,9 @@
     "location": "Hidden conduit room: Princess Quest IV cabinet",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "the-princess"
@@ -2879,9 +2866,9 @@
     "location": "Princess Quest IV",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "pq-old-man"
@@ -2906,9 +2893,9 @@
     "location": "Princess Quest IV (pit room)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "the-princess",
@@ -2932,9 +2919,9 @@
     "location": "Princess Quest IV graveyard; achievement 'Lost Luggage'",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "chica",
@@ -2972,9 +2959,9 @@
     "location": "Princess Quest IV secret chest; achievement 'Lost Luggage'",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "bonnie"
@@ -3003,9 +2990,9 @@
     "location": "Princess Quest IV (the old man's trade)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "pq-old-man",
@@ -3039,9 +3026,9 @@
     "location": "Princess Quest IV ending",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "vanny",
@@ -3075,9 +3062,9 @@
     "location": "Princess Quest IV ending ('Consequences')",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "vanny",
@@ -3109,9 +3096,9 @@
     "location": "Achievement 'Consequences' (Princess Quest IV ending)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glitchtrap"
@@ -3163,34 +3150,33 @@
   },
   {
     "id": "hw2-mimic-teaser-mxes-ending",
-    "title": "Puzzle ending: the 'MASKS' shopfront and the white van",
-    "claim": "Completing a jigsaw lettered 'MCM DOUBLE-VISION PUZZLE', which shows a shopfront signed 'MASKS' and 'GIFTS HERE', makes that building appear beside the hub with a mailbox numbered 4625. With the mask off, a white van stands there; its doors open on a machine with a keypad, and entering 4625 shows a glitching rabbit-shaped figure emerge from the machine, get pulled back in, and the van drive away.",
+    "title": "Puzzle ending: the 'MASKS' shopfront and the 'M.X.E.S.' cabinet in a van",
+    "claim": "Completing a jigsaw lettered 'MCM DOUBLE-VISION PUZZLE', which shows a shopfront signed 'MASKS' and 'GIFTS HERE', makes that building appear beside the hub with a mailbox numbered 4625. With the mask off, a pale blue van with a white stripe stands there; its doors open on a machine with a keypad and an 'M.X.E.S.' nameplate, and entering 4625 shows a glitching rabbit-shaped figure emerge from the machine, get pulled back in, and the van drive away.",
     "quote": "4625",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Teaser area (1.017 update): the jigsaw ending (the wiki's 'M.X.E.S. Code ending')",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
-      "the-mimic"
+      "the-entity"
     ],
     "places": [
       "fazbear-orientation-program",
       "murray-costume-manor"
     ],
     "tags": [
-      "mimic",
       "mxes",
       "teaser",
       "ruin-link"
     ],
     "image": "hw2-mcm-puzzle.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; in the RUIN dialogue checked it is 'that rabbit thing' (ruin-the-entity)."
+    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; in the RUIN dialogue checked it is 'that rabbit thing' (ruin-the-entity). The nameplate and the van's colours were read on 2026-10-03 from the wiki's two captures of the scene, which carry the game's on-screen prompts (File:HW2 Van MXES.png and File:FE Van HW2.png, on its page 'Arnold's Van'); in the second the van's hood is lettered 'COMPANY NAME'. The wiki's text calls the van white. The record's image is the puzzle's box art."
   },
   {
     "id": "hw2-mystic-hippo-hello",
@@ -3202,9 +3188,9 @@
     "location": "Hub: Mystic Hippo booth lines",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo"
@@ -3233,9 +3219,9 @@
     "location": "Hub: Mystic Hippo booth lines",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo"
@@ -3244,9 +3230,7 @@
       "fazbear-orientation-program"
     ],
     "tags": [
-      "mystic-hippo",
-      "faz-wrench",
-      "rabbit-figure"
+      "mystic-hippo"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mystic_Hippo",
     "notes": "She also says 'The key is familiar to you.' The usual reading is that the key is the Faz-Wrench, which opens the hidden room (hw2-faz-wrench-after-16-prizes)."
@@ -3261,9 +3245,9 @@
     "location": "Hub: Mystic Hippo booth lines",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo"
@@ -3288,9 +3272,9 @@
     "location": "Hub: Mystic Hippo booth lines",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo"
@@ -3315,9 +3299,9 @@
     "location": "Real-world hub: Candy Cadet (Faz-Token reward story)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "candy-cadet"
@@ -3343,9 +3327,9 @@
     "location": "Real-world hub: Candy Cadet",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "candy-cadet"
@@ -3368,9 +3352,9 @@
     "location": "Fazcade: Fazerblast (Carnie lines)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "carnie",
@@ -3395,9 +3379,9 @@
     "location": "Fazcade: Fazerblast FNAF 2 → Fazerblast: FNAF 3 (menu synopsis quoted)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "springtrap",
@@ -3422,9 +3406,9 @@
     "location": "Fazerblast: FNAF 3 (defeat sound; audio file as listed by the wiki)",
     "certainty": "implied",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "springtrap",
@@ -3451,9 +3435,9 @@
     "location": "Staff Only: Endo Warehouse (menu synopsis)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glamrock-endo"
@@ -3478,9 +3462,9 @@
     "location": "Backstage: Repair Roxy (hard/ruined version)",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "roxanne-wolf",
@@ -3508,9 +3492,9 @@
     "location": "Staff Only: Cold Storage",
     "certainty": "shown",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glamrock-freddy"
@@ -3535,9 +3519,9 @@
     "location": "Unused voice lines in Help Wanted 2 game files (not played in the final game)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "vanny",
@@ -3565,9 +3549,9 @@
     "location": "Unused voice lines in Help Wanted 2 game files",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "vanny",
@@ -4171,7 +4155,6 @@
     ],
     "tags": [
       "rebuilds",
-      "mangle",
       "cover-story"
     ],
     "related": [
@@ -4337,9 +4320,9 @@
     "location": "Staff Only: Cold Storage (Glamrock Freddy)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "glamrock-freddy",
@@ -4371,9 +4354,9 @@
     "location": "Backstage: Salon: Roxy Repair (mask-off level)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "roxanne-wolf",
@@ -4405,9 +4388,9 @@
     "location": "Hub big screen (speech-bubble cards)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "hw2-protagonist"
@@ -4440,9 +4423,9 @@
     "location": "Hub: Mystic Hippo booth lines; Sister Location: Office: Job Interview (Circus Baby)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo",
@@ -4474,9 +4457,9 @@
     "location": "Sister Location: Office: Job Interview (mask-off level)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "circus-baby",
@@ -4510,9 +4493,9 @@
     "location": "Sister Location level group (menu synopses)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "circus-baby",
@@ -4546,9 +4529,9 @@
     "location": "Staff Only: First Aid: Pig Patch / Lefty / Scrap Baby (menu synopsis quoted)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "lefty",
@@ -4580,9 +4563,9 @@
     "location": "Fazcade: Fazerblast: FNAF 1 / FNAF 2 / FNAF 3 (menu synopses)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "carnie"
@@ -4643,9 +4626,9 @@
     "location": "Help Wanted 2 credits (Cast)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "vanny",
@@ -4675,9 +4658,9 @@
     "location": "Hidden conduit room: Princess Quest IV cabinet (marquee, title screen, sword prompt)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "the-princess",
@@ -4708,9 +4691,9 @@
     "location": "Hidden conduit room wall (beside the Princess Quest IV cabinet)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "fazbear-entertainment",
@@ -4742,9 +4725,9 @@
     "location": "Hub with the mask removed",
     "certainty": "implied",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "hw2-protagonist"
@@ -4778,9 +4761,9 @@
     "location": "Hub: Mystic Hippo booth (yellow button, hints added in update 1.017)",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "people": [
       "mystic-hippo",
@@ -4791,7 +4774,6 @@
     ],
     "tags": [
       "1979",
-      "mimic",
       "teaser",
       "keypad"
     ],
@@ -4813,9 +4795,9 @@
     "location": "Achievement 'GGY'",
     "certainty": "stated",
     "when": {
-      "label": "During Help Wanted 2 (undated; after Security Breach's night and before RUIN)",
+      "label": "During Help Wanted 2 (undated; most likely between Security Breach's night and RUIN)",
       "precision": "relative",
-      "basis": "No year is given. With the mask off, the salon is wrecked and Roxanne is shattered as she is after Security Breach, and the main ending cuts to the scene that opens RUIN (hw2-roxy-repair-mask, hw2-faz-force-ending)"
+      "basis": "The game gives no date, and no record fixes where it falls. With the mask off, the salon is derelict and Roxanne is wrecked, her face more damaged than at the end of Security Breach (hw2-roxy-repair-mask). That it comes before RUIN is a fan wiki's reading of two things: the mask the player fits on her, which the wiki identifies as the one she wears in RUIN, and the main ending, which the wiki takes for the scene that opens RUIN and which was not watched for this archive (hw2-faz-force-ending)."
     },
     "places": [
       "fazbear-orientation-program"
@@ -4833,7 +4815,7 @@
     "claim": "From August 8, 2019 at the latest until at least February 2021, while it showed the Security Breach teasers, the source code of scottgames.com carried a hidden exchange between two voices, written into its meta tags: one gives orders and asks whether the other has 'selected one', and the other agrees each time.",
     "quote": "Stay the course. I will. Focus on my voice. I will. Don't let anyone lead you astray. I won't. Have you selected one? I have.",
     "game": "scottgames-site",
-    "kind": "teaser",
+    "kind": "hidden",
     "location": "scottgames.com HTML source, meta tags (name/content pairs), from 2019-08-08 at the latest",
     "certainty": "stated",
     "when": {

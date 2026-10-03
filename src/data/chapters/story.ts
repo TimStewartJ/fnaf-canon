@@ -102,8 +102,8 @@ export const chapters: TheorySection[] = [
       "scottgames-fnaf3-teaser-still-here", // [stated] Teaser: 'I am still here.'
       "scottgames-fnaf3-teaser-he-always-does", // [stated] Teaser: 'He always does.'
       "scott-fnaf3-trailer-tagline", // [stated] FNaF3 trailer: 'He will come back. He always does. We have a place for him.'
-      "scottgames-site-fnaf3-i-am-still-here", // [shown] FNaF3 teaser: 'I am still here.' (Springtrap)
-      "scottgames-site-fnaf3-he-always-does", // [shown] FNaF3 teaser: 'He always does.'
+      "scottgames-site-fnaf3-i-am-still-here", // [stated] FNaF3 teaser: 'I am still here.' (Springtrap)
+      "scottgames-site-fnaf3-he-always-does", // [stated] FNaF3 teaser: 'He always does.'
       "scottgames-site-fnaf3-source-i-remain", // [stated] FNaF3 page source: 'I remain'
     ],
   },

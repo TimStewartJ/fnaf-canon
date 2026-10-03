@@ -264,9 +264,6 @@
       "mega-pizzaplex"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
-    "tags": [
-      "disappearances"
-    ],
     "notes": "Two other messages end with their writers meaning to check on something after the meeting (security-breach-msg-job-security, security-breach-msg-bbw-maint-log); the first also asks 'Where is everyone?'. The game does not state what happened at the meeting.",
     "related": [
       "security-breach-msg-job-security",
@@ -650,10 +647,7 @@
     "places": [
       "mega-pizzaplex"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
-    "tags": [
-      "sister-location-room"
-    ]
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags"
   },
   {
     "id": "security-breach-msg-night-shift",
@@ -754,8 +748,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
     "tags": [
-      "disappearances",
-      "missing-children"
+      "disappearances"
     ]
   },
   {
@@ -831,7 +824,7 @@
       "buried-pizzeria"
     ],
     "tags": [
-      "burntrap",
+      "burnt-rabbit",
       "underground"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF:_SB)",
@@ -862,7 +855,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Gregory/Audio",
     "tags": [
-      "burntrap"
+      "burnt-rabbit"
     ]
   },
   {
@@ -1532,7 +1525,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
     "tags": [
-      "burntrap",
+      "burnt-rabbit",
       "underground"
     ],
     "image": "sb-burntrap-and-tangle.jpg",
@@ -1588,8 +1581,7 @@
       "buried-pizzeria"
     ],
     "tags": [
-      "burntrap",
-      "springlock"
+      "burnt-rabbit"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Burntrap",
     "notes": "Resemblance to Springtrap and to Pizzeria Simulator's salvaged rabbit is visual only; the game does not identify the figure. Checked against the wiki's close-up from the ending: the head and torso keep pieces of a rabbit shell, the legs and the clawed forearm are bare metal endoskeleton, and a toothed jaw shows below the mask. Whether any of what shows is organic could not be judged from the images checked, so the archive does not call the jaw human.",
@@ -1654,7 +1646,7 @@
       "buried-pizzeria"
     ],
     "tags": [
-      "tangle",
+      "mass-of-parts",
       "underground"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Tangle",
@@ -1997,7 +1989,7 @@
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Security_Breach_-_RUIN",
     "tags": [
       "princess-quest",
-      "glitchtrap"
+      "rabbit-figure"
     ],
     "notes": "From the wiki's plot summary, which calls the shadow Glitchtrap's; RUIN does not name it. Reading: the cabinet with a sword through it is taken to be the one whose completion gives Security Breach's Redemption ending (security-breach-pq3-help-wanted-hub-trapped-door).",
     "related": [
@@ -2342,7 +2334,7 @@
     "quote": "Something tunneled down... broke everything. Now I'm stuck here!",
     "tags": [
       "earthquake",
-      "tangle"
+      "mass-of-parts"
     ],
     "notes": "That the mass (file name 'Tangle') is the tunneler is the wiki's inference from its cameo."
   },
@@ -2480,9 +2472,6 @@
       "freddy-fazbears-pizza-itp"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Prologue_(FNaF:_ITP)",
-    "tags": [
-      "missing-children"
-    ],
     "notes": "The count of six is the wiki's ('Six kids lured into the Party Room and killed by The Yellow Rabbit'); the bodies were not counted on a capture here. The main games count five missing children; this six is recorded as it stands.",
     "related": [
       "into-the-pit-sketchbook-chica-smell",
@@ -2594,7 +2583,7 @@
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Inventory_Items_(FNaF:_ITP)",
     "quote": "An odd photo of two men inside of a strange office. Is this somewhere inside of Freddy's?",
     "tags": [
-      "afton-naming"
+      "naming"
     ],
     "notes": "The wiki identifies the men as William Afton and his business partner, whom it gives a surname from the novels; the game text does not name them. Achievement text: 'Who are they? - What is this?'",
     "image": "itp-strange-photo.png"
@@ -2898,10 +2887,7 @@
     "places": [
       "freddy-fazbears-pizza-itp"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald",
-    "tags": [
-      "possession"
-    ]
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Oswald"
   },
   {
     "id": "into-the-pit-collect-the-hats-purple-guy",
@@ -2920,10 +2906,6 @@
       "freddy-fazbears-pizza-itp"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Arcade_Minigames",
-    "tags": [
-      "purple-guy",
-      "six-victims"
-    ],
     "notes": "Six hats parallel the six bodies in the Party Room (interpretive)."
   },
   {
@@ -3398,7 +3380,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
     "tags": [
-      "afton-naming",
+      "naming",
       "fazbear-link"
     ],
     "notes": "Only the initials 'WA' appear, and the reader is not named ('the house your parents built' fits Edwin). Reading them as William Afton is inference; no full name is given in SotM.",
@@ -3430,7 +3412,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
     "tags": [
-      "afton-naming",
+      "naming",
       "fazbear-link"
     ],
     "notes": "Initials only. Franchise locations imply a restaurant chain (unnamed here).",
@@ -3559,8 +3541,7 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
     "tags": [
-      "cradle",
-      "mxes"
+      "cradle"
     ],
     "notes": "'David' here refers to the M2/David program, since the son is dead by then (inference).",
     "related": [
@@ -3764,10 +3745,7 @@
     "places": [
       "murray-costume-manor"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
-    "tags": [
-      "springlock"
-    ]
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes"
   },
   {
     "id": "secret-of-the-mimic-mail-we-need-to-go",
@@ -3920,11 +3898,7 @@
       "murray-costume-manor"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
-    "quote": "Edwin abandoned us, he shut himself away in our home. ... We must convince him to repair M2. ... Tell Edwin, I still love him.",
-    "tags": [
-      "mxes",
-      "cradle"
-    ]
+    "quote": "Edwin abandoned us, he shut himself away in our home. ... We must convince him to repair M2. ... Tell Edwin, I still love him."
   },
   {
     "id": "secret-of-the-mimic-f10n4-miss-my-child",
@@ -4344,15 +4318,13 @@
     "people": [
       "glamrock-freddy",
       "vanny",
-      "bonnie",
       "gregory"
     ],
     "places": [
       "mega-pizzaplex"
     ],
     "tags": [
-      "vanny-vanessa",
-      "glamrock-bonnie"
+      "vanny-vanessa"
     ],
     "related": [
       "security-breach-freddy-cannot-see-rabbit-lady",
@@ -4387,8 +4359,7 @@
     ],
     "tags": [
       "vanny-vanessa",
-      "invisible-to-animatronics",
-      "mask"
+      "invisible-to-animatronics"
     ],
     "related": [
       "security-breach-freddy-no-rabbit-not-anymore",
@@ -4425,7 +4396,7 @@
     ],
     "tags": [
       "underground",
-      "burntrap",
+      "burnt-rabbit",
       "control"
     ],
     "related": [
@@ -4631,7 +4602,6 @@
       "mega-pizzaplex"
     ],
     "tags": [
-      "glamrock-bonnie",
       "vents"
     ],
     "related": [
@@ -4660,7 +4630,6 @@
       "mega-pizzaplex"
     ],
     "tags": [
-      "disappearances",
       "staff"
     ],
     "related": [
@@ -4889,8 +4858,7 @@
     "tags": [
       "princess-quest",
       "glitchtrap-link",
-      "vanny-vanessa",
-      "redemption"
+      "vanny-vanessa"
     ],
     "related": [
       "security-breach-ending-redemption",
@@ -5070,8 +5038,7 @@
     ],
     "tags": [
       "comics",
-      "endings",
-      "redemption"
+      "endings"
     ],
     "related": [
       "security-breach-ending-alley",
@@ -5306,8 +5273,8 @@
   {
     "id": "ruin-fake-gregory-signal-jammer",
     "title": "The voice: 'I updated Helpi with a signal jammer. That rabbit thing won't bother you anymore.'",
-    "claim": "The Gregory voice on the Roxy-Talky claims to have updated the mask's assistant, Helpi, with a signal jammer so that 'that rabbit thing' will no longer trouble Cassie.",
-    "quote": "Yeah, with MY help! I updated Helpi with a signal jammer. That rabbit thing won't bother you anymore.",
+    "claim": "The Gregory voice on the Roxy-Talky claims to have updated the mask's assistant, Helpi, with a signal jammer so that 'that rabbit thing' will no longer trouble Cassie. Later Cassie says to the voice: 'You said you got rid of that rabbit thing.'",
+    "quote": "Yeah, with MY help! I updated Helpi with a signal jammer. That rabbit thing won't bother you anymore. / You said you got rid of that rabbit thing.",
     "game": "ruin",
     "kind": "dialogue",
     "location": "Roxy-Talky call (the voice that says it is Gregory), after the Monty's Gator Golf catwalks",
@@ -5468,7 +5435,6 @@
       "freddy-fazbears-pizza-itp"
     ],
     "tags": [
-      "afton-naming",
       "always-come-back"
     ],
     "related": [
@@ -5503,10 +5469,6 @@
     "places": [
       "freddy-fazbears-pizza-itp"
     ],
-    "tags": [
-      "afton-naming",
-      "time-travel"
-    ],
     "related": [
       "into-the-pit-yellow-rabbit-always-come-back",
       "fnaf3-n5-springlock-death",
@@ -5537,7 +5499,6 @@
       "freddy-fazbears-pizza-itp"
     ],
     "tags": [
-      "bodies-in-suits",
       "smell",
       "cover-up",
       "sketchbook"
@@ -5741,8 +5702,7 @@
       "freddy-fazbears-pizza-itp"
     ],
     "tags": [
-      "dating",
-      "1985"
+      "dating"
     ],
     "related": [
       "into-the-pit-past-year-1985"
@@ -6188,7 +6148,6 @@
       "murray-costume-manor"
     ],
     "tags": [
-      "springlock",
       "disguise",
       "invisible-to-animatronics"
     ],
@@ -6471,16 +6430,13 @@
     },
     "people": [
       "edwin-murray",
-      "fiona-murray",
-      "hen",
-      "fazbear-entertainment"
+      "fiona-murray"
     ],
     "places": [
       "murray-costume-manor"
     ],
     "tags": [
       "fazbear-link",
-      "partners",
       "contractor"
     ],
     "related": [
@@ -6508,15 +6464,13 @@
       "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
-      "edwin-murray",
-      "fazbear-entertainment"
+      "edwin-murray"
     ],
     "places": [
       "murray-costume-manor"
     ],
     "tags": [
       "fazbear-link",
-      "partners",
       "paranoia"
     ],
     "related": [
@@ -6552,8 +6506,7 @@
       "inventors-house"
     ],
     "tags": [
-      "mimic-origin",
-      "m2"
+      "mimic-origin"
     ],
     "related": [
       "secret-of-the-mimic-log-refusal",
@@ -6713,16 +6666,10 @@
       "precision": "relative",
       "basis": "The messages carry no date. If their writers are the Fazbear technicians sent before Arnold, as their content suggests, they fall between the foreclosure notice (most likely the summer of 1979) and the night of the game"
     },
-    "people": [
-      "the-mimic",
-      "fazbear-entertainment"
-    ],
     "places": [
       "murray-costume-manor"
     ],
     "tags": [
-      "technicians",
-      "stuffed-in-suits",
       "disguise"
     ],
     "related": [
@@ -6757,7 +6704,6 @@
     ],
     "tags": [
       "fazbear-link",
-      "partners",
       "behind-schedule",
       "takeover"
     ],
@@ -6793,7 +6739,6 @@
       "murray-costume-manor"
     ],
     "tags": [
-      "david-death",
       "playground",
       "neglect"
     ],
@@ -6830,8 +6775,7 @@
     ],
     "tags": [
       "chicas-party-world",
-      "clients",
-      "diner"
+      "clients"
     ],
     "related": [
       "secret-of-the-mimic-mail-chicas-party-world",
@@ -6895,17 +6839,12 @@
     "people": [
       "fiona-murray",
       "david-murray",
-      "the-mimic",
-      "freddy-fazbear",
-      "bonnie",
-      "chica",
-      "foxy"
+      "the-mimic"
     ],
     "places": [
       "inventors-house"
     ],
     "tags": [
-      "prototypes",
       "origin-of-characters",
       "story-time"
     ],
@@ -6947,7 +6886,6 @@
     "tags": [
       "prototypes",
       "fazbear-link",
-      "safe-room",
       "layout"
     ],
     "related": [
@@ -6978,8 +6916,7 @@
     },
     "people": [
       "spring-bonnie",
-      "fredbear",
-      "hen"
+      "fredbear"
     ],
     "places": [
       "murray-costume-manor",
@@ -6988,7 +6925,6 @@
     "tags": [
       "diner",
       "fredbears",
-      "springlock",
       "fazbear-link"
     ],
     "related": [

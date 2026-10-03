@@ -256,8 +256,7 @@
     },
     "tags": [
       "continuity",
-      "film",
-      "novels"
+      "film"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/192swpb/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
@@ -322,7 +321,7 @@
     "id": "scott-2019-not-canon-list",
     "title": "Scott / Reddit / fangames are not canon; the in-game developer is",
     "claim": "Scott said he himself, the subreddit, and fangames are not canon; only the existence of a game developer who 'supposedly' made video games based on actual events, which 'may or may not' be a cover-up by Fazbear Entertainment, is canon.",
-    "quote": "So no, I’m not canon, Freddit isn’t canon, the fangames aren’t canon, YOU aren’t canon. …",
+    "quote": "So no, I'm not canon, Freddit isn't canon, the fangames aren't canon, YOU aren't canon. …",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit post \"A lore question about Help Wanted, and an answer!\", 2019-09-29",
@@ -357,7 +356,7 @@
     "id": "scott-2019-indie-dev-photo",
     "title": "Scott's photo used for the in-game indie developer; that need not mean it is him in-universe",
     "claim": "Scott said his name is never mentioned in Help Wanted and that using his own photo for the in-game indie developer does not necessarily mean the developer is him in-universe.",
-    "quote": "Yes, I used my own picture for this indie developer because it’s an obvious parallel, but that doesn’t necessarily mean that it’s actually *me* in-universe.",
+    "quote": "Yes, I used my own picture for this indie developer because it's an obvious parallel, but that doesn't necessarily mean that it's actually *me* in-universe.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit post \"A lore question about Help Wanted, and an answer!\", 2019-09-29",
@@ -387,7 +386,7 @@
     "id": "scott-2019-ucn-child-face-jason",
     "title": "UCN 'one you should not have killed' face is Scott's son's photo",
     "claim": "Scott said the face of 'The one you should not have killed' in UCN is his son Jason, in a passage listing real photos he has used in the games.",
-    "quote": "My little boy, Jason, is the face of “The one you should not have killed” in UCN.",
+    "quote": "My little boy, Jason, is the face of \"The one you should not have killed\" in UCN.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit post \"A lore question about Help Wanted, and an answer!\", 2019-09-29",
@@ -439,7 +438,7 @@
     "id": "scott-2019-silver-parasol-logo",
     "title": "Scott's post 'Silver Parasol Games': the logo was made for the 'other game developer' mentioned in the game",
     "claim": "Scott said he had a logo created for the mysterious 'other game developer' mentioned in Help Wanted and left it in the game, but decided against making a real website for it.",
-    "quote": "I thought it would be fun to have a logo for the mysterious “other game developer” mentioned in the game, so I had a logo created for it. …",
+    "quote": "I thought it would be fun to have a logo for the mysterious \"other game developer\" mentioned in the game, so I had a logo created for it. …",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit post \"Silver Parasol Games\" by u/animdude, 2019-05-26",
@@ -887,7 +886,7 @@
     "id": "scott-2017-matpat-final-theory",
     "title": "Endorsement of Game Theory 'FNAF, The FINAL Theory! pt 2', 'obviously not 100%'",
     "claim": "Scott called Game Theory's Nov 2017 FNaF episode satisfying and important and told fans upset about 'Miketrap', Purple Guy being literally purple, or 1983 vs 1987 to watch it, while saying it was 'not 100%'.",
-    "quote": "But I will say this- for those of you who were really upset about the idea of “Miketrap”, or upset about the idea of Purpleguy being literally purple, or hung up on 1983 vs 1987, … Like I said, it’s obviously not 100%, …",
+    "quote": "But I will say this- for those of you who were really upset about the idea of \"Miketrap\", or upset about the idea of Purpleguy being literally purple, or hung up on 1983 vs 1987, … Like I said, it's obviously not 100%, …",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit comment by u/animdude on post \"Game Theory: FNAF, The FINAL Theory! (Five Nights at Freddy's) - pt 2\", 2017-11-06",
@@ -906,7 +905,6 @@
       "michael",
       "purple-guy",
       "1983-vs-1987",
-      "bite",
       "endorsement"
     ],
     "related": [
@@ -1001,7 +999,7 @@
     "id": "scott-2018-wanted-to-finish-story",
     "title": "Scott wanted to finish the story himself; after FFPS, open to others",
     "claim": "Scott said he had held back outside opportunities because he wanted to finish the series and story himself, and that with the release of Pizzeria Simulator he felt good about revisiting them.",
-    "quote": "I wanted to finish the series myself, and I didn’t trust anyone else to do it. …",
+    "quote": "I wanted to finish the series myself, and I didn't trust anyone else to do it. …",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam announcement \"Future of FNaF Games and Update Ideas\" (FFPS news), 2018-02-16",
@@ -1082,7 +1080,7 @@
     "claim": "Scott's Steam store description presents FFPS as a lighter-touch restaurant-management game.",
     "quote": "Presenting a fun Five Nights at Freddy's adventure with a lighter touch for the holidays, Freddy Fazbear's Pizzeria Simulator puts you in charge of developing your own restaurant! …",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Freddy Fazbear's Pizzeria Simulator (app 738060), description",
     "certainty": "stated",
     "when": {
@@ -1109,7 +1107,7 @@
     "id": "scott-2017-fnaf6-cancelled-tycoon-hint",
     "title": "'FNaF 6' cancelled; 'maybe... a pizzeria tycoon game'",
     "claim": "In June 2017 Scott said he had stopped work on a game ('call it FNaF 6'), would never reveal what it was, and mused about making a pizzeria tycoon game for fun.",
-    "quote": "Maybe I’ll try my hand at a pizzeria tycoon game, who knows. The point is that it would be something for fun, and something for the fans. :)",
+    "quote": "Maybe I'll try my hand at a pizzeria tycoon game, who knows. The point is that it would be something for fun, and something for the fans. :)",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam announcement \"An Update on the Project\" (Sister Location news), 2017-06-30",
@@ -1316,10 +1314,10 @@
   {
     "id": "scott-2014-fnaf1-store-freddybear",
     "title": "FNaF1 Steam description calls Freddy 'Freddybear'",
-    "claim": "The FNaF1 Steam description (by Scott) uses the name 'Freddybear' for Freddy Fazbear and frames the guard job as cheaper than hiring a repairman for unpredictable robots.",
-    "quote": "The robots' behavior has become somewhat unpredictable at night however, and it was much cheaper to hire you as a security guard than to find a repairman. …",
+    "claim": "The FNaF1 Steam description (by Scott) uses the name 'Freddybear' for Freddy Fazbear: the guard must find 'Freddybear or his friends' on the monitors when they are not in their proper places.",
+    "quote": "If something isn't right- namely if Freddybear or his friends aren't in their proper places, you must find them on the monitors and protect yourself if needed!",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's (app 319510), description",
     "certainty": "stated",
     "when": {
@@ -1336,8 +1334,7 @@
     "tags": [
       "fnaf1",
       "store-text",
-      "naming",
-      "anomaly"
+      "naming"
     ],
     "related": [
       "scott-2020-freddybear-early-name",
@@ -1347,15 +1344,15 @@
     ],
     "url": "https://store.steampowered.com/app/319510/",
     "verifiedVia": "Steam appdetails API (2026) and Wayback 2014 capture of the store page",
-    "notes": "Scott explained the word in 2020: it is left over from a short time when Freddy's name was going to be 'Freddybear' (scott-2020-freddybear-early-name). It is an early working name for Freddy, not a reference to Fredbear. The sentence with the name reads: 'If something isn't right- namely if Freddybear or his friends aren't in their proper places, you must find them on the monitors and protect yourself if needed!' The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf1-steam-freddybear, which quotes that sentence, and as scott-fnaf1-steam-budget-cuts, which also reads the sentence quoted here; they are records of one text."
+    "notes": "Scott explained the word in 2020: it is left over from a short time when Freddy's name was going to be 'Freddybear' (scott-2020-freddybear-early-name). It is an early working name for Freddy, not a reference to Fredbear. The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf1-steam-freddybear, which quotes the same sentence, and as scott-fnaf1-steam-budget-cuts, which reads its sentences about the electricity and the repairman; they are records of one text."
   },
   {
     "id": "scott-2014-fnaf2-store-previous-guard",
     "title": "FNaF2 Steam description: previous guard moved to day shift",
-    "claim": "Scott's FNaF2 Steam description says the previous guard complained about characters trying to get into the office and was moved to day shift, and the new animatronics are tied into local criminal databases.",
-    "quote": "They are kid-friendly, updated with the latest in facial recognition technology, tied into local criminal databases, and promise to put on a safe and entertaining show for kids and grown-ups alike! …",
+    "claim": "Scott's FNaF2 Steam description says the previous guard complained about the characters trying to get into the office and has since been moved to day shift.",
+    "quote": "The previous guard has complained about the characters trying to get into the office (he has since been moved to day-shift).",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's 2 (app 332800), description",
     "certainty": "stated",
     "when": {
@@ -1381,7 +1378,7 @@
     ],
     "url": "https://store.steampowered.com/app/332800/",
     "verifiedVia": "Steam appdetails API (2026)",
-    "notes": "Also: 'As always, Fazbear Entertainment is not responsible for death or dismemberment.' Promo text, not in-game; treat as Scott's framing. The sentence about the previous guard reads: 'The previous guard has complained about the characters trying to get into the office (he has since been moved to day-shift).' The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf2-steam-description, whose subject is the sentence quoted here, and as scott-fnaf2-steam-old-and-aging; they are records of one text."
+    "notes": "Also: 'As always, Fazbear Entertainment is not responsible for death or dismemberment.' Promo text, not in-game; treat as Scott's framing. The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf2-steam-description, whose subject is its sentence about facial recognition and criminal databases, and as scott-fnaf2-steam-old-and-aging; they are records of one text."
   },
   {
     "id": "scott-2015-fnaf3-store-thirty-years",
@@ -1389,7 +1386,7 @@
     "claim": "Scott's FNaF3 Steam description places the game thirty years after Freddy Fazbear's Pizza closed, at 'Fazbear's Fright: The Horror Attraction', which found empty shells, a hand, a hook, a paper-plate doll, and then one animatronic.",
     "quote": "Thirty years after Freddy Fazbear's Pizza closed it's doors, the events that took place there have become nothing more than a rumor and a childhood memory",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's 3 (app 354140), description",
     "certainty": "stated",
     "when": {
@@ -1421,7 +1418,7 @@
     "claim": "Scott's FNaF4 Steam description calls it the last chapter of the Five Nights at Freddy's original story.",
     "quote": "In this last chapter of the Five Nights at Freddy's original story, you must once again defend yourself against Freddy Fazbear, Chica, Bonnie, Foxy, and even worse things that lurk in the shadows.",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's 4 (app 388090), description",
     "certainty": "stated",
     "when": {
@@ -1450,7 +1447,7 @@
     "claim": "Scott's FNaF4 Steam description says the player plays as a child whose role is yet unknown.",
     "quote": "Playing as a child whose role is yet unknown, you must safeguard yourself until 6am by watching the doors, as well as warding off unwanted creatures that may venture into your closet or onto the …",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's 4 (app 388090), description",
     "certainty": "stated",
     "when": {
@@ -1480,7 +1477,7 @@
     "claim": "Scott's Sister Location Steam description is written as an ad for Circus Baby's Pizza World and a job posting for a late-night technician.",
     "quote": "Now hiring: Late night technician. Must enjoy cramped spaces and be comfortable around active machinery. Not responsible for death or dismemberment.",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's: Sister Location (app 506610), description",
     "certainty": "stated",
     "when": {
@@ -1563,7 +1560,7 @@
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com image fnaf3.jpg, captured 2015-01-03",
-    "certainty": "shown",
+    "certainty": "stated",
     "when": {
       "label": "Undated (FNaF3 teaser)",
       "precision": "unknown",
@@ -1625,7 +1622,7 @@
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com image always.jpg, captured 2015-01-27",
-    "certainty": "shown",
+    "certainty": "stated",
     "when": {
       "label": "Undated (FNaF3 teaser)",
       "precision": "unknown",
@@ -1633,8 +1630,7 @@
     },
     "tags": [
       "fnaf3",
-      "teaser",
-      "purple"
+      "teaser"
     ],
     "related": [
       "scottgames-fnaf3-teaser-he-always-does",
@@ -1760,7 +1756,7 @@
     "game": "scottgames-site",
     "kind": "hidden",
     "location": "scottgames.com HTML (title, meta tag names and image alt text), Wayback capture 2015-04-28 08:32 UTC",
-    "certainty": "shown",
+    "certainty": "stated",
     "when": {
       "label": "Undated (FNaF4 teaser period)",
       "precision": "unknown",
@@ -1800,7 +1796,6 @@
     "tags": [
       "fnaf4",
       "teaser",
-      "bite",
       "culprit-question"
     ],
     "related": [
@@ -2184,7 +2179,7 @@
     "id": "scottgames-site-sl-cancelled-teaser",
     "title": "SL teaser: 'CANCELLED – Due to leaks.' (surface text)",
     "claim": "An August 2016 Sister Location teaser displayed only 'CANCELLED' and 'Due to leaks.' on black.",
-    "quote": "CANCELLED",
+    "quote": "CANCELLED / Due to leaks.",
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com image project.JPG, captured 2016-08-16",
@@ -2324,7 +2319,7 @@
     "tags": [
       "sister-location",
       "hidden-text",
-      "owner"
+      "entrepreneur"
     ],
     "related": [
       "scottgames-site-sl-news-gas-leak-cancellation"
@@ -2369,7 +2364,7 @@
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com image hw.jpg, captured 2019-03-11",
-    "certainty": "shown",
+    "certainty": "stated",
     "when": {
       "label": "Undated (Help Wanted teaser)",
       "precision": "unknown",
@@ -3272,7 +3267,6 @@
     ],
     "tags": [
       "clarification",
-      "miketrap",
       "sister-location",
       "identity",
       "voice"
@@ -3555,7 +3549,6 @@
     },
     "tags": [
       "naming",
-      "cassidy",
       "merchandise",
       "identity",
       "continuity"
@@ -3586,7 +3579,6 @@
     },
     "tags": [
       "naming",
-      "cassidy",
       "film",
       "identity"
     ],
@@ -3615,10 +3607,8 @@
     },
     "tags": [
       "naming",
-      "charlie",
       "film",
-      "identity",
-      "novels"
+      "identity"
     ],
     "related": [
       "scott-2020-cassidy-screenplay-lore-from-games",
@@ -3665,7 +3655,7 @@
     "claim": "The FNaF1 Steam description (by Scott) calls the night guard position 'your new summer job at Freddy Fazbear's Pizza'.",
     "quote": "Welcome to your new summer job at Freddy Fazbear's Pizza, where kids and parents alike come for entertainment and food as far as the eye can see!",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Five Nights at Freddy's (app 319510), description, first sentence",
     "certainty": "stated",
     "when": {
@@ -3788,8 +3778,7 @@
       "fnaf3",
       "teaser",
       "page-source",
-      "first-person",
-      "springtrap"
+      "first-person"
     ],
     "related": [
       "scottgames-site-fnaf3-i-am-still-here",
@@ -3811,23 +3800,18 @@
     "game": "scottgames-site",
     "kind": "hidden",
     "location": "scottgames.com HTML, meta tag named 'descr7iption', Wayback capture 2015-07-21 21:16 UTC (previous capture 2015-07-09 still reads 'Sco8ttga7mes')",
-    "certainty": "shown",
+    "certainty": "stated",
     "when": {
       "label": "Undated (FNaF4 teaser period)",
       "precision": "unknown",
       "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "crying-child"
-    ],
     "tags": [
       "fnaf4",
       "teaser",
       "page-source",
       "83",
       "87",
-      "1983",
-      "bite",
       "timeline"
     ],
     "related": [
@@ -4013,7 +3997,6 @@
       "ffps",
       "teaser",
       "page-source",
-      "ennard",
       "ejection",
       "dialogue"
     ],
@@ -4046,7 +4029,6 @@
       "ffps",
       "teaser",
       "page-source",
-      "baby",
       "ejection",
       "dialogue"
     ],
@@ -4222,7 +4204,6 @@
       "teaser",
       "page-source",
       "dialogue",
-      "vanny",
       "control"
     ],
     "related": [
@@ -4808,7 +4789,6 @@
       "fnaf3",
       "teaser",
       "golden-freddy",
-      "yellow-suit",
       "interview",
       "reception"
     ],
@@ -4983,7 +4963,6 @@
       "into-the-pit",
       "canon",
       "adaptation",
-      "novels",
       "interview"
     ],
     "related": [
