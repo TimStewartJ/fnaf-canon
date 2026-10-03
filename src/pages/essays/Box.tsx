@@ -1,63 +1,90 @@
-import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
-import { boxTimeline, boxAnswer, boxGuesses, type BoxStep } from "../../data/box";
-import { CiteList, DatePill, Figure, Icon, PHASE_HUE, Page, PageHeader, RichText, Section, hueOf, smartQuotes } from "../../components/ui";
+import { boxAnswer, boxGuesses, boxTimeline } from "../../data/box";
+import { creditByFile } from "../../data/store";
+import { CiteScope, DatePill, PHASE_HUE, Page, PageHeader, RichText, hueOf, smartQuotes } from "../../components/ui";
+import { EssayAnswers, EssayArgument, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll } from "./essay";
+import { answerId, citedIn, count, knownRecords, readingMinutes, recordOfImage, yearSpan } from "./essayModel";
+import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./box.css";
 
-const PHASE: Record<BoxStep["phase"], string> = { planted: "Planted", explained: "Explained", shelved: "Shelved", echoed: "Echoed", abandoned: "Abandoned" };
+/** Words for the phases of the box's history. An unknown phase falls back to its id. */
+const PHASE: Record<string, string> = { planted: "Planted", explained: "Explained", shelved: "Shelved", echoed: "Echoed", abandoned: "Abandoned" };
+
+/** The header's exhibit: page furniture, with a caption written for it. Left out if the archive no longer holds the image. */
+const HERO = "fnaf4-locked-box-ending.jpg";
+
+// Everything below is read off the data when the page loads: no ids or counts are written here.
+const STEP_IDS = boxTimeline.map((s) => s.id);
+const ALL_EVIDENCE = boxTimeline.flatMap((s) => s.evidence);
+/** Every record the page cites, in reading order. It fixes the citation numbers and is the source list. */
+const CITED = knownRecords([
+  ...boxAnswer.flatMap((a) => citedIn(...a.body)),
+  ...boxTimeline.flatMap((s) => [...citedIn(s.body), ...s.evidence]),
+  ...boxGuesses.flatMap((g) => citedIn(g.verdict)),
+]);
+const MINUTES = readingMinutes(boxAnswer.flatMap((a) => [a.short, ...a.body]));
 
 export default function Box() {
+  const steps = useEssayRows(STEP_IDS);
+  const hero = creditByFile.has(HERO) ? HERO : undefined;
   return (
     <Page title="The Box" className="essay box-page">
-      <PageHeader
-        kicker="Essay · FNaF4, Night 7"
-        title="The locked box"
-        lede="“Perhaps some things are best left forgotten, for now.” Beating FNaF4's hardest night shows a grey box with two padlocks that will not open. Here is everything the games and Scott have said about it, in order, and what that adds up to."
-        aside={<Figure file="fnaf4-locked-box-ending.jpg" caption="FNaF4, Night 7: the box that cannot be opened" tag="Exhibit" eager />}
-      />
+      <CiteScope prime={CITED}>
+        <PageHeader
+          kicker="Essay · FNaF4, Night 7"
+          title="The locked box"
+          lede="FNaF4’s hardest night ends on a grey box with two padlocks and one line: “Perhaps some things are best left forgotten, for now.” What was in it, and why did it never open?"
+          aside={hero && <EssayFigure file={hero} evidence={recordOfImage(hero, ALL_EVIDENCE)} caption="FNaF4, Night 7: the box that cannot be opened" size="hero" eager />}
+        >
+          <EssayAnswers items={boxAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }))} />
+          <EssayMeta minutes={MINUTES} facts={[count(boxTimeline.length, "dated step")]} cited={CITED.length} />
+        </PageHeader>
 
-      <section className="answers" aria-label="The short answers">
-        {boxAnswer.map((a) => (
-          <article key={a.q} className="answer-card">
-            <h2>{a.q}</h2>
-            <p className="answer-card__short">{smartQuotes(a.short)}</p>
-            <div className="prose">{a.body.map((b, i) => <p key={i}><RichText text={b} /></p>)}</div>
-            <p className="answer-card__conf"><span className="label">Confidence</span>{a.confidence}</p>
-          </article>
-        ))}
-      </section>
+        <EssayArgument answers={boxAnswer} shown={hero ? [hero] : []} />
 
-      <Section title="The box, step by step">
-        <ol className="steps">
-          {boxTimeline.map((s) => (
-            <li key={s.id} className="step" style={{ "--hue": hueOf(PHASE_HUE, s.phase) } as CSSProperties}>
-              <div className="step__date"><DatePill label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} /></div>
-              <div className="step__card">
-                <span className="step__phase">{PHASE[s.phase]}</span>
-                <h3>{smartQuotes(s.title)}</h3>
-                <p className="step__text"><RichText text={s.body} /></p>
-                {s.image && <Figure file={s.image} compact />}
-                <p className="step__evidence"><span className="label">Evidence</span> <CiteList ids={s.evidence} /></p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </Section>
+        <EssaySection
+          id="history"
+          kicker="The record, in order"
+          title="The box, step by step"
+          lead={<p>{count(boxTimeline.length, "dated step")}, {yearSpan(boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+          actions={<EssayToggleAll control={steps} />}
+        >
+          <EssayRows control={steps} variant="spine" label="The box, step by step">
+            {boxTimeline.map((s) => (
+              <EssayRow
+                key={s.id}
+                id={s.id}
+                when={<DatePill variant="inline" label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+                node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
+                kicker={<span className="label">{PHASE[s.phase] ?? s.phase}</span>}
+                title={s.title}
+              >
+                <EssayEntry text={s.body} image={s.image} evidence={s.evidence} />
+              </EssayRow>
+            ))}
+          </EssayRows>
+        </EssaySection>
 
-      <Section title="What the community guessed" lead={<>Referenced, not used as evidence. See <Link to="/community">Theorists &amp; Scott</Link> for the wider picture.</>}>
-        <div className="guess-grid">
-          {boxGuesses.map((g) => (
-            <article key={g.name} className="guess">
-              <h3>{g.name}</h3>
-              <p>{g.idea}</p>
-              <p><span className="label">Against the evidence</span> <RichText text={g.verdict} /></p>
-              {g.source && <p className="guess__src">{g.source.url ? <a href={g.source.url} target="_blank" rel="noreferrer">{g.source.who} · {g.source.what}<Icon icon={ArrowUpRight} /></a> : `${g.source.who} · ${g.source.what}`}</p>}
-            </article>
-          ))}
-        </div>
-      </Section>
+        <EssaySection
+          id="guesses"
+          kicker="Not evidence"
+          title="What the community guessed"
+          lead={<p>Referenced, not used as evidence. See <Link to="/community">Theorists &amp; Scott</Link> for the wider picture.</p>}
+        >
+          <EssayRows label="What the community guessed">
+            {boxGuesses.map((g) => (
+              <EssayRow key={g.name} title={g.name} sub={smartQuotes(g.idea)}>
+                <p className="essay-text"><span className="label box-guess__label">Against the evidence</span><RichText text={g.verdict} /></p>
+                {g.source && <EssayRefs items={[g.source]} label="Where it was argued" />}
+              </EssayRow>
+            ))}
+          </EssayRows>
+        </EssaySection>
+
+        <EssaySources ids={CITED} />
+        <EssayMore current="/box" />
+      </CiteScope>
     </Page>
   );
 }
