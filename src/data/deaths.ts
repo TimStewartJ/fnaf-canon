@@ -91,7 +91,7 @@ export const deaths: Death[] = [
   },
   // ── The murders ──
   {
-    id: "d-child-outside", title: "A child is killed outside the pizzeria", victims: ["henrys-daughter"], victimLabel: "A crying child outside (theory: the Cassette Man's daughter)", by: ["purple-guy"], byLabel: "The purple man",
+    id: "d-child-outside", title: "A child is killed outside the pizzeria", victims: ["cassette-mans-daughter"], victimLabel: "A crying child outside (theory: the Cassette Man's daughter)", by: ["purple-guy"], byLabel: "The purple man",
     kind: "murder", placeLabel: "Outside a Freddy Fazbear's Pizza (which one is not shown)", era: "murders", year: 1984, yearLabel: "undated",
     date: { kind: "relative", basis: "Undated. The Puppet already exists by 1987.", evidence: ["fnaf2-take-cake-to-the-children", "fnaf2-call2-foxy-puppet"] },
     status: "canon", evidence: ["fnaf2-take-cake-to-the-children", "ffps-security-puppet-dead-child", "ffps-completion-shut-out"],
@@ -162,7 +162,7 @@ export const deaths: Death[] = [
     note: "He \"should be dead\" but keeps moving.",
   },
   {
-    id: "d-ffps-fire", title: "The FFPS fire", victims: ["william-afton", "elizabeth-afton", "henrys-daughter", "cassette-man", "molten-freddy"], victimLabel: "Scraptrap, Scrap Baby, Lefty (with the Puppet), Molten Freddy and the Cassette Man; the franchisee stays too", by: ["cassette-man"], byLabel: "The Cassette Man",
+    id: "d-ffps-fire", title: "The FFPS fire", victims: ["william-afton", "elizabeth-afton", "cassette-mans-daughter", "cassette-man", "molten-freddy"], victimLabel: "Scraptrap, Scrap Baby, Lefty (with the Puppet), Molten Freddy and the Cassette Man; the franchisee stays too", by: ["cassette-man"], byLabel: "The Cassette Man",
     kind: "fire", place: "ffps-pizzeria", era: "aftermath", year: 2018.81, yearLabel: "after Sister Location",
     date: { kind: "relative", basis: "The salvaged machines are the burnt Springtrap and Sister Location's Baby.", evidence: ["ffps-scraptrap-still-me", "ffps-completion-connection-terminated-elizabeth"] },
     status: "strong", evidence: ["ffps-completion-fire", "ffps-completion-old-friend-hell", "ffps-completion-rest", "ffps-completion-remaining-nearby", "ffps-completion-brave-volunteer", "ffps-completion-achievement"],

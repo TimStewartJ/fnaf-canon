@@ -65,7 +65,7 @@ export const people: Person[] = [
     theory: "He is the \"Hen\" of Secret of the Mimic, who ordered springlock suits \"for the diner\" from Murray's workshop [[secret-of-the-mimic-log-build-to-spec]] [[secret-of-the-mimic-mail-springlocks-hen]], and William Afton's business partner at Fredbear's Family Diner. No game ever prints the name \"Henry\", so this archive does not use it.",
   },
   {
-    id: "henrys-daughter", name: "The Cassette Man's Daughter", aliases: ["The child outside", "The Puppet's child"], nameStatus: "descriptor", group: "emily",
+    id: "cassette-mans-daughter", name: "The Cassette Man's Daughter", aliases: ["The child outside", "The Puppet's child"], nameStatus: "descriptor", group: "emily",
     summary: "A child left crying outside the pizzeria and killed by the purple man in Take Cake to the Children [[fnaf2-take-cake-to-the-children]]. The Cassette Man says his daughter was \"shut out and left to die\" [[ffps-completion-shut-out]]. Security Puppet shows the Puppet trapped under a box while the child it guards dies in the rain outside [[ffps-security-puppet-trapped]] [[ffps-security-puppet-dead-child]].",
     status: "Murdered (date unknown). Her spirit inhabits the Puppet (inside Lefty in FFPS) and is released in the FFPS fire. Note: Take Cake's audio says \"SAVE HIM\".",
     firstAppearance: "fnaf2", image: "ffps-completion-security-puppet-terminal.png",

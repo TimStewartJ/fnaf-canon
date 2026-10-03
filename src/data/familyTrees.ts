@@ -33,7 +33,7 @@ export const familyTrees: FamilyTree[] = [
       { id: "william-afton", gen: 0, col: 0, note: "killer" },
       { id: "cassette-man", gen: 0, col: 2, note: "engineer" },
       { id: "hen", gen: 0, col: 3, note: "SotM" },
-      { id: "henrys-daughter", gen: 1, col: 2, note: "killed outside" },
+      { id: "cassette-mans-daughter", gen: 1, col: 2, note: "killed outside" },
       { id: "missing-children", gen: 1, col: 0, note: "June 26th" },
       { id: "puppet", gen: 2, col: 2, note: "Security Puppet" },
       { id: "lefty", gen: 3, col: 2, note: "built to capture her" },
