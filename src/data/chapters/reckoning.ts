@@ -2,7 +2,7 @@ import type { TheorySection } from "../schema";
 
 /**
  * The Unified Model, part 7: The reckoning (Thirty years later).
- * A horror attraction finds the rabbit, an old friend sets a trap, a building burns, and one victim will not let the killer go.
+ * A horror attraction finds the rabbit, an old friend sets a trap, a building burns, and one voice refuses release.
  *
  * One file per part, so that parts can be written in parallel. Chapters appear on the site in this order.
  * theory.ts joins the part files; the shapes and the RichText tokens are described in schema.ts.
@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fnaf3-good-ending-heads", "scott-2018-interview-fnaf3-ending-unanswered"],
     tension: "FNaF3's own good ending shows the heads with their eyes dark and the fifth head gone [[fnaf3-good-ending-heads]]: inside that game, the children leave. The model does not deny it. It reports that the game made to resolve the story speaks of small souls still without rest, and shows the graves only after its own fire; no record says when the stones were set. Asked in 2018 which FNaF3 ending happened, Scott said the answer was \"complex\" and did not give it [[scott-2018-interview-fnaf3-ending-unanswered]]. That record is a transcript, and it leaves room for the surviving alternative: that the release held for the five, and what was gathered later is something else.",
@@ -127,7 +127,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["ffps-salvage-origins-unknown", "fnaf3-good-ending-heads"],
     tension: "Pizzeria Simulator never says \"Ennard\", and its own tape says of what turns up in the alley, \"we are unsure of its origins\" [[ffps-salvage-origins-unknown]]: Molten Freddy's past is read from its body, its voice and its lines. And nothing says where the five are. If FNaF3's good ending held [[fnaf3-good-ending-heads]], they are in nothing, and what the trap gathers is something else. The model keeps them among what answers the call because the Cassette Man's tape speaks of small souls lured back and overpowered, which is what FNaF3 shows done to the four, and because he means to give them rest. It does not say which machine holds them. That is the weakest join in this part, and it is stated as not shown wherever it appears.",

@@ -2,7 +2,7 @@ import type { TheorySection } from "../schema";
 
 /**
  * The Unified Model, part 4: The murders (Before 1987).
- * A child shut out in the rain, five children led into a back room, and what the mascots held afterwards.
+ * A child shut out in the rain, children lured into a back room, and the signs the mascots carried afterwards.
  *
  * One file per part, so that parts can be written in parallel. Chapters appear on the site in this order.
  * theory.ts joins the part files; the shapes and the RichText tokens are described in schema.ts.
@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["hw2-pq4-graveyard-order", "ucn-withered-chica-toysnhk"],
     tension: "Take Cake's own voice spells \"save him\" over a child the later game calls a daughter. The model lets Pizzeria Simulator govern, because it restages that exact scene while her father describes it, and keeps the mismatch on the page. Two records cut against telling her death first. One of the five says \"I was the first!\" [[ucn-withered-chica-toysnhk]], which the model reads as first of the five. And Help Wanted 2's graveyard is solved in an order that begins with Chica and ends with the Puppet [[hw2-pq4-graveyard-order]]; if that is an order of deaths, the two agree with each other and against the model. The game does not say what the order orders, and the model uses it for nothing. That is why \"before the five\" is a convention and not a finding.",

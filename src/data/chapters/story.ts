@@ -31,13 +31,13 @@ export const chapters: TheorySection[] = [
   {
     id: "killer", part: "story", title: "The man in the rabbit suit",
     question: "Who is the purple man of the minigames?",
-    answer: "William Afton: the killer, the robot designer and the father are one man. Only one link in the chain is stated outright, the credit that gives the burnt rabbit's voice to \"William Afton\"; the other four are short inferences from what the games show.",
+    answer: "William Afton: the killer, the robot designer and the father are one man. Only one link in the chain is stated outright: Pizzeria Simulator's credits give the salvaged rabbit's voice to \"William Afton\". The other four are short inferences from what the games show.",
     confidence: "high",
     hero: { image: "fnaf3-springlock-death.png", caption: "FNaF3, after Night 5: the purple figure slumped inside the yellow rabbit suit [[fnaf3-n5-springlock-death]]. The game names nobody here; the name comes three games later." },
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fnaf1-news-suspect-captured", "fnaf1-news-charged-vs-convicted", "sl-golden-freddy-cutscene-they-thought-i-was-you"],
     tension: "FNaF1's clippings say a man was caught the morning after and charged [[fnaf1-news-suspect-captured]] [[fnaf1-news-charged-vs-convicted]], yet the killer is at large in every later game. Who the caught man was is open: the killer, later free for want of bodies, or the wrong man. The model prints the arrest and builds nothing on either reading, and no link above depends on it (see ((murders)) and ((open))). Michael's line that the machines \"thought I was you\" [[sl-golden-freddy-cutscene-they-thought-i-was-you]] has been read as putting the son in the suit; in the same speech he is talking to his father, and the rabbit steps out of the dark as he finishes.",

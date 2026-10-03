@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["ffps-completion-tutorial-atonement", "scott-2019-only-game-developer-existence-canon"],
     tension: "Pizzeria Simulator's certificate says the company was \"atoning for past mistakes\" and is \"no longer a corporate entity\" [[ffps-completion-tutorial-atonement]], which reads like remorse and like an ending. The next game shows it back, suing people and commissioning a comedy about its own history, so the model reads the certificate as part of the Cassette Man's trap and not as a change of heart. And Scott made canon only that an in-universe developer exists, whose games \"may or may not be a cover up\" [[scott-2019-only-game-developer-existence-canon]]: that is why \"the games are the cover-up\" is held as a strong reading and not as fact.",
@@ -223,7 +223,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["security-breach-ending-alley", "ruin-gregory-comics-depict-endings", "security-breach-rooftop-vanessa-alive"],
     tension: "The game gives six endings and no ruling between them. One leaves Gregory asleep in a box in an alley with the woman in the rabbit costume standing over him [[security-breach-ending-alley]], which no later game undoes on screen. Gregory's comics draw every ending except the one the model follows [[ruin-gregory-comics-depict-endings]]. And the rooftop ending's last page shows Vanessa alive beside the fallen Vanny [[security-breach-rooftop-vanessa-alive]]. The model follows the Princess Quest ending for the people because RUIN finds that cabinet run through and returns to that ending's hill. It says \"follows\", not \"is\": Scott has said, in an interview on record as a transcript, that the game's story is very different from the one he had in mind.",

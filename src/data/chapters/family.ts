@@ -101,7 +101,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fnaf4-bedside-items", "fnaf4-nightmare-fredbear-4am", "fnaf4-reversed-phone-guy", "sl-private-room-feeds-empty"],
     tension: "The dream reading explains three things better than the model does. Flowers, pills and a drip stand can appear by the bed [[fnaf4-bedside-items]]. A sixth night is played after the party, when the boy cannot be at home [[fnaf4-nightmare-fredbear-4am]]. And a fragment of a phone call from a later year can be heard in the room [[fnaf4-reversed-phone-guy]]. Against that the model has one thing: the bedroom is a real place on a company's monitors, in the game made to ground this one. The monitors show that place empty [[sl-private-room-feeds-empty]], so they prove the room and not the nights. That is why the lean to waking events is slight.",

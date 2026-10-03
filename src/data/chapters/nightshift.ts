@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fnaf2-save-them", "fnaf2-save-them-purple-figure-chest-mark", "fnaf2-call3-rumors", "fnaf2-no-bite-mention", "ffps-fruity-maze-follow-me"],
     tension: "Read alone, FNaF2 suggests victims in 1987. SAVE THEM shows five small bodies among that restaurant's cast [[fnaf2-save-them]], with a purple figure who has a mark on his chest that he has nowhere else [[fnaf2-save-them-purple-figure-chest-mark]], and by the third night the company is already denying something \"tragic\" [[fnaf2-call3-rumors]]. The model reads the bodies as the earlier five because no later count of the dead has a ghost, a mask, a grave or a doll left over for a second five. The price is that it has no act for this week, and it says so. For the Bite, no call that week uses the word [[fnaf2-no-bite-mention]], and a bite earlier in 1987 at the old location cannot be excluded. For the suit, the rabbit is the killer's costume wherever a later game shows him in one [[ffps-fruity-maze-follow-me]]; the bear is preferred, narrowly, because it is the one empty yellow costume the first two games show.",
@@ -73,7 +73,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fnaf1-call1-twenty-years", "fnaf1-help-wanted-ad", "scott-2014-fnaf1-store-summer-job"],
     tension: "Three records resist the placing. Phone Guy says the characters have been singing \"for twenty years\" [[fnaf1-call1-twenty-years]]; counted from 1987 that would put FNaF1 in the 2000s, and the model reads it as the age of the act, not the gap between two games. The advertisement says nothing of a reopening [[fnaf1-help-wanted-ad]], and \"the tragedy that took place there\" could mean the brand as easily as the building, which is why \"the old building\" stays at most likely. And Scott's store text calls the post a \"summer job\" [[scott-2014-fnaf1-store-summer-job]] where the game's own cheques are dated November; the model prefers the cheques.",

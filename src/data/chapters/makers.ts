@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["secret-of-the-mimic-ad-chicas-party-world", "fnaf3-tapes-freddy-fazbears-pizza"],
     tension: "Secret of the Mimic never names \"the diner\", and the same game has another client restaurant, Chica's Party World [[secret-of-the-mimic-ad-chicas-party-world]]. The model takes the diner as Fredbear's because that name is printed on a poster in Murray's building, with a yellow rabbit on it, and no other diner is. The training tapes that describe the suits are recorded for Freddy Fazbear's Pizza, not for a diner [[fnaf3-tapes-freddy-fazbears-pizza]]: they show the suits still in use at the later chain, and say nothing about who first ordered them.",
@@ -66,7 +66,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["secret-of-the-mimic-dispatch-briefing-origin"],
     tension: "The briefing the technician is given describes a single endoskeleton, built to keep Murray's son entertained, that copied the violence it was exposed to [[secret-of-the-mimic-dispatch-briefing-origin]]. The model follows Murray's own recordings and M1's message instead, which separate the babysitter from its copy and say whose violence it was. The briefing is spoken in the dispatcher's voice by M1 itself, which has its own reasons to leave M1 out.",

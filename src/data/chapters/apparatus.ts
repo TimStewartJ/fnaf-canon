@@ -60,7 +60,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["fw-crying-child-character", "fw-android-port-clock-ending", "into-the-pit-phone-guy-night3-stuffing", "fw-desk-man-deactivated-my-games"],
     tension: "The frame voice is weaker than it looks. The one figure FNaF World names \"Crying Child\" is the weeping child of the earlier minigames, not FNaF4's boy [[fw-crying-child-character]]; on Android the two lights of the clock ending are replaced by an ordinary enemy [[fw-android-port-clock-ending]]; and the same game's desk scene is plain promotion for the next one [[fw-desk-man-deactivated-my-games]]. So the model lets the voice echo and never lets it carry a fact alone. Into the Pit pushes the other way: its phone calls describe machines that stuff people into suits [[into-the-pit-phone-guy-night3-stuffing]], which reads like the main games' own history and tempts a literal reading. The model keeps it as a story told inside the world because no main-line game refers to its events, and because its dead children number six.",
@@ -176,7 +176,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["scott-2015-story-complete"],
     tension: "Scott declared the story \"complete\" in 2015, before most of these games existed [[scott-2015-story-complete]]. The table is therefore not a plan carried out. It is a record of a story that was extended and repaired in public, and the model reads the later repairs as the author's own corrections, which is what he has said they were.",

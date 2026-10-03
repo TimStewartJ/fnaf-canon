@@ -2,7 +2,7 @@ import type { TheorySection } from "../schema";
 
 /**
  * The Unified Model, part 6: The machines (Undated).
- * What Afton built under his own name: machines made to take children, a substance he fed them, and what they did to his son. The games give none of it a date. Its place in the order is the model's convention.
+ * What Afton built under his own name: machines made to lure a child and take it, one blueprint with the word Remnant on it, and what the machines did to his son. The games give none of it a date, and its place in the order is the model's convention.
  *
  * One file per part, so that parts can be written in parallel. Chapters appear on the site in this order.
  * theory.ts joins the part files; the shapes and the RichText tokens are described in schema.ts.
@@ -58,7 +58,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["sd-tutorial-remnant-collection"],
     tension: "Nothing in any game states a link between the substance and the dead, and the tape that speaks of small souls names no machine. The only other use of the word is a collectible in Special Delivery that \"is used to power up your animatronics\" [[sd-tutorial-remnant-collection]], which treats it as a resource and explains nothing. The model's reading rests on the machine's own name and on the company the sheet keeps: it is on the screen while the Cassette Man speaks of small souls \"set to new purpose\". That is thin, which is why the chapter is rated low, why it says nothing about what the substance is, and why no other chapter builds on it.",

@@ -122,7 +122,7 @@ export const chapters: TheorySection[] = [
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
     body: [
-      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
+      { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model's ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["ucn-mr-hippo-just-a-story", "hw-mobile-princess-quest-ending"],
     tension: "The games carry their own warning about this kind of chapter: \"Sometimes, a story's just a story\" [[ucn-mr-hippo-just-a-story]]. A motif is not an event, and nothing here is used to establish one: each echo is cited where it is spoken, and no identification in the model rests on a phrase coming back. One of the echoes most often quoted, the rabbit in the code saying \"I always come back\", exists only as a fan decoding of glyphs [[hw-mobile-princess-quest-ending]], and is left out of the table for that reason.",
