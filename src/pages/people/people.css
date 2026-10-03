@@ -1,63 +1,82 @@
-/* People index and person page. Cluster C. */
+/* People index and person page. Cluster C. Shared pieces (sections, tie rows) are in common.css. */
 
-/* Descriptor names use the shared .name-desc (base.css). */
-.people-key { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-4); }
-.people-key__note { flex-basis: 100%; font-size: var(--fs-sm); color: var(--c-text-2); }
+/* ── People index ──────────────────────────────────────────────────
+ * A register: one row per person, the name leading; what folds into them sits below, smaller. */
+.ppl-search { max-width: 34rem; margin-bottom: var(--sp-4); }
+.ppl-key { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-4); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.ppl-key__note { flex-basis: 100%; }
 
-/* Index cards */
-.uperson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20.5rem), 1fr)); gap: var(--sp-4); align-items: start; }
-.uperson { display: flex; flex-direction: column; min-width: 0; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); overflow: hidden; transition: border-color var(--dur-1) var(--ease); }
-.uperson:hover { border-color: var(--c-line-strong); }
-.uperson-head { display: flex; gap: var(--sp-4); padding: var(--sp-4); color: var(--c-text); text-decoration: none; }
-.uperson-head:hover { color: var(--c-text); }
-.uperson-head:hover h3 { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
-.uperson-head img, .uperson-head .person-ph { width: 4.75rem; height: 4.75rem; flex: none; object-fit: cover; background: var(--c-mat); border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.person-ph { display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: var(--fs-2xl); color: var(--c-mat-text); }
-.uperson-head h3 { margin: 0 0 0.2rem; font-size: var(--fs-lg); line-height: 1.2; }
-.uperson-status { margin: 0 0 var(--sp-2); font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
-.uperson-status .cites { display: none; }
-.uperson-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-3); margin: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
-.uperson-body { display: grid; gap: var(--sp-2); align-content: start; flex: 1; padding: var(--sp-3) var(--sp-4) var(--sp-4); border-top: 1px solid var(--c-line); }
-.alias-row { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; }
-.alias-label { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-3); }
-.alias-chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
-/* The border style carries how firmly the alias belongs: solid, dashed, dotted. */
-.alias-chip { padding: 0.12em 0.6em; font-size: var(--fs-sm); line-height: 1.35; color: var(--c-text); border: 1px var(--firm-style, solid) var(--c-text-3); border-radius: var(--r-pill); text-decoration: none; }
-.alias-chip:hover { color: var(--c-accent-strong); border-color: var(--c-accent); background: var(--c-accent-soft); }
+.ppl-row__aka { display: grid; gap: 0; margin: 0; }
+.ppl-row__status + .ppl-row__aka { margin-top: var(--sp-2); }
+.ppl-aka { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; }
+.ppl-aka > dd { display: flex; flex-wrap: wrap; gap: 0 var(--sp-3); min-width: 0; margin: 0; }
+/* the padding makes each link at least 24px tall, the least a pointer target may be */
+.ppl-aka__link { display: inline-flex; align-items: baseline; gap: 0.35em; padding-block: 0.125rem; font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); text-decoration-color: var(--c-line-strong); border-radius: var(--r-xs); }
+.ppl-aka__link .firm-glyph { align-self: center; }
+.ppl-aka__link:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+/* the alias a search matched */
+.ppl-aka__link.is-hit { color: var(--c-text); font-weight: 600; text-decoration-color: var(--c-accent); background: var(--c-accent-soft); box-shadow: 0 0 0 3px var(--c-accent-soft); }
+@media (pointer: coarse) { .ppl-aka__link { padding-block: 0.35rem; } }
 
-details.minor > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4); min-height: var(--tap); padding: var(--sp-3) var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
-.minor-grid { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
-.minor-chip { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.65rem; font-size: var(--fs-sm); color: var(--c-text); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); text-decoration: none; }
-.minor-chip:hover { color: var(--c-text); border-color: var(--c-accent-line); }
+/* Minor figures: an index in columns, one short line each. */
+.ppl-index { columns: 13rem auto; column-gap: var(--sp-6); }
+.ppl-index__group { break-inside: avoid; padding-bottom: var(--sp-4); }
+.ppl-index__letter { margin: 0 0 var(--sp-1); color: var(--c-accent); }
+.ppl-index__list { list-style: none; margin: 0; padding: 0; }
+.ppl-index__list > li { margin: 0; }
+.ppl-index__link { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: baseline; gap: 0.55rem; padding: 0.28rem 0; font-size: var(--fs-sm); line-height: 1.35; color: var(--c-text); text-decoration: none; border-bottom: 1px solid var(--c-line); }
+.ppl-index__link:hover { color: var(--c-accent-strong); }
+.ppl-index__link:hover .ppl-index__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+.ppl-index__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+@media (max-width: 640px) { .ppl-index { columns: 2; column-gap: var(--sp-4); } }
+@media (pointer: coarse) { .ppl-index__link { padding-block: 0.6rem; } }
 
-/* Person page */
-.converge { display: flex; gap: var(--sp-3); align-items: flex-start; margin: 0 0 var(--sp-5); padding: var(--sp-3) var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-line-strong); border-left: 3px solid var(--c-accent-line); border-radius: var(--r-md); }
-.converge > .icon { margin-top: 0.2rem; color: var(--c-accent); }
-.converge__via { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin-top: var(--sp-2); font-size: var(--fs-sm); color: var(--c-text-2); }
-.person-hero { display: grid; gap: var(--sp-5) var(--sp-6); align-items: start; margin-bottom: var(--sp-5); }
-@media (min-width: 760px) { .person-hero--image { grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); } }
-.person-hero h1 { margin: 0 0 var(--sp-2); }
-.person-hero__aliases { margin: 0 0 var(--sp-4); color: var(--c-text-2); }
-.person-hero__summary { max-width: var(--measure); margin: 0 0 var(--sp-4); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-lg); line-height: 1.55; color: var(--c-text); }
-.person-hero .facts { max-width: var(--measure); }
-.ident-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr)); gap: var(--sp-3); }
-/* Left edge in the firmness line style of the weakest link in the chain. */
-.ident-card { display: grid; gap: var(--sp-2); align-content: start; min-width: 0; padding: var(--sp-3) var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-line); border-left: 3px var(--firm-style, solid) var(--c-accent); border-radius: var(--r-md); }
-.ident-card h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-3); margin: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: 560; }
-.ident-card h4 a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
-.ident-card .kind { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-3); }
-.ident-card p { margin: 0; }
-.chain { font-size: var(--fs-sm); color: var(--c-text-2); }
-.chain-eq { color: var(--c-accent); font-weight: 700; }
+/* ── Person page ───────────────────────────────────────────────────
+ * A dossier: who this is, what became of them, who else they are, who they are tied to, where they
+ * appear in the story and in the theory, then the evidence. Sections are .ppl-sec (common.css). */
+.person-head__aliases { margin: 0 0 var(--sp-4); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.person-head__aliases > .label { display: inline; margin-right: 0.5em; }
 
-.rel-table { min-width: 36rem; }
-.rel-table td { vertical-align: top; }
-.rel-table__kind { color: var(--c-text-2); white-space: nowrap; }
+/* For a record folded into another: what the model reads it as. The left rule is drawn in the firmness of the chain. */
+.person-standing { max-width: var(--measure); margin: 0 0 var(--sp-5); padding: var(--sp-1) 0 var(--sp-1) var(--sp-4); border-left: 3px var(--firm-style, solid) var(--c-accent); }
+.person-standing__line { margin: 0 0 var(--sp-2); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-lg); line-height: 1.4; color: var(--c-text); text-wrap: pretty; }
+.person-standing__line a { color: var(--c-text); }
+.person-standing__line a:hover { color: var(--c-accent-strong); }
+.person-standing__how { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 
-.mini-tl { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
-.mini-tl li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0; padding: var(--sp-2) var(--sp-3); background: var(--c-surface); border: 1px solid var(--c-line); border-left: 3px var(--firm-style, solid) var(--c-text-3); border-radius: var(--r-md); }
-.death-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr)); gap: var(--sp-5); }
-.death-cols .label { margin-bottom: var(--sp-2); }
-.death-cols li { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
-.death-cols li > .icon { color: var(--c-tension); }
-.person-more { display: flex; justify-content: center; margin: var(--sp-5) 0 0; }
+/* The model's own interpretation, set like the thesis on the theory cover. */
+.person-reading { max-width: var(--measure); margin: 0; padding-left: var(--sp-4); border-left: 3px solid var(--c-accent); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.62; color: var(--c-text-read); text-wrap: pretty; }
+
+/* ── Identity tree ─────────────────────────────────────────────────
+ * Nested lists. The trunk is a neutral hairline; the stub that joins a record to it is drawn in the
+ * firmness of that link (solid, dashed, dotted) and ends in the firmness glyph. */
+.person-links { display: inline-flex; flex-wrap: wrap; gap: 0.1rem var(--sp-3); }
+.person-links__n { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; }
+.person-tree, .person-tree__list { list-style: none; margin: 0; padding: 0; }
+.person-tree__item { position: relative; margin: 0; }
+.person-tree__list > .person-tree__item { padding-left: 3.5rem; }
+/* trunk: runs past every child except the last, where it stops at the stub */
+.person-tree__list > .person-tree__item::before { content: ""; position: absolute; left: 0.5rem; top: 0; bottom: 0; border-left: 1px solid var(--c-line-strong); }
+.person-tree__list > .person-tree__item:last-child::before { bottom: auto; height: 1.55rem; }
+.person-tree__row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-2) var(--sp-4); align-items: start; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
+.person-tree__item.is-root > .person-tree__row { padding-top: 0; }
+.person-tree__link { position: absolute; left: -3rem; top: 1.55rem; display: inline-flex; align-items: center; gap: 0.2rem; height: 0; font-size: var(--fs-base); }
+.person-tree__stub { flex: none; overflow: visible; }
+.person-tree__stub line { stroke: var(--c-accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: var(--firm-dash, none); }
+.person-tree__main { min-width: 0; }
+.person-tree__name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem var(--sp-3); margin: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.3; color: var(--c-text); }
+.person-tree__item.is-root > .person-tree__row .person-tree__name { font-size: var(--fs-lg); }
+.person-tree__name a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
+.person-tree__name a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.person-tree__how { margin: 0.15rem 0 0; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-2); }
+.person-tree__note { max-width: 38rem; margin: 0.3rem 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
+.person-tree__also { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-3); margin: var(--sp-2) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.person-tree__also-status { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); white-space: nowrap; }
+.person-tree__ev { min-width: 0; }
+@media (min-width: 760px) {
+  .person-tree__row { grid-template-columns: minmax(0, 1fr) minmax(0, 17.5rem); }
+  .person-tree__ev { text-align: right; }
+  .person-tree__ev .src-list { justify-content: flex-end; }
+}
+.person-scope { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin-top: var(--sp-4); }
+

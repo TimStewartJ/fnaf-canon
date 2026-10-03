@@ -1,0 +1,130 @@
+/*
+ * Pieces shared by the pages of cluster C (people, person, places, place, family trees, the web):
+ * dossier sections, group labels, tie rows, event rows, "show all" buttons.
+ * Every selector starts from a ppl- class.
+ */
+
+/* ── Dossier section ───────────────────────────────────────────────
+ * Heading, count and lead in a left column; content on the right. Stacked below 900px.
+ * The same shape as the sections of the home page. */
+.ppl-sec { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4) var(--sp-7); padding-block: var(--sp-6); border-top: 1px solid var(--c-line); }
+.ppl-sec__title { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); line-height: 1.12; }
+.ppl-sec__count { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem var(--sp-3); margin: 0 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); }
+.ppl-sec__lead { max-width: 34rem; margin: 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
+.ppl-sec__body { min-width: 0; max-width: 54rem; }
+@media (min-width: 900px) {
+  .ppl-sec { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); padding-block: var(--sp-7); }
+  .ppl-sec__head { position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); align-self: start; }
+}
+.ppl-sec--dense { padding-block: var(--sp-5) var(--sp-6); }
+
+/* A small heading over a group of rows (set with the shared .label). */
+.ppl-group { display: flex; align-items: baseline; gap: var(--sp-2); margin: 0 0 var(--sp-2); }
+.ppl-group__n { color: var(--c-text-2); letter-spacing: 0; }
+.ppl-block + .ppl-block, .ppl-tie-group + .ppl-tie-group { margin-top: var(--sp-5); }
+.ppl-more { margin: var(--sp-3) 0 0; }
+
+/* ── Tie rows ──────────────────────────────────────────────────────
+ * glyph | sentence, firmness word, note | evidence chips. The chips drop under the text on a phone. */
+.ppl-ties { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
+.ppl-tie { display: grid; grid-template-columns: 1rem minmax(0, 1fr); column-gap: var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
+.ppl-tie__mark { display: inline-flex; }
+.ppl-tie__main { min-width: 0; }
+.ppl-tie__line { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.45; color: var(--c-text); text-wrap: pretty; }
+.ppl-tie__status { margin-left: 0.35em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); white-space: nowrap; }
+.ppl-tie__note { max-width: 38rem; margin: 0.25rem 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
+.ppl-tie__ev { grid-column: 2; min-width: 0; margin-top: var(--sp-2); }
+.ppl-tie__ev:empty { display: none; }
+@media (min-width: 760px) {
+  .ppl-tie { grid-template-columns: 1rem minmax(0, 1fr) minmax(0, 17.5rem); }
+  .ppl-tie__ev { grid-column: 3; margin-top: 0; text-align: right; }
+  .ppl-tie__ev .src-list { justify-content: flex-end; }
+}
+
+/* ── Event and death rows ──────────────────────────────────────────
+ * date | what happened | how firm. On a phone the date sits as a small label over the title. */
+.ppl-events { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
+.ppl-event { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-2) 0 calc(var(--sp-2) + 0.1rem); border-bottom: 1px solid var(--c-line); }
+.ppl-event__what { min-width: 0; }
+.ppl-event__when { display: block; margin-bottom: 0.2rem; }
+.ppl-event__title { font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.45; }
+.ppl-event__title, .ppl-event__title a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
+a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.ppl-event__cause { color: var(--c-tension); }
+.ppl-event__status { font-size: var(--fs-sm); }
+@media (min-width: 760px) {
+  .ppl-event { grid-template-columns: 13.5rem minmax(0, 1fr) auto; }
+  .ppl-event__what { display: contents; }
+  .ppl-event__when { margin-bottom: 0; }
+}
+
+/* ── Dossier image ─────────────────────────────────────────────────
+ * Shown as an exhibit, never wider than it stays sharp (see Portrait.tsx). */
+.ppl-portrait { max-width: var(--portrait-w, none); }
+.ppl-portrait .figure__frame img { max-height: 26rem; }
+
+/* ── Jump links ────────────────────────────────────────────────────
+ * A row of links to the sections of a long page, each with what it holds. */
+.ppl-toc { display: flex; flex-wrap: wrap; gap: var(--sp-2); padding-bottom: var(--sp-5); }
+.ppl-toc__link { display: inline-flex; align-items: baseline; gap: 0.5em; min-height: 2rem; padding: 0.3rem 0.75rem; font-size: var(--fs-sm); line-height: 1.3; color: var(--c-text-2); border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); text-decoration: none; }
+.ppl-toc__link:hover { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); }
+.ppl-toc__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+@media (pointer: coarse) { .ppl-toc__link { min-height: 2.5rem; align-items: center; } }
+
+
+/* ── Dossier header ────────────────────────────────────────────────
+ * The summary under the title, and the file card below the header: the main fact on the left, the
+ * filed facts on the right. */
+.ppl-head { align-items: start; margin-bottom: var(--sp-5); }
+.ppl-head .page-header__title { margin-bottom: var(--sp-3); }
+.ppl-summary { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: clamp(1.0625rem, 0.98rem + 0.45vw, 1.25rem); line-height: 1.55; color: var(--c-text-read); text-wrap: pretty; }
+.ppl-file { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5) var(--sp-7); padding-block: var(--sp-5); border-top: 1px solid var(--c-line-strong); }
+.ppl-file__main > .label { margin: 0 0 var(--sp-2); }
+.ppl-file__text { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text); text-wrap: pretty; }
+.ppl-file__facts { align-content: start; font-size: var(--fs-sm); color: var(--c-text-2); }
+@media (min-width: 900px) {
+  .ppl-file { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .ppl-file__facts:only-child { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); grid-column: 1 / -1; gap: var(--sp-5) var(--sp-7); }
+}
+
+
+/* ── Chapters that discuss a person or a place ─────────────────── */
+.ppl-chapters { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
+.ppl-chapters > li { margin: 0; border-bottom: 1px solid var(--c-line); }
+.ppl-chapter { display: grid; grid-template-columns: 2rem minmax(0, 1fr); align-items: baseline; gap: var(--sp-3); padding: var(--sp-3) var(--sp-2); margin-inline: calc(-1 * var(--sp-2)); color: inherit; text-decoration: none; }
+.ppl-chapter:hover { color: inherit; background: var(--c-surface); }
+.ppl-chapter__n { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-accent); }
+.ppl-chapter__body { display: grid; gap: 0.15rem; min-width: 0; }
+.ppl-chapter__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.25; letter-spacing: -0.01em; color: var(--c-text); }
+.ppl-chapter:hover .ppl-chapter__title { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+.ppl-chapter__why { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-3); font-size: var(--fs-sm); color: var(--c-text-2); }
+
+
+/* ── Entity chips with counts, and the link to the evidence locker ─ */
+.ppl-chips { --gap: var(--sp-2) var(--sp-3); }
+.ppl-chips__item { display: inline-flex; align-items: baseline; gap: 0.35rem; }
+.ppl-chips__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+.ppl-locker { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); }
+.ppl-locker a { display: inline-flex; align-items: center; gap: 0.35em; }
+
+/* ── Register rows ─────────────────────────────────────────────────
+ * The indexes (people, places) are registers: one row per entry, the name leading. On a phone the
+ * row stacks (who, then what) with the picture beside the name; from 640px it is a ledger line. */
+.ppl-found { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.ppl-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
+.ppl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who thumb" "what what"; gap: var(--sp-2) var(--sp-4); align-items: start; margin: 0; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
+.ppl-row__who { grid-area: who; min-width: 0; }
+.ppl-row__what { grid-area: what; min-width: 0; }
+.ppl-row__name { margin: 0; font-size: var(--fs-lg); line-height: 1.2; }
+.ppl-row__name a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
+.ppl-row__name a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.ppl-row__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--sp-3); margin: 0.35rem 0 0; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
+.ppl-row__status { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; max-width: 38rem; margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); }
+.ppl-row__thumb { grid-area: thumb; display: block; width: 4.75rem; aspect-ratio: 3 / 2; overflow: hidden; background: var(--c-mat); border: 1px solid var(--c-line); border-radius: var(--r-md); }
+.ppl-row__thumb:hover { border-color: var(--c-line-strong); }
+.ppl-row__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* From 640px the row is a ledger line: who | what | picture. */
+@media (min-width: 640px) {
+  .ppl-row { grid-template-columns: minmax(0, 14.5rem) minmax(0, 1fr) 6rem; grid-template-areas: "who what thumb"; column-gap: var(--sp-5); padding-block: var(--sp-4); }
+  .ppl-row__thumb { width: 6rem; }
+}
