@@ -233,6 +233,17 @@ export function buildLineup(f: Filters): Lineup {
 export const TOTAL_EVENTS = timeline.length;
 export const TOTAL_DEATHS = deaths.length;
 
+/** The title of an event or a death, for messages about an entry that is not on screen. */
+export const titleOfId = (id: string): string => eventById.get(id)?.title ?? deathById.get(id)?.title ?? id;
+
+/* ── Long eras ──────────────────────────────────────────────────────────────────────
+ * An era with many entries shows its first dozen and a button for the rest, so one era cannot make
+ * the page endless. Nothing is cut for the sake of a few entries, and nothing is cut while a
+ * filter is on (the reader asked for those entries). */
+export const FOLD_TO = 12;
+const FOLD_MIN_HIDDEN = 4;
+export const canFold = (g: EraGroup): boolean => g.rows.length >= FOLD_TO + FOLD_MIN_HIDDEN;
+
 /** What an id from a link is: a story event, a death, or nothing the timeline knows. */
 export const kindOfId = (id: string): "event" | "death" | null => (eventById.has(id) ? "event" : deathById.has(id) ? "death" : null);
 

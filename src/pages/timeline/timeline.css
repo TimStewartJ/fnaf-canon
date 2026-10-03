@@ -53,7 +53,6 @@
 .tl-notice { position: relative; z-index: var(--z-raised); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); margin: 0 0 var(--sp-5); padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); color: var(--c-text-2); background: var(--c-surface); border: 1px solid var(--c-line-strong); border-left: 3px solid var(--c-accent-line); border-radius: var(--r-md); }
 
 /* ── Events view: the era index beside the line, or above it ───── */
-.tl-events, .tl-places { outline: none; }
 .tl-line { min-width: 0; }
 @media (min-width: 1080px) {
   .tl-events { display: grid; grid-template-columns: 15rem minmax(0, 1fr); column-gap: var(--sp-7); align-items: start; }
@@ -125,6 +124,10 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-era__sum { max-width: var(--measure-wide); margin: var(--sp-3) 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
 .tl-era__none { margin: 0; font-size: var(--fs-sm); color: var(--c-text-3); }
 
+/* A long era cut short: the spine runs on, dashed, to the button that shows the rest. */
+.tl-list.is-folded > .tl-row:last-child::before { bottom: 0; height: auto; }
+.tl-more { position: relative; margin: 0; padding: var(--sp-3) 0 var(--sp-1) calc(1.5rem + var(--sp-2) + var(--sp-4)); }
+.tl-more::before { content: ""; position: absolute; left: calc(0.75rem - 0.5px); top: 0; height: calc(var(--sp-3) + 1rem); border-left: 1px dashed color-mix(in srgb, var(--hue) 34%, var(--c-line-strong)); }
 .tl-end { max-width: var(--measure-wide); margin: var(--sp-8) 0 0; padding-top: var(--sp-4); font-size: var(--fs-sm); color: var(--c-text-2); border-top: 1px solid var(--c-line); }
 
 /* ── The line: one row per entry ───────────────────────────────── */
@@ -143,7 +146,6 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-row.has-death.is-open .tl-row__node { border-color: var(--c-tension); }
 
 .tl-row__main { container: tl-main / inline-size; min-width: 0; padding: var(--sp-3) var(--sp-4); border: 1px solid transparent; border-radius: var(--r-md); transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease); }
-.tl-row:not(.is-open) .tl-row__main:hover { background: var(--c-surface); }
 /* An open row is a card; its edge is drawn in the line style of its support. */
 .tl-row.is-open .tl-row__main { margin-block: var(--sp-2) var(--sp-4); padding-left: calc(var(--sp-4) - 2px); background: var(--c-surface); border-color: var(--c-line); border-left: 3px var(--firm-style, solid) var(--c-accent); }
 .tl-row.is-open:first-child .tl-row__main { margin-top: 0; }
@@ -162,11 +164,16 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 /* The whole head opens the row, not only the words of the title. */
 .tl-row__toggle::after { content: ""; position: absolute; inset: calc(-1 * var(--sp-3)) calc(-1 * var(--sp-4)); }
 .tl-row.is-open .tl-row__toggle::after { bottom: 0; }
-.tl-row__head:hover .tl-row__toggle { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+/* Hover only where a pointer can hover: after a tap, a phone would leave the row looking hovered. */
+@media (hover: hover) {
+  .tl-row:not(.is-open) .tl-row__main:hover { background: var(--c-surface); }
+  .tl-row__head:hover .tl-row__toggle { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+}
 .tl-row__chev { position: absolute; top: 0.3rem; right: 0; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
 .tl-row.is-open .tl-row__chev { transform: rotate(180deg); }
 .tl-row__excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; max-width: var(--measure-wide); margin: 0.3rem 0 0; overflow: hidden; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-2); }
-.tl-row__fact + .tl-row__fact { margin-left: var(--sp-3); }
+/* The gap trails a fact instead of leading the next, so a fact that wraps starts flush with the line. */
+.tl-row__fact:not(:last-child) { margin-right: var(--sp-3); }
 .tl-row__k { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }
 /* A death the event tells: the tag, then who, on one line. */
 .tl-row__death { display: flex; align-items: baseline; gap: var(--sp-3); max-width: var(--measure-wide); margin: 0.4rem 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
@@ -244,6 +251,8 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
   .tl-row__status--short { display: inline; }
   .tl-row__toggle::after { inset: -0.625rem calc(-1 * var(--sp-2)); }
   .tl-row__title { font-size: var(--fs-md); }
+  .tl-more { padding-left: calc(1.375rem + var(--sp-1) + var(--sp-2)); }
+  .tl-more::before { left: calc(0.6875rem - 0.5px); }
   .tl-death { padding: var(--sp-3); }
 }
 
@@ -282,19 +291,21 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc__kind-n { color: var(--c-text-3); }
 .tl-loc__rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--c-line); }
 .tl-loc__row { position: relative; display: grid; grid-template-columns: var(--tl-place) minmax(0, 1fr); column-gap: var(--sp-4); align-items: center; margin: 0; padding: var(--sp-2) 0; border-bottom: 1px solid var(--c-line); transition: background var(--dur-1) var(--ease); }
-.tl-loc__row:hover { background: var(--c-surface); }
 .tl-loc__row.is-on { background: var(--c-surface); box-shadow: inset 2px 0 0 var(--c-accent); }
 .tl-loc__place { display: grid; gap: 0.25rem; justify-items: start; min-width: 0; padding-left: var(--sp-2); }
 .tl-loc__name { font-size: var(--fs-base); font-weight: 600; line-height: 1.3; color: var(--c-text); text-decoration: none; }
 /* The whole row chooses the place, bar included. */
 .tl-loc__name::after { content: ""; position: absolute; inset: 0; }
-.tl-loc__row:hover .tl-loc__name { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+@media (hover: hover) {
+  .tl-loc__row:hover { background: var(--c-surface); }
+  .tl-loc__row:hover .tl-loc__name { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+  .tl-loc__row:hover .tl-loc__cell { background: var(--c-bg); }
+}
 .tl-loc__row.is-on .tl-loc__name { color: var(--c-accent); }
 .tl-loc__when { position: relative; z-index: var(--z-raised); min-width: 0; max-width: 100%; }
 
 .tl-loc__track { align-items: center; min-height: 1.75rem; }
 .tl-loc__cell { grid-row: 1; display: flex; align-items: center; justify-content: center; height: 1.625rem; min-width: 0; background: var(--c-bg-sunk); border-radius: var(--r-xs); }
-.tl-loc__row:hover .tl-loc__cell { background: var(--c-bg); }
 .tl-loc__bar { grid-row: 1; z-index: 1; height: 1.625rem; min-width: 0; background: color-mix(in oklab, var(--hue) 36%, var(--c-surface)); border: 1px solid color-mix(in srgb, var(--hue) 72%, var(--c-line-strong)); border-radius: var(--r-sm); }
 /* An end the records do not pin down: a dashed edge that fades out. */
 .tl-loc__bar.fz-start { border-left-style: dashed; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--hue) 36%, var(--c-surface)) min(2rem, 45%)); }

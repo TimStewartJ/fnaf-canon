@@ -2,23 +2,35 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
+export type UrlEdit = (edit: (next: URLSearchParams) => void, how?: { push?: boolean }) => boolean;
+
 /**
  * The page's state lives in the URL's search parameters. `update` edits them in one step and
- * keeps its identity, so rows that receive it do not re-render when another row opens.
+ * keeps its identity, so rows that receive it do not re-render when another row opens. It returns
+ * false when the edit changed nothing (and so did not navigate).
  * Filters and open rows replace the current history entry (Back leaves the page, and coming back
  * restores the view); `push` is for a step the reader should be able to undo with Back.
  */
-export function useUrlState(): [URLSearchParams, (edit: (next: URLSearchParams) => void, how?: { push?: boolean }) => void] {
+export function useUrlState(): [URLSearchParams, UrlEdit] {
   const [sp, setSp] = useSearchParams();
-  const latest = useRef({ sp, setSp });
-  useLayoutEffect(() => { latest.current = { sp, setSp }; });
-  const update = useCallback((edit: (next: URLSearchParams) => void, how?: { push?: boolean }) => {
-    const next = new URLSearchParams(latest.current.sp);
+  // `pending` is what was last asked for and has not arrived yet: the router applies a navigation
+  // a moment after it is requested, and a second edit in that moment must build on the first.
+  const latest = useRef<{ sp: URLSearchParams; setSp: typeof setSp; pending: URLSearchParams | null }>({ sp, setSp, pending: null });
+  useLayoutEffect(() => {
+    const l = latest.current;
+    if (l.sp.toString() !== sp.toString()) l.pending = null; // the address moved: whatever was pending has landed or been overtaken
+    l.sp = sp;
+    l.setSp = setSp;
+  });
+  const update = useCallback<UrlEdit>((edit, how) => {
+    const l = latest.current;
+    const from = l.pending ?? l.sp;
+    const next = new URLSearchParams(from);
     edit(next);
-    if (next.toString() === latest.current.sp.toString()) return;
-    // Two edits in one tick must build on each other, not on the same stale parameters.
-    latest.current = { ...latest.current, sp: next };
-    latest.current.setSp(next, { replace: !how?.push });
+    if (next.toString() === from.toString()) return false;
+    l.pending = next;
+    l.setSp(next, { replace: !how?.push });
+    return true;
   }, []);
   return [sp, update];
 }

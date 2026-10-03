@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { SlidersHorizontal } from "lucide-react";
+import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
 import { Button, DatePill, Empty, Icon, Page, PageHeader, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
@@ -11,8 +11,8 @@ import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
 import { landOn, useReturnVisit, useUrlState } from "./hooks";
 import {
-  type EraGroup, type Filters, type View, TOTAL_DEATHS, TOTAL_EVENTS, buildLineup, filtersKey, inWords, isFiltered, kindOfId, plural,
-  readFilters, within, writeFilters,
+  type EraGroup, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords, isFiltered,
+  kindOfId, plural, readFilters, titleOfId, within, writeFilters,
 } from "./model";
 import "./timeline.css";
 
@@ -33,11 +33,27 @@ function landing(sp: URLSearchParams): string {
   return last;
 }
 
-function EraSection({ g, total, open, marks, onToggle }: { g: EraGroup; total: number; open: Set<string>; marks: Map<string, string>; onToggle: (id: string) => void }) {
+const focusHeading = (section: HTMLElement) => section.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
+
+/**
+ * One era: where it sits, its name and range, its summary, then its entries in order.
+ *  - folded    a long era showing only its first entries (see canFold in model.ts)
+ *  - onUnfold  shows the rest
+ */
+function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: EraGroup; total: number; open: Set<string>; marks: Map<string, string>; folded: boolean; onToggle: (id: string) => void; onUnfold: (eraId: string) => void }) {
   const { era } = g;
   const date = ERA_DATES[era.id];
   const events = g.rows.filter((r) => r.kind === "event").length;
   const tally = [events ? plural(events, "event") : "", g.deaths ? plural(g.deaths, "death") : ""].filter(Boolean).join(" · ");
+  const rows = folded ? g.rows.slice(0, FOLD_TO) : g.rows;
+  // After "show the rest", focus moves to the first entry that appeared.
+  const reveal = useRef(false);
+  const firstHidden = g.rows[FOLD_TO]?.id;
+  useEffect(() => {
+    if (folded || !reveal.current) return;
+    reveal.current = false;
+    if (firstHidden) document.getElementById(firstHidden)?.querySelector<HTMLElement>(".tl-row__toggle")?.focus({ preventScroll: true });
+  }, [folded, firstHidden]);
   return (
     <section className="tl-era" id={`era-${era.id || "unplaced"}`} style={{ "--hue": eraHue(era.id) } as CSSProperties}>
       <header className="tl-era__head">
@@ -52,12 +68,19 @@ function EraSection({ g, total, open, marks, onToggle }: { g: EraGroup; total: n
         </div>
         {era.summary && <p className="tl-era__sum">{smartQuotes(era.summary)}</p>}
       </header>
-      {g.rows.length > 0 ? (
-        <ol className="tl-list">
-          {g.rows.map((r) => <TimelineRow key={r.id} row={r} open={open.has(r.id)} mark={marks.get(r.id)} onToggle={onToggle} />)}
+      {rows.length > 0 ? (
+        <ol className={`tl-list${folded ? " is-folded" : ""}`}>
+          {rows.map((r) => <TimelineRow key={r.id} row={r} open={open.has(r.id)} mark={marks.get(r.id)} onToggle={onToggle} />)}
         </ol>
       ) : (
         <p className="tl-era__none">Nothing is recorded in this era.</p>
+      )}
+      {folded && (
+        <p className="tl-more">
+          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; onUnfold(era.id); }}>
+            Show the other {g.rows.length - FOLD_TO} entries<span className="sr-only"> in {smartQuotes(era.name)}</span>
+          </Button>
+        </p>
       )}
     </section>
   );
@@ -90,18 +113,27 @@ export default function Timeline() {
     return { open: rows, marks: inside };
   }, [openKey, line]);
 
+  // Long eras the reader has asked to see in full.
+  const moreKey = sp.getAll("more").join(" ");
+  const unfolded = useMemo(() => new Set(moreKey ? moreKey.split(" ") : []), [moreKey]);
+  // A long era is cut short unless a filter is on, the reader opened it up, or an open entry lies in the part that would be hidden.
+  const isFolded = (g: EraGroup) => !filtered && canFold(g) && !unfolded.has(g.era.id) && !g.rows.slice(FOLD_TO).some((r) => open.has(r.id));
+
   /* ── Edits to the address ─────────────────────────────────────────────────────── */
   const latest = useRef({ line });
   useLayoutEffect(() => { latest.current = { line }; });
-  // What the page itself last asked for. A landing that differs from it came from a link.
+  // What the page itself last asked for. A landing that differs from it came from a link, or from a
+  // jump the page wants to make once the navigation has gone through (`land`).
   const asked = useRef<string | null>(null);
-  const edit = useCallback((change: (next: URLSearchParams) => void, how?: { push?: boolean }) => {
-    update((next) => { change(next); asked.current = landing(next); }, how);
+  const edit = useCallback((change: (next: URLSearchParams) => void, how?: { push?: boolean; land?: boolean }) => {
+    return update((next) => { change(next); if (!how?.land) asked.current = landing(next); }, how);
   }, [update]);
 
   const setFilters = useCallback((next: Filters) => {
     edit((p) => {
       writeFilters(p, next);
+      // A change of filters is a new question: the era the reader last jumped to no longer says where to land.
+      p.delete("era");
       // A row the new filters hide is closed, so the address never names an entry that is not on screen.
       const kept = buildLineup(readFilters(p)).rowOf;
       const ids = p.getAll("e");
@@ -119,15 +151,26 @@ export default function Timeline() {
       p.delete("e");
       for (const id of ids) if (!mine.includes(id)) p.append("e", id);
       if (!mine.length) p.append("e", rowId);
+      // An entry in the cut part of a long era keeps that era in full, so closing it does not take the list away.
+      const g = latest.current.line.groups.find((x) => x.rows.some((r) => r.id === rowId));
+      if (g && canFold(g) && g.rows.findIndex((r) => r.id === rowId) >= FOLD_TO && !p.getAll("more").includes(g.era.id)) p.append("more", g.era.id);
     });
   }, [edit]);
+  const unfoldEra = useCallback((eraId: string) => edit((p) => { if (!p.getAll("more").includes(eraId)) p.append("more", eraId); }), [edit]);
 
+  // A jump to an era is a step the reader can undo: Back returns to where they were reading. The
+  // page moves once the navigation has gone through (the landing effect below), so the place they
+  // left is remembered under the entry they left.
+  const jump = useRef<string | null>(null);
   const goToEra = useCallback((id: string) => {
-    edit((p) => { p.delete("era"); p.append("era", id); });
+    jump.current = id;
+    if (edit((p) => { p.delete("era"); p.append("era", id); }, { push: true, land: true })) return;
+    // The address already names this era: nothing to navigate, just go there.
     const el = document.getElementById(`era-${id}`);
     if (!el) return;
+    jump.current = null;
     el.scrollIntoView({ block: "start", behavior: "instant" });
-    el.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
+    focusHeading(el);
   }, [edit]);
 
   // A change of view made on this page (not one reached with Back or Forward, which the shell restores).
@@ -142,6 +185,7 @@ export default function Timeline() {
   const want = landing(sp);
   const returnVisit = useReturnVisit();
   const arrived = useRef(false);
+  const landed = useRef(false);
   const stopLanding = useRef<(() => void) | null>(null);
   useLayoutEffect(() => {
     const first = !arrived.current;
@@ -157,18 +201,24 @@ export default function Timeline() {
     if (!el || (first && window.scrollY > 1)) return;
     stopLanding.current?.();
     stopLanding.current = landOn(el);
+    landed.current = true;
+    // A jump made with the era index also moves keyboard focus to the era's heading.
+    if (kind === "era" && jump.current === id) { jump.current = null; focusHeading(el); }
   }, [want, view, line, returnVisit]);
 
-  // After a change of view, start at the top of the new one, and keep keyboard focus on the page.
+  // After a change of view made here, start at the top of the new view unless the reader was sent
+  // to an entry or an era in it, and keep keyboard focus on the page.
   const lastView = useRef(view);
   useEffect(() => {
+    const here = landed.current;
+    landed.current = false;
     if (lastView.current === view) return;
     lastView.current = view;
     if (!viewJump.current) return;
     viewJump.current = false;
-    if (bar.current && bar.current.getBoundingClientRect().top < 0 && !want) bar.current.scrollIntoView({ block: "start", behavior: "instant" });
+    if (!here && bar.current && bar.current.getBoundingClientRect().top < 0) bar.current.scrollIntoView({ block: "start", behavior: "instant" });
     if (!document.activeElement || document.activeElement === document.body) panel.current?.focus({ preventScroll: true });
-  }, [view, want]);
+  });
 
   /* ── What to render ───────────────────────────────────────────────────────────── */
   const eraEntries: EraEntry[] = line.groups.filter((g) => g.era.id).map((g) => ({
@@ -179,7 +229,7 @@ export default function Timeline() {
   const linked = want.startsWith("e:") ? want.slice(2) : "";
   const lost = view === "events" && linked && !line.rowOf.has(linked) ? linked : "";
   const locationsTo = useMemo(() => { const p = new URLSearchParams(sp); p.set("view", "locations"); return p; }, [sp]);
-  const nApplied = [f.layer !== "all", f.support.length > 0, !!f.person, !!f.source, f.cause.length > 0, !!f.killer, !!f.place].filter(Boolean).length;
+  const nApplied = appliedFilters(f).length;
 
   return (
     <Page title="Timeline" className="tl-page">
@@ -221,11 +271,11 @@ export default function Timeline() {
             {lost && (
               <p className="tl-notice" role="status">
                 {kindOfId(lost)
-                  ? <>The entry this link points to is hidden by the filters in the link. <Button size="sm" onClick={() => { clearFilters(); asked.current = null; }}>Clear the filters and show it</Button></>
-                  : <>This link points to an entry that is not on the timeline. It may have been renamed. <Button size="sm" onClick={() => edit((p) => { const ids = p.getAll("e").filter((id) => id !== lost); p.delete("e"); for (const id of ids) p.append("e", id); })}>Dismiss</Button></>}
+                  ? <><span>“{smartQuotes(titleOfId(lost))}” is hidden by the filters that are on.</span> <Button size="sm" onClick={() => { clearFilters(); asked.current = null; }}>Clear the filters and show it</Button></>
+                  : <><span>This link points to an entry that is not on the timeline. It may have been renamed.</span> <Button size="sm" onClick={() => edit((p) => { const ids = p.getAll("e").filter((id) => id !== lost); p.delete("e"); for (const id of ids) p.append("e", id); })}>Dismiss</Button></>}
               </p>
             )}
-            {sections.map((g) => <EraSection key={g.era.id || "unplaced"} g={g} total={eras.length} open={open} marks={marks} onToggle={toggleRow} />)}
+            {sections.map((g) => <EraSection key={g.era.id || "unplaced"} g={g} total={eras.length} open={open} marks={marks} folded={isFolded(g)} onToggle={toggleRow} onUnfold={unfoldEra} />)}
             {sections.length === 0 && (
               <Empty title="Nothing on the line matches these filters" action={<Button onClick={clearFilters}>Clear all filters</Button>}>
                 No story event or death fits every filter at once.
