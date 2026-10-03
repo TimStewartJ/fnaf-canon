@@ -53,6 +53,8 @@ export function useCurrentEra(ids: readonly string[]): string {
         const el = document.getElementById(`era-${id}`);
         if (el && el.getBoundingClientRect().top <= line) found = id;
       }
+      // At the very end of the page the reader is in the last era, however short it is.
+      if (list.length && window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) found = list[list.length - 1];
       setCurrent(found);
     };
     const on = () => { if (!raf) raf = requestAnimationFrame(read); };

@@ -11,8 +11,8 @@ import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
 import { landOn, useReturnVisit, useUrlState } from "./hooks";
 import {
-  type EraGroup, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords, isFiltered,
-  kindOfId, plural, readFilters, titleOfId, within, writeFilters,
+  type EraGroup, type FilterChange, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords,
+  isFiltered, kindOfId, plural, readFilters, sameFilters, titleOfId, within, writeFilters,
 } from "./model";
 import "./timeline.css";
 
@@ -129,8 +129,10 @@ export default function Timeline() {
     return update((next) => { change(next); if (!how?.land) asked.current = landing(next); }, how);
   }, [update]);
 
-  const setFilters = useCallback((next: Filters) => {
+  const setFilters = useCallback((change: FilterChange) => {
     edit((p) => {
+      const now = readFilters(p), next = change(now);
+      if (sameFilters(now, next)) return;
       writeFilters(p, next);
       // A change of filters is a new question: the era the reader last jumped to no longer says where to land.
       p.delete("era");
@@ -141,7 +143,7 @@ export default function Timeline() {
       for (const id of ids) if (kept.has(id)) p.append("e", id);
     });
   }, [edit]);
-  const clearFilters = useCallback(() => setFilters(NO_FILTERS), [setFilters]);
+  const clearFilters = useCallback(() => setFilters(() => NO_FILTERS), [setFilters]);
 
   const toggleRow = useCallback((rowId: string) => {
     edit((p) => {

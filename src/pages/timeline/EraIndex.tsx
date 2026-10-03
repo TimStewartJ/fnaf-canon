@@ -56,8 +56,18 @@ const shown = (entries: EraEntry[]) => entries.filter((e) => e.on).map((e) => e.
 /** The era index beside the line on a wide screen. It stays in view and marks the era being read. */
 export function EraRail({ entries, sp, onGo }: { entries: EraEntry[]; sp: URLSearchParams; onGo: (id: string) => void }) {
   const current = useCurrentEra(shown(entries));
+  // On a short screen the rail scrolls by itself: keep the era being read in sight, without touching the page's scroll.
+  const rail = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const el = rail.current, cur = el?.querySelector<HTMLElement>(".tl-eralink.is-current");
+    if (!el || !cur || el.scrollHeight <= el.clientHeight) return;
+    const box = el.getBoundingClientRect(), r = cur.getBoundingClientRect();
+    if (cur === el.querySelector(".tl-eralink")) el.scrollTop = 0; // the first era: back to the very top, heading included
+    else if (r.top < box.top) el.scrollTop -= box.top - r.top + 8;
+    else if (r.bottom > box.bottom) el.scrollTop += r.bottom - box.bottom + 8;
+  }, [current]);
   return (
-    <nav className="tl-rail" aria-label="Eras">
+    <nav className="tl-rail" aria-label="Eras" ref={rail}>
       <p className="label">Eras</p>
       <EraLinks entries={entries} current={current} sp={sp} onGo={onGo} />
     </nav>

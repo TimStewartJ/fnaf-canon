@@ -32,13 +32,17 @@ export { plural, unique };
 
 const gamesOfIds = (ids: string[]): string[] => unique(ids.map((id) => evidenceById.get(id)?.game).filter((g): g is NonNullable<typeof g> => !!g));
 const deathPeople = (d: Death) => [...d.victims, ...d.by];
+const UNKNOWN_KILLER = "unknown";
 /** The person a death is attributed to, folded to one identity; "unknown" when the records name nobody. */
-export const killerKey = (d: Death): string => (d.by.length ? canonicalId(d.by[0], { identities: true, vessels: false }) : "unknown");
+export const killerKey = (d: Death): string => (d.by.length ? canonicalId(d.by[0], { identities: true, vessels: false }) : UNKNOWN_KILLER);
 
+/** The sources and the people behind an entry, with every alias, form and vessel folded into its person. */
 interface Touches { games: Set<string>; people: Set<string> }
-const touches = new Map<string, Touches>();
-for (const t of timeline) touches.set(t.id, { games: new Set(gamesOfIds(t.evidence)), people: new Set((t.people ?? []).map((p) => canonicalId(p))) });
-for (const d of deaths) touches.set(d.id, { games: new Set(gamesOfIds(d.evidence)), people: new Set(deathPeople(d).map((p) => canonicalId(p))) });
+const NOTHING: Touches = { games: new Set(), people: new Set() };
+const touchOf = (evidence: string[], people: string[]): Touches => ({ games: new Set(gamesOfIds(evidence)), people: new Set(people.map((p) => canonicalId(p))) });
+// Kept apart, so an event and a death that happened to share an id could not overwrite each other.
+const eventTouches = new Map(timeline.map((t) => [t.id, touchOf(t.evidence, t.people ?? [])]));
+const deathTouches = new Map(deaths.map((d) => [d.id, touchOf(d.evidence, deathPeople(d))]));
 
 /** People shown on a row: every identity folded into its person, in the order the data lists them. */
 export const peopleOfEvent = (t: TimelineEvent): string[] => unique((t.people ?? []).map((p) => canonicalId(p, { identities: true, vessels: false })));
@@ -126,14 +130,16 @@ export function readFilters(sp: URLSearchParams): Filters {
   const l = sp.get("layer");
   const layer: Layer = l === "deaths" || l === "events" ? l : "all";
   const withDeaths = layer !== "events";
+  const person = sp.get("person") ?? "", killer = sp.get("killer") ?? "";
   return {
     layer,
     support: subset(STATUSES, sp.getAll("support")),
-    person: sp.get("person") ?? "",
+    // A link may name any record of a person (an alias, a suit, a later form): it means that person.
+    person: person && canonicalId(person),
     source: sp.get("source") ?? "",
     // Cause and killer describe deaths, so they mean nothing while deaths are off.
     cause: withDeaths ? subset(DEATH_KINDS, sp.getAll("cause")) : [],
-    killer: withDeaths ? sp.get("killer") ?? "" : "",
+    killer: !withDeaths || !killer ? "" : killer === UNKNOWN_KILLER ? killer : canonicalId(killer, { identities: true, vessels: false }),
     place: sp.get("place") ?? "",
   };
 }
@@ -152,35 +158,40 @@ export function writeFilters(sp: URLSearchParams, f: Filters): void {
   if (f.place) sp.set("place", f.place);
 }
 
+const keyOf = (f: Filters): string => { const only = new URLSearchParams(); writeFilters(only, f); return only.toString(); };
 /** The filter part of the URL as one stable string, so a change of open rows does not recompute the line. */
-export function filtersKey(sp: URLSearchParams): string {
-  const only = new URLSearchParams();
-  writeFilters(only, readFilters(sp));
-  return only.toString();
-}
+export const filtersKey = (sp: URLSearchParams): string => keyOf(readFilters(sp));
+export const sameFilters = (a: Filters, b: Filters): boolean => keyOf(a) === keyOf(b);
+/**
+ * A change to the filters, as a function of the filters in force. Changes are applied to the address
+ * as it is about to be, not to what was last drawn, so two quick ones build on each other.
+ */
+export type FilterChange = (now: Filters) => Filters;
 
 export const isFiltered = (f: Filters): boolean =>
   f.layer !== "all" || f.support.length > 0 || !!f.person || !!f.source || f.cause.length > 0 || !!f.killer || !!f.place;
 
-/** Toggles one value of a keep-list. Turning the last one off, or every one on, returns to "all". */
+/**
+ * Adds a value to a keep-list, or takes it out. An empty list means "all": choosing the first value
+ * narrows to it, choosing more widens again, and choosing every value (or none) is "all" once more.
+ */
 export function toggleIn<T extends string>(all: T[], kept: T[], value: T): T[] {
-  const now = kept.length ? kept : all;
-  const next = now.includes(value) ? now.filter((x) => x !== value) : [...now, value];
+  const next = kept.includes(value) ? kept.filter((x) => x !== value) : [...kept, value];
   return subset(all, next);
 }
 
 const deathPasses = (d: Death, f: Filters): boolean =>
   (!f.support.length || f.support.includes(d.status)) &&
-  (!f.person || touches.get(d.id)!.people.has(f.person)) &&
-  (!f.source || touches.get(d.id)!.games.has(f.source)) &&
+  (!f.person || (deathTouches.get(d.id) ?? NOTHING).people.has(f.person)) &&
+  (!f.source || (deathTouches.get(d.id) ?? NOTHING).games.has(f.source)) &&
   (!f.place || d.place === f.place) &&
   (!f.cause.length || f.cause.includes(d.kind)) &&
   (!f.killer || killerKey(d) === f.killer);
 
 const eventPasses = (t: TimelineEvent, f: Filters): boolean =>
   (!f.support.length || f.support.includes(t.status)) &&
-  (!f.person || touches.get(t.id)!.people.has(f.person)) &&
-  (!f.source || touches.get(t.id)!.games.has(f.source)) &&
+  (!f.person || (eventTouches.get(t.id) ?? NOTHING).people.has(f.person)) &&
+  (!f.source || (eventTouches.get(t.id) ?? NOTHING).games.has(f.source)) &&
   (!f.place || (t.places ?? []).includes(f.place));
 
 /* ── The line ───────────────────────────────────────────────────────────────────── */
@@ -253,7 +264,7 @@ export const kindOfId = (id: string): "event" | "death" | null => (eventById.has
 const PEOPLE_OFFERED = 12;
 export const personOptions: string[] = (() => {
   const n = new Map<string, number>();
-  for (const t of touches.values()) for (const p of t.people) n.set(p, (n.get(p) ?? 0) + 1);
+  for (const t of [...eventTouches.values(), ...deathTouches.values()]) for (const p of t.people) n.set(p, (n.get(p) ?? 0) + 1);
   return [...n]
     .filter(([id]) => { const g = personById.get(id)?.group; return !!g && g !== "entity" && g !== "other"; })
     .sort((a, b) => b[1] - a[1])
@@ -262,8 +273,10 @@ export const personOptions: string[] = (() => {
 })();
 export const sourceOptions: string[] = (() => {
   const used = new Set<string>();
-  for (const t of touches.values()) for (const g of t.games) used.add(g);
-  return games.map((g) => g.id as string).filter((id) => used.has(id));
+  for (const t of [...eventTouches.values(), ...deathTouches.values()]) for (const g of t.games) used.add(g);
+  // In the order the sources are listed, then any source the list does not know.
+  const known = games.map((g) => g.id as string).filter((id) => used.has(id));
+  return [...known, ...[...used].filter((id) => !known.includes(id))];
 })();
 export const killerOptions: { key: string; n: number }[] = (() => {
   const n = new Map<string, number>();
@@ -275,7 +288,8 @@ export const placeOptions = places.filter((p) => LOCATION_SPANS[p.id]);
 const dropThe = (name: string) => name.replace(/^The /, "");
 export const personName = (id: string): string => dropThe(labelForEntity(id));
 export const isDescriptor = (id: string): boolean => personById.get(id)?.nameStatus === "descriptor";
-export const killerName = (key: string): string => (key === "unknown" ? "Unknown or not stated" : dropThe(labelForEntity(key)));
+export const killerName = (key: string): string => (key === UNKNOWN_KILLER ? "Unknown or not stated" : dropThe(labelForEntity(key)));
+export const isUnknownKiller = (key: string): boolean => key === UNKNOWN_KILLER;
 export const placeName = (id: string): string => placeById.get(id)?.name ?? labelForEntity(id);
 export const causeLabel = (kind: string): string => (DEATH_KIND as Record<string, { label: string } | undefined>)[kind]?.label ?? kind;
 
@@ -288,20 +302,20 @@ export interface Applied {
   key: string;
   /** A phrase that completes "Showing … events": "with William Afton", "at Fredbear's Family Diner". */
   text: string;
-  /** The filters with this one removed. */
-  without: Filters;
+  /** Takes this one filter off. */
+  remove: FilterChange;
 }
 
 export function appliedFilters(f: Filters): Applied[] {
   const out: Applied[] = [];
-  if (f.layer === "events") out.push({ key: "layer", text: "story events only", without: { ...f, layer: "all" } });
-  if (f.layer === "deaths") out.push({ key: "layer", text: "deaths only", without: { ...f, layer: "all" } });
-  if (f.person) out.push({ key: "person", text: `with ${labelForEntity(f.person)}`, without: { ...f, person: "" } });
-  if (f.place) out.push({ key: "place", text: `at ${placeName(f.place)}`, without: { ...f, place: "" } });
-  if (f.support.length) out.push({ key: "support", text: `${list(f.support.map((s) => lower(STATUS[s].word)), "and")} only`, without: { ...f, support: [] } });
-  if (f.source) out.push({ key: "source", text: `from ${gameMeta(f.source).short}`, without: { ...f, source: "" } });
-  if (f.cause.length) out.push({ key: "cause", text: `cause of death: ${list(f.cause.map((c) => lower(causeLabel(c))), "or")}`, without: { ...f, cause: [] } });
-  if (f.killer) out.push({ key: "killer", text: f.killer === "unknown" ? "killer unknown or not stated" : `killed by ${labelForEntity(f.killer)}`, without: { ...f, killer: "" } });
+  if (f.layer === "events") out.push({ key: "layer", text: "story events only", remove: (now) => ({ ...now, layer: "all" }) });
+  if (f.layer === "deaths") out.push({ key: "layer", text: "deaths only", remove: (now) => ({ ...now, layer: "all" }) });
+  if (f.person) out.push({ key: "person", text: `with ${labelForEntity(f.person)}`, remove: (now) => ({ ...now, person: "" }) });
+  if (f.place) out.push({ key: "place", text: `at ${placeName(f.place)}`, remove: (now) => ({ ...now, place: "" }) });
+  if (f.support.length) out.push({ key: "support", text: `${list(f.support.map((s) => lower(STATUS[s].word)), "and")} only`, remove: (now) => ({ ...now, support: [] }) });
+  if (f.source) out.push({ key: "source", text: `from ${gameMeta(f.source).short}`, remove: (now) => ({ ...now, source: "" }) });
+  if (f.cause.length) out.push({ key: "cause", text: `cause of death: ${list(f.cause.map((c) => lower(causeLabel(c))), "or")}`, remove: (now) => ({ ...now, cause: [] }) });
+  if (f.killer) out.push({ key: "killer", text: f.killer === UNKNOWN_KILLER ? "killer unknown or not stated" : `killed by ${labelForEntity(f.killer)}`, remove: (now) => ({ ...now, killer: "" }) });
   return out;
 }
 
