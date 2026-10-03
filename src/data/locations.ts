@@ -3,9 +3,11 @@ import type { DateKind } from "./schema";
 export type LocationKind = "venue" | "home" | "facility" | "hidden" | "virtual";
 
 /**
- * Where each location sits on the timeline, in era terms. `from`/`to` are era ids;
- * `fuzzyStart`/`fuzzyEnd` mark ends the records don't pin down.
- * `undated` places have no position in the story's chronology; `outside` places sit outside it entirely.
+ * Where each location sits on the timeline, in era terms. `from`/`to` are era ids, in the order of the eras
+ * in timeline.ts; `fuzzyStart`/`fuzzyEnd` mark ends the records don't pin down.
+ * `undated` places have no position in the story's chronology; `outside` places sit outside it entirely
+ * (FNaF World's adventure, and Into the Pit, an adaptation the main games never place).
+ * `dateKind` follows the model's dating table; no label shows a year after 1987.
  */
 export interface LocationSpan {
   kind: LocationKind;
@@ -28,31 +30,32 @@ export const LOCATION_KIND: Record<LocationKind, { label: string; color: string 
 };
 
 export const LOCATION_SPANS: Record<string, LocationSpan> = {
-  "murray-costume-manor": { kind: "facility", from: "founding", to: "founding", fuzzyStart: true, label: "Murray's workshop → the Mimic's night", dateKind: "teaser" },
-  "inventors-house": { kind: "home", from: "founding", to: "founding", fuzzyStart: true, label: "Edwin's home; foreclosed", dateKind: "relative" },
-  "fredbears-family-diner": { kind: "venue", from: "founding", to: "diner", fuzzyStart: true, label: "open in 1983; closed 'for years' by 1987", dateKind: "printed" },
-  "fnaf4-house": { kind: "home", from: "diner", to: "diner", label: "1983", dateKind: "printed" },
-  "midnight-motorist-house": { kind: "home", undated: true, label: "undated (theory: the FNaF4 household)", dateKind: "unknown" },
-  "jrs": { kind: "venue", undated: true, label: "undated (Midnight Motorist)", dateKind: "unknown" },
-  "tape-sister-location": { kind: "venue", from: "diner", to: "murders", fuzzyStart: true, label: "springlock era", dateKind: "relative" },
-  "freddy-fazbears-pizza-original": { kind: "venue", from: "diner", to: "murders", fuzzyStart: true, fuzzyEnd: true, label: "before 1987; left to rot (theory: reopened as FNaF1's)", dateKind: "derived" },
-  "safe-room": { kind: "hidden", from: "diner", to: "aftermath", fuzzyStart: true, label: "springlock era → sealed → opened by the Fright", dateKind: "relative" },
-  "freddy-fazbears-pizza-itp": { kind: "venue", from: "murders", to: "murders", fuzzyStart: true, fuzzyEnd: true, label: "Into the Pit's past (undated)", dateKind: "unknown" },
-  "freddy-fazbears-pizza-1987": { kind: "venue", from: "pizzeria", to: "pizzeria", label: "Oct–Nov 1987", dateKind: "printed" },
-  "freddy-fazbears-pizza-fnaf1": { kind: "venue", from: "pizzeria", to: "pizzeria", label: "after '87; closes by year's end", dateKind: "derived" },
-  "circus-babys-pizza-world": { kind: "venue", from: "funtime", to: "funtime", label: "closed before it opened", dateKind: "relative" },
-  "circus-babys-rental": { kind: "facility", from: "funtime", to: "aftermath", fuzzyStart: true, label: "undated; Sister Location", dateKind: "relative" },
-  "fazbears-fright": { kind: "venue", from: "aftermath", to: "aftermath", label: "30 years after closure; burns", dateKind: "estimated" },
-  "michael-afton-home": { kind: "home", from: "aftermath", to: "aftermath", label: "after Sister Location", dateKind: "relative" },
-  "ffps-pizzeria": { kind: "venue", from: "aftermath", to: "aftermath", label: "one week; burns", dateKind: "relative" },
-  "silver-parasol-games-office": { kind: "facility", from: "digital", to: "digital", label: "c. 2019", dateKind: "estimated" },
-  "freddy-fazbear-virtual-experience": { kind: "virtual", from: "digital", to: "digital", label: "c. 2019", dateKind: "estimated" },
-  "buried-pizzeria": { kind: "hidden", from: "pizzaplex", to: "pizzaplex", fuzzyStart: true, label: "found buried under the Pizzaplex (operated: unknown)", dateKind: "relative" },
+  "murray-costume-manor": { kind: "facility", from: "founding", to: "founding", fuzzyStart: true, label: "by 1965 → the night of 1979", dateKind: "teaser" },
+  "inventors-house": { kind: "home", from: "founding", to: "founding", fuzzyStart: true, label: "Murray's home; foreclosure notice by summer 1979", dateKind: "teaser" },
+  "fredbears-family-diner": { kind: "venue", from: "founding", to: "diner", fuzzyStart: true, fuzzyEnd: true, label: "open c. 1983; 'closed for years' by November 1987", dateKind: "estimated" },
+  "fnaf4-house": { kind: "home", from: "diner", to: "diner", label: "c. 1983", dateKind: "estimated" },
+  "freddy-fazbears-pizza-original": { kind: "venue", from: "diner", to: "murders", fuzzyStart: true, fuzzyEnd: true, label: "before autumn 1987; left to rot (most likely reopened later as FNaF1's)", dateKind: "estimated" },
+  "safe-room": { kind: "hidden", from: "diner", to: "aftermath", fuzzyStart: true, label: "in every location → walled up → opened thirty years on", dateKind: "relative" },
+  "tape-sister-location": { kind: "venue", from: "diner", to: "murders", fuzzyStart: true, fuzzyEnd: true, label: "the springlock years; undated", dateKind: "relative" },
+  "circus-babys-pizza-world": { kind: "venue", from: "funtime", to: "funtime", label: "grand opening cancelled; placed by convention", dateKind: "relative" },
+  "circus-babys-rental": { kind: "facility", from: "funtime", to: "aftermath", fuzzyStart: true, label: "undated: the rentals → Michael's week", dateKind: "relative" },
+  "private-room": { kind: "hidden", from: "funtime", to: "aftermath", fuzzyStart: true, label: "in Afton's facility; shown in Sister Location's time", dateKind: "relative" },
+  "freddy-fazbears-pizza-1987": { kind: "venue", from: "pizzeria", to: "pizzeria", label: "autumn 1987; closed after 13 November", dateKind: "printed" },
+  "freddy-fazbears-pizza-fnaf1": { kind: "venue", from: "pizzeria", to: "pizzeria", label: "a November after 1987; closes by year's end, most likely", dateKind: "derived" },
+  "michael-afton-home": { kind: "home", from: "aftermath", to: "aftermath", label: "during Michael's week; undated", dateKind: "relative" },
+  "fazbears-fright": { kind: "venue", from: "aftermath", to: "aftermath", label: "thirty years after the closing; burns", dateKind: "printed" },
+  "ffps-pizzeria": { kind: "venue", from: "aftermath", to: "aftermath", label: "one week; burns (most likely the buried pizzeria)", dateKind: "relative" },
+  "silver-parasol-games-office": { kind: "facility", from: "digital", to: "digital", label: "the VR studio; undated", dateKind: "relative" },
+  "freddy-fazbear-virtual-experience": { kind: "virtual", from: "digital", to: "digital", label: "the company's VR game; undated", dateKind: "relative" },
+  "buried-pizzeria": { kind: "hidden", from: "pizzaplex", to: "pizzaplex", fuzzyStart: true, label: "found buried under the Pizzaplex (most likely Pizzeria Simulator's building)", dateKind: "relative" },
   "the-sinkhole": { kind: "hidden", from: "pizzaplex", to: "pizzaplex", fuzzyStart: true, label: "found during construction", dateKind: "relative" },
-  "mega-pizzaplex": { kind: "venue", from: "pizzaplex", to: "pizzaplex", label: "after 2020; ruined by RUIN", dateKind: "relative" },
-  "fazbear-orientation-program": { kind: "virtual", from: "pizzaplex", to: "pizzaplex", label: "Pizzaplex era", dateKind: "relative" },
-  "jeffs-pizza": { kind: "venue", undated: true, label: "Into the Pit's present — undated", dateKind: "unknown" },
-  "the-pit": { kind: "hidden", undated: true, label: "Into the Pit's present — undated", dateKind: "unknown" },
-  "the-mill": { kind: "facility", undated: true, label: "Into the Pit's present — undated", dateKind: "unknown" },
-  "fnaf-world-sub-tunnel-4": { kind: "virtual", outside: true, label: "outside the timeline", dateKind: "unknown" },
+  "mega-pizzaplex": { kind: "venue", from: "pizzaplex", to: "pizzaplex", label: "no year; wrecked by the time of RUIN", dateKind: "relative" },
+  "fazbear-orientation-program": { kind: "virtual", from: "pizzaplex", to: "pizzaplex", label: "between Gregory's night and RUIN", dateKind: "relative" },
+  "midnight-motorist-house": { kind: "home", undated: true, label: "undated; the scene identifies nobody", dateKind: "unknown" },
+  "jrs": { kind: "venue", undated: true, label: "undated (Midnight Motorist)", dateKind: "unknown" },
+  "freddy-fazbears-pizza-itp": { kind: "venue", outside: true, label: "Into the Pit: an adaptation the main games never place", dateKind: "unknown" },
+  "jeffs-pizza": { kind: "venue", outside: true, label: "Into the Pit: an adaptation the main games never place", dateKind: "unknown" },
+  "the-pit": { kind: "hidden", outside: true, label: "Into the Pit: an adaptation the main games never place", dateKind: "unknown" },
+  "the-mill": { kind: "facility", outside: true, label: "Into the Pit: an adaptation the main games never place", dateKind: "unknown" },
+  "fnaf-world-sub-tunnel-4": { kind: "virtual", outside: true, label: "outside the story", dateKind: "unknown" },
 };
