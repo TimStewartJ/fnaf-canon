@@ -1,6 +1,6 @@
 /*
  * The app shell: skip link, header and navigation, phone menu, search palette, reader settings,
- * footer. Shared and frozen after phase 1.
+ * footer.
  */
 #root { display: flex; flex-direction: column; min-height: 100vh; }
 .site-main { flex: 1 0 auto; min-width: 0; outline: none; }
@@ -39,14 +39,19 @@
   padding-inline: var(--page-pad);
 }
 
+/* The header chooses its own layout by measuring (Header.tsx) and says which on the element:
+   data-nav (bar | menu), data-brand (full | short), data-search (full | short | icon). */
 .brand { display: inline-flex; align-items: center; gap: 0.55rem; flex: none; color: var(--c-text); text-decoration: none; margin-right: var(--sp-3); }
+.site-header[data-squeeze] .brand { flex: 0 1 auto; min-width: 0; margin-right: 0; overflow: hidden; }
 .brand:hover { color: var(--c-text); }
 .brand__mark { color: var(--c-accent); flex: none; }
 .brand__mark-cut { fill: var(--c-bg); }
 .brand__name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 620; line-height: 1; letter-spacing: -0.012em; }
 .brand__sub { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; line-height: 1; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-text-3); padding-top: 0.25em; white-space: nowrap; }
+.site-header[data-brand="short"] .brand__sub { display: none; }
 
-.site-nav { display: flex; align-items: center; gap: 2px; min-width: 0; }
+.site-nav { display: flex; align-items: center; gap: 2px; flex: none; }
+.site-header[data-nav="menu"] .site-nav, .site-header[data-nav="menu"] .site-tools__settings { display: none; }
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -103,11 +108,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  flex: none;
   height: 2.25rem;
-  min-width: 11.5rem;
+  width: 11.5rem;
   padding: 0 0.5rem 0 0.7rem;
   font-family: var(--font-ui);
   font-size: var(--fs-sm);
+  white-space: nowrap;
   color: var(--c-text-3);
   background: var(--c-bg-sunk);
   border: 1px solid var(--c-line-control);
@@ -116,9 +123,18 @@
 }
 .search-trigger:hover { color: var(--c-text); border-color: var(--c-text-3); }
 .search-trigger__kbd { margin-left: auto; }
+.site-header[data-search="short"] .search-trigger { width: auto; padding-right: 0.8rem; }
+.site-header:not([data-search="full"]) .search-trigger__kbd { display: none; }
+.site-header[data-search="icon"] .search-trigger { width: 2.25rem; padding: 0; justify-content: center; color: var(--c-text-2); background: none; border-color: transparent; }
+.site-header[data-search="icon"] .search-trigger:hover { color: var(--c-text); background: var(--c-surface-2); }
+.site-header[data-search="icon"] .search-trigger__text { display: none; }
+.site-header[data-search="icon"] .search-trigger .icon { width: 1.25em; height: 1.25em; }
 .site-tools__settings { position: relative; }
 .settings-panel { position: absolute; right: 0; top: calc(100% + 0.55rem); z-index: var(--z-popover); width: 19.5rem; max-width: calc(100vw - 2rem); padding: var(--sp-4); background: var(--c-overlay); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); box-shadow: var(--shadow-2); }
 .menu-trigger { display: none; }
+.site-header[data-nav="menu"] .menu-trigger { display: inline-flex; }
+/* With the menu button the header is a touch bar: its buttons are full touch targets. */
+.site-header[data-nav="menu"] .search-trigger, .site-header[data-nav="menu"] .site-tools .icon-btn { width: var(--tap); height: var(--tap); }
 
 .reader-settings { display: grid; gap: var(--sp-3); }
 .reader-settings__row { display: grid; gap: var(--sp-1); }
@@ -126,22 +142,9 @@
 .reader-settings__row .segmented__opt { flex: 1; }
 .reader-settings__note { margin: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
 
-@media (max-width: 1080px) {
-  .brand__sub { display: none; }
-  .search-trigger { min-width: 0; }
-  .search-trigger__kbd { display: none; }
-}
 @media (max-width: 899px) {
   .site-header { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--c-bg); }
-  .site-nav, .site-tools__settings { display: none; }
-  .brand__sub { display: inline; }
-  .menu-trigger { display: inline-flex; }
-  .search-trigger { width: var(--tap); height: var(--tap); padding: 0; justify-content: center; color: var(--c-text-2); background: none; border-color: transparent; }
-  .search-trigger__text { display: none; }
-  .search-trigger .icon { width: 1.25em; height: 1.25em; }
-  .menu-trigger, .site-tools .icon-btn { width: var(--tap); height: var(--tap); }
 }
-@media (max-width: 359px) { .brand__sub { display: none; } }
 
 /* ── Phone menu ────────────────────────────────────────────────── */
 dialog.menu-sheet { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; flex-direction: column; color: var(--c-text); background: var(--c-bg); border: 0; overflow: hidden; }
