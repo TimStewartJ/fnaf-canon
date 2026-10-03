@@ -198,7 +198,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
       <TieLegend families={families} />
 
       <div className="fam-frame">
-        <div className="fam-scroll scroll-x" ref={scrollRef} role="region" aria-label={`${tree.title}: family tree`} tabIndex={0}>
+        {/* A tree wider than its frame scrolls sideways; only then is the frame a stop for the keyboard. */}
+        <div className="fam-scroll scroll-x" ref={scrollRef} {...(rows?.overflow ? { role: "region", "aria-label": `${tree.title}: family tree, scrolls sideways`, tabIndex: 0 } : {})}>
           {ready && (
             <div
               className={`fam-grid${tight ? " is-tight" : ""}`}
