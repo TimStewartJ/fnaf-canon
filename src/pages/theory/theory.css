@@ -6,23 +6,24 @@
 /* ── Cover hero ────────────────────────────────────────────────── */
 .cover-hero {
   position: relative;
-  padding-block: clamp(var(--sp-7), 9vw, 7.5rem) clamp(var(--sp-7), 7vw, 5.5rem);
+  padding-block: clamp(var(--sp-7), 7vw, 6rem) clamp(var(--sp-7), 7vw, 5.5rem);
   background:
     radial-gradient(ellipse 70% 90% at 12% -10%, var(--c-glow), transparent 70%),
     radial-gradient(ellipse 40% 60% at 95% 0%, var(--c-glow), transparent 75%);
 }
 .cover-hero__title { max-width: 14ch; margin: 0 0 var(--sp-4); font-size: var(--fs-4xl); font-weight: 500; line-height: 0.98; letter-spacing: -0.028em; }
 .cover-hero__standfirst { max-width: 30em; margin: 0 0 var(--sp-7); font-family: var(--font-text); font-style: italic; font-size: clamp(1.2rem, 1rem + 0.9vw, 1.6rem); line-height: 1.4; color: var(--c-text-2); text-wrap: balance; }
-.cover-hero__grid { display: grid; gap: var(--sp-6) var(--sp-8); align-items: end; margin-bottom: var(--sp-7); }
-.cover-hero__grid .cover-hero__standfirst { margin-bottom: 0; }
+.cover-hero__grid { display: grid; gap: var(--sp-6) var(--sp-8); align-items: start; }
+.cover-hero__main { min-width: 0; }
 .cover-parts { display: none; }
 @media (min-width: 1000px) {
-  .cover-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 23rem); }
-  .cover-parts { display: block; }
+  .cover-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); }
+  .cover-parts { display: block; position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); }
 }
+.cover-parts > .label { margin: 0 0 var(--sp-2); }
 .cover-parts ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
 .cover-parts li { margin: 0; }
-.cover-parts a { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) auto; align-items: baseline; gap: var(--sp-2); padding: 0.5rem var(--sp-1); color: var(--c-text); border-bottom: 1px solid var(--c-line); text-decoration: none; }
+.cover-parts a { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) auto; align-items: baseline; gap: var(--sp-2); padding: 0.55rem var(--sp-1); color: var(--c-text); border-bottom: 1px solid var(--c-line); text-decoration: none; }
 .cover-parts a:hover { background: var(--c-surface); }
 .cover-parts a:hover .cover-parts__title { color: var(--c-accent-strong); }
 .cover-parts__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-accent); }
@@ -221,7 +222,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter-head__sources:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 
 /* Question, answer, confidence. The left rule is drawn in the firmness line style of the chapter. */
-.verdict { display: grid; gap: var(--sp-4); margin-top: var(--sp-6); padding: var(--sp-1) 0 var(--sp-1) var(--sp-5); border-left: 3px var(--firm-style, solid) var(--c-accent); }
+.verdict { display: grid; gap: var(--sp-5); margin-top: var(--sp-6); padding: var(--sp-1) 0 var(--sp-1) var(--sp-5); border-left: 3px var(--firm-style, solid) var(--c-accent); }
 .verdict > p { margin: 0; }
 .verdict .label { display: block; margin-bottom: 0.3rem; }
 .verdict__q { font-family: var(--font-text); font-style: italic; font-size: var(--fs-lg); line-height: 1.4; color: var(--c-text-2); }
@@ -240,8 +241,9 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .pullquote::before { content: "\201C"; position: absolute; left: -0.06em; top: -0.08em; font-family: var(--font-display); font-size: clamp(3rem, 2.4rem + 2.6vw, 4.4rem); line-height: 1; color: var(--c-accent); }
 .pullquote blockquote { margin: 0; padding: 0; border: 0; font-family: var(--font-text); font-style: italic; font-weight: 400; font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem); line-height: 1.32; color: var(--c-text); text-wrap: balance; }
 .pullquote blockquote.pullquote--claim { font-style: normal; }
-.pullquote figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.2rem; margin-top: var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--c-text-3); }
-.pullquote__source { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.7rem; color: var(--c-text-2); text-decoration: none; }
+.pullquote figcaption { margin-top: var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-3); }
+.pullquote__source { color: var(--c-text-2); text-decoration: none; }
+.pullquote__source .game { margin-right: 0.45em; }
 .pullquote__source:hover { color: var(--c-accent-strong); text-decoration: underline; }
 
 /* Competing readings */
@@ -256,6 +258,25 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 /* Exhibit strip */
 .exhibits { margin-block: 2.2em; }
 .exhibits__title { margin: 0 0 var(--sp-3); color: var(--c-text-2); }
+/* A row of compact evidence cards. On a phone it becomes a strip you swipe sideways, so four
+   records cost one card of height, not four. */
+.exhibits__strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-3); align-items: stretch; }
+.exhibits__strip > .ev-card:only-child { grid-column: span 2; }
+@media (max-width: 640px) {
+  .exhibits__strip {
+    position: relative;
+    display: flex;
+    margin-inline: calc(var(--page-pad) * -1);
+    padding: 0 var(--page-pad) var(--sp-2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--page-pad);
+    scrollbar-width: thin;
+  }
+  .exhibits__strip > .ev-card { flex: 0 0 min(84%, 20rem); scroll-snap-align: start; }
+  .exhibits__strip > .ev-card:only-child { flex-basis: 100%; }
+}
 .chapter-table { font-family: var(--font-ui); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text); font-variant-numeric: lining-nums tabular-nums; }
 
 /* What pushes back */

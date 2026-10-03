@@ -4,7 +4,7 @@
  */
 
 /* Question-and-answer cards at the top of an essay. */
-.answers { display: grid; gap: var(--sp-5); margin: var(--sp-6) 0 var(--sp-7); }
+.answers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr)); gap: var(--sp-5); align-items: start; margin: var(--sp-6) 0 var(--sp-7); }
 .answer-card { padding: var(--sp-5) var(--sp-5) var(--sp-5) calc(var(--sp-5) - 3px); background: var(--c-surface); border: 1px solid var(--c-line); border-left: 3px solid var(--c-accent); border-radius: var(--r-md); }
 .answer-card h2 { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); }
 .answer-card__short { max-width: var(--measure); margin: 0 0 var(--sp-4); font-family: var(--font-text); font-size: var(--fs-lg); font-weight: 560; line-height: 1.4; color: var(--c-text); }

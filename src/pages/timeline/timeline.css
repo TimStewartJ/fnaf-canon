@@ -79,7 +79,7 @@
 .tl-sum { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.58; color: var(--c-text-read); }
 .tl-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2); margin-top: var(--sp-3); }
 .tl-people { display: flex; flex-wrap: wrap; gap: var(--sp-1); min-width: 0; }
-.tl-evidence { display: grid; gap: var(--sp-3); max-height: 36rem; padding: var(--sp-3); overflow: auto; overscroll-behavior: contain; background: var(--c-bg); border-top: 1px solid var(--c-line); }
+.tl-evidence { position: relative; display: grid; gap: var(--sp-3); max-height: 36rem; padding: var(--sp-3); overflow: auto; overscroll-behavior: contain; background: var(--c-bg); border-top: 1px solid var(--c-line); }
 .tl-death-kind { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); font-weight: 600; color: var(--c-tension); }
 .tl-death-facts { display: grid; grid-template-columns: 4.2em minmax(0, 1fr); gap: 0.2rem var(--sp-3); margin: 0 0 var(--sp-2); font-size: var(--fs-sm); }
 .tl-death-facts dt { padding-top: 0.2em; font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }

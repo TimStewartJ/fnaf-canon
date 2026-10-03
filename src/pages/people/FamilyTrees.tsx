@@ -121,7 +121,7 @@ export default function FamilyTrees() {
       </div>
       {tree && layout && (
         <div className="tree-wrap scroll-x" role="region" aria-label={`${tree.title} family tree`} tabIndex={0}>
-          <svg viewBox={`0 0 ${layout.width} ${layout.height}`} width={layout.width} height={layout.height} className="tree-svg" role="img" aria-label={tree.title}>
+          <svg viewBox={`0 0 ${layout.width} ${layout.height}`} width={layout.width} height={layout.height} className="tree-svg" role="group" aria-label={`${tree.title}: people and the ties between them`}>
             {layout.edges.map((r, i) => {
               const a = layout.pos.get(r.from)!; const b = layout.pos.get(r.to)!;
               const ax = a.x + W / 2, bx = b.x + W / 2;

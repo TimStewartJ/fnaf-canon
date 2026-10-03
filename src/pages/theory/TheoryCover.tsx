@@ -24,12 +24,24 @@ export default function TheoryCover() {
       <header className="cover-hero band">
         <div className="band__inner">
           <div className="cover-hero__grid">
-            <div>
+            <div className="cover-hero__main">
               <p className="kicker">The theory · {theory.length} chapters in {partGroups.length} parts</p>
               <h1 className="cover-hero__title">{theoryIntro.title}</h1>
               <p className="cover-hero__standfirst">{theoryIntro.standfirst}</p>
+              <div className="thesis">
+                <p className="label">The thesis</p>
+                <p className="thesis__text"><RichText text={theoryIntro.thesis} /></p>
+              </div>
+              <div className="cover-hero__actions">
+                {storyline.length > 0 && <ButtonLink to="/theory#storyline" variant="primary" icon={BookOpenText}>Read the story first</ButtonLink>}
+                {resume
+                  ? <ButtonLink to={chapterPath(resume.id)} iconEnd={ArrowRight}>Continue: chapter {chapterNumber(resume.id)}</ButtonLink>
+                  : first && <ButtonLink to={chapterPath(first.id)} iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
+              </div>
             </div>
-            <nav className="cover-parts" aria-label="Parts of the model">
+            <nav className="cover-parts" aria-labelledby="h-cover-parts">
+              <p id="h-cover-parts" className="label">In {partGroups.length} parts</p>
               <ol>
                 {partGroups.map((g) => (
                   <li key={g.part?.id ?? "more"}>
@@ -42,17 +54,6 @@ export default function TheoryCover() {
                 ))}
               </ol>
             </nav>
-          </div>
-          <div className="thesis">
-            <p className="label">The thesis</p>
-            <p className="thesis__text"><RichText text={theoryIntro.thesis} /></p>
-          </div>
-          <div className="cover-hero__actions">
-            {storyline.length > 0 && <ButtonLink to="/theory#storyline" variant="primary" icon={BookOpenText}>Read the story first</ButtonLink>}
-            {resume
-              ? <ButtonLink to={chapterPath(resume.id)} iconEnd={ArrowRight}>Continue: chapter {chapterNumber(resume.id)}</ButtonLink>
-              : first && <ButtonLink to={chapterPath(first.id)} iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
-            <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
           </div>
         </div>
       </header>

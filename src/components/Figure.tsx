@@ -4,7 +4,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-re
 import { creditByFile, evidenceById } from "../data/store";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { useModalDialog } from "./hooks";
-import { evidencePath, imgUrl } from "./links";
+import { evidencePath, imgSize, imgUrl } from "./links";
 import { Icon } from "./Icon";
 
 /** Pixel-art PNGs stay crisp when shown larger than their natural size. */
@@ -66,7 +66,7 @@ export function Figure({ file, caption, alt, evidence, compact = false, tag, cla
   return (
     <figure className={`figure${compact ? " figure--compact" : ""}${className ? ` ${className}` : ""}`}>
       <button type="button" className="figure__frame" onClick={() => setZoom(true)} aria-label={`Enlarge image: ${altText}`}>
-        <img src={imgUrl(file)} alt={altText} loading={eager ? "eager" : "lazy"} decoding="async" onLoad={markUpscaled} />
+        <img src={imgUrl(file)} {...imgSize(file)} alt={altText} loading={eager ? "eager" : "lazy"} decoding="async" onLoad={markUpscaled} />
         <span className="figure__zoom" aria-hidden><Icon icon={Maximize2} /></span>
       </button>
       {!compact && (cap || credit) && (

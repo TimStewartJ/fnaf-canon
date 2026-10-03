@@ -31,6 +31,14 @@
 .ev-card__loc { flex: 1 1 10rem; min-width: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
 .ev-card__entities { display: flex; flex-wrap: wrap; gap: var(--sp-1); margin: var(--sp-1) 0 0; }
 .ev-card .figure { margin-top: var(--sp-1); }
+/* Compact: for exhibit strips inside an article. Image first, text clamped; the drawer has the rest. */
+.ev-card--compact .figure { margin-top: 0; }
+.ev-card--compact .figure__frame img { aspect-ratio: 16 / 10; max-height: none; object-fit: cover; }
+.ev-card--compact .firm { font-size: var(--fs-sm); }
+.ev-card--compact .ev-card__claim, .ev-card--compact .ev-card__quote { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+.ev-card--compact .ev-card__claim { -webkit-line-clamp: 4; line-clamp: 4; font-size: var(--fs-sm); }
+.ev-card--compact .ev-card__quote { -webkit-line-clamp: 3; line-clamp: 3; font-size: var(--fs-sm); }
+.ev-card--compact .ev-card__foot { margin-top: auto; }
 
 /* ── Row ───────────────────────────────────────────────────────── */
 .ev-list { list-style: none; margin: 0; padding: 0; display: grid; }

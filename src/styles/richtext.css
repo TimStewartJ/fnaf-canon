@@ -26,8 +26,8 @@
 
 :is(.prose, .article) > * { margin-block: 0; }
 :is(.prose, .article) > * + * { margin-top: 1.15em; }
-:is(.prose, .article) p { margin: 0; }
-:is(.prose, .article) p + p { margin-top: 1.15em; }
+:where(.prose, .article) p { margin: 0; }
+:where(.prose, .article) p + p { margin-top: 1.15em; }
 :is(.prose, .article) strong { color: var(--c-text); }
 :is(.prose, .article) > h2 { font-size: var(--fs-2xl); margin-top: 2.1em; color: var(--c-text); }
 :is(.prose, .article) > h3 { font-size: var(--fs-xl); margin-top: 1.9em; color: var(--c-text); }
@@ -104,7 +104,8 @@
 }
 .src-chip .firm-glyph { align-self: center; }
 .src-chip__code { flex: none; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-text-2); white-space: nowrap; }
-.src-chip__title { min-width: 0; color: var(--c-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* The cap is in rem, not %, so a long title can never widen the chip's ancestors. */
+.src-chip__title { min-width: 0; max-width: 16rem; color: var(--c-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .src-chip:hover, .src-chip:focus-visible { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); text-decoration: none; }
 @media (pointer: coarse) { .src-chip { padding-block: 0.45em; } }
 

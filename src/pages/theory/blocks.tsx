@@ -81,7 +81,7 @@ export function Block({ block, fig }: { block: TheoryBlock; fig?: number }) {
       return (
         <section className="exhibits full" aria-label={block.title ?? "Evidence"}>
           <p className="label exhibits__title">{block.title ?? "Exhibits"} <span className="faint">· {records.length} record{records.length === 1 ? "" : "s"}</span></p>
-          <div className="ev-grid">{records.map((e) => <EvidenceCard key={e.id} e={e} group={group} />)}</div>
+          <div className="exhibits__strip">{records.map((e) => <EvidenceCard key={e.id} e={e} group={group} compact />)}</div>
         </section>
       );
     }

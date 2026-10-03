@@ -28,25 +28,29 @@ export function EvidenceLink({ id, group, open = "drawer", className, children }
 }
 
 /**
- * The full evidence card: source, certainty, title, claim, quote, image, exact location, date and
- * the people and places involved. The title opens the record in the drawer (`open="page"` goes to
- * the record's own page instead).
+ * The evidence card: source, certainty, title, claim, quote, image, exact location, date and the
+ * people and places involved. The title opens the record in the drawer (`open="page"` goes to the
+ * record's own page instead).
+ *  - compact   for exhibit strips inside an article: image first, claim and quote clamped to a few
+ *              lines, no date or entity chips (the drawer has the rest)
  */
-export function EvidenceCard({ e, showImage = true, open = "drawer", group }: { e: Evidence; showImage?: boolean; open?: "drawer" | "page"; group?: string[] }) {
-  const entities = [...(e.people ?? []), ...(e.places ?? [])];
+export function EvidenceCard({ e, showImage = true, open = "drawer", group, compact = false }: { e: Evidence; showImage?: boolean; open?: "drawer" | "page"; group?: string[]; compact?: boolean }) {
+  const entities = compact ? [] : [...(e.people ?? []), ...(e.places ?? [])];
+  const figure = showImage && e.image ? <Figure file={e.image} compact /> : null;
   return (
-    <article className="ev-card">
+    <article className={`ev-card${compact ? " ev-card--compact" : ""}`}>
+      {compact && figure}
       <header className="ev-card__meta">
         <SourceLine e={e} location={false} />
-        <Firmness scale="certainty" value={e.certainty} />
+        <Firmness scale="certainty" value={e.certainty} variant={compact ? "inline" : "tag"} />
       </header>
       <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{e.title}</EvidenceLink></h3>
       <p className="ev-card__claim">{e.claim}</p>
       {e.quote && <blockquote className="ev-card__quote">“{e.quote}”</blockquote>}
-      {showImage && e.image && <Figure file={e.image} compact />}
+      {!compact && figure}
       <footer className="ev-card__foot">
         <span className="ev-card__loc"><Icon icon={CornerDownRight} /> {e.location}</span>
-        <EvidenceDate e={e} compact />
+        {!compact && <EvidenceDate e={e} compact />}
       </footer>
       {entities.length > 0 && <p className="ev-card__entities">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</p>}
     </article>
