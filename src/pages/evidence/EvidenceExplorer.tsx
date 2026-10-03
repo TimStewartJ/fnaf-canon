@@ -24,7 +24,7 @@ const URL_DELAY = 350;
 
 function GroupHead({ g }: { g: Group }) {
   return (
-    <h3 className="evx-group">
+    <h3 className={`evx-group${g.kind === "game" ? " evx-group--game" : ""}`}>
       <span className="evx-group__name">{g.kind === "game" ? <GameMark id={g.key} variant="full" link /> : g.label}</span>
       <span className="evx-group__n">{records(g.total)}</span>
     </h3>

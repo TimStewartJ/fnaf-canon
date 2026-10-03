@@ -61,6 +61,8 @@
 .evx-combo__opt { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin: 0; padding: 0.35rem 0.5rem; font-size: var(--fs-sm); line-height: 1.3; color: var(--c-text-2); border-radius: var(--r-sm); cursor: pointer; }
 .evx-combo__opt.is-active { color: var(--c-text); background: var(--c-surface-2); box-shadow: inset 2px 0 0 var(--c-accent); }
 .evx-combo__opt.is-chosen { font-weight: 600; color: var(--c-text); }
+.evx-combo__opt.is-dead { color: var(--c-text-3); cursor: default; }
+.evx-combo__opt.is-dead .evx-combo__name { opacity: 0.7; }
 .evx-combo__name { min-width: 0; overflow-wrap: anywhere; }
 .evx-combo__hint { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.04em; text-transform: uppercase; color: var(--c-text-3); }
 .evx-combo__note { margin: 0; padding: 0.35rem 0.75rem; font-size: var(--fs-xs); color: var(--c-text-3); border-top: 1px solid var(--c-line); }
@@ -111,13 +113,19 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 @media (pointer: coarse) { .evx-chip { min-height: 2.5rem; padding-inline: 0.8rem 0.6rem; } }
 
 /* ── Results ───────────────────────────────────────────────────── */
-.evx-group { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin: var(--sp-5) 0 0; padding: 0 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; color: var(--c-text); border-bottom: 1px solid var(--c-line-strong); }
-.evx-section:first-child > .evx-group { margin-top: var(--sp-2); }
-.evx-group__name .game { font-family: var(--font-ui); font-size: var(--fs-base); font-weight: 600; letter-spacing: 0; color: var(--c-text); }
-.evx-group__n { font-size: var(--fs-2xs); letter-spacing: 0.04em; color: var(--c-text-3); white-space: nowrap; }
-.evx-results--cards .evx-group { margin-bottom: var(--sp-4); }
+/* A slim label where the year or the source changes; the list's own rule sits under it. */
+.evx-group { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin: var(--sp-4) 0 0; padding: 0 var(--sp-2) var(--sp-1); font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; line-height: 1.4; letter-spacing: 0.06em; color: var(--c-text); border-bottom: 1px solid var(--c-line-strong); }
+.evx-section:first-child > .evx-group { margin-top: 0; }
+/* A source's name is set as interface text; the game mark inside inherits it. */
+.evx-group--game { font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0; }
+.evx-group__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.04em; color: var(--c-text-3); white-space: nowrap; }
+.evx-results--cards .evx-group { margin-bottom: var(--sp-3); }
+.evx-results--cards .evx-section + .evx-section > .evx-group { margin-top: var(--sp-5); }
+@media (max-width: 760px) { .evx-group { padding-inline: 0; } }
 
-.evx-list { list-style: none; margin: 0; padding: 0; }
+/* The list is a size container: its rows fold their source column underneath when the list itself
+   is narrow (a phone, or a wide screen with the filter rail beside it), whatever the window is. */
+.evx-list { list-style: none; margin: 0; padding: 0; container-type: inline-size; }
 .evx-section:first-child > .evx-list:first-child { border-top: 1px solid var(--c-line-strong); }
 .evx-row { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 15rem); column-gap: var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-3) var(--sp-2); border-bottom: 1px solid var(--c-line); font-family: var(--font-ui); font-size: var(--fs-base); transition: background var(--dur-1) var(--ease); }
 .evx-row.is-open { background: var(--c-surface); box-shadow: inset 2px 0 0 var(--c-accent); }
@@ -138,13 +146,15 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-row__kind { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; }
 .evx-row__img { color: var(--c-text-3); }
 .evx-row__loc { color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.evx-row__tail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.7rem; }
 .evx-row__place { display: inline-flex; align-items: center; gap: 0.4em; white-space: nowrap; }
 .evx-mark { color: inherit; background: var(--c-accent-soft); box-shadow: 0 1px 0 var(--c-accent-line); border-radius: var(--r-xs); }
-@media (max-width: 760px) {
-  .evx-row { grid-template-columns: auto minmax(0, 1fr); row-gap: 0.25rem; padding-inline: 0; }
+@container (max-width: 44rem) {
+  .evx-row { grid-template-columns: auto minmax(0, 1fr); row-gap: 0.25rem; }
   .evx-row__src { grid-column: 2; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.7rem; }
   .evx-row__loc { -webkit-line-clamp: 1; line-clamp: 1; flex: 1 1 8rem; }
 }
+@media (max-width: 760px) { .evx-row { padding-inline: 0; } }
 
 .evx-next { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); margin: var(--sp-5) 0 0; }
 .evx-next__note { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
@@ -179,12 +189,18 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-rec__claim { max-width: var(--measure); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-xl); line-height: 1.45; color: var(--c-text); text-wrap: pretty; }
 .evx-rec__quote { max-width: var(--measure); font-size: var(--fs-lg); line-height: 1.5; }
 .evx-rec__facts { font-size: var(--fs-base); }
+/* Between a phone and the two-column layout the panel is a wide strip: its short facts sit two abreast. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .evx-rec__facts .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-6); }
+  /* A fact shorter than its neighbour keeps its value under its label. */
+  .evx-rec__facts .fact { align-content: start; }
+}
 .evx-rec__sub { margin-top: 0.25rem; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .evx-rec__url { overflow-wrap: anywhere; }
 .evx-rec__url > .icon { margin-left: 0.15em; }
 .evx-rec__id { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); user-select: all; }
-.evx-rec__check { font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); }
-.evx-rec__check > .label { display: inline; margin-right: var(--sp-2); }
+.evx-rec__check { max-width: var(--measure); font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); overflow-wrap: anywhere; }
+.evx-rec__check > .label { display: block; margin-bottom: var(--sp-1); }
 
 /* Where the record sits in the model */
 .evx-model__sits { display: inline-flex; align-items: center; gap: 0.5em; margin: 0; }

@@ -14,7 +14,7 @@ export type Place = "cited" | "filed" | "outside" | "none";
 export const PLACES: readonly Place[] = ["cited", "filed", "outside", "none"];
 
 export const PLACE: Record<Place, { word: string; short: string; help: string }> = {
-  cited: { word: "Cited", short: "Cited", help: "A chapter cites the record or lists it as evidence that pushes back, or the short story cites it" },
+  cited: { word: "Cited", short: "Cited", help: "A chapter cites the record or lists it as evidence that pushes back, or the storyline cites it" },
   filed: { word: "Filed as further evidence", short: "Filed", help: "A chapter files the record under its thread without citing it in the text" },
   outside: { word: "Outside the story", short: "Outside", help: "Deliberately given no story weight; the theory says why" },
   none: { word: "Not yet accounted for", short: "Not yet", help: "No chapter cites or files the record, and it is not listed as outside the story" },

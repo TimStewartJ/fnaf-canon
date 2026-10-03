@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight, CircleHelp } from "lucide-react";
 import type { Evidence } from "../../data/schema";
@@ -83,6 +84,14 @@ export function SourceDetail() {
   const { id = "" } = useParams();
   const [sp, setSp] = useSearchParams();
   const g = gameById.get(id as never);
+  // After "show more", focus moves to the first of the new rows instead of being lost with the button.
+  const focusAt = useRef<{ kind: string; at: number } | null>(null);
+  const more = sp.get("more");
+  useEffect(() => {
+    const f = focusAt.current;
+    focusAt.current = null;
+    if (f) document.getElementById(`k-${f.kind}`)?.closest("section")?.querySelectorAll<HTMLElement>(".evx-row__title")[f.at]?.focus({ preventScroll: true });
+  }, [more]);
   if (!g) {
     return (
       <Page title="Source not found" narrow>
@@ -105,6 +114,7 @@ export function SourceDetail() {
     if (m.size) out.set("more", [...m].map(([k, n]) => `${k}.${n}`).join(" "));
     setSp(out, { replace: true });
   };
+  const inUse: Record<string, string> = use.length ? { use: use.join(" ") } : {};
   const toggle = (p: Place) => write({ use: use.includes(p) ? use.filter((x) => x !== p) : PLACES.filter((x) => x === p || use.includes(x)) });
 
   return (
@@ -129,7 +139,7 @@ export function SourceDetail() {
           <div className="srcs-use__chips" role="group" aria-label="Show only records that are">
             {PLACES.map((p) => (
               <FilterChip key={p} on={use.includes(p)} count={t[p]} disabled={t[p] === 0 && !use.includes(p)} title={PLACE[p].help} onClick={() => toggle(p)}>
-                <PlaceSwatch place={p} /> {PLACE[p].word}
+                <PlaceSwatch place={p} /> <span className="srcs-use__long">{PLACE[p].word}</span><span className="srcs-use__short">{PLACE[p].short}</span>
               </FilterChip>
             ))}
             {use.length > 0 && <Button variant="quiet" size="sm" onClick={() => write({ use: [] })}>Show all</Button>}
@@ -140,7 +150,7 @@ export function SourceDetail() {
       <Section
         title="Records from this source"
         aside={<span role="status">{use.length ? `${count(shown.length)} of ${records(all.length)}` : records(all.length)}</span>}
-        lead={<>Grouped by where in the source they come from. <Link to={lockerPath({ game: g.id, ...(use.length ? { use: use.join(" ") } : {}) })}>Search them in the evidence locker<Icon icon={ArrowRight} /></Link></>}
+        lead={<>Grouped by the kind of place in the source they come from. <Link to={lockerPath({ game: g.id, ...inUse })}>Search them in the evidence locker<Icon icon={ArrowRight} /></Link></>}
         className="srcs-records"
       >
         {all.length === 0 ? (
@@ -156,14 +166,14 @@ export function SourceDetail() {
             <section key={kind} className="srcs-kind" aria-labelledby={`k-${kind}`}>
               <div className="srcs-kind__head">
                 <h3 id={`k-${kind}`} className="srcs-kind__title"><Icon icon={kindIcon(kind)} /> {kindLabel(kind)}</h3>
-                <Link to={lockerPath({ game: g.id, kind })} className="srcs-kind__n" title={`These records in the evidence locker`}>{records(items.length)}</Link>
+                <Link to={lockerPath({ game: g.id, kind, ...inUse })} className="srcs-kind__n" title="These records in the evidence locker">{records(items.length)}</Link>
               </div>
               <ul className="evx-list">
                 {visible.map((e) => <ResultRow key={e.id} e={e} group={ids} terms={NO_TERMS} source={false} kind={false} place={placeOf(e.id)} />)}
               </ul>
               {rest > 0 && (
                 <p className="srcs-kind__more">
-                  <Button size="sm" onClick={() => write({ more: new Map(open).set(kind, visible.length + STEP) })}>
+                  <Button size="sm" onClick={() => { focusAt.current = { kind, at: visible.length }; write({ more: new Map(open).set(kind, visible.length + STEP) }); }}>
                     {rest <= STEP + 2 ? `Show all ${items.length}` : `Show ${STEP} more`}
                   </Button>
                   <span className="srcs-kind__rest">{count(visible.length)} of {count(items.length)} shown</span>

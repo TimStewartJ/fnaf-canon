@@ -8,7 +8,7 @@ import {
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
 import "./evidence.css";
-import { certaintyOrder, elsewhere, entityKind, entityOptions, fold, kindOrder, marks, tagOptions, type Option, type Outcome, type Query, type Sort } from "./explorerState";
+import { certaintyOrder, claimFor, elsewhere, entityKind, entityOptions, fold, kindOrder, marks, tagOptions, type Option, type Outcome, type Query, type Sort } from "./explorerState";
 
 const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<string, LucideIcon>)[kind] ?? CircleHelp;
 
@@ -40,11 +40,11 @@ export const ResultRow = memo(function ResultRow({ e, group, terms, source = tru
       <span className="evx-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <div className="evx-row__main">
         <EvidenceLink id={e.id} group={group} className="evx-row__title"><Marked text={e.title} terms={terms} /></EvidenceLink>
-        <p className="evx-row__claim"><Marked text={e.claim} terms={terms} /></p>
+        <p className="evx-row__claim"><Marked text={claimFor(e, terms)} terms={terms} /></p>
         {extra && <p className="evx-row__extra"><span className="evx-row__extra-label">{extra.label}</span> <Marked text={extra.text} terms={terms} /></p>}
       </div>
       <div className="evx-row__src">
-        {(source || kind || e.image) && (
+        {(source || kind) && (
           <span className="evx-row__where">
             {source && <GameMark id={e.game} />}
             {kind && <span className="evx-row__kind"><Icon icon={kindIcon(e.kind)} /> {kindLabel(e.kind)}</span>}
@@ -52,7 +52,12 @@ export const ResultRow = memo(function ResultRow({ e, group, terms, source = tru
           </span>
         )}
         <span className="evx-row__loc"><Marked text={e.location} terms={terms} /></span>
-        {place && <span className="evx-row__place" title={PLACE[place].help}><PlaceSwatch place={place} /> {PLACE[place].word}</span>}
+        {(place || (e.image && !source && !kind)) && (
+          <span className="evx-row__tail">
+            {place && <span className="evx-row__place" title={PLACE[place].help}><PlaceSwatch place={place} /> {PLACE[place].word}</span>}
+            {e.image && !source && !kind && <Icon icon={ImageIcon} label="Has a screenshot" className="evx-row__img" />}
+          </span>
+        )}
       </div>
     </li>
   );
@@ -114,13 +119,6 @@ export function Facets({ query, outcome, searching, actions, options }: { query:
           </Opt>
         ))}
       </Facet>
-      <Facet label="Kind of source">
-        {kinds.map((id) => (
-          <Opt key={id} checked={query.kind.includes(id)} n={counts.kind.get(id) ?? 0} label={kindLabel(id)} onChange={() => actions.toggle("kind", id)}>
-            <Icon icon={kindIcon(id)} /> {kindLabel(id)}
-          </Opt>
-        ))}
-      </Facet>
       <Facet label="Certainty">
         {certs.map((id) => {
           const f = firmness("certainty", id);
@@ -130,6 +128,13 @@ export function Facets({ query, outcome, searching, actions, options }: { query:
             </Opt>
           );
         })}
+      </Facet>
+      <Facet label="Kind of source">
+        {kinds.map((id) => (
+          <Opt key={id} checked={query.kind.includes(id)} n={counts.kind.get(id) ?? 0} label={kindLabel(id)} onChange={() => actions.toggle("kind", id)}>
+            <Icon icon={kindIcon(id)} /> {kindLabel(id)}
+          </Opt>
+        ))}
       </Facet>
       <Collapsible summary="More filters" meta={folded ? `${folded} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
         <div className="evx-facets evx-facets--more">
@@ -172,7 +177,8 @@ const SHOWN = 30;
 /**
  * Pick one of many (several hundred tags, a couple of hundred people and places): type to narrow
  * the list, arrow keys and Enter to choose. The list opens in the flow of the page, so nothing
- * clips it inside the rail or the sheet.
+ * clips it inside the rail or the sheet. An entry that would give no records under the filters
+ * now set is listed last, greyed out and not selectable, so the reader sees that it exists.
  */
 export function Combo({ label, placeholder, options, value, valueLabel, onChange }: { label: string; placeholder: string; options: Option[]; value: string; valueLabel: string; onChange: (id: string) => void }) {
   const uid = useId();
@@ -181,31 +187,43 @@ export function Combo({ label, placeholder, options, value, valueLabel, onChange
   const [active, setActive] = useState(0);
   const found = useMemo(() => {
     const t = fold(text.trim()).replace(/^#/, "");
+    const live = (o: Option) => o.count > 0;
     if (!t) return options;
-    // Names that start with what was typed come first; each half keeps the incoming order (most used first).
-    const starts: Option[] = [], holds: Option[] = [];
+    // Names that start with what was typed come first, and entries with records before those
+    // without; each bucket keeps the incoming order (most used first).
+    const buckets: Option[][] = [[], [], [], []];
     for (const o of options) {
       const name = fold(o.label).replace(/^#/, "");
-      if (name.startsWith(t) || o.id.startsWith(t)) starts.push(o);
-      else if (name.includes(t) || o.id.includes(t)) holds.push(o);
+      const starts = name.startsWith(t) || o.id.startsWith(t);
+      if (!starts && !name.includes(t) && !o.id.includes(t)) continue;
+      buckets[(live(o) ? 0 : 2) + (starts ? 0 : 1)].push(o);
     }
-    return [...starts, ...holds];
+    return buckets.flat();
   }, [options, text]);
   const shown = found.slice(0, SHOWN);
-  const at = Math.min(active, Math.max(0, shown.length - 1));
-  const optId = (i: number) => `${uid}-o${i}`;
+  const pickable = shown.filter((o) => o.count > 0);
+  const at = Math.min(active, Math.max(0, pickable.length - 1));
+  const current = pickable[at];
+  const optId = (o: Option) => `${uid}-${o.id.replace(/[^a-z0-9-]/gi, "_")}`;
   const move = (i: number) => {
     setActive(i);
     // Keep the highlighted option in view inside the list's own scroll box.
-    requestAnimationFrame(() => document.getElementById(optId(i))?.scrollIntoView({ block: "nearest" }));
+    const o = pickable[i];
+    if (o) requestAnimationFrame(() => document.getElementById(optId(o))?.scrollIntoView({ block: "nearest" }));
   };
   const pick = (o: Option) => { onChange(o.id); setText(""); setOpen(false); setActive(0); };
   const onKeyDown = (ev: KeyboardEvent<HTMLInputElement>) => {
-    if (ev.key === "ArrowDown") { ev.preventDefault(); if (!open) setOpen(true); else move(Math.min(at + 1, shown.length - 1)); }
+    if (ev.key === "ArrowDown") { ev.preventDefault(); if (!open) setOpen(true); else move(Math.min(at + 1, pickable.length - 1)); }
     else if (ev.key === "ArrowUp") { ev.preventDefault(); if (open) move(Math.max(at - 1, 0)); }
-    else if (ev.key === "Enter") { if (open && shown[at]) { ev.preventDefault(); pick(shown[at]); } }
+    else if (ev.key === "Enter") { if (open && current) { ev.preventDefault(); pick(current); } }
     else if (ev.key === "Escape" && open) { ev.preventDefault(); ev.stopPropagation(); setOpen(false); }
   };
+  const dead = shown.length - pickable.length;
+  const note = shown.length === 0 ? "Nothing by that name."
+    : [
+      found.length > shown.length ? `${count(found.length - shown.length)} more. Type to narrow the list.` : "",
+      dead > 0 ? (pickable.length === 0 ? "No records under the filters now set." : "Greyed out: no records under the filters now set.") : "",
+    ].filter(Boolean).join(" ");
   return (
     <div className="evx-combo" onBlur={(ev) => { if (!ev.currentTarget.contains(ev.relatedTarget as Node | null)) setOpen(false); }}>
       <label className="evx-facet__label" htmlFor={`${uid}-in`}>{label}</label>
@@ -217,26 +235,30 @@ export function Combo({ label, placeholder, options, value, valueLabel, onChange
       )}
       <input
         id={`${uid}-in`} type="text" role="combobox" autoComplete="off" spellCheck={false}
-        aria-expanded={open} aria-controls={`${uid}-list`} aria-autocomplete="list" aria-activedescendant={open && shown[at] ? optId(at) : undefined}
+        aria-expanded={open} aria-controls={`${uid}-list`} aria-autocomplete="list" aria-activedescendant={open && current ? optId(current) : undefined}
         placeholder={value ? `Change: ${placeholder.toLowerCase()}` : placeholder} value={text}
         onChange={(ev) => { setText(ev.target.value); setOpen(true); setActive(0); }}
         onFocus={() => setOpen(true)} onClick={() => setOpen(true)} onKeyDown={onKeyDown}
       />
       <div className="evx-combo__pop" hidden={!open}>
         <ul id={`${uid}-list`} role="listbox" aria-label={label} className="evx-combo__list">
-          {shown.map((o, i) => (
-            <li
-              key={o.id} id={optId(i)} role="option" aria-selected={i === at} className={`evx-combo__opt${i === at ? " is-active" : ""}${o.id === value ? " is-chosen" : ""}`}
-              onMouseDown={(ev) => ev.preventDefault()} onMouseEnter={() => setActive(i)} onClick={() => pick(o)}
-            >
-              <span className="evx-combo__name">{smartQuotes(o.label)}{o.hint && <span className="evx-combo__hint"> {o.hint}</span>}</span>
-              <span className="evx-opt__n">{count(o.count)}</span>
-            </li>
-          ))}
+          {shown.map((o) => {
+            const live = o.count > 0;
+            return (
+              <li
+                key={o.id} id={optId(o)} role="option" aria-selected={o === current} aria-disabled={live ? undefined : true}
+                className={`evx-combo__opt${o === current ? " is-active" : ""}${o.id === value ? " is-chosen" : ""}${live ? "" : " is-dead"}`}
+                onMouseDown={(ev) => ev.preventDefault()}
+                onMouseEnter={live ? () => setActive(pickable.indexOf(o)) : undefined}
+                onClick={live ? () => pick(o) : undefined}
+              >
+                <span className="evx-combo__name">{smartQuotes(o.label)}{o.hint && <span className="evx-combo__hint"> {o.hint}</span>}</span>
+                <span className="evx-opt__n">{count(o.count)}</span>
+              </li>
+            );
+          })}
         </ul>
-        <p className="evx-combo__note" aria-live="polite">
-          {shown.length === 0 ? "Nothing matches." : found.length > shown.length ? `${count(found.length - shown.length)} more. Type to narrow the list.` : ""}
-        </p>
+        <p className="evx-combo__note" aria-live="polite">{note}</p>
       </div>
     </div>
   );

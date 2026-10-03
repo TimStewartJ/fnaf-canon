@@ -17,7 +17,7 @@
  * Links written before several values were allowed carry exactly one and read the same as ever.
  */
 import type { Evidence } from "../../data/schema";
-import { evidence, games, labelForEntity, personById } from "../../data/store";
+import { allTags, evidence, games, labelForEntity, personById, placeById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import { CERTAINTY, KIND_LABEL } from "../../components/ui";
 import { isPlace, placeOf, type Place } from "./coverage";
@@ -108,6 +108,8 @@ interface Entry {
   at: number;
   /** Position of the source in release order. */
   gameAt: number;
+  /** In-universe year; records without one sort last. */
+  year: number;
   place: Place;
   entities: string[];
   title: string;
@@ -132,7 +134,7 @@ function index(): Entry[] {
       titles.get(e.game) ?? "", gameMeta(e.game).short, KIND_LABEL[e.kind] ?? e.kind, e.when.label,
     ].join(" \n "));
     return {
-      e, at, gameAt: order.get(e.game) ?? games.length, place: placeOf(e.id), entities: ents,
+      e, at, gameAt: order.get(e.game) ?? games.length, year: e.when.year ?? Infinity, place: placeOf(e.id), entities: ents,
       title, id: e.id, claim, quote, location,
       all: [e.id, title, claim, quote, location, rest].join(" \n "),
     };
@@ -140,17 +142,26 @@ function index(): Entry[] {
   return entries;
 }
 
-/** Title first, then the id, the quote, the claim and the exact spot; anything else counts least. */
-function score(x: Entry, terms: string[]): number {
+const WORD_START = /[^a-z0-9]/;
+const startsWord = (text: string, i: number) => i === 0 || WORD_START.test(text[i - 1]);
+
+/** Ranks a match: the title counts most, then the claim and the quote, the exact spot, the id; anything else least. */
+function score(x: Entry, terms: string[], phrase: string): number {
   let s = 0;
   for (const t of terms) {
-    const i = x.title.indexOf(t);
-    if (i >= 0) s += i === 0 || /[^a-z0-9]/.test(x.title[i - 1]) ? 12 : 8;
-    if (x.id.includes(t)) s += 5;
+    const inTitle = x.title.indexOf(t);
+    if (inTitle >= 0) s += startsWord(x.title, inTitle) ? 12 : 8;
+    const inClaim = x.claim.indexOf(t);
+    if (inClaim >= 0) s += startsWord(x.claim, inClaim) ? 5 : 4;
     if (x.quote.includes(t)) s += 4;
-    if (x.claim.includes(t)) s += 3;
-    if (x.location.includes(t)) s += 2;
+    if (x.location.includes(t)) s += 3;
+    if (x.id.includes(t)) s += 2;
     s += 1;
+  }
+  // The words together, in the order they were typed, beat the same words scattered.
+  if (terms.length > 1 && phrase) {
+    if (x.title.includes(phrase)) s += 12;
+    else if (x.claim.includes(phrase) || x.quote.includes(phrase)) s += 6;
   }
   return s;
 }
@@ -209,8 +220,12 @@ export function runQuery(query: Query, text: string): Outcome {
   }
 
   if (sort === "game") hits.sort((a, b) => a.gameAt - b.gameAt || a.at - b.at);
-  else if (sort === "match") {
-    const scores = new Map(hits.map((x) => [x, score(x, terms)]));
+  // Most records carry no year. Inside a year, and inside that long undated tail, the sources follow
+  // release order (the store alone would leave them in alphabetical order of their ids).
+  else if (sort === "time") hits.sort((a, b) => a.year - b.year || a.gameAt - b.gameAt || a.at - b.at);
+  else {
+    const phrase = fold(text).trim().replace(/\s+/g, " ");
+    const scores = new Map(hits.map((x) => [x, score(x, terms, phrase)]));
     hits.sort((a, b) => scores.get(b)! - scores.get(a)! || a.at - b.at);
   }
   const results = hits.map((x) => x.e);
@@ -240,22 +255,32 @@ export function runQuery(query: Query, text: string): Outcome {
 
 export interface Option { id: string; label: string; count: number; hint?: string }
 
-/** Tags that would still match, most used first. The tag in force is always listed. */
+/** What an id names. The store knows every id used on a record; an id that only a URL carries is not guessed at. */
+export const entityKind = (id: string): "Person" | "Place" | "Person or place" => (personById.has(id) ? "Person" : placeById.has(id) ? "Place" : "Person or place");
+
+let everyEntity: string[] | null = null;
+/** Every person and place id that appears on a record. */
+function entityIds(): string[] {
+  return (everyEntity ??= [...new Set(index().flatMap((x) => x.entities))]);
+}
+
+const byUse = (a: Option, b: Option) => b.count - a.count || a.label.localeCompare(b.label);
+
+/**
+ * Every tag in the archive with the number of records it would give under the other filters, most
+ * used first. A tag that would give none is still listed (last), so the reader can see it exists.
+ */
 export function tagOptions(counts: Map<string, number>, current: string): Option[] {
-  const out = [...counts].map(([id, n]) => ({ id, label: `#${id}`, count: n }));
-  if (current && !counts.has(current)) out.push({ id: current, label: `#${current}`, count: 0 });
-  return out.sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
+  const ids = current && !allTags.includes(current) ? [...allTags, current] : allTags;
+  return ids.map((id) => ({ id, label: `#${id}`, count: counts.get(id) ?? 0 })).sort(byUse);
 }
 
-/** People and places that would still match, most used first. */
+/** The same for people and places. */
 export function entityOptions(counts: Map<string, number>, current: string): Option[] {
-  const out = [...counts].map(([id, n]) => ({ id, label: labelForEntity(id), count: n, hint: entityKind(id) }));
-  if (current && !counts.has(current)) out.push({ id: current, label: labelForEntity(current), count: 0, hint: entityKind(current) });
-  return out.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+  const all = entityIds();
+  const ids = current && !all.includes(current) ? [...all, current] : all;
+  return ids.map((id) => ({ id, label: labelForEntity(id), count: counts.get(id) ?? 0, hint: entityKind(id) })).sort(byUse);
 }
-
-/** Every id used in a record's `people` is a person in the store (hand-written or a stub); the rest are places. */
-export const entityKind = (id: string): "Person" | "Place" => (personById.has(id) ? "Person" : "Place");
 
 /* ── Marking the words that matched ────────────────────────────────────────────── */
 
@@ -283,9 +308,34 @@ export function marks(text: string, terms: string[]): { s: string; hit: boolean 
   return out;
 }
 
+/** Roughly what two lines of a row hold: a match further into the claim than this is not on screen. */
+const IN_VIEW = 110;
+
+/** A stretch of `text` around position `at`, starting on a word and marked as cut where it is. */
+function around(text: string, at: number, before: number, length: number): string {
+  if (text.length <= length) return text;
+  let start = Math.max(0, at - before);
+  if (start > 0) { const sp = text.indexOf(" ", start); start = sp >= 0 && sp < at ? sp + 1 : start; }
+  let end = Math.min(text.length, start + length);
+  if (end < text.length) { const sp = text.lastIndexOf(" ", end); if (sp > at) end = sp; }
+  return `${start > 0 ? "…" : ""}${text.slice(start, end)}${end < text.length ? "…" : ""}`;
+}
+
 /**
- * When the words that matched are not all visible in a row (title, claim, exact spot), says where
- * the rest were found, with a short excerpt.
+ * The claim as a row shows it while searching: from the start when a matched word is near the
+ * start, otherwise from just before the first match, so the reason for the match is on screen.
+ */
+export function claimFor(e: Evidence, terms: string[]): string {
+  if (!terms.length) return e.claim;
+  const low = fold(e.claim);
+  const first = terms.map((t) => low.indexOf(t)).filter((i) => i >= 0).sort((a, b) => a - b)[0];
+  if (first === undefined || first < IN_VIEW || low.length !== e.claim.length) return e.claim;
+  return around(e.claim, first, 50, e.claim.length);
+}
+
+/**
+ * When a matched word is nowhere in what a row shows (title, claim, exact spot), says where it
+ * was found, with a short excerpt.
  */
 export function elsewhere(e: Evidence, terms: string[]): { label: string; text: string } | null {
   if (!terms.length) return null;
@@ -296,13 +346,7 @@ export function elsewhere(e: Evidence, terms: string[]): { label: string; text: 
   for (const [label, text] of fields) {
     const low = fold(text);
     const hit = missing.map((t) => low.indexOf(t)).filter((i) => i >= 0).sort((a, b) => a - b)[0];
-    if (hit === undefined) continue;
-    if (text.length <= 110) return { label, text };
-    const from = Math.max(0, hit - 40);
-    const start = from === 0 ? 0 : text.indexOf(" ", from) + 1 || from;
-    const cut = text.slice(start, start + 110);
-    const end = start + 110 >= text.length ? cut : cut.slice(0, Math.max(cut.lastIndexOf(" "), 60));
-    return { label, text: `${start > 0 ? "…" : ""}${end}${start + end.length < text.length ? "…" : ""}` };
+    if (hit !== undefined) return { label, text: low.length === text.length ? around(text, hit, 40, 120) : text.slice(0, 120) };
   }
   return null;
 }

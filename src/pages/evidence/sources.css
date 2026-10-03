@@ -59,6 +59,12 @@
 .srcs-use__done strong { color: var(--c-text); font-weight: 600; }
 .srcs-use__chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
 .srcs-use__chips .chip-btn:disabled { opacity: 0.55; }
+/* The full wording where there is room, the short one on a phone so the four fit in two rows. */
+.srcs-use__short { display: none; }
+@media (max-width: 640px) {
+  .srcs-use__long { display: none; }
+  .srcs-use__short { display: inline; }
+}
 .srcs-records .section-lead a { display: inline-flex; align-items: center; gap: 0.3em; white-space: nowrap; }
 
 .srcs-kind { margin-top: var(--sp-6); }

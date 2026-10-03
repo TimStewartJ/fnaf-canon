@@ -24,6 +24,36 @@ function Outbound({ href }: { href: string }) {
   return <a href={href} target="_blank" rel="noreferrer" className="evx-rec__url">{bare(href)}<Icon icon={ArrowUpRight} /></a>;
 }
 
+/** Where a web address ends inside a sentence: not at its own brackets, but before the punctuation after it. */
+function addressEnd(run: string): number {
+  let end = run.length;
+  while (end > 0) {
+    const ch = run[end - 1];
+    const head = run.slice(0, end);
+    const unopened = ch === ")" && (head.match(/\)/g)?.length ?? 0) > (head.match(/\(/g)?.length ?? 0);
+    if (/[.,;:!?'"]/.test(ch) || unopened) end -= 1; else break;
+  }
+  return end;
+}
+
+/**
+ * A note that may hold no, one or several web addresses among its words (how a record's wording
+ * was checked): the addresses become links, the words stay words.
+ */
+function Linked({ text }: { text: string }) {
+  const out: ReactNode[] = [];
+  let at = 0;
+  for (const m of text.matchAll(/https?:\/\/\S+/g)) {
+    const url = m[0].slice(0, addressEnd(m[0]));
+    if (!url) continue;
+    if (m.index > at) out.push(smartQuotes(text.slice(at, m.index)));
+    out.push(<Outbound key={m.index} href={url} />);
+    at = m.index + url.length;
+  }
+  if (at < text.length) out.push(smartQuotes(text.slice(at)));
+  return <>{out}</>;
+}
+
 /** One block of the "In the model" section: a small label and whatever hangs under it. */
 function Block({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -112,7 +142,7 @@ export default function EvidenceDetail() {
   const hasTheory = bl.theory.length + bl.filed.length + beats.length > 0 || !!outside;
   const hasOther = bl.events.length + bl.relations.length + profiles.length > 0;
   const sits = place === "cited"
-    ? bl.theory.length ? `Cited by ${records(bl.theory.length, "chapter")}` : "Cited in the short story"
+    ? bl.theory.length ? `Cited by ${records(bl.theory.length, "chapter")}` : "Cited in the storyline"
     : place === "filed" ? `Filed under ${records(bl.filed.length, "chapter")}` : PLACE[place].word;
 
   return (
@@ -140,7 +170,7 @@ export default function EvidenceDetail() {
             </Fact>
             <Fact label="Source">
               <GameMark id={e.game} variant="full" link />
-              {game?.released && <span className="muted"> · released {game.released}</span>}
+              {game?.released && <div className="evx-rec__sub">Released {game.released}</div>}
             </Fact>
             <Fact label="Kind of source">
               <Tag to={`/evidence?game=${encodeURIComponent(e.game)}&kind=${encodeURIComponent(e.kind)}`} title={`Every ${kindLabel(e.kind).toLowerCase()} record from this source`}>
@@ -166,7 +196,7 @@ export default function EvidenceDetail() {
           <div className="evx-rec__more">
             {e.image && <Figure file={e.image} tag="Exhibit" eager />}
             {e.notes && <Callout tone="note" title="Notes and caveats"><p>{smartQuotes(e.notes)}</p></Callout>}
-            {e.verifiedVia && <p className="evx-rec__check"><span className="label">Wording checked against</span> <Outbound href={e.verifiedVia} /></p>}
+            {e.verifiedVia && <p className="evx-rec__check"><span className="label">How the wording was checked</span> <Linked text={e.verifiedVia} /></p>}
           </div>
         )}
       </div>
@@ -181,7 +211,7 @@ export default function EvidenceDetail() {
             {bl.theory.length > 0 && <Block label="Cited in"><ChapterRows chapters={bl.theory} id={id} /></Block>}
             {bl.filed.length > 0 && <Block label="Filed under, as further evidence"><ChapterRows chapters={bl.filed} id={id} /></Block>}
             {beats.length > 0 && (
-              <Block label="In the short story">
+              <Block label="In the storyline">
                 <ul className="evx-links">
                   {beats.map(({ beat, n }) => (
                     <li key={beat.id}>
