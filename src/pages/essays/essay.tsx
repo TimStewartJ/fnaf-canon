@@ -344,12 +344,12 @@ export const EssaySources = memo(function EssaySources({ ids, note }: { ids: rea
   );
 });
 
-/** The other essays, at the foot of each. */
-export const EssayMore = memo(function EssayMore({ current }: { current: string }) {
+/** The other long-form pages, at the foot of each. */
+export const EssayMore = memo(function EssayMore({ current, label = "More essays" }: { current: string; label?: string }) {
   const others = ESSAYS.filter((e) => e.to !== current);
   return (
     <nav className="essay-more" aria-labelledby="essay-more-title">
-      <h2 className="label" id="essay-more-title">More essays</h2>
+      <h2 className="label" id="essay-more-title">{label}</h2>
       <ul className="essay-more__list">
         {others.map((e) => (
           <li key={e.to}>

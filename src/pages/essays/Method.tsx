@@ -9,7 +9,7 @@ import {
 } from "../../components/ui";
 import { modelCoverage, type Coverage } from "./coverage";
 import { EssayAnswers, EssayJump, EssayMore, EssayRow, EssayRows, EssaySection, type EssayAnswerItem } from "./essay";
-import { count, knownRecords, pad2, sentenceList, tally } from "./essayModel";
+import { citedIn, count, knownRecords, pad2, sentenceList, tally } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./method.css";
@@ -19,8 +19,8 @@ import "./method.css";
  * true while the content changes: no record ids, chapter ids or totals are written here.
  */
 
-/** Where every record stands in the theory's accounting. */
-const COVERAGE = modelCoverage(evidence, theory, outsideStory, citationsIn, evidenceFiledUnder);
+/** Where every record stands in the theory's accounting (the same count scripts/validate.ts reports). */
+const COVERAGE = modelCoverage(evidence, theory, outsideStory, citationsIn, evidenceFiledUnder, storyline.flatMap((b) => citedIn(b.when, b.text)));
 
 /** Scott's statements about the books, found by what the records say they are, not by id. */
 const BOOK_STATEMENTS = evidence.filter((e) => e.kind === "scott-statement" && e.tags?.includes("novels")).map((e) => e.id);
@@ -96,12 +96,15 @@ function Ledger({ c }: { c: Coverage }) {
   const rows: { key: string; n: number; label: ReactNode; note: string }[] = [
     { key: "cited", n: c.cited, label: "Cited by a chapter", note: "In its argument, or listed as evidence that pushes back against it." },
     { key: "filed", n: c.filed, label: "Filed as further evidence", note: "Listed at the end of a chapter: on its thread, not cited in its text." },
+    // Only when it happens: a record the short storyline cites that no chapter has taken up. The archive's own check counts it as placed.
+    ...(c.story > 0 ? [{ key: "story", n: c.story, label: <Link to="/theory#storyline">Cited in the storyline only</Link>, note: "By a beat of the short telling, and not yet by a chapter." }] : []),
     { key: "outside", n: c.outside, label: outsideStory.length > 0 ? <Link to="/theory#outside">Outside the story</Link> : "Outside the story", note: "Set aside with a stated reason, in the appendix of the theory." },
     ...(c.unplaced > 0 ? [{ key: "unplaced", n: c.unplaced, label: "Not yet placed", note: "In the evidence locker, waiting for a chapter to take it up." }] : []),
   ];
+  const parts = `${c.cited} cited, ${c.filed} filed${c.story > 0 ? `, ${c.story} in the storyline only` : ""}, ${c.outside} outside the story`;
   const summary = c.complete
-    ? `All ${c.total} records are placed: ${c.cited} cited, ${c.filed} filed, ${c.outside} outside the story.`
-    : `${c.placed} of ${c.total} records are placed so far: ${c.cited} cited, ${c.filed} filed, ${c.outside} outside the story. ${c.unplaced} are not yet placed.`;
+    ? `All ${c.total} records are placed: ${parts}.`
+    : `${c.placed} of ${c.total} records are placed so far: ${parts}. ${c.unplaced} ${c.unplaced === 1 ? "is" : "are"} not yet placed.`;
   return (
     <div className="method-ledger">
       <p className="method-ledger__sum">
@@ -174,9 +177,10 @@ function Scales() {
   const fold = useMediaQuery("(max-width: 699px)");
   return (
     <div className={`method-scales${fold ? " method-scales--fold" : ""}`}>
+      {/* In the order of the legend's columns, so the eye can go straight down from one to the other. */}
+      <Scale fold={fold} title="A chapter: confidence" about="How well the chapter’s main claim holds." levels={CONFIDENCE} tallies={CONFIDENCE_TALLY} noun={["chapter", "chapters"]} />
       <Scale fold={fold} title="A record: certainty" about="How directly the source supports the claim." levels={CERTAINTY} tallies={CERTAINTY_TALLY} noun={["record", "records"]} />
       <Scale fold={fold} title="A link or event: support" about="How well the cited records establish it. These are the three layers of the reconstruction." levels={STATUS} tallies={STATUS_TALLY} noun={["link or event", "links and events"]} />
-      <Scale fold={fold} title="A chapter: confidence" about="How well the chapter’s main claim holds." levels={CONFIDENCE} tallies={CONFIDENCE_TALLY} noun={["chapter", "chapters"]} />
     </div>
   );
 }
@@ -285,14 +289,14 @@ function Method() {
               A record never holds a conclusion. “Purple Guy is William Afton” is not a record; the in-game facts that connect the two are, and the
               connection is argued in the theory, where it can be weighed.
             </p>
-            <p>Each record also carries a grade for how directly its source supports the claim. That grade is the first of three scales that share one mark.</p>
+            <p>Each record also carries a grade for how directly its source supports the claim. That grade is one of three scales that share one mark.</p>
           </div>
         </EssaySection>
 
         <EssaySection id="firmness" kicker={kicker("firmness")} title="How firm is it">
           <div className="prose">
             <p>
-              Three kinds of thing carry a grade: a record, a link between people or an event on the timeline, and a chapter of the theory. The three scales
+              Three kinds of thing carry a grade: a chapter of the theory, a record, and a link between people or an event on the timeline. The three scales
               have the same shape, so they share one mark, and this is its key, the same one the theory prints. Lines in the family trees and the web
               follow it too: solid, dashed, dotted. The word always travels with the mark.
             </p>
@@ -396,7 +400,7 @@ function Method() {
           </p>
         </EssaySection>
 
-        <EssayMore current="/method" />
+        <EssayMore current="/method" label="The essays" />
       </CiteScope>
     </Page>
   );

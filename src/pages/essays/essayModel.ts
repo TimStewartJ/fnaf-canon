@@ -84,7 +84,7 @@ export function answerExhibits(bodies: readonly (readonly string[])[], skip: rea
 
 /* ── The essays themselves ────────────────────────────────────────────────────────── */
 
-/** The four long-form pages, for the "more essays" list at the foot of each. */
+/** The four long-form pages, for the list at the foot of each. Page furniture: routes and words chosen here. */
 export const ESSAYS: readonly { to: string; title: string; desc: string }[] = [
   { to: "/box", title: "The Box", desc: "What was in FNaF4’s locked box, and why it never opened." },
   { to: "/community", title: "Theorists & Scott", desc: "The best-known fan theories, scored against the evidence." },
