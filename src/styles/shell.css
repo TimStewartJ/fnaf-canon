@@ -51,7 +51,7 @@
 .site-header[data-brand="short"] .brand__sub { display: none; }
 
 .site-nav { display: flex; align-items: center; gap: 2px; flex: none; }
-.site-header[data-nav="menu"] .site-nav, .site-header[data-nav="menu"] .site-tools__settings { display: none; }
+.site-header[data-nav="menu"] .site-nav, .site-header[data-settings-in-menu] .site-tools__settings { display: none; }
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -142,8 +142,21 @@
 .reader-settings__row .segmented__opt { flex: 1; }
 .reader-settings__note { margin: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
 
-@media (max-width: 56.1875em) {
-  .site-header { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--c-bg); }
+/* Narrow windows: the header leaves as the reader moves down the page and returns on the first
+   move back up (shell/headerReveal.ts sets data-header="away" on <html>). What a page pins to the
+   top of the window carries the class "pin": it sits at the top while the header is away and
+   makes room for it while it shows. Only the pinned things themselves are restyled, never the root. */
+@media screen and (max-width: 56.1875em) {
+  .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--c-bg); transition: transform var(--dur-2) var(--ease); }
+  :root[data-header="away"] .site-header { transform: translateY(-101%); }
+  .pin { transition: top var(--dur-2) var(--ease); }
+  :root:not([data-header="away"]) .pin { --sticky-top: var(--header-h); }
+  /* The settings open as a panel across the window, under the header. */
+  .site-header__inner { position: relative; gap: var(--sp-2); }
+  .brand { margin-right: 0; }
+  .site-tools { gap: 0; }
+  .site-tools__settings { position: static; }
+  .settings-panel { left: var(--page-pad); right: var(--page-pad); top: calc(100% + var(--sp-2)); width: auto; max-width: none; }
 }
 
 /* ── Phone menu ────────────────────────────────────────────────── */
@@ -153,6 +166,10 @@ dialog.menu-sheet[open] { display: flex; }
 .menu-sheet__bar .icon-btn { width: var(--tap); height: var(--tap); }
 .menu-sheet__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: grid; align-content: start; gap: var(--sp-5); padding: var(--sp-4) var(--page-pad) calc(var(--sp-7) + env(safe-area-inset-bottom, 0px)); }
 .menu-sheet__search { display: flex; align-items: center; gap: var(--sp-3); width: 100%; min-height: 3rem; padding: 0 var(--sp-4); font-size: var(--fs-base); text-align: left; color: var(--c-text-2); background: var(--c-bg-sunk); border: 1px solid var(--c-line-control); border-radius: var(--r-md); }
+.menu-sheet__resume { display: grid; gap: 2px; padding: var(--sp-3) var(--sp-4); color: var(--c-text); background: var(--c-accent-soft); border: 1px solid var(--c-accent-line); border-radius: var(--r-md); text-decoration: none; }
+.menu-sheet__resume .label { color: var(--c-accent-strong); }
+.menu-sheet__resume-title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: var(--w-display); line-height: 1.25; }
+.menu-sheet__resume-title .icon { vertical-align: -0.15em; color: var(--c-accent); }
 .menu-sheet__nav { display: grid; gap: var(--sp-4); }
 .menu-sheet__group { display: grid; gap: 2px; }
 .menu-sheet__group > .label { margin: var(--sp-2) 0 var(--sp-1); }
@@ -205,14 +222,15 @@ dialog.palette::backdrop { background: var(--c-scrim); }
 .palette__field { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-1) var(--sp-2) var(--sp-1) var(--sp-4); border-bottom: 1px solid var(--c-line); flex: none; }
 .palette__field > .icon { color: var(--c-text-3); }
 .palette__field input { flex: 1; min-width: 0; min-height: 3rem; padding: 0; font-size: var(--fs-md); background: none; border: 0; outline: none; }
-.palette__esc { padding: var(--sp-2); background: none; border: 0; }
+.palette__esc { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); min-height: var(--tap); padding: var(--sp-2); color: var(--c-text-2); background: none; border: 0; }
 .palette__list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-1) var(--sp-2) var(--sp-2); }
 .palette__head { padding: var(--sp-3) var(--sp-2) var(--sp-1); }
 .palette__opt { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); padding: var(--sp-2); border-radius: var(--r-md); cursor: pointer; }
 .palette__opt.is-active { background: var(--c-surface-2); }
 .palette__icon { color: var(--c-text-3); }
 .palette__opt.is-active .palette__icon { color: var(--c-accent); }
-.palette__title, .palette__sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Up to two lines each: a chapter's question, or a record's title, cut after a few words says little. */
+.palette__title, .palette__sub { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
 .palette__title { font-weight: 560; }
 .palette__sub { font-size: var(--fs-sm); color: var(--c-text-2); }
 .palette__enter { color: var(--c-text-3); }
@@ -236,6 +254,10 @@ dialog.palette::backdrop { background: var(--c-scrim); }
 .site-footer__links { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); }
 .site-footer__links a { color: var(--c-text-2); }
 .site-footer__links a:hover { color: var(--c-accent-strong); }
+@media (pointer: coarse) {
+  .site-footer__links { gap: 0 var(--sp-3); }
+  .site-footer__links a { display: inline-flex; align-items: center; min-height: var(--tap); padding-inline: var(--sp-2); margin-inline: calc(-1 * var(--sp-2)); }
+}
 
 /* ── A page that failed to load (PageBoundary) ─────────────────── */
 .page-error__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); margin-top: var(--sp-4); }

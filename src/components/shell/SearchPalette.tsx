@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { CornerDownLeft, FileText, House, Search, type LucideIcon } from "lucide-react";
-import { evidence, people, places, theoryParts, timeline } from "../../data/store";
+import { CornerDownLeft, FileText, House, Search, X, type LucideIcon } from "lucide-react";
+import { evidence, people, places, timeline } from "../../data/store";
+import { blockTexts } from "../../data/theoryText";
 import { gameMeta } from "../../data/gameMeta";
 import { useEvidenceDrawer } from "../evidenceDrawer";
-import { useModalDialog } from "../hooks";
+import { useMediaQuery, useModalDialog } from "../hooks";
 import { SECTION_ICON } from "../icons";
 import { Icon } from "../Icon";
 import { chapterPath, personPath, placePath, timelineEventPath } from "../links";
@@ -16,7 +17,11 @@ import { NAV_FLAT } from "./nav";
 type Kind = "page" | "chapter" | "person" | "place" | "event" | "evidence";
 interface Entry {
   kind: Kind; id: string; title: string; sub: string; to?: string; icon: LucideIcon;
-  /** Everything the entry can be found by, folded (see `fold`). */
+  /** Its title, folded (see `fold`). */
+  name: string;
+  /** What says what the entry is, after its title, folded: a chapter's question, a person's other names. */
+  lead: string;
+  /** Everything the entry can be found by, folded. */
   hay: string;
   /** Its title and other names, folded: a query equal to one of these is an exact hit. */
   names: string[];
@@ -44,22 +49,31 @@ let INDEX: Entry[] | null = null;
 /** The words people and places are called by, for putting a mistyped query right. */
 let WORDS: Map<string, number> | null = null;
 function buildIndex(): Entry[] {
-  const partTitle = new Map(theoryParts.map((p) => [p.id, p.title]));
   const filed = new Map<string, number>();
   for (const e of evidence) for (const id of [...(e.people ?? []), ...(e.places ?? [])]) filed.set(id, (filed.get(id) ?? 0) + 1);
-  const out: Entry[] = [{ kind: "page", id: "/", title: "Home", sub: "The archive’s front page", hay: "home overview start", names: ["home"], weight: 0, to: "/", icon: House }];
-  for (const n of NAV_FLAT) out.push({ kind: "page", id: n.to, title: n.label, sub: n.desc, hay: fold(`${n.label} ${n.desc}`), names: names(n.label), weight: 0, to: n.to, icon: n.icon });
-  // Reading order and its numbers, not the order of the theory array (see chapterOrder.ts).
-  readingOrder.forEach((s) => out.push({
-    kind: "chapter", id: s.id, title: s.title, sub: `Chapter ${chapterNumber(s.id)}${s.part && partTitle.get(s.part) ? ` · ${partTitle.get(s.part)}` : ""}`,
-    hay: fold(`${s.title} ${s.question ?? ""} ${s.answer ? plainText(s.answer) : ""} ${s.id}`), names: names(s.title), weight: 0, to: chapterPath(s.id), icon: SECTION_ICON.theory,
+  const out: Entry[] = [];
+  const add = (e: Omit<Entry, "name" | "lead" | "hay"> & { lead?: string; more?: string }) => {
+    const { lead = "", more = "", ...rest } = e;
+    const name = fold(e.title), about = fold(lead);
+    out.push({ ...rest, name, lead: about, hay: `${name} ${about} ${fold(more)}` });
+  };
+  add({ kind: "page", id: "/", title: "Home", sub: "The archive’s front page", lead: "overview start", names: ["home"], weight: 0, to: "/", icon: House });
+  for (const n of NAV_FLAT) add({ kind: "page", id: n.to, title: n.label, sub: n.desc, lead: n.desc, names: names(n.label), weight: 0, to: n.to, icon: n.icon });
+  // Reading order and its numbers, not the order of the theory array (see chapterOrder.ts). A
+  // chapter is shown with the question it answers (its title alone rarely says), and is found by
+  // anything in it: question and answer first, then the argument itself.
+  readingOrder.forEach((s) => add({
+    kind: "chapter", id: s.id, title: s.title, sub: `Chapter ${chapterNumber(s.id)}${s.question ? ` · ${s.question}` : ""}`,
+    lead: s.question ?? "",
+    more: [s.answer ?? "", ...s.body.flatMap((b) => (typeof b === "string" ? [b] : blockTexts(b))), s.tension ?? "", s.id].map(plainText).join(" "),
+    names: names(s.title), weight: 0, to: chapterPath(s.id), icon: SECTION_ICON.theory,
   }));
-  for (const p of people) out.push({ kind: "person", id: p.id, title: p.name, sub: p.aliases.slice(0, 3).join(" · ") || plainText(p.status).slice(0, 80), hay: fold(`${p.name} ${p.aliases.join(" ")} ${p.id}`), names: names(p.name, ...p.aliases), weight: filed.get(p.id) ?? 0, to: personPath(p.id), icon: SECTION_ICON.people });
-  for (const p of places) out.push({ kind: "place", id: p.id, title: p.name, sub: p.years, hay: fold(`${p.name} ${p.id}`), names: names(p.name), weight: filed.get(p.id) ?? 0, to: placePath(p.id), icon: SECTION_ICON.places });
-  for (const t of timeline) out.push({ kind: "event", id: t.id, title: t.title, sub: t.yearLabel, hay: fold(`${t.title} ${t.yearLabel}`), names: names(t.title), weight: 0, to: timelineEventPath(t.id), icon: SECTION_ICON.timeline });
-  for (const e of evidence) out.push({
+  for (const p of people) add({ kind: "person", id: p.id, title: p.name, sub: p.aliases.slice(0, 3).join(" · ") || plainText(p.status).slice(0, 80), lead: p.aliases.join(" "), more: p.id, names: names(p.name, ...p.aliases), weight: filed.get(p.id) ?? 0, to: personPath(p.id), icon: SECTION_ICON.people });
+  for (const p of places) add({ kind: "place", id: p.id, title: p.name, sub: p.years, more: p.id, names: names(p.name), weight: filed.get(p.id) ?? 0, to: placePath(p.id), icon: SECTION_ICON.places });
+  for (const t of timeline) add({ kind: "event", id: t.id, title: t.title, sub: t.yearLabel, lead: t.yearLabel, names: names(t.title), weight: 0, to: timelineEventPath(t.id), icon: SECTION_ICON.timeline });
+  for (const e of evidence) add({
     kind: "evidence", id: e.id, title: e.title, sub: `${gameMeta(e.game).short} · ${e.location}`,
-    hay: fold(`${e.title} ${e.claim} ${e.quote ?? ""} ${e.location} ${e.id} ${(e.tags ?? []).join(" ")}`), names: [], weight: 0, icon: FileText,
+    lead: e.claim, more: `${e.quote ?? ""} ${e.location} ${e.id} ${(e.tags ?? []).join(" ")}`, names: [], weight: 0, icon: FileText,
   });
   WORDS = new Map();
   for (const e of out) if (e.kind !== "evidence") for (const n of e.names) for (const w of n.split(/[^a-z0-9]+/)) if (w.length >= 4) WORDS.set(w, (WORDS.get(w) ?? 0) + 1 + e.weight);
@@ -70,23 +84,46 @@ function buildIndex(): Entry[] {
 const STOP = new Set(["a", "an", "and", "are", "did", "do", "does", "how", "in", "is", "of", "on", "the", "to", "was", "were", "what", "when", "where", "which", "who", "whom", "whose", "why"]);
 
 const escapeRe = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/** A word without its commonest endings, so "killed" also finds "kills" and "killer". Short words are left alone. */
+const stem = (t: string): string => (t.length < 5 ? t : t.replace(/(?:ing|ed|ers|er|es|s)$/, "")) || t;
+const countOf = (text: string, word: string): number => { let n = 0; for (let i = text.indexOf(word); i >= 0 && n < 12; i = text.indexOf(word, i + word.length)) n++; return n; };
+
+interface Hit { e: Entry; score: number; /** How many of the words it has. */ hits: number }
 /**
- * Everything that has all of `tokens`, best first. `query` is what was typed, folded. An entry
- * whose own name is the query (as typed, without a leading article, or without its filler words)
- * is an exact hit; one that holds the query word for word (a line of a quote) comes next.
+ * Everything that has any of `tokens`, graded. `query` is what was typed, folded. An entry whose
+ * own name is the query (as typed, without a leading article, or without its filler words) is an
+ * exact hit. After that, where a word is found counts: in the title, then in what says what the
+ * entry is (a chapter's question), then anywhere; a number in a title counts for more (“87” in
+ * “November 1987”), the whole phrase counts for more still, and a chapter that keeps returning
+ * to a word is more about it than one that mentions it once.
  */
-function match(index: Entry[], tokens: string[], query: string): { e: Entry; score: number }[] {
+function grade(index: Entry[], tokens: string[], query: string): Hit[] {
   const asked = [...new Set([query, bare(query), tokens.join(" ")])];
-  const scored: { e: Entry; score: number }[] = [];
+  const words = tokens.map((t) => ({ t, s: stem(t), digits: /^\d+$/.test(t) }));
+  const starts = new Map<string, RegExp>();
+  const atStart = (text: string, w: string) => {
+    let re = starts.get(w);
+    if (!re) starts.set(w, re = new RegExp(`(^|[^a-z0-9])${escapeRe(w)}`));
+    return re.test(text);
+  };
+  const out: Hit[] = [];
   for (const e of index) {
-    if (!tokens.every((t) => e.hay.includes(t))) continue;
-    const title = fold(e.title);
-    let score = asked.includes(title) || asked.includes(bare(title)) ? 200 : asked.some((q) => e.names.includes(q)) ? EXACT : title.startsWith(query) ? 120 : title.includes(query) ? 80 : 0;
-    if (query.includes(" ") && e.hay.includes(query)) score += 30;
-    for (const t of tokens) score += new RegExp(`(^|[^a-z0-9])${escapeRe(t)}`).test(title) ? 12 : title.includes(t) ? 6 : 0;
-    scored.push({ e, score });
+    let hits = 0, score = 0;
+    for (const { t, s, digits } of words) {
+      const w = e.hay.includes(t) ? t : s !== t && e.hay.includes(s) ? s : null;
+      if (w === null) continue;
+      hits++;
+      score += atStart(e.name, w) ? 12 : e.name.includes(w) ? 6 : 0;
+      if (digits && e.name.includes(t)) score += 14;
+      score += atStart(e.lead, w) ? 8 : e.lead.includes(w) ? 4 : 0;
+      if (e.kind === "chapter") score += countOf(e.hay, w);
+    }
+    if (!hits) continue;
+    if (hits === tokens.length) score += asked.includes(e.name) || asked.includes(bare(e.name)) ? 200 : asked.some((q) => e.names.includes(q)) ? EXACT : e.name.startsWith(query) ? 120 : e.name.includes(query) ? 80 : 0;
+    if (query.includes(" ")) score += e.lead.includes(query) ? 60 : e.hay.includes(query) ? 30 : 0;
+    out.push({ e, score, hits });
   }
-  return scored.sort((a, b) => b.score - a.score || b.e.weight - a.e.weight || a.e.title.length - b.e.title.length);
+  return out.sort((a, b) => b.hits - a.hits || b.score - a.score || b.e.weight - a.e.weight || a.e.title.length - b.e.title.length);
 }
 
 /** Edit distance, stopping early once it passes `max`. */
@@ -118,16 +155,24 @@ function nearest(word: string): string | null {
 }
 
 interface Group { key: string; head: string; from: number; items: Entry[] }
-interface Found { groups: Group[]; flat: Entry[]; /** Set when nothing matched as typed and these words were searched instead. */ instead: string | null }
+interface Found {
+  groups: Group[]; flat: Entry[];
+  /** Set when nothing matched as typed and these words were searched instead. */
+  instead: string | null;
+  /** True when nothing has every word, and what is shown has some of them. */
+  partial: boolean;
+}
+/** With fewer than this many pages, chapters, people or places that have every word, those that have some are shown as well. */
+const FEW = 3;
 
 function search(q: string): Found {
   INDEX ??= buildIndex();
   const query = fold(q.trim()).replace(/\s+/g, " ");
-  const pack = (parts: { key: string; head: string; items: Entry[] }[], instead: string | null = null): Found => {
+  const pack = (parts: { key: string; head: string; items: Entry[] }[], instead: string | null = null, partial = false): Found => {
     const groups: Group[] = [];
     let from = 0;
     for (const p of parts) if (p.items.length) { groups.push({ ...p, from }); from += p.items.length; }
-    return { groups, flat: groups.flatMap((g) => g.items), instead };
+    return { groups, flat: groups.flatMap((g) => g.items), instead, partial };
   };
   if (!query) return pack([{ key: "pages", head: "Jump to", items: INDEX.filter((e) => e.kind === "page") }]);
   // The words that carry the meaning: a question typed whole is searched by its subject, and
@@ -135,17 +180,24 @@ function search(q: string): Found {
   const all = query.split(" ");
   const content = all.filter((t) => !STOP.has(t));
   const tokens = content.length ? content : all;
-  let scored = match(INDEX, tokens, query);
+  let graded = grade(INDEX, tokens, query);
+  let n = tokens.length;
   let instead: string | null = null;
-  if (!scored.length) {
-    // Nothing as typed: a slip of the keys, perhaps. Try the nearest names.
+  if (!graded.some((h) => h.hits === n)) {
+    // Nothing has all of it as typed: a slip of the keys, perhaps. Try the nearest names.
     const near = tokens.map((t) => (INDEX!.some((e) => e.hay.includes(t)) ? t : nearest(t) ?? t));
     if (near.join(" ") !== tokens.join(" ")) {
-      const again = match(INDEX, near, near.join(" "));
-      if (again.length) { scored = again; instead = near.join(" "); }
+      const again = grade(INDEX, near, near.join(" "));
+      if (again.some((h) => h.hits === near.length)) { graded = again; n = near.length; instead = near.join(" "); }
     }
   }
-  const best = scored.filter((s) => s.score >= EXACT && s.e.kind !== "evidence").slice(0, BEST).map((s) => s.e);
+  // Everything with every word. When that is little, also what has some of the words, most words
+  // first (a question typed whole seldom has all its words in one place); a record must have all
+  // but one of three or more, or the list would be every record with "freddy" in it.
+  const full = graded.filter((h) => h.hits === n);
+  const few = full.filter((h) => h.e.kind !== "evidence").length < FEW;
+  const scored = few ? graded.filter((h) => h.hits === n || (h.e.kind !== "evidence" ? true : n >= 3 && h.hits >= n - 1)) : full;
+  const best = full.filter((s) => s.score >= EXACT && s.e.kind !== "evidence").slice(0, BEST).map((s) => s.e);
   const count = new Map<Kind, number>();
   const picked = scored.filter(({ e }) => {
     if (best.includes(e)) return false;
@@ -154,7 +206,14 @@ function search(q: string): Found {
     count.set(e.kind, n + 1);
     return true;
   }).map((s) => s.e);
-  return pack([{ key: "best", head: "Best match", items: best }, ...KIND_ORDER.map((k) => ({ key: k, head: KIND_HEAD[k], items: picked.filter((e) => e.kind === k) }))], instead);
+  // The palette shows the first few records; the locker has the rest, with its filters.
+  const typed = q.trim();
+  const locker: Entry = { kind: "page", id: "evidence-search", title: `Search every record for “${typed}”`, sub: "In the evidence locker, where the results can be filtered", name: "", lead: "", hay: "", names: [], weight: 0, to: `/evidence?q=${encodeURIComponent(typed)}`, icon: SECTION_ICON.evidence };
+  return pack([
+    { key: "best", head: "Best match", items: best },
+    ...KIND_ORDER.map((k) => ({ key: k, head: KIND_HEAD[k], items: picked.filter((e) => e.kind === k) })),
+    { key: "more", head: "More", items: [locker] },
+  ], instead, !full.length && scored.length > 0);
 }
 
 /** A value once it has stopped changing for `ms`: what a screen reader is told, so it is not told on every key. */
@@ -168,19 +227,23 @@ function useSettled<T>(value: T, ms: number): T {
 }
 
 /** Quick jump across chapters, people, places, timeline events, pages and evidence. Opened with Ctrl/Cmd+K or "/". */
-export default function SearchPalette({ onClose }: { onClose: () => void }) {
-  const [q, setQ] = useState("");
+export default function SearchPalette({ onClose, initial = "" }: { onClose: () => void; initial?: string }) {
+  const [q, setQ] = useState(initial);
   const [active, setActive] = useState(0);
   const dialogProps = useModalDialog(true, onClose);
   const navigate = useNavigate();
   const drawer = useEvidenceDrawer();
+  // A finger and no keyboard: nothing in the palette names a key.
+  const phone = useMediaQuery("(pointer: coarse) and (hover: none)");
   const listRef = useRef<HTMLDivElement | null>(null);
   const found = useMemo(() => search(q), [q]);
   const results = found.flat;
   const cur = Math.min(active, Math.max(0, results.length - 1));
   const searching = q.trim() !== "";
   // Said to a screen reader once typing pauses: how many results, or that there are none.
-  const said = useSettled(!searching ? "" : results.length === 0 ? `Nothing matches ${q.trim()}` : `${results.length} ${results.length === 1 ? "result" : "results"}${found.instead ? ` for ${found.instead}` : ""}`, 700);
+  // (The last row is the way on to the evidence locker, not a result.)
+  const hits = searching ? results.length - 1 : results.length;
+  const said = useSettled(!searching ? "" : hits === 0 ? `Nothing matches ${q.trim()}` : `${hits} ${hits === 1 ? "result" : "results"}${found.instead ? ` for ${found.instead}` : found.partial ? ", none with every word" : ""}`, 700);
 
   const choose = (e: Entry) => {
     onClose();
@@ -212,7 +275,7 @@ export default function SearchPalette({ onClose }: { onClose: () => void }) {
           aria-controls={results.length > 0 ? "palette-list" : undefined}
           aria-activedescendant={results[cur] ? `palette-opt-${cur}` : undefined}
           aria-label="Search chapters, people, places and evidence"
-          placeholder="Search chapters, people, places, evidence…"
+          placeholder={phone ? "Search the archive" : "Search chapters, people, places, evidence…"}
           value={q}
           onChange={(e) => { setQ(e.target.value); setActive(0); }}
           onKeyDown={onKey}
@@ -220,12 +283,15 @@ export default function SearchPalette({ onClose }: { onClose: () => void }) {
           autoComplete="off"
           spellCheck={false}
         />
-        <button type="button" className="palette__esc" onClick={onClose} aria-label="Close search"><kbd>Esc</kbd></button>
+        {/* A phone has no Escape key to name. */}
+        <button type="button" className="palette__esc" onClick={onClose} aria-label="Close search">{phone ? <Icon icon={X} size="1.25em" /> : <kbd>Esc</kbd>}</button>
       </div>
       <p className="sr-only" role="status">{said}</p>
-      {found.instead && results.length > 0 && <p className="palette__instead">Nothing matches “{q.trim()}”. Showing results for <strong>{found.instead}</strong>.</p>}
+      {found.instead && hits > 0 && <p className="palette__instead">Nothing matches “{q.trim()}”. Showing results for <strong>{found.instead}</strong>.</p>}
+      {found.partial && !found.instead && hits > 0 && <p className="palette__instead">Nothing has every word of “{q.trim()}”. These have some of them.</p>}
+      {searching && hits === 0 && <p className="palette__instead">Nothing matches “{q.trim()}”. Try a name, a game, or a word from a quote.</p>}
       {results.length === 0
-        ? <p className="palette__empty">Nothing matches “{q.trim()}”. Try a name, a game, or a word from a quote.</p>
+        ? <p className="palette__empty">Nothing to show.</p>
         : (
           // The list scrolls under the pointer and follows the arrow keys; it is not a stop of its own.
           <div className="palette__list" id="palette-list" role="listbox" aria-label="Results" tabIndex={-1} ref={listRef}>
@@ -250,7 +316,7 @@ export default function SearchPalette({ onClose }: { onClose: () => void }) {
                         <span className="palette__title">{smartQuotes(e.title)}</span>
                         {/[\p{L}\p{N}]/u.test(e.sub) && <span className="palette__sub">{smartQuotes(e.sub)}</span>}
                       </span>
-                      {i === cur && <Icon icon={CornerDownLeft} className="palette__enter" />}
+                      {i === cur && !phone && <Icon icon={CornerDownLeft} className="palette__enter" />}
                     </div>
                   );
                 })}

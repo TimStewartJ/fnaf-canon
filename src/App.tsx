@@ -5,6 +5,7 @@ import { CiteScope } from "./components/CiteScope";
 import { deferred } from "./components/deferred";
 import { Loading } from "./components/layout";
 import { useOverlayRouter } from "./components/overlayEntry";
+import { onSearchRequest } from "./components/searchRequest";
 import { DrawerHost } from "./components/shell/DrawerHost";
 import { Footer } from "./components/shell/Footer";
 import { Header } from "./components/shell/Header";
@@ -108,7 +109,8 @@ const Pages = memo(function Pages() {
 
 function Shell() {
   const { pathname, search: query, hash } = useLocation();
-  const [search, setSearch] = useState(false);
+  // null: closed. Otherwise the words to open it with.
+  const [search, setSearch] = useState<string | null>(null);
   // The phone menu belongs to the page it was opened on, so going anywhere closes it. (Not to the
   // history entry: a page rewrites its own entry whenever a filter changes.)
   const [menuAt, setMenuAt] = useState<string | null>(null);
@@ -125,11 +127,13 @@ function Shell() {
       const k = e.key.toLowerCase();
       if ((k === "k" && (e.metaKey || e.ctrlKey) && !e.altKey) || (k === "/" && !e.metaKey && !e.ctrlKey && !e.altKey && !isTyping(e.target) && !document.querySelector("dialog[open]"))) {
         e.preventDefault();
-        setSearch(true);
+        setSearch("");
       }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    // A page may ask for search with words already in it (the page for an address that leads nowhere).
+    const stop = onSearchRequest((words) => setSearch(words));
+    return () => { window.removeEventListener("keydown", onKey); stop(); };
   }, []);
 
   // Every id in the archive is lower case, so an address typed or pasted with capitals is the same page.
@@ -138,14 +142,14 @@ function Shell() {
   return (
     <DrawerHost>
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a>
-      <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(pathname)} />
+      <Header onSearch={() => setSearch("")} onMenu={() => setMenuAt(pathname)} />
       {arriving && <div className="route-progress" aria-hidden />}
       <main id="main" className="site-main" tabIndex={-1} aria-busy={arriving || undefined}>
         <PageLocation><Pages /></PageLocation>
       </main>
       <Footer />
-      {menuAt === pathname && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
-      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => { setSearch(false); setSearchFailed(true); }} />
+      {menuAt === pathname && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(""); }} />}
+      <SearchPalette props={search !== null ? { onClose: () => setSearch(null), initial: search } : null} onFail={() => { setSearch(null); setSearchFailed(true); }} />
       {searchFailed && (
         <div className="shell-notice" role="alert">
           <span>Search could not be loaded. The archive may have been updated while this tab was open, or the connection dropped.</span>

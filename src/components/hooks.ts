@@ -1,5 +1,5 @@
 /** Small shared hooks. No components here. */
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type MouseEvent, type RefObject, type SyntheticEvent } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type MouseEvent, type RefObject, type SyntheticEvent, type TouchEvent } from "react";
 import { SITE_NAME } from "./labels";
 import { useOverlayEntry } from "./overlayEntry";
 import { smartQuotes } from "./typography";
@@ -132,5 +132,62 @@ export function useModalDialog(open: boolean, onClose: () => void, { back = true
       const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
       if (!inside) saved.current();
     },
+  };
+}
+
+/* ── Touch: a flick across a viewer, a sheet pulled down by its bar ─────────────── */
+
+/**
+ * A flick of one finger across something that is not itself scrolling: left or right calls
+ * `onSide` (with -1 or 1: the way the finger went), a pull downwards calls `onDown`. Nothing is
+ * prevented, so pinching and the browser's own gestures work as before; a page the reader has
+ * zoomed is left alone, since a drag there is how they move about it. Spread the result on the element.
+ */
+export function useFlick({ onSide, onDown }: { onSide?: (dir: -1 | 1) => void; onDown?: () => void }) {
+  const from = useRef<{ x: number; y: number } | null>(null);
+  return {
+    onTouchStart: (e: TouchEvent) => {
+      const zoomed = (window.visualViewport?.scale ?? 1) > 1.05;
+      from.current = e.touches.length === 1 && !zoomed ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+    },
+    onTouchEnd: (e: TouchEvent) => {
+      const start = from.current;
+      from.current = null;
+      if (!start || e.touches.length > 0 || e.changedTouches.length !== 1) return;
+      const dx = e.changedTouches[0].clientX - start.x, dy = e.changedTouches[0].clientY - start.y;
+      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) onSide?.(dx < 0 ? -1 : 1);
+      else if (dy > 80 && dy > Math.abs(dx) * 1.5) onDown?.();
+    },
+  };
+}
+
+/**
+ * Lets a bottom sheet be pulled down by its bar: the sheet (the <dialog> the bar is in) follows
+ * the finger, and closes when let go more than a few fingers' widths down; otherwise it goes
+ * back up. Spread the result on the bar and give the bar the class "sheet-bar" (components.css):
+ * that draws the handle, and keeps the pull from also being read as a scroll. Only on a phone:
+ * on a wider screen the same dialogs are panels at the side.
+ */
+export function useSheetPull(onClose: () => void) {
+  // Every sheet in the site sits at the bottom of the window below 40em and at its side above.
+  const enabled = useMediaQuery("(max-width: 640px)");
+  const from = useRef<number | null>(null);
+  const move = (bar: EventTarget, dy: number, live: boolean) => {
+    const sheet = (bar as HTMLElement).closest<HTMLElement>("dialog");
+    if (!sheet) return;
+    sheet.style.transition = live ? "none" : "";
+    sheet.style.transform = dy > 0 ? `translateY(${dy}px)` : "";
+  };
+  return {
+    onTouchStart: (e: TouchEvent) => { from.current = enabled && e.touches.length === 1 ? e.touches[0].clientY : null; },
+    onTouchMove: (e: TouchEvent) => { if (from.current !== null) move(e.currentTarget, e.touches[0].clientY - from.current, true); },
+    onTouchEnd: (e: TouchEvent) => {
+      const start = from.current;
+      from.current = null;
+      if (start === null) return;
+      move(e.currentTarget, 0, false);
+      if (e.changedTouches[0].clientY - start > 80) onClose();
+    },
+    onTouchCancel: (e: TouchEvent) => { from.current = null; move(e.currentTarget, 0, false); },
   };
 }

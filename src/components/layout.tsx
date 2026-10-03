@@ -1,9 +1,12 @@
-import { Fragment, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, CircleHelp, Info, KeyRound, TriangleAlert, type LucideIcon } from "lucide-react";
 import { usePageTitle } from "./hooks";
 import { Icon } from "./Icon";
 import { smartQuotes } from "./typography";
+
+/** True once the first page of this visit has been drawn (see Page). */
+let arrived = false;
 
 /** Plain strings handed to a heading or label get typographic quotes; other nodes pass through. */
 const typeset = (node: ReactNode): ReactNode => (typeof node === "string" ? smartQuotes(node) : node);
@@ -18,7 +21,11 @@ const typeset = (node: ReactNode): ReactNode => (typeof node === "string" ? smar
  */
 export function Page({ title, kind, children, className, narrow, flush }: { title: string | null; kind?: string; children: ReactNode; className?: string; narrow?: boolean; flush?: boolean }) {
   usePageTitle(title, kind);
-  return <div className={`page${narrow ? " page--narrow" : ""}${flush ? " page--flush" : ""}${className ? ` ${className}` : ""}`}>{children}</div>;
+  // The first page of a visit appears at once (a fade would only add to the wait for it); the
+  // pages after it fade in. Decided once, when the page is first drawn.
+  const [first] = useState(() => !arrived);
+  useEffect(() => { arrived = true; }, []);
+  return <div className={`page${first ? " page--first" : ""}${narrow ? " page--narrow" : ""}${flush ? " page--flush" : ""}${className ? ` ${className}` : ""}`}>{children}</div>;
 }
 
 export interface Crumb { to?: string; label: ReactNode }

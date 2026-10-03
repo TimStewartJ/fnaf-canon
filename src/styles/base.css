@@ -135,6 +135,10 @@ input::placeholder { color: var(--c-text-3); opacity: 1; }
 input:hover, select:hover, textarea:hover { border-color: var(--c-text-3); }
 select { padding-right: 2rem; text-overflow: ellipsis; }
 input[type="checkbox"], input[type="radio"] { accent-color: var(--c-accent-fill); width: 1.05rem; height: 1.05rem; margin: 0; }
+/* Touch screens: an iPhone zooms the whole page when a focused field's text is under 16px. */
+@media (pointer: coarse) {
+  html:root :is(input:not([type="checkbox"], [type="radio"], [type="range"]), select, textarea) { font-size: max(1rem, 16px); }
+}
 
 /* ── Text utilities ───────────────────────────────────────────── */
 .muted { color: var(--c-text-2); }
@@ -230,9 +234,10 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--c-accent-fill)
 ul.plain, ol.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
 ul.plain > li, ol.plain > li { margin: 0; }
 
-/* Page-enter fade. Pages opt in with .page (it is cheap and off under reduced motion). */
+/* Page-enter fade. Pages opt in with .page (it is cheap and off under reduced motion). Not the
+   first page of a visit (layout.tsx marks it): that one should be there as soon as it can be. */
 @media (prefers-reduced-motion: no-preference) {
-  .page, .page-enter { animation: page-in var(--dur-3) var(--ease) both; }
+  .page:not(.page--first), .page-enter { animation: page-in var(--dur-3) var(--ease) both; }
   @keyframes page-in { from { opacity: 0; } }
 }
 

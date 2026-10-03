@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigationType, type Location } from "react-router-dom";
 import { DRAWER_KEY, OVERLAY_KEY } from "../address";
 import { findFocus, markFocus, type FocusMark } from "./focusMark";
+import { settleHeader } from "./headerReveal";
 
 const STORE_KEY = "fca:scroll";
 const FOCUS_KEY = "fca:focus";
@@ -41,8 +42,13 @@ const pageReady = (): boolean => !document.querySelector("[data-route-loading]")
  * It waits for the target for as long as it takes: a page fetched over a slow connection arrives
  * when it arrives, and the wait is an observer, not a timer that gives up. Once there, it puts the
  * page back whenever the layout shifts (a font, an image, a section drawn late), until the layout
- * has been still for a moment. It stops for good the moment the reader moves the page themselves,
- * or anything else does. Returns a function that stops it.
+ * has been still for a moment and the fonts are in (text set in a stand-in font is a different
+ * height, and a place measured in it is some other place). It stops for good the moment the
+ * reader moves the page themselves, or anything else does. Returns a function that stops it.
+ *
+ * While it holds the page, the browser's own scroll anchoring is switched off. Anchoring keeps
+ * whatever is on screen where it is when the page above it changes height; here that would hold
+ * the page on what a half-drawn layout had at the place, and move the page away from the place.
  */
 function land(aim: () => boolean, then?: () => void): () => void {
   let stopped = false;
@@ -51,13 +57,21 @@ function land(aim: () => boolean, then?: () => void): () => void {
   const main = document.getElementById("main");
   const resized = new ResizeObserver(() => apply());
   const grown = new MutationObserver(() => apply());
+  const root = document.documentElement;
   const stop = () => {
     if (stopped) return;
     stopped = true;
     resized.disconnect();
     grown.disconnect();
     window.clearTimeout(quiet);
+    root.style.removeProperty("overflow-anchor");
     for (const ev of INPUTS) window.removeEventListener(ev, stop);
+  };
+  // Still for a moment, and no font on its way: the landing is final. (At most ten seconds of waiting for fonts.)
+  const began = performance.now();
+  const settled = () => {
+    if (document.fonts?.status === "loading" && performance.now() - began < 10_000) quiet = window.setTimeout(settled, 300);
+    else stop();
   };
   function apply() {
     if (stopped) return;
@@ -68,8 +82,9 @@ function land(aim: () => boolean, then?: () => void): () => void {
     placed = window.scrollY;
     if (first) { grown.disconnect(); then?.(); }
     window.clearTimeout(quiet);
-    quiet = window.setTimeout(stop, QUIET_MS);
+    quiet = window.setTimeout(settled, QUIET_MS);
   }
+  root.style.setProperty("overflow-anchor", "none");
   for (const ev of INPUTS) window.addEventListener(ev, stop, { passive: true });
   resized.observe(document.body);
   if (main) { resized.observe(main); grown.observe(main, { childList: true, subtree: true }); }
@@ -127,7 +142,10 @@ export function ScrollManager() {
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("focusin", onFocus);
     window.addEventListener("pagehide", persist);
-    return () => { window.removeEventListener("scroll", onScroll); document.removeEventListener("focusin", onFocus); window.removeEventListener("pagehide", persist); };
+    // A phone drops a tab it has put in the background without another word; this is the last it says.
+    const onHide = () => { if (document.visibilityState === "hidden") persist(); };
+    document.addEventListener("visibilitychange", onHide);
+    return () => { window.removeEventListener("scroll", onScroll); document.removeEventListener("focusin", onFocus); window.removeEventListener("pagehide", persist); document.removeEventListener("visibilitychange", onHide); };
   }, []);
 
   useLayoutEffect(() => {
@@ -144,8 +162,11 @@ export function ScrollManager() {
       cancel.current = land(() => {
         const el = document.getElementById(id);
         if (!el) return false;
-        // A target folded away inside a closed <details> is opened, as the browser does for a fragment.
+        // A target folded away inside a closed <details> is opened, as the browser does for a
+        // fragment; so is a target that is itself a folded section (a link to "the sources").
+        if (el instanceof HTMLDetailsElement && !el.open) el.open = true;
         if (!el.getClientRects().length) for (let d = el.closest("details:not([open])"); d; d = d.parentElement?.closest("details:not([open])") ?? null) (d as HTMLDetailsElement).open = true;
+        settleHeader();
         el.scrollIntoView({ block: "start", behavior: "instant" });
         target = el;
         return true;
@@ -156,7 +177,7 @@ export function ScrollManager() {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         // Not tall enough yet, and the page is still arriving: wait for it.
         if (max < y - 1 && !pageReady()) return false;
-        if (Math.abs(window.scrollY - Math.min(y, max)) > 1) window.scrollTo({ top: y, behavior: "instant" });
+        if (Math.abs(window.scrollY - Math.min(y, max)) > 1) { settleHeader(); window.scrollTo({ top: y, behavior: "instant" }); }
         return true;
       }, () => {
         // The keyboard goes back to what the reader left from; the page stays where it was put.
