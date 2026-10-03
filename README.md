@@ -4,20 +4,20 @@ An interactive, evidence-first reconstruction of the Five Nights at Freddy's sto
 
 ## How the archive is built
 
-**Evidence.** `src/data/evidence/*.json` holds 1,044 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes. `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
+**Evidence.** `src/data/evidence/*.json` holds 1,045 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes; an approximate date says how it is known (derived, estimated, or taken from a teaser). `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
 
 **The theory**, called the Unified Model, is the archive's single account of the story. It lives in `src/data/theory.ts` and `src/data/chapters/*.ts` (one file per part), and its shapes are defined under "Theory content contract" in `src/data/schema.ts`.
 
-- 35 chapters in 10 parts: the story, the makers, the family, the murders, the night shift, the machines, the reckoning, the afterimage, under the Pizzaplex, and the apparatus (method).
+- 35 chapters in 10 parts: the story, the makers, the family, the murders, the night shift, the machines, the reckoning, the afterimage, under the Pizzaplex, and how this was built (the method).
 - Each chapter asks one question, answers it, and carries a confidence (high, medium or low). Its body cites records inline. It also lists the records that push back and how the model answers them, what would change the conclusion, and further records that belong to its thread.
 - `storyline` is the short telling: 20 beats in the model's order of events, each pointing at the chapters that argue it.
 - `outsideStory` lists the records that deliberately carry no story weight, grouped by reason (releases Scott ruled non-canon, cut and unused content, jokes, promotion and so on).
 
-**The coverage rule.** Every evidence record must be cited by a chapter, filed under a chapter as further evidence, or listed in `outsideStory` with a reason. The validator reports the accounting, which currently stands at 1,044 of 1,044.
+**The coverage rule.** Every evidence record must be cited by a chapter, filed under a chapter as further evidence, or listed in `outsideStory` with a reason. The validator reports the accounting, which currently stands at 1,045 of 1,045.
 
 **The other synthesis layers** cite records by id and mark each entry canon (stated or shown), strong (a near-certain inference) or theory (the model's reading):
 
-- `people.ts`, `relations.ts`, `familyTrees.ts`: who is who, and how identities are joined.
+- `people.ts`, `relations.ts`, `familyTrees.ts`: who is who, and how identities are joined. A tie may give the records' own words in place of its kind's verb.
 - `places.ts`, `locations.ts`: the buildings and when they stood.
 - `timeline.ts`, `dates.ts`, `deaths.ts`: events, eras and deaths. Every displayed date says how it is supported. No year after 1987 is printed, because no game prints one.
 - `home.ts`: the home page's summary cards and questions.

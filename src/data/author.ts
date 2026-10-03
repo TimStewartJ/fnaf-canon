@@ -52,7 +52,7 @@ export const authorAnswer: { q: string; short: string; body: string[]; confidenc
     short: "Only how plainly to take the afterlife words that the later games put in characters' mouths.",
     body: [
       "The religious words come late. FNaF World's frame ends on one, \"Rest.\", in 2016 [[fw-clock-ending-pieces-in-place]]; from Pizzeria Simulator on there is a vocabulary. The Cassette Man tells the \"monsters trapped in the corridors\" to \"be still and give up your spirits. They don't belong to you.\" [[ffps-completion-give-up-spirits]] He says \"I believe there is peace and perhaps more waiting for you after the smoke clears.\" [[ffps-completion-peace-perhaps-more]] He tells one \"old friend\" that \"the darkest pit of Hell has opened to swallow you whole, so don't keep the Devil waiting\" [[ffps-completion-old-friend-hell]], and his daughter that \"It's time to rest\" [[ffps-completion-rest]]. In Ultimate Custom Night an old man by a lake says: \"Leave the demon to his demons. Rest your own soul. There is nothing else.\" [[ucn-omc-ending]]",
-      "The archive reads these words plainly, as the story's own **moral map** in the characters' words: rest for the dead children, Hell named for one old friend, who is most likely the man who killed them, and for the place itself, forgetting [[ffps-completion-remaining-nearby]]. The words carry that reading without their author. What his faith adds is small, and it is interpretation: an author who calls himself a Christian, and says he believes in God, can mean such words plainly, and nothing he has said on record here suggests irony. The map is a reading of what characters say. The speaker qualifies the kindest of it with \"I believe\" [[ffps-completion-peace-perhaps-more]], and no game shows where anyone goes.",
+      "The archive reads these words plainly, as the story's own **moral map** in the characters' words: rest for the dead, Hell named for one old friend, and for the place itself, forgetting [[ffps-completion-remaining-nearby]]. Most likely the dead include the five murdered children, and the old friend is the man who killed them. The words carry that reading without their author. What his faith adds is small, and it is interpretation: an author who calls himself a Christian, and says he believes in God, can mean such words plainly, and nothing he has said on record here suggests irony. The map is a reading of what characters say. The speaker qualifies the kindest of it with \"I believe\" [[ffps-completion-peace-perhaps-more]], and no game shows where anyone goes.",
       "The map decides nothing about Ultimate Custom Night. It reads consistently whoever is in that office. If it is William Afton, Hell is named for the killer, a victim keeps him, and the old man's rest is offered to a listener who is not the demon. If it is Michael, Hell is the father's and rest the son's. Consistency does not choose between them. Which way the model leans, and how lightly, is argued in ((ucn)); ((faith)) sets out the words themselves.",
     ],
     confidence: "medium for the map as a reading of the characters' words; it is a point for neither reading of Ultimate Custom Night",
@@ -121,7 +121,7 @@ export const authorTimeline: AuthorStep[] = [
   {
     id: "a-fnaf1", date: "2014-08-08", dateBasis: "FNaF1's first release, as this archive's game list has it; its Steam page gives 19 August 2014.", phase: "fnaf",
     title: "Five Nights at Freddy's",
-    body: "None of the later vocabulary appears in it, as far as the archive's records of the game go: no souls, no rest, no Hell. Scott said he had tried to keep the game \"relatively clean with no blood or guts\" [[scott-2014-no-hidden-christian-messages]]. FNaF1 tells of its deaths at one remove, through newspaper clippings [[fnaf1-news-kids-vanish]] and a last phone message that ends in a scream [[fnaf1-call4-phone-guy-attacked]].",
+    body: "None of the later vocabulary appears in it, as far as the archive's records of the game go: no souls, no rest, no Hell. Scott said he had tried to keep the game \"relatively clean with no blood or guts\" [[scott-2014-no-hidden-christian-messages]]. FNaF1 tells of its deaths at one remove, through newspaper clippings [[fnaf1-news-kids-vanish]] and a last phone message whose transcript ends in a scream [[fnaf1-call4-phone-guy-attacked]].",
     evidence: ["scott-2014-no-hidden-christian-messages", "fnaf1-news-kids-vanish", "fnaf1-call4-phone-guy-attacked"],
   },
   {
@@ -164,7 +164,7 @@ export type LexLine = string | [string, string];
 export const lexicon: { id: string; theme: string; color: string; gloss: string; lines: LexLine[] }[] = [
   {
     id: "rest", theme: "Rest for the dead", color: "#69db7c",
-    gloss: "Rest is what the dead children are owed, and what the Cassette Man says they cannot find while they are in the machines. FNaF World's line is its framing voice echoing FNaF4: support, and no more.",
+    gloss: "Rest is what the dead are owed, and what the Cassette Man says \"those tiny breaths of life\" will never find as they are, in the machines; the model reads them as the dead children. FNaF World's line is its framing voice echoing FNaF4: support, and no more.",
     lines: ["ffps-insanity-tiny-breaths", "ffps-completion-rest", "fw-clock-ending-pieces-in-place", ["fnaf3-happiest-day", "Shown, not said: Happiest Day. The masked children vanish, the masks fall and balloons rise."], "ucn-happy-frog-never-rest"],
   },
   {
@@ -174,12 +174,12 @@ export const lexicon: { id: string; theme: string; color: string; gloss: string;
   },
   {
     id: "beyond", theme: "Something beyond", color: "#b197fc",
-    gloss: "Only one line in the archive's records reaches past rest, and it is the speaker's belief, not a shown fact.",
+    gloss: "One line reaches past rest, to \"perhaps more\". What that is, the speech does not say, and it is the speaker's belief, not a shown fact.",
     lines: ["ffps-completion-peace-perhaps-more"],
   },
   {
     id: "hell", theme: "Hell, the Devil, the monster", color: "#ff6b6b",
-    gloss: "In the archive's records Hell is named once, in Pizzeria Simulator, for one \"old friend\", who is most likely the killer. Ultimate Custom Night speaks of a demon and never says Hell.",
+    gloss: "In the archive's records Hell is named once, in Pizzeria Simulator, for one \"old friend\", who is most likely the killer. Ultimate Custom Night speaks of a demon and, in those records, never says Hell.",
     lines: ["ffps-completion-old-friend-hell", "ffps-insanity-monster-helped-create", ["ucn-omc-ending", "“Leave the demon to his demons.” (neither the demon nor the listener is named)"]],
   },
   {
@@ -219,7 +219,7 @@ export const readings: { claim: string; status: ReadingStatus; body: string; sec
   {
     claim: "The story runs on a consistent moral map: rest for the innocent, Hell for the killer.",
     status: "consistent",
-    body: "In the Cassette Man's last speech every word of rest goes to the dead: \"It's time to rest, for you, and for those you have carried in your arms.\" [[ffps-completion-rest]] The one line that names Hell goes to an \"old friend\" [[ffps-completion-old-friend-hell]], most likely the man who killed them. While they are in the machines, he says of the children, \"they will never find rest now. Not like this.\" [[ffps-insanity-tiny-breaths]] The fire is his attempt to end that, and the game presents it as the end [[ffps-completion-fire]]. The pattern in the lines can be checked; the map is the archive's reading of it, taken from one character's speeches.",
+    body: "In the Cassette Man's last speech every word of rest goes to the dead: \"It's time to rest, for you, and for those you have carried in your arms.\" [[ffps-completion-rest]] The one line that names Hell goes to an \"old friend\" [[ffps-completion-old-friend-hell]], most likely the man who killed them. Of \"those tiny breaths of life\" in the machines he says: \"they will never find rest now. Not like this.\" [[ffps-insanity-tiny-breaths]] The model reads the fire as his attempt to end that; the game does not show who lights it, and presents it as the end [[ffps-completion-fire]]. The pattern in the lines can be checked; the map is the archive's reading of it, taken from one character's speeches.",
     section: "faith",
   },
   {
