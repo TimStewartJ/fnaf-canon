@@ -1,11 +1,11 @@
-import { memo, useCallback, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import { Bot } from "lucide-react";
 import type { Relation } from "../../data/schema";
-import { labelForEntity, personById } from "../../data/store";
+import { personById } from "../../data/store";
 import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
-  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, TabPanel, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
+  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, TabPanel, Tabs, Toggle, entityName, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { GroupLabel } from "./Dossier";
 import { useContentWidth } from "./measure";
@@ -133,6 +133,18 @@ function TreeView({ tree }: { tree: FamilyTree }) {
     document.fonts?.ready.then(() => { if (alive) measure(); });
     return () => { alive = false; };
   }, [measure]);
+  useEffect(() => {
+    // So does anything else that changes the size of a box without changing the frame's width: the
+    // reader's text-size setting, a font that arrives after the others. The boxes size themselves to
+    // their text (they are grid items); the lines are drawn from what is measured, so measure again.
+    // (The grid is not drawn until the frame's width is known, hence `ready`.)
+    const grid = gridRef.current;
+    if (!ready || !grid || typeof ResizeObserver === "undefined") return;
+    const seen = new ResizeObserver(() => measure());
+    seen.observe(grid);
+    for (const el of nodeRefs.current.values()) seen.observe(el);
+    return () => seen.disconnect();
+  }, [measure, model, ready]);
 
   const geometry: Geometry | null = useMemo(() => {
     if (!rows || rows.y.length !== model.nRows) return null;
@@ -214,7 +226,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
             >
               {model.nodes.map((n) => {
                 const person = personById.get(n.id);
-                const also = n.absorbed.map((id) => labelForEntity(id));
+                const also = n.absorbed.map((id) => entityName(id));
                 // A narrow box names the first record folded into it and counts the rest; the full list is in the tooltip.
                 const short = tight && also.length > 2;
                 const sub = also.length ? (short ? `with ${also[0]} and ${also.length - 1} more` : `with ${also.join(", ")}`) : n.note ?? "";
@@ -233,7 +245,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
                   >
                     <span className={`fam-node__name ${person?.nameStatus === "descriptor" ? "name-desc" : "name-canon"}`}>
                       {person?.group === "entity" && <><Icon icon={Bot} className="fam-node__kind" label="Machine:" /> </>}
-                      {smartQuotes(labelForEntity(n.id))}
+                      {smartQuotes(entityName(n.id, true))}
                     </span>
                     {sub && <span className="fam-node__sub">{smartQuotes(sub)}{short && <span className="sr-only">: {also.slice(1).join(", ")}</span>}</span>}
                     {also.length > 0 && <span className="fam-node__badge" aria-hidden>+{also.length}</span>}

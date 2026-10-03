@@ -2,27 +2,29 @@ import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSPr
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowDown, ArrowRight, X } from "lucide-react";
 import type { Status } from "../../data/schema";
-import { labelForEntity, personById } from "../../data/store";
+import { personById } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import {
-  Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
-  personPath, smartQuotes, useMediaQuery, listParam, useAddress, type Address,
+  Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, byEntityName, entityName,
+  firmness, hueOf, isDescriptor, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress, type Address,
 } from "../../components/ui";
-import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
+import { forgetTextWidths, textWidth, useContentWidth, useTypeScale } from "./measure";
 import { Name } from "./Names";
 import { TieBar, TieLegend } from "./RelParts";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, byFamily, plural, tieTitle, tieWords } from "./ties";
 import { arrowHead } from "./treeLayout";
-import { layoutWeb, nameLines, placeLabels, tiePath, type Chord, type LabelSpec, type Placed, type PlacedLabel } from "./webLayout";
+import { arrowMoves, layoutWeb, nameLines, placeLabels, tiePath, type Chord, type LabelSpec, type Placed, type PlacedLabel } from "./webLayout";
 import { buildWeb, neighbourhood, type Web, type WebNode, type WebTie } from "./webModel";
 import "./common.css";
 import "./relgraph.css";
 import "./graph.css";
 
 const FAMILY_SHORT = { family: "family or work", identity: "identity", harm: "killed or hunted", made: "made or controlled" } as const;
-const byName = (a: WebNode, b: WebNode) => labelForEntity(a.id).replace(/^The /, "").localeCompare(labelForEntity(b.id).replace(/^The /, ""));
+const byName = (a: WebNode, b: WebNode) => byEntityName(a.id, b.id);
 const NO_MOVES = new Map<string, Placed>();
+/** The type tokens .graph-label is set in (see graph.css). */
+const LABEL_TOKENS = ["--fs-2xs", "--fs-xs", "--fs-sm"] as const;
 /** ?support= lists the firmness levels shown; absent means all of them, "none" none. */
 const supportOf = (param: string): Status[] => (param === "none" ? [] : param ? listParam(param, STATUSES) : STATUSES);
 
@@ -61,8 +63,9 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
   // Sizes move in steps, so dragging the window edge does not lay the web out again at every pixel.
   const width = Math.max(280, Math.floor(avail / 20) * 20);
   const compact = width < 520;
-  // Names are set in rem like all interface text, so they grow with the reader's base font size; the layout allows for it.
-  const [rem, setRem] = useState(remScale);
+  // Names are set in rem like all interface text, so they grow with the reader's base font size and
+  // text-size setting, and the small sizes step up on a phone; the layout reads the sizes it is given.
+  const { rem, px: [fs2xs, fsxs, fssm] } = useTypeScale(LABEL_TOKENS);
   // A wide screen gets a landscape picture that fits what is left of the first screen; a phone gets a
   // portrait one with room enough for every name. More people, or larger text, always get more room.
   const perPerson = (compact ? 9200 : 13500) * rem * rem;
@@ -82,24 +85,24 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
   useEffect(() => {
     const fonts = document.fonts;
     if (!fonts) return;
-    const again = () => { forgetTextWidths(); setRem(remScale()); setFontsReady((n) => n + 1); };
+    const again = () => { forgetTextWidths(); setFontsReady((n) => n + 1); };
     fonts.addEventListener("loadingdone", again);
     let alive = true;
     fonts.ready.then(() => { if (alive) again(); });
     return () => { alive = false; fonts.removeEventListener("loadingdone", again); };
   }, []);
   // The sizes of .graph-label in graph.css (--fs-xs, or --fs-2xs when compact; a descriptor is one step larger), in pixels.
-  const size = (compact ? 11 : 12) * rem;
+  const size = compact ? fs2xs : fsxs, descSize = compact ? fsxs : fssm;
   const lineH = size + 2 * rem;
   const specs = useMemo(() => {
     void fontsReady;
     const spec = (n: WebNode): LabelSpec => {
-      const descriptor = personById.get(n.id)?.nameStatus === "descriptor";
-      const lines = nameLines(smartQuotes(labelForEntity(n.id)), compact ? 14 : 17);
-      return { id: n.id, lines, widths: lines.map((l) => (descriptor ? textWidth(l, size + rem, "--font-text", "italic 400") : textWidth(l, size, "--font-ui"))) };
+      const descriptor = isDescriptor(n.id);
+      const lines = nameLines(smartQuotes(entityName(n.id, true)), compact ? 14 : 17);
+      return { id: n.id, lines, widths: lines.map((l) => (descriptor ? textWidth(l, descSize, "--font-text", "italic 400") : textWidth(l, size, "--font-ui"))) };
     };
     return new Map(web.nodes.map((n) => [n.id, spec(n)]));
-  }, [web, compact, size, rem, fontsReady]);
+  }, [web, compact, size, descSize, fontsReady]);
 
   const [hot, setHot] = useState<string | null>(null);
   // One straight line per tie, in the order of web.ties, for names to keep clear of.
@@ -165,31 +168,17 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
     if (!d.moved) onFocus(focus === id ? "" : id);
   };
 
-  /* ── Keyboard: one tab stop; the arrow keys go to the nearest person that way; Page Up and Page Down step through
-   * everyone in reading order, so nobody is out of reach however the picture falls. ── */
+  /* ── Keyboard: one tab stop; the arrow keys go to the nearest person that way, and between them reach everyone
+   * (see arrowMoves); Page Up and Page Down step through everyone in reading order. ── */
   const order = useMemo(() => [...web.nodes].sort((a, b) => { const p = at.get(a.id)!, q = at.get(b.id)!; return p.y - q.y || p.x - q.x; }), [web, at]);
+  const arrows = useMemo(() => arrowMoves(at), [at]);
   const [active, setActive] = useState("");
   const tabStop = web.byId.has(active) ? active : focus || order[0]?.id || "";
   const nodeRefs = useRef(new Map<string, SVGGElement>());
   const onKey = (e: KeyboardEvent<SVGGElement>, id: string) => {
     const go = (to: string | undefined) => { if (to) { e.preventDefault(); nodeRefs.current.get(to)?.focus(); } };
-    const here = at.get(id)!;
-    const toward = (dx: number, dy: number) => {
-      let best: string | undefined, bestScore = Infinity;
-      for (const n of web.nodes) {
-        if (n.id === id) continue;
-        const p = at.get(n.id)!;
-        const along = (p.x - here.x) * dx + (p.y - here.y) * dy, across = Math.abs((p.x - here.x) * dy) + Math.abs((p.y - here.y) * dx);
-        if (along <= 1) continue;
-        const score = along + across * 2;
-        if (score < bestScore) { bestScore = score; best = n.id; }
-      }
-      return best;
-    };
-    if (e.key === "ArrowRight") go(toward(1, 0));
-    else if (e.key === "ArrowLeft") go(toward(-1, 0));
-    else if (e.key === "ArrowDown") go(toward(0, 1));
-    else if (e.key === "ArrowUp") go(toward(0, -1));
+    const arrow = ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].indexOf(e.key);
+    if (arrow >= 0) go(arrows.get(id)?.[arrow]);
     else if (e.key === "Home") go(order[0]?.id);
     else if (e.key === "End") go(order[order.length - 1]?.id);
     else if (e.key === "PageDown" || e.key === "PageUp") {
@@ -247,7 +236,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
             role="button"
             tabIndex={n.id === tabStop ? 0 : -1}
             aria-pressed={focus === n.id}
-            aria-label={`${labelForEntity(n.id)}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
+            aria-label={`${entityName(n.id, true)}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
             onPointerDown={(e) => onDown(e, n.id)}
             onPointerMove={onMove}
             onPointerUp={(e) => onUp(e, n.id)}
@@ -260,7 +249,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
             onBlur={() => setHot((h) => (h === n.id ? null : h))}
             onKeyDown={(e) => onKey(e, n.id)}
           >
-            <title>{`${labelForEntity(n.id)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map(labelForEntity).join(", ")}` : ""}`}</title>
+            <title>{`${entityName(n.id, true)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map((id) => entityName(id)).join(", ")}` : ""}`}</title>
             <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, reach)} />
             <circle className="graph-node__disc" cx={p.x} cy={p.y} r={p.r} />
             {l && label(n.id, l)}
@@ -282,7 +271,7 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
     <div className="rel-bar graph-who">
       <div className="rel-bar__head">
         <p className="rel-bar__line" role="status">
-          <Name id={node.id} as="title" /> <span className="graph-who__n">{plural(ties.length, "tie")} in view{counts.length > 0 && `: ${counts.join(", ")}`}</span>
+          <Name id={node.id} as="title" alone /> <span className="graph-who__n">{plural(ties.length, "tie")} in view{counts.length > 0 && `: ${counts.join(", ")}`}</span>
         </p>
         <IconButton icon={X} label="Clear the focus" onClick={onClose} />
       </div>
@@ -312,7 +301,7 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
       lead={<>
         Showing {applied}.
         {unified && <> A tie that reaches a person through a folded record counts as no firmer than the fold.</>}
-        {focus && <> The focus is on {labelForEntity(focus)}, so the list holds them and everyone they are tied to.</>}
+        {focus && <> The focus is on {entityName(focus)}, so the list holds them and everyone they are tied to.</>}
         {web.untied > 0 && <> {plural(web.untied, "person", "people")} with a profile {web.untied === 1 ? "has" : "have"} no tie under these settings and {web.untied === 1 ? "is" : "are"} left out; the <Link to="/people">people index</Link> lists everyone.</>}
       </>}
     >
@@ -324,7 +313,7 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
               <Collapsible
                 key={`${n.id}:${n.id === focus ? "open" : ""}`}
                 defaultOpen={n.id === focus}
-                summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} title={GROUP_LABEL[n.group] ?? n.group} /> <Name id={n.id} as="plain" /></>}
+                summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} title={GROUP_LABEL[n.group] ?? n.group} /> <Name id={n.id} as="plain" alone /></>}
                 meta={phone ? plural(ties.length, "tie") : `${GROUP_LABEL[n.group] ?? n.group} · ${plural(ties.length, "tie")}`}
               >
                 {() => (
@@ -387,7 +376,7 @@ export default function Graph() {
           <span className="label">Focus on</span>
           <select value={focus} onChange={(e) => url.write({ focus: e.target.value || null, tie: null })}>
             <option value="">Everyone</option>
-            {sorted.map((n) => <option key={n.id} value={n.id}>{labelForEntity(n.id)}</option>)}
+            {sorted.map((n) => <option key={n.id} value={n.id}>{entityName(n.id, true)}</option>)}
           </select>
         </label>
         <Toggle on={unified} onChange={() => url.write((now) => ({ unified: now.get("unified") === "0" ? null : "0", tie: null }))}>Unified people</Toggle>

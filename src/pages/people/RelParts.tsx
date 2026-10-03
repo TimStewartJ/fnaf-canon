@@ -59,7 +59,7 @@ export function TieBar({ tie, onClose }: { tie: DrawnTie; onClose: () => void })
     <div className="rel-bar" data-level={levelOf(tie.status)}>
       <div className="rel-bar__head">
         <p className="rel-bar__line" role="status">
-          {direct.length > 0 ? <TieSentence r={tie} /> : <>Between <Name id={tie.from} /> and <Name id={tie.to} /></>}
+          {direct.length > 0 ? <TieSentence r={direct[0]} /> : <>Between <Name id={tie.from} /> and <Name id={tie.to} /></>}
           <span className="rel-bar__status"><StatusMark value={tie.status} variant="inline" long /></span>
         </p>
         <IconButton icon={X} label="Close" onClick={onClose} />
@@ -72,7 +72,7 @@ export function TieBar({ tie, onClose }: { tie: DrawnTie; onClose: () => void })
           <div key={`${r.from}|${r.kind}|${r.to}`} className="rel-bar__rel">
             <p className="rel-bar__sub"><TieSentence r={r} /><span className="rel-bar__status"><StatusMark value={r.status} variant="inline" /></span></p>
             {tie.folds.filter((f) => f.record === r.from || f.record === r.to).map((f) => (
-              <p key={f.record} className="rel-bar__sub rel-bar__fold"><Name id={f.record} /> is shown as <Name id={f.into} /><span className="rel-bar__status"><StatusMark value={f.status} variant="inline" /></span></p>
+              <p key={f.record} className="rel-bar__sub rel-bar__fold"><Name id={f.record} alone /> is shown as <Name id={f.into} /><span className="rel-bar__status"><StatusMark value={f.status} variant="inline" /></span></p>
             ))}
             {body(r)}
           </div>

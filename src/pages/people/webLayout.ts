@@ -215,6 +215,80 @@ export function placeLabels(
   return out;
 }
 
+/* ── Arrow keys ────────────────────────────────────────────────── */
+
+/** Where the four arrow keys lead from a disc: [right, left, down, up]. */
+export type ArrowMoves = Map<string, (string | undefined)[]>;
+const ARROWS = [[1, 0], [-1, 0], [0, 1], [0, -1]] as const;
+
+/**
+ * Where each arrow key leads from each disc: to the nearest disc that way (a disc straight ahead
+ * beats a nearer one off to the side). Nearest alone can leave a disc that no key leads to, when
+ * its neighbours are all nearer to one another than to it, so the result is then put right: the
+ * closest disc that can be reached leads to the stranded one by the key that points its way, and
+ * the same key goes on from there to where it led before. In the end every disc can be reached
+ * from every other with the arrow keys alone, however the picture falls.
+ */
+export function arrowMoves(at: ReadonlyMap<string, Placed>): ArrowMoves {
+  const ids = [...at.keys()];
+  const pos = (id: string) => at.get(id)!;
+  const along = (a: Placed, b: Placed, d: number) => (b.x - a.x) * ARROWS[d][0] + (b.y - a.y) * ARROWS[d][1];
+  const nav: ArrowMoves = new Map();
+  for (const id of ids) {
+    const here = pos(id);
+    nav.set(id, ARROWS.map(([dx, dy], d) => {
+      let best: string | undefined, bestScore = Infinity;
+      for (const other of ids) {
+        if (other === id) continue;
+        const p = pos(other);
+        const ahead = along(here, p, d);
+        if (ahead <= 1) continue;
+        const score = ahead + (Math.abs((p.x - here.x) * dy) + Math.abs((p.y - here.y) * dx)) * 2;
+        if (score < bestScore) { bestScore = score; best = other; }
+      }
+      return best;
+    }));
+  }
+  if (ids.length < 2) return nav;
+
+  // Everything is measured from one disc, the first in reading order: all can be reached from it, and it from all.
+  const hub = [...ids].sort((a, b) => pos(a).y - pos(b).y || pos(a).x - pos(b).x)[0];
+  const reach = (from: boolean): Set<string> => {
+    const next = new Map<string, string[]>(ids.map((id) => [id, []]));
+    for (const [id, to] of nav) for (const t of to) if (t) { if (from) next.get(id)!.push(t); else next.get(t)!.push(id); }
+    const seen = new Set([hub]);
+    const queue = [hub];
+    while (queue.length) for (const n of next.get(queue.shift()!)!) if (!seen.has(n)) { seen.add(n); queue.push(n); }
+    return seen;
+  };
+  const closest = (outside: readonly string[], inside: ReadonlySet<string>): [string, string] => {
+    let pair: [string, string] = [outside[0], hub], least = Infinity;
+    for (const u of outside) for (const r of inside) {
+      const d = Math.hypot(pos(u).x - pos(r).x, pos(u).y - pos(r).y);
+      if (d < least) { least = d; pair = [u, r]; }
+    }
+    return pair;
+  };
+  const toward = (a: Placed, b: Placed) => [0, 1, 2, 3].reduce((best, d) => (along(a, b, d) > along(a, b, best) ? d : best), 0);
+  for (let tries = ids.length * 4; tries > 0; tries--) {
+    const out = reach(true);
+    if (out.size < ids.length) {
+      const [stranded, near] = closest(ids.filter((id) => !out.has(id)), out);
+      const d = toward(pos(near), pos(stranded));
+      const before = nav.get(near)![d];
+      nav.get(near)![d] = stranded;
+      if (before && before !== stranded) nav.get(stranded)![d] = before;
+      continue;
+    }
+    const back = reach(false);
+    if (back.size === ids.length) break;
+    // A disc the arrows never lead back from: its key toward the closest disc that does lead back now goes there.
+    const [lost, near] = closest(ids.filter((id) => !back.has(id)), back);
+    nav.get(lost)![toward(pos(lost), pos(near))] = near;
+  }
+  return nav;
+}
+
 /* ── Lines ─────────────────────────────────────────────────────── */
 
 /**
