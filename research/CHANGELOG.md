@@ -1,5 +1,61 @@
 # Model changelog
 
+## 2026-10-02: the theory pass (rulings R1 to R33)
+The model was argued again from the evidence up, and the theory was rewritten to the result. R-numbers below are the rulings of this pass.
+- **How the pass was run:**
+  - Six audits of the evidence base, one per slice: FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers. Each analyst checked the records against transcripts and screenshots, added what was missing and wrote a memo of the contested questions.
+  - An adjudicator ruled on every contested question, with a confidence and the wording each ruling requires.
+  - Three adversarial reviews of the rulings. Nothing was overturned. Many confidences were lowered, several statements were split into what is shown and what is inferred, and one ruling was added (R33, on what persists of Afton after the fire).
+  - The theory was rewritten as 35 chapters in 10 parts, with a storyline of 20 beats. Every record is now cited by a chapter, filed under one as further evidence, or listed as outside the story with a reason.
+  - The other layers were then brought in line: people, relations, family trees, places, the timeline, dates and deaths; the home page; The Box, Theorists & Scott, and Scott & Faith.
+- **Identifications overturned:**
+  - UCN's player: was Michael (medium). Now most likely William Afton, as the model's lean (low to medium), told with the Michael reading in full beside it. "The one you should not have killed" is a child the player killed; which child is a lean at low, the fifth of the five, with FNaF4's crying child as the live alternative (R16).
+  - The Afton household: was argued from the purple car and a joint hypothesis through UCN. Now argued from Sister Location: a locked room in Afton's facility has FNaF4's rooms on its monitors, and that plush with a handset on the desk (R3). The older brother as Michael no longer depends on UCN (R13). Midnight Motorist is used for nothing (R29).
+  - The Fredbear plush: was a built, watching companion toy. Now a toy spoken through from that desk (low to medium), with the child's own mind level on the lines (R5).
+  - FNaF4's nights: the bedroom is a real place; awake or dreaming is open, with a lean to awake (R4).
+  - The crying child: no longer called a different figure from Golden Freddy, and no longer UCN's accuser as a flat statement. He most likely dies of the bite, and no record places him afterwards (R6).
+  - "A yellow one" (FNaF2, Night 6): was Spring Bonnie. Now the yellow bear suit (low to medium). The stake on the yellow suit as Scott's one retcon is withdrawn, and nothing locates the retcon (R11).
+  - The Mimic: two machines of Edwin Murray's, not one. M1 was the babysitter, and M2 was built from a copy of its program. M.X.E.S. is Murray's technology; its expansion is on his own terminal (R21).
+  - The burnt rabbit under the Pizzaplex (the game's files call it Burntrap): was "two identities fit". Now it is not the sealed endoskeleton (medium), and may be what the Pizzeria Simulator fire left of the killer's rabbit (low to medium) (R20).
+  - Vanny: was possibly more than one wearer. Now one woman, Vanessa, at medium-high, which is the ceiling: the rooftop page counts against it and is unexplained (R19).
+  - The rabbit in Help Wanted's code (known as Glitchtrap): a figure in a yellow rabbit costume, not a purple rabbit. It came off old company boards (high) and presents as the killer (medium-high). What it is has two live readings: something he left behind (medium), or a copying program (low to medium) (R18).
+  - LEFTE and RASC are Fazbear Entertainment's blueprints, the hardware of the Cassette Man's trap, and not Afton's (R31, R32).
+  - Two pairs of places are probably one building each: the older Freddy Fazbear's Pizza and the restaurant FNaF1 reopens (R12), and Pizzeria Simulator's pizzeria and the buried one under the Pizzaplex (R20). Both are held at medium.
+- **Confidences lowered, and statements withdrawn:**
+  - Hen as the Cassette Man is low, and is noted, not told. W.A. as William Afton is medium. No record says "partner"; the game's words are "old friend" (R2).
+  - Remnant: the thesis no longer says that it is what keeps the dead in machines, or that the blueprint proposes a remedy. One blueprint specifies it, and no game shows it used (R15).
+  - Fire is no longer the characters' repeated answer that keeps failing. Pizzeria Simulator presents its fire as the end, and the later games reopen it (R28). What persists of Afton afterwards is said once: his image returns in more than one form (high), something of him persists in at least one (medium), and the forms are not told as one history (R33).
+  - The five: most likely lured in the yellow rabbit (medium, was flat). That the bodies were put into the mascots is medium and never shown. A man was caught the next morning and charged, and who he was is open (R8).
+  - November 1987: what was done that week is not recorded. Probably no second five (low to medium). The Bite of '87 falls in that restaurant's last days (medium) (R9).
+  - The killer's death: after FNaF1's restaurant closed (medium, lower end), in a room walled up before he died (R12).
+  - Happiest Day is the release that was owed and first attempted, not an event marked firm (R14). Where the five are between the dismantling and the Cassette Man's call is not shown (R30).
+  - The Cassette Man's daughter: her death is placed before the five by convention only (R7).
+  - "The games are the cover-up" is strong, not canon (R18). Mike Schmidt as Michael is not established and is not used (R13).
+- **Dates:**
+  - Secret of the Mimic's night is in 1979, most likely 7 September. The year ends the teaser and is on a work order that was read from an image of the document and is not yet confirmed in play (R2).
+  - FNaF1 is not before November 1988, derived from the cheques. The five fall on a June 26 between 1980 and 1986 (R24).
+  - No year after 1987 is printed. The model no longer chooses between the compressed and extended readings; later events are placed by order and by stated intervals. Special Delivery's email dates are delivery days (R24).
+  - Into the Pit's 1985 is on a logo graphic, and dates nothing (R23).
+  - Every displayed date says how it is supported: printed, derived, inferred, estimated, or placed by convention.
+- **Scope and labels:**
+  - What carries story weight is now ruled (R17, R27). UCN's play and roster are staging, and its lines and cutscenes are text. FNaF World's adventure is outside, and its framing voice is an echo. A company product has three layers: the level as staged, the frame, and intrusions. A branch is discounted for what it makes happen, never for what it shows to be already so. Cut and unused content is not evidence.
+  - Into the Pit is an adaptation that the main games never place (R23).
+  - Leaving out the books is this project's policy, not a ruling of Scott's (R27).
+  - Labels have three tiers (R26). Names a game prints or speaks are used. Glitchtrap, Burntrap and Scraptrap appear once, as "known as". Fan labels and book-only names stay out.
+- **Evidence base: 703 to 1,044 records** (341 added, about 400 corrected, no record id renamed or deleted; 96 credited images added, 169 in all).
+  - Added: Sister Location's Private Room in full (the keypad, the three monitors, the handset beside the plush, the breaker panel). FNaF1's clippings on the arrest: a man captured the next morning, "convicted" in the headline and "charged" in the text. The 1987 calls line by line, and FNaF3's tapes on the sealed rooms. Pizzeria Simulator's tapes and blueprints sentence by sentence, and UCN's voice lines. What Help Wanted's rabbit looks like. Secret of the Mimic's work order of 9/07/79, the contract, the messages about M1 and M2, and M.X.E.S. spelled out on Murray's terminal. 58 records of Scott's words, among them the 2018 and 2024 interviews, which are on record as machine transcripts.
+  - Corrected: FNaF4's Night 6 "two white dots" was FNaF World's opening screen; in FNaF4 the plush is whole. FNaF1's clipping reads "took place there many years ago". FNaF World's "Crying Child" is the weeping child of FNaF2 and FNaF3, not FNaF4's boy. Special Delivery's dates. Into the Pit's 1985, which is a logo graphic and not a calendar. Scott's 2024 words are "I never pursued it". Fan labels and book-derived names were taken out of titles and claims, and stitched or truncated quotes were made verbatim.
+- **Pages brought in line:**
+  - Home: six cards rewritten in story order (the makers; the killer has a name; six children; his own children; the trap and the fire; the copies), each with the status of its weakest link, and twelve questions in place of ten. The questions on the retcon, on Scott's faith and on Secret of the Mimic alone were dropped; the last is answered under "What is under the Pizzaplex".
+  - Theorists & Scott: every verdict judged again. Changed: UCN as William Afton's Hell, from partly right to open, with the model now leaning its way; Gregory as a robot, from open to wrong; the box's meaning changed, from confirmed to mostly right. The dream theory, one entry rated partly right, is now two: the series-wide claim (wrong) and FNaF4's nights as a dream (open, with the model leaning slightly against). "UCN's player is Michael" is a new entry (open). That makes 21 theories. Six moments were added, for 30, and every quotation was checked against its record.
+  - The Box: Scott's 2018 and 2024 answers quoted from the transcripts; the reading that the box held the crying child and the promise made to him is demoted to low; FNaF World's unused picture of an open box is no longer cited as support.
+  - Scott & Faith: Remnant leaves the moral map; "be still" is said to the "monsters trapped in the corridors"; UCN never says "Hell"; the map reads consistently on both readings of UCN and decides neither.
+- **Deliberately not done:**
+  - The Survival Logbook stays out. The owner considered admitting it on 1 October 2026 and did not.
+  - No year after 1987 is printed, for FNaF1, FNaF3 or anything later.
+  - Game Theory's "two Mikes" episode was not added to the Theorists page; the owner declined it on 1 October 2026.
+  - The audit ledger of September 2026 is kept as history. Its chapter ids were updated, and each finding that this pass overtook says so.
+
 ## 2026-09-28: Scott & Faith
 - **Research:** Scott's Christian background from primary sources. The key source is the Geeks Under Grace written interview (2014-10-25), plus the 2021 Reddit post and archived Hope Animation pages. Hope Animation was David Hutter's UK Christian media site that hosted Scott's films; it was **not** Scott's studio, contrary to a common assumption.
 - **New evidence (Scott's words):** twelve years of Christian films and games; 'No' to hidden Christian messages (answering about FNaF1 and vice symbolism); faith and work; favourite verse Psalm 46:10 ('Be still'); the beaver-game origin; 'I can't explain Golden Freddy'; The Desolate Hope; 'I'm a Christian… I believe in God' (2021). Game: ffps-completion-peace-perhaps-more.

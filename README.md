@@ -1,15 +1,42 @@
 # Fazbear Canon Archive
 
-An interactive, evidence-first reconstruction of the Five Nights at Freddy's story, sourced **only** from the games and Scott Cawthon's own words.
+An interactive, evidence-first reconstruction of the Five Nights at Freddy's story, sourced **only** from the games and Scott Cawthon's own words. The novels, the Survival Logbook, the guidebooks, the films and fan theory are not evidence and fill no gap. That is this project's own policy.
 
-- `src/data/evidence/*.json`: atomic evidence records. Each has one claim, an exact source location, a certainty level (stated/shown/implied), and the in-universe time it describes.
-- `src/data/credits/*.json`: provenance for every screenshot in `public/img/`.
-- `src/data/{people,places,relations,timeline,theory,familyTrees,home}.ts`: the synthesis layers. They cite evidence by id (`[[evidence-id]]` inline) and are marked canon / strong / theory.
-- `scripts/validate.ts`: referential-integrity checks (unknown ids, missing images, quote length, uncited relations).
+## How the archive is built
+
+**Evidence.** `src/data/evidence/*.json` holds 1,044 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes. `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
+
+**The theory**, called the Unified Model, is the archive's single account of the story. It lives in `src/data/theory.ts` and `src/data/chapters/*.ts` (one file per part), and its shapes are defined under "Theory content contract" in `src/data/schema.ts`.
+
+- 35 chapters in 10 parts: the story, the makers, the family, the murders, the night shift, the machines, the reckoning, the afterimage, under the Pizzaplex, and the apparatus (method).
+- Each chapter asks one question, answers it, and carries a confidence (high, medium or low). Its body cites records inline. It also lists the records that push back and how the model answers them, what would change the conclusion, and further records that belong to its thread.
+- `storyline` is the short telling: 20 beats in the model's order of events, each pointing at the chapters that argue it.
+- `outsideStory` lists the records that deliberately carry no story weight, grouped by reason (releases Scott ruled non-canon, cut and unused content, jokes, promotion and so on).
+
+**The coverage rule.** Every evidence record must be cited by a chapter, filed under a chapter as further evidence, or listed in `outsideStory` with a reason. The validator reports the accounting, which currently stands at 1,044 of 1,044.
+
+**The other synthesis layers** cite records by id and mark each entry canon (stated or shown), strong (a near-certain inference) or theory (the model's reading):
+
+- `people.ts`, `relations.ts`, `familyTrees.ts`: who is who, and how identities are joined.
+- `places.ts`, `locations.ts`: the buildings and when they stood.
+- `timeline.ts`, `dates.ts`, `deaths.ts`: events, eras and deaths. Every displayed date says how it is supported. No year after 1987 is printed, because no game prints one.
+- `home.ts`: the home page's summary cards and questions.
+- `community.ts`, `box.ts`, `author.ts`: the Theorists & Scott, Locked Box and Scott & Faith pages. Fan theories are described and scored there; they are never evidence.
+
+**Text conventions.** Text fields use a small markup: `[[evidence-id]]` for a citation, `{{person-or-place-id}}` for an entity link, `((chapter-id))` for a chapter link, `**bold**`, `*italic*`, and date pills `<<label|kind|evidence-ids|basis>>`. People the games never name are called by description (the Cassette Man, the crying child). Names found only in the books are not used.
+
+`research/` holds the history behind the scenes: the changelog of the model's conclusions, and the ledger of the September 2026 audit.
+
+## Scripts
+
+- `npx tsx scripts/validate.ts` checks referential integrity (unknown record, person, place and chapter ids; missing or uncredited images; quote length), the consistency rules (nothing marked canon may rest only on implied records; a printed date needs a record that is not implied; eras stay in order; every event, era and place has a date justification), and prints the coverage report. Add `--list-unaccounted` to list records the theory does not account for, or `--strict-coverage` to fail when there are any.
+- `npx tsx scripts/evidence-index.ts [--out path.md] [--file fnaf123] [--unaccounted]` writes a one-line-per-record index of the evidence base, showing how the model uses each record: cited, counter-evidence, filed as further evidence, outside the story, or not yet accounted for.
+- `node scripts/qa.mjs --base http://127.0.0.1:5173 --out /tmp/fnaf-qa` crawls the running site at desktop and phone widths. It reports console errors, failed requests and horizontal overflow for each route and saves a screenshot of each; `--axe` adds accessibility checks.
 
 ```bash
 npm install
-npx tsx scripts/validate.ts   # data integrity
+npx tsx scripts/validate.ts   # data integrity, consistency rules, coverage
+npx tsc -b                    # type check
 npm run dev                   # http://localhost:5173
 npm run build && npx vite preview
 ```

@@ -4,143 +4,143 @@
     "title": "Five Nights at Freddy's",
     "released": "2014-08-08",
     "developer": "Scott Cawthon",
-    "summary": "A night guard at Freddy Fazbear's Pizza survives five nights against animatronics, with phone calls and hidden screens hinting at earlier killings and missing children.",
-    "settingYearLabel": "Undated (no year is shown in-game)"
+    "summary": "A night guard, Mike Schmidt, works a week at Freddy Fazbear's Pizza while its four machines roam at night. A recorded voice on the phone guides him and mentions \"the Bite of '87\", and rare newspaper clippings report children lured into a back room and never found.",
+    "settingYearLabel": "A November after 1987 (the cheques print the year as 'xx')"
   },
   {
     "id": "fnaf2",
     "title": "Five Nights at Freddy's 2",
     "released": "2014-11-10",
     "developer": "Scott Cawthon",
-    "summary": "A night guard at a new Freddy Fazbear's Pizza location with old and new animatronics, whose minigames depict a purple figure's crimes and the children's fate.",
-    "settingYearLabel": "1987 (paycheck dated 11/12/1987; pink slip 11/13/1987)"
+    "summary": "A night guard, Jeremy Fitzgerald, works the last week of a new Freddy Fazbear's Pizza, among new machines and four older ones kept for parts. The phone calls report an investigation, a lockdown and a spare yellow suit that someone used. Minigames that can follow a death show a child killed outside a party, the Puppet giving masks to dead children, and a purple man.",
+    "settingYearLabel": "November 1987 (cheques dated 11-12-1987 and 11-13-1987)"
   },
   {
     "id": "fnaf3",
     "title": "Five Nights at Freddy's 3",
     "released": "2015-03-02",
     "developer": "Scott Cawthon",
-    "summary": "A guard at the horror attraction Fazbear's Fright faces a single surviving animatronic, while minigames show the pizzeria's dismantling and the killer's fate.",
-    "settingYearLabel": "Undated in-game (Scott's official description: thirty years after Freddy Fazbear's Pizza closed)"
+    "summary": "A guard works at Fazbear's Fright, a horror attraction built from the old restaurants' relics around one real find: a yellow rabbit suit with a body inside it. Minigames between the nights show a purple man dismantling the four old machines and dying inside that suit.",
+    "settingYearLabel": "Thirty years after Freddy Fazbear's Pizza closed (Scott's store text; no year)"
   },
   {
     "id": "fnaf4",
     "title": "Five Nights at Freddy's 4",
     "released": "2015-07-23",
     "developer": "Scott Cawthon",
-    "summary": "A child defends a bedroom against nightmare animatronics while between-night minigames follow a crying boy leading up to his birthday, ending with a locked box.",
-    "settingYearLabel": "Undated (no year is shown in-game)"
+    "summary": "The player defends a bedroom at night against monstrous versions of the Fazbear characters. Minigames between the nights count down five days to a small boy's birthday party, where Fredbear's jaws close on his head. The game ends on a locked box.",
+    "settingYearLabel": "c. 1983 (the year on a television show's title card)"
   },
   {
     "id": "fnaf4-halloween",
     "title": "Five Nights at Freddy's 4: Halloween Edition",
     "released": "2015-10-30",
     "developer": "Scott Cawthon",
-    "summary": "A seasonal alternate edition of FNaF4 with reskinned characters, which Scott declared non-canon.",
-    "settingYearLabel": "Undated (non-canon alternate edition)"
+    "summary": "A seasonal edition of FNaF4 with changed characters and redecorated minigames. Scott ruled it non-canon.",
+    "settingYearLabel": "c. 1983 (an edition Scott ruled non-canon)"
   },
   {
     "id": "fnaf-world",
     "title": "FNaF World",
     "released": "2016-01-21",
     "developer": "Scott Cawthon",
-    "summary": "A comedic fantasy RPG starring 'adventure' versions of the characters, whose endings and hidden areas include occasional references to the main series.",
-    "settingYearLabel": "Undated"
+    "summary": "A comic role-playing game starring 'adventure' versions of the characters. Its adventure is outside the story; its opening words and its clock ending echo FNaF4 on purpose and are used only as support.",
+    "settingYearLabel": "Outside the story, except its frame voice"
   },
   {
     "id": "sister-location",
     "title": "Five Nights at Freddy's: Sister Location",
     "released": "2016-10-07",
     "developer": "Scott Cawthon",
-    "summary": "A technician works nights beneath Circus Baby's Entertainment and Rental, a facility for animatronics from the closed Circus Baby's Pizza World.",
-    "settingYearLabel": "Undated (no year is shown in-game)"
+    "summary": "A technician works five nights in Circus Baby's Entertainment and Rental, an underground facility marked Afton Robotics whose machines are hired out for parties. Circus Baby guides him to the scooping room. Cutscenes unlocked in its Custom Night show what became of him, and end with a son's speech to his father.",
+    "settingYearLabel": "Undated; after a Freddy Fazbear's Pizza had closed"
   },
   {
     "id": "ffps",
     "title": "Freddy Fazbear's Pizzeria Simulator",
     "released": "2017-12-04",
     "developer": "Scott Cawthon",
-    "summary": "A pizzeria-management game that lures salvaged animatronics into a new restaurant, whose tapes and ending speech describe a deliberate plan to destroy them.",
-    "settingYearLabel": "Undated (no year is shown in-game)"
+    "summary": "A franchisee runs a new pizzeria for one week and is offered wrecked machines to salvage. The restaurant is a trap: the Cassette Man calls four haunted machines into one building and stays as it burns.",
+    "settingYearLabel": "After the Fazbear's Fright fire (no year)"
   },
   {
     "id": "ucn",
     "title": "Ultimate Custom Night",
     "released": "2018-06-27",
     "developer": "Scott Cawthon",
-    "summary": "A custom-night game with 50 selectable characters whose unlockable cutscenes and character voice lines add story material about the series' figures.",
-    "settingYearLabel": "Undated"
+    "summary": "A custom night with fifty selectable characters from the earlier games. Many of their lines speak to the player as someone who is being kept there, and one voice says it will hold the player there \"no matter how many times they burn us\".",
+    "settingYearLabel": "After the Pizzeria Simulator fire (no year)"
   },
   {
     "id": "help-wanted",
     "title": "Five Nights at Freddy's: Help Wanted",
     "released": "2019-05-28",
     "developer": "Steel Wool Studios",
-    "summary": "A VR game presented as Fazbear Entertainment's 'Freddy Fazbear Virtual Experience', recreating the earlier games while hidden tapes describe a corrupting presence in the game's code.",
-    "settingYearLabel": "Undated (present-day framing, no year shown)"
+    "summary": "A virtual-reality game presented as Fazbear Entertainment's own product, the Freddy Fazbear Virtual Experience, which restages the earlier games as fiction. Hidden tapes left by a tester describe something that came into its code from scanned circuit boards.",
+    "settingYearLabel": "Undated; after the Pizzeria Simulator fire by convention"
   },
   {
     "id": "curse-of-dreadbear",
     "title": "Five Nights at Freddy's: Help Wanted - Curse of Dreadbear",
     "released": "2019-10-23",
     "developer": "Steel Wool Studios",
-    "summary": "A Halloween DLC for Help Wanted adding new VR levels and characters such as Dreadbear within the virtual-experience framing.",
-    "settingYearLabel": "Undated"
+    "summary": "A Halloween add-on to Help Wanted: new levels in the same virtual product. With a hidden rabbit mask on, the player hears a woman's side of a conversation with someone who is never heard.",
+    "settingYearLabel": "Undated; with Help Wanted"
   },
   {
     "id": "special-delivery",
     "title": "Five Nights at Freddy's AR: Special Delivery",
     "released": "2019-11-25",
     "developer": "Illumix",
-    "summary": "An augmented-reality mobile game in which Fazbear Entertainment's 'Fazbear Funtime Service' delivers animatronics to customers, with seasonal story events.",
-    "settingYearLabel": "Undated"
+    "summary": "An augmented-reality mobile game in which the Fazbear Funtime Service sends the company's machines to subscribers' homes. Misdirected company emails tell of a contractor's scan of old circuit boards that released a virus, and of an employee whose searches alarm a colleague.",
+    "settingYearLabel": "Undated; its emails count only in their order"
   },
   {
     "id": "security-breach",
     "title": "Five Nights at Freddy's: Security Breach",
     "released": "2021-12-16",
     "developer": "Steel Wool Studios",
-    "summary": "A boy trapped overnight in Freddy Fazbear's Mega Pizzaplex is helped by Glamrock Freddy while pursued by staff, animatronics and a rabbit-costumed figure.",
-    "settingYearLabel": "Undated (no year is shown in-game)"
+    "summary": "A boy, Gregory, is shut in Freddy Fazbear's Mega Pizzaplex overnight. Glamrock Freddy helps him against the other machines, the guard Vanessa and a woman in a rabbit costume. The game has six endings, one of which goes down to a pizzeria buried under the building.",
+    "settingYearLabel": "One night; no year"
   },
   {
     "id": "ruin",
     "title": "Five Nights at Freddy's: Security Breach - RUIN",
     "released": "2023-07-25",
     "developer": "Steel Wool Studios",
-    "summary": "A free story DLC in which Cassie explores the ruined Mega Pizzaplex after Security Breach, searching for Gregory.",
-    "settingYearLabel": "Undated (set after Security Breach)"
+    "summary": "An add-on to Security Breach. Cassie goes into the wrecked Pizzaplex to find Gregory, led by a voice that uses his words, and switches off the security system that was keeping something sealed underneath.",
+    "settingYearLabel": "After Security Breach's night (no year)"
   },
   {
     "id": "help-wanted-2",
     "title": "Five Nights at Freddy's: Help Wanted 2",
     "released": "2023-12-14",
     "developer": "Steel Wool Studios",
-    "summary": "A VR sequel in which the player works through Fazbear Entertainment job simulations featuring characters from across the series, including the Mega Pizzaplex.",
-    "settingYearLabel": "Undated"
+    "summary": "A staff training program of tasks in the Mega Pizzaplex, seen through a mask; with the mask off, its bright hub is a dark, derelict room. In its main ending a gift on the hub's stage opens on a recharge station, and a robot holds a rabbit mask out to a girl.",
+    "settingYearLabel": "Between Security Breach's night and RUIN"
   },
   {
     "id": "into-the-pit",
     "title": "Five Nights at Freddy's: Into the Pit",
     "released": "2024-08-07",
     "developer": "Mega Cat Studios",
-    "summary": "A 2D adventure in which a boy, Oswald, travels through a ball pit at a rundown pizzeria into its past and brings something back.",
-    "settingYearLabel": "Present day undated; the past era is 1985 (calendar seen in-game)"
+    "summary": "An adventure game, and an adaptation that the main games never place. A boy, Oswald, climbs into a ball pit at a run-down pizzeria and comes out in an older Freddy Fazbear's Pizza, and a yellow rabbit follows him back.",
+    "settingYearLabel": "Not placed; a logo graphic reads 1985 (placement unconfirmed)"
   },
   {
     "id": "secret-of-the-mimic",
     "title": "Five Nights at Freddy's: Secret of the Mimic",
     "released": "2025-06-13",
     "developer": "Steel Wool Studios",
-    "summary": "A first-person game in which a Fazbear Entertainment employee explores Murray's costume facility and confronts the Mimic.",
-    "settingYearLabel": "Undated here (a teaser trailer shows '1979'; in-game dates not verified by this research)"
+    "summary": "Fazbear Entertainment sends a technician by night into the shuttered workshop of Murray's Costume Manor to bring out its blueprints, and an endoskeleton built to take on the character of any costume hunts him there. Recordings and letters tell the story of Edwin Murray, his family and his two machines.",
+    "settingYearLabel": "1979, most likely 7 September (on a work order in the technician's van, not yet seen in play)"
   },
   {
     "id": "freddy-in-space-2",
     "title": "Freddy in Space 2",
     "released": "2019-12-03",
     "developer": "Scott Cawthon",
-    "summary": "A comedic side-scrolling shooter spin-off made to promote a St. Jude charity livestream.",
-    "settingYearLabel": "Undated (comedic spin-off)"
+    "summary": "A comic side-scrolling shooter spin-off. The archive holds no records from it, and it is outside the story.",
+    "settingYearLabel": "Outside the story"
   }
 ]
