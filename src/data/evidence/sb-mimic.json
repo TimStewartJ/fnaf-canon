@@ -4905,6 +4905,37 @@
     "notes": "Described from the wiki's account; not watched. The wiki calls the items Vanny's mask and the Glitchtrap plush. In the ending that follows, the mask and bow tie lie on the floor and a blonde woman waits at the doors (security-breach-ending-redemption). That finishing this game is what frees her, by way of the door that closed on Help Wanted's rabbit figure, is a reading; the game does not say so. The wiki's audio listing gives the same scream to a Springtrap cutout in Help Wanted 2 (hw2-springtrap-cutout-pq3-scream)."
   },
   {
+    "id": "security-breach-credits-vanessa-vanny-two-parts",
+    "title": "Cast credits: 'Vanessa' and 'Vanny' are two parts with two performers",
+    "claim": "Security Breach's cast list credits Heather Masters with 'Vanessa' and 'Glamrock Chica', and Marta Svetek with 'Gregory', 'Vanny' and 'Roxanne'. The guard and the rabbit-costumed woman are listed as separate parts, voiced by different performers.",
+    "quote": "Heather Masters - Vanessa/Glamrock Chica … Marta Svetek - Gregory/Vanny/Roxanne",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "End credits (cast list)",
+    "certainty": "stated",
+    "when": {
+      "label": "End of Security Breach (the credits; no in-universe date)",
+      "precision": "unknown",
+      "basis": "Credits describe the production; Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "vanessa",
+      "vanny"
+    ],
+    "tags": [
+      "naming",
+      "credits",
+      "vanny-vanessa"
+    ],
+    "related": [
+      "security-breach-rooftop-vanessa-alive",
+      "ffps-credits-william-afton",
+      "hw-credits-tape-girl-qa"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Security_Breach/Credits",
+    "notes": "Read from the wiki's transcription of the credits on 2026-10-03, not from a capture of the credits roll, so the layout on screen may differ. A credit names a voiced part, not a person in the story, and one performer often takes several: this list gives Vanessa's performer Glamrock Chica as well, and Vanny's performer Gregory and Roxanne. So the credits show that the game casts 'Vanessa' and 'Vanny' as two voices. They do not say that the two are different people, and they do not say that they are one. RUIN's cast list has neither part."
+  },
+  {
     "id": "ruin-cassie-dad-faz-wrench",
     "title": "Cassie: the Faz-Wrench is 'just like my dad's'",
     "claim": "Finding a Faz-Wrench, which its description calls a Fazbear technician's tool, Cassie says it is just like her father's.",
@@ -5196,7 +5227,8 @@
       "security-breach-freddy-where-i-was-born"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Prototype_Glamrock_Freddy",
-    "notes": "The label was viewed in the wiki's capture of the game (File:Prototype-Label.png): the word runs along the sole of the fallen body's foot. That it is the right foot is the wiki's description. Cassie's line on finding it: 'Freddy! Freddy? Are you ok? Please be functional.' In the base game's two hideout endings Freddy is taken apart by S.T.A.F.F. bots on the rabbit woman's order ('Disassemble Freddy...'), and in the Redemption ending Gregory leaves carrying his head. A headless Freddy body in Fazer Blast, below that hideout, looks like that Freddy; the label says it is a prototype instead. The Glamrock Freddy who helped Gregory was not found in the RUIN material checked."
+    "notes": "The label was viewed in the wiki's capture of the game (File:Prototype-Label.png): the word runs along the sole of the fallen body's foot. That it is the right foot is the wiki's description. Cassie's line on finding it: 'Freddy! Freddy? Are you ok? Please be functional.' In the base game's two hideout endings Freddy is taken apart by S.T.A.F.F. bots on the rabbit woman's order ('Disassemble Freddy...'), and in the Redemption ending Gregory leaves carrying his head. A headless Freddy body in Fazer Blast, below that hideout, looks like that Freddy; the label says it is a prototype instead. The Glamrock Freddy who helped Gregory was not found in the RUIN material checked.",
+    "image": "ruin-prototype-freddy-label.jpg"
   },
   {
     "id": "ruin-burners-inside-of-an-oven",
