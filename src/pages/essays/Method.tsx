@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
@@ -8,7 +8,7 @@ import {
   GameMark, Page, PageHeader, RichText, STATUS, chapterPath, partGroups, readingOrder, smartQuotes, useMediaQuery, type FirmnessInfo,
 } from "../../components/ui";
 import { modelCoverage, type Coverage } from "./coverage";
-import { EssayAnswers, EssayJump, EssayMore, EssayRow, EssayRows, EssaySection } from "./essay";
+import { EssayAnswers, EssayJump, EssayMore, EssayRow, EssayRows, EssaySection, type EssayAnswerItem } from "./essay";
 import { count, knownRecords, pad2, sentenceList, tally } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
@@ -166,10 +166,48 @@ const APART_IDS = APART.map((a) => a.id);
 const SECTIONS = ["evidence-rule", "records", "firmness", "citations", "dates", "accounting", "apart", "limits"] as const;
 const kicker = (id: (typeof SECTIONS)[number]) => pad2(SECTIONS.indexOf(id) + 1);
 
-export default function Method() {
-  const c = COVERAGE;
-  const phone = useMediaQuery("(max-width: 699px)");
+/** The three scales in words. On a phone each folds under its name. */
+function Scales() {
+  const fold = useMediaQuery("(max-width: 699px)");
+  return (
+    <div className={`method-scales${fold ? " method-scales--fold" : ""}`}>
+      <Scale fold={fold} title="A record: certainty" about="How directly the source supports the claim." levels={CERTAINTY} tallies={CERTAINTY_TALLY} noun={["record", "records"]} />
+      <Scale fold={fold} title="A link or an event: support" about="How well the cited records establish it. These are the three layers of the reconstruction." levels={STATUS} tallies={STATUS_TALLY} noun={["link or event", "links and events"]} />
+      <Scale fold={fold} title="A chapter: confidence" about="How well the chapter’s main claim holds." levels={CONFIDENCE} tallies={CONFIDENCE_TALLY} noun={["chapter", "chapters"]} />
+    </div>
+  );
+}
+
+/** What is kept apart from the evidence. The section owns which rows are open. */
+function Apart() {
   const apart = useEssayRows(APART_IDS);
+  return (
+    <EssaySection
+      id="apart"
+      kicker={kicker("apart")}
+      title="What is kept apart from the evidence"
+      lead={<p>Three things the archive uses or discusses without ever counting them as evidence.</p>}
+    >
+      <EssayRows control={apart} label="What is kept apart from the evidence">
+        {APART.map((a) => (
+          <EssayRow key={a.id} id={a.id} title={a.title} sub={a.rule}>
+            <p className="essay-text">{a.body}</p>
+          </EssayRow>
+        ))}
+      </EssayRows>
+    </EssaySection>
+  );
+}
+
+const ANSWERS: EssayAnswerItem[] = [
+  { q: "What counts as evidence?", a: "The games, and Scott Cawthon’s own words. Nothing else: no novels, no guidebooks, no films.", to: "evidence-rule", more: "The source rule" },
+  { q: "What is a record?", a: "One fact from one exact place in a game or in a post by Scott, graded by how directly the source supports it.", to: "records", more: "Records" },
+  { q: "How firm is a claim?", a: "One mark answers that everywhere: a filled disc for firm, a half disc for partial, a ring for tentative.", to: "firmness", more: "The marks" },
+  { q: "How do I check a claim?", a: "Follow its number. Every claim cites its records, and a record opens over the page you are reading.", to: "citations", more: "Citations" },
+];
+
+function Method() {
+  const c = COVERAGE;
   return (
     <Page title="Method" className="essay method-page">
       <CiteScope prime={SAMPLE}>
@@ -181,26 +219,19 @@ export default function Method() {
             <div className="method-today">
               <p className="label">The archive today</p>
               <Facts>
-                <Fact label="Records"><Link to="/evidence">{count(evidence.length, "record")}</Link>, one fact each</Fact>
-                <Fact label="Sources"><Link to="/sources">{count(games.length, "source")}</Link>: the games, Scott’s posts and his teasers</Fact>
-                <Fact label="The theory"><Link to="/theory">{count(theory.length, "chapter")}</Link> in {count(partGroups.length, "part")}</Fact>
+                <Fact label="Records"><span className="method-today__v"><Link to="/evidence">{count(evidence.length, "record")}</Link><span className="method-today__more">, one fact each</span></span></Fact>
+                <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{count(games.length, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
+                <Fact label="The theory"><span className="method-today__v"><Link to="/theory">{count(theory.length, "chapter")}</Link> in {count(partGroups.length, "part")}</span></Fact>
                 {c.total > 0 && (
-                  <Fact label="Records placed in the theory">
-                    <EssayJump to="accounting">{c.complete ? `All ${c.total}` : `${c.placed} of ${c.total}`}</EssayJump>{!c.complete && ` · ${c.percent}%`}
+                  <Fact label="Placed in the theory">
+                    <span className="method-today__v"><EssayJump to="accounting">{c.complete ? `All ${c.total}` : `${c.placed} of ${c.total}`}</EssayJump>{!c.complete && ` · ${c.percent}%`}</span>
                   </Fact>
                 )}
               </Facts>
             </div>
           }
         >
-          <EssayAnswers
-            items={[
-              { q: "What counts as evidence?", a: "The games, and Scott Cawthon’s own words. Nothing else: no novels, no guidebooks, no films.", to: "evidence-rule", more: "The source rule" },
-              { q: "What is a record?", a: "One fact from one exact place in a game or in a post by Scott, graded by how directly the source supports it.", to: "records", more: "Records" },
-              { q: "How firm is a claim?", a: "One mark answers that everywhere: a filled disc for firm, a half disc for partial, a ring for tentative.", to: "firmness", more: "The marks" },
-              { q: "How do I check a claim?", a: "Follow its number. Every claim cites its records, and a record opens over the page you are reading.", to: "citations", more: "Citations" },
-            ]}
-          />
+          <EssayAnswers items={ANSWERS} />
         </PageHeader>
 
         <EssaySection id="evidence-rule" kicker={kicker("evidence-rule")} title="What counts as evidence">
@@ -259,11 +290,7 @@ export default function Method() {
             </p>
           </div>
           <div className="method-legend"><FirmnessLegend /></div>
-          <div className={`method-scales${phone ? " method-scales--fold" : ""}`}>
-            <Scale fold={phone} title="A record: certainty" about="How directly the source supports the claim." levels={CERTAINTY} tallies={CERTAINTY_TALLY} noun={["record", "records"]} />
-            <Scale fold={phone} title="A link or an event: support" about="How well the cited records establish it. These are the three layers of the reconstruction." levels={STATUS} tallies={STATUS_TALLY} noun={["link or event", "links and events"]} />
-            <Scale fold={phone} title="A chapter: confidence" about="How well the chapter’s main claim holds." levels={CONFIDENCE} tallies={CONFIDENCE_TALLY} noun={["chapter", "chapters"]} />
-          </div>
+          <Scales />
           <div className="prose">
             <p>
               Two rules are enforced by the archive’s own checks: nothing is marked canon on implied records alone, and a chapter below high confidence is
@@ -276,7 +303,8 @@ export default function Method() {
           <div className="prose">
             <p>
               A sentence that rests on a record ends in a small number.{" "}
-              {SAMPLE.length > 0 && <>Try this one<CiteGroup ids={SAMPLE.slice(0, 1)} />: it leads to a record the theory cites. </>}
+              {/* Shown only while markers are: with them hidden there would be nothing to try. */}
+              {SAMPLE.length > 0 && <span className="method-try">Try this one<CiteGroup ids={SAMPLE.slice(0, 1)} />: it leads to a record the theory cites. </span>}
               Point at a number for a preview of the record. Click or tap it and the record opens over the page, in a panel at the side on a wide screen or a
               sheet at the bottom on a phone; close it and you are back where you were. Numbers start at 1 on each page, and a record keeps its number
               wherever it comes up again on that page.
@@ -342,20 +370,7 @@ export default function Method() {
           )}
         </EssaySection>
 
-        <EssaySection
-          id="apart"
-          kicker={kicker("apart")}
-          title="What is kept apart from the evidence"
-          lead={<p>Three things the archive uses or discusses without ever counting them as evidence.</p>}
-        >
-          <EssayRows control={apart} label="What is kept apart from the evidence">
-            {APART.map((a) => (
-              <EssayRow key={a.id} id={a.id} title={a.title} sub={a.rule}>
-                <p className="essay-text">{a.body}</p>
-              </EssayRow>
-            ))}
-          </EssayRows>
-        </EssaySection>
+        <Apart />
 
         <EssaySection id="limits" kicker={kicker("limits")} title="Known limits">
           <div className="prose">
@@ -377,3 +392,6 @@ export default function Method() {
     </Page>
   );
 }
+
+// Nothing in the page's frame depends on the address, so an opened row never re-renders it.
+export default memo(Method);

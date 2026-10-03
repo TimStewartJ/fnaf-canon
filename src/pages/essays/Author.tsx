@@ -1,16 +1,21 @@
-import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type LexLine } from "../../data/author";
+import { memo } from "react";
+import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type AuthorStep, type LexLine } from "../../data/author";
 import { creditByFile, evidenceById } from "../../data/store";
 import { Chip, CiteScope, DatePill, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, hueOf, smartQuotes } from "../../components/ui";
 import {
   EssayAnswers, EssayArgument, EssayChapterLink, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
+  type EssayAnswerItem,
 } from "./essay";
 import { answerId, citedIn, count, knownRecords, readingMinutes, yearSpan } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./author.css";
 
+type Reading = (typeof readings)[number];
+
 /** The header's exhibit: page furniture, with a caption written for it. Left out if the archive no longer holds the image. */
-const HERO = "scott-pilgrims-progress-game-shot.jpg";
+const HERO_FILE = "scott-pilgrims-progress-game-shot.jpg";
+const HERO = creditByFile.has(HERO_FILE) ? HERO_FILE : undefined;
 
 const lineId = (line: LexLine): string => (typeof line === "string" ? line : line[0]);
 
@@ -24,8 +29,37 @@ const CITED = knownRecords([
   ...lexicon.flatMap((g) => g.lines.map(lineId)),
   ...authorTimeline.flatMap((s) => [...citedIn(s.body), ...s.evidence]),
 ]);
+const ANSWERS: EssayAnswerItem[] = authorAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }));
+const FACTS = [count(readings.length, "reading tested", "readings tested"), count(authorTimeline.length, "dated step")];
 const MINUTES = readingMinutes(authorAnswer.flatMap((a) => [a.short, ...a.body]));
 const LINE_COUNT = lexicon.reduce((n, g) => n + g.lines.filter((l) => evidenceById.has(lineId(l))).length, 0);
+
+const ReadingRow = memo(function ReadingRow({ r, id }: { r: Reading; id: string }) {
+  return (
+    <EssayRow id={id} kicker={<Chip tone={READING_TONE[r.status]}>{READING_STATUS[r.status]?.label ?? r.status}</Chip>} title={r.claim}>
+      <p className="essay-text"><RichText text={r.body} /></p>
+      <EssayChapterLink id={r.section} />
+    </EssayRow>
+  );
+});
+
+/** The readings. The section owns which of them are open. */
+function Readings() {
+  const tested = useEssayRows(READING_IDS);
+  return (
+    <EssaySection
+      id="readings"
+      kicker="Applied"
+      title="Readings, tested against this background"
+      lead={<p>Each reading is judged on the games first. Scott’s faith only affects how literally the games’ own words are taken.</p>}
+      actions={<EssayToggleAll control={tested} />}
+    >
+      <EssayRows control={tested} label="Readings, tested against this background">
+        {readings.map((r, i) => <ReadingRow key={READING_IDS[i]} r={r} id={READING_IDS[i]} />)}
+      </EssayRows>
+    </EssaySection>
+  );
+}
 
 /** One line of the games' vocabulary: where it is from and the words themselves. It opens its record. */
 function LexRow({ line, group }: { line: LexLine; group: string[] }) {
@@ -44,10 +78,43 @@ function LexRow({ line, group }: { line: LexLine; group: string[] }) {
   );
 }
 
-export default function Author() {
+const StepRow = memo(function StepRow({ s }: { s: AuthorStep }) {
+  return (
+    <EssayRow
+      id={s.id}
+      when={<DatePill variant="inline" label={s.date} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+      node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
+      kicker={<span className="label">{AUTHOR_PHASE[s.phase]?.label ?? s.phase}</span>}
+      title={s.title}
+    >
+      <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" />
+    </EssayRow>
+  );
+});
+
+/** The dated history. The section owns which steps are open. */
+function History() {
   const steps = useEssayRows(STEP_IDS);
-  const tested = useEssayRows(READING_IDS);
-  const hero = creditByFile.has(HERO) ? HERO : undefined;
+  return (
+    <EssaySection
+      id="history"
+      kicker="The record, in order"
+      title="From Christian films to Freddy’s"
+      lead={<p>{count(authorTimeline.length, "dated step")}, {yearSpan(authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+      actions={<EssayToggleAll control={steps} />}
+    >
+      <EssayRows control={steps} variant="spine" label="From Christian films to Freddy’s">
+        {authorTimeline.map((s) => <StepRow key={s.id} s={s} />)}
+      </EssayRows>
+      <p className="essay-note">
+        Hope Animation was a Christian media website run from the UK by David Hutter that sold and hosted Scott’s films; it was not Scott’s own studio.
+        Its archived pages are used here only for titles, years and descriptions. Scott’s words are the evidence.
+      </p>
+    </EssaySection>
+  );
+}
+
+function Author() {
   return (
     <Page title="Scott & Faith" className="essay author-page">
       <CiteScope prime={CITED}>
@@ -55,35 +122,15 @@ export default function Author() {
           kicker="Essay · The author"
           title="Scott & Faith"
           lede="Before Five Nights at Freddy’s, Scott Cawthon spent about twelve years making Christian films and games. Does that background change how the games should be read?"
-          aside={hero && <EssayFigure file={hero} caption="The Pilgrim’s Progress: The Video Game (c. 2011). The battle commands are Faith, Truth, Pray for and Blessings." size="hero" eager />}
+          aside={HERO && <EssayFigure file={HERO} caption="The Pilgrim’s Progress: The Video Game (c. 2011). The battle commands are Faith, Truth, Pray for and Blessings." size="hero" eager />}
         >
-          <EssayAnswers items={authorAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }))} />
-          <EssayMeta minutes={MINUTES} facts={[count(readings.length, "reading tested", "readings tested"), count(authorTimeline.length, "dated step")]} cited={CITED.length} />
+          <EssayAnswers items={ANSWERS} />
+          <EssayMeta minutes={MINUTES} facts={FACTS} cited={CITED.length} />
         </PageHeader>
 
-        <EssayArgument answers={authorAnswer} shown={hero ? [hero] : []} />
+        <EssayArgument answers={authorAnswer} shown={HERO} />
 
-        <EssaySection
-          id="readings"
-          kicker="Applied"
-          title="Readings, tested against this background"
-          lead={<p>Each reading is judged on the games first. Scott’s faith only affects how literally the games’ own words are taken.</p>}
-          actions={<EssayToggleAll control={tested} />}
-        >
-          <EssayRows control={tested} label="Readings, tested against this background">
-            {readings.map((r, i) => (
-              <EssayRow
-                key={READING_IDS[i]}
-                id={READING_IDS[i]}
-                kicker={<Chip tone={READING_TONE[r.status]}>{READING_STATUS[r.status]?.label ?? r.status}</Chip>}
-                title={r.claim}
-              >
-                <p className="essay-text"><RichText text={r.body} /></p>
-                <EssayChapterLink id={r.section} />
-              </EssayRow>
-            ))}
-          </EssayRows>
-        </EssaySection>
+        <Readings />
 
         <EssaySection
           id="vocabulary"
@@ -106,32 +153,7 @@ export default function Author() {
           </div>
         </EssaySection>
 
-        <EssaySection
-          id="history"
-          kicker="The record, in order"
-          title="From Christian films to Freddy’s"
-          lead={<p>{count(authorTimeline.length, "dated step")}, {yearSpan(authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
-          actions={<EssayToggleAll control={steps} />}
-        >
-          <EssayRows control={steps} variant="spine" label="From Christian films to Freddy’s">
-            {authorTimeline.map((s) => (
-              <EssayRow
-                key={s.id}
-                id={s.id}
-                when={<DatePill variant="inline" label={s.date} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
-                node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
-                kicker={<span className="label">{AUTHOR_PHASE[s.phase]?.label ?? s.phase}</span>}
-                title={s.title}
-              >
-                <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" />
-              </EssayRow>
-            ))}
-          </EssayRows>
-          <p className="essay-note">
-            Hope Animation was a Christian media website run from the UK by David Hutter that sold and hosted Scott’s films; it was not Scott’s own studio.
-            Its archived pages are used here only for titles, years and descriptions. Scott’s words are the evidence.
-          </p>
-        </EssaySection>
+        <History />
 
         <EssaySources ids={CITED} />
         <EssayMore current="/author" />
@@ -139,3 +161,6 @@ export default function Author() {
     </Page>
   );
 }
+
+// Nothing in the page's frame depends on the address, so an opened row never re-renders it.
+export default memo(Author);

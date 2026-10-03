@@ -3,8 +3,18 @@
 /* Header aside: the archive in numbers, read off the data. */
 .method-today { padding: var(--sp-4) var(--sp-5) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
 .method-today > .label { margin-bottom: var(--sp-3); }
-.method-today .fact > dd { font-size: var(--fs-base); color: var(--c-text-2); }
-.method-today .fact > dd > a { font-weight: 600; }
+.method-today__v { color: var(--c-text-2); }
+.method-today__v > a { font-weight: 600; }
+/* Below the two-column header the panel follows the short answers, so it shrinks to its numbers. */
+@media (max-width: 899px) {
+  .method-today .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3) var(--sp-4); }
+  .method-today__more { display: none; }
+}
+
+@media (pointer: coarse) { .method-today__v > a { display: inline-block; padding-block: 0.6rem; margin-block: -0.6rem; } }
+
+/* The invitation to try a marker makes no sense while the reader has markers hidden. */
+:root[data-cites="hide"] .method-try { display: none; }
 
 /* The shared legend, then the three scales in words. */
 .method-legend { max-width: var(--measure); padding: var(--sp-3) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
@@ -47,7 +57,9 @@
 .method-ledger__note { grid-column: 1 / -1; margin: 0.15rem 0 0 calc(1rem + var(--sp-3)); font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); }
 
 .method-unplaced { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: 0 var(--sp-6); }
-.method-unplaced > li { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin: 0; padding: var(--sp-2) 0; border-bottom: 1px solid var(--c-line); font-size: var(--fs-sm); }
+.method-unplaced > li { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); margin: 0; border-bottom: 1px solid var(--c-line); font-size: var(--fs-sm); }
+/* The source's name is the link; it is padded out to a comfortable target. */
+.method-unplaced .game { flex: 1 1 auto; min-width: 0; padding-block: 0.7rem; }
 .method-unplaced .num { font-family: var(--font-mono); color: var(--c-text-2); }
 
 .method-next { display: flex; flex-wrap: wrap; gap: var(--sp-3); }

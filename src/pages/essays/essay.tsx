@@ -6,7 +6,7 @@
  * histories; and the records cited, numbered, at the foot. It is built to sit in the same family as
  * the theory's cover and chapters without importing from them.
  */
-import type { CSSProperties, ReactNode } from "react";
+import { memo, type CSSProperties, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowDown, ArrowRight, ArrowUpRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } from "lucide-react";
 import type { Source } from "../../data/community";
@@ -59,8 +59,11 @@ export interface EssayAnswerItem {
   more?: string;
 }
 
-/** The short answers, under the header's question: each can be read on its own, each links to its argument. */
-export function EssayAnswers({ items, label = "The short answers" }: { items: EssayAnswerItem[]; label?: string }) {
+/**
+ * The short answers, under the header's question: each can be read on its own, each links to its
+ * argument. Memoised: give it a list that keeps its identity and it never re-renders.
+ */
+export const EssayAnswers = memo(function EssayAnswers({ items, label = "The short answers" }: { items: readonly EssayAnswerItem[]; label?: string }) {
   if (!items.length) return null;
   return (
     <div className="essay-answers" role="group" aria-label={label}>
@@ -81,7 +84,7 @@ export function EssayAnswers({ items, label = "The short answers" }: { items: Es
       </dl>
     </div>
   );
-}
+});
 
 function openSources() {
   const d = document.getElementById(SOURCES_ID);
@@ -92,7 +95,7 @@ function openSources() {
 }
 
 /** The quiet line under the header: reading time, what the page holds, and a way to the source list. */
-export function EssayMeta({ minutes, cited, facts = [] }: { minutes?: number; cited: number; facts?: string[] }) {
+export function EssayMeta({ minutes, cited, facts = [] }: { minutes?: number; cited: number; facts?: readonly string[] }) {
   const parts: ReactNode[] = [
     ...(minutes ? [`${minutes} min read`] : []),
     ...facts,
@@ -144,14 +147,15 @@ export function EssayRows({ control, variant = "ledger", label, children }: { co
 
 /**
  * One row: an optional date beside it, a line of small marks (kicker), the title, an optional
- * one-line gist, and the detail (children).
+ * one-line gist, and the detail (children). Wrap each row of a long list in a memoised component
+ * of its own: opening one row then re-renders the frames of the others and none of their detail.
  *  - when   sits outside the disclosure, so it may hold a control such as a date pill
  *  - node   what marks the row on the spine: a swatch or an icon
  */
 export function EssayRow({ id, when, node, kicker, title, sub, children }: { id?: string; when?: ReactNode; node?: ReactNode; kicker?: ReactNode; title: string; sub?: ReactNode; children: ReactNode }) {
   const rows = useRows();
-  // The pieces are direct children of the summary: a heading may not sit inside a span.
   const dated = when != null;
+  // The pieces are direct children of the summary: a heading may not sit inside a span.
   const head = (
     <>
       {kicker && <span className={`essay-row__kicker${dated ? " essay-row__kicker--wide" : ""}`}>{kicker}</span>}
@@ -288,11 +292,11 @@ export interface EssayLongAnswer { q: string; short: string; body: string[]; con
 /**
  * The long form of each short answer, one section per question. The question is the heading; the
  * short answer and its confidence stay beside the argument. Records the argument cites that carry
- * an image are shown as exhibits after it (each image once per page; `shown` lists images the page
- * already shows, such as the header's).
+ * an image are shown as exhibits after it (each image once per page; `shown` is an image the page
+ * already shows, in its header).
  */
-export function EssayArgument({ answers, shown }: { answers: readonly EssayLongAnswer[]; shown?: readonly string[] }) {
-  const exhibits = answerExhibits(answers.map((a) => a.body), shown);
+export const EssayArgument = memo(function EssayArgument({ answers, shown }: { answers: readonly EssayLongAnswer[]; shown?: string }) {
+  const exhibits = answerExhibits(answers.map((a) => a.body), shown ? [shown] : []);
   return (
     <>
       {answers.map((a, i) => (
@@ -315,7 +319,7 @@ export function EssayArgument({ answers, shown }: { answers: readonly EssayLongA
       ))}
     </>
   );
-}
+});
 
 /* ── The foot of an essay ──────────────────────────────────────────────────────── */
 
@@ -323,7 +327,7 @@ export function EssayArgument({ answers, shown }: { answers: readonly EssayLongA
  * Every record the page cites, in the order it cites them, numbered like the markers in the text
  * (the page wraps itself in a <CiteScope prime={ids}> so the two agree).
  */
-export function EssaySources({ ids, note }: { ids: readonly string[]; note?: ReactNode }) {
+export const EssaySources = memo(function EssaySources({ ids, note }: { ids: readonly string[]; note?: string }) {
   if (!ids.length) return null;
   return (
     <section className="essay-end" aria-label="Sources">
@@ -333,10 +337,10 @@ export function EssaySources({ ids, note }: { ids: readonly string[]; note?: Rea
       </Collapsible>
     </section>
   );
-}
+});
 
 /** The other essays, at the foot of each. */
-export function EssayMore({ current }: { current: string }) {
+export const EssayMore = memo(function EssayMore({ current }: { current: string }) {
   const others = ESSAYS.filter((e) => e.to !== current);
   return (
     <nav className="essay-more" aria-labelledby="essay-more-title">
@@ -354,4 +358,4 @@ export function EssayMore({ current }: { current: string }) {
       </ul>
     </nav>
   );
-}
+});

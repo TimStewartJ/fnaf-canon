@@ -29,8 +29,8 @@
 .essay-answer__q { font-family: var(--font-text); font-style: italic; font-size: var(--fs-md); line-height: 1.4; color: var(--c-text-2); }
 .essay-answer__a { font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-lg); line-height: 1.42; color: var(--c-text); text-wrap: pretty; }
 .essay-answer__foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.2rem var(--sp-5); margin-top: 0.2rem; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
-.essay-answer__foot > .firm, .essay-answer__foot > .essay-conf { flex: 1 1 14rem; min-width: 0; white-space: normal; }
-.essay-answer__more { display: inline-flex; align-items: center; gap: 0.3em; white-space: nowrap; }
+.essay-answer__foot > .essay-conf { flex: 1 1 14rem; min-width: 0; }
+.essay-answer__more { display: inline-flex; align-items: center; gap: 0.3em; margin-left: auto; white-space: nowrap; }
 .essay-conf > .label { margin-right: var(--sp-1); }
 
 /* Reading time, what the page holds, a way to the source list. */
@@ -41,7 +41,8 @@
 /* ── Sections ──────────────────────────────────────────────────────
  * The heading sits above the content on a narrow screen. From 1080px (where a chapter gets its
  * rail) it moves into a 17rem column beside the content and stays in view while the content scrolls. */
-.essay-section { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: 1px solid var(--c-line); scroll-margin-top: calc(var(--sticky-top) + var(--sp-4)); outline: none; }
+/* No scroll-margin here or on rows: the document's scroll-padding already clears the sticky header. */
+.essay-section { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: 1px solid var(--c-line); }
 .essay > .page-header + .essay-section { margin-top: var(--sp-7); }
 .essay-section__head { margin-bottom: var(--sp-5); }
 .essay-section__head > .kicker { margin-bottom: var(--sp-2); }
@@ -72,13 +73,14 @@
  * One anatomy for theories, readings and dated steps: an optional date beside the row, a line of
  * small marks, the title, an optional one-line gist. The detail opens underneath. */
 .essay-rows { list-style: none; margin: 0; padding: 0; }
-.essay-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; scroll-margin-top: calc(var(--sticky-top) + var(--sp-4)); }
+.essay-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; }
 .essay-row__item { min-width: 0; }
-.essay-row__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sp-3); row-gap: 0.3rem; align-items: start; padding: var(--sp-3) 0; }
-.essay-row__head > * { grid-column: 1; min-width: 0; }
-summary.essay-row__head { list-style: none; margin-inline: calc(-1 * var(--sp-2)); padding-inline: var(--sp-2); border-radius: var(--r-sm); transition: background var(--dur-1) var(--ease); }
+.essay-row__head { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.3rem; padding: var(--sp-3) 0; }
+.essay-row__head > * { min-width: 0; }
+/* As a disclosure the head reserves room on the right for its chevron, which sits at mid-height however many lines the head has. */
+summary.essay-row__head { list-style: none; margin-inline: calc(-1 * var(--sp-2)); padding-inline: var(--sp-2) 2.75rem; border-radius: var(--r-sm); }
 summary.essay-row__head::-webkit-details-marker { display: none; }
-.essay-row__head > .essay-row__chev { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin-inline: var(--sp-1); color: var(--c-text-3); }
+.essay-row__head > .essay-row__chev { position: absolute; right: var(--sp-3); top: calc(50% - 0.55em); color: var(--c-text-3); }
 .essay-row__kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem var(--sp-3); min-height: 1.3rem; }
 /* A dated row carries its marks twice: beside the date on a narrow screen, above the title on a wide one. */
 .essay-row__kicker--wide { display: none; }
@@ -93,7 +95,10 @@ summary.essay-row__head::-webkit-details-marker { display: none; }
   summary.essay-row__head:hover .essay-row__chev { color: var(--c-text); }
 }
 .essay-row__item[open] > summary .essay-row__chev { transform: rotate(180deg); }
-@media (prefers-reduced-motion: no-preference) { .essay-row__chev { transition: transform var(--dur-2) var(--ease); } }
+@media (prefers-reduced-motion: no-preference) {
+  summary.essay-row__head { transition: background var(--dur-1) var(--ease); }
+  .essay-row__chev { transition: transform var(--dur-2) var(--ease); }
+}
 .essay-row__body { display: grid; gap: var(--sp-4); min-width: 0; padding: var(--sp-1) 0 var(--sp-5); }
 .essay-row__body > * { margin: 0; min-width: 0; }
 
@@ -165,7 +170,7 @@ summary.essay-row__head::-webkit-details-marker { display: none; }
 .essay-ref a:hover { color: var(--c-accent-strong); }
 .essay-ref a > .icon { margin-left: 0.15em; }
 .essay-ref cite { font-family: var(--font-text); font-style: italic; font-size: 1.06em; }
-@media (pointer: coarse) { .essay-refs__list { gap: var(--sp-2); } .essay-ref a { padding-block: 0.3rem; } }
+@media (pointer: coarse) { .essay-refs__list { gap: 0; } .essay-ref a { padding-block: 0.66rem; } }
 
 /* The chapter of the theory that argues the point. */
 .essay-chapter { display: grid; gap: 0.3rem; max-width: var(--measure); padding: var(--sp-3) var(--sp-4); color: var(--c-text); border: 1px solid var(--c-line-strong); border-radius: var(--r-md); text-decoration: none; }
@@ -189,3 +194,10 @@ summary.essay-row__head::-webkit-details-marker { display: none; }
 .essay-more__item:hover .essay-more__title { color: var(--c-accent-strong); }
 .essay-more__desc { grid-column: 1; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.45; color: var(--c-text-2); }
 .essay-more__go { grid-column: 2; grid-row: 1; align-self: center; color: var(--c-text-3); }
+
+/* ── Touch ─────────────────────────────────────────────────────────
+ * Small standalone links and the dates beside rows get a thumb-sized hit area without moving anything. */
+@media (pointer: coarse) {
+  .essay-answer__more, .essay-meta__sources { padding-block: 0.7rem; margin-block: -0.7rem; }
+  .essay-row__when .date { padding-block: 0.75rem; margin-block: -0.75rem; }
+}

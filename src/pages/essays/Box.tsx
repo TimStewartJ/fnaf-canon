@@ -1,8 +1,12 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
-import { boxAnswer, boxGuesses, boxTimeline } from "../../data/box";
+import { boxAnswer, boxGuesses, boxTimeline, type BoxStep } from "../../data/box";
 import { creditByFile } from "../../data/store";
 import { CiteScope, DatePill, PHASE_HUE, Page, PageHeader, RichText, hueOf, smartQuotes } from "../../components/ui";
-import { EssayAnswers, EssayArgument, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll } from "./essay";
+import {
+  EssayAnswers, EssayArgument, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
+  type EssayAnswerItem,
+} from "./essay";
 import { answerId, citedIn, count, knownRecords, readingMinutes, recordOfImage, yearSpan } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
@@ -12,7 +16,8 @@ import "./box.css";
 const PHASE: Record<string, string> = { planted: "Planted", explained: "Explained", shelved: "Shelved", echoed: "Echoed", abandoned: "Abandoned" };
 
 /** The header's exhibit: page furniture, with a caption written for it. Left out if the archive no longer holds the image. */
-const HERO = "fnaf4-locked-box-ending.jpg";
+const HERO_FILE = "fnaf4-locked-box-ending.jpg";
+const HERO = creditByFile.has(HERO_FILE) ? HERO_FILE : undefined;
 
 // Everything below is read off the data when the page loads: no ids or counts are written here.
 const STEP_IDS = boxTimeline.map((s) => s.id);
@@ -23,11 +28,43 @@ const CITED = knownRecords([
   ...boxTimeline.flatMap((s) => [...citedIn(s.body), ...s.evidence]),
   ...boxGuesses.flatMap((g) => citedIn(g.verdict)),
 ]);
+const ANSWERS: EssayAnswerItem[] = boxAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }));
+const FACTS = [count(boxTimeline.length, "dated step")];
 const MINUTES = readingMinutes(boxAnswer.flatMap((a) => [a.short, ...a.body]));
 
-export default function Box() {
+const StepRow = memo(function StepRow({ s }: { s: BoxStep }) {
+  return (
+    <EssayRow
+      id={s.id}
+      when={<DatePill variant="inline" label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+      node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
+      kicker={<span className="label">{PHASE[s.phase] ?? s.phase}</span>}
+      title={s.title}
+    >
+      <EssayEntry text={s.body} image={s.image} evidence={s.evidence} />
+    </EssayRow>
+  );
+});
+
+/** The dated history. It owns which steps are open, so opening one re-renders nothing else on the page. */
+function History() {
   const steps = useEssayRows(STEP_IDS);
-  const hero = creditByFile.has(HERO) ? HERO : undefined;
+  return (
+    <EssaySection
+      id="history"
+      kicker="The record, in order"
+      title="The box, step by step"
+      lead={<p>{count(boxTimeline.length, "dated step")}, {yearSpan(boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+      actions={<EssayToggleAll control={steps} />}
+    >
+      <EssayRows control={steps} variant="spine" label="The box, step by step">
+        {boxTimeline.map((s) => <StepRow key={s.id} s={s} />)}
+      </EssayRows>
+    </EssaySection>
+  );
+}
+
+function Box() {
   return (
     <Page title="The Box" className="essay box-page">
       <CiteScope prime={CITED}>
@@ -35,36 +72,15 @@ export default function Box() {
           kicker="Essay · FNaF4, Night 7"
           title="The locked box"
           lede="FNaF4’s hardest night ends on a grey box with two padlocks and one line: “Perhaps some things are best left forgotten, for now.” What was in it, and why did it never open?"
-          aside={hero && <EssayFigure file={hero} evidence={recordOfImage(hero, ALL_EVIDENCE)} caption="FNaF4, Night 7: the box that cannot be opened" size="hero" eager />}
+          aside={HERO && <EssayFigure file={HERO} evidence={recordOfImage(HERO, ALL_EVIDENCE)} caption="FNaF4, Night 7: the box that cannot be opened" size="hero" eager />}
         >
-          <EssayAnswers items={boxAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }))} />
-          <EssayMeta minutes={MINUTES} facts={[count(boxTimeline.length, "dated step")]} cited={CITED.length} />
+          <EssayAnswers items={ANSWERS} />
+          <EssayMeta minutes={MINUTES} facts={FACTS} cited={CITED.length} />
         </PageHeader>
 
-        <EssayArgument answers={boxAnswer} shown={hero ? [hero] : []} />
+        <EssayArgument answers={boxAnswer} shown={HERO} />
 
-        <EssaySection
-          id="history"
-          kicker="The record, in order"
-          title="The box, step by step"
-          lead={<p>{count(boxTimeline.length, "dated step")}, {yearSpan(boxTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
-          actions={<EssayToggleAll control={steps} />}
-        >
-          <EssayRows control={steps} variant="spine" label="The box, step by step">
-            {boxTimeline.map((s) => (
-              <EssayRow
-                key={s.id}
-                id={s.id}
-                when={<DatePill variant="inline" label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
-                node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
-                kicker={<span className="label">{PHASE[s.phase] ?? s.phase}</span>}
-                title={s.title}
-              >
-                <EssayEntry text={s.body} image={s.image} evidence={s.evidence} />
-              </EssayRow>
-            ))}
-          </EssayRows>
-        </EssaySection>
+        <History />
 
         <EssaySection
           id="guesses"
@@ -88,3 +104,6 @@ export default function Box() {
     </Page>
   );
 }
+
+// Nothing in the page's frame depends on the address, so a filter or an opened row never re-renders it.
+export default memo(Box);
