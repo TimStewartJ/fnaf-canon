@@ -1,11 +1,12 @@
-import { memo, useLayoutEffect, useMemo, useRef } from "react";
+import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { Death } from "../../data/deaths";
+import type { Evidence } from "../../data/schema";
 import { eventDate } from "../../data/dates";
 import { evidenceById } from "../../data/store";
 import {
-  ChapterLink, Chip, CiteList, CiteScope, DEATH_KIND_ICON, DatePill, DeathIcon, EntityLink, EvidenceList, Figure, Icon, RichText, StatusMark,
+  Button, ChapterLink, Chip, CiteList, CiteScope, DEATH_KIND_ICON, DatePill, DeathIcon, EntityLink, EvidenceRow, Figure, Icon, RichText, StatusMark,
   chapterNumber, excerpt, levelOf, smartQuotes,
 } from "../../components/ui";
 import { type DeathRow, type EventRow, type Row, causeLabel, chaptersFor, eventLink, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
@@ -81,12 +82,43 @@ function ArguedIn({ evidence }: { evidence: string[] }) {
   );
 }
 
-/** The records behind an entry, as rows that open the evidence drawer. An entry with none says so. */
+/** How many records an open entry lists before it offers the rest. Nothing is cut for the sake of a few. */
+const RECORDS_SHOWN = 8;
+const RECORDS_MIN_HIDDEN = 3;
+
+/**
+ * The records behind an entry, as rows that open the evidence drawer. An entry with none says so.
+ * One with a great many lists the first (those its summary cites come first) and offers the rest;
+ * the drawer pages through all of them either way.
+ */
 function Records({ ids, numbers }: { ids: string[]; numbers?: (id: string) => number | undefined }) {
+  const records = ids.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
+  const [all, setAll] = useState(false);
+  const cut = !all && records.length >= RECORDS_SHOWN + RECORDS_MIN_HIDDEN;
+  const group = records.length > 1 ? records.map((e) => e.id) : undefined;
+  // After "show the rest", focus moves to the first record that appeared.
+  const list = useRef<HTMLUListElement | null>(null);
+  const reveal = useRef(false);
+  useEffect(() => {
+    if (!all || !reveal.current) return;
+    reveal.current = false;
+    list.current?.children[RECORDS_SHOWN]?.querySelector<HTMLElement>("a")?.focus({ preventScroll: true });
+  }, [all]);
   return (
     <div className="tl-detail__records">
-      <h4 className="label">Evidence · {plural(ids.length, "record")}</h4>
-      {ids.length > 0 ? <EvidenceList ids={ids} numbers={numbers} claim={false} /> : <p className="tl-detail__none">No evidence records are filed under this entry.</p>}
+      <h4 className="label">Evidence · {plural(records.length, "record")}</h4>
+      {records.length > 0 ? (
+        <ul className="ev-list" ref={list}>
+          {(cut ? records.slice(0, RECORDS_SHOWN) : records).map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} claim={false} />)}
+        </ul>
+      ) : (
+        <p className="tl-detail__none">No evidence records are filed under this entry.</p>
+      )}
+      {cut && (
+        <p className="tl-detail__more">
+          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; setAll(true); }}>Show the other {records.length - RECORDS_SHOWN} records</Button>
+        </p>
+      )}
     </div>
   );
 }
@@ -126,7 +158,7 @@ function DeathDetail({ row }: { row: DeathRow }) {
           <ArguedIn evidence={d.evidence} />
         </div>
       </div>
-      <Records ids={d.evidence.filter((id) => evidenceById.has(id))} />
+      <Records ids={d.evidence} />
     </>
   );
 }

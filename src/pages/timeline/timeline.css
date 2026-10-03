@@ -7,6 +7,11 @@
  * colours arrive as --hue and are only ever used for swatches, rules and tints.
  */
 
+/* The reader's text-size setting. The shell applies it to long-form prose (--fs-read); here it scales
+   the story itself: entry titles, era summaries, excerpts, an open row's summary and notes. Dates,
+   labels and controls keep their size. Medium is 1, so the default look does not depend on it. */
+.tl-page { --tl-read: var(--read-scale, 1); }
+
 /* ── Page top: lede, the two views, the tools ──────────────────── */
 .tl-page .page-header { margin-bottom: var(--sp-5); }
 .tl-page .page-header .lede { max-width: var(--measure-wide); margin-bottom: var(--sp-2); }
@@ -121,7 +126,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-era__tally { color: var(--c-text-3); }
 .tl-era__titleline { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4); }
 .tl-era__title { margin: 0; font-size: var(--fs-2xl); line-height: 1.1; }
-.tl-era__sum { max-width: var(--measure-wide); margin: var(--sp-3) 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
+.tl-era__sum { max-width: var(--measure-wide); margin: var(--sp-3) 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
 .tl-era__none { margin: 0; font-size: var(--fs-sm); color: var(--c-text-3); }
 
 /* A long era cut short: the spine runs on, dashed, to the button that shows the rest. */
@@ -159,7 +164,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-row__status .firm { font-weight: 500; color: var(--c-text-2); }
 /* The full phrase ("Strong inference") where there is room, the short word on a phone. */
 .tl-row__status--short { display: none; }
-.tl-row__title { margin: 0; font-size: 1.1875rem; line-height: 1.24; }
+.tl-row__title { margin: 0; font-size: calc(1.1875rem * var(--tl-read)); line-height: 1.24; }
 .tl-row__toggle { padding: 0; font: inherit; letter-spacing: inherit; color: var(--c-text); text-align: left; background: none; border: 0; cursor: pointer; }
 /* The whole head opens the row, not only the words of the title. */
 .tl-row__toggle::after { content: ""; position: absolute; inset: calc(-1 * var(--sp-3)) calc(-1 * var(--sp-4)); }
@@ -171,7 +176,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 }
 .tl-row__chev { position: absolute; top: 0.3rem; right: 0; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
 .tl-row.is-open .tl-row__chev { transform: rotate(180deg); }
-.tl-row__excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; max-width: var(--measure-wide); margin: 0.3rem 0 0; overflow: hidden; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-2); }
+.tl-row__excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; max-width: var(--measure-wide); margin: 0.3rem 0 0; overflow: hidden; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-base) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); }
 /* The gap trails a fact instead of leading the next, so a fact that wraps starts flush with the line. */
 .tl-row__fact:not(:last-child) { margin-right: var(--sp-3); }
 .tl-row__k { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }
@@ -189,7 +194,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-detail { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); margin-top: var(--sp-3); }
 .tl-detail[hidden] { display: none; }
 .tl-detail__top { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4); }
-.tl-detail__sum { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.62; color: var(--c-text-read); font-variant-numeric: oldstyle-nums proportional-nums; text-wrap: pretty; }
+.tl-detail__sum { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.62; color: var(--c-text-read); font-variant-numeric: oldstyle-nums proportional-nums; text-wrap: pretty; }
 .tl-detail__fig { max-width: 26rem; }
 .tl-detail__fig .figure__frame img { max-height: 16rem; }
 .tl-detail__rest { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4); min-width: 0; }
@@ -202,6 +207,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-argued__n { margin-right: 0.15em; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; font-style: normal; color: var(--c-accent); }
 .tl-detail__argued > .label { margin-bottom: var(--sp-2); }
 .tl-detail__none { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-3); }
+.tl-detail__more { margin: 0; padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
 .tl-detail__foot { display: flex; justify-content: flex-end; margin: calc(-1 * var(--sp-3)) 0 0; }
 .tl-chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); margin: 0; }
 @container tl-main (min-width: 41rem) {
@@ -221,8 +227,8 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-death.is-marked { outline: 2px solid var(--c-accent-line); outline-offset: 2px; }
 .tl-death__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-3); margin: 0; }
 .tl-death__marks { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
-.tl-death__title { margin: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.25; letter-spacing: -0.01em; }
-.tl-death__note { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-read); }
+.tl-death__title { margin: 0; font-family: var(--font-display); font-size: calc(var(--fs-md) * var(--tl-read)); font-weight: var(--w-display); line-height: 1.25; letter-spacing: -0.01em; }
+.tl-death__note { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-base) * var(--tl-read)); line-height: 1.55; color: var(--c-text-read); }
 .tl-death__rests { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2); min-width: 0; margin: var(--sp-1) 0 0; }
 
 /* ── Narrower than the rail: the era bar is sticky, so targets clear it ──
@@ -238,7 +244,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 /* ── Phone: tighter rows ───────────────────────────────────────── */
 @media (max-width: 699px) {
   .tl-era + .tl-era { margin-top: calc(var(--sp-7) - 2.75rem); }
-  .tl-era__sum { font-size: var(--fs-base); }
+  .tl-era__sum { font-size: calc(var(--fs-base) * var(--tl-read)); }
   .tl-row { --tl-node: 1.375rem; column-gap: var(--sp-1); }
   .tl-row__main { padding: 0.625rem var(--sp-2); }
   .tl-row.is-open .tl-row__main { padding: var(--sp-3); padding-left: calc(var(--sp-3) - 2px); }
@@ -250,7 +256,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
   .tl-row__status--long { display: none; }
   .tl-row__status--short { display: inline; }
   .tl-row__toggle::after { inset: -0.625rem calc(-1 * var(--sp-2)); }
-  .tl-row__title { font-size: var(--fs-md); }
+  .tl-row__title { font-size: calc(var(--fs-md) * var(--tl-read)); }
   .tl-more { padding-left: calc(1.375rem + var(--sp-1) + var(--sp-2)); }
   .tl-more::before { left: calc(0.6875rem - 0.5px); }
   .tl-death { padding: var(--sp-3); }
@@ -269,7 +275,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc { --tl-place: clamp(13rem, 30%, 20rem); --tl-colgap: 3px; --tl-cell: calc((100cqi - (var(--tl-n) - 1) * var(--tl-colgap)) / var(--tl-n)); }
 .tl-loc__intro { max-width: var(--measure-wide); margin-bottom: var(--sp-4); }
 .tl-loc__intro h2 { margin: 0 0 var(--sp-2); font-size: var(--fs-2xl); line-height: 1.1; }
-.tl-loc__intro p { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text-2); }
+.tl-loc__intro p { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); }
 .tl-loc__intro .tl-loc__legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-4); margin-top: var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); }
 .tl-loc__legend > span { display: inline-flex; align-items: center; gap: 0.4em; }
 .tl-loc__legend-death .icon { color: var(--c-tension); }
