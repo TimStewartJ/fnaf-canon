@@ -86,7 +86,8 @@ dialog.drawer {
 dialog.drawer[open] { display: flex; }
 dialog.drawer::backdrop { background: var(--c-scrim); }
 .drawer__bar { display: flex; align-items: center; gap: var(--sp-1); padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-5); border-bottom: 1px solid var(--c-line); flex: none; }
-.drawer__bar > .label { flex: 1; }
+/* Beside three buttons on a phone the label can take two lines: break it evenly, not one word from the end. */
+.drawer__bar > .label { flex: 1; min-width: 0; text-wrap: balance; }
 .drawer__pager { display: inline-flex; }
 .drawer__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-4); }
 .drawer__body > * { margin: 0; }
