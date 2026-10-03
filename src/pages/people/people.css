@@ -5,6 +5,7 @@
 .ppl-search { max-width: 34rem; margin-bottom: var(--sp-4); }
 .ppl-key { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-4); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .ppl-key__note { flex-basis: 100%; }
+.ppl-search-wrap { scroll-margin-top: var(--sp-3); }
 /* A phone, with a name being typed: the key steps aside so the matches show above the keyboard. */
 @media (max-width: 40em) { .ppl-key[data-quiet] { display: none; } }
 
