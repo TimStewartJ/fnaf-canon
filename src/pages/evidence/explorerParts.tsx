@@ -1,4 +1,4 @@
-import { memo, useId, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
+import { memo, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { CircleHelp, Image as ImageIcon, X } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { gameById, labelForEntity } from "../../data/store";
@@ -65,6 +65,20 @@ export const ResultRow = memo(function ResultRow({ e, group, terms, source = tru
 
 /* ── Facets ────────────────────────────────────────────────────────────────────── */
 
+/**
+ * The filters live in a box that scrolls by itself (the rail, the sheet). When something inside it
+ * opens downwards and would end below the box's edge, the box scrolls to bring its top into view,
+ * so that opening it visibly does something. The page itself is never moved.
+ */
+function reveal(el: HTMLElement | null, always = false) {
+  if (!el) return;
+  let box = el.parentElement;
+  while (box && !/(auto|scroll)/.test(getComputedStyle(box).overflowY)) box = box.parentElement;
+  if (!box || box === document.body || box === document.documentElement) return;
+  const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+  if (always || r.bottom > b.bottom) box.scrollTop += r.top - b.top - 8;
+}
+
 function Opt({ checked, n, label, onChange, children, title }: { checked: boolean; n: number; label: string; onChange: (on: boolean) => void; children: ReactNode; title?: string }) {
   // An option that would match nothing is switched off, unless it is ticked (so it can be unticked).
   const dead = n === 0 && !checked;
@@ -99,7 +113,7 @@ export interface FacetActions {
  * number of records it would give; the rest sit under "More filters". Shown as a rail beside the
  * results on a wide screen and inside a sheet on a narrow one.
  */
-export function Facets({ query, outcome, searching, actions, options }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions }) {
+export function Facets({ query, outcome, searching, actions, options, skipTo }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions; skipTo?: string }) {
   const { counts } = outcome;
   // Every option the archive has is always listed, so the lists do not jump as filters change;
   // a value that only the URL knows about is added so that it can be unticked.
@@ -110,8 +124,18 @@ export function Facets({ query, outcome, searching, actions, options }: { query:
   const entities = useMemo(() => entityOptions(counts.entity, query.entity), [counts.entity, query.entity]);
   const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (query.img ? 1 : 0) + (query.sort ? 1 : 0);
   const defaultSort: Sort = searching ? "match" : "time";
+  const more = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = more.current;
+    if (!el) return;
+    // "toggle" does not bubble, so it is caught on the way down.
+    const onToggle = (ev: Event) => { if (ev.target instanceof HTMLDetailsElement && ev.target.open) reveal(el); };
+    el.addEventListener("toggle", onToggle, true);
+    return () => el.removeEventListener("toggle", onToggle, true);
+  }, []);
   return (
     <div className="evx-facets">
+      {skipTo && <button type="button" className="evx-skip" onClick={() => document.getElementById(skipTo)?.focus()}>Skip the filters</button>}
       <Facet label="Source" wide>
         {sources.map((id) => (
           <Opt key={id} checked={query.game.includes(id)} n={counts.game.get(id) ?? 0} label={gameById.get(id as never)?.title ?? id} onChange={() => actions.toggle("game", id)}>
@@ -136,36 +160,38 @@ export function Facets({ query, outcome, searching, actions, options }: { query:
           </Opt>
         ))}
       </Facet>
-      <Collapsible summary="More filters" meta={folded ? `${folded} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
-        <div className="evx-facets evx-facets--more">
-          <div className="evx-facet">
-            <Opt checked={query.img} n={query.img ? outcome.results.length : counts.img} label="With a screenshot" onChange={(on) => actions.set({ img: on })}>
-              <Icon icon={ImageIcon} /> With a screenshot
-            </Opt>
-          </div>
-          <Facet label="Place in the theory">
-            {PLACES.map((p) => (
-              <Opt key={p} checked={query.use.includes(p)} n={counts.use.get(p) ?? 0} label={PLACE[p].word} title={PLACE[p].help} onChange={() => actions.toggle("use", p)}>
-                <PlaceSwatch place={p} /> {PLACE[p].word}
+      <div ref={more}>
+        <Collapsible summary="More filters" meta={folded ? `${folded} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
+          <div className="evx-facets evx-facets--more">
+            <div className="evx-facet">
+              <Opt checked={query.img} n={query.img ? outcome.results.length : counts.img} label="With a screenshot" onChange={(on) => actions.set({ img: on })}>
+                <Icon icon={ImageIcon} /> With a screenshot
               </Opt>
-            ))}
-          </Facet>
-          <Combo label="Tag" placeholder="Find a tag" options={tags} value={query.tag} valueLabel={query.tag ? `#${query.tag}` : ""} onChange={(id) => actions.set({ tag: id })} />
-          <Combo
-            label="Person or place" placeholder="Find a person or place" options={entities} value={query.entity}
-            valueLabel={query.entity ? entities.find((o) => o.id === query.entity)?.label ?? query.entity : ""}
-            onChange={(id) => actions.set({ entity: id })}
-          />
-          <label className="evx-field">
-            <span className="evx-facet__label">Order</span>
-            <select value={outcome.sort} onChange={(ev) => { const v = ev.target.value as Sort; actions.set({ sort: v === defaultSort ? null : v }); }}>
-              {searching && <option value="match">Best match first</option>}
-              <option value="time">In-universe time</option>
-              <option value="game">Release order of the sources</option>
-            </select>
-          </label>
-        </div>
-      </Collapsible>
+            </div>
+            <Facet label="Place in the theory">
+              {PLACES.map((p) => (
+                <Opt key={p} checked={query.use.includes(p)} n={counts.use.get(p) ?? 0} label={PLACE[p].word} title={PLACE[p].help} onChange={() => actions.toggle("use", p)}>
+                  <PlaceSwatch place={p} /> {PLACE[p].word}
+                </Opt>
+              ))}
+            </Facet>
+            <Combo label="Tag" placeholder="Find a tag" options={tags} value={query.tag} valueLabel={query.tag ? `#${query.tag}` : ""} onChange={(id) => actions.set({ tag: id })} />
+            <Combo
+              label="Person or place" placeholder="Find a person or place" options={entities} value={query.entity}
+              valueLabel={query.entity ? entities.find((o) => o.id === query.entity)?.label ?? query.entity : ""}
+              onChange={(id) => actions.set({ entity: id })}
+            />
+            <label className="evx-field">
+              <span className="evx-facet__label">Order</span>
+              <select value={outcome.sort} onChange={(ev) => { const v = ev.target.value as Sort; actions.set({ sort: v === defaultSort ? null : v }); }}>
+                {searching && <option value="match">Best match first</option>}
+                <option value="time">In-universe time</option>
+                <option value="game">Release order of the sources</option>
+              </select>
+            </label>
+          </div>
+        </Collapsible>
+      </div>
     </div>
   );
 }
@@ -200,6 +226,9 @@ export function Combo({ label, placeholder, options, value, valueLabel, onChange
     }
     return buckets.flat();
   }, [options, text]);
+  const root = useRef<HTMLDivElement | null>(null);
+  // On touch the keyboard takes the lower half of the screen, so the picker always moves to the top of its box.
+  useEffect(() => { if (open) reveal(root.current, window.matchMedia("(pointer: coarse)").matches); }, [open]);
   const shown = found.slice(0, SHOWN);
   const pickable = shown.filter((o) => o.count > 0);
   const at = Math.min(active, Math.max(0, pickable.length - 1));
@@ -225,7 +254,7 @@ export function Combo({ label, placeholder, options, value, valueLabel, onChange
       dead > 0 ? (pickable.length === 0 ? "No records under the filters now set." : "Greyed out: no records under the filters now set.") : "",
     ].filter(Boolean).join(" ");
   return (
-    <div className="evx-combo" onBlur={(ev) => { if (!ev.currentTarget.contains(ev.relatedTarget as Node | null)) setOpen(false); }}>
+    <div className="evx-combo" ref={root} onBlur={(ev) => { if (!ev.currentTarget.contains(ev.relatedTarget as Node | null)) setOpen(false); }}>
       <label className="evx-facet__label" htmlFor={`${uid}-in`}>{label}</label>
       {value && (
         <span className="evx-combo__value">

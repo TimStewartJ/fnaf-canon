@@ -27,7 +27,12 @@
 .evx-main { min-width: 0; }
 
 /* ── Filters: the rail on a wide screen ────────────────────────── */
-.evx-rail { position: sticky; top: calc(var(--sticky-top) + var(--sp-4)); max-height: calc(100vh - var(--sticky-top) - var(--sp-5)); overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--sp-3) var(--sp-4) 2px; margin-left: -2px; scrollbar-width: thin; scrollbar-color: var(--c-line-strong) transparent; }
+/* The rail stays in reach beside the list and scrolls by itself when it is taller than the window.
+   Scrolling past its end carries on to the page, so the wheel is never stuck over it. */
+.evx-rail { position: sticky; top: calc(var(--sticky-top) + var(--sp-4)); max-height: calc(100vh - var(--sticky-top) - var(--sp-5)); overflow-y: auto; padding: 0 var(--sp-3) var(--sp-4) 2px; margin-left: -2px; scrollbar-width: thin; scrollbar-color: var(--c-line-strong) transparent; }
+/* For keyboard users: one step past some thirty checkboxes. Visible only while it has focus. */
+.evx-skip { position: absolute; left: -9999px; }
+.evx-skip:focus-visible { position: static; justify-self: start; padding: 0.3rem 0.6rem; font-size: var(--fs-sm); color: var(--c-accent); background: var(--c-surface-2); border: 0; border-radius: var(--r-sm); text-decoration: underline; text-underline-offset: 0.2em; }
 .evx-facets { display: grid; gap: var(--sp-5); min-width: 0; }
 .evx-facets--more { gap: var(--sp-4); }
 .evx-facet { min-width: 0; margin: 0; padding: 0; border: 0; }
@@ -129,7 +134,8 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-section:first-child > .evx-list:first-child { border-top: 1px solid var(--c-line-strong); }
 .evx-row { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 15rem); column-gap: var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-3) var(--sp-2); border-bottom: 1px solid var(--c-line); font-family: var(--font-ui); font-size: var(--fs-base); transition: background var(--dur-1) var(--ease); }
 .evx-row.is-open { background: var(--c-surface); box-shadow: inset 2px 0 0 var(--c-accent); }
-.evx-row__mark { display: inline-flex; }
+/* Above the row's stretched link, so that pointing at the mark says what it means. */
+.evx-row__mark { position: relative; z-index: var(--z-raised); display: inline-flex; cursor: help; }
 .evx-row__main { display: grid; gap: 0.15rem; min-width: 0; }
 .evx-row__title { justify-self: start; font-weight: 600; line-height: 1.35; color: var(--c-text); text-decoration: none; }
 /* The whole row is the target; the link itself stays a link (new tab, copy address). */
@@ -157,6 +163,9 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 @media (max-width: 760px) { .evx-row { padding-inline: 0; } }
 
 .evx-next { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); margin: var(--sp-5) 0 0; }
+.evx-next--earlier { margin: 0 0 var(--sp-4); }
+/* The explorer moves the page itself when records are let go above the reader (EvidenceExplorer.tsx). */
+.evx-main { overflow-anchor: none; }
 .evx-next__note { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
 
 /* ── Record page ───────────────────────────────────────────────── */

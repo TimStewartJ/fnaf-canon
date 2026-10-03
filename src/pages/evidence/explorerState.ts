@@ -13,7 +13,8 @@
  *   img=1    only records with a screenshot
  *   sort     match | time | game   (default: match while searching, otherwise time)
  *   view     cards                 (default: rows)
- *   n        how many results are shown
+ *   n        how many results are shown (never more than MOST at once)
+ *   from     how many results come before the first one shown (the list moves along past MOST)
  * Links written before several values were allowed carry exactly one and read the same as ever.
  */
 import type { Evidence } from "../../data/schema";
@@ -39,15 +40,25 @@ export interface Query {
   view: View;
   /** As written in the URL; null when left to the default. */
   n: number | null;
+  /** Results before the first one shown. */
+  from: number;
 }
 
+/** How many results a view starts with, and how many "show more" adds. */
 export const PAGE: Record<View, number> = { rows: 50, cards: 12 };
+/**
+ * The most that is ever drawn at once. Past this, "show more" still adds a step at the end but
+ * lets go of a step at the start (which "show earlier" brings back), so the page stays a bounded
+ * length however large the archive grows, and every record can still be reached.
+ */
+export const MOST: Record<View, number> = { rows: 100, cards: 24 };
 
 const list = (v: string | null): string[] => [...new Set((v ?? "").split(/[\s,]+/).filter(Boolean))];
 
 export function parseQuery(sp: URLSearchParams): Query {
   const sort = sp.get("sort");
   const n = Number(sp.get("n"));
+  const from = Number(sp.get("from"));
   return {
     q: sp.get("q") ?? "",
     game: list(sp.get("game")),
@@ -60,6 +71,7 @@ export function parseQuery(sp: URLSearchParams): Query {
     sort: sort === "match" || sort === "time" || sort === "game" ? sort : null,
     view: sp.get("view") === "cards" ? "cards" : "rows",
     n: Number.isInteger(n) && n > 0 ? n : null,
+    from: Number.isInteger(from) && from > 0 ? from : 0,
   };
 }
 
@@ -76,7 +88,8 @@ export function toParams(query: Query): URLSearchParams {
   if (query.img) sp.set("img", "1");
   if (query.sort) sp.set("sort", query.sort);
   if (query.view !== "rows") sp.set("view", query.view);
-  if (query.n) sp.set("n", String(query.n));
+  if (query.n && query.n !== PAGE[query.view]) sp.set("n", String(query.n));
+  if (query.from) sp.set("from", String(query.from));
   return sp;
 }
 
@@ -86,7 +99,7 @@ export function sortOf(query: Query, searching: boolean): Sort {
   return query.sort ?? (searching ? "match" : "time");
 }
 
-export const limitOf = (query: Query): number => query.n ?? PAGE[query.view];
+export const limitOf = (query: Query): number => Math.min(query.n ?? PAGE[query.view], MOST[query.view]);
 
 /** How many of the filters are in use (the search words count as one). */
 export function appliedCount(query: Query): number {

@@ -13,9 +13,14 @@ import { byKind, recordsOf } from "./sourceModel";
 import "./sources.css";
 
 const NO_TERMS: string[] = [];
-/** Records of one kind shown on a source page before "show more", and how many each press adds. */
+/**
+ * Records of one kind shown on a source page before "show more", how many each press adds, and the
+ * most a kind ever lists here. Past that the evidence locker takes over (same rows, with search and
+ * filters), so this page stays a bounded length however many records a source collects.
+ */
 const FOLD = 5;
 const STEP = 25;
+const MOST = FOLD + 2 * STEP;
 
 const lockerPath = (params: Record<string, string>) => `/evidence?${new URLSearchParams(params).toString()}`;
 const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<string, LucideIcon>)[kind] ?? CircleHelp;
@@ -158,10 +163,11 @@ export function SourceDetail() {
         ) : shown.length === 0 ? (
           <Empty title="None in that place" action={<Button onClick={() => write({ use: [] })}>Show all {all.length}</Button>}>No record from this source is {use.map((p) => PLACE[p].word.toLowerCase()).join(" or ")}.</Empty>
         ) : groups.map(({ kind, items }) => {
-          const limit = Math.max(FOLD, open.get(kind) ?? 0);
+          const limit = Math.min(MOST, Math.max(FOLD, open.get(kind) ?? 0));
           // Never fold away just one or two.
           const visible = items.length <= limit + 2 ? items : items.slice(0, limit);
           const rest = items.length - visible.length;
+          const full = rest > 0 && limit >= MOST;
           return (
             <section key={kind} className="srcs-kind" aria-labelledby={`k-${kind}`}>
               <div className="srcs-kind__head">
@@ -173,9 +179,13 @@ export function SourceDetail() {
               </ul>
               {rest > 0 && (
                 <p className="srcs-kind__more">
-                  <Button size="sm" onClick={() => { focusAt.current = { kind, at: visible.length }; write({ more: new Map(open).set(kind, visible.length + STEP) }); }}>
-                    {rest <= STEP + 2 ? `Show all ${items.length}` : `Show ${STEP} more`}
-                  </Button>
+                  {full ? (
+                    <ButtonLink size="sm" to={lockerPath({ game: g.id, kind, ...inUse })} iconEnd={ArrowRight}>All {items.length} in the evidence locker</ButtonLink>
+                  ) : (
+                    <Button size="sm" onClick={() => { focusAt.current = { kind, at: visible.length }; write({ more: new Map(open).set(kind, Math.min(MOST, visible.length + STEP)) }); }}>
+                      {rest <= STEP + 2 ? `Show all ${items.length}` : `Show ${STEP} more`}
+                    </Button>
+                  )}
                   <span className="srcs-kind__rest">{count(visible.length)} of {count(items.length)} shown</span>
                 </p>
               )}
