@@ -401,7 +401,7 @@ function Method() {
           </p>
         </EssaySection>
 
-        <EssayMore current="/method" label="The essays" />
+        <EssayMore current="/method" label="The essays" theory={false} />
       </CiteScope>
     </Page>
   );
