@@ -24,13 +24,18 @@ import { useLocation, useSearchParams } from "react-router-dom";
 export const drawerInEntry = (): boolean => !!(window.history.state as { usr?: { drawer?: unknown } | null } | null)?.usr?.drawer;
 
 const plain = (s: string): string => { try { return decodeURIComponent(s); } catch { return s; } };
+/** The route in the browser's bar, as the router reads it: after the "#", with a leading slash. */
+function inBar(): string {
+  const route = window.location.hash.replace(/^#/, "");
+  return route.startsWith("/") ? route : `/${route}`;
+}
 /**
  * True when the address in the browser's bar is the one the router is showing the page (`shown`:
  * the page location's pathname, search and hash put together). When it is not, a navigation is on
  * its way: the reader has just followed a link, or the page's own last write has not come round
  * yet. Writing then would replace the entry the reader is going to and undo their click.
  */
-export const inStep = (shown: string): boolean => plain(window.location.hash.replace(/^#/, "") || "/") === plain(shown);
+export const inStep = (shown: string): boolean => plain(inBar()) === plain(shown);
 
 interface Local<T> {
   value: T;
