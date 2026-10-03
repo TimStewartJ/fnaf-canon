@@ -217,7 +217,7 @@ export const deaths: Death[] = [
     kind: "machine", place: "mega-pizzaplex", era: "pizzaplex", year: 261000, yearLabel: "the end of Gregory's night",
     date: { kind: "relative", basis: "The last hour of Security Breach's night, in one of its endings.", evidence: ["security-breach-ending-rooftop"] },
     status: "theory", outcome: "branch", evidence: ["security-breach-ending-rooftop", "security-breach-rooftop-unmasked", "security-breach-rooftop-vanessa-alive"], branch: "To the Rooftop", event: "t-security-breach",
-    note: "A branch ending, and no later game is shown to follow it. The fall is shown and a death is implied. Under the mask is a blonde woman; a later page of the same ending shows Vanessa alive on the roof, and the model has no account of that.",
+    note: "A branch ending, and no later game is shown to follow it. The fall is shown and a death is implied. Under the mask is a blonde woman; a later page of the same ending shows a blonde woman in Vanessa's cap and uniform alive on the roof, and the model has no account of that.",
   },
   {
     id: "d-sb-vanny-disassembled", title: "One ending (Disassemble Vanny): the building's robots take the woman in the rabbit costume apart", victims: ["vanny"], victimLabel: "The woman in the rabbit costume, Vanny", by: ["staff-bots"], byLabel: "The building's service robots, on a button that Gregory presses",
