@@ -12,24 +12,40 @@
 .evx-swatch[data-place="outside"] { background: var(--c-text-3); box-shadow: none; }
 .evx-swatch[data-place="none"] { background: transparent; box-shadow: inset 0 0 0 1px var(--c-text-3); }
 
-/* ── Explorer: search first, then view ─────────────────────────── */
-.evx-top { display: flex; flex-wrap: wrap; align-items: stretch; gap: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-5); }
-.evx-top > .evx-search { flex: 1 1 16rem; }
-.evx-top > .evx-search > input { min-height: var(--tap); font-size: var(--fs-md); }
-.evx-badge { display: inline-grid; place-items: center; min-width: 1.35rem; height: 1.35rem; padding: 0 0.35rem; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-accent-ink); background: var(--c-accent-fill); border-radius: var(--r-pill); }
-@media (max-width: 640px) {
-  .evx-top > .evx-search { flex-basis: 100%; }
-  .evx-top > .evx-filters-btn { flex: 1 1 auto; justify-content: flex-start; }
+/* ── Explorer: the search bar ──────────────────────────────────────
+ * It stays at the top of the window while the list scrolls under it, so a search can be changed
+ * from anywhere in a long list. --evx-bar is its height; the filter rail and the scroll margins of
+ * the list sit below it. */
+.evx-explorer { --evx-bar: calc(var(--tap) + 2 * var(--sp-2)); }
+.evx-top {
+  position: sticky;
+  top: var(--sticky-top);
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-2);
+  min-height: var(--evx-bar);
+  padding-block: var(--sp-2);
+  margin: calc(-1 * var(--sp-2)) 0 var(--sp-3);
+  background: var(--c-bg);
 }
+/* A soft edge under the bar, so rows fade out beneath it instead of being cut. */
+.evx-top::after { content: ""; position: absolute; inset: 100% 0 auto; height: var(--sp-3); background: linear-gradient(var(--c-bg), transparent); pointer-events: none; }
+.evx-top > .evx-search { flex: 1 1 auto; }
+.evx-top > .evx-search > input { min-height: var(--tap); font-size: var(--fs-md); }
+.evx-top > .evx-filters-btn { flex: none; min-height: var(--tap); }
+.evx-badge { display: inline-grid; place-items: center; min-width: 1.35rem; height: 1.35rem; padding: 0 0.35rem; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-accent-ink); background: var(--c-accent-fill); border-radius: var(--r-pill); }
+/* Anything the keyboard reaches in the list scrolls clear of the bar, not under it. */
+.evx-main :is(a, button, summary) { scroll-margin-top: calc(var(--evx-bar) + var(--sp-3)); }
 
 .evx-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5) var(--sp-7); align-items: start; }
 @media (min-width: 1080px) { .evx-layout { grid-template-columns: 17.5rem minmax(0, 1fr); } }
 .evx-main { min-width: 0; }
 
 /* ── Filters: the rail on a wide screen ────────────────────────── */
-/* The rail stays in reach beside the list and scrolls by itself when it is taller than the window.
-   Scrolling past its end carries on to the page, so the wheel is never stuck over it. */
-.evx-rail { position: sticky; top: calc(var(--sticky-top) + var(--sp-4)); max-height: calc(100vh - var(--sticky-top) - var(--sp-5)); overflow-y: auto; padding: 0 var(--sp-3) var(--sp-4) 2px; margin-left: -2px; scrollbar-width: thin; scrollbar-color: var(--c-line-strong) transparent; }
+/* The rail stays in reach beside the list, under the search bar, and scrolls by itself when it is
+   taller than the window. Scrolling past its end carries on to the page, so the wheel is never stuck over it. */
+.evx-rail { position: sticky; top: calc(var(--sticky-top) + var(--evx-bar) + var(--sp-2)); max-height: calc(100vh - var(--sticky-top) - var(--evx-bar) - var(--sp-4)); overflow-y: auto; padding: 0 var(--sp-3) var(--sp-4) 2px; margin-left: -2px; scrollbar-width: thin; scrollbar-color: var(--c-line-strong) transparent; }
 /* For keyboard users: one step past some thirty checkboxes. Visible only while it has focus. */
 .evx-skip { position: absolute; left: -9999px; }
 .evx-skip:focus-visible { position: static; justify-self: start; padding: 0.3rem 0.6rem; font-size: var(--fs-sm); color: var(--c-accent); background: var(--c-surface-2); border: 0; border-radius: var(--r-sm); text-decoration: underline; text-underline-offset: 0.2em; }
@@ -46,12 +62,10 @@
 .evx-opt.is-dead:hover { background: none; color: var(--c-text-3); }
 .evx-opt.is-dead .evx-opt__name { opacity: 0.6; }
 .evx-opt__name { display: inline-flex; align-items: center; gap: 0.4em; min-width: 0; overflow-wrap: anywhere; }
-.evx-opt__name .game { color: inherit; }
 .evx-opt__name .icon, .evx-opt__name .firm-glyph { flex: none; }
 .evx-opt__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-variant-numeric: tabular-nums; color: var(--c-text-3); }
 .evx-field { display: grid; gap: 0; }
 .evx-field > select { width: 100%; }
-.evx-more > summary { min-height: 2.5rem; }
 .evx-more .collapsible__body { padding-bottom: var(--sp-4); }
 @media (pointer: coarse) { .evx-opt { min-height: 2.5rem; } }
 
@@ -60,6 +74,7 @@
 .evx-combo > input { width: 100%; }
 .evx-combo__value { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-width: 0; padding-left: var(--sp-3); font-size: var(--fs-sm); font-weight: 560; color: var(--c-text); background: var(--c-surface-2); border: 1px solid var(--c-line-strong); border-radius: var(--r-md); }
 .evx-combo__value .icon-btn { width: 2.25rem; height: 2.25rem; }
+@media (pointer: coarse) { .evx-combo__value .icon-btn { width: var(--tap); height: var(--tap); } }
 .evx-combo__chosen { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .evx-combo__pop { border: 1px solid var(--c-line-strong); border-radius: var(--r-md); background: var(--c-overlay); overflow: hidden; }
 .evx-combo__list { position: relative; list-style: none; margin: 0; padding: var(--sp-1); max-height: 13.5rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
@@ -83,6 +98,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-sheet__body .evx-opt:hover { background: var(--c-surface-2); }
 .evx-sheet__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--c-line); flex: none; }
 .evx-sheet__foot > .btn--primary { flex: 1 1 auto; }
+.evx-sheet__view { display: grid; justify-items: start; gap: var(--sp-1); margin-top: var(--sp-5); }
 @media (min-width: 641px) {
   dialog.evx-sheet { inset: 0 auto 0 0; width: min(23rem, 90vw); height: 100dvh; max-height: none; border-top: 0; border-right: 1px solid var(--c-line-strong); border-radius: 0; }
 }
@@ -102,17 +118,16 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 }
 
 /* ── What is applied ───────────────────────────────────────────── */
-.evx-summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); min-height: 2rem; margin-bottom: var(--sp-3); }
+.evx-summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); min-height: 2.5rem; margin-bottom: var(--sp-3); }
 .evx-count { margin: 0; font-size: var(--fs-base); color: var(--c-text-2); }
 .evx-count strong { font-weight: 650; color: var(--c-text); font-variant-numeric: tabular-nums; }
 .evx-count__order { color: var(--c-text-3); }
-.evx-applied { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-2); list-style: none; margin: 0; padding: 0; min-width: 0; }
+.evx-applied { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); list-style: none; margin: 0 0 var(--sp-3); padding: 0; min-width: 0; }
 .evx-applied > li { margin: 0; min-width: 0; max-width: 100%; }
 .evx-chip { display: inline-flex; align-items: center; gap: 0.4em; max-width: 100%; min-height: 1.75rem; padding: 0.1rem 0.4rem 0.1rem 0.6rem; font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.2; color: var(--c-text); background: var(--c-surface-2); border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); cursor: pointer; transition: border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease); }
 .evx-chip:hover { border-color: var(--c-text-2); }
 .evx-chip__k { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.05em; text-transform: uppercase; color: var(--c-text-3); }
 .evx-chip__v { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.evx-chip__v .game { color: inherit; font-size: inherit; }
 .evx-chip > .icon { flex: none; color: var(--c-text-3); }
 .evx-chip:hover > .icon { color: var(--c-text); }
 @media (pointer: coarse) { .evx-chip { min-height: 2.5rem; padding-inline: 0.8rem 0.6rem; } }
@@ -172,13 +187,13 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-rec__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); min-height: 2.25rem; margin-bottom: var(--sp-4); }
 .evx-rec__top > .crumbs { margin: 0; min-width: 0; }
 .evx-step { display: inline-flex; align-items: center; gap: var(--sp-1); margin-left: auto; }
-.evx-step > .icon-btn { width: 2.25rem; height: 2.25rem; border-color: var(--c-line-strong); text-decoration: none; }
-.evx-step > .icon-btn:hover { border-color: var(--c-text-2); }
-.evx-step > .evx-step__off { opacity: 0.35; }
-.evx-step > .evx-step__off:hover { background: none; border-color: var(--c-line-strong); color: var(--c-text-2); }
+/* A link that looks like the shared icon button (the shared one is a <button>; these two navigate). */
+.evx-step__btn { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 2.25rem; height: 2.25rem; color: var(--c-text-2); border: 1px solid var(--c-line-strong); border-radius: var(--r-md); text-decoration: none; transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease); }
+a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); border-color: var(--c-text-2); }
+.evx-step__btn.is-off { opacity: 0.35; }
 .evx-step__at { padding: 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); text-decoration-color: var(--c-line-strong); white-space: nowrap; }
 .evx-step__at:hover { color: var(--c-accent-strong); }
-@media (pointer: coarse) { .evx-step > .icon-btn { width: var(--tap); height: var(--tap); } }
+@media (pointer: coarse) { .evx-step__btn { width: var(--tap); height: var(--tap); } }
 
 .evx-rec__head { margin-bottom: var(--sp-5); }
 .evx-rec__source { margin: 0 0 var(--sp-3); }

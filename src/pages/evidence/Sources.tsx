@@ -1,11 +1,12 @@
-import { useEffect, useRef } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useMemo, useRef } from "react";
+import { Link, useParams } from "react-router-dom";
 import { ArrowRight, CircleHelp } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, gameById, games } from "../../data/store";
 import {
   Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, SOURCE_KIND_ICON, Section, kindLabel, smartQuotes, sourcePath, type LucideIcon,
 } from "../../components/ui";
+import { listOf, useAddressState } from "./addressState";
 import { PLACE, PLACES, accounted, count, isPlace, percent, placeOf, records, tally, type Place } from "./coverage";
 import { PlaceSwatch, ResultRow } from "./explorerParts";
 import { Accounted, CoverageBar, CoverageKey, SetIn } from "./sourceParts";
@@ -24,14 +25,32 @@ const MOST = FOLD + 2 * STEP;
 
 const lockerPath = (params: Record<string, string>) => `/evidence?${new URLSearchParams(params).toString()}`;
 const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<string, LucideIcon>)[kind] ?? CircleHelp;
-const list = (v: string | null): string[] => (v ?? "").split(/[\s,]+/).filter(Boolean);
+
+/**
+ * What a source page shows, kept in the address:
+ *   ?use=cited+none          only records in those places in the theory
+ *   ?more=minigame.30        how many records of a kind are listed
+ */
+interface SourceView { use: Place[]; more: [kind: string, shown: number][] }
+function readView(sp: URLSearchParams): SourceView {
+  return {
+    use: PLACES.filter((p) => listOf(sp.get("use")).filter(isPlace).includes(p)),
+    more: listOf(sp.get("more")).map((v): [string, number] => { const i = v.lastIndexOf("."); return [v.slice(0, i), Number(v.slice(i + 1)) || 0]; }).filter(([k, n]) => k && n > 0),
+  };
+}
+function writeView(v: SourceView, current: URLSearchParams): URLSearchParams {
+  const out = new URLSearchParams(current);
+  if (v.use.length) out.set("use", v.use.join(" ")); else out.delete("use");
+  if (v.more.length) out.set("more", v.more.map(([k, n]) => `${k}.${n}`).join(" ")); else out.delete("more");
+  return out;
+}
 
 export default function Sources() {
   const all = tally(evidence);
   const done = accounted(all);
   const used = games.filter((g) => recordsOf(g.id).length > 0).length;
   return (
-    <Page title="Sources" className="srcs">
+    <Page title="Sources" className="srcs-page">
       <PageHeader
         kicker="Evidence"
         title="Sources"
@@ -87,43 +106,41 @@ export default function Sources() {
 
 export function SourceDetail() {
   const { id = "" } = useParams();
-  const [sp, setSp] = useSearchParams();
   const g = gameById.get(id as never);
+  const [view, setView] = useAddressState(readView, writeView);
+  const { use } = view;
+  const open = useMemo(() => new Map(view.more), [view.more]);
+  const all = useMemo(() => recordsOf(id), [id]);
+  const shown: Evidence[] = useMemo(() => (use.length ? all.filter((e) => use.includes(placeOf(e.id))) : all), [all, use]);
+  // The drawer pages through everything the page lists; a stable array keeps the rows from redrawing.
+  const ids = useMemo(() => shown.map((e) => e.id), [shown]);
   // After "show more", focus moves to the first of the new rows instead of being lost with the button.
   const focusAt = useRef<{ kind: string; at: number } | null>(null);
-  const more = sp.get("more");
   useEffect(() => {
     const f = focusAt.current;
     focusAt.current = null;
     if (f) document.getElementById(`k-${f.kind}`)?.closest("section")?.querySelectorAll<HTMLElement>(".evx-row__title")[f.at]?.focus({ preventScroll: true });
-  }, [more]);
+  }, [view.more]);
   if (!g) {
     return (
       <Page title="Source not found" narrow>
+        <h1 className="sr-only">Source not found</h1>
         <Empty title="Unknown source" action={<ButtonLink to="/sources" variant="primary">All sources</ButtonLink>}>There is no source with the id “{id}”.</Empty>
       </Page>
     );
   }
-  const all = recordsOf(g.id);
   const t = tally(all);
-  // ?use=cited+none shows only records in those places; ?more=minigame.30 is how many of a kind are open.
-  const use = [...new Set(list(sp.get("use")).filter(isPlace))];
-  const open = new Map(list(sp.get("more")).map((v) => { const i = v.lastIndexOf("."); return [v.slice(0, i), Number(v.slice(i + 1)) || 0] as const; }));
-  const shown: Evidence[] = use.length ? all.filter((e) => use.includes(placeOf(e.id))) : all;
   const groups = byKind(shown);
-  const ids = shown.map((e) => e.id);
-  const write = (next: { use?: Place[]; more?: Map<string, number> }) => {
-    const u = next.use ?? use, m = next.more ?? open;
-    const out = new URLSearchParams();
-    if (u.length) out.set("use", u.join(" "));
-    if (m.size) out.set("more", [...m].map(([k, n]) => `${k}.${n}`).join(" "));
-    setSp(out, { replace: true });
+  const showAll = () => setView((v) => ({ ...v, use: [] }));
+  const toggle = (p: Place) => setView((v) => ({ ...v, use: PLACES.filter((x) => (x === p ? !v.use.includes(p) : v.use.includes(x))) }));
+  const showMore = (kind: string, from: number) => {
+    focusAt.current = { kind, at: from };
+    setView((v) => ({ ...v, more: [...v.more.filter(([k]) => k !== kind), [kind, Math.min(MOST, from + STEP)]] }));
   };
   const inUse: Record<string, string> = use.length ? { use: use.join(" ") } : {};
-  const toggle = (p: Place) => write({ use: use.includes(p) ? use.filter((x) => x !== p) : PLACES.filter((x) => x === p || use.includes(x)) });
 
   return (
-    <Page title={g.title} className="srcs">
+    <Page title={g.title} className="srcs-page">
       <PageHeader crumbs={[{ to: "/sources", label: "Sources" }, { label: g.title }]} title={g.title}>
         <p className="srcs-head__meta">
           <GameMark id={g.id} />
@@ -147,7 +164,7 @@ export function SourceDetail() {
                 <PlaceSwatch place={p} /> <span className="srcs-use__long">{PLACE[p].word}</span><span className="srcs-use__short">{PLACE[p].short}</span>
               </FilterChip>
             ))}
-            {use.length > 0 && <Button variant="quiet" size="sm" onClick={() => write({ use: [] })}>Show all</Button>}
+            {use.length > 0 && <Button variant="quiet" size="sm" onClick={showAll}>Show all</Button>}
           </div>
         </section>
       )}
@@ -161,7 +178,7 @@ export function SourceDetail() {
         {all.length === 0 ? (
           <Empty title="No records yet">Nothing from this source has been filed in the archive.</Empty>
         ) : shown.length === 0 ? (
-          <Empty title="None in that place" action={<Button onClick={() => write({ use: [] })}>Show all {all.length}</Button>}>No record from this source is {use.map((p) => PLACE[p].word.toLowerCase()).join(" or ")}.</Empty>
+          <Empty title="None in that place" action={<Button onClick={showAll}>Show all {all.length}</Button>}>No record from this source is {use.map((p) => PLACE[p].word.toLowerCase()).join(" or ")}.</Empty>
         ) : groups.map(({ kind, items }) => {
           const limit = Math.min(MOST, Math.max(FOLD, open.get(kind) ?? 0));
           // Never fold away just one or two.
@@ -182,7 +199,7 @@ export function SourceDetail() {
                   {full ? (
                     <ButtonLink size="sm" to={lockerPath({ game: g.id, kind, ...inUse })} iconEnd={ArrowRight}>All {items.length} in the evidence locker</ButtonLink>
                   ) : (
-                    <Button size="sm" onClick={() => { focusAt.current = { kind, at: visible.length }; write({ more: new Map(open).set(kind, Math.min(MOST, visible.length + STEP)) }); }}>
+                    <Button size="sm" onClick={() => showMore(kind, visible.length)}>
                       {rest <= STEP + 2 ? `Show all ${items.length}` : `Show ${STEP} more`}
                     </Button>
                   )}

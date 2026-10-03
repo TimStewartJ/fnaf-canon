@@ -1,4 +1,4 @@
-import { memo, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { memo, useCallback, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { CircleHelp, Image as ImageIcon, X } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { gameById, labelForEntity } from "../../data/store";
@@ -113,15 +113,16 @@ export interface FacetActions {
  * number of records it would give; the rest sit under "More filters". Shown as a rail beside the
  * results on a wide screen and inside a sheet on a narrow one.
  */
-export function Facets({ query, outcome, searching, actions, options, skipTo }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions; skipTo?: string }) {
+export const Facets = memo(function Facets({ query, outcome, searching, actions, options, skipTo }: { query: Query; outcome: Outcome; searching: boolean; actions: FacetActions; options: FacetOptions; skipTo?: string }) {
   const { counts } = outcome;
   // Every option the archive has is always listed, so the lists do not jump as filters change;
   // a value that only the URL knows about is added so that it can be unticked.
   const sources = [...options.sources, ...query.game.filter((id) => !options.sources.includes(id))];
   const kinds = kindOrder([...options.kinds, ...query.kind]);
   const certs = certaintyOrder([...options.certs, ...query.cert]);
-  const tags = useMemo(() => tagOptions(counts.tag, query.tag), [counts.tag, query.tag]);
-  const entities = useMemo(() => entityOptions(counts.entity, query.entity), [counts.entity, query.entity]);
+  // The two pickers hold several hundred entries each; their lists are only worked out while one is open.
+  const tags = useCallback(() => tagOptions(counts.tag, query.tag), [counts.tag, query.tag]);
+  const entities = useCallback(() => entityOptions(counts.entity, query.entity), [counts.entity, query.entity]);
   const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (query.img ? 1 : 0) + (query.sort ? 1 : 0);
   const defaultSort: Sort = searching ? "match" : "time";
   const more = useRef<HTMLDivElement | null>(null);
@@ -178,7 +179,7 @@ export function Facets({ query, outcome, searching, actions, options, skipTo }: 
             <Combo label="Tag" placeholder="Find a tag" options={tags} value={query.tag} valueLabel={query.tag ? `#${query.tag}` : ""} onChange={(id) => actions.set({ tag: id })} />
             <Combo
               label="Person or place" placeholder="Find a person or place" options={entities} value={query.entity}
-              valueLabel={query.entity ? entities.find((o) => o.id === query.entity)?.label ?? query.entity : ""}
+              valueLabel={query.entity ? labelForEntity(query.entity) : ""}
               onChange={(id) => actions.set({ entity: id })}
             />
             <label className="evx-field">
@@ -194,7 +195,7 @@ export function Facets({ query, outcome, searching, actions, options, skipTo }: 
       </div>
     </div>
   );
-}
+});
 
 /* ── A small searchable picker ─────────────────────────────────────────────────── */
 
@@ -206,11 +207,12 @@ const SHOWN = 30;
  * clips it inside the rail or the sheet. An entry that would give no records under the filters
  * now set is listed last, greyed out and not selectable, so the reader sees that it exists.
  */
-export function Combo({ label, placeholder, options, value, valueLabel, onChange }: { label: string; placeholder: string; options: Option[]; value: string; valueLabel: string; onChange: (id: string) => void }) {
+export function Combo({ label, placeholder, options: getOptions, value, valueLabel, onChange }: { label: string; placeholder: string; options: () => Option[]; value: string; valueLabel: string; onChange: (id: string) => void }) {
   const uid = useId();
   const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
+  const options = useMemo(() => (open ? getOptions() : []), [open, getOptions]);
   const found = useMemo(() => {
     const t = fold(text.trim()).replace(/^#/, "");
     const live = (o: Option) => o.count > 0;
@@ -313,8 +315,8 @@ export function FilterSheet({ onClose, children, foot }: { onClose: () => void; 
 
 interface Applied { key: string; name: string; value: ReactNode; label: string; remove: () => void }
 
-/** One chip per filter in force; each removes itself. Renders nothing when no filter is in use. */
-export function AppliedChips({ query, text, sort, searching, actions }: { query: Query; text: string; sort: Sort; searching: boolean; actions: FacetActions }) {
+/** One chip per filter in force; each removes itself. `after` closes the list (the "clear all" button). Renders nothing when no filter is in use. */
+export function AppliedChips({ query, text, sort, searching, actions, after }: { query: Query; text: string; sort: Sort; searching: boolean; actions: FacetActions; after?: ReactNode }) {
   const items: Applied[] = [];
   const q = text.trim();
   if (q) items.push({ key: "q", name: "Search", value: `“${q}”`, label: `Search ${q}`, remove: () => actions.set({ q: "" }) });
@@ -351,6 +353,7 @@ export function AppliedChips({ query, text, sort, searching, actions }: { query:
           </button>
         </li>
       ))}
+      {after && <li>{after}</li>}
     </ul>
   );
 }

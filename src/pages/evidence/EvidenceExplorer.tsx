@@ -10,8 +10,10 @@ import { AppliedChips, Facets, FilterSheet, ResultRow, type FacetActions, type F
 import "./evidence.css";
 
 /** What the archive holds, worked out once: the options of the three open filters. */
+const USED = new Set<string>(evidence.map((e) => e.game));
 const OPTIONS: FacetOptions = {
-  sources: games.filter((g) => evidence.some((e) => e.game === g.id)).map((g) => g.id),
+  // Release order; a source the store's list does not name (it should not happen) still gets its option, last.
+  sources: [...games.map((g) => g.id as string).filter((id) => USED.has(id)), ...[...USED].filter((id) => !games.some((g) => g.id === id)).sort()],
   kinds: [...new Set(evidence.map((e) => e.kind))],
   certs: [...new Set(evidence.map((e) => e.certainty))],
 };
@@ -74,6 +76,7 @@ export default function EvidenceExplorer() {
   const [sp] = useSearchParams();
   const url = sp.toString();
   const wide = useMediaQuery("(min-width: 1080px)");
+  const phone = useMediaQuery("(max-width: 640px)");
   const [sheet, setSheet] = useState(false);
 
   const [local, setLocal] = useState<Local>(() => fromAddress(sp, url));
@@ -106,7 +109,8 @@ export default function EvidenceExplorer() {
   const outcome = useMemo(() => runQuery(query, live), [query, live]);
   const searching = terms.length > 0;
 
-  const actions: FacetActions = {
+  // Stable, so the filter rail (memoised) is not redrawn for a keystroke that has not reached the results yet.
+  const actions = useMemo<FacetActions>(() => ({
     toggle(key, id) {
       update((q) => {
         const now = q[key] as string[];
@@ -114,7 +118,7 @@ export default function EvidenceExplorer() {
       });
     },
     set: update,
-  };
+  }), [update]);
   const NO_FILTERS: Partial<Query> = { game: [], kind: [], cert: [], use: [], tag: "", entity: "", img: false };
   const clearFilters = () => update(NO_FILTERS);
   const clearAll = () => update({ ...NO_FILTERS, q: "" });
@@ -174,10 +178,11 @@ export default function EvidenceExplorer() {
   const filters = appliedCount({ ...query, q: "" });
   const filtered = filters > 0 || text.trim() !== "";
   const facets = (skip: boolean) => <Facets query={query} outcome={outcome} searching={searching} actions={actions} options={OPTIONS} skipTo={skip ? "evx-results" : undefined} />;
+  const viewSwitch = <Segmented label="Show results as" options={VIEWS} value={query.view} onChange={(view) => update({ view })} />;
   const span = `${start > 0 ? `${count(start + 1)}–${count(end)}` : count(end)} of ${count(results.length)} shown`;
 
   return (
-    <Page title="Evidence locker" className="evx">
+    <Page title="Evidence locker" className="evx-explorer">
       <AddressWriter want={toParams(query).toString()} url={local.url} sent={local.sent} onSent={onSent} />
       <PageHeader
         kicker="Evidence"
@@ -191,7 +196,6 @@ export default function EvidenceExplorer() {
             Filters{filters > 0 && <span className="evx-badge">{filters}<span className="sr-only"> in use</span></span>}
           </Button>
         )}
-        <Segmented label="Show results as" options={VIEWS} value={query.view} onChange={(view) => update({ view })} />
       </div>
 
       <div className="evx-layout">
@@ -202,9 +206,12 @@ export default function EvidenceExplorer() {
               {filtered ? <><strong>{count(results.length)}</strong> of {count(total)} records</> : <><strong>{count(total)}</strong> records</>}
               {results.length > 1 && <span className="evx-count__order">, {ORDER[outcome.sort]}</span>}
             </p>
-            <AppliedChips query={query} text={text} sort={outcome.sort} searching={searching} actions={actions} />
-            {filtered && <Button variant="quiet" size="sm" className="evx-clear" onClick={clearAll}>Clear all</Button>}
+            {!phone && viewSwitch}
           </div>
+          <AppliedChips
+            query={query} text={text} sort={outcome.sort} searching={searching} actions={actions}
+            after={<Button variant="quiet" size="sm" className="evx-clear" onClick={clearAll}>Clear all</Button>}
+          />
 
           <h2 className="sr-only">Results</h2>
           {start > 0 && (
@@ -247,6 +254,8 @@ export default function EvidenceExplorer() {
           </>}
         >
           {facets(false)}
+          {/* On a phone the list's header has no room for the view switch, so it lives here. */}
+          {phone && <div className="evx-sheet__view"><span className="evx-facet__label">Show results as</span>{viewSwitch}</div>}
         </FilterSheet>
       )}
     </Page>

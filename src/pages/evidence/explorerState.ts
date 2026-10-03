@@ -207,29 +207,31 @@ export function runQuery(query: Query, text: string): Outcome {
   const counts: Outcome["counts"] = { game: new Map(), kind: new Map(), cert: new Map(), use: new Map(), tag: new Map(), entity: new Map(), img: 0 };
   const hits: Entry[] = [];
 
+  // Which filter a record fails matters only when it fails exactly one: it then still counts
+  // towards that filter's options. Each test is a bit, so no per-record bookkeeping is allocated.
+  const Q = 1, GAME = 2, KIND = 4, CERT = 8, USE = 16, TAG = 32, ENTITY = 64, IMG = 128;
+  const searching = terms.length > 0;
   for (const x of index()) {
     const e = x.e;
-    // Which filter this record fails, if it fails exactly one: it still counts towards that filter's options.
-    let failed = "";
-    let fails = 0;
-    const fail = (name: string) => { failed = name; fails += 1; };
-    if (terms.length && !terms.every((t) => x.all.includes(t))) fail("q");
-    if (game.size && !game.has(e.game)) fail("game");
-    if (kind.size && !kind.has(e.kind)) fail("kind");
-    if (cert.size && !cert.has(e.certainty)) fail("cert");
-    if (use.size && !use.has(x.place)) fail("use");
-    if (query.tag && !e.tags?.includes(query.tag)) fail("tag");
-    if (query.entity && !x.entities.includes(query.entity)) fail("entity");
-    if (query.img && !e.image) fail("img");
-    if (fails > 1) continue;
-    if (fails === 0 || failed === "game") bump(counts.game, e.game);
-    if (fails === 0 || failed === "kind") bump(counts.kind, e.kind);
-    if (fails === 0 || failed === "cert") bump(counts.cert, e.certainty);
-    if (fails === 0 || failed === "use") bump(counts.use, x.place);
-    if (fails === 0 || failed === "tag") for (const t of e.tags ?? []) bump(counts.tag, t);
-    if (fails === 0 || failed === "entity") for (const t of x.entities) bump(counts.entity, t);
-    if (fails === 0 && e.image) counts.img += 1;
-    if (fails === 0) hits.push(x);
+    let failed = 0;
+    if (searching) for (const t of terms) if (!x.all.includes(t)) { failed |= Q; break; }
+    if (game.size && !game.has(e.game)) failed |= GAME;
+    if (kind.size && !kind.has(e.kind)) failed |= KIND;
+    if (cert.size && !cert.has(e.certainty)) failed |= CERT;
+    if (use.size && !use.has(x.place)) failed |= USE;
+    if (query.tag && !e.tags?.includes(query.tag)) failed |= TAG;
+    if (query.entity && !x.entities.includes(query.entity)) failed |= ENTITY;
+    if (query.img && !e.image) failed |= IMG;
+    // More than one bit set: the record is out of every count.
+    if (failed & (failed - 1)) continue;
+    if (failed === 0 || failed === GAME) bump(counts.game, e.game);
+    if (failed === 0 || failed === KIND) bump(counts.kind, e.kind);
+    if (failed === 0 || failed === CERT) bump(counts.cert, e.certainty);
+    if (failed === 0 || failed === USE) bump(counts.use, x.place);
+    if ((failed === 0 || failed === TAG) && e.tags) for (const t of e.tags) bump(counts.tag, t);
+    if (failed === 0 || failed === ENTITY) for (const t of x.entities) bump(counts.entity, t);
+    if (failed === 0 && e.image) counts.img += 1;
+    if (failed === 0) hits.push(x);
   }
 
   if (sort === "game") hits.sort((a, b) => a.gameAt - b.gameAt || a.at - b.at);
@@ -266,18 +268,21 @@ export function runQuery(query: Query, text: string): Outcome {
 
 /* ── Options for the two pickers ───────────────────────────────────────────────── */
 
-export interface Option { id: string; label: string; count: number; hint?: string }
+export interface Option { id: string; label: string; count: number; hint?: "Person" | "Place" | "Person or place" }
 
 /** What an id names. The store knows every id used on a record; an id that only a URL carries is not guessed at. */
 export const entityKind = (id: string): "Person" | "Place" | "Person or place" => (personById.has(id) ? "Person" : placeById.has(id) ? "Place" : "Person or place");
 
-let everyEntity: string[] | null = null;
-/** Every person and place id that appears on a record. */
-function entityIds(): string[] {
-  return (everyEntity ??= [...new Set(index().flatMap((x) => x.entities))]);
+let everyEntity: { id: string; label: string; hint: Option["hint"] }[] | null = null;
+/** Every person and place id that appears on a record, with its name, in order of name. Built once. */
+function entityList() {
+  return (everyEntity ??= [...new Set(index().flatMap((x) => x.entities))]
+    .map((id) => ({ id, label: labelForEntity(id), hint: entityKind(id) }))
+    .sort((a, b) => a.label.localeCompare(b.label)));
 }
 
-const byUse = (a: Option, b: Option) => b.count - a.count || a.label.localeCompare(b.label);
+/** Most used first. The sort is stable, so entries with the same count keep their order by name. */
+const byUse = (a: Option, b: Option) => b.count - a.count;
 
 /**
  * Every tag in the archive with the number of records it would give under the other filters, most
@@ -290,9 +295,9 @@ export function tagOptions(counts: Map<string, number>, current: string): Option
 
 /** The same for people and places. */
 export function entityOptions(counts: Map<string, number>, current: string): Option[] {
-  const all = entityIds();
-  const ids = current && !all.includes(current) ? [...all, current] : all;
-  return ids.map((id) => ({ id, label: labelForEntity(id), count: counts.get(id) ?? 0, hint: entityKind(id) })).sort(byUse);
+  const all = entityList();
+  const list = current && !all.some((x) => x.id === current) ? [...all, { id: current, label: labelForEntity(current), hint: entityKind(current) }] : all;
+  return list.map((x) => ({ ...x, count: counts.get(x.id) ?? 0 })).sort(byUse);
 }
 
 /* ── Marking the words that matched ────────────────────────────────────────────── */

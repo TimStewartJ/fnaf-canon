@@ -66,8 +66,9 @@ export function percent(part: number, total: number): number {
   return Math.min(99, Math.max(1, Math.round((part / total) * 100)));
 }
 
-/** "1,041": counts are shown with a thousands separator everywhere in this cluster. */
-export const count = (n: number): string => n.toLocaleString("en-US");
+const thousands = new Intl.NumberFormat("en-US");
+/** "1,041": counts are shown with a thousands separator everywhere in this cluster. (Called for every option of every filter on each keystroke, hence the shortcut and the shared formatter.) */
+export const count = (n: number): string => (n > -1000 && n < 1000 ? String(n) : thousands.format(n));
 
 /** "1 record", "12 records". */
 export const records = (n: number, noun = "record"): string => `${count(n)} ${noun}${n === 1 ? "" : "s"}`;

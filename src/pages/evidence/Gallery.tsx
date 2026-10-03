@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState, type SyntheticEvent } from "react";
+import { memo, useCallback, useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import type { CSSProperties } from "react";
 import { ArrowUpRight, Maximize2 } from "lucide-react";
 import type { Evidence, ImageCredit } from "../../data/schema";
 import { credits, evidence, gameById, games } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import { Collapsible, EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, evidencePath, imgSize, imgUrl, isPlainClick, smartQuotes, sourcePath, useEvidenceDrawer, useMediaQuery } from "../../components/ui";
+import { listOf, useAddressState } from "./addressState";
 import { count, records } from "./coverage";
 import "./gallery.css";
 
@@ -34,7 +34,68 @@ function crisp(ev: SyntheticEvent<HTMLImageElement>) {
   img.classList.toggle("is-upscaled", png && scale > 1.05);
 }
 
-const list = (v: string | null): string[] => (v ?? "").split(/[\s,]+/).filter(Boolean);
+/** ?open=fnaf2+scott lists the groups shown in full. Other parameters are left alone. */
+const readOpen = (sp: URLSearchParams): string[] => listOf(sp.get("open"));
+function writeOpen(open: string[], current: URLSearchParams): URLSearchParams {
+  const next = new URLSearchParams(current);
+  if (open.length) next.set("open", open.join(" ")); else next.delete("open");
+  return next;
+}
+
+/**
+ * One source's images. Memoised: opening a group or the viewer redraws that group only, not the
+ * hundred-odd tiles of the others.
+ */
+const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoom }: { g: Group; all: boolean; fold: number; onShowAll: (id: string, firstNew: number) => void; onZoom: (group: string, at: number) => void }) {
+  // A folded group keeps its last cell for "show all", and is never folded over one or two images.
+  const whole = all || g.shots.length <= fold + 1;
+  const shots = whole ? g.shots : g.shots.slice(0, fold - 1);
+  return (
+    <section className="gal-group" id={`g-${g.id}`} aria-labelledby={`h-${g.id}`}>
+      <div className="gal-group__head">
+        <h2 id={`h-${g.id}`} className="gal-group__title">
+          {gameById.has(g.id as never) ? <Link to={sourcePath(g.id)}>{smartQuotes(g.title)}</Link> : smartQuotes(g.title)}
+        </h2>
+        <span className="gal-group__n"><GameMark id={g.id} /> {records(g.shots.length, "image")}</span>
+      </div>
+      <ul className="gal-grid">
+        {shots.map(({ credit, uses }, at) => {
+          const ids = uses.map((u) => u.id);
+          return (
+            <li key={credit.file} className="gal-tile">
+              <figure className="figure">
+                <button type="button" className="figure__frame" onClick={() => onZoom(g.id, at)} aria-label={`Enlarge image: ${credit.caption}`}>
+                  <img src={imgUrl(credit.file)} {...imgSize(credit.file)} alt={credit.caption} loading="lazy" decoding="async" onLoad={crisp} />
+                  <span className="figure__zoom" aria-hidden><Icon icon={Maximize2} /></span>
+                </button>
+                <figcaption className="figure__caption">
+                  <span className="figure__text">{smartQuotes(credit.caption)}</span>
+                  <span className="figure__meta">
+                    {uses.length > 0 && (
+                      <EvidenceLink id={uses[0].id} group={ids.length > 1 ? ids : undefined} className="figure__credit">
+                        {uses.length === 1 ? "Record" : `${uses.length} records`}
+                        <span className="sr-only">: {uses.map((u) => u.title).join("; ")}</span>
+                      </EvidenceLink>
+                    )}
+                    <a className="figure__credit" href={credit.sourcePage} target="_blank" rel="noreferrer">Image source<Icon icon={ArrowUpRight} /></a>
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          );
+        })}
+        {!whole && (
+          <li className="gal-tile">
+            <button type="button" className="gal-tile__more" onClick={() => onShowAll(g.id, shots.length)}>
+              <span className="gal-tile__more-n">+{g.shots.length - shots.length}</span>
+              <span>Show all {g.shots.length}<span className="sr-only"> images from {g.title}</span></span>
+            </button>
+          </li>
+        )}
+      </ul>
+    </section>
+  );
+});
 
 /**
  * The shared lightbox decides whether to draw an image pixelated from the width of the image's box,
@@ -63,29 +124,27 @@ function useCrispZoom() {
 }
 
 export default function Gallery() {
-  const [sp, setSp] = useSearchParams();
+  const [sp] = useSearchParams();
   const drawer = useEvidenceDrawer();
   // The grid's column count, in step with gallery.css, so that a folded group shows whole rows.
   const c3 = useMediaQuery("(min-width: 560px)"), c4 = useMediaQuery("(min-width: 900px)"), c5 = useMediaQuery("(min-width: 1200px)");
   const fold = (c5 ? 5 : c4 ? 4 : c3 ? 3 : 2) * ROWS;
-  // ?open=fnaf2+scott lists the groups shown in full.
-  const open = new Set(list(sp.get("open")));
-  const setOpen = (ids: string[]) => {
-    const next = new URLSearchParams(sp);
-    if (ids.length) next.set("open", ids.join(" ")); else next.delete("open");
-    setSp(next, { replace: true });
-  };
+  const [open, setOpen] = useAddressState(readOpen, writeOpen);
   // After "show all", focus moves to the first of the new images instead of being lost with the button.
   const focusAt = useRef<{ group: string; at: number } | null>(null);
-  const opened = sp.get("open");
   useEffect(() => {
     const f = focusAt.current;
     focusAt.current = null;
     if (f) document.getElementById(`g-${f.group}`)?.querySelectorAll<HTMLElement>(".figure__frame")[f.at]?.focus({ preventScroll: true });
-  }, [opened]);
+  }, [open]);
+  const onShowAll = useCallback((id: string, firstNew: number) => {
+    focusAt.current = { group: id, at: firstNew };
+    setOpen((now) => (now.includes(id) ? now : [...now, id]));
+  }, [setOpen]);
 
   // The lightbox pages through the group it was opened from, folded or not.
   const [zoom, setZoom] = useState<{ group: string; at: number } | null>(null);
+  const onZoom = useCallback((group: string, at: number) => setZoom({ group, at }), []);
   const zoomGroup = zoom ? GROUPS.find((g) => g.id === zoom.group) : undefined;
   const zoomShot = zoom && zoomGroup ? zoomGroup.shots[zoom.at] : undefined;
   const step = (d: number) => setZoom((z) => {
@@ -97,11 +156,13 @@ export default function Gallery() {
 
   const zoomRef = useCrispZoom();
   const phone = useMediaQuery("(max-width: 640px)");
+  // A jump keeps the groups that are open, as the page has them now (the address may be a moment behind).
+  const jumpSearch = writeOpen(open, sp).toString();
   const index = (
     <ul className="gal-index__list">
       {GROUPS.map((g) => (
         <li key={g.id}>
-          <Link to={{ search: sp.toString(), hash: `g-${g.id}` }} className="tag gal-index__link" title={g.title}>
+          <Link to={{ search: jumpSearch, hash: `g-${g.id}` }} className="tag gal-index__link" title={g.title}>
             <GameMark id={g.id} /> <span className="gal-index__n">{g.shots.length}</span>
           </Link>
         </li>
@@ -112,7 +173,7 @@ export default function Gallery() {
   const total = GROUPS.reduce((n, g) => n + g.shots.length, 0);
 
   return (
-    <Page title="Gallery" className="gal">
+    <Page title="Gallery" className="gal-page">
       <PageHeader
         kicker="Evidence"
         title="Gallery"
@@ -126,57 +187,7 @@ export default function Gallery() {
         </nav>
       )}
 
-      {GROUPS.map((g) => {
-        // A folded group keeps its last cell for "show all", and is never folded over one or two images.
-        const all = open.has(g.id) || g.shots.length <= fold + 1;
-        const shots = all ? g.shots : g.shots.slice(0, fold - 1);
-        return (
-          <section key={g.id} className="gal-group" id={`g-${g.id}`} aria-labelledby={`h-${g.id}`}>
-            <div className="gal-group__head">
-              <h2 id={`h-${g.id}`} className="gal-group__title" style={{ "--hue": gameMeta(g.id).color } as CSSProperties}>
-                <span className="gal-group__swatch" aria-hidden />
-                {gameById.has(g.id as never) ? <Link to={sourcePath(g.id)}>{smartQuotes(g.title)}</Link> : smartQuotes(g.title)}
-              </h2>
-              <span className="gal-group__n">{records(g.shots.length, "image")}</span>
-            </div>
-            <ul className="gal-grid">
-              {shots.map(({ credit, uses }, at) => {
-                const ids = uses.map((u) => u.id);
-                return (
-                  <li key={credit.file} className="gal-tile">
-                    <figure className="figure">
-                      <button type="button" className="figure__frame" onClick={() => setZoom({ group: g.id, at })} aria-label={`Enlarge image: ${credit.caption}`}>
-                        <img src={imgUrl(credit.file)} {...imgSize(credit.file)} alt={credit.caption} loading="lazy" decoding="async" onLoad={crisp} />
-                        <span className="figure__zoom" aria-hidden><Icon icon={Maximize2} /></span>
-                      </button>
-                      <figcaption className="figure__caption">
-                        <span className="figure__text">{smartQuotes(credit.caption)}</span>
-                        <span className="figure__meta">
-                          {uses.length > 0 && (
-                            <EvidenceLink id={uses[0].id} group={ids.length > 1 ? ids : undefined} className="figure__credit">
-                              {uses.length === 1 ? "Record" : `${uses.length} records`}
-                              <span className="sr-only">: {uses.map((u) => u.title).join("; ")}</span>
-                            </EvidenceLink>
-                          )}
-                          <a className="figure__credit" href={credit.sourcePage} target="_blank" rel="noreferrer">Image source<Icon icon={ArrowUpRight} /></a>
-                        </span>
-                      </figcaption>
-                    </figure>
-                  </li>
-                );
-              })}
-              {!all && (
-                <li className="gal-tile">
-                  <button type="button" className="gal-tile__more" onClick={() => { focusAt.current = { group: g.id, at: shots.length }; setOpen([...open, g.id]); }}>
-                    <span className="gal-tile__more-n">+{g.shots.length - shots.length}</span>
-                    <span>Show all {g.shots.length}<span className="sr-only"> images from {g.title}</span></span>
-                  </button>
-                </li>
-              )}
-            </ul>
-          </section>
-        );
-      })}
+      {GROUPS.map((g) => <GroupSection key={g.id} g={g} all={open.includes(g.id)} fold={fold} onShowAll={onShowAll} onZoom={onZoom} />)}
 
       {zoom && zoomGroup && zoomShot && (
         <div className="gal-zoom" ref={zoomRef}>

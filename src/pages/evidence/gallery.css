@@ -13,12 +13,10 @@
 .gal-group { margin-top: var(--sp-7); scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
 .gal-group:first-of-type { margin-top: 0; }
 .gal-group__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-1) var(--sp-4); padding-bottom: var(--sp-2); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line-strong); }
-.gal-group__title { display: flex; align-items: baseline; gap: 0.5em; margin: 0; font-size: var(--fs-xl); min-width: 0; }
+.gal-group__title { margin: 0; font-size: var(--fs-xl); min-width: 0; }
 .gal-group__title > a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
 .gal-group__title > a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
-/* The source's hue, as on a game mark: a small square before the name. */
-.gal-group__swatch { flex: none; align-self: center; width: 0.42em; height: 0.42em; border-radius: 1px; background: var(--hue, var(--c-text-3)); }
-.gal-group__n { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); white-space: nowrap; }
+.gal-group__n { display: inline-flex; align-items: baseline; gap: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); white-space: nowrap; }
 @media (max-width: 640px) { .gal-group { margin-top: var(--sp-6); } }
 
 /* The grid: two columns on a phone, up to five. Gallery.tsx folds groups by these same steps. */

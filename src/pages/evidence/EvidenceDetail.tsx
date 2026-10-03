@@ -6,7 +6,7 @@ import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, Empty, EntityLink, EvidenceDate, Fact, Facts, Figure, GameMark, Icon, Page,
-  RichText, SOURCE_KIND_ICON, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, kindLabel, smartQuotes, sourcePath, timelineEventPath,
+  RichText, SOURCE_KIND_ICON, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, kindLabel, smartQuotes, sourcePath, timelineEventPath,
   type LucideIcon,
 } from "../../components/ui";
 import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
@@ -89,12 +89,12 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
     return (
       <nav className="evx-step" aria-label={`Records from ${short}`}>
         {prev
-          ? <Link to={evidencePath(prev.id)} className="icon-btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
-          : <span className="icon-btn evx-step__off" aria-hidden><Icon icon={ChevronLeft} /></span>}
+          ? <Link to={evidencePath(prev.id)} className="evx-step__btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
+          : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronLeft} /></span>}
         <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{at} of {of} in {short}</Link>
         {next
-          ? <Link to={evidencePath(next.id)} className="icon-btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
-          : <span className="icon-btn evx-step__off" aria-hidden><Icon icon={ChevronRight} /></span>}
+          ? <Link to={evidencePath(next.id)} className="evx-step__btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
+          : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronRight} /></span>}
       </nav>
     );
   }
@@ -122,6 +122,7 @@ export default function EvidenceDetail() {
   if (!e) {
     return (
       <Page title="Record not found" narrow>
+        <h1 className="sr-only">Record not found</h1>
         <Empty title="No such record" action={<ButtonLink to="/evidence" variant="primary">Open the evidence locker</ButtonLink>}>
           There is no evidence record with the id “{id}”.
         </Empty>
@@ -201,11 +202,7 @@ export default function EvidenceDetail() {
         )}
       </div>
 
-      <section className="section evx-model" aria-labelledby="h-model">
-        <div className="section-head">
-          <h2 id="h-model">In the model</h2>
-          <p className="section-head__aside evx-model__sits" title={PLACE[place].help}><PlaceSwatch place={place} /> {sits}</p>
-        </div>
+      <Section title="In the model" className="evx-model" aside={<span className="evx-model__sits" title={PLACE[place].help}><PlaceSwatch place={place} /> {sits}</span>}>
         <div className="evx-model__grid">
           <div className="evx-model__col">
             {bl.theory.length > 0 && <Block label="Cited in"><ChapterRows chapters={bl.theory} id={id} /></Block>}
@@ -289,7 +286,7 @@ export default function EvidenceDetail() {
             )}
           </div>
         )}
-      </section>
+      </Section>
 
       <Pager e={e} />
     </Page>
