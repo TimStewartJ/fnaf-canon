@@ -15,7 +15,9 @@ const { homeSummary, keyQuestions } = home;
  * The headline: what this is, in a few words. The data may supply one (`homeHeadline` in
  * data/home.ts); until it does, this one stands, made of words the page already uses.
  */
-const HEADLINE = (home as { homeHeadline?: string }).homeHeadline ?? "One story, from the evidence up.";
+const optional = (from: object, name: string): unknown => (from as Record<string, unknown>)[name];
+const supplied = optional(home, "homeHeadline");
+const HEADLINE = typeof supplied === "string" && supplied.trim() ? supplied : "One story, from the evidence up.";
 const HERO_IMAGE = "fnaf2-take-cake-to-the-children.png";
 const BEATS_ON_HOME = 6;
 const STRIP = ["fnaf4-fredbear-and-friends-1983-tv.png", "fnaf1-missing-children-newspapers.jpg", "fnaf3-springlock-death.png", "ffps-insanity-scup-blueprint.png"];
