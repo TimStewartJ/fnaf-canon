@@ -37,6 +37,12 @@ export interface InUniverseTime {
   /** Human label, e.g. "1987", "c. 1983 (inferred)", "30 years after FNaF1". */
   label: string;
   precision: TimePrecision;
+  /**
+   * How the date is known, where `precision` alone would mislabel it. The pages show a record's date as
+   * "printed" for `exact` and "estimated" for `approx`; set `kind` when neither is true, for example
+   * "teaser" for a year shown in a teaser and on a document not yet confirmed as legible in play.
+   */
+  kind?: DateKind;
   /** Short reason the date is assigned (e.g. "date printed on paycheck"). */
   basis?: string;
 }
