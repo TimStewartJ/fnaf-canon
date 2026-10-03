@@ -73,6 +73,9 @@ export default function DevKit() {
         <div className="dev-row"><span className="label">CiteList</span><CiteList ids={RECORDS} /></div>
         <div className="dev-row"><span className="label">CiteList code</span><CiteList ids={RECORDS} variant="code" /></div>
         <div className="dev-row"><span className="label">EntityLink chip</span><EntityLink id="william-afton" variant="chip" /><EntityLink id="fredbears-family-diner" variant="chip" /><span className="label">ChapterLink</span><ChapterLink id="plush" /></div>
+        {/* Names are stored as they run in a sentence; a name that stands alone or opens a sentence takes a capital, and a descriptor is italic where people are listed. */}
+        <div className="dev-row"><span className="label">A descriptor</span><EntityLink id="glitchtrap" variant="chip" /><span>alone: <EntityLink id="glitchtrap" alone /></span><span>in a sentence: see <EntityLink id="glitchtrap" />.</span></div>
+        <p className="prose"><RichText text="{{glitchtrap}} opens a sentence with a capital. Inside one, {{glitchtrap}} keeps its small letter." /></p>
       </Section>
 
       <Section title="Buttons and controls">

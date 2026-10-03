@@ -16,6 +16,7 @@ export { useAddress, useAddressWrite, useAddressText, listParam } from "./addres
 export type { Address, AddressChange, AddressPatch, AddressView, WriteHow } from "./address";
 export * from "./deferred";
 export * from "./popover";
+export * from "./names";
 export * from "./richTextPlain";
 export * from "./typography";
 export * from "./ties";

@@ -2,12 +2,13 @@ import { Fragment, type MouseEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CornerDownRight, MapPin, User } from "lucide-react";
 import type { DateKind, Evidence } from "../data/schema";
-import { evidenceById, labelForEntity, personById, placeById } from "../data/store";
+import { evidenceById, personById, placeById } from "../data/store";
 import { gameById } from "../data/store";
 import { type CiteNumbering, useCiteNumbering } from "./citeScope";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { DATE_KIND, firmness, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
+import { entityName, isDescriptor, opensSentence } from "./names";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
 import { smartQuotes, sourceWords } from "./typography";
@@ -158,20 +159,21 @@ export function CiteList({ ids, variant = "full" }: { ids: string[]; variant?: "
 
 /**
  * Link to a person or place page (or to the evidence filed under an entity with no page).
- *  - variant "inline" (default): a text link for running prose
- *  - variant "chip": a small labelled chip with a person or place icon, for lists of entities;
- *    a name the games never print (a descriptor) is set in italic
+ *  - variant "inline" (default): a text link for running prose. The name is printed as it runs in
+ *    a sentence ("the rabbit in the code"); pass `alone` where it stands on its own or opens a
+ *    sentence, and it starts with a capital.
+ *  - variant "chip": a small labelled chip with a person or place icon, for lists of entities. A
+ *    chip always stands alone; a name the games never print (a descriptor) is set in italic.
  */
-export function EntityLink({ id, variant = "inline", children }: { id: string; variant?: "inline" | "chip"; children?: ReactNode }) {
+export function EntityLink({ id, variant = "inline", alone = variant === "chip", children }: { id: string; variant?: "inline" | "chip"; alone?: boolean; children?: ReactNode }) {
   const isPerson = personById.has(id), isPlace = placeById.has(id);
   const to = isPerson ? personPath(id) : isPlace ? placePath(id) : `/evidence?entity=${id}`;
   const kind = isPerson ? "person" : isPlace ? "place" : "unknown";
+  const name = smartQuotes(entityName(id, alone));
   return (
     <Link className={`entity entity--${variant} entity--${kind}`} to={to}>
       {variant === "chip" && <Icon icon={isPlace ? MapPin : User} />}
-      {variant === "chip" && !children && personById.get(id)?.nameStatus === "descriptor"
-        ? <span className="name-desc">{smartQuotes(labelForEntity(id))}</span>
-        : children ?? smartQuotes(labelForEntity(id))}
+      {variant === "chip" && !children && isDescriptor(id) ? <span className="name-desc">{name}</span> : children ?? name}
     </Link>
   );
 }
@@ -268,7 +270,8 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
  * and drawer, where "Rests on: this record" would only lead back to where the reader is.
  */
 export function EvidenceDate({ e, compact, variant, self = false }: { e: Evidence; compact?: boolean; variant?: "tag" | "inline"; self?: boolean }) {
-  const kind: DateKind = e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown";
+  // The record says how its date is known where it can; otherwise the precision stands in for it.
+  const kind: DateKind = e.when.kind ?? (e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown");
   return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={self ? [] : [e.id]} compact={compact} variant={variant} />;
 }
 
@@ -285,8 +288,13 @@ type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "no
  *   ((chapter-id)) ((id|label))   link to a theory chapter
  *   **bold**  *italic*            may contain other tokens
  *   <<label|kind|ids|basis>>      a date pill
+ *
+ * Names are stored as they run in a sentence ("the rabbit in the code"), so an entity that opens
+ * the text or follows the end of a sentence is printed with a capital. The text is taken to open
+ * a sentence itself (a paragraph, a list item, a table cell, a caption all do); pass
+ * `opens={false}` for a phrase that is set inside a longer line.
  */
-export function RichText({ text: source }: { text: string }) {
+export function RichText({ text: source, opens = true }: { text: string; opens?: boolean }) {
   const text = smartQuotes(source);
   const pieces: Piece[] = [];
   let last = 0;
@@ -305,10 +313,11 @@ export function RichText({ text: source }: { text: string }) {
       if (between) pieces.push({ t: "text", s: between });
       let node: ReactNode;
       if (m[7]) node = <DatePill key={k++} variant="inline" label={m[7]} kind={m[8] as DateKind} evidence={m[9] ? m[9].split(",") : []} basis={m[10]} />;
-      else if (m[2]) node = <EntityLink key={k++} id={m[2]} />;
+      else if (m[2]) node = <EntityLink key={k++} id={m[2]} alone={opensSentence(text.slice(0, m.index), opens)} />;
       else if (m[3]) node = <ChapterLink key={k++} id={m[3]} label={m[4]} />;
-      else if (m[5]) node = <strong key={k++}><RichText text={m[5]} /></strong>;
-      else node = <em key={k++}><RichText text={m[6]} /></em>;
+      // Emphasis opens a sentence only when it stands where one starts.
+      else if (m[5]) node = <strong key={k++}><RichText text={m[5]} opens={opensSentence(text.slice(0, m.index), opens)} /></strong>;
+      else node = <em key={k++}><RichText text={m[6]} opens={opensSentence(text.slice(0, m.index), opens)} /></em>;
       pieces.push({ t: "node", node });
     }
     last = m.index + m[0].length;

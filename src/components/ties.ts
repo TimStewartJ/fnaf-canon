@@ -6,7 +6,8 @@
  * Everything is keyed by the relation kinds in the data and falls back to the kind's own id, so a
  * kind added to the schema later still renders (as "employed by" does for "employed-by").
  */
-import { labelForEntity } from "../data/store";
+import { entityName } from "./names";
+import { smartQuotes } from "./typography";
 
 /** What a tie is about. It picks the line colour in the diagrams; the word is always shown too. */
 export type TieFamily = "family" | "identity" | "harm" | "made";
@@ -68,7 +69,26 @@ export const TIE_FAMILY_HELP: Record<TieFamily, string> = {
   made: "created, controls",
 };
 
-/** A full plain-text sentence for a relation: "William Afton is the parent of Michael Afton". */
-export function tieSentence(r: { from: string; to: string; kind: string }): string {
-  return `${labelForEntity(r.from)} ${tieWords(r.kind).says} ${labelForEntity(r.to)}`;
+/** What a tie's words need of a relation. `says` is the tie in the records' own words (see Relation in data/schema.ts). */
+export interface TieTold { from: string; to: string; kind: string; says?: string }
+
+/**
+ * What stands between the two names of a tie, and after the second. Where the data gives the tie
+ * in the records' own words (`says`), those are printed in place of the kind's verb, which would
+ * say more than the records do: `calls {to} "old friend"` is "calls", then the name, then
+ * " “old friend”". Without `{to}` the name follows the phrase.
+ */
+export function tieSaid(r: { kind: string; says?: string }): { before: string; after: string } {
+  const says = r.says?.trim();
+  if (!says) return { before: tieWords(r.kind).says, after: "" };
+  // Quotes are set before the split: an apostrophe after {to} ("{to}'s head") must not be read as an opening quote.
+  const text = smartQuotes(says);
+  const at = text.indexOf("{to}");
+  return at < 0 ? { before: text, after: "" } : { before: text.slice(0, at).trimEnd(), after: text.slice(at + 4) };
+}
+
+/** A full plain-text sentence for a relation: "William Afton is the parent of Michael". */
+export function tieSentence(r: TieTold): string {
+  const { before, after } = tieSaid(r);
+  return smartQuotes(`${entityName(r.from, true)}${before ? ` ${before}` : ""} ${entityName(r.to)}${after}`);
 }
