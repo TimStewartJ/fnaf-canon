@@ -7,8 +7,9 @@
  *
  * Usage:
  *   node scripts/qa.mjs --base http://127.0.0.1:5191 --out /path/to/dir
- *     [--routes /,/theory,/timeline]   routes to visit (default: every top-level route, sample detail pages,
- *                                      two theory chapters and the /dev/blocks fixture)
+ *     [--routes /,/theory,/timeline]   routes to visit (default: every route the app has, with detail pages
+ *                                      at the extremes: the longest chapter, the chapters with wide tables,
+ *                                      the person and place with most on them, a source with nothing, the 404)
  *     [--widths 1440,390]              viewport widths (heights: 900 for >=700px wide, else 844)
  *     [--full]                         full-page screenshots, clipped to --max-height (default 12000)
  *     [--scroll 1200,2400]             extra viewport screenshots at these scroll offsets
@@ -18,6 +19,11 @@
  *     [--tag name]                     prefix for screenshot file names
  *     [--theme paper]                  reader theme to test (night is the default); also accepts
  *                                      --text small|large and --cites hide for the other reader settings
+ *     [--font 20]                      the browser's own default font size in px (16 unless set): what a
+ *                                      reader gets from "Large" or "Very large" in the browser's settings
+ *     [--no-shots]                     skip the screenshots (a wide sweep of widths)
+ * A route that lands on a "not found" page is an error too, unless it is listed as one on purpose
+ * (NOT_FOUND below): an id renamed in the data must not turn a check into a pass on an empty page.
  * Exit code 1 when any route has a console/page error, a failed request or horizontal overflow.
  */
 import { chromium } from "playwright";
@@ -32,10 +38,19 @@ const base = opt("base", "http://127.0.0.1:5190").replace(/\/$/, "");
 const out = opt("out", "/tmp/fnaf-qa");
 const hash = !flag("no-hash");
 const widths = opt("widths", "1440,390").split(",").map(Number);
+// Routes that are meant to show a "not found" page.
+const NOT_FOUND = ["/this-route-does-not-exist", "/theory/no-such-chapter", "/people/no-such-person", "/places/no-such-place", "/sources/no-such-source", "/evidence/no-such-record"];
 const DEFAULT_ROUTES = [
-  "/", "/theory", "/theory/plush", "/theory/thesis", "/dev/blocks", "/dev/kit", "/timeline", "/evidence", "/evidence/fnaf2-take-cake-to-the-children", "/people", "/people/william-afton",
-  "/people/crying-child", "/family", "/graph", "/places", "/places/fredbears-family-diner", "/sources", "/sources/fnaf4",
-  "/gallery", "/box", "/community", "/author", "/method", "/this-route-does-not-exist",
+  // Home and the theory: the cover, the longest chapter (open), chapters with wide tables, a figure-led one.
+  "/", "/theory", "/theory/thesis", "/theory/open", "/theory/games", "/theory/ucn", "/theory/november-1987", "/theory/timeline-math", "/theory/plush", "/theory/bite",
+  // Timeline: both views, one era, one event open.
+  "/timeline", "/timeline?view=locations", "/timeline?era=murders",
+  // Evidence: the explorer plain and filtered, a record, sources (one full, one with a single group, one with no records), the gallery.
+  "/evidence", "/evidence?game=fnaf4&img=1", "/evidence/fnaf2-take-cake-to-the-children", "/sources", "/sources/fnaf4", "/sources/fnaf4-halloween", "/sources/freddy-in-space-2", "/gallery",
+  // People and places: the register, the people with most on them, the trees, the web, places.
+  "/people", "/people/william-afton", "/people/fazbear-entertainment", "/people/crying-child", "/family", "/graph", "/places", "/places/fredbears-family-diner", "/places/private-room",
+  // Essays, the fixtures, and every kind of dead end.
+  "/box", "/community", "/author", "/method", "/dev/blocks", "/dev/kit", ...NOT_FOUND,
 ];
 const routes = opt("routes", "").split(",").filter(Boolean);
 const scrolls = opt("scroll", "").split(",").filter(Boolean).map(Number);
@@ -52,7 +67,8 @@ if (flag("axe")) {
   catch { console.log("axe requested but @axe-core/playwright is not installed; skipping"); }
 }
 
-const browser = await chromium.launch();
+const font = Number(opt("font", "16"));
+const browser = await chromium.launch({ args: font !== 16 ? [`--blink-settings=defaultFontSize=${font}`] : [] });
 const report = [];
 let bad = 0;
 for (const width of widths) {
@@ -95,7 +111,9 @@ for (const width of widths) {
     });
     const name = `${tag ? tag + "-" : ""}${width}-${route.replace(/[^a-z0-9]+/gi, "_").replace(/^_|_$/g, "") || "home"}`;
     const file = path.join(out, `${name}.png`);
-    if (flag("full")) await page.screenshot({ path: file, fullPage: true, clip: { x: 0, y: 0, width, height: Math.min(m.scrollHeight, maxHeight) } });
+    if (/not found/i.test(m.title) && !NOT_FOUND.includes(route)) errs.push(`not found: the route shows "${m.title}"`);
+    if (flag("no-shots")) { /* a sweep: numbers only */ }
+    else if (flag("full")) await page.screenshot({ path: file, fullPage: true, clip: { x: 0, y: 0, width, height: Math.min(m.scrollHeight, maxHeight) } });
     else await page.screenshot({ path: file });
     for (const y of scrolls) {
       await page.evaluate((yy) => window.scrollTo(0, yy), y); await page.waitForTimeout(400);
