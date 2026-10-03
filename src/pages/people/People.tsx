@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo, useDeferredValue, useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { Person } from "../../data/schema";
 import { people } from "../../data/store";
@@ -48,10 +48,14 @@ function buildEntries(): Entry[] {
   return out;
 }
 
+/** The folded records of a person whose name or alias contains the search text, as one string (so a row re-renders only when its own hits change). */
+const hitsOf = (entry: Entry, needle: string) => (needle ? entry.others.filter((n) => entry.hay.get(n.id)?.includes(needle)).map((n) => n.id).join(" ") : "");
+
 /** One person: the name leads, then what became of them; the records folded into them sit below, smaller. */
-function PersonRow({ entry, needle }: { entry: Entry; needle: string }) {
+const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits: string }) {
   const p = entry.root;
   const status = plainText(p.status);
+  const hitIds = new Set(hits ? hits.split(" ") : []);
   return (
     <li className="ppl-row">
       <div className="ppl-row__who">
@@ -71,7 +75,7 @@ function PersonRow({ entry, needle }: { entry: Entry; needle: string }) {
                   <dd>
                     {nodes.map((n) => {
                       const f = firmness("status", n.status);
-                      const hit = !!needle && !!entry.hay.get(n.id)?.includes(needle);
+                      const hit = hitIds.has(n.id);
                       return (
                         <Link
                           key={n.id}
@@ -99,10 +103,10 @@ function PersonRow({ entry, needle }: { entry: Entry; needle: string }) {
       )}
     </li>
   );
-}
+});
 
 /** Minor figures as an index: one short line each, under its first letter. */
-function MinorIndex({ list }: { list: readonly Person[] }) {
+const MinorIndex = memo(function MinorIndex({ list }: { list: readonly Person[] }) {
   const letters = new Map<string, Person[]>();
   for (const p of list) {
     const first = p.name.replace(/^The /, "")[0]?.toUpperCase() ?? "#";
@@ -129,17 +133,19 @@ function MinorIndex({ list }: { list: readonly Person[] }) {
       ))}
     </div>
   );
-}
+});
 
 export default function People() {
   const [q, setQ] = useUrlText("q");
-  const needle = q.trim().toLowerCase();
+  // The box answers each keystroke at once; the list follows a moment behind, and rows that do not change are not drawn again.
+  const asked = useDeferredValue(q.trim());
+  const needle = asked.toLowerCase();
   const entries = useMemo(() => buildEntries(), []);
   const minor = useMemo(() => people.filter((p) => p.group === "other" && !isFoldedAway(p.id)).sort((a, b) => a.name.replace(/^The /, "").localeCompare(b.name.replace(/^The /, ""))), []);
   const folded = useMemo(() => entries.reduce((n, e) => n + e.others.length, 0), [entries]);
 
-  const shown = needle ? entries.filter((e) => [...e.hay.values()].some((h) => h.includes(needle))) : entries;
-  const shownMinor = needle ? minor.filter((p) => hayOf(p).includes(needle)) : minor;
+  const shown = useMemo(() => (needle ? entries.filter((e) => [...e.hay.values()].some((h) => h.includes(needle))) : entries), [entries, needle]);
+  const shownMinor = useMemo(() => (needle ? minor.filter((p) => hayOf(p).includes(needle)) : minor), [minor, needle]);
   const groups = GROUP_ORDER.map((g) => ({ g, list: shown.filter((e) => e.root.group === g) })).filter((x) => x.list.length > 0);
   // A group the data may add later still shows, after the known ones.
   const rest = shown.filter((e) => !GROUP_ORDER.includes(e.root.group));
@@ -164,14 +170,13 @@ export default function People() {
         </p>
         {needle && !nobody && (
           <p className="ppl-found" role="status">
-            {plural(shown.length, "profile")} and {plural(shownMinor.length, "minor figure")} match “{q.trim()}”.
+            {plural(shown.length, "profile")} and {plural(shownMinor.length, "minor figure")} match “{asked}”.
           </p>
         )}
       </PageHeader>
 
       {!needle && (
         <JumpLinks
-          base="/people"
           label="Groups"
           items={[...groups.map(({ g, list }) => ({ id: `group-${g}`, label: GROUP_LABEL[g] ?? g, n: list.length })), ...(minor.length ? [{ id: "group-other", label: GROUP_LABEL.other, n: minor.length }] : [])]}
         />
@@ -188,7 +193,7 @@ export default function People() {
             count={plural(list.length, "profile")}
             lead={g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other record")} folded into them.` : undefined}
           >
-            <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} needle={needle} />)}</ul>
+            <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} hits={hitsOf(e, needle)} />)}</ul>
           </DossierSection>
         );
       })}
@@ -207,7 +212,7 @@ export default function People() {
         </DossierSection>
       )}
 
-      {nobody && <Empty title="Nobody by that name">No person, alias or minor figure matches “{q.trim()}”.</Empty>}
+      {nobody && <Empty title="Nobody by that name">No person, alias or minor figure matches “{asked}”.</Empty>}
     </Page>
   );
 }

@@ -1,18 +1,8 @@
-import type { Relation, Status } from "../../data/schema";
 import { X } from "lucide-react";
 import { CiteList, IconButton, StatusMark, levelOf, smartQuotes } from "../../components/ui";
+import { Name } from "./Names";
 import { TieSentence } from "./Ties";
-import { STATUSES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, plural, type TieFamily } from "./ties";
-
-/** A tie as the diagrams draw it: one line, standing for one relation or for several whose ends were folded together. */
-export interface DrawnTie {
-  key: string;
-  from: string;
-  to: string;
-  kind: string;
-  status: Status;
-  rels: readonly Relation[];
-}
+import { STATUSES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, isFolded, type DrawnTie, type TieFamily } from "./ties";
 
 function Sample({ dash }: { dash?: boolean }) {
   return <svg className={`rel-key__line${dash ? "" : " rel-key__line--plain"}`} viewBox="0 0 30 6" width="30" height="6" aria-hidden focusable="false"><line x1="1" y1="3" x2="29" y2="3" /></svg>;
@@ -48,22 +38,29 @@ export function TieLegend({ families }: { families: readonly TieFamily[] }) {
  * The tie picked in a diagram: what it says, how firm it is, the note, and the records behind it
  * as source chips that open in the drawer. It sticks to the bottom of the diagram's frame so it is
  * in view wherever the reader is looking.
+ *
+ * A line whose ends were folded together is never restated in the folded names (that could say
+ * something no record says); the relations behind it are given as they are recorded.
  */
 export function TieBar({ tie, onClose }: { tie: DrawnTie; onClose: () => void }) {
-  const merged = tie.rels.length > 1;
+  const folded = isFolded(tie);
   return (
     <div className="rel-bar" data-level={levelOf(tie.status)}>
       <div className="rel-bar__head">
         <p className="rel-bar__line" role="status">
-          <TieSentence r={tie} /> <StatusMark value={tie.status} variant="inline" long />
+          {folded ? <>Between <Name id={tie.from} /> and <Name id={tie.to} /></> : <TieSentence r={tie} />} <StatusMark value={tie.status} variant="inline" long />
         </p>
         <IconButton icon={X} label="Close" onClick={onClose} />
       </div>
-      {merged && <p className="rel-bar__note">This line stands for {plural(tie.rels.length, "relation")} whose ends are folded together.</p>}
+      {folded && (
+        <p className="rel-bar__note">
+          This line stands for {tie.rels.length === 1 ? "a relation recorded" : `${tie.rels.length} relations recorded`} under other names, which are folded into these two.
+        </p>
+      )}
       <div className="rel-bar__body">
         {tie.rels.map((r) => (
           <div key={`${r.from}|${r.kind}|${r.to}`} className="rel-bar__rel">
-            {merged && <p className="rel-bar__sub"><TieSentence r={r} /> <StatusMark value={r.status} variant="inline" /></p>}
+            {folded && <p className="rel-bar__sub"><TieSentence r={r} /> <StatusMark value={r.status} variant="inline" /></p>}
             {r.note && <p className="rel-bar__note">{smartQuotes(r.note)}</p>}
             <p className="rel-bar__ev"><span className="label">Evidence</span> <CiteList ids={r.evidence} /></p>
           </div>

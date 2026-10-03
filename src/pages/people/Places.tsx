@@ -1,4 +1,4 @@
-import { useMemo, type CSSProperties } from "react";
+import { memo, useMemo, type CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { Place } from "../../data/schema";
@@ -47,7 +47,7 @@ const EXTRA_GROUPS: Record<string, { title: string; lead: string }> = {
   [UNPLACED]: { title: "Other locations", lead: "Locations named in the evidence that the timeline does not place." },
 };
 
-function PlaceRow({ p }: { p: Place }) {
+const PlaceRow = memo(function PlaceRow({ p }: { p: Place }) {
   const span = LOCATION_SPANS[p.id];
   const n = evidenceForPlace(p.id).length;
   return (
@@ -67,16 +67,18 @@ function PlaceRow({ p }: { p: Place }) {
       )}
     </li>
   );
-}
+});
 
 export default function Places() {
   const url = useUrlState();
   const phone = useMediaQuery("(max-width: 640px)");
   const picked = listParam(url.get("kind"), KINDS);
-  const toggle = (k: LocationKind) => {
-    const next = picked.includes(k) ? picked.filter((x) => x !== k) : [...picked, k];
-    url.set({ kind: next.length && next.length < KINDS.length ? KINDS.filter((x) => next.includes(x)).join(",") : null });
-  };
+  // Works from the address bar as it is when it runs (see urlState.ts), so two quick clicks both count.
+  const toggle = (k: LocationKind) => url.set((now) => {
+    const on = listParam(now("kind"), KINDS);
+    const next = on.includes(k) ? on.filter((x) => x !== k) : [...on, k];
+    return { kind: next.length && next.length < KINDS.length ? KINDS.filter((x) => next.includes(x)).join(",") : null };
+  });
   const kindCount = (k: LocationKind) => places.filter((p) => LOCATION_SPANS[p.id]?.kind === k).length;
   const shown = picked.length ? places.filter((p) => { const k = LOCATION_SPANS[p.id]?.kind; return !!k && picked.includes(k); }) : places;
   const order = [...eras.map((e) => e.id), UNDATED, OUTSIDE, UNPLACED];
@@ -108,7 +110,7 @@ export default function Places() {
       </PageHeader>
 
       {groups.length > 1 && (
-        <JumpLinks base="/places" label="Eras" items={groups.map(({ g, list }) => ({ id: `era-${g}`, label: eraById.get(g)?.name ?? EXTRA_GROUPS[g]?.title ?? g, n: list.length }))} />
+        <JumpLinks label="Eras" items={groups.map(({ g, list }) => ({ id: `era-${g}`, label: eraById.get(g)?.name ?? EXTRA_GROUPS[g]?.title ?? g, n: list.length }))} />
       )}
 
       {groups.map(({ g, list }) => {
@@ -142,10 +144,10 @@ export default function Places() {
 /** How many rows a list shows before "Show all": [wide screens, phones]. */
 const CAPS = { events: [12, 6], chapters: [6, 4], evidence: [10, 6], people: [10, 6] } as const;
 
-function PlaceDossier({ p }: { p: Place }) {
+/** The page for one place. Memoised on the place, so jumping to a section (a change of hash only) does not draw it again. */
+const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
   const phone = useMediaQuery("(max-width: 640px)");
   const cap = (list: keyof typeof CAPS) => CAPS[list][phone ? 1 : 0];
-  const base = placePath(p.id);
   const span = LOCATION_SPANS[p.id];
   const date = PLACE_DATES[p.id];
   const view = useMemo(() => {
@@ -209,7 +211,6 @@ function PlaceDossier({ p }: { p: Place }) {
       </div>
 
       <JumpLinks
-        base={base}
         items={([["happened", "What happened here", happened], ["people", "Who was here", view.people.length], ["theory", "In the theory", view.chapters.length], ["evidence", "Evidence", view.records.length]] as const)
           .filter(([, , n]) => n > 0).map(([id, label, n]) => ({ id, label, n }))}
       />
@@ -254,7 +255,7 @@ function PlaceDossier({ p }: { p: Place }) {
       </DossierSection>
     </Page>
   );
-}
+});
 
 export function PlaceDetail() {
   const { id = "" } = useParams();

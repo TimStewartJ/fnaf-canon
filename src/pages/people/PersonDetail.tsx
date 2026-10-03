@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { Person } from "../../data/schema";
@@ -18,7 +18,7 @@ import { Portrait } from "./Portrait";
 import { DeathRows, EventRows } from "./Story";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, plural, tieWords } from "./ties";
-import { useUrlState } from "./urlState";
+import { useAnchor, useUrlState, type UrlState } from "./urlState";
 import "./common.css";
 import "./people.css";
 
@@ -30,7 +30,8 @@ const PLACES_SHOWN = 4;
 const hasText = (text: string | undefined): text is string => !!text && /[\p{L}\p{N}]/u.test(text);
 
 /** For a record that is folded into another: what the model reads it as, how firmly, and on what. */
-function Standing({ node, being, base }: { node: BeingNode; being: Being; base: string }) {
+function Standing({ node, being }: { node: BeingNode; being: Being }) {
+  const anchor = useAnchor();
   const chain = chainTo(node);
   const hangs = node.kind === "vessel" || node.kind === "role";
   // An identity or a form belongs to the head of its own group; a vessel or a role to the record that haunts or wore it.
@@ -49,21 +50,23 @@ function Standing({ node, being, base }: { node: BeingNode; being: Being; base: 
       <p className="person-standing__how">
         <StatusMark value={node.status} variant="inline" long />
         <CiteList ids={evidence} variant="code" />
-        <Link to={`${base}#identity`}>The whole chain</Link>
+        <Link to={anchor("identity")}>The whole chain</Link>
       </p>
     </div>
   );
 }
 
-function Dossier({ p }: { p: Person }) {
-  const url = useUrlState();
+/**
+ * The page for one record. Memoised on what it shows (the record and the ?scope= choice), so
+ * jumping to a section, which only changes the URL's hash, does not draw the whole file again.
+ */
+const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: boolean; set: UrlState["set"] }) {
   const phone = useMediaQuery("(max-width: 640px)");
   const cap = (list: keyof typeof CAPS) => CAPS[list][phone ? 1 : 0];
-  const base = personPath(p.id);
   const being = beingOf(p.id)!;
   const me = being.byId.get(p.id)!;
   const own = useMemo(() => subtree(me), [me]);
-  const narrow = own.length > 1 && url.get("scope") === "record";
+  const narrow = own.length > 1 && record;
 
   const view = useMemo(() => {
     const scope = narrow ? [me] : own;
@@ -112,7 +115,7 @@ function Dossier({ p }: { p: Person }) {
         aside={p.image ? <Portrait file={p.image} /> : undefined}
       >
         {p.aliases.length > 0 && <p className="person-head__aliases"><span className="label">Also</span> {p.aliases.map(smartQuotes).join(" · ")}</p>}
-        {me.parent && <Standing node={me} being={being} base={base} />}
+        {me.parent && <Standing node={me} being={being} />}
         <p className="ppl-summary"><RichText text={p.summary} /></p>
       </PageHeader>
 
@@ -142,7 +145,7 @@ function Dossier({ p }: { p: Person }) {
         </Facts>
       </div>
 
-      <JumpLinks base={base} items={toc.filter(([, , n]) => n > 0).map(([id, label, n]) => ({ id, label, n }))} />
+      <JumpLinks items={toc.filter(([, , n]) => n > 0).map(([id, label, n]) => ({ id, label, n }))} />
 
       {p.theory && (
         <DossierSection id="reading" title="The model’s reading" lead="The archive’s interpretation, beyond what the records state outright.">
@@ -171,7 +174,7 @@ function Dossier({ p }: { p: Person }) {
               <Segmented
                 label="The sections below cover"
                 value={narrow ? "record" : "all"}
-                onChange={(v) => url.set({ scope: v === "record" ? "record" : null })}
+                onChange={(v) => set({ scope: v === "record" ? "record" : null })}
                 options={[{ id: "all", label: `All ${own.length} records` }, { id: "record", label: "This record only" }]}
               />
             </div>
@@ -226,10 +229,11 @@ function Dossier({ p }: { p: Person }) {
       </DossierSection>
     </Page>
   );
-}
+});
 
 export default function PersonDetail() {
   const { id = "" } = useParams();
+  const url = useUrlState();
   const p = personById.get(id);
   if (!p) {
     return (
@@ -239,5 +243,5 @@ export default function PersonDetail() {
     );
   }
   // Keyed by id so the folds and "show all" states start fresh on each person.
-  return <Dossier key={p.id} p={p} />;
+  return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.set} />;
 }

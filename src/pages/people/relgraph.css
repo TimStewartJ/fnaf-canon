@@ -23,6 +23,9 @@ g.rel-edge.is-sel .rel-edge__line { stroke-width: 3.2; }
 g.rel-edge.is-sel .rel-edge__hit { stroke: var(--c-accent-soft); stroke-width: 12; }
 g.rel-edge:focus-visible .rel-edge__hit { stroke: var(--c-focus); stroke-opacity: 0.45; stroke-width: 9; }
 g.rel-edge.is-dim { opacity: 0.28; }
+/* outside the focus: fainter still, and out of the pointer's way */
+g.rel-edge.is-off { opacity: 0.14; pointer-events: none; }
+g.rel-edge.is-off .rel-edge__hit { pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
   g.rel-edge { transition: opacity var(--dur-1) var(--ease); }
 }

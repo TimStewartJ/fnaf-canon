@@ -1,17 +1,18 @@
-import { useCallback, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { memo, useCallback, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import { Bot } from "lucide-react";
+import type { Relation } from "../../data/schema";
 import { labelForEntity, personById } from "../../data/store";
 import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
-  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, firmness, levelOf, personPath, smartQuotes,
-  useMediaQuery,
+  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery,
 } from "../../components/ui";
 import { GroupLabel } from "./Dossier";
+import { useContentWidth } from "./measure";
 import { buildTree, defaultKinds, describeTree, routingOf, tiesWithin, type TreeEdge } from "./familyModel";
 import { TieBar, TieLegend } from "./RelParts";
 import { TieRow, TieSentence } from "./Ties";
-import { TIE_FAMILIES, TIE_FAMILY_LABEL, byFamily, plural, tieSentence, tieWords, type TieFamily } from "./ties";
+import { TIE_FAMILIES, TIE_FAMILY_LABEL, byFamily, plural, tieTitle, tieWords } from "./ties";
 import { LANE_GAP, arrowHead, roundedPath, routePoints, type Geometry } from "./treeLayout";
 import { listParam, useUrlState } from "./urlState";
 import "./common.css";
@@ -20,34 +21,38 @@ import "./family.css";
 
 const FOLDS = ["ids", "vessels"] as const;
 
-/** The width of an element's content box, kept up to date. Starts from a guess so the first paint is close. */
-function useContentWidth<T extends HTMLElement>(): [(el: T | null) => void, number] {
-  const [width, setWidth] = useState(() => Math.min(1216, (typeof window === "undefined" ? 1216 : window.innerWidth) - 34));
-  const observer = useRef<ResizeObserver | null>(null);
-  const ref = useCallback((el: T | null) => {
-    observer.current?.disconnect();
-    if (!el) return;
-    const read = () => {
-      const cs = getComputedStyle(el);
-      setWidth(Math.max(0, el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)));
-    };
-    read();
-    observer.current = new ResizeObserver(read);
-    observer.current.observe(el);
-  }, []);
-  return [ref, width];
-}
-
 const sum = (list: readonly number[]) => list.reduce((a, b) => a + b, 0);
 const sameNumbers = (a: readonly number[], b: readonly number[]) => a.length === b.length && a.every((v, i) => Math.abs(v - b[i]) < 0.5);
+
+/**
+ * The ties of a tree in words: the relations behind its lines, as recorded. Memoised, because
+ * pointing at a box or picking a line changes nothing in it.
+ */
+const TieList = memo(function TieList({ drawn, open }: { drawn: readonly Relation[]; open: boolean }) {
+  return (
+    <Collapsible className="fam-list" defaultOpen={open} summary="The ties drawn, as a list" meta={plural(drawn.length, "tie")}>
+      {byFamily(drawn, (r) => r.kind).map((g) => (
+        <div key={g.family} className="ppl-tie-group">
+          <GroupLabel count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
+          <ul className="ppl-ties">
+            {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
+          </ul>
+        </div>
+      ))}
+    </Collapsible>
+  );
+});
 
 function TreeView({ tree }: { tree: FamilyTree }) {
   const url = useUrlState();
   const phone = useMediaQuery("(max-width: 640px)");
   const folds = listParam(url.get("fold"), FOLDS);
   const foldIds = folds.includes("ids"), foldVessels = folds.includes("vessels");
-  const setFold = (which: (typeof FOLDS)[number], on: boolean) =>
-    url.set({ fold: FOLDS.filter((f) => (f === which ? on : folds.includes(f))).join(",") || null, tie: null });
+  // Handlers work from the address bar as it is when they run (see urlState.ts), so two quick clicks both count.
+  const flipFold = (which: (typeof FOLDS)[number]) => url.set((now) => {
+    const on = listParam(now("fold"), FOLDS);
+    return { fold: FOLDS.filter((f) => (f === which ? !on.includes(f) : on.includes(f))).join(",") || null, tie: null };
+  });
 
   // The kinds of tie that occur among this tree's members, in family order, with how many of each.
   const kinds = useMemo(() => {
@@ -64,18 +69,18 @@ function TreeView({ tree }: { tree: FamilyTree }) {
     const usual = new Set(defaultKinds(kindIds));
     return kindIds.filter((k) => (usual.has(k) ? !tokens.has(`-${k}`) : tokens.has(k)));
   }, [linesParam, kindIds]);
-  const toggleKind = (kind: string) => {
-    const tokens = new Set(linesParam.split(",").filter(Boolean));
+  const toggleKind = (kind: string) => url.set((now) => {
+    const tokens = new Set(now("lines").split(",").filter(Boolean));
     const token = defaultKinds([kind]).length ? `-${kind}` : kind;
     if (tokens.has(token)) tokens.delete(token); else tokens.add(token);
-    url.set({ lines: [...tokens].join(",") || null, tie: null });
-  };
+    return { lines: [...tokens].join(",") || null, tie: null };
+  });
 
   const model = useMemo(() => buildTree(tree, { ids: foldIds, vessels: foldVessels }, new Set(shownKinds)), [tree, foldIds, foldVessels, shownKinds]);
   const at = useMemo(() => new Map(model.nodes.map((n) => [n.id, n])), [model]);
   const edgeByKey = useMemo(() => new Map(model.edges.map((e) => [e.key, e])), [model]);
   const selected = edgeByKey.get(url.get("tie"));
-  const select = (e: TreeEdge | null) => url.set({ tie: e && e !== selected ? e.key : null });
+  const select = (e: TreeEdge | null) => url.set((now) => ({ tie: e && now("tie") !== e.key ? e.key : null }));
 
   /*
    * Sizes. The columns share the width there is. When that would squeeze them, the gutters close up
@@ -158,6 +163,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
   };
 
   const families = TIE_FAMILIES.filter((f) => model.edges.some((e) => tieWords(e.kind).family === f));
+  // The relations behind the lines, as recorded: a line that folding merged from several is listed as each of them.
+  const drawn = useMemo(() => [...new Set(model.edges.flatMap((e) => e.rels))], [model]);
   const hasMachine = model.nodes.some((n) => personById.get(n.id)?.group === "entity");
   const hasDescriptor = model.nodes.some((n) => personById.get(n.id)?.nameStatus === "descriptor");
   const description = describeTree(tree.description);
@@ -169,8 +176,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
       {description && <p className="fam-desc">{smartQuotes(description)}</p>}
       <div className="fam-bar" role="group" aria-label="Fold records">
         <span className="label">Fold</span>
-        <Toggle on={foldIds} onChange={(on) => setFold("ids", on)}>Identities <span className="faint">(same being)</span></Toggle>
-        <Toggle on={foldVessels} onChange={(on) => setFold("vessels", on)}>Vessels <span className="faint">(haunts, wore)</span></Toggle>
+        <Toggle on={foldIds} onChange={() => flipFold("ids")}>Identities <span className="faint">(same being)</span></Toggle>
+        <Toggle on={foldVessels} onChange={() => flipFold("vessels")}>Vessels <span className="faint">(haunts, wore)</span></Toggle>
         <span className="fam-folded" role="status">{model.folded > 0 ? `${plural(model.folded, "record")} folded into the person the model reads them as.` : ""}</span>
       </div>
       <Collapsible
@@ -253,12 +260,12 @@ function TreeView({ tree }: { tree: FamilyTree }) {
                       role="button"
                       tabIndex={i === Math.min(active, model.edges.length - 1) ? 0 : -1}
                       aria-pressed={selected === e}
-                      aria-label={`${tieSentence(e)} (${firmness("status", e.status).word}). ${plural(new Set(e.rels.flatMap((r) => r.evidence)).size, "record")}.`}
+                      aria-label={`${tieTitle(e)}. ${plural(new Set(e.rels.flatMap((r) => r.evidence)).size, "record")}.`}
                       onClick={() => select(e)}
                       onFocus={() => setActive(i)}
                       onKeyDown={(ev) => onEdgeKey(ev, i)}
                     >
-                      <title>{`${tieSentence(e)} (${firmness("status", e.status).word})`}</title>
+                      <title>{tieTitle(e)}</title>
                       <path d={d} className="rel-edge__hit" />
                       <path d={d} className="rel-edge__line" />
                       {w.directed && w.family !== "family" && <path d={arrowHead(points, route.toIsA)} className="rel-edge__arrow" />}
@@ -283,32 +290,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
       </div>
 
       {/* Rendered once the tree is measured, so a tree too wide for the screen starts with its list open. */}
-      {model.edges.length > 0 && rows && (
-        <Collapsible className="fam-list" defaultOpen={rows.overflow} summary="The same ties, as a list" meta={plural(model.edges.length, "tie")}>
-          {byFamily(model.edges, (e) => e.kind).map((g) => (
-            <div key={g.family} className="ppl-tie-group">
-              <GroupLabel count={g.items.length}>{TIE_FAMILY_LABEL[g.family as TieFamily]}</GroupLabel>
-              <ul className="ppl-ties">
-                {g.items.map((e) => (
-                  <TieRow
-                    key={e.key}
-                    status={e.status}
-                    note={e.rels.length === 1 ? e.rels[0].note : undefined}
-                    evidence={[...new Set(e.rels.flatMap((r) => r.evidence))]}
-                    extra={e.rels.length > 1 ? (
-                      <ul className="fam-under">
-                        {e.rels.map((r) => <li key={`${r.from}|${r.to}`}><TieSentence r={r} /> <span className="ppl-tie__status">{firmness("status", r.status).word}</span>{r.note && <span className="fam-under__note"> {smartQuotes(r.note)}</span>}</li>)}
-                      </ul>
-                    ) : undefined}
-                  >
-                    <TieSentence r={e} />
-                  </TieRow>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </Collapsible>
-      )}
+      {drawn.length > 0 && rows && <TieList drawn={drawn} open={rows.overflow} />}
       {model.edges.length === 0 && <Empty title="No lines to draw">Every kind of line is switched off. Turn one on above to see how these people are tied.</Empty>}
       {tree.notes && <Callout tone="note" title="About this tree" className="fam-notes"><p>{smartQuotes(tree.notes)}</p></Callout>}
     </>

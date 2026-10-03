@@ -5,7 +5,7 @@
  * Everything is keyed by the relation kinds in the data and falls back to the kind's own id, so a
  * kind added to the schema later still renders (as "employed by" does for "employed-by").
  */
-import type { Status } from "../../data/schema";
+import type { Relation, Status } from "../../data/schema";
 import { labelForEntity } from "../../data/store";
 
 /** What a tie is about. It picks the line colour in the diagrams; the word is always shown too. */
@@ -95,3 +95,22 @@ export function byFamily<T>(items: readonly T[], kindOf: (item: T) => string): {
     .map((family) => ({ family, items: items.filter((it) => tieWords(kindOf(it)).family === family) }))
     .filter((g) => g.items.length > 0);
 }
+
+/** A tie as the diagrams draw it: one line, standing for one relation or for several whose ends were folded together. */
+export interface DrawnTie {
+  key: string;
+  from: string;
+  to: string;
+  kind: string;
+  /** The firmest of the relations the line stands for. */
+  status: Status;
+  rels: readonly Relation[];
+}
+
+/** True when a drawn tie's ends are not the ends of the relations behind it (records were folded together). */
+export const isFolded = (tie: DrawnTie): boolean => tie.rels.some((r) => r.from !== tie.from || r.to !== tie.to);
+
+const statusWord: Record<Status, string> = { canon: "canon", strong: "strong inference", theory: "theory" };
+
+/** What a drawn tie says, in plain words: the relations behind it, by the names they are recorded under. */
+export const tieTitle = (tie: DrawnTie): string => tie.rels.map((r) => `${tieSentence(r)} (${statusWord[r.status] ?? r.status})`).join("; ");

@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button, smartQuotes } from "../../components/ui";
+import { useAnchor } from "./urlState";
 
 /**
  * A section of a dossier page (person, place): the heading, a count and a one-line lead sit in a
@@ -62,15 +63,16 @@ export function Capped<T>({ items, cap, noun, children }: { items: readonly T[];
 }
 
 /**
- * Jump links to the sections of a long page, each with a count of what it holds. `base` is the
- * page's own path; the links add a hash, which the shell scrolls to.
+ * Jump links to the sections of the current page, each with a count of what it holds. The links
+ * add a hash (which the shell scrolls to) and keep the page's query string.
  */
-export function JumpLinks({ base, items, label = "On this page" }: { base: string; items: readonly { id: string; label: string; n?: number }[]; label?: string }) {
+export function JumpLinks({ items, label = "On this page" }: { items: readonly { id: string; label: string; n?: number }[]; label?: string }) {
+  const anchor = useAnchor();
   if (items.length < 2) return null;
   return (
     <nav className="ppl-toc" aria-label={label}>
       {items.map((it) => (
-        <Link key={it.id} to={`${base}#${it.id}`} className="ppl-toc__link">{smartQuotes(it.label)}{it.n != null && <span className="ppl-toc__n">{it.n}</span>}</Link>
+        <Link key={it.id} to={anchor(it.id)} className="ppl-toc__link">{smartQuotes(it.label)}{it.n != null && <span className="ppl-toc__n">{it.n}</span>}</Link>
       ))}
     </nav>
   );

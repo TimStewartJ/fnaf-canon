@@ -40,7 +40,4 @@
 .fam-foot__wide { padding-bottom: var(--sp-2); color: var(--c-text); }
 .fam-foot__key { display: flex; flex-wrap: wrap; gap: 0.15rem var(--sp-5); }
 .fam-list { margin-top: var(--sp-5); }
-.fam-under { list-style: none; margin: var(--sp-2) 0 0; padding: 0; display: grid; gap: var(--sp-1); font-size: var(--fs-base); color: var(--c-text-2); }
-.fam-under > li { margin: 0; }
-.fam-under__note { color: var(--c-text-2); }
 .fam-notes { margin-top: var(--sp-5); }

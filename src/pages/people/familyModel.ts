@@ -5,11 +5,11 @@
  * column on the page, so the chains the author lined up (a person, the machine they haunt, what it
  * became) stay in a straight line. Rows and columns nobody is left in are closed up.
  */
-import type { Relation, Status } from "../../data/schema";
+import type { Relation } from "../../data/schema";
 import type { FamilyTree } from "../../data/familyTrees";
 import { relations } from "../../data/store";
 import { canonicalId } from "../../data/model";
-import { STATUS_RANK, tieWords } from "./ties";
+import { STATUS_RANK, tieWords, type DrawnTie } from "./ties";
 import { routeGrid, type GridEdge, type GridNode, type Routing } from "./treeLayout";
 
 export interface TreeNode extends GridNode {
@@ -18,13 +18,8 @@ export interface TreeNode extends GridNode {
   absorbed: string[];
 }
 
-export interface TreeEdge extends GridEdge {
-  kind: string;
-  /** The firmest of the relations the line stands for. */
-  status: Status;
-  /** One relation, or several when folding has merged their ends. */
-  rels: Relation[];
-}
+/** A line of the tree. Its key, from and to are what the router needs as well. */
+export type TreeEdge = DrawnTie & GridEdge;
 
 export interface TreeModel {
   nodes: TreeNode[];
@@ -82,7 +77,7 @@ export function buildTree(tree: FamilyTree, fold: { ids: boolean; vessels: boole
     const key = edgeKey(from, r.kind, to);
     const e = edges.get(key);
     if (!e) edges.set(key, { key, from, to, kind: r.kind, status: r.status, rels: [r] });
-    else { e.rels.push(r); if (STATUS_RANK[r.status] > STATUS_RANK[e.status]) e.status = r.status; }
+    else edges.set(key, { ...e, rels: [...e.rels, r], status: STATUS_RANK[r.status] > STATUS_RANK[e.status] ? r.status : e.status });
   }
   return { nodes, edges: [...edges.values()], nRows: gens.length, nCols, folded: tree.members.length - kept.length };
 }
