@@ -6,11 +6,12 @@
 .ppl-key { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-4); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .ppl-key__note { flex-basis: 100%; }
 
-.ppl-row__aka { display: grid; gap: 0.1rem; margin: 0; }
+.ppl-row__aka { display: grid; gap: 0; margin: 0; }
 .ppl-row__status + .ppl-row__aka { margin-top: var(--sp-2); }
 .ppl-aka { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; }
 .ppl-aka > dd { display: flex; flex-wrap: wrap; gap: 0 var(--sp-3); min-width: 0; margin: 0; }
-.ppl-aka__link { display: inline-flex; align-items: baseline; gap: 0.35em; font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); text-decoration-color: var(--c-line-strong); border-radius: var(--r-xs); }
+/* the padding makes each link at least 24px tall, the least a pointer target may be */
+.ppl-aka__link { display: inline-flex; align-items: baseline; gap: 0.35em; padding-block: 0.125rem; font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); text-decoration-color: var(--c-line-strong); border-radius: var(--r-xs); }
 .ppl-aka__link .firm-glyph { align-self: center; }
 .ppl-aka__link:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 /* the alias a search matched */

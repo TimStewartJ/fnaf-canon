@@ -8,7 +8,7 @@ import {
   Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
   personPath, smartQuotes,
 } from "../../components/ui";
-import { forgetTextWidths, textWidth, useContentWidth } from "./measure";
+import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
 import { Name } from "./Names";
 import { TieBar, TieLegend } from "./RelParts";
 import { OwnTies } from "./Ties";
@@ -27,8 +27,7 @@ const NO_MOVES = new Map<string, Placed>();
 /** ?support= lists the firmness levels shown; absent means all of them, "none" none. */
 const supportOf = (param: string): Status[] => (param === "none" ? [] : param ? listParam(param, STATUSES) : STATUSES);
 
-/** The picture: people as discs, ties as lines. Laid out for the width it is given. */
-function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
+interface CanvasProps {
   web: Web;
   focus: string;
   near: ReadonlySet<string> | null;
@@ -36,22 +35,36 @@ function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
   onFocus: (id: string) => void;
   /** Picks the tie, or lets go of it when it is the one already picked. */
   onSelect: (tie: WebTie) => void;
-}) {
-  const nav = useNavigate();
+}
+
+/** The frame of the picture. It measures the room there is, then draws the picture for exactly that room. */
+function WebCanvas(props: CanvasProps) {
   const [frameRef, avail] = useContentWidth<HTMLDivElement>();
   // The room below the picture's top edge on the first screen, read once: the picture is sized to fit it.
-  const [room, setRoom] = useState(0);
+  const [room, setRoom] = useState<number | null>(null);
   const topRef = useRef<HTMLDivElement | null>(null);
   useLayoutEffect(() => {
     const el = topRef.current;
     if (el) setRoom(window.innerHeight - (el.getBoundingClientRect().top + window.scrollY));
   }, []);
+  return (
+    <div className="graph-canvas" ref={(el) => { frameRef(el); topRef.current = el; }}>
+      {avail > 0 && room != null && <WebPicture {...props} avail={avail} room={room} />}
+    </div>
+  );
+}
+
+/** The picture: people as discs, ties as lines. Laid out for the width it is given. */
+function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room }: CanvasProps & { avail: number; room: number }) {
+  const nav = useNavigate();
   // Sizes move in steps, so dragging the window edge does not lay the web out again at every pixel.
   const width = Math.max(280, Math.floor(avail / 20) * 20);
   const compact = width < 520;
+  // Names are set in rem like all interface text, so they grow with the reader's base font size; the layout allows for it.
+  const [rem, setRem] = useState(remScale);
   // A wide screen gets a landscape picture that fits what is left of the first screen; a phone gets a
-  // portrait one with room enough for every name. More people always get more room.
-  const perPerson = compact ? 9200 : 13500;
+  // portrait one with room enough for every name. More people, or larger text, always get more room.
+  const perPerson = (compact ? 9200 : 13500) * rem * rem;
   const need = (web.nodes.length * perPerson) / width;
   const shape = width >= 900 ? width * 0.5 : width * 0.72;
   const height = Math.round(compact ? Math.max(380, need) : Math.max(400, need, Math.min(shape, room > 0 ? room - 64 : shape)));
@@ -68,22 +81,24 @@ function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
   useEffect(() => {
     const fonts = document.fonts;
     if (!fonts) return;
-    const again = () => { forgetTextWidths(); setFontsReady((n) => n + 1); };
+    const again = () => { forgetTextWidths(); setRem(remScale()); setFontsReady((n) => n + 1); };
     fonts.addEventListener("loadingdone", again);
     let alive = true;
     fonts.ready.then(() => { if (alive) again(); });
     return () => { alive = false; fonts.removeEventListener("loadingdone", again); };
   }, []);
-  const size = compact ? 11 : 12;
+  // The sizes of .graph-label in graph.css (--fs-xs, or --fs-2xs when compact; a descriptor is one step larger), in pixels.
+  const size = (compact ? 11 : 12) * rem;
+  const lineH = size + 2 * rem;
   const specs = useMemo(() => {
     void fontsReady;
     const spec = (n: WebNode): LabelSpec => {
       const descriptor = personById.get(n.id)?.nameStatus === "descriptor";
       const lines = nameLines(smartQuotes(labelForEntity(n.id)), compact ? 14 : 17);
-      return { id: n.id, lines, widths: lines.map((l) => (descriptor ? textWidth(l, size + 1, "--font-text", "italic 400") : textWidth(l, size, "--font-ui"))) };
+      return { id: n.id, lines, widths: lines.map((l) => (descriptor ? textWidth(l, size + rem, "--font-text", "italic 400") : textWidth(l, size, "--font-ui"))) };
     };
     return new Map(web.nodes.map((n) => [n.id, spec(n)]));
-  }, [web, compact, size, fontsReady]);
+  }, [web, compact, size, rem, fontsReady]);
 
   const [hot, setHot] = useState<string | null>(null);
   // One straight line per tie, in the order of web.ties, for names to keep clear of.
@@ -92,8 +107,8 @@ function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
   const labels = useMemo(() => {
     const named = near ? web.nodes.filter((n) => near.has(n.id)) : web.nodes;
     const order = [...named].sort((a, b) => Number(b.id === focus) - Number(a.id === focus) || b.degree - a.degree || b.weight - a.weight).map((n) => specs.get(n.id)!);
-    return placeLabels(order, at, width, height, size + 2, near ? chords.filter((_, i) => web.ties[i].from === focus || web.ties[i].to === focus) : chords, near ?? undefined, near ?? undefined);
-  }, [web, specs, at, width, height, size, chords, focus, near]);
+    return placeLabels(order, at, width, height, lineH, near ? chords.filter((_, i) => web.ties[i].from === focus || web.ties[i].to === focus) : chords, near ?? undefined, near ?? undefined);
+  }, [web, specs, at, width, height, lineH, chords, focus, near]);
   // A person whose name found no room shows it while the pointer or the keyboard is on them.
   const hotLabel: PlacedLabel | undefined = useMemo(() => {
     if (!hot || labels.has(hot)) return undefined;
@@ -101,8 +116,8 @@ function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
     if (!spec) return undefined;
     // Clear of every disc if it can be; otherwise clear of their own, over whatever else is there.
     const only = new Set([hot]);
-    return placeLabels([spec], at, width, height, size + 2, [], only).get(hot) ?? placeLabels([spec], at, width, height, size + 2, [], only, only).get(hot);
-  }, [hot, labels, specs, at, width, height, size]);
+    return placeLabels([spec], at, width, height, lineH, [], only).get(hot) ?? placeLabels([spec], at, width, height, lineH, [], only, only).get(hot);
+  }, [hot, labels, specs, at, width, height, lineH]);
 
   // Ties between the same two people bow apart.
   const slots = useMemo(() => {
@@ -176,76 +191,74 @@ function WebCanvas({ web, focus, near, selected, onFocus, onSelect }: {
 
   const label = (id: string, l: PlacedLabel, extra = "") => (
     <text className={`graph-label${personById.get(id)?.nameStatus === "descriptor" ? " is-desc" : ""}${extra}`} x={l.x} y={l.y} textAnchor={l.anchor}>
-      {l.lines.map((line, i) => <tspan key={i} x={l.x} dy={i === 0 ? 0 : size + 2}>{line}</tspan>)}
+      {l.lines.map((line, i) => <tspan key={i} x={l.x} dy={i === 0 ? 0 : lineH}>{line}</tspan>)}
     </text>
   );
 
   return (
-    <div className="graph-canvas" ref={(el) => { frameRef(el); topRef.current = el; }}>
-      <svg
-        ref={svgRef}
-        className={`graph-svg${compact ? " is-compact" : ""}`}
-        viewBox={`0 0 ${width} ${height}`}
-        role="group"
-        aria-label={`A picture of ${plural(web.nodes.length, "person", "people")} and the ${plural(web.relCount, "tie")} between them. Tab reaches the people; the arrow keys move between them and Enter picks one. Everything in it is also in the list below.`}
-      >
-        <g aria-hidden="true">
-          {web.ties.map((t) => {
-            const a = at.get(t.from), b = at.get(t.to);
-            if (!a || !b) return null;
-            const s = slots.get(t.key) ?? { slot: 0, of: 1 };
-            const path = tiePath(a, b, s.slot, s.of, t.from > t.to);
-            const w = tieWords(t.kind);
-            const off = !!focus && t.from !== focus && t.to !== focus;
-            const dim = !off && (hot ? t.from !== hot && t.to !== hot && selected !== t : !!selected && selected !== t);
-            return (
-              <g key={t.key} className={`rel-edge${selected === t ? " is-sel" : ""}${off ? " is-off" : dim ? " is-dim" : ""}`} data-level={levelOf(t.status)} data-tie={w.family} onClick={() => onSelect(t)}>
-                <title>{tieTitle(t)}</title>
-                <path d={path.d} className="rel-edge__hit" />
-                <path d={path.d} className="rel-edge__line" />
-                {w.directed && w.family !== "family" && <path d={arrowHead([path.from, path.tip], false, compact ? 6 : 7)} className="rel-edge__arrow" />}
-              </g>
-            );
-          })}
-        </g>
-        {web.nodes.map((n) => {
-          const p = at.get(n.id);
-          if (!p) return null;
-          const l = labels.get(n.id);
-          const ties = web.relsOf.get(n.id)?.length ?? 0;
-          const dim = near ? !near.has(n.id) : false;
+    <svg
+      ref={svgRef}
+      className={`graph-svg${compact ? " is-compact" : ""}`}
+      viewBox={`0 0 ${width} ${height}`}
+      role="group"
+      aria-label={`A picture of ${plural(web.nodes.length, "person", "people")} and the ${plural(web.relCount, "tie")} between them. Tab reaches the people; the arrow keys move between them and Enter picks one. Everything in it is also in the list below.`}
+    >
+      <g aria-hidden="true">
+        {web.ties.map((t) => {
+          const a = at.get(t.from), b = at.get(t.to);
+          if (!a || !b) return null;
+          const s = slots.get(t.key) ?? { slot: 0, of: 1 };
+          const path = tiePath(a, b, s.slot, s.of, t.from > t.to);
+          const w = tieWords(t.kind);
+          const off = !!focus && t.from !== focus && t.to !== focus;
+          const dim = !off && (hot ? t.from !== hot && t.to !== hot && selected !== t : !!selected && selected !== t);
           return (
-            <g
-              key={n.id}
-              ref={(el) => { if (el) nodeRefs.current.set(n.id, el); else nodeRefs.current.delete(n.id); }}
-              className={`graph-node${focus === n.id ? " is-focus" : ""}${dim ? " is-dim" : ""}`}
-              style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties}
-              role="button"
-              tabIndex={n.id === tabStop ? 0 : -1}
-              aria-pressed={focus === n.id}
-              aria-label={`${labelForEntity(n.id)}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
-              onPointerDown={(e) => onDown(e, n.id)}
-              onPointerMove={onMove}
-              onPointerUp={(e) => onUp(e, n.id)}
-              onPointerCancel={() => { drag.current = null; }}
-              onPointerEnter={(e) => { if (e.pointerType === "mouse") setHot(n.id); }}
-              onPointerLeave={() => setHot((h) => (h === n.id ? null : h))}
-              onClick={(e) => { if (e.detail === 0) onFocus(focus === n.id ? "" : n.id); }}
-              onDoubleClick={() => nav(personPath(n.id))}
-              onFocus={() => { setActive(n.id); setHot(n.id); }}
-              onBlur={() => setHot((h) => (h === n.id ? null : h))}
-              onKeyDown={(e) => onKey(e, n.id)}
-            >
-              <title>{`${labelForEntity(n.id)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map(labelForEntity).join(", ")}` : ""}`}</title>
-              <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, 16)} />
-              <circle className="graph-node__disc" cx={p.x} cy={p.y} r={p.r} />
-              {l && label(n.id, l)}
+            <g key={t.key} className={`rel-edge${selected === t ? " is-sel" : ""}${off ? " is-off" : dim ? " is-dim" : ""}`} data-level={levelOf(t.status)} data-tie={w.family} onClick={() => onSelect(t)}>
+              <title>{tieTitle(t)}</title>
+              <path d={path.d} className="rel-edge__hit" />
+              <path d={path.d} className="rel-edge__line" />
+              {w.directed && w.family !== "family" && <path d={arrowHead([path.from, path.tip], false, compact ? 6 : 7)} className="rel-edge__arrow" />}
             </g>
           );
         })}
-        {hot && hotLabel && <g aria-hidden="true" className="graph-hot">{label(hot, hotLabel, " is-hot")}</g>}
-      </svg>
-    </div>
+      </g>
+      {web.nodes.map((n) => {
+        const p = at.get(n.id);
+        if (!p) return null;
+        const l = labels.get(n.id);
+        const ties = web.relsOf.get(n.id)?.length ?? 0;
+        const dim = near ? !near.has(n.id) : false;
+        return (
+          <g
+            key={n.id}
+            ref={(el) => { if (el) nodeRefs.current.set(n.id, el); else nodeRefs.current.delete(n.id); }}
+            className={`graph-node${focus === n.id ? " is-focus" : ""}${dim ? " is-dim" : ""}`}
+            style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties}
+            role="button"
+            tabIndex={n.id === tabStop ? 0 : -1}
+            aria-pressed={focus === n.id}
+            aria-label={`${labelForEntity(n.id)}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
+            onPointerDown={(e) => onDown(e, n.id)}
+            onPointerMove={onMove}
+            onPointerUp={(e) => onUp(e, n.id)}
+            onPointerCancel={() => { drag.current = null; }}
+            onPointerEnter={(e) => { if (e.pointerType === "mouse") setHot(n.id); }}
+            onPointerLeave={() => setHot((h) => (h === n.id ? null : h))}
+            onClick={(e) => { if (e.detail === 0) onFocus(focus === n.id ? "" : n.id); }}
+            onDoubleClick={() => nav(personPath(n.id))}
+            onFocus={() => { setActive(n.id); setHot(n.id); }}
+            onBlur={() => setHot((h) => (h === n.id ? null : h))}
+            onKeyDown={(e) => onKey(e, n.id)}
+          >
+            <title>{`${labelForEntity(n.id)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map(labelForEntity).join(", ")}` : ""}`}</title>
+            <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, 16)} />
+            <circle className="graph-node__disc" cx={p.x} cy={p.y} r={p.r} />
+            {l && label(n.id, l)}
+          </g>
+        );
+      })}
+      {hot && hotLabel && <g aria-hidden="true" className="graph-hot">{label(hot, hotLabel, " is-hot")}</g>}
+    </svg>
   );
 }
 

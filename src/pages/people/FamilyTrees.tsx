@@ -28,12 +28,12 @@ const sameNumbers = (a: readonly number[], b: readonly number[]) => a.length ===
  * The ties of a tree in words: the relations behind its lines, as recorded. Memoised, because
  * pointing at a box or picking a line changes nothing in it.
  */
-const TieList = memo(function TieList({ drawn, open }: { drawn: readonly Relation[]; open: boolean }) {
+const TieList = memo(function TieList({ drawn }: { drawn: readonly Relation[] }) {
   return (
-    <Collapsible className="fam-list" defaultOpen={open} summary="The ties drawn, as a list" meta={plural(drawn.length, "tie")}>
+    <Collapsible className="fam-list" summary="The ties drawn, as a list" meta={plural(drawn.length, "tie")}>
       {byFamily(drawn, (r) => r.kind).map((g) => (
         <div key={g.family} className="ppl-tie-group">
-          <GroupLabel count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
+          <GroupLabel as="h2" count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
           <ul className="ppl-ties">
             {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
           </ul>
@@ -125,7 +125,9 @@ function TreeView({ tree }: { tree: FamilyTree }) {
     const next = { y, h, height: grid.offsetHeight, overflow: !!scroller && scroller.scrollWidth > scroller.clientWidth + 1 };
     setRows((prev) => (prev && sameNumbers(prev.y, y) && sameNumbers(prev.h, h) && prev.height === next.height && prev.overflow === next.overflow ? prev : next));
   }, [model]);
-  useLayoutEffect(() => { measure(); }, [measure, colW, width]);
+  // Nothing is laid out, measured or decided (does it overflow?) until the frame's own width is known.
+  const ready = avail > 0;
+  useLayoutEffect(() => { measure(); }, [measure, colW, width, ready]);
   useLayoutEffect(() => {
     // Late fonts change how names wrap.
     let alive = true;
@@ -197,84 +199,86 @@ function TreeView({ tree }: { tree: FamilyTree }) {
 
       <div className="fam-frame">
         <div className="fam-scroll scroll-x" ref={scrollRef} role="region" aria-label={`${tree.title}: family tree`} tabIndex={0}>
-          <div
-            className={`fam-grid${tight ? " is-tight" : ""}`}
-            ref={gridRef}
-            style={{
-              width,
-              gridTemplateColumns: gutW.map((g, i) => (i < model.nCols ? `${g}px ${colW}px` : `${g}px`)).join(" "),
-              gridTemplateRows: bandH.map((b, i) => (i < model.nRows ? `${b}px auto` : `${b}px`)).join(" "),
-            }}
-          >
-            {model.nodes.map((n) => {
-              const person = personById.get(n.id);
-              const also = n.absorbed.map((id) => labelForEntity(id));
-              // A narrow box names the first record folded into it and counts the rest; the full list is in the tooltip.
-              const short = tight && also.length > 2;
-              const sub = also.length ? (short ? `with ${also[0]} and ${also.length - 1} more` : `with ${also.join(", ")}`) : n.note ?? "";
-              return (
-                <Link
-                  key={n.id}
-                  ref={(el) => { if (el) nodeRefs.current.set(n.id, el); else nodeRefs.current.delete(n.id); }}
-                  to={person ? personPath(n.id) : `/evidence?entity=${n.id}`}
-                  className={`fam-node${person?.group === "entity" ? " is-machine" : ""}${also.length ? " is-merged" : ""}${near && !near.has(n.id) ? " is-quiet" : ""}`}
-                  style={{ gridColumn: 2 * n.col + 2, gridRow: 2 * n.row + 2 } as CSSProperties}
-                  title={short ? `With ${also.join(", ")}` : undefined}
-                  onPointerEnter={(e) => { if (e.pointerType === "mouse") setHot(n.id); }}
-                  onPointerLeave={() => setHot(null)}
-                  onFocus={() => setHot(n.id)}
-                  onBlur={() => setHot(null)}
+          {ready && (
+            <div
+              className={`fam-grid${tight ? " is-tight" : ""}`}
+              ref={gridRef}
+              style={{
+                width,
+                gridTemplateColumns: gutW.map((g, i) => (i < model.nCols ? `${g}px ${colW}px` : `${g}px`)).join(" "),
+                gridTemplateRows: bandH.map((b, i) => (i < model.nRows ? `${b}px auto` : `${b}px`)).join(" "),
+              }}
+            >
+              {model.nodes.map((n) => {
+                const person = personById.get(n.id);
+                const also = n.absorbed.map((id) => labelForEntity(id));
+                // A narrow box names the first record folded into it and counts the rest; the full list is in the tooltip.
+                const short = tight && also.length > 2;
+                const sub = also.length ? (short ? `with ${also[0]} and ${also.length - 1} more` : `with ${also.join(", ")}`) : n.note ?? "";
+                return (
+                  <Link
+                    key={n.id}
+                    ref={(el) => { if (el) nodeRefs.current.set(n.id, el); else nodeRefs.current.delete(n.id); }}
+                    to={person ? personPath(n.id) : `/evidence?entity=${n.id}`}
+                    className={`fam-node${person?.group === "entity" ? " is-machine" : ""}${also.length ? " is-merged" : ""}${near && !near.has(n.id) ? " is-quiet" : ""}`}
+                    style={{ gridColumn: 2 * n.col + 2, gridRow: 2 * n.row + 2 } as CSSProperties}
+                    title={short ? `With ${also.join(", ")}` : undefined}
+                    onPointerEnter={(e) => { if (e.pointerType === "mouse") setHot(n.id); }}
+                    onPointerLeave={() => setHot(null)}
+                    onFocus={() => setHot(n.id)}
+                    onBlur={() => setHot(null)}
+                  >
+                    <span className={`fam-node__name ${person?.nameStatus === "descriptor" ? "name-desc" : "name-canon"}`}>
+                      {person?.group === "entity" && <><Icon icon={Bot} className="fam-node__kind" label="Machine:" /> </>}
+                      {smartQuotes(labelForEntity(n.id))}
+                    </span>
+                    {sub && <span className="fam-node__sub">{smartQuotes(sub)}{short && <span className="sr-only">: {also.slice(1).join(", ")}</span>}</span>}
+                    {also.length > 0 && <span className="fam-node__badge" aria-hidden>+{also.length}</span>}
+                  </Link>
+                );
+              })}
+              {geometry && rows && (
+                <svg
+                  className="fam-lines"
+                  viewBox={`0 0 ${width} ${rows.height}`}
+                  width={width}
+                  height={rows.height}
+                  role="group"
+                  aria-label={`${plural(model.edges.length, "tie")} between the people above. The arrow keys move from line to line; Enter shows the evidence. The same ties are listed below.`}
                 >
-                  <span className={`fam-node__name ${person?.nameStatus === "descriptor" ? "name-desc" : "name-canon"}`}>
-                    {person?.group === "entity" && <><Icon icon={Bot} className="fam-node__kind" label="Machine:" /> </>}
-                    {smartQuotes(labelForEntity(n.id))}
-                  </span>
-                  {sub && <span className="fam-node__sub">{smartQuotes(sub)}{short && <span className="sr-only">: {also.slice(1).join(", ")}</span>}</span>}
-                  {also.length > 0 && <span className="fam-node__badge" aria-hidden>+{also.length}</span>}
-                </Link>
-              );
-            })}
-            {geometry && rows && (
-              <svg
-                className="fam-lines"
-                viewBox={`0 0 ${width} ${rows.height}`}
-                width={width}
-                height={rows.height}
-                role="group"
-                aria-label={`${plural(model.edges.length, "tie")} between the people above. The arrow keys move from line to line; Enter shows the evidence. The same ties are listed below.`}
-              >
-                {model.edges.map((e, i) => {
-                  const route = routing.routes.find((r) => r.key === e.key);
-                  if (!route) return null;
-                  const points = routePoints(route, routing, geometry, at);
-                  const d = roundedPath(points);
-                  const w = tieWords(e.kind);
-                  const dim = hot ? e.from !== hot && e.to !== hot : !!selected && selected !== e;
-                  return (
-                    <g
-                      key={e.key}
-                      ref={(el) => { edgeRefs.current[i] = el; }}
-                      className={`rel-edge${selected === e ? " is-sel" : ""}${dim ? " is-dim" : ""}`}
-                      data-level={levelOf(e.status)}
-                      data-tie={w.family}
-                      role="button"
-                      tabIndex={i === Math.min(active, model.edges.length - 1) ? 0 : -1}
-                      aria-pressed={selected === e}
-                      aria-label={`${tieTitle(e)}. ${plural(new Set(e.rels.flatMap((r) => r.evidence)).size, "record")}.`}
-                      onClick={() => select(e)}
-                      onFocus={() => setActive(i)}
-                      onKeyDown={(ev) => onEdgeKey(ev, i)}
-                    >
-                      <title>{tieTitle(e)}</title>
-                      <path d={d} className="rel-edge__hit" />
-                      <path d={d} className="rel-edge__line" />
-                      {w.directed && w.family !== "family" && <path d={arrowHead(points, route.toIsA)} className="rel-edge__arrow" />}
-                    </g>
-                  );
-                })}
-              </svg>
-            )}
-          </div>
+                  {model.edges.map((e, i) => {
+                    const route = routing.routes.find((r) => r.key === e.key);
+                    if (!route) return null;
+                    const points = routePoints(route, routing, geometry, at);
+                    const d = roundedPath(points);
+                    const w = tieWords(e.kind);
+                    const dim = hot ? e.from !== hot && e.to !== hot : !!selected && selected !== e;
+                    return (
+                      <g
+                        key={e.key}
+                        ref={(el) => { edgeRefs.current[i] = el; }}
+                        className={`rel-edge${selected === e ? " is-sel" : ""}${dim ? " is-dim" : ""}`}
+                        data-level={levelOf(e.status)}
+                        data-tie={w.family}
+                        role="button"
+                        tabIndex={i === Math.min(active, model.edges.length - 1) ? 0 : -1}
+                        aria-pressed={selected === e}
+                        aria-label={`${tieTitle(e)}. ${plural(new Set(e.rels.flatMap((r) => r.evidence)).size, "record")}.`}
+                        onClick={() => select(e)}
+                        onFocus={() => setActive(i)}
+                        onKeyDown={(ev) => onEdgeKey(ev, i)}
+                      >
+                        <title>{tieTitle(e)}</title>
+                        <path d={d} className="rel-edge__hit" />
+                        <path d={d} className="rel-edge__line" />
+                        {w.directed && w.family !== "family" && <path d={arrowHead(points, route.toIsA)} className="rel-edge__arrow" />}
+                      </g>
+                    );
+                  })}
+                </svg>
+              )}
+            </div>
+          )}
         </div>
         {selected ? <TieBar tie={selected} onClose={() => select(null)} /> : (
           <div className="fam-foot">
@@ -289,8 +293,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
         )}
       </div>
 
-      {/* Rendered once the tree is measured, so a tree too wide for the screen starts with its list open. */}
-      {drawn.length > 0 && rows && <TieList drawn={drawn} open={rows.overflow} />}
+      {drawn.length > 0 && <TieList drawn={drawn} />}
       {model.edges.length === 0 && <Empty title="No lines to draw">Every kind of line is switched off. Turn one on above to see how these people are tied.</Empty>}
       {tree.notes && <Callout tone="note" title="About this tree" className="fam-notes"><p>{smartQuotes(tree.notes)}</p></Callout>}
     </>

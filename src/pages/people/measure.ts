@@ -3,10 +3,11 @@ import { useCallback, useRef, useState } from "react";
 
 /**
  * The width of an element's content box, kept up to date. Put the returned ref on the element.
- * It starts from a guess so the first paint is close, and is corrected before that paint.
+ * It is 0 until the element has been measured, which happens before the first paint: lay nothing
+ * out until then, so that nothing is decided from a width that was only a guess.
  */
 export function useContentWidth<T extends HTMLElement>(): [(el: T | null) => void, number] {
-  const [width, setWidth] = useState(() => Math.min(1216, (typeof window === "undefined" ? 1216 : window.innerWidth) - 34));
+  const [width, setWidth] = useState(0);
   const observer = useRef<ResizeObserver | null>(null);
   const ref = useCallback((el: T | null) => {
     observer.current?.disconnect();
@@ -45,6 +46,9 @@ export function textWidth(text: string, sizePx: number, token: string, style = "
   widths.set(key, w);
   return w;
 }
+
+/** The reader's base font size as a multiple of the usual 16px (1.25 when their browser is set to 20px). Sizes given in rem grow by this. */
+export const remScale = (): number => (typeof document === "undefined" ? 1 : (parseFloat(getComputedStyle(document.documentElement).fontSize) || 16) / 16);
 
 /** Forgets measured widths (call when the fonts have finished loading: widths taken before were of a fallback face). */
 export function forgetTextWidths() {

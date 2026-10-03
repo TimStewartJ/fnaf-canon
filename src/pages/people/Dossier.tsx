@@ -22,9 +22,9 @@ export function DossierSection({ id, title, count, lead, dense, children }: { id
   );
 }
 
-/** A small heading inside a dossier section, for a group of rows. */
-export function GroupLabel({ children, count }: { children: ReactNode; count?: number }) {
-  return <h3 className="label ppl-group">{children}{count != null && <span className="ppl-group__n">{count}</span>}</h3>;
+/** A small heading for a group of rows. Inside a dossier section it is an h3; pass `as="h2"` where no h2 stands above it. */
+export function GroupLabel({ children, count, as: Tag = "h3" }: { children: ReactNode; count?: number; as?: "h2" | "h3" }) {
+  return <Tag className="label ppl-group">{children}{count != null && <span className="ppl-group__n">{count}</span>}</Tag>;
 }
 
 /**

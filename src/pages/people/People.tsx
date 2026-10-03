@@ -162,7 +162,7 @@ export default function People() {
           person: {entries.length} profiles, with {folded} other records folded into them, and {minor.length} minor figures.
         </>}
       >
-        <SearchField className="ppl-search" label="Find a person" placeholder="Any name or alias, such as Springtrap or Hen" value={q} onChange={setQ} />
+        <SearchField className="ppl-search" label="Find a person" placeholder="Name or alias, like Springtrap" value={q} onChange={setQ} />
         <p className="ppl-key">
           <span className="label">How firmly a record belongs</span>
           <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
