@@ -1,4 +1,50 @@
-/* Gallery. Cluster B. */
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr)); gap: var(--sp-6) var(--sp-5); align-items: start; }
-.gal-item .figure__frame img { aspect-ratio: 16 / 10; object-fit: cover; max-height: none; }
-.gal-item__uses { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+/* Gallery. Cluster B. Every selector starts from a gal- class. */
+
+/* Jump to a source */
+.gal-index { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-6); }
+.gal-index > ul { display: flex; flex-wrap: wrap; gap: var(--sp-2); list-style: none; margin: 0; padding: 0; min-width: 0; }
+.gal-index > ul > li { margin: 0; }
+.gal-index__link { gap: 0.5em; min-height: 2rem; }
+.gal-index__link .game { color: inherit; }
+.gal-index__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+@media (pointer: coarse) { .gal-index__link { min-height: 2.5rem; padding-inline: 0.75em; } }
+
+/* One group per source */
+.gal-group { margin-top: var(--sp-7); scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
+.gal-group:first-of-type { margin-top: 0; }
+.gal-group__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-1) var(--sp-4); padding-bottom: var(--sp-2); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line-strong); }
+.gal-group__title { margin: 0; font-size: var(--fs-xl); min-width: 0; }
+.gal-group__title .game { font-family: inherit; align-items: baseline; gap: 0.5em; color: var(--c-text); }
+.gal-group__title a.game { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: var(--c-line-strong); }
+.gal-group__title a.game:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+.gal-group__title .game__swatch { align-self: center; width: 0.42em; height: 0.42em; }
+.gal-group__n { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); white-space: nowrap; }
+@media (max-width: 640px) { .gal-group { margin-top: var(--sp-6); } }
+
+/* The grid: two columns on a phone, up to five. Gallery.tsx folds groups by these same steps. */
+.gal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4) var(--sp-3); list-style: none; margin: 0; padding: 0; }
+@media (min-width: 560px) { .gal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5) var(--sp-4); } }
+@media (min-width: 900px) { .gal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .gal-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.gal-tile { margin: 0; min-width: 0; }
+.gal-tile__figure { display: grid; gap: var(--sp-2); margin: 0; }
+/* The whole screenshot on a dark mat, never cropped. */
+.gal-tile__frame { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; padding: 0; background: var(--c-mat); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; cursor: zoom-in; transition: border-color var(--dur-1) var(--ease); }
+.gal-tile__frame:hover { border-color: var(--c-line-strong); }
+.gal-tile__frame > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.gal-tile__zoom { position: absolute; right: var(--sp-1); bottom: var(--sp-1); display: inline-flex; padding: 0.3rem; color: var(--c-mat-text); background: var(--c-scrim); border-radius: var(--r-sm); opacity: 0; transition: opacity var(--dur-2) var(--ease); }
+.gal-tile__frame:hover .gal-tile__zoom, .gal-tile__frame:focus-visible .gal-tile__zoom { opacity: 1; }
+.gal-tile__cap { display: grid; gap: 0.2rem; justify-items: start; min-width: 0; font-family: var(--font-ui); font-size: var(--fs-xs); line-height: 1.45; color: var(--c-text-2); }
+.gal-tile__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.gal-tile__rec { display: inline-flex; align-items: center; gap: 0.25em; color: var(--c-text-3); text-decoration-color: var(--c-line-strong); }
+.gal-tile__rec:hover { color: var(--c-accent-strong); }
+/* A taller hit area on touch that does not push the rows apart. */
+@media (pointer: coarse) { .gal-tile__rec { padding-block: 0.5rem; margin-block: -0.5rem; } }
+/* The last cell of a folded group: the rest of its images. */
+.gal-tile__more { display: grid; place-content: center; justify-items: center; gap: 0.15rem; font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--c-text-2); background: transparent; border: 1px dashed var(--c-line-strong); cursor: pointer; }
+.gal-tile__more:hover { color: var(--c-text); background: var(--c-surface); border-color: var(--c-text-3); }
+.gal-tile__more-n { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--w-display); line-height: 1; color: var(--c-text); }
+
+/* Inside the shared lightbox: the records an image illustrates */
+.gal-zoom__records { display: block; margin-top: 0.3rem; color: var(--c-mat-text); }
+.gal-zoom__record { color: inherit; }
