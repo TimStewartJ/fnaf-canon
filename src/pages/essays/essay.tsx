@@ -8,11 +8,11 @@
  */
 import { memo, type CSSProperties, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowRight, ArrowUpRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } from "lucide-react";
+import { ArrowDown, ArrowRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } from "lucide-react";
 import type { Source } from "../../data/community";
 import { evidenceById, theoryById } from "../../data/store";
 import {
-  Button, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, smartQuotes, useAddress,
+  Button, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, longDate, smartQuotes, useAddress,
 } from "../../components/ui";
 import { ESSAYS, SOURCES_ID, answerExhibits, answerId, count, isConfidence, pad2, recordOfImage } from "./essayModel";
 import { RowsContext, useRows, type RowsControl } from "./essayRows";
@@ -225,11 +225,11 @@ export function EssayRefs({ items, label = "Outside links", chip }: { items: rea
       <p className="label">{label} <span className="essay-refs__note">· not evidence</span></p>
       <ul className="essay-refs__list">
         {items.map((s, i) => {
-          const text = <>{smartQuotes(s.who)} · <cite>{smartQuotes(s.what)}</cite>{s.date ? ` · ${s.date}` : ""}</>;
+          const text = <>{smartQuotes(s.who)} · <cite>{smartQuotes(s.what)}</cite>{s.date ? <> · <time dateTime={s.date}>{longDate(s.date)}</time></> : null}</>;
           return (
             <li key={i} className="essay-ref">
               {s.url
-                ? <a href={s.url} target="_blank" rel="noreferrer">{text}<Icon icon={ArrowUpRight} /><span className="sr-only"> (opens in a new tab)</span></a>
+                ? <ExternalLink href={s.url}>{text}</ExternalLink>
                 : <span>{text}</span>}
               {s.reliability && s.reliability !== "primary" && <Chip>{chip ?? s.reliability}</Chip>}
             </li>
@@ -337,7 +337,7 @@ export const EssaySources = memo(function EssaySources({ ids, note }: { ids: rea
   if (!ids.length) return null;
   return (
     <section className="essay-end" aria-label="Sources">
-      <Collapsible id={SOURCES_ID} summary="Records cited on this page" meta={`${count(ids.length, "record")}, in order`}>
+      <Collapsible eager id={SOURCES_ID} summary="Records cited on this page" meta={`${count(ids.length, "record")}, in order`}>
         {note && <p className="essay-note">{note}</p>}
         <EvidenceList ids={ids} numbers={(id) => ids.indexOf(id) + 1} claim={false} />
       </Collapsible>

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { boxAnswer, boxGuesses, boxTimeline, type BoxStep } from "../../data/box";
 import { creditByFile } from "../../data/store";
-import { CiteScope, DatePill, PHASE_HUE, Page, PageHeader, RichText, hueOf, smartQuotes } from "../../components/ui";
+import { CiteScope, DatePill, PHASE_HUE, Page, PageHeader, RichText, hueOf, longDate, smartQuotes } from "../../components/ui";
 import {
   EssayAnswers, EssayArgument, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
   type EssayAnswerItem,
@@ -36,7 +36,7 @@ const StepRow = memo(function StepRow({ s }: { s: BoxStep }) {
   return (
     <EssayRow
       id={s.id}
-      when={<DatePill variant="inline" label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+      when={<DatePill variant="inline" label={longDate(s.date, true)} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
       node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
       kicker={<span className="label">{PHASE[s.phase] ?? s.phase}</span>}
       title={s.title}
@@ -66,7 +66,7 @@ function History() {
 
 function Box() {
   return (
-    <Page title="The Box" className="essay box-page">
+    <Page title="The locked box" className="essay box-page">
       <CiteScope prime={CITED}>
         <PageHeader
           kicker="Essay · FNaF4, Night 7"

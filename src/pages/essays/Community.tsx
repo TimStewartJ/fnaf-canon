@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Check, PenLine, X } from "lucide-react";
 import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Interaction, type Verdict } from "../../data/community";
 import {
-  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, VERDICT_TONE, smartQuotes, useAddress,
+  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, interactionIcon, Icon, Page, PageHeader, RichText, VERDICT_TONE, longDate, smartQuotes, useAddress,
 } from "../../components/ui";
 import {
   EssayAnswers, EssayChapterLink, EssayEntry, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssayToggleAll, type EssayAnswerItem,
@@ -140,8 +140,8 @@ const MomentRow = memo(function MomentRow({ x }: { x: Interaction }) {
   return (
     <EssayRow
       id={x.id}
-      when={x.date}
-      node={INTERACTION_ICON[x.kind] ? <Icon icon={INTERACTION_ICON[x.kind]} /> : null}
+      when={<time dateTime={x.date}>{longDate(x.date, true)}</time>}
+      node={<Icon icon={interactionIcon(x.kind)} />}
       kicker={<><span className="label">{kindLabel(x.kind)}</span>{inferred && <Chip tone="open">Fan-inferred</Chip>}</>}
       title={x.title}
     >
