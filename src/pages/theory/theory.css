@@ -213,6 +213,8 @@
 .contents-item__read { display: inline-flex; align-items: center; gap: 0.3em; color: var(--c-ok); }
 
 /* The contents with or without the answers (questions only is where a phone starts). */
+/* How a chapter is built, under the lead of the contents: quieter than the lead, in the reading face. */
+.contents-about { max-width: var(--measure); margin: var(--sp-4) 0 0; padding-left: var(--sp-4); border-left: 2px solid var(--c-accent-line); font-family: var(--font-text); font-size: var(--fs-md); line-height: 1.6; color: var(--c-text-2); }
 .contents-show { display: flex; margin-top: var(--sp-5); }
 .contents-show + .contents { margin-top: var(--sp-6); }
 

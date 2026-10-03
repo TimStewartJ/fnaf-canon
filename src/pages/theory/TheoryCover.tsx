@@ -102,6 +102,8 @@ export default function TheoryCover() {
             {theory.length} chapters in {partGroups.length} parts. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
             {readCount > 0 && <> You have read {readCount} of {theory.length}.</>}
           </p>
+          {/* How a chapter is built: said here, where the chapters begin, and not before the story. */}
+          {theoryIntro.aboutChapters && <p className="contents-about"><RichText text={theoryIntro.aboutChapters} /></p>}
           {/* The parts, as a way around the list where the hero's own list of parts is not shown (a narrow window). */}
           <nav className="parts-strip" aria-label="Parts">
             {partGroups.map((g) => (
