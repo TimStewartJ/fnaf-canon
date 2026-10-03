@@ -165,7 +165,6 @@
       "fnaf4-house"
     ],
     "tags": [
-      "mangle",
       "toys"
     ],
     "related": [
@@ -234,7 +233,6 @@
       "fredbears-family-diner"
     ],
     "tags": [
-      "springlock-suit",
       "fredbear"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
@@ -270,8 +268,8 @@
   },
   {
     "id": "fnaf4-fredbear-spring-bonnie-shadows",
-    "title": "Fredbear and Spring Bonnie on stage (shadows)",
-    "claim": "Heading left, the child sees shadows of Fredbear and a Spring Bonnie character performing on the restaurant's stage; the plush says he can find help if he gets past them. The child hides under a table crying instead.",
+    "title": "The shadows of a bear and a rabbit performing on the stage",
+    "claim": "Heading left, the child sees the shadows of two figures performing on the restaurant's stage, a bear in a top hat and a rabbit; the plush says he can find help if he gets past them. The child hides under a table crying instead.",
     "quote": "You can find help if you can get past them. You have to be strong.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -286,22 +284,21 @@
     },
     "people": [
       "crying-child",
-      "fredbear",
-      "spring-bonnie"
+      "fredbear"
     ],
     "places": [
       "fredbears-family-diner"
     ],
     "tags": [
-      "fredbear",
-      "spring-bonnie"
+      "fredbear"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)"
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
+    "notes": "The two are flat dark silhouettes: the wiki's sprites of them, looked at on 2026-10-03, are each a single dark purple (File:ShadowFredbearMunch.gif, File:Shadow Spring Bonnie.gif). FNaF4 puts no label on either at this spot. On the day of the party the brother names the bear on this stage ('…give Fredbear a big kiss', fnaf4-give-fredbear-a-kiss), and a rabbit, drawn in dark brown in the capture on file, performs beside it (fnaf4-the-bite). The game prints the name 'Spring Bonnie' once, for the plush a child holds outside the restaurant (fnaf4-spring-bonnie-plush-finger-trap), and FNaF3's training tapes use the name for a suit (fnaf3-tape5-spring-bonnie-moved). That the rabbit on this stage is Spring Bonnie is the usual reading, and the wiki's."
   },
   {
     "id": "fnaf4-purple-guy-suits-up-employee",
-    "title": "A purple figure helps someone into Spring Bonnie",
-    "claim": "Backtracking right, the child glimpses a purple-coloured man in a back room fitting a Spring Bonnie head onto another person; the door then shuts.",
+    "title": "A purple figure fits the head of a yellow rabbit suit onto someone",
+    "claim": "Backtracking right, the child glimpses a purple-coloured man in a back room fitting the head of a yellow rabbit suit onto another person; the door then shuts.",
     "game": "fnaf4",
     "kind": "hidden",
     "location": "Post-Night 2 minigame, back room door (seen only on backtracking)",
@@ -322,16 +319,14 @@
       "fredbears-family-diner"
     ],
     "tags": [
-      "purple-guy",
-      "spring-bonnie",
-      "springlock-suit"
+      "purple-guy"
     ],
     "related": [
       "fnaf2-save-them-purple-figure-chest-mark"
     ],
     "image": "fnaf4-purple-guy-spring-bonnie-suit.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
-    "notes": "The figure is only coloured purple; no name is given in FNaF4. The wiki labels him William Afton — that is an identification, not in-game text. In the wiki's capture of this scene (File:FNAF4-PurpleGuy-SpringBonnie.png, 1600 by 900 pixels, looked at on 2026-10-03; the image on file here is a smaller copy of it) the purple figure has a small yellow mark on its chest: a short horizontal bar, about a sixth as wide as the torso, high on the chest and right of centre as seen, away from the arms it holds out to the left. The rest of the figure is a single purple, with white eyes, one of them mostly behind a balloon. The game does not say what the mark is. SAVETHEM's purple figure also has a chest mark, larger and more orange, on the half of its chest nearer its outstretched arm (fnaf2-save-them-purple-figure-chest-mark)."
+    "notes": "The figure is only coloured purple; no name is given in FNaF4. The wiki labels him William Afton — that is an identification, not in-game text. In the wiki's capture of this scene (File:FNAF4-PurpleGuy-SpringBonnie.png, 1600 by 900 pixels, looked at on 2026-10-03; the image on file here is a smaller copy of it) the purple figure has a small yellow mark on its chest: a short horizontal bar, about a sixth as wide as the torso, high on the chest and right of centre as seen, away from the arms it holds out to the left. The rest of the figure is a single purple, with white eyes, one of them mostly behind a balloon. The game does not say what the mark is. SAVETHEM's purple figure also has a chest mark, larger and more orange, on the half of its chest nearer its outstretched arm (fnaf2-save-them-purple-figure-chest-mark). The suit is yellow and has a rabbit's ears. The scene has two frames: in the first the purple figure holds the head above a person with a pale face and dark hair who already wears the body of the suit (the wiki's File:PurpleGuyFNAF4.png, looked at on 2026-10-03), and in the second, the image on file, the head is on. FNaF4 puts no name on the suit. The game prints the name 'Spring Bonnie' once, for the plush a child holds outside the restaurant (fnaf4-spring-bonnie-plush-finger-trap), and FNaF3's training tapes use the name for a suit (fnaf3-tape5-spring-bonnie-moved); that this is that suit is the usual reading, and the wiki's."
   },
   {
     "id": "fnaf4-he-hates-you",
@@ -383,9 +378,7 @@
       "spring-bonnie"
     ],
     "tags": [
-      "plushtrap",
-      "spring-bonnie",
-      "springlock"
+      "spring-bonnie"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4) ; read on screen in a 720p capture (https://www.youtube.com/watch?v=36TkKbnWEQA)",
     "notes": "Read on screen (pale green text, three boxes). The wiki's transcript has 'Where's'. The child holds a small yellow rabbit plush."
@@ -410,8 +403,7 @@
       "crying-child"
     ],
     "tags": [
-      "rumor",
-      "missing-children"
+      "rumor"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4) ; read on screen in a 720p capture (https://www.youtube.com/watch?v=36TkKbnWEQA)",
     "notes": "Cream text. The two sentences quoted were read on screen. The wiki's transcript continues: 'Why do you look so worried? See you at the party! Ha ha ha!' 'They' presumably means the animatronics (inference). A child's rumour, not a confirmed fact. The games give no year for any killing, so whether it is told before or after one is not shown."
@@ -579,7 +571,7 @@
   {
     "id": "fnaf4-locked-backstage",
     "title": "Child locked in a parts room",
-    "claim": "On the 1-day minigame the child is locked in a parts room containing a headless yellow suit, endoskeleton parts, and Fredbear and Spring Bonnie heads on shelves; he cries to be let out and curls up.",
+    "claim": "On the 1-day minigame the child is locked in a parts room containing a headless yellow suit, endoskeleton parts, and, on shelves, a Fredbear head and the head of a yellow rabbit; he cries to be let out and curls up.",
     "quote": "Please let me out.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -599,12 +591,11 @@
       "fredbears-family-diner"
     ],
     "tags": [
-      "springlock-suit",
       "parts-room"
     ],
     "image": "fnaf4-locked-backstage-fredbears.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "Further lines: 'PLEASE!' and '...please let me out...'. Who locked him in is not shown."
+    "notes": "Further lines: 'PLEASE!' and '...please let me out...'. Who locked him in is not shown. The bear's head on the shelf wears the purple top hat of the bear on the stage, which the brother calls Fredbear (fnaf4-give-fredbear-a-kiss); the rabbit's head is like that of the suit in the back room (fnaf4-purple-guy-suits-up-employee). The game labels neither head; the wiki calls the second Spring Bonnie's, which is the usual reading."
   },
   {
     "id": "fnaf4-bullies-in-masks",
@@ -729,7 +720,7 @@
     ],
     "image": "fnaf4-bite-fredbear-stage.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "Victim is the FNaF4 crying child; the animatronic is Fredbear (not Freddy). Whether this is the 'Bite of '87' mentioned in FNaF1 or a separate, earlier bite is a theory-layer question: FNaF4 never gives the bite a year. The crunch is audio (per wiki); the picture (child's body sticking out of Fredbear's mouth, four masked boys below, Spring Bonnie beside) was checked in a capture and in the wiki screenshot."
+    "notes": "Victim is the FNaF4 crying child; the animatronic is Fredbear (not Freddy). Whether this is the 'Bite of '87' mentioned in FNaF1 or a separate, earlier bite is a theory-layer question: FNaF4 never gives the bite a year. The crunch is audio (per wiki); the picture (child's body sticking out of Fredbear's mouth, four masked boys below, a rabbit drawn in dark brown beside the bear) was checked in a capture and in the wiki screenshot."
   },
   {
     "id": "fnaf4-night6-brother-apology",
@@ -883,8 +874,7 @@
       "crying-child"
     ],
     "tags": [
-      "death",
-      "hospital"
+      "death"
     ],
     "related": [
       "fnaf4-bedside-items",
@@ -1037,7 +1027,6 @@
       "fnaf4-house"
     ],
     "tags": [
-      "hospital",
       "bedroom"
     ],
     "related": [
@@ -1073,7 +1062,7 @@
   {
     "id": "fnaf4-fun-with-plushtrap",
     "title": "Fun with Plushtrap",
-    "claim": "Between nights a minigame has the player stop Plushtrap — a small Spring Bonnie-like plush animatronic — on an X in a dark hallway with a flashlight; success skips two hours of the next night.",
+    "claim": "Between nights a minigame has the player stop Plushtrap, a small rabbit-shaped plush animatronic, on an X in a dark hallway with a flashlight; success skips two hours of the next night.",
     "game": "fnaf4",
     "kind": "minigame",
     "location": "'Fun with Plushtrap' minigame after Nights 2–4; Extras",
@@ -1090,14 +1079,14 @@
       "fnaf4-house"
     ],
     "tags": [
-      "plushtrap",
-      "spring-bonnie"
+      "plushtrap"
     ],
     "related": [
       "sl-private-room-monitor-hallway",
       "sl-breaker-map-corridor-cluster"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fun_with_Plushtrap"
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Fun_with_Plushtrap",
+    "notes": "The name is the game's, in the minigame's title. Outside the restaurant a child holds a small yellow rabbit plush and calls it Spring Bonnie (fnaf4-spring-bonnie-plush-finger-trap); the wiki takes that plush for Plushtrap ('what seems to be Plushtrap'). The game does not say that the two are one toy."
   },
   {
     "id": "fnaf4-making-of-extras",
@@ -1537,8 +1526,8 @@
   {
     "id": "sl-intro-mr-afton-board",
     "title": "Intro: an unnamed man questions 'Mr. Afton'",
-    "claim": "The game opens with audio of an unnamed man, speaking as 'we', who praises the robots technically but asks about 'certain design choices'; the man he addresses as 'Mr. Afton' answers by listing what 'she' can do, including dispensing ice cream.",
-    "quote": "With all due respect, those aren't the design choices we were curious about, Mr. Afton.",
+    "claim": "The game opens with audio of an unnamed man, speaking as 'we', who praises the robots technically but asks about 'certain design choices'; the man he addresses as 'Mr. Afton' answers by listing what 'she' can do: dance, sing, inflate balloons from a built-in helium tank, take song requests and dispense ice cream.",
+    "quote": "She can dance, she can sing, … She can even dispense ice cream. / With all due respect, those aren't the design choices we were curious about, Mr. Afton.",
     "game": "sister-location",
     "kind": "cutscene",
     "location": "Opening cutscene (first launch)",
@@ -1611,8 +1600,7 @@
       "circus-baby"
     ],
     "tags": [
-      "afton-family",
-      "missing-children"
+      "afton-family"
     ],
     "related": [
       "sl-baby-ice-cream-story"
@@ -1794,8 +1782,7 @@
       "circus-babys-rental"
     ],
     "tags": [
-      "death",
-      "previous-employee"
+      "death"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio"
   },
@@ -2491,8 +2478,8 @@
   },
   {
     "id": "sl-custom-night-ennard-ejected",
-    "title": "The purple man brings up a mass of wires and eyes into a sewer drain",
-    "claim": "In the final walking cutscene, the fully purple man stops, his stomach heaves, and he regurgitates a mass of wires/eyes into a sewer drain, then collapses.",
+    "title": "The walker, by now purple, brings up a mass of wires and eyes into a sewer drain",
+    "claim": "In the final walking cutscene the walker, by now purple all over, stops, his stomach heaves, and he regurgitates a mass of wires and eyes into a sewer drain, then collapses.",
     "game": "sister-location",
     "kind": "cutscene",
     "location": "Custom Night 7th cutscene",
@@ -2509,7 +2496,7 @@
     "tags": [
       "decay",
       "ennard",
-      "purple-man"
+      "walker"
     ],
     "image": "sl-custom-night-michael-ejects-ennard.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF:_SL)",
@@ -2517,8 +2504,8 @@
   },
   {
     "id": "sl-you-wont-die",
-    "title": "'You won't die.' — the purple man gets back up",
-    "claim": "After the collapse, a voice repeats 'You won't die.' until the purple man gets back up.",
+    "title": "'You won't die.' — the walker gets back up",
+    "claim": "After the collapse, a voice repeats 'You won't die.' until the walker gets back up.",
     "quote": "You won't die.",
     "game": "sister-location",
     "kind": "cutscene",
@@ -2535,7 +2522,7 @@
     ],
     "tags": [
       "undeath",
-      "purple-man"
+      "walker"
     ],
     "related": [
       "sl-fake-ending-we-need-you",
@@ -2543,7 +2530,7 @@
       "sl-golden-freddy-cutscene-come-find-you"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "Audio credited to Circus Baby's voice actor on the wiki; one wiki page attributes it to Ennard. The same words are said in the fake ending ('You won't die. And it will only hurt for a moment.') and by Scrap Baby in UCN ('You won't die, but you'll wish you could.'). In the sprite sequence the purple man lies flat, then stands upright again with lit eyes."
+    "notes": "Audio credited to Circus Baby's voice actor on the wiki; one wiki page attributes it to Ennard. The same words are said in the fake ending ('You won't die. And it will only hurt for a moment.') and by Scrap Baby in UCN ('You won't die, but you'll wish you could.'). In the sprite sequence the walker lies flat, then stands upright again with lit eyes."
   },
   {
     "id": "sl-golden-freddy-cutscene-father",
@@ -2616,6 +2603,7 @@
     "id": "sl-golden-freddy-cutscene-springtrap",
     "title": "A burnt building with a 'FAZBE… / FRI…' sign; a rabbit-eared figure appears",
     "claim": "The Golden Freddy cutscene shows a burnt-out building with a partly legible 'FAZBE… / FRI…' sign. After the monologue a rabbit-eared figure steps out of the dark at the right and the scene ends.",
+    "quote": "FAZBE… / FRI…",
     "game": "sister-location",
     "kind": "cutscene",
     "location": "Custom Night — Golden Freddy (V. Hard) cutscene",
@@ -2648,6 +2636,7 @@
     "id": "sl-blueprint-screens",
     "title": "Rare blueprint screens",
     "claim": "Rarely (reported 1/10,000) on entering an area, a technical blueprint of Circus Baby, Ballora, Funtime Freddy or Funtime Foxy flashes on screen.",
+    "quote": "Copyright © xxxx Afton Robotics, LLC",
     "game": "sister-location",
     "kind": "hidden",
     "location": "Random rare screen on entering an area",
@@ -3020,7 +3009,7 @@
   {
     "id": "fnaf4-no-parent-shown",
     "title": "No adult appears in the house, and none is shown as a parent",
-    "claim": "No parent or other adult appears or speaks in any scene set in the house. The only adults drawn in the minigames are at the restaurant: a person in a Fredbear suit, and a purple man fitting a Spring Bonnie head onto someone. A child outside mentions their own 'Daddy'; nobody mentions the crying child's parents.",
+    "claim": "No parent or other adult appears or speaks in any scene set in the house. The only adults drawn in the minigames are at the restaurant: a person in a Fredbear suit, and a purple man fitting the head of a yellow rabbit suit onto someone. A child outside mentions their own 'Daddy'; nobody mentions the crying child's parents.",
     "game": "fnaf4",
     "kind": "minigame",
     "location": "End-of-night minigames (all scenes)",
@@ -3072,8 +3061,7 @@
       "basis": "The 'Fredbear & Friends!' broadcast on the TV in the post-Night 3 minigame displays '1983' (fnaf4-fredbear-and-friends-1983); the minigames are a countdown of days to the child's birthday party. The TV date dates the show, so the minigame year is approximate."
     },
     "people": [
-      "fredbear",
-      "spring-bonnie"
+      "fredbear"
     ],
     "places": [
       "fredbears-family-diner"
@@ -3110,8 +3098,7 @@
     "people": [
       "crying-child",
       "older-brother",
-      "fredbear",
-      "spring-bonnie"
+      "fredbear"
     ],
     "places": [
       "fredbears-family-diner"
@@ -3328,8 +3315,7 @@
     },
     "tags": [
       "clock-ending",
-      "fnaf3-echo",
-      "8-bit-fredbear"
+      "fnaf3-echo"
     ],
     "related": [
       "fw-clock-game-395248",
@@ -3610,8 +3596,7 @@
     "tags": [
       "naming",
       "clock-ending",
-      "trophy",
-      "missing-children"
+      "trophy"
     ],
     "related": [
       "fw-clock-ending-pieces-in-place",
@@ -4064,8 +4049,7 @@
     "tags": [
       "breaker-room",
       "map",
-      "fnaf4-link",
-      "plushtrap"
+      "fnaf4-link"
     ],
     "related": [
       "fnaf4-fun-with-plushtrap",
@@ -4118,7 +4102,7 @@
     "id": "sl-extras-map-entertainment-and-rental",
     "title": "Extras map: 'Circus Baby's Entertainment & Rental', copyright Afton Robotics LLC",
     "claim": "The Extras menu's map of the facility is titled 'Circus Baby's Entertainment & Rental' and carries the footer 'Copyright (c) Afton Robotics LLC'. It labels Circus Gallery, Circus Control, Control Module, Ballora Gallery, Breaker Room, Funtime Auditorium, Parts & Service, Scooping Room, Elevator and a room marked 'Private'. None of the breaker map's faint clusters is on it.",
-    "quote": "Copyright (c) Afton Robotics LLC",
+    "quote": "Circus Baby's Entertainment & Rental … Private … Copyright (c) Afton Robotics LLC",
     "game": "sister-location",
     "kind": "hidden",
     "location": "Extras menu, map / blueprint screen",
@@ -4687,7 +4671,7 @@
       "sd-circus-baby-something-bad-inside"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "In Circus Baby's voice. Further lines: 'We need you... so that we can look like you.', 'If they find us like this, we won't be able to try again.', 'You must let us inside the room.', 'You won't die. And it will only hurt for a moment.' and, last, 'I will find a way out.' The same words are repeated over the fallen purple man in the last walking cutscene (sl-you-wont-die)."
+    "notes": "In Circus Baby's voice. Further lines: 'We need you... so that we can look like you.', 'If they find us like this, we won't be able to try again.', 'You must let us inside the room.', 'You won't die. And it will only hurt for a moment.' and, last, 'I will find a way out.' The same words are repeated over the fallen walker in the last walking cutscene (sl-you-wont-die)."
   },
   {
     "id": "sl-immortal-and-the-restless",
@@ -4784,8 +4768,7 @@
     "tags": [
       "father",
       "michael",
-      "recognition",
-      "purple-man"
+      "recognition"
     ],
     "related": [
       "sl-golden-freddy-cutscene-father",

@@ -294,7 +294,6 @@
       "freddy-fazbears-pizza-fnaf1"
     ],
     "tags": [
-      "phone-guy-death",
       "backstage",
       "suits"
     ],
@@ -321,10 +320,6 @@
     },
     "places": [
       "freddy-fazbears-pizza-fnaf1"
-    ],
-    "tags": [
-      "hallucination",
-      "phone-guy-death"
     ],
     "related": [
       "fnaf1-call4-phone-guy-attacked",
@@ -501,8 +496,7 @@
       "freddy-fazbears-pizza-fnaf1"
     ],
     "tags": [
-      "its-me",
-      "hallucination"
+      "its-me"
     ],
     "related": [
       "fnaf2-cutscenes-its-me",
@@ -782,7 +776,7 @@
       "golden-freddy"
     ],
     "tags": [
-      "bite-of-87",
+      "1987",
       "golden-freddy",
       "easter-egg"
     ],
@@ -1097,7 +1091,7 @@
     "id": "fnaf2-call3-rumors",
     "title": "Phone Guy: 'nothing to do with our establishment'",
     "claim": "Phone Guy assures the guard that whatever tragic thing is happening 'out there' has nothing to do with the restaurant. He adds that the day guard, on watch from opening to close, has reported nothing unusual.",
-    "quote": "I can personally assure you, that, whatever is going on out there, however tragic it may be, has nothing to do with our establishment.",
+    "quote": "I wanted to ease your mind about any rumors you might have heard lately. … I can personally assure you, that, whatever is going on out there, however tragic it may be, has nothing to do with our establishment.",
     "game": "fnaf2",
     "kind": "phone-call",
     "location": "Night 3 phone call",
@@ -1310,8 +1304,7 @@
     ],
     "tags": [
       "birthday",
-      "day-shift",
-      "bite"
+      "day-shift"
     ],
     "related": [
       "fnaf2-call6-night-shift-myself",
@@ -1531,8 +1524,7 @@
     ],
     "tags": [
       "its-me",
-      "cutscene",
-      "dream"
+      "cutscene"
     ],
     "related": [
       "fnaf2-cutscenes-old-stage-through-eye-holes",
@@ -1634,8 +1626,7 @@
     ],
     "tags": [
       "minigame",
-      "murder",
-      "pirate-cove"
+      "murder"
     ],
     "related": [
       "fnaf2-save-them",
@@ -1811,7 +1802,7 @@
       "freddy-fazbears-pizza-1987"
     ],
     "tags": [
-      "shadow",
+      "dark-bear",
       "rare-screen"
     ],
     "related": [
@@ -1847,8 +1838,7 @@
       "freddy-fazbears-pizza-1987"
     ],
     "tags": [
-      "shadow",
-      "rwqfsfasxc",
+      "dark-rabbit",
       "crash"
     ],
     "related": [
@@ -2414,7 +2404,7 @@
     "tags": [
       "minigame",
       "follow-me",
-      "shadow"
+      "dark-bear"
     ],
     "related": [
       "fnaf3-eon-map-fnaf1-layout",
@@ -2651,8 +2641,7 @@
     ],
     "tags": [
       "springtrap",
-      "fire",
-      "survival"
+      "fire"
     ],
     "related": [
       "fnaf3-it-burns-newspaper"
@@ -2813,8 +2802,7 @@
     ],
     "tags": [
       "minigame",
-      "rwqfsfasxc",
-      "shadow",
+      "dark-rabbit",
       "cake-ending"
     ],
     "related": [
@@ -3029,8 +3017,7 @@
       "basis": "Promotional teaser; states no in-universe date"
     },
     "tags": [
-      "teaser",
-      "purple"
+      "teaser"
     ],
     "related": [
       "scottgames-site-fnaf3-he-always-does",
@@ -3198,7 +3185,6 @@
       "freddy-fazbears-pizza-fnaf1"
     ],
     "tags": [
-      "phone-guy-death",
       "backstage",
       "suits"
     ],
@@ -3272,8 +3258,7 @@
     "tags": [
       "missing-children",
       "newspaper",
-      "mascot-costume",
-      "yellow-suit"
+      "mascot-costume"
     ],
     "related": [
       "fnaf1-news-kids-vanish",
@@ -3381,7 +3366,6 @@
     "tags": [
       "golden-freddy",
       "rare-screen",
-      "yellow-suit",
       "suit"
     ],
     "related": [
@@ -3493,9 +3477,7 @@
       "freddy-fazbears-pizza-1987"
     ],
     "tags": [
-      "toy-animatronics",
-      "bite",
-      "bite-of-87"
+      "toy-animatronics"
     ],
     "related": [
       "fnaf1-call1-bite-of-87",
@@ -3837,8 +3819,7 @@
     ],
     "tags": [
       "golden-freddy",
-      "mechanic",
-      "yellow-suit"
+      "mechanic"
     ],
     "related": [
       "fnaf2-call6-yellow-suit",
@@ -3942,8 +3923,6 @@
     ],
     "tags": [
       "cutscene",
-      "dream",
-      "old-location",
       "locations"
     ],
     "related": [
@@ -4279,8 +4258,7 @@
       "safe-room",
       "springlock",
       "training-tape",
-      "name",
-      "yellow-suit"
+      "name"
     ],
     "related": [
       "fnaf3-tape5-no-customers-safe-room",
@@ -4421,8 +4399,7 @@
     ],
     "tags": [
       "springtrap",
-      "mechanic",
-      "springlock"
+      "mechanic"
     ],
     "related": [
       "fnaf3-tape2-sound-cues",
@@ -4459,8 +4436,7 @@
     "tags": [
       "minigame",
       "locations",
-      "safe-room",
-      "old-location"
+      "safe-room"
     ],
     "related": [
       "fnaf3-eon-shadow-freddy-follow-me",
@@ -4497,8 +4473,7 @@
     ],
     "tags": [
       "minigame",
-      "environment",
-      "closing"
+      "environment"
     ],
     "related": [
       "fnaf3-eon-map-fnaf1-layout",
@@ -4532,7 +4507,7 @@
       "fazbears-fright"
     ],
     "tags": [
-      "shadow",
+      "dark-bear",
       "golden-freddy",
       "rare-screen"
     ],
@@ -4676,8 +4651,7 @@
     ],
     "tags": [
       "marketing",
-      "company",
-      "closing"
+      "company"
     ],
     "related": [
       "fnaf2-news-reopen-smaller-budget",
@@ -4791,8 +4765,7 @@
     ],
     "tags": [
       "teaser",
-      "springtrap",
-      "purple"
+      "springtrap"
     ],
     "related": [
       "scottgames-fnaf3-teaser-he-always-does",

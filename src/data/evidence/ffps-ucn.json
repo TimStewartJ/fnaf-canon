@@ -315,7 +315,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "Congratulations on completing the week. Unfortunately, you did not meet your special obligations under Paragraph Four. Your employment is terminated. We’ll mail you your things. End tape.",
+    "quote": "Congratulations on completing the week. Unfortunately, you did not meet your special obligations under Paragraph Four. Your employment is terminated. We'll mail you your things. End tape.",
     "people": [
       "cassette-man"
     ],
@@ -433,8 +433,7 @@
       "ffps-pizzeria"
     ],
     "tags": [
-      "salvage",
-      "remnant"
+      "salvage"
     ],
     "related": [
       "ffps-molten-freddy-knock-knock",
@@ -585,8 +584,7 @@
       "ffps-pizzeria"
     ],
     "tags": [
-      "employer",
-      "cassette-man"
+      "employer"
     ],
     "related": [
       "ffps-scrap-baby-not-expected",
@@ -677,7 +675,6 @@
       "ffps-pizzeria"
     ],
     "tags": [
-      "remnant",
       "souls",
       "trap"
     ],
@@ -997,7 +994,6 @@
     ],
     "tags": [
       "trap",
-      "remnant",
       "souls"
     ],
     "related": [
@@ -1073,7 +1069,7 @@
       "precision": "relative",
       "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
     },
-    "quote": "You went somewhere you weren’t supposed to go, saw something you weren’t supposed to see, and prevented a tidy resolution to a messy problem. Needless to say, you’re fired. …",
+    "quote": "You went somewhere you weren't supposed to go, saw something you weren't supposed to see, and prevented a tidy resolution to a messy problem. Needless to say, you're fired. …",
     "people": [
       "tutorial-unit",
       "fazbear-entertainment"
@@ -1316,7 +1312,6 @@
       "ffps-pizzeria"
     ],
     "tags": [
-      "afton",
       "hell"
     ],
     "related": [
@@ -1422,7 +1417,7 @@
   {
     "id": "ffps-completion-fire",
     "title": "Completion: the pizzeria burns during the speech",
-    "claim": "During the Completion speech a fire breaks out and salvaged animatronics are shown burning as the building goes up in flames.",
+    "claim": "During the Completion speech a fire breaks out in the pizzeria, and three salvaged animatronics are shown burning: Scrap Baby, Molten Freddy and the salvaged rabbit of Pizzeria Simulator.",
     "game": "ffps",
     "kind": "cutscene",
     "location": "Completion ending cutscene",
@@ -1435,8 +1430,7 @@
     "people": [
       "scrap-baby",
       "scraptrap",
-      "molten-freddy",
-      "lefty"
+      "molten-freddy"
     ],
     "places": [
       "ffps-pizzeria"
@@ -1452,7 +1446,7 @@
       "ffps-completion-slide-pizza-place-condemned"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "The wiki notes that Lefty is the only salvaged animatronic not shown burning. The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it."
+    "notes": "Checked on 2026-10-03 against the wiki's captures of the scene: it has three, one each of Scrap Baby, Molten Freddy and the salvaged rabbit among flames (ScrBabyScreen.gif, MolFredScreen.gif and SpringTScreen.gif, in the galleries of its Circus Baby, Molten Freddy and William Afton pages), and none of Lefty. The wiki notes that Lefty is the only salvaged animatronic not shown burning. The three shots are interiors; that the fire destroys the building is the wiki's account ('burns down the place'). The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it (ffps-completion-peace-perhaps-more)."
   },
   {
     "id": "ffps-completion-security-puppet-terminal",
@@ -1498,7 +1492,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "We apologize if your situation wasn’t presented to you in a completely honest fashion when you first started, but it was important that your intentions and actions be genuine. ... atoning for past mistakes and tying up loose ends. … no longer a corporate entity.",
+    "quote": "We apologize if your situation wasn't presented to you in a completely honest fashion when you first started, but it was important that your intentions and actions be genuine. ... atoning for past mistakes and tying up loose ends. … no longer a corporate entity.",
     "people": [
       "tutorial-unit",
       "fazbear-entertainment"
@@ -1609,7 +1603,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "While such a minimalist work ethic is rare, it doesn’t mean that we want you back. In fact, it means you should look for employment elsewhere.",
+    "quote": "While such a minimalist work ethic is rare, it doesn't mean that we want you back. In fact, it means you should look for employment elsewhere.",
     "people": [
       "tutorial-unit"
     ],
@@ -1653,7 +1647,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "We’ll mail you your final paycheck, minus the costs of wiping the security footage clean and erasing all trace of your employment from our files.",
+    "quote": "We'll mail you your final paycheck, minus the costs of wiping the security footage clean and erasing all trace of your employment from our files.",
     "people": [
       "tutorial-unit",
       "fazbear-entertainment"
@@ -1708,7 +1702,6 @@
     ],
     "tags": [
       "lure",
-      "missing-children",
       "spring-bonnie"
     ],
     "image": "ffps-fruity-maze-final-screen.jpg",
@@ -2251,7 +2244,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "nightmares"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare_Freddy/Audio",
@@ -2301,7 +2294,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk"
+      "one-you-should-not-have-killed"
     ],
     "related": [
       "ffps-insanity-wound-first-inflicted",
@@ -2330,7 +2323,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk"
+      "one-you-should-not-have-killed"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mangle/Audio"
   },
@@ -2354,7 +2347,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "fire"
     ],
     "related": [
@@ -2382,7 +2375,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "hell?"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(UCN)",
@@ -2408,7 +2401,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "loop"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nedd_Bear/Audio"
@@ -2433,7 +2426,7 @@
       "ucn-protagonist"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "fire",
       "release"
     ],
@@ -2464,7 +2457,7 @@
       "one-you-should-not-have-killed"
     ],
     "tags": [
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "rare-screen"
     ],
     "image": "ucn-one-you-should-not-have-killed.png",
@@ -2650,7 +2643,7 @@
       "sl-you-wont-die"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "'Controlled shock' echoes Sister Location's controlled shocks, and is also the player's own defence against her in UCN (ucn-roster-scrap-baby-controlled-shock). 'You won't die' repeats the words spoken over the fallen purple man in Sister Location's last walking cutscene (sl-you-wont-die)."
+    "notes": "'Controlled shock' echoes Sister Location's controlled shocks, and is also the player's own defence against her in UCN (ucn-roster-scrap-baby-controlled-shock). 'You won't die' repeats the words spoken over the fallen walker in Sister Location's last walking cutscene (sl-you-wont-die)."
   },
   {
     "id": "ucn-circus-baby-lines",
@@ -3204,7 +3197,7 @@
     ],
     "tags": [
       "protagonist",
-      "toysnhk",
+      "one-you-should-not-have-killed",
       "hell?"
     ],
     "related": [
@@ -3328,7 +3321,6 @@
     ],
     "tags": [
       "souls",
-      "remnant",
       "creator"
     ],
     "related": [
@@ -3359,7 +3351,6 @@
     ],
     "tags": [
       "guilt",
-      "daughter",
       "order-of-deaths"
     ],
     "related": [
@@ -3493,9 +3484,7 @@
       "ffps-pizzeria"
     ],
     "tags": [
-      "daughter",
-      "puppet",
-      "possession"
+      "daughter"
     ],
     "related": [
       "ffps-completion-shut-out",
@@ -3566,7 +3555,6 @@
     "tags": [
       "daddy",
       "souls",
-      "remnant",
       "created"
     ],
     "related": [
@@ -3711,7 +3699,7 @@
     ],
     "image": "ffps-molten-freddy-alley.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Molten_Freddy_Alley.png",
-    "notes": "Described from the image. Sister Location's last walking cutscene shows the purple man expel a mass of wires and eyes into a drain (sl-custom-night-ennard-ejected). FFPS never uses the name 'Ennard' and never says where this animatronic came from: the first salvage tape says only that things are found in the alley 'quite often' and 'we aren't sure why' (ffps-salvage-first-tape-alley)."
+    "notes": "Described from the image. Sister Location's last walking cutscene shows the walker expel a mass of wires and eyes into a drain (sl-custom-night-ennard-ejected). FFPS never uses the name 'Ennard' and never says where this animatronic came from: the first salvage tape says only that things are found in the alley 'quite often' and 'we aren't sure why' (ffps-salvage-first-tape-alley)."
   },
   {
     "id": "ffps-scrap-baby-alley-claw",
@@ -4639,6 +4627,7 @@
     "id": "ucn-roster-two-forms-at-once",
     "title": "The roster lists Springtrap and 'Afton', and three more pairs, as separate attackers",
     "claim": "UCN's selectable roster lists Springtrap and 'Afton' as separate attackers, and likewise Circus Baby and Scrap Baby, Ennard and Molten Freddy, and the Marionette and Lefty. The 'Springtrapped' challenge sets Springtrap and Afton both to 20 on the same night.",
+    "quote": "Afton",
     "game": "ucn",
     "kind": "mechanic",
     "location": "Character select roster and challenge menu",
@@ -4989,7 +4978,7 @@
     "title": "UCN store text: 'once again be trapped alone in an office'",
     "claim": "Scott's Steam store description calls Ultimate Custom Night 'the ultimate FNAF mashup', in which 'you will once again be trapped alone in an office fending off killer animatronics'.",
     "game": "scott",
-    "kind": "teaser",
+    "kind": "scott-statement",
     "location": "Steam store page, Ultimate Custom Night (app 871720), description",
     "certainty": "stated",
     "when": {
