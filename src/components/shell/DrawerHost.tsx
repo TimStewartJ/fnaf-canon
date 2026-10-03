@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DRAWER_KEY, entryState, liveAddress, samePath, settleAddress } from "../address";
+import { DRAWER_KEY, OVERLAY_KEY, entryState, liveAddress, notePlace, samePath, settleAddress } from "../address";
 import { deferred } from "../deferred";
 import { evidencePath } from "../links";
 import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, type EvidenceDrawerApi } from "../evidenceDrawer";
@@ -39,13 +39,19 @@ export function DrawerHost({ children }: { children: ReactNode }) {
         // A filter still on its way to the address is written first: the drawer's entry, and the one under it, both say what the reader sees.
         settleAddress();
         const { d, go, here, state } = now();
-        void go(here, { state: { ...state, [DRAWER_KEY]: { id, group, of, pushed: d ? d.pushed : true } }, replace: !!d });
+        // Opened from another overlay (a search result, a record named under an enlarged image):
+        // the drawer takes that overlay's place in the history, so Back from the drawer is the page.
+        const { [OVERLAY_KEY]: overlay, ...rest } = state as WithDrawer & Record<string, unknown>;
+        const steps = (d?.steps ?? 1) + (d && overlay ? 1 : 0);
+        if (!d && !overlay) notePlace();
+        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, pushed: d ? d.pushed : true, steps } }, replace: !!d || !!overlay });
       },
       close() {
         const { d, go, here, state } = now();
         if (!d) return;
         const idx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
-        if (d.pushed && idx > 0) void go(-1);
+        const steps = d.steps ?? 1;
+        if (d.pushed && idx >= steps) void go(-steps);
         else void go(here, { state: { ...state, [DRAWER_KEY]: undefined }, replace: true });
       },
     };

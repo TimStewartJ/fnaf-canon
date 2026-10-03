@@ -9,6 +9,7 @@ function PageError({ stale }: { stale: boolean }) {
   return (
     <Page title="This page did not load" narrow>
       <Empty
+        heading
         title="This page did not load"
         action={
           <span className="page-error__actions">

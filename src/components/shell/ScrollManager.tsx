@@ -1,8 +1,10 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigationType, type Location } from "react-router-dom";
-import { DRAWER_KEY } from "../address";
+import { DRAWER_KEY, OVERLAY_KEY } from "../address";
+import { findFocus, markFocus, type FocusMark } from "./focusMark";
 
 const STORE_KEY = "fca:scroll";
+const FOCUS_KEY = "fca:focus";
 /** What a reader does to move the page themselves. Any of these ends a landing at once. */
 const INPUTS = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
 /** After a landing, how long the page must keep its shape before the landing is final. */
@@ -21,6 +23,11 @@ function liveKey(): string {
 
 function loadPositions(): Map<string, number> {
   try { return new Map(JSON.parse(window.sessionStorage.getItem(STORE_KEY) ?? "[]") as [string, number][]); }
+  catch { return new Map(); }
+}
+
+function loadMarks(): Map<string, FocusMark> {
+  try { return new Map(JSON.parse(window.sessionStorage.getItem(FOCUS_KEY) ?? "[]") as [string, FocusMark][]); }
   catch { return new Map(); }
 }
 
@@ -83,7 +90,8 @@ function focusAt(el: HTMLElement): void {
 
 /**
  * Scroll and focus behaviour for the whole site:
- *  - Back and Forward return to where the reader was on that page (per history entry, kept across reloads);
+ *  - Back and Forward return to where the reader was on that page (per history entry, kept across
+ *    reloads), and put keyboard focus back on the link or control they left from, without moving the page;
  *  - a new navigation to a different path starts at the top and moves focus to <main>, or goes to
  *    the element named by an in-page anchor (/#/theory#storyline) and moves focus there. The
  *    anchor is honoured however long the page takes to arrive, and the element's own
@@ -97,7 +105,10 @@ export function ScrollManager() {
   const navType = useNavigationType();
   const positions = useRef<Map<string, number> | null>(null);
   if (positions.current === null) positions.current = loadPositions();
-  const prev = useRef<{ pathname: string; search: string; hash: string } | null>(null);
+  // What had focus on each entry, so Back returns the keyboard to it as well as the page.
+  const marks = useRef<Map<string, FocusMark> | null>(null);
+  if (marks.current === null) marks.current = loadMarks();
+  const prev = useRef<{ pathname: string; search: string; hash: string; key: string } | null>(null);
   const cancel = useRef<(() => void) | null>(null);
 
   useEffect(() => {
@@ -105,18 +116,24 @@ export function ScrollManager() {
     // Filed under the entry the browser is on, not the one the router has drawn: a page that
     // answers a change of address at once may scroll before the router has caught up.
     const onScroll = () => { positions.current!.set(liveKey(), window.scrollY); };
+    // Focus inside an overlay is not a place on the page: the mark stays on whatever opened it.
+    const onFocus = (e: FocusEvent) => { const mark = markFocus(e.target as Element | null); if (mark) marks.current!.set(liveKey(), mark); };
     const persist = () => {
-      try { window.sessionStorage.setItem(STORE_KEY, JSON.stringify([...positions.current!].slice(-80))); } catch { /* ignore */ }
+      try {
+        window.sessionStorage.setItem(STORE_KEY, JSON.stringify([...positions.current!].slice(-80)));
+        window.sessionStorage.setItem(FOCUS_KEY, JSON.stringify([...marks.current!].slice(-80)));
+      } catch { /* ignore */ }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("focusin", onFocus);
     window.addEventListener("pagehide", persist);
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("pagehide", persist); };
+    return () => { window.removeEventListener("scroll", onScroll); document.removeEventListener("focusin", onFocus); window.removeEventListener("pagehide", persist); };
   }, []);
 
   useLayoutEffect(() => {
     const before = prev.current;
-    prev.current = { pathname: location.pathname, search: location.search, hash: location.hash };
     const key = entryKey(location);
+    prev.current = { pathname: location.pathname, search: location.search, hash: location.hash, key };
     cancel.current?.();
     cancel.current = null;
 
@@ -134,13 +151,19 @@ export function ScrollManager() {
         return true;
       }, () => { if (focus && target) focusAt(target); });
     };
-    const restore = (y: number) => {
+    const restore = (y: number, mark?: FocusMark) => {
       cancel.current = land(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
         // Not tall enough yet, and the page is still arriving: wait for it.
         if (max < y - 1 && !pageReady()) return false;
         if (Math.abs(window.scrollY - Math.min(y, max)) > 1) window.scrollTo({ top: y, behavior: "instant" });
         return true;
+      }, () => {
+        // The keyboard goes back to what the reader left from; the page stays where it was put.
+        // Not while an overlay is open: focus belongs inside it.
+        if (!mark || document.querySelector("dialog[open]")) return;
+        const el = findFocus(mark);
+        if (el && el !== document.activeElement) el.focus({ preventScroll: true });
       });
     };
 
@@ -155,18 +178,26 @@ export function ScrollManager() {
       // Back or Forward: return to where the reader was. An entry never seen before (a typed
       // address) is treated like a fresh arrival.
       const saved = positions.current!.get(key);
-      if (saved != null) restore(saved);
+      if (saved != null) restore(saved, marks.current!.get(key));
+      // An entry of this same page that the router made and this has not met: it was rewritten
+      // in the same breath as the step back that reached it (an overlay closed, and what had been
+      // set in it was written to the page's entry). The page is already where it belongs.
+      else if (location.key !== "default" && before.pathname === location.pathname) positions.current!.set(key, window.scrollY);
       else if (location.hash) toAnchor(location.hash, false);
       else window.scrollTo({ top: 0, behavior: "instant" });
       return;
     }
     const samePath = before.pathname === location.pathname;
     if (samePath) {
-      // Filters, the drawer, anchors on the same page: remember where we are under the new history entry.
+      // Filters, the drawer, an overlay, anchors on the same page: remember where we are under the new history entry.
+      // (Not under the one just left: a page that jumps on its own when it adds a step, as the
+      // timeline does to an era, has already moved by now. What opens an overlay notes the place
+      // itself before it adds its entry: see notePlace in address.ts.)
       positions.current!.set(key, window.scrollY);
       // A link to an anchor on this page, also when it is followed a second time. Not the drawer
       // (it repeats the address of the page under it), and not a change of view that keeps an old anchor.
-      const drawer = !!(location.state as Record<string, unknown> | null)?.[DRAWER_KEY];
+      const state = location.state as Record<string, unknown> | null;
+      const drawer = !!state?.[DRAWER_KEY] || !!state?.[OVERLAY_KEY];
       if (navType === "PUSH" && location.hash && !drawer && (location.hash !== before.hash || location.search === before.search)) toAnchor(location.hash, true);
       return;
     }

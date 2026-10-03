@@ -18,6 +18,8 @@
 /* ── Firmness: one grammar for certainty, status and confidence ────
  * firm = filled disc + solid line, partial = half disc + dashed, tentative = ring + dotted. */
 .firm-glyph { flex: none; display: inline-block; vertical-align: -0.02em; color: var(--c-accent); }
+/* How a date is known is a different question from how firm a claim is: square marks, no accent. */
+.date-glyph { color: var(--c-text-2); }
 .firm { display: inline-flex; align-items: center; gap: 0.38em; white-space: nowrap; }
 .firm--inline { color: var(--c-text); font-weight: 550; }
 .firm--tag {
@@ -197,11 +199,31 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 .toggle.on .toggle__knob::after, .toggle.on .knob::after { transform: translateX(0.8rem); background: var(--c-accent-ink); }
 
 /* Tabs. */
-.tabs { display: flex; flex-wrap: wrap; gap: 0 var(--sp-1); border-bottom: 1px solid var(--c-line); margin: var(--sp-4) 0; }
+/* One line always. Tabs that do not fit are reached by scrolling the strip sideways (a finger, a
+   trackpad, or the arrow keys), and a fade at the edge says there are more. The line under the
+   strip is drawn inside it, so that the selected tab's marker can sit on it without being clipped. */
+.tabs {
+  --fade-start: 0px;
+  --fade-end: 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0 var(--sp-1);
+  margin: var(--sp-4) 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  box-shadow: inset 0 -1px 0 var(--c-line);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs[data-more-start] { --fade-start: 2.5rem; }
+.tabs[data-more-end] { --fade-end: 2.5rem; }
 .tab {
+  flex: none;
   min-height: 2.5rem;
   padding: 0.5rem 0.9rem;
-  margin-bottom: -1px;
+  white-space: nowrap;
   font-family: var(--font-ui);
   font-size: var(--fs-base);
   color: var(--c-text-2);
@@ -237,7 +259,7 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 .filter-group { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--sp-2) var(--sp-3); align-items: start; }
 .filter-group__label { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); padding-top: 0.6rem; }
 .filter-group__items { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); min-width: 0; }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .filter-group { grid-template-columns: 1fr; }
   .filter-group__label { padding-top: 0; }
 }
@@ -247,7 +269,7 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 .page-header__title { margin-bottom: var(--sp-4); }
 .page-header .lede:last-child { margin-bottom: 0; }
 .page-header--split { display: grid; gap: var(--sp-6); align-items: center; }
-@media (min-width: 900px) {
+@media (min-width: 56.25em) {
   .page-header--split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--sp-7); }
 }
 
@@ -264,6 +286,8 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 
 .empty { padding: var(--sp-7) var(--sp-5); text-align: center; color: var(--c-text-2); border: 1px dashed var(--c-line-strong); border-radius: var(--r-lg); }
 .empty__title { font-family: var(--font-display); font-size: var(--fs-lg); color: var(--c-text); margin-bottom: var(--sp-2); }
+/* As the heading of a page that is nothing but this message. */
+h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .empty__text { margin: 0 auto; max-width: 40ch; }
 .empty > :last-child { margin-bottom: 0; }
 
@@ -277,11 +301,14 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 /* ── Collapsible ───────────────────────────────────────────────── */
 .collapsible { border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); }
 .collapsible + .collapsible { border-top: 0; }
-.collapsible > summary { display: flex; align-items: center; gap: var(--sp-3); min-height: var(--tap); padding: var(--sp-2) 0; list-style: none; font-family: var(--font-ui); }
+/* Title, then the note, on one line when both fit; when they do not, the note drops under the
+   title whole (the title is never squeezed into a column of single words). The chevron keeps its
+   own place at the right, clear of both. */
+.collapsible > summary { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; align-content: center; gap: 0.1rem var(--sp-3); min-height: var(--tap); padding: var(--sp-2) 2rem var(--sp-2) 0; list-style: none; font-family: var(--font-ui); }
 .collapsible > summary::-webkit-details-marker { display: none; }
-.collapsible__title { font-weight: 600; color: var(--c-text); }
-.collapsible__meta { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
-.collapsible__chev { margin-left: auto; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
+.collapsible__title { flex: 0 1 auto; min-width: 0; font-weight: 600; color: var(--c-text); }
+.collapsible__meta { flex: 1 1 12rem; min-width: 0; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
+.collapsible__chev { position: absolute; right: 0.25rem; top: 50%; margin-top: -0.5em; color: var(--c-text-3); transition: transform var(--dur-2) var(--ease); }
 .collapsible[open] > summary .collapsible__chev { transform: rotate(180deg); }
 .collapsible > summary:hover .collapsible__title { color: var(--c-accent-strong); }
 .collapsible__body { padding: var(--sp-2) 0 var(--sp-5); }
@@ -336,6 +363,15 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
   .btn--sm, .chip-btn, .toggle, .segmented__opt { min-height: 2.5rem; }
   .icon-btn { width: var(--tap); height: var(--tap); }
   .tab { min-height: var(--tap); }
+  /* Small controls that stand outside running text (a source chip, a date tag, a name chip, a
+     figure's credit, a linked source mark) keep their size and take a finger on an area at least
+     40px each way: an unseen margin of their own makes up the difference, centred on them. */
+  .src-chip, .date--tag, .entity--chip, .figure__credit, a.game, .pullquote__source, .tag { position: relative; }
+  .src-chip::after, .date--tag::after, .entity--chip::after, .figure__credit::after, a.game::after, .pullquote__source::after, .tag::after {
+    content: "";
+    position: absolute;
+    inset: calc(50% - max(50%, 1.25rem));
+  }
 }
 
 /* The key to the firmness marks (see <FirmnessLegend>). */
@@ -344,3 +380,25 @@ a.tag:hover { color: var(--c-text); border-color: var(--c-accent-line); backgrou
 .firm-legend thead th { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text-3); }
 .firm-legend tbody th { width: 1.5rem; font-size: var(--fs-md); }
 .firm-legend tbody tr:last-child > * { border-bottom: 0; }
+
+/* ── The key to the marks (MarksKey) ───────────────────────────── */
+.marks-key { display: inline-flex; }
+.marks-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: min(36rem, calc(100vh - 1rem)); }
+.marks-key__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-4) var(--sp-5); }
+.marks-key__col, .marks-key__group { display: grid; align-content: start; gap: 0.4rem; min-width: 0; }
+.marks-key__row { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; color: var(--c-text-2); }
+.marks-key__row > :first-child { justify-self: center; }
+.marks-key__row strong { color: var(--c-text); font-weight: 600; }
+.marks-key__next { margin-top: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
+.marks-key__foot { margin-top: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
+
+/* ── Forced colours (Windows High Contrast) ────────────────────── */
+/* Backgrounds and shadows are dropped there, so anything that says "this one is chosen" with a
+   fill gets an outline in the system's highlight colour, and the small colour keys (a game's hue,
+   an era's, a legend's dot) keep the colours they were given: they are the content. */
+@media (forced-colors: active) {
+  .segmented__opt.on, .chip-btn.on, .toggle.on, .palette__opt.is-active, .chapter-nav-item.is-current { outline: 2px solid Highlight; outline-offset: -2px; }
+  .tab.on { border-bottom-color: Highlight; }
+  .nav-link.is-active::after { background: Highlight; }
+  .game__swatch, [class*="swatch"], [class*="__dot"], .era-row__n::before { forced-color-adjust: none; }
+}

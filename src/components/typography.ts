@@ -49,3 +49,30 @@ export function sourceWords(text: string): ReactNode {
 /** The same words with the asterisks dropped, where italics cannot be shown (an attribute, a search excerpt). */
 export const sourceWordsPlain = (text: string): string => smartQuotes(text).replace(EMPHASIS, "$1");
 
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+/**
+ * A calendar date as the interface writes it: "2014-08-08" becomes "8 August 2014", "2014-08"
+ * becomes "August 2014". `short` abbreviates the month ("8 Aug 2014") for a narrow column of
+ * dates. Anything else (a bare year, "c. 1983", a date quoted from a game) is returned as it was
+ * given: quotations keep the form they were printed in.
+ */
+export function longDate(iso: string, short = false): string {
+  const m = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(iso.trim());
+  if (!m) return iso;
+  const name = MONTHS[Number(m[2]) - 1];
+  if (!name) return iso;
+  const month = short ? name.slice(0, 3) : name;
+  return m[3] ? `${Number(m[3])} ${month} ${m[1]}` : `${month} ${m[1]}`;
+}
+
+const NUMBER_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+/**
+ * A small count in words, as running text has it ("eight eras"); from thirteen up, the figures.
+ * For sentences and headings built around a count that comes from the data. `capital` for the
+ * start of a sentence.
+ */
+export function numberWord(n: number, capital = false): string {
+  const word = Number.isInteger(n) && n >= 0 && n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : String(n);
+  return capital ? word[0].toUpperCase() + word.slice(1) : word;
+}
+

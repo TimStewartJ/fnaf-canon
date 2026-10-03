@@ -14,6 +14,12 @@ export interface DrawerState {
   of?: string;
   /** True when opening pushed a history entry (so closing can go back). */
   pushed?: boolean;
+  /**
+   * How many history steps closing goes back over; 1 unless said. It is 2 for a record opened
+   * from an overlay that was itself opened over the drawer (search, from inside a record): the
+   * drawer then has two entries, the record it showed before and this one.
+   */
+  steps?: number;
 }
 
 export interface EvidenceDrawerApi {

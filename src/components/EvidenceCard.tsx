@@ -4,7 +4,7 @@ import { CornerDownRight } from "lucide-react";
 import type { Evidence } from "../data/schema";
 import { evidenceById } from "../data/store";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
-import { CERTAINTY } from "./labels";
+import { firmness } from "./labels";
 import { evidencePath } from "./links";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { Figure } from "./Figure";
@@ -65,7 +65,7 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
  *  - claim   set false to show the title only
  */
 export function EvidenceRow({ e, n, group, claim = true, open = "drawer", as: Tag = "li" }: { e: Evidence; n?: number; group?: string[]; claim?: boolean; open?: "drawer" | "page"; as?: "li" | "div" }) {
-  const c = CERTAINTY[e.certainty];
+  const c = firmness("certainty", e.certainty);
   return (
     <Tag className="ev-row">
       {n != null && <span className="ev-row__n">{n}</span>}

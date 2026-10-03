@@ -20,7 +20,7 @@
   --fs-sm: 0.8125rem;   /* 13px  small interface text */
   --fs-base: 0.9375rem; /* 15px  interface text */
   --fs-md: 1.0625rem;   /* 17px  card text, compact prose */
-  --fs-read: calc(clamp(1.0625rem, 0.98rem + 0.4vw, 1.1875rem) * var(--read-scale, 1)); /* 17-19px long-form body */
+  --fs-read: clamp(1.0625rem, 0.98rem + 0.4vw, 1.1875rem); /* 17-19px long-form body */
   --fs-lg: 1.25rem;     /* 20px  ledes, small headings */
   --fs-xl: 1.5rem;      /* 24px  section headings, answers */
   --fs-2xl: clamp(1.625rem, 1.4rem + 1vw, 2.125rem);   /* 26-34px  h2 of an article */
@@ -198,12 +198,24 @@
   --w-text: 400;
 }
 
-/* Reader text size (settings menu). */
-:root[data-text="small"] { --read-scale: 0.92; }
-:root[data-text="large"] { --read-scale: 1.12; }
+/* Reader text size (settings menu). It moves the root size, and every size on the site is in rem,
+   so the whole interface follows: records, timelines and people as well as the long-form text.
+   A larger font set in the browser itself multiplies with this.
+
+   Breakpoints, here and in every stylesheet, are written in em (px / 16). A media query's em is
+   the browser's own font size, so a reader who has set that larger gets, at any window width, the
+   layout that was designed for that many characters across, not one built for smaller type.
+   (useMediaQuery in components/hooks.ts makes the same conversion for queries asked from script.) */
+:root[data-text="small"] { font-size: 93.75%; }
+:root[data-text="large"] { font-size: 112.5%; }
+
+/* Paper is white, whichever theme is printed (the shell switches to "paper" first; see print.css). */
+@media print {
+  :root, :root[data-theme] { --c-bg: #fff; --c-surface: #fff; --sticky-top: 0px; }
+}
 
 /* Phones: the header is not sticky, so sticky elements sit at the very top. */
-@media (max-width: 899px) {
+@media (max-width: 56.1875em) {
   :root { --sticky-top: 0px; }
 }
 

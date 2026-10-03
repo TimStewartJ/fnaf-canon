@@ -48,7 +48,8 @@
  * Small superscript numbers. A run of adjacent citations is one cluster: 1,2,3 */
 .cites {
   font-family: var(--font-ui);
-  font-size: 0.66em;
+  /* Two thirds of the text it stands in, but never under 10px: in a caption that would be 8px. */
+  font-size: max(0.66em, 0.625rem);
   font-weight: 560;
   font-style: normal;
   line-height: 0;
@@ -75,7 +76,7 @@
 :root[data-cites="hide"] .cites { display: none; }
 
 @media (pointer: coarse) {
-  .cites { font-size: 0.72em; }
+  .cites { font-size: max(0.72em, 0.6875rem); }
   /* A taller, wider hit area that overlaps its neighbours a little instead of opening gaps in the line. */
   .cite { padding: 0.8em 0.3em; margin: -0.8em -0.24em; }
   .cites__sep { margin-inline: 0.06em 0.16em; }
@@ -102,7 +103,9 @@
   border-radius: var(--r-sm);
   text-decoration: none;
 }
-.src-chip .firm-glyph { align-self: center; }
+/* The record's own grade, kept quiet: the accent colour is for the claim the chip stands beside. */
+.src-chip .firm-glyph { align-self: center; color: var(--c-text-3); }
+.src-chip:hover .firm-glyph, .src-chip:focus-visible .firm-glyph { color: var(--c-accent); }
 .src-chip__code { flex: none; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-text-2); white-space: nowrap; }
 /* The cap is in rem, not %, so a long title can never widen the chip's ancestors. */
 .src-chip__title { min-width: 0; max-width: 16rem; color: var(--c-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -147,6 +150,9 @@
 .pop__kind { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-2); }
 .pop__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: 560; line-height: 1.25; color: var(--c-text); }
 .pop__text { color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden; }
+/* A date's reason is the archive's argument for it and is printed nowhere else: never cut. */
+.pop--date { max-height: min(34rem, calc(100vh - 1rem)); }
+.pop--date .pop__text { display: block; -webkit-line-clamp: none; line-clamp: none; overflow: visible; }
 .pop__quote { font-family: var(--font-text); font-style: italic; color: var(--c-text); padding-left: var(--sp-3); border-left: 2px solid var(--c-accent-line); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
 .pop__meta { font-size: var(--fs-xs); color: var(--c-text-3); }
 .pop__hint { margin-top: 0.2rem; padding-top: 0.5rem; border-top: 1px solid var(--c-line); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-3); }

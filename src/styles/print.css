@@ -1,0 +1,37 @@
+/*
+ * Print. A printout is ink on white whatever theme is on screen, carries no navigation, and
+ * shows what the page refers to (a chapter's numbered sources are opened for it).
+ *
+ * Two things here are done in script, because a stylesheet cannot do them (see usePrinting in
+ * components/shell/prefs.ts): the page is switched to the paper theme while it prints, and
+ * sections marked data-print="open" (<Collapsible print>) are opened. Images not yet fetched are
+ * fetched (components/Figure.tsx). Page stylesheets hide their own controls in their own
+ * `@media print` block.
+ */
+@media print {
+  @page { margin: 16mm 15mm 18mm; }
+  /* 13px to the rem: long-form text comes out near 11.5pt. The reader's on-screen text size is not carried onto paper. */
+  :root, :root[data-text] { font-size: 81.25%; }
+  html, body { background: var(--c-bg); }
+  body::before { display: none; }
+
+  /* The shell and everything that only works on a screen. */
+  .skip-link, .site-header, .site-footer, .route-progress, .shell-notice, dialog, .pop, .figure__zoom,
+  .icon-btn, .search-field, .segmented, .toggle, .tabs, .filter-bar { display: none !important; }
+  .site-main { padding-block: 0; }
+  .page, .page-enter { animation: none; }
+
+  /* Links read as text; where one leaves the archive its address is printed after it. */
+  a { color: inherit; }
+  :is(.prose, .article) a[href^="http"]::after { content: " (" attr(href) ")"; font-family: var(--font-ui); font-size: 0.8em; font-style: normal; overflow-wrap: anywhere; }
+
+  /* Keep things whole. */
+  figure, table, .callout, blockquote, .ev-row, .ev-card { break-inside: avoid; }
+  h1, h2, h3, h4, summary { break-after: avoid; }
+  img { max-width: 100%; }
+
+  /* A section opened for print shows no sign of being a control. */
+  .collapsible__chev { display: none; }
+  /* Nothing scrolls on paper: a wide table takes the width it needs. */
+  .table-wrap, .scroll-x { overflow: visible; background: none; }
+}

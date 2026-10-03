@@ -1,15 +1,16 @@
 import { Suspense, lazy, memo, useEffect, useMemo, useState, type ReactNode } from "react";
-import { HashRouter, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
-import { useAddressRouter } from "./components/address";
+import { HashRouter, Navigate, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
+import { samePath, useAddressRouter, useLivePath } from "./components/address";
 import { CiteScope } from "./components/CiteScope";
 import { deferred } from "./components/deferred";
 import { Loading } from "./components/layout";
+import { useOverlayRouter } from "./components/overlayEntry";
 import { DrawerHost } from "./components/shell/DrawerHost";
 import { Footer } from "./components/shell/Footer";
 import { Header } from "./components/shell/Header";
 import { MenuSheet } from "./components/shell/MenuSheet";
 import { PageBoundary } from "./components/shell/PageBoundary";
-import { usePrefs } from "./components/shell/prefs";
+import { usePrefs, usePrinting } from "./components/shell/prefs";
 import { ScrollManager } from "./components/shell/ScrollManager";
 
 /*
@@ -106,13 +107,18 @@ const Pages = memo(function Pages() {
 });
 
 function Shell() {
-  const { pathname } = useLocation();
+  const { pathname, search: query, hash } = useLocation();
   const [search, setSearch] = useState(false);
   // The phone menu belongs to the page it was opened on, so going anywhere closes it. (Not to the
   // history entry: a page rewrites its own entry whenever a filter changes.)
   const [menuAt, setMenuAt] = useState<string | null>(null);
+  const [searchFailed, setSearchFailed] = useState(false);
   usePrefs();
+  usePrinting();
   useAddressRouter();
+  useOverlayRouter();
+  // The address has moved on and the page has not yet: its code is still being fetched.
+  const arriving = !samePath(useLivePath(), pathname);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -126,16 +132,27 @@ function Shell() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Every id in the archive is lower case, so an address typed or pasted with capitals is the same page.
+  if (pathname !== pathname.toLowerCase()) return <Navigate to={{ pathname: pathname.toLowerCase(), search: query, hash }} replace />;
+
   return (
     <DrawerHost>
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a>
       <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(pathname)} />
-      <main id="main" className="site-main" tabIndex={-1}>
+      {arriving && <div className="route-progress" aria-hidden />}
+      <main id="main" className="site-main" tabIndex={-1} aria-busy={arriving || undefined}>
         <PageLocation><Pages /></PageLocation>
       </main>
       <Footer />
       {menuAt === pathname && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
-      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => setSearch(false)} />
+      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => { setSearch(false); setSearchFailed(true); }} />
+      {searchFailed && (
+        <div className="shell-notice" role="alert">
+          <span>Search could not be loaded. The archive may have been updated while this tab was open, or the connection dropped.</span>
+          <button type="button" className="btn btn--sm btn--primary" onClick={() => window.location.reload()}>Reload</button>
+          <button type="button" className="btn btn--sm btn--quiet" onClick={() => setSearchFailed(false)}>Dismiss</button>
+        </div>
+      )}
     </DrawerHost>
   );
 }

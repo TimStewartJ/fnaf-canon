@@ -20,10 +20,11 @@
  *  - Typing. `useAddressText()` answers every keystroke and writes once typing pauses.
  *  - Staying out of the way. A write is refused once the reader has gone to another page. Text
  *    still waiting when the reader follows a link is recorded on the entry they are leaving, never
- *    on the one they are going to. Nothing is written while the evidence drawer is open (it lives
- *    in the history entry; rewriting the entry would close it): the page shows the change at once
- *    and the address takes it when the drawer closes. The drawer settles what is waiting before
- *    it opens.
+ *    on the one they are going to. Nothing is written while the evidence drawer, or any other
+ *    overlay, holds the current history entry (each is a step in the history, so that Back closes
+ *    it; a change written to its entry would be lost when it closed): the page shows the change at
+ *    once and the address takes it when the overlay has gone. The drawer settles what is waiting
+ *    before it opens.
  */
 import { useCallback, useLayoutEffect, useMemo, useSyncExternalStore } from "react";
 import { parsePath, useLocation, useNavigate, type To } from "react-router-dom";
@@ -58,6 +59,10 @@ export const DRAWER_KEY = "drawer";
  * that opens a record, before anything on the page can know of it.
  */
 export const drawerInEntry = (): boolean => !!entryState()?.[DRAWER_KEY];
+/** The key any other overlay keeps its token under while it is a step in the history (see overlayEntry.ts). */
+export const OVERLAY_KEY = "overlay";
+/** True when the entry the browser is on belongs to the drawer or to another overlay: the page under it must not rewrite it. */
+const heldEntry = (): boolean => { const s = entryState(); return !!s && (!!s[DRAWER_KEY] || !!s[OVERLAY_KEY]); };
 
 const decoded = (s: string): string => { try { return decodeURIComponent(s); } catch { return s; } };
 /** The same path, however each side spells it (the browser escapes characters the router keeps plain). */
@@ -93,8 +98,8 @@ let retryTimer: number | undefined;
 
 /** True while this layer's own write is going through the router. */
 let writing = false;
-/** Whether the entry the browser was on, as of the last change, held the drawer. */
-let onDrawer = false;
+/** Whether the entry the browser was on, as of the last change, was held by the drawer or another overlay. */
+let onHeld = false;
 
 type Navigator = (to: To, options?: { replace?: boolean; state?: unknown }) => void | Promise<void>;
 let navigator: Navigator | null = null;
@@ -139,7 +144,7 @@ function flush(): boolean {
   if (!w) return false;
   const live = liveAddress();
   if (!samePath(live.pathname, w.pathname) || says(w, live)) { waiting = null; notify(); return false; }
-  if (!navigator || drawerInEntry()) return false;
+  if (!navigator || heldEntry()) return false;
   let refused = false;
   writing = true;
   try {
@@ -246,9 +251,31 @@ const typedText = (pathname: string, name: string): string | null =>
 
 /* ── Watching the browser's history ────────────────────────────────────────────── */
 
+/**
+ * Has the reader's place noted now, under the entry the browser is on. For what is about to add
+ * an entry over a page that will not move (an overlay, the drawer): the place is normally noted as
+ * the page scrolls, but a tap made while it is still gliding comes before the last of those, and
+ * Back from the overlay would then return to a spot a little off. The ScrollManager listens for
+ * scrolling; this lets it hear one more.
+ */
+export const notePlace = (): void => { window.dispatchEvent(new Event("scroll")); };
+
+/** Told of every change of history entry, with whether it was Back or Forward (see watchHistory). */
+const watchers = new Set<(pop: boolean) => void>();
+/**
+ * Calls `fn` after every change of history entry, however it was made: `true` for Back or
+ * Forward, `false` for an entry added or replaced. For code that keeps its own state in the
+ * history (the overlays). Returns a function that stops it.
+ */
+export function watchHistory(fn: (pop: boolean) => void): () => void {
+  watchers.add(fn);
+  return () => { watchers.delete(fn); };
+}
+
 /** After any change of entry: note where we are, tell the pages, and try again what had to wait. */
-function moved(): void {
-  onDrawer = drawerInEntry();
+function moved(pop = false): void {
+  onHeld = heldEntry();
+  for (const fn of [...watchers]) fn(pop);
   notify();
   // Never from inside this call: the router is still in the middle of its own navigation.
   if (waiting && !writing) queueMicrotask(flush);
@@ -269,7 +296,7 @@ function leave(replaceState: History["replaceState"]): void {
   typing = null;
   typingTimer = clear(typingTimer);
   retryTimer = clear(retryTimer);
-  if (!last || says(last, live) || drawerInEntry()) return;
+  if (!last || says(last, live) || heldEntry()) return;
   try {
     replaceState.call(window.history, window.history.state, "", `${window.location.pathname}${window.location.search}#${live.pathname}${last.search}${last.hash}`);
   } catch { /* the entry keeps its old address */ }
@@ -289,7 +316,11 @@ function install(): void {
   const base = host.__fcaHistory ?? (host.__fcaHistory = { push: history.pushState, replace: history.replaceState });
   if (base.pop) window.removeEventListener("popstate", base.pop);
   history.pushState = function pushState(this: History, ...args: Parameters<History["pushState"]>) {
-    if (!writing) leave(base.replace);
+    // One overlay opening over another (an image enlarged from a sheet) is not the reader
+    // leaving: what is waiting for the page under them both goes on waiting.
+    const usr = (args[0] as { usr?: Record<string, unknown> } | null)?.usr;
+    const overOverlay = heldEntry() && !!usr && (!!usr[DRAWER_KEY] || !!usr[OVERLAY_KEY]);
+    if (!writing && !overOverlay) leave(base.replace);
     base.push.apply(this, args);
     moved();
   };
@@ -302,18 +333,27 @@ function install(): void {
   };
   base.pop = () => {
     // Back or Forward. What was waiting belonged to the entry the reader has left, unless that
-    // entry was the drawer's and this is the page under it.
+    // entry was the drawer's or another overlay's, and this is the page under it.
     const at = liveAddress().pathname;
-    const under = onDrawer && [waiting?.pathname, typing?.pathname].every((p) => p === undefined || samePath(p, at));
+    const under = onHeld && [waiting?.pathname, typing?.pathname].every((p) => p === undefined || samePath(p, at));
     if (!under) { waiting = null; typing = null; typingTimer = clear(typingTimer); retryTimer = clear(retryTimer); }
-    moved();
+    moved(true);
   };
   window.addEventListener("popstate", base.pop);
-  onDrawer = drawerInEntry();
+  onHeld = heldEntry();
 }
 if (typeof window !== "undefined") install();
 
 /* ── Hooks ─────────────────────────────────────────────────────────────────────── */
+
+const livePath = (): string => liveAddress().pathname;
+/**
+ * The path the browser is on right now. The router's own copy trails it while the next page's
+ * code is being fetched, so a difference between the two means a page is on its way.
+ */
+export function useLivePath(): string {
+  return useSyncExternalStore(subscribe, livePath);
+}
 
 /** Connects the address layer to the router. Called once, by the shell: inside the router, outside the pages. */
 export function useAddressRouter(): void {

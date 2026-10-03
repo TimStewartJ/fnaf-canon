@@ -6,7 +6,7 @@ import { evidenceById, labelForEntity, personById, placeById } from "../data/sto
 import { gameById } from "../data/store";
 import { useCiteNumbering } from "./citeScope";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
-import { CERTAINTY, DATE_KIND, kindLabel } from "./labels";
+import { DATE_KIND, firmness, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
@@ -15,7 +15,7 @@ import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
 import { Icon } from "./Icon";
-import { SOURCE_KIND_ICON } from "./icons";
+import { sourceKindIcon } from "./icons";
 import { gameMeta } from "../data/gameMeta";
 
 /* ── Evidence preview (the hover card behind citation markers) ─────────────────── */
@@ -25,7 +25,7 @@ export function SourceLine({ e, location = true }: { e: Evidence; location?: boo
   return (
     <span className="source-line">
       <GameMark id={e.game} />
-      <span className="source-line__kind"><Icon icon={SOURCE_KIND_ICON[e.kind]} /> {kindLabel(e.kind)}</span>
+      <span className="source-line__kind"><Icon icon={sourceKindIcon(e.kind)} /> {kindLabel(e.kind)}</span>
       {location && <span className="source-line__loc">{smartQuotes(e.location)}</span>}
     </span>
   );
@@ -76,7 +76,7 @@ export function Cite({ id, group }: { id: string; group?: string[] }) {
         ref={anchorRef}
         to={evidencePath(id)}
         className="cite"
-        aria-label={`Source${n ? ` ${n}` : ""}: ${e.title} (${gameMeta(e.game).short}, ${CERTAINTY[e.certainty].word.toLowerCase()})`}
+        aria-label={`Source${n ? ` ${n}` : ""}: ${e.title} (${gameMeta(e.game).short}, ${firmness("certainty", e.certainty).word.toLowerCase()})`}
         aria-haspopup="dialog"
         onClick={open}
       >
@@ -106,14 +106,15 @@ export function CiteGroup({ ids }: { ids: string[] }) {
 /**
  * A source chip for explicit lists of records ("Evidence: …"): certainty glyph, the source's short
  * code and the record's title. Same behaviour as a citation marker. `variant="code"` drops the title
- * for very tight spots.
+ * for very tight spots. The glyph on a chip is drawn quietly (no accent colour): it grades the
+ * record, and must not be taken for the grade of the claim the chip stands beside.
  */
 export function SourceChip({ id, group, variant = "full" }: { id: string; group?: string[]; variant?: "full" | "code" }) {
   const e = evidenceById.get(id);
   const [pop, anchorRef] = usePopover();
   const open = useOpenEvidence(id, group, pop.hide);
   if (!e) return <span className="cite cite--missing" title="Missing evidence record">?{id}</span>;
-  const c = CERTAINTY[e.certainty];
+  const c = firmness("certainty", e.certainty);
   return (
     <span className="cite-wrap" {...pop.wrapProps}>
       <Link
@@ -121,7 +122,8 @@ export function SourceChip({ id, group, variant = "full" }: { id: string; group?
         to={evidencePath(id)}
         className="src-chip"
         data-level={c.level}
-        aria-label={variant === "code" ? `${e.title} (${gameById.get(e.game)?.title ?? e.game}, ${c.word.toLowerCase()})` : undefined}
+        // The name starts with what is on the chip (its code), so "click FFPS" finds it by voice.
+        aria-label={variant === "code" ? `${gameMeta(e.game).short}: ${e.title} (${gameById.get(e.game)?.title ?? e.game}, ${c.word.toLowerCase()})` : undefined}
         aria-haspopup="dialog"
         onClick={open}
       >
@@ -177,16 +179,21 @@ export function ChapterLink({ id, label }: { id: string; label?: ReactNode }) {
 
 /* ── Dates ─────────────────────────────────────────────────────────────────────── */
 
-/** Glyph for how a date is supported. Printed, derived and estimated reuse the firmness glyph. */
+/**
+ * Glyph for how a date is known. Dates have marks of their own, square and uncoloured, so a date
+ * is never read as a grade of the claim beside it: the round amber marks belong to firmness alone.
+ * Printed, derived and estimated are a full, half and empty square; the other three are drawn.
+ */
 export function DateGlyph({ kind }: { kind: DateKind }) {
-  if (kind === "printed") return <FirmGlyph level="firm" />;
-  if (kind === "derived") return <FirmGlyph level="partial" />;
-  if (kind === "estimated") return <FirmGlyph level="tentative" />;
+  const box = { x: 1.9, y: 1.9, width: 8.2, height: 8.2, rx: 1.1 };
   return (
-    <svg className="firm-glyph" viewBox="0 0 12 12" width="0.72em" height="0.72em" aria-hidden focusable="false" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="firm-glyph date-glyph" viewBox="0 0 12 12" width="0.72em" height="0.72em" aria-hidden focusable="false" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      {kind === "printed" && <rect {...box} fill="currentColor" />}
+      {kind === "derived" && <><rect {...box} /><path d="M6 1.9H3A1.1 1.1 0 0 0 1.9 3v6A1.1 1.1 0 0 0 3 10.1h3z" fill="currentColor" /></>}
+      {kind === "estimated" && <rect {...box} />}
       {kind === "relative" && <path d="M1.5 6h9M3.8 3.6 1.4 6l2.4 2.4M8.2 3.6 10.6 6 8.2 8.4" />}
       {kind === "teaser" && <path d="M6 1.3 10.7 6 6 10.7 1.3 6z" />}
-      {kind === "unknown" && <circle cx="6" cy="6" r="4.4" strokeDasharray="1.6 2.2" />}
+      {kind === "unknown" && <rect {...box} strokeDasharray="1.7 2.4" />}
     </svg>
   );
 }
@@ -194,13 +201,15 @@ export function DateGlyph({ kind }: { kind: DateKind }) {
 const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "estimated", relative: "relative", unknown: "unknown" };
 
 /**
- * A date with its justification. Hover, focus or tap shows why the date is what it is and which
- * records support it.
+ * A date with its justification. Hover, tap, or Enter on it shows why the date is what it is and
+ * which records support it. The reason is given in full, however long.
  *  - variant "tag" (default): a compact mono label, for cards, tables and headers
  *  - variant "inline": sits in a sentence without changing its rhythm (what <RichText> uses)
  */
 export function DatePill({ label, kind, basis, evidence = [], compact, variant = "tag" }: { label: string; kind: DateKind; basis?: string; evidence?: string[]; compact?: boolean; variant?: "tag" | "inline" }) {
-  const [pop, anchorRef] = usePopover();
+  // Opened by a press, not by focus alone: it holds links, and a reader tabbing down a page of
+  // dates should not have to pass through each one's sources.
+  const [pop, anchorRef] = usePopover({ focus: false });
   const drawer = useEvidenceDrawer();
   const k = DATE_KIND[kind] ?? DATE_KIND.unknown;
   const evs = evidence.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
@@ -247,10 +256,13 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
   );
 }
 
-/** The in-universe date of an evidence record, as a date pill. */
-export function EvidenceDate({ e, compact, variant }: { e: Evidence; compact?: boolean; variant?: "tag" | "inline" }) {
+/**
+ * The in-universe date of an evidence record, as a date pill. `self` is for the record's own page
+ * and drawer, where "Rests on: this record" would only lead back to where the reader is.
+ */
+export function EvidenceDate({ e, compact, variant, self = false }: { e: Evidence; compact?: boolean; variant?: "tag" | "inline"; self?: boolean }) {
   const kind: DateKind = e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown";
-  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={[e.id]} compact={compact} variant={variant} />;
+  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={self ? [] : [e.id]} compact={compact} variant={variant} />;
 }
 
 /* ── RichText ──────────────────────────────────────────────────────────────────── */

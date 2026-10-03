@@ -1,6 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { useEffect, useRef, type ButtonHTMLAttributes, type HTMLAttributes, type KeyboardEvent, type ReactNode, type Ref } from "react";
 import { Link, type LinkProps } from "react-router-dom";
-import { Search, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Search, type LucideIcon } from "lucide-react";
 import { Icon } from "./Icon";
 
 type Variant = "default" | "primary" | "quiet";
@@ -36,6 +36,14 @@ export function IconButton({ icon, label, className, type = "button", ...rest }:
   );
 }
 
+/**
+ * A link that leaves the archive. It opens in a new tab, so the reader's place here is kept; it
+ * carries the arrow that marks it, and says "opens in a new tab" to a screen reader.
+ */
+export function ExternalLink({ href, className, children }: { href: string; className?: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noreferrer" className={className}>{children}<Icon icon={ArrowUpRight} /><span className="sr-only"> (opens in a new tab)</span></a>;
+}
+
 /** A small static label. For a clickable filter use <FilterChip>; for a link use <Tag>. */
 export function Chip({ children, tone, className }: { children: ReactNode; tone?: "accent" | "ok" | "tension" | "open" | "neutral"; className?: string }) {
   return <span className={`chip${className ? ` ${className}` : ""}`} data-tone={tone}>{children}</span>;
@@ -65,12 +73,60 @@ export function Toggle({ on, onChange, children, className }: { on: boolean; onC
   );
 }
 
-/** Tabs that switch a view in place. The caller renders the selected panel. */
-export function Tabs<T extends string>({ tabs, value, onChange, label }: { tabs: { id: T; label: ReactNode }[]; value: T; onChange: (id: T) => void; label: string }) {
+/**
+ * Tabs that switch a view in place. The caller renders the selected view; wrap it in <TabPanel>
+ * with the same `panel` id and the two are tied together for assistive technology.
+ * Keyboard: Tab reaches the selected tab only; Left, Right, Home and End move between tabs;
+ * Enter or Space chooses the one in focus (moving does not choose, because choosing can be a
+ * step in the history). When the tabs do not fit they stay on one line and scroll sideways,
+ * with the selected one in view.
+ */
+export function Tabs<T extends string>({ tabs, value, onChange, label, panel }: { tabs: { id: T; label: ReactNode }[]; value: T; onChange: (id: T) => void; label: string; panel?: string }) {
+  const list = useRef<HTMLDivElement | null>(null);
+  // Which edges have more tabs beyond them, for the fade that says so.
+  useEffect(() => {
+    const el = list.current;
+    if (!el) return;
+    const mark = () => {
+      el.toggleAttribute("data-more-start", el.scrollLeft > 2);
+      el.toggleAttribute("data-more-end", el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    };
+    const on = el.querySelector<HTMLElement>('[aria-selected="true"]');
+    // Bring the selected tab into view by moving the strip only (scrollIntoView could move the page).
+    if (on) {
+      const pad = 24;
+      if (on.offsetLeft - pad < el.scrollLeft) el.scrollLeft = on.offsetLeft - pad;
+      else if (on.offsetLeft + on.offsetWidth + pad > el.scrollLeft + el.clientWidth) el.scrollLeft = on.offsetLeft + on.offsetWidth + pad - el.clientWidth;
+    }
+    mark();
+    const resized = new ResizeObserver(mark);
+    resized.observe(el);
+    el.addEventListener("scroll", mark, { passive: true });
+    return () => { resized.disconnect(); el.removeEventListener("scroll", mark); };
+  }, [value, tabs.length]);
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!step && e.key !== "Home" && e.key !== "End") return;
+    const all = [...e.currentTarget.querySelectorAll<HTMLElement>('[role="tab"]')];
+    const at = all.indexOf(document.activeElement as HTMLElement);
+    if (at < 0) return;
+    e.preventDefault();
+    all[e.key === "Home" ? 0 : e.key === "End" ? all.length - 1 : (at + step + all.length) % all.length]?.focus();
+  };
   return (
-    <div className="tabs" role="tablist" aria-label={label}>
+    <div className="tabs" role="tablist" aria-label={label} ref={list} onKeyDown={onKeyDown}>
       {tabs.map((t) => (
-        <button key={t.id} type="button" role="tab" aria-selected={t.id === value} className={`tab${t.id === value ? " on" : ""}`} onClick={() => onChange(t.id)}>
+        <button
+          key={t.id}
+          type="button"
+          role="tab"
+          id={panel ? `${panel}-tab-${t.id}` : undefined}
+          aria-selected={t.id === value}
+          aria-controls={panel}
+          tabIndex={t.id === value ? 0 : -1}
+          className={`tab${t.id === value ? " on" : ""}`}
+          onClick={() => onChange(t.id)}
+        >
           {t.label}
         </button>
       ))}
@@ -78,12 +134,32 @@ export function Tabs<T extends string>({ tabs, value, onChange, label }: { tabs:
   );
 }
 
-/** A small set of mutually exclusive options shown side by side. */
+/** The view that <Tabs panel={id}> switches: give it the same id and the tab that is selected. */
+export function TabPanel({ id, tab, children, ...rest }: HTMLAttributes<HTMLDivElement> & { id: string; tab: string; ref?: Ref<HTMLDivElement> }) {
+  return <div {...rest} id={id} role="tabpanel" aria-labelledby={`${id}-tab-${tab}`}>{children}</div>;
+}
+
+/**
+ * A small set of mutually exclusive options shown side by side. It is announced as a group of
+ * radio buttons and behaves like one: Tab reaches the chosen option only, and the arrow keys
+ * (with Home and End) move the choice, taking focus with it.
+ */
 export function Segmented<T extends string>({ options, value, onChange, label }: { options: { id: T; label: ReactNode }[]; value: T; onChange: (id: T) => void; label: string }) {
+  const chosen = options.findIndex((o) => o.id === value);
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+    if (!step && e.key !== "Home" && e.key !== "End") return;
+    e.preventDefault();
+    const to = e.key === "Home" ? 0 : e.key === "End" ? options.length - 1 : (Math.max(chosen, 0) + step + options.length) % options.length;
+    const next = options[to];
+    if (!next) return;
+    if (next.id !== value) onChange(next.id);
+    (e.currentTarget.children[to] as HTMLElement | undefined)?.focus();
+  };
   return (
-    <div className="segmented" role="radiogroup" aria-label={label}>
-      {options.map((o) => (
-        <button key={o.id} type="button" role="radio" aria-checked={o.id === value} className={`segmented__opt${o.id === value ? " on" : ""}`} onClick={() => onChange(o.id)}>
+    <div className="segmented" role="radiogroup" aria-label={label} onKeyDown={onKeyDown}>
+      {options.map((o, i) => (
+        <button key={o.id} type="button" role="radio" aria-checked={o.id === value} tabIndex={i === Math.max(chosen, 0) ? 0 : -1} className={`segmented__opt${o.id === value ? " on" : ""}`} onClick={() => onChange(o.id)}>
           {o.label}
         </button>
       ))}

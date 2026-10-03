@@ -1,17 +1,29 @@
 /** Small shared hooks. No components here. */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type MouseEvent, type RefObject, type SyntheticEvent } from "react";
 import { SITE_NAME } from "./labels";
+import { useOverlayEntry } from "./overlayEntry";
 import { smartQuotes } from "./typography";
 
-/** Sets the document title for the current route: "Page · Fazbear Canon Archive". */
-export function usePageTitle(title?: string | null) {
+/**
+ * Sets the document title for the current route: "Page · Fazbear Canon Archive", or with `kind`
+ * "William Afton · Person · Fazbear Canon Archive". A name alone does not say what the page is:
+ * a person, a chapter and a record can share one.
+ */
+export function usePageTitle(title?: string | null, kind?: string) {
   useEffect(() => {
-    document.title = title ? `${smartQuotes(title)} · ${SITE_NAME}` : SITE_NAME;
-  }, [title]);
+    document.title = title ? [smartQuotes(title), kind, SITE_NAME].filter(Boolean).join(" · ") : SITE_NAME;
+  }, [title, kind]);
 }
 
-/** Subscribes to a CSS media query, e.g. useMediaQuery("(max-width: 899px)"). */
-export function useMediaQuery(query: string): boolean {
+/**
+ * Subscribes to a CSS media query, e.g. useMediaQuery("(max-width: 640px)").
+ *
+ * Widths and heights are written in px, the way a design is discussed, and compared in em
+ * (px / 16), exactly as the stylesheets' breakpoints are: a reader whose browser font is set
+ * larger then gets the layout that fits their text, in script and in CSS alike.
+ */
+export function useMediaQuery(asWritten: string): boolean {
+  const query = asWritten.replace(/(\d+(?:\.\d+)?)px/g, (_, px: string) => `${Number(px) / 16}em`);
   const subscribe = useCallback((cb: () => void) => {
     const mq = window.matchMedia(query);
     mq.addEventListener("change", cb);
@@ -83,13 +95,21 @@ export function useSeen<T extends Element>(rootMargin = "0px"): [RefObject<T | n
 
 /**
  * Drives a native modal <dialog>: shows it while `open`, locks page scroll, and calls `onClose` for
- * Escape and for a click on the backdrop. Focus returns to the element that had it. Spread the
- * result on the <dialog>.
+ * Escape, for a click on the backdrop, and for Back. The dialog is a step in the history while it
+ * is open (see overlayEntry.ts): Back closes it and the page under it stays where it was, which
+ * is how a sheet is dismissed on a phone. Pass `back: false` for a dialog whose own state already
+ * lives in the history, as the evidence drawer's does. Focus returns to the element that had it.
+ * Spread the result on the <dialog>.
+ *
+ * Dialogs stack: Escape and the backdrop act on the top one only. A dialog drawn inside another
+ * (an image enlarged from the drawer) must not close its parent, so events that did not start on
+ * this dialog are ignored.
  */
-export function useModalDialog(open: boolean, onClose: () => void) {
+export function useModalDialog(open: boolean, onClose: () => void, { back = true }: { back?: boolean } = {}) {
   const ref = useRef<HTMLDialogElement | null>(null);
   const saved = useRef(onClose);
   useEffect(() => { saved.current = onClose; });
+  useOverlayEntry(open && back, onClose);
   // Layout effect: the dialog must be closed before a navigation moves focus to the new page.
   useLayoutEffect(() => {
     const el = ref.current;
@@ -105,7 +125,7 @@ export function useModalDialog(open: boolean, onClose: () => void) {
   }, [open]);
   return {
     ref,
-    onCancel: (e: SyntheticEvent) => { e.preventDefault(); saved.current(); },
+    onCancel: (e: SyntheticEvent) => { if (e.target !== e.currentTarget) return; e.preventDefault(); saved.current(); },
     onClick: (e: MouseEvent<HTMLDialogElement>) => {
       if (e.target !== e.currentTarget) return;
       const r = e.currentTarget.getBoundingClientRect();

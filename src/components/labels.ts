@@ -13,7 +13,8 @@ export const kindLabel = (kind: string): string => (KIND_LABEL as Record<string,
 /**
  * The firmness grammar. Certainty, status and confidence are three scales with one shape:
  * firm, partial, tentative. They share one glyph (filled, half, hollow) and one line style
- * (solid, dashed, dotted), and are told apart by their words.
+ * (solid, dashed, dotted), and are told apart by their words. Where a mark stands without its
+ * word (a source chip, a chapter in the rail), the page offers the key: <MarksKey>.
  */
 export type Level = "firm" | "partial" | "tentative";
 export type FirmnessScale = "certainty" | "status" | "confidence";
@@ -35,6 +36,13 @@ export const CONFIDENCE: Record<Confidence, FirmnessInfo> = {
   low: { level: "tentative", word: "Low confidence", short: "Low", help: "The best available reading; the records allow others" },
 };
 export const SCALE_NAME: Record<FirmnessScale, string> = { certainty: "Certainty", status: "Support", confidence: "Confidence" };
+/** What each scale answers, as the heading of a key or a legend. One wording, used by every key on the site. */
+export const SCALE_ASKS: Record<FirmnessScale | "date", string> = {
+  certainty: "How directly a record says it",
+  status: "How firm a link or an event is",
+  confidence: "How sure a chapter is",
+  date: "How a date is known",
+};
 
 const FALLBACK: FirmnessInfo = { level: "tentative", word: "Unknown", short: "Unknown", help: "" };
 export function firmness(scale: FirmnessScale, value: string): FirmnessInfo {
@@ -50,7 +58,7 @@ export const levelOf = (value: string): Level =>
 export const CERTAINTY_HELP: Record<string, string> = Object.fromEntries(Object.entries(CERTAINTY).map(([k, v]) => [k, v.help]));
 export const STATUS_HELP: Record<Status, string> = { canon: STATUS.canon.help, strong: STATUS.strong.help, theory: STATUS.theory.help };
 
-/** How a displayed date is supported: the fourth scale, drawn with the same glyph family. */
+/** How a displayed date is known. Not a grade of a claim, so it has marks of its own (square, uncoloured: see DateGlyph). */
 export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
   printed: { label: "Printed", help: "The date is printed or spoken in a game or in Scott’s words" },
   derived: { label: "Derived", help: "Calculated from printed dates and stated intervals" },
@@ -60,5 +68,14 @@ export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
   unknown: { label: "Undated", help: "The sources give no date" },
 };
 export const DATE_KINDS: DateKind[] = ["printed", "derived", "estimated", "relative", "teaser", "unknown"];
+
+/**
+ * Sources that are not a released work (a body of statements, a website's teasers). The data
+ * gives every source a release date; for these it is only a placeholder, so pages print none.
+ * Keyed by source id, like the short codes in data/gameMeta.ts; an id this list does not know
+ * is treated as a release.
+ */
+const NOT_A_RELEASE = new Set(["scott", "scottgames-site"]);
+export const isRelease = (sourceId: string): boolean => !NOT_A_RELEASE.has(sourceId);
 
 export const SITE_NAME = "Fazbear Canon Archive";

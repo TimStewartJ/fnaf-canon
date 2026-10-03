@@ -44,7 +44,9 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
         type="button"
         className={`nav-link nav-link--menu${active ? " is-active" : ""}`}
         aria-expanded={open}
-        aria-controls={`nav-menu-${group.id}`}
+        // The menu is in the page only while it is open, so it is only named then.
+        aria-controls={open ? `nav-menu-${group.id}` : undefined}
+        aria-current={active ? "true" : undefined}
         onClick={() => { window.clearTimeout(timer.current); if (open) onClose(); else onOpen(); }}
       >
         {group.label}
@@ -132,6 +134,7 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
   const open = (id: string) => setMenu({ id, at: pathname });
   const close = (id: string) => setMenu((m) => (m?.id === id ? null : m));
   const settingsRef = useRef<HTMLDivElement | null>(null);
+  const settingsBtn = useRef<HTMLButtonElement | null>(null);
   useOutsidePointer([settingsRef], () => close("settings"), openId === "settings");
   const [headerRef, rowRef] = useHeaderFit();
 
@@ -154,8 +157,14 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
             <span className="search-trigger__text">Search</span>
             <kbd className="search-trigger__kbd">{isMac ? "⌘K" : "Ctrl K"}</kbd>
           </button>
-          <div className="site-tools__settings" ref={settingsRef} onKeyDown={(e) => { if (e.key === "Escape") close("settings"); }}>
-            <button type="button" className="icon-btn" aria-label="Reading settings" title="Reading settings" aria-expanded={openId === "settings"} aria-controls="reader-settings" onClick={() => (openId === "settings" ? close("settings") : open("settings"))}>
+          <div
+            className="site-tools__settings"
+            ref={settingsRef}
+            // Escape closes the panel and hands focus back to its button; focus moving on past the panel closes it too.
+            onKeyDown={(e) => { if (e.key === "Escape" && openId === "settings") { close("settings"); settingsBtn.current?.focus(); } }}
+            onBlur={(e) => { if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget as Node)) close("settings"); }}
+          >
+            <button ref={settingsBtn} type="button" className="icon-btn" aria-label="Reading settings" title="Reading settings" aria-expanded={openId === "settings"} aria-controls={openId === "settings" ? "reader-settings" : undefined} onClick={() => (openId === "settings" ? close("settings") : open("settings"))}>
               <Icon icon={ALargeSmall} size="1.25em" />
             </button>
             {openId === "settings" && (
