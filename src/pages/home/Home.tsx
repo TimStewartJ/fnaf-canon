@@ -197,12 +197,14 @@ export default function Home() {
         lead="The archive is built from single facts, each with its source. Books, films and fan theories are left out by design."
         more={<Link to="/gallery">All {credits.length} screenshots<Icon icon={ArrowRight} /></Link>}
       >
-        <ul className="stat-row">
-          {stats.map(([n, label, to]) => (
-            <li key={label}><Link to={to} className="stat"><span className="stat__n">{n}</span><span className="stat__label">{label}</span></Link></li>
-          ))}
-        </ul>
-        {strip.length > 0 && <div className="exhibit-strip">{strip.map((f) => <Figure key={f} file={f} />)}</div>}
+        <div className="home-numbers">
+          <ul className="stat-row">
+            {stats.map(([n, label, to]) => (
+              <li key={label}><Link to={to} className="stat"><span className="stat__n">{n.toLocaleString("en-GB")}</span><span className="stat__label">{label}</span></Link></li>
+            ))}
+          </ul>
+          {strip.length > 0 && <div className="exhibit-strip">{strip.map((f) => <Figure key={f} file={f} />)}</div>}
+        </div>
       </HomeSection>
     </Page>
   );
