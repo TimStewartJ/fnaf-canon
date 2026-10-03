@@ -1,9 +1,10 @@
 import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, games } from "../../data/store";
 import { Button, Empty, EvidenceCard, GameMark, Page, PageHeader, SearchField, Segmented, useDrawerRecord, useMediaQuery } from "../../components/ui";
+import { drawerInEntry, inStep } from "./addressState";
 import { count, records } from "./coverage";
 import { MOST, PAGE, appliedCount, limitOf, parseQuery, runQuery, termsOf, toParams, type Group, type Query, type Sort, type View } from "./explorerState";
 import { AppliedChips, Facets, FilterSheet, ResultRow, type FacetActions, type FacetOptions } from "./explorerParts";
@@ -54,31 +55,21 @@ const applyChange = (l: Local, fn: (l: Local) => Local): Local => fn(l);
 const canonical = (url: string): string => toParams(parseQuery(new URLSearchParams(url))).toString();
 
 /**
- * True when the history entry the browser is on holds an open evidence drawer (see DrawerHost).
- * The router shows a new entry a moment after it is made, so this is true from the click that
- * opens a record, before anything on the page can know of it. (The router keeps an entry's state
- * under `usr`.)
- */
-const drawerInEntry = (): boolean => !!(window.history.state as { usr?: { drawer?: unknown } | null } | null)?.usr?.drawer;
-
-/**
  * Writes the wanted address. It is a component of its own because it watches the evidence drawer,
  * and so re-renders whenever the drawer opens or closes, which the page with its long list must
- * not. The drawer lives in the current history entry: rewriting that entry while the drawer is
- * open, or is about to be, would close it. A change made just before a record was opened is
- * written when the drawer closes: the check runs after every render, so nothing is left waiting.
+ * not. It waits while a record is open in the drawer, or is about to be (the drawer lives in the
+ * current history entry, and rewriting that entry would close it), and while a navigation is on
+ * its way (the reader has just followed a link, or the last write has not come round yet). The
+ * check runs after every render, so a change that had to wait is written as soon as it can be:
+ * when the drawer closes, or when the router has caught up.
  */
-function AddressWriter({ want, url, sent, onSent }: { want: string; url: string; sent: string[]; onSent: (key: string) => void }) {
+function AddressWriter({ want, url, onSent }: { want: string; url: string; onSent: (key: string) => void }) {
   const [, setSp] = useSearchParams();
+  const { pathname, search, hash } = useLocation();
   const drawerOpen = useDrawerRecord() !== null;
   const have = useMemo(() => canonical(url), [url]);
-  /** The last address asked for, and what the router was showing then. */
-  const asked = useRef<{ want: string; at: string } | null>(null);
   useEffect(() => {
-    if (want === have || drawerOpen || drawerInEntry()) return;
-    // Not asked for twice: neither before the page has heard of the first time, nor while it is on its way.
-    if ((asked.current?.want === want && asked.current.at === url) || sent[sent.length - 1] === want) return;
-    asked.current = { want, at: url };
+    if (want === have || drawerOpen || drawerInEntry() || !inStep(pathname + search + hash)) return;
     onSent(want);
     setSp(new URLSearchParams(want), { replace: true });
   });
@@ -206,7 +197,7 @@ export default function EvidenceExplorer() {
 
   return (
     <Page title="Evidence locker" className="evx-explorer">
-      <AddressWriter want={want} url={local.url} sent={local.sent} onSent={onSent} />
+      <AddressWriter want={want} url={local.url} onSent={onSent} />
       <PageHeader
         kicker="Evidence"
         title="Evidence locker"

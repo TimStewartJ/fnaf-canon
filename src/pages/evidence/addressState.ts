@@ -8,7 +8,29 @@
  * No components here.
  */
 import { useCallback, useEffect, useReducer } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
+
+/*
+ * When a page must not write its address. The router shows a navigation a moment after it has
+ * happened in the browser, and until then the page is still on screen with its timers and effects
+ * running. A write made in that moment lands on the wrong history entry.
+ */
+
+/**
+ * True when the history entry the browser is on holds an open evidence drawer (see DrawerHost):
+ * rewriting that entry would close the drawer. It is true from the click that opens a record,
+ * before anything on the page can know of it. (The router keeps an entry's state under `usr`.)
+ */
+export const drawerInEntry = (): boolean => !!(window.history.state as { usr?: { drawer?: unknown } | null } | null)?.usr?.drawer;
+
+const plain = (s: string): string => { try { return decodeURIComponent(s); } catch { return s; } };
+/**
+ * True when the address in the browser's bar is the one the router is showing the page (`shown`:
+ * the page location's pathname, search and hash put together). When it is not, a navigation is on
+ * its way: the reader has just followed a link, or the page's own last write has not come round
+ * yet. Writing then would replace the entry the reader is going to and undo their click.
+ */
+export const inStep = (shown: string): boolean => plain(window.location.hash.replace(/^#/, "") || "/") === plain(shown);
 
 interface Local<T> {
   value: T;
@@ -39,6 +61,8 @@ export function useAddressState<T>(
 ): [T, (next: T | ((prev: T) => T)) => void] {
   const [sp, setSp] = useSearchParams();
   const url = sp.toString();
+  const { pathname, search, hash } = useLocation();
+  const shown = pathname + search + hash;
   // A reducer, not useState, and on purpose. The address is taken in while rendering (the change
   // below). React abandons its render of a router change when the reader clicks in the middle of
   // it, but useState then works out that click's new state ahead of time from what the abandoned
@@ -48,12 +72,14 @@ export function useAddressState<T>(
   if (url !== local.url) change((l) => reconcile(l, url, read));
   const { value } = local;
   // The address follows the state. An address that already says the same thing in other words
-  // (an old or hand-typed link) is left as it is.
+  // (an old or hand-typed link) is left as it is. A write that has to wait (see above) is made
+  // when the router has caught up: the address it shows the page then changes, and this runs again.
   useEffect(() => {
     const here = new URLSearchParams(local.url);
     const want = write(value, here).toString();
-    if (want !== write(read(here), here).toString()) setSp(new URLSearchParams(want), { replace: true });
-  }, [value, local.url, read, write, setSp]);
+    if (want === write(read(here), here).toString() || drawerInEntry() || !inStep(shown)) return;
+    setSp(new URLSearchParams(want), { replace: true });
+  }, [value, local.url, shown, read, write, setSp]);
   const set = useCallback((next: T | ((prev: T) => T)) => {
     change((l) => {
       const to = typeof next === "function" ? (next as (prev: T) => T)(l.value) : next;
