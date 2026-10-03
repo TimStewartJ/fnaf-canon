@@ -1,18 +1,17 @@
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { ArrowDown, ArrowRight, BookOpenText } from "lucide-react";
 import { outsideStory, storyline, theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Page, RichText, chapterPath, smartQuotes } from "../../components/ui";
+import { ButtonLink, Page, RichText, chapterPath, smartQuotes, useAddress } from "../../components/ui";
 import { ChapterContents } from "./Contents";
 import { HowToRead, OutsideStory } from "./CoverParts";
-import { Storyline } from "./Storyline";
-import { chapterNumber, ordered, partGroups, roman, useReadingProgress } from "./model";
+import { StoryProgress, Storyline } from "./Storyline";
+import { chapterNumber, minutesFor, ordered, partGroups, roman, useReadingProgress } from "./model";
 import "./theory.css";
 
 /** /theory: the cover of the model. Old links of the form /theory#chapter-id are sent on to the chapter. */
 export default function TheoryCover() {
-  const { hash } = useLocation();
+  const { anchor: legacy } = useAddress();
   const { read, last } = useReadingProgress();
-  const legacy = hash ? decodeURIComponent(hash.slice(1)) : "";
   if (legacy && theoryById.has(legacy)) return <Navigate to={chapterPath(legacy)} replace />;
 
   const first = ordered[0];
@@ -20,7 +19,7 @@ export default function TheoryCover() {
   const readCount = [...read].filter((id) => theoryById.has(id)).length;
 
   return (
-    <Page title="The Theory" flush className="cover">
+    <Page title={theoryIntro.title} kind="The theory" flush className="cover">
       <header className="cover-hero band">
         <div className="band__inner">
           <div className="cover-hero__grid">
@@ -71,9 +70,21 @@ export default function TheoryCover() {
             <p className="kicker">The short version</p>
             <h2 id="h-story" className="cover-section__title">The story, in order</h2>
             <p className="cover-section__lead">
-              {storyline.length} beats, start to finish. Each one says how sure the model is and which chapters make the case.
+              {storyline.length} beats, start to finish: about {minutesFor(storyline.map((b) => b.text))} minutes. Each one says how sure the model is and which chapters make the case.
             </p>
+          </div>
+          {/* Outside the column, so the line runs the full width of the window. */}
+          <StoryProgress beats={storyline} />
+          <div className="band__inner story-body">
             <Storyline beats={storyline} />
+            {/* Where the story stops, and the two ways on. */}
+            <div className="story-end">
+              <p className="story-end__text">That is the whole story, as far as the evidence carries it. The chapters make the case for it one question at a time.</p>
+              <div className="story-end__actions">
+                {first && <ButtonLink to={chapterPath(first.id)} variant="primary" iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
+              </div>
+            </div>
           </div>
         </section>
       )}
@@ -86,6 +97,14 @@ export default function TheoryCover() {
             {theory.length} chapters in {partGroups.length} parts. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
             {readCount > 0 && <> You have read {readCount} of {theory.length}.</>}
           </p>
+          {/* The parts, as a way around the list where the hero's own list of parts is not shown (a narrow window). */}
+          <nav className="parts-strip" aria-label="Parts">
+            {partGroups.map((g) => (
+              <Link key={g.part?.id ?? "more"} to={`/theory#part-${g.part?.id ?? "more"}`} className="parts-strip__item">
+                <span className="parts-strip__n">{roman(g.n)}</span>{smartQuotes(g.part?.title ?? "Further chapters")}
+              </Link>
+            ))}
+          </nav>
           <ChapterContents groups={partGroups} numberOf={chapterNumber} read={read} />
         </div>
       </section>

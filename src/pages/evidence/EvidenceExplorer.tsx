@@ -1,10 +1,8 @@
-import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useCallback, useDeferredValue, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, games } from "../../data/store";
-import { Button, Empty, EvidenceCard, GameMark, Page, PageHeader, SearchField, Segmented, useDrawerRecord, useMediaQuery } from "../../components/ui";
-import { drawerInEntry, inStep } from "./addressState";
+import { Button, Empty, EvidenceCard, GameMark, Page, PageHeader, SearchField, Segmented, useAddress, useAddressText, useMediaQuery } from "../../components/ui";
 import { count, records } from "./coverage";
 import { MOST, PAGE, appliedCount, limitOf, parseQuery, runQuery, termsOf, toParams, type Group, type Query, type Sort, type View } from "./explorerState";
 import { AppliedChips, Facets, FilterSheet, ResultRow, type FacetActions, type FacetOptions } from "./explorerParts";
@@ -22,59 +20,16 @@ const OPTIONS: FacetOptions = {
 const ORDER: Record<Sort, string> = { match: "best match first", time: "in order of in-universe time", game: "by source, in release order" };
 const VIEWS: { id: View; label: string }[] = [{ id: "rows", label: "Rows" }, { id: "cards", label: "Cards" }];
 
-/** How long the search box waits after the last keystroke before it writes the URL. */
+/** How long the search box waits after the last keystroke before it writes the address. */
 const URL_DELAY = 350;
-
-/**
- * The explorer answers from its own state at once and keeps the address in step with it. (The
- * router applies a change a moment after it is asked to, and the search box only writes once typing
- * pauses.) When the address changes to something this page did not write itself, such as Back or a
- * link inside a record, the address wins.
- */
-interface Local {
-  query: Query;
-  /** What the search box holds: ahead of query.q while the reader is typing. */
-  text: string;
-  /** The address this state was last reconciled with. */
-  url: string;
-  /** Addresses this page has asked for and not yet seen. */
-  sent: string[];
+/** Puts `query` into the address, as this page always writes it: its own parameters, in one order. */
+function put(p: URLSearchParams, query: Query): void {
+  const next = toParams(query);
+  for (const name of [...p.keys()]) p.delete(name);
+  next.forEach((value, name) => p.append(name, value));
 }
-function fromAddress(url: string): Local {
-  const query = parseQuery(new URLSearchParams(url));
-  return { query, text: query.q, url, sent: [] };
-}
-/** The state once the address the router shows is taken in: this page's own write coming back only moves the bookmark; any other address replaces the state. */
-function reconcile(l: Local, url: string): Local {
-  if (url === l.url) return l;
-  const echo = l.sent.indexOf(url);
-  return echo >= 0 ? { ...l, url, sent: l.sent.slice(echo + 1) } : fromAddress(url);
-}
-const applyChange = (l: Local, fn: (l: Local) => Local): Local => fn(l);
-/** An address as this page would write it, so an old or hand-typed link is not rewritten just for its spelling. */
-const canonical = (url: string): string => toParams(parseQuery(new URLSearchParams(url))).toString();
-
-/**
- * Writes the wanted address. It is a component of its own because it watches the evidence drawer,
- * and so re-renders whenever the drawer opens or closes, which the page with its long list must
- * not. It waits while a record is open in the drawer, or is about to be (the drawer lives in the
- * current history entry, and rewriting that entry would close it), and while a navigation is on
- * its way (the reader has just followed a link, or the last write has not come round yet). The
- * check runs after every render, so a change that had to wait is written as soon as it can be:
- * when the drawer closes, or when the router has caught up.
- */
-function AddressWriter({ want, url, onSent }: { want: string; url: string; onSent: (key: string) => void }) {
-  const [, setSp] = useSearchParams();
-  const { pathname, search, hash } = useLocation();
-  const drawerOpen = useDrawerRecord() !== null;
-  const have = useMemo(() => canonical(url), [url]);
-  useEffect(() => {
-    if (want === have || drawerOpen || drawerInEntry() || !inStep(pathname + search + hash)) return;
-    onSent(want);
-    setSp(new URLSearchParams(want), { replace: true });
-  });
-  return null;
-}
+/** New words are a new question: the list starts again from its top. */
+const TYPED = { after: URL_DELAY, also: (p: URLSearchParams) => put(p, { ...parseQuery(p), n: null, from: 0 }) };
 
 function GroupHead({ g }: { g: Group }) {
   return (
@@ -86,37 +41,29 @@ function GroupHead({ g }: { g: Group }) {
 }
 
 export default function EvidenceExplorer() {
-  const url = useSearchParams()[0].toString();
+  // The query lives in the address (see components/address.ts): a change is written there and drawn
+  // at once. The search box answers every keystroke; its words reach the address, and the query,
+  // once typing pauses, and the results follow the box in the meantime (`live`, below).
+  const { params, write } = useAddress();
+  const [text, setText] = useAddressText("q", TYPED);
+  const query = useMemo(() => parseQuery(params), [params]);
   const wide = useMediaQuery("(min-width: 1080px)");
   const phone = useMediaQuery("(max-width: 640px)");
   const [sheet, setSheet] = useState(false);
 
-  // A reducer, not useState, and on purpose. The address is taken in while rendering (the change
-  // below). React abandons its render of a router change when the reader clicks or types in the
-  // middle of it, but useState then works out that click's new state ahead of time from what the
-  // abandoned render had set: the click was lost and the page fell back to an older address.
-  // A reducer's changes are always worked out from the state that is on screen.
-  const [local, change] = useReducer(applyChange, url, fromAddress);
-  if (url !== local.url) change((l) => reconcile(l, url));
-  const { query, text } = local;
-  const want = useMemo(() => toParams(query).toString(), [query]);
-
-  /** Changes the query. Any change starts the list again from its top, unless it is to the list's own extent. */
+  /**
+   * Changes the query. It works from the address as it is when it runs, words still being typed
+   * included, so two quick changes both count. Any change starts the list again from its top,
+   * unless it is to the list's own extent.
+   */
   const update = useCallback((patch: Partial<Query> | ((q: Query) => Partial<Query>)) => {
-    change((l) => {
-      const p = typeof patch === "function" ? patch(l.query) : patch;
-      return { ...l, text: p.q ?? l.text, query: { ...l.query, q: l.text, n: null, from: 0, ...p } };
+    write((p) => {
+      const now = parseQuery(p);
+      put(p, { ...now, n: null, from: 0, ...(typeof patch === "function" ? patch(now) : patch) });
     });
-  }, []);
-  const onSent = useCallback((key: string) => change((l) => ({ ...l, sent: [...l.sent.slice(-7), key] })), []);
+  }, [write]);
 
-  // Results follow every keystroke; the query (and with it the address) takes the words once typing pauses.
   const drafting = text !== query.q;
-  useEffect(() => {
-    if (!drafting) return;
-    const t = window.setTimeout(() => update({}), URL_DELAY);
-    return () => window.clearTimeout(t);
-  }, [drafting, text, update]);
 
   const live = useDeferredValue(text);
   const terms = useMemo(() => termsOf(live), [live]);
@@ -197,14 +144,13 @@ export default function EvidenceExplorer() {
 
   return (
     <Page title="Evidence locker" className="evx-explorer">
-      <AddressWriter want={want} url={local.url} onSent={onSent} />
       <PageHeader
         kicker="Evidence"
         title="Evidence locker"
         lede="Every record is one fact, pinned to an exact spot in a game or in Scott’s own words. Nothing here is a theory."
       />
       <div className="evx-top" role="search" aria-label="Search and filter the evidence">
-        <SearchField className="evx-search" label="Search the evidence: titles, claims, quotes, locations and ids" placeholder="Search claims, quotes, locations, ids" value={text} onChange={(v) => change((l) => ({ ...l, text: v }))} />
+        <SearchField className="evx-search" label="Search the evidence: titles, claims, quotes, locations and ids" placeholder="Search claims, quotes, locations, ids" value={text} onChange={setText} />
         {!wide && (
           <Button icon={SlidersHorizontal} className="evx-filters-btn" aria-haspopup="dialog" onClick={() => setSheet(true)}>
             Filters{filters > 0 && <span className="evx-badge">{filters}<span className="sr-only"> in use</span></span>}

@@ -1,6 +1,5 @@
 /*
  * Screenshots as exhibits: the figure frame, caption and credit, and the lightbox.
- * Shared and frozen after phase 1.
  */
 .figure { display: flex; flex-direction: column; gap: var(--sp-2); margin: 0; min-width: 0; }
 .figure__frame {
@@ -15,7 +14,13 @@
   cursor: zoom-in;
 }
 .figure__frame img { display: block; width: 100%; height: auto; max-height: 36rem; object-fit: contain; }
+/* A photograph is held near its own size (set from its dimensions) and centred on the mat: a
+   small JPEG stretched across a wide column goes soft. Pixel art may grow; it is drawn crisp. */
+.figure__frame img.is-photo { max-width: var(--natural, none); margin-inline: auto; }
 img.is-upscaled { image-rendering: pixelated; }
+/* The file could not be loaded: the frame keeps the image's shape and says so in words. */
+.figure__frame--missing { display: grid; place-items: center; max-height: 36rem; min-height: 5.5rem; cursor: default; }
+.figure__missing { display: inline-flex; align-items: center; gap: 0.5em; padding: var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); color: var(--c-mat-text); opacity: 0.75; }
 .figure__zoom {
   position: absolute;
   right: var(--sp-2);
@@ -30,7 +35,7 @@ img.is-upscaled { image-rendering: pixelated; }
 }
 .figure__frame:hover .figure__zoom, .figure__frame:focus-visible .figure__zoom { opacity: 1; }
 @media (hover: none) { .figure__zoom { opacity: 0.85; } }
-.figure__frame:hover { border-color: var(--c-line-strong); }
+button.figure__frame:hover { border-color: var(--c-line-strong); }
 
 .figure__caption { display: grid; gap: 0.3rem; font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .figure__caption > .label { color: var(--c-accent); }
@@ -41,10 +46,12 @@ img.is-upscaled { image-rendering: pixelated; }
 .figure--compact .figure__frame img { max-height: 11rem; object-fit: cover; }
 
 /* ── Lightbox ──────────────────────────────────────────────────── */
+/* Sized by its insets, not 100vw: on a desktop with classic scrollbars 100vw runs under the page's
+   reserved scrollbar gutter and cuts off the buttons at the right edge. */
 dialog.lightbox {
   position: fixed;
   inset: 0;
-  width: 100vw;
+  width: auto;
   height: 100dvh;
   max-width: none;
   max-height: none;
@@ -67,6 +74,11 @@ dialog.lightbox[open] { display: grid; }
 .lightbox__caption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: var(--sp-1) var(--sp-4); padding: var(--sp-3) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); font-size: var(--fs-sm); text-align: center; }
 .lightbox__caption > span:first-child { max-width: 70ch; }
 .lightbox .figure__credit { color: var(--c-mat-text); }
+/* A very short window (a page zoomed far in): the picture keeps the room; the caption, which is on the page too, is cut to two lines. */
+@media (max-height: 30rem) {
+  .lightbox__caption { padding-block: var(--sp-2); }
+  .lightbox__caption > span:first-child { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+}
 @media (prefers-reduced-motion: no-preference) {
   dialog.lightbox[open] { animation: lightbox-in var(--dur-2) var(--ease); }
   @keyframes lightbox-in { from { opacity: 0; } }

@@ -1,39 +1,5 @@
 /** Hooks for the timeline page. No components here. */
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-
-export type UrlEdit = (edit: (next: URLSearchParams) => void, how?: { push?: boolean }) => boolean;
-
-/**
- * The page's state lives in the URL's search parameters. `update` edits them in one step and
- * keeps its identity, so rows that receive it do not re-render when another row opens. It returns
- * false when the edit changed nothing (and so did not navigate).
- * Filters and open rows replace the current history entry (Back leaves the page, and coming back
- * restores the view); `push` is for a step the reader should be able to undo with Back.
- */
-export function useUrlState(): [URLSearchParams, UrlEdit] {
-  const [sp, setSp] = useSearchParams();
-  // `pending` is what was last asked for and has not arrived yet: the router applies a navigation
-  // a moment after it is requested, and a second edit in that moment must build on the first.
-  const latest = useRef<{ sp: URLSearchParams; setSp: typeof setSp; pending: URLSearchParams | null }>({ sp, setSp, pending: null });
-  useLayoutEffect(() => {
-    const l = latest.current;
-    if (l.sp.toString() !== sp.toString()) l.pending = null; // the address moved: whatever was pending has landed or been overtaken
-    l.sp = sp;
-    l.setSp = setSp;
-  });
-  const update = useCallback<UrlEdit>((edit, how) => {
-    const l = latest.current;
-    const from = l.pending ?? l.sp;
-    const next = new URLSearchParams(from);
-    edit(next);
-    if (next.toString() === from.toString()) return false;
-    l.pending = next;
-    l.setSp(next, { replace: !how?.push });
-    return true;
-  }, []);
-  return [sp, update];
-}
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * Which era the reader is in: the last era section whose top has passed a line a third of the way

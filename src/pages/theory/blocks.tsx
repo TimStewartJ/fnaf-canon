@@ -1,8 +1,9 @@
 import type { CSSProperties } from "react";
+import type { SectionHead } from "./model";
 import { Check } from "lucide-react";
 import type { Evidence, TheoryBlock } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes } from "../../components/ui";
+import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes, sourceWords } from "../../components/ui";
 
 type CompareColumn = Extract<TheoryBlock, { kind: "compare" }>["columns"][number];
 
@@ -13,7 +14,7 @@ function PullQuote({ id, text }: { id: string; text?: string }) {
   const words = text ?? e.quote;
   return (
     <figure className="pullquote">
-      <blockquote className={words ? undefined : "pullquote--claim"}>{smartQuotes(words ?? e.claim)}</blockquote>
+      <blockquote className={words ? undefined : "pullquote--claim"}>{sourceWords(words ?? e.claim)}</blockquote>
       <figcaption>
         <EvidenceLink id={e.id} className="pullquote__source"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></EvidenceLink>
         <CiteGroup ids={[e.id]} />
@@ -25,7 +26,7 @@ function PullQuote({ id, text }: { id: string; text?: string }) {
 /** Competing readings side by side; the model's choice is flagged with a tick and a heavier frame. */
 function Compare({ columns }: { columns: CompareColumn[] }) {
   return (
-    <div className="compare full" style={{ "--n": columns.length } as CSSProperties}>
+    <div className="compare wide" style={{ "--n": columns.length } as CSSProperties}>
       {columns.map((c, i) => (
         <section key={i} className={`compare__col${c.pick ? " is-pick" : ""}`}>
           {c.pick
@@ -39,12 +40,17 @@ function Compare({ columns }: { columns: CompareColumn[] }) {
   );
 }
 
-/** One block of a chapter body. `fig` is the running figure number for figure blocks. */
-export function Block({ block, fig }: { block: TheoryBlock; fig?: number }) {
+/**
+ * One block of a chapter body.
+ *  - fig    the running figure number, for a figure
+ *  - id     the anchor of a heading (see chapterHeads)
+ *  - label  what a table is called, for anyone who cannot see where it sits: "Table 2: The dates"
+ */
+export function Block({ block, fig, id, label }: { block: TheoryBlock; fig?: number; id?: string; label?: string }) {
   if (typeof block === "string") return <p><RichText text={block} /></p>;
   switch (block.kind) {
     case "heading":
-      return <h2><RichText text={block.text} /></h2>;
+      return <h2 id={id}><RichText text={block.text} /></h2>;
     case "list": {
       const items = block.items.map((it, i) => <li key={i}><RichText text={it} /></li>);
       return block.ordered ? <ol>{items}</ol> : <ul>{items}</ul>;
@@ -66,15 +72,20 @@ export function Block({ block, fig }: { block: TheoryBlock; fig?: number }) {
       return <Callout tone={block.tone} title={block.title}><p><RichText text={block.text} /></p></Callout>;
     case "compare":
       return <Compare columns={block.columns} />;
-    case "table":
+    case "table": {
+      // On a narrow column the table is redrawn as a list (see .chapter-table in theory.css):
+      // each row a block, each cell under the name of its column. The roles are spelled out
+      // because a table drawn that way would otherwise stop being announced as one.
+      const heads = block.head.map(plainText);
       return (
-        <TableWrap className="wide chapter-table" label="Table">
-          <table className="table">
-            <thead><tr>{block.head.map((h, i) => <th key={i} scope="col"><RichText text={h} /></th>)}</tr></thead>
-            <tbody>{block.rows.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}><RichText text={c} /></td>)}</tr>)}</tbody>
+        <TableWrap className="wide chapter-table" label={label ?? "Table"}>
+          <table className="table" role="table">
+            <thead role="rowgroup"><tr role="row">{block.head.map((h, i) => <th key={i} scope="col" role="columnheader"><RichText text={h} /></th>)}</tr></thead>
+            <tbody role="rowgroup">{block.rows.map((r, i) => <tr key={i} role="row">{r.map((c, j) => <td key={j} role="cell" data-label={heads[j] || undefined}><RichText text={c} /></td>)}</tr>)}</tbody>
           </table>
         </TableWrap>
       );
+    }
     case "evidence": {
       const records = block.ids.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
       const group = records.map((e) => e.id);
@@ -88,8 +99,26 @@ export function Block({ block, fig }: { block: TheoryBlock; fig?: number }) {
   }
 }
 
-/** Renders a chapter body, numbering its figures. */
-export function Blocks({ blocks }: { blocks: TheoryBlock[] }) {
-  let fig = 0;
-  return <>{blocks.map((b, i) => <Block key={i} block={b} fig={typeof b !== "string" && b.kind === "figure" ? ++fig : undefined} />)}</>;
+/**
+ * Renders a chapter body: numbers its figures, gives each heading its anchor (`heads`, from
+ * chapterHeads, in the same order) and names each table after the heading it stands under.
+ */
+export function Blocks({ blocks, heads = [] }: { blocks: TheoryBlock[]; heads?: SectionHead[] }) {
+  const tables = blocks.filter((b) => typeof b !== "string" && b.kind === "table").length;
+  let fig = 0, table = 0, head = -1;
+  return (
+    <>
+      {blocks.map((b, i) => {
+        if (typeof b === "string") return <Block key={i} block={b} />;
+        if (b.kind === "figure") return <Block key={i} block={b} fig={++fig} />;
+        if (b.kind === "heading") return <Block key={i} block={b} id={heads[++head]?.id} />;
+        if (b.kind === "table") {
+          table++;
+          const under = heads[head]?.text;
+          return <Block key={i} block={b} label={`Table${tables > 1 ? ` ${table}` : ""}${under ? `: ${under}` : ""}`} />;
+        }
+        return <Block key={i} block={b} />;
+      })}
+    </>
+  );
 }

@@ -4,12 +4,12 @@ import { ArrowRight } from "lucide-react";
 import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
-  ButtonLink, CiteList, Collapsible, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, Page, PageHeader,
-  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery,
+  ButtonLink, CiteList, Collapsible, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Page, PageHeader,
+  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
-import { Capped, DossierSection, GroupLabel, JumpLinks, WhenOpened } from "./Dossier";
+import { Capped, DossierSection, GroupLabel, JumpLinks } from "./Dossier";
 import { EvidenceRows } from "./EvidenceFile";
 import { IdentityTree } from "./IdentityTree";
 import { beingOf, chainTo, evidenceOf, isInsideBeing, linkCounts, subtree, type Being, type BeingNode } from "./identity";
@@ -18,7 +18,6 @@ import { Portrait } from "./Portrait";
 import { DeathRows, EventRows } from "./Story";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, plural, tieWords } from "./ties";
-import { useAnchor, useUrlState, type UrlState } from "./urlState";
 import "./common.css";
 import "./people.css";
 
@@ -31,7 +30,7 @@ const hasText = (text: string | undefined): text is string => !!text && /[\p{L}\
 
 /** For a record that is folded into another: what the model reads it as, how firmly, and on what. */
 function Standing({ node, being }: { node: BeingNode; being: Being }) {
-  const anchor = useAnchor();
+  const { link: anchor } = useAddress();
   const chain = chainTo(node);
   const hangs = node.kind === "vessel" || node.kind === "role";
   // An identity or a form belongs to the head of its own group; a vessel or a role to the record that haunts or wore it.
@@ -43,7 +42,7 @@ function Standing({ node, being }: { node: BeingNode; being: Being }) {
   return (
     <div className="person-standing" data-level={levelOf(node.status)}>
       <p className="person-standing__line">
-        The model reads this record {reading} <Name id={head.id} as="title" />
+        The model reads this figure {reading} <Name id={head.id} as="title" />
         {between.length > 0 && <>, by way of {between.map((n, i) => <span key={n.id}>{i > 0 && " and "}<Name id={n.id} as="title" /></span>)}</>}.
         {head !== being.root && <> <Name id={head.id} as="plain" /> in turn belongs to <Name id={being.root.id} as="title" />.</>}
       </p>
@@ -60,7 +59,7 @@ function Standing({ node, being }: { node: BeingNode; being: Being }) {
  * The page for one record. Memoised on what it shows (the record and the ?scope= choice), so
  * jumping to a section, which only changes the URL's hash, does not draw the whole file again.
  */
-const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: boolean; set: UrlState["set"] }) {
+const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: boolean; set: Address["write"] }) {
   const phone = useMediaQuery("(max-width: 640px)");
   const cap = (list: keyof typeof CAPS) => CAPS[list][phone ? 1 : 0];
   const being = beingOf(p.id)!;
@@ -106,7 +105,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
   ];
 
   return (
-    <Page title={p.name} className="person-page">
+    <Page title={p.name} kind="Person" className="person-page">
       <PageHeader
         className="ppl-head"
         crumbs={[{ to: "/people", label: "People" }, { label: p.name }]}
@@ -158,14 +157,14 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
           id="identity"
           title="Identity"
           count={<>
-            {plural(others, "other record")}
+            {plural(others, "other figure")}
             <span className="person-links">
               {STATUSES.filter((s) => counts[s] > 0).map((s) => (
                 <span key={s} className="person-links__n"><FirmGlyph level={levelOf(s)} /> {counts[s]} {firmness("status", s).short.toLowerCase()}</span>
               ))}
             </span>
           </>}
-          lead="Records the model treats as one being. Each hangs by a line drawn in the firmness of that link, so the weakest link in a chain is easy to find."
+          lead="Figures the model treats as one being. Each hangs by a line drawn in the firmness of that link, so the weakest link in a chain is easy to find."
         >
           <IdentityTree being={being} currentId={p.id} />
           {own.length > 1 && (
@@ -175,7 +174,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
                 label="The sections below cover"
                 value={narrow ? "record" : "all"}
                 onChange={(v) => set({ scope: v === "record" ? "record" : null })}
-                options={[{ id: "all", label: `All ${own.length} records` }, { id: "record", label: "This record only" }]}
+                options={[{ id: "all", label: `All ${own.length} figures` }, { id: "record", label: "This figure only" }]}
               />
             </div>
           )}
@@ -183,7 +182,13 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
       )}
 
       {view.rels.length > 0 && (
-        <DossierSection id="ties" title="Ties" count={plural(view.rels.length, "tie")} lead="Who this is tied to, and how. The chips open the records behind each tie.">
+        <DossierSection
+          id="ties" title="Ties" count={plural(view.rels.length, "tie")}
+          lead={<>
+            Who this is tied to, and how. The chips open the records behind each tie.{" "}
+            <MarksKey scales={["status", "certainty"]} note="The mark beside a tie grades the tie. The mark on a chip grades that one record: how directly it says what it is cited for." />
+          </>}
+        >
           <Capped items={view.rels} cap={cap("ties")} noun="ties">
             {(shown) => <OwnTies rels={shown} all={view.rels} pageId={p.id} scope={view.inScope} />}
           </Capped>
@@ -191,7 +196,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
       )}
 
       {storyCount > 0 && (
-        <DossierSection id="story" title="In the story" count={plural(storyCount, "entry", "entries")} lead="Events and deaths on the timeline that involve this record. Each opens on the timeline.">
+        <DossierSection id="story" title="In the story" count={plural(storyCount, "entry", "entries")} lead="Events and deaths on the timeline that involve this figure. Each opens on the timeline.">
           {view.events.length > 0 && (
             <div className="ppl-block">
               {(view.died.length > 0 || view.killed.length > 0) && <GroupLabel count={view.events.length}>Events</GroupLabel>}
@@ -204,7 +209,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
       )}
 
       {view.chapters.length > 0 && (
-        <DossierSection id="theory" title="In the theory" count={plural(view.chapters.length, "chapter")} lead="Chapters of the model that discuss this record or rest on its evidence, the most involved first.">
+        <DossierSection id="theory" title="In the theory" count={plural(view.chapters.length, "chapter")} lead="Chapters of the model that discuss this figure or rest on its evidence, the most involved first.">
           <Capped items={view.chapters} cap={cap("chapters")} noun="chapters">{(shown) => <ChapterRows hits={shown} />}</Capped>
         </DossierSection>
       )}
@@ -213,14 +218,12 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
         {view.groups.length > 1 ? (
           view.groups.map((g, i) => (
             <Collapsible key={g.node.id} defaultOpen={i === 0} summary={<>Filed under <Name id={g.node.id} as="plain" /></>} meta={plural(g.records.length, "record")}>
-              <WhenOpened open={i === 0}>
-                {() => (
-                  <>
-                    <EvidenceRows records={g.records} cap={cap("evidence")} />
-                    <p className="ppl-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
-                  </>
-                )}
-              </WhenOpened>
+              {() => (
+                <>
+                  <EvidenceRows records={g.records} cap={cap("evidence")} />
+                  <p className="ppl-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
+                </>
+              )}
             </Collapsible>
           ))
         ) : view.records.length > 0 ? (
@@ -239,15 +242,15 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
 
 export default function PersonDetail() {
   const { id = "" } = useParams();
-  const url = useUrlState();
+  const url = useAddress();
   const p = personById.get(id);
   if (!p) {
     return (
       <Page title="Person not found" narrow>
-        <Empty title="Unknown person" action={<ButtonLink to="/people" variant="primary">See everyone</ButtonLink>}>There is no person page for “{id}”.</Empty>
+        <Empty heading title="Unknown person" action={<ButtonLink to="/people" variant="primary">See everyone</ButtonLink>}>There is no person page for “{id}”.</Empty>
       </Page>
     );
   }
   // Keyed by id so the folds and "show all" states start fresh on each person.
-  return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.set} />;
+  return <Dossier key={p.id} p={p} record={url.get("scope") === "record"} set={url.write} />;
 }

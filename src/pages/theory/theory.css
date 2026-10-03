@@ -16,7 +16,7 @@
 .cover-hero__grid { display: grid; gap: var(--sp-6) var(--sp-8); align-items: start; }
 .cover-hero__main { min-width: 0; }
 .cover-parts { display: none; }
-@media (min-width: 1000px) {
+@media (min-width: 62.5em) {
   .cover-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); }
   .cover-parts { display: block; position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); }
 }
@@ -46,7 +46,7 @@
 
 /* How to read */
 .howto { display: grid; gap: var(--sp-6) var(--sp-8); margin-top: var(--sp-5); align-items: start; }
-@media (min-width: 900px) { .howto { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+@media (min-width: 56.25em) { .howto { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
 .howto__key { display: grid; gap: var(--sp-3); padding: var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
 .howto__marks { display: grid; gap: var(--sp-3); margin: var(--sp-2) 0 0; padding-top: var(--sp-4); border-top: 1px solid var(--c-line); font-size: var(--fs-sm); }
 .howto__marks dt { font-family: var(--font-text); font-size: var(--fs-md); color: var(--c-text); }
@@ -61,7 +61,6 @@
   column-gap: var(--sp-5);
   margin: 0;
   padding-bottom: var(--sp-7);
-  scroll-margin-top: calc(var(--sticky-top) + var(--sp-5));
 }
 .beat:last-child { padding-bottom: 0; }
 /* The spine joining one beat to the next. */
@@ -88,9 +87,65 @@
 .beat__foot { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-5); margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .beat__figure { grid-column: 3; justify-self: end; align-self: start; width: 100%; max-width: 27rem; }
 .beat__figure .figure__frame img { max-height: 17rem; }
-.beat__argued a { color: var(--c-text-2); text-decoration-color: var(--c-line-strong); }
-.beat__argued a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+/* The chapters that argue a beat: a label, then each chapter as its own link (number, title). */
+.beat__argued { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem var(--sp-4); min-width: 0; }
+.beat__argued-label { color: var(--c-text-3); }
+.beat__chapter { display: inline-flex; align-items: baseline; gap: 0.5em; min-width: 0; color: var(--c-text-2); text-decoration: none; }
+.beat__chapter-n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-accent); }
+.beat__chapter-title { text-decoration: underline; text-decoration-color: var(--c-line-strong); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.beat__chapter:hover { color: var(--c-accent-strong); }
+.beat__chapter:hover .beat__chapter-title { text-decoration-color: currentColor; }
+/* Under a finger each chapter is a row of its own, tall enough to hit without hitting its neighbour. */
+@media (pointer: coarse) {
+  .beat__foot { row-gap: var(--sp-2); }
+  .beat__argued { display: grid; gap: 0; width: 100%; }
+  .beat__chapter { align-items: center; min-height: 2.5rem; }
+}
 .beat__when .firm-glyph { width: 0.72em; height: 0.72em; }
+
+/* Where the reader is, while the beats pass under it (the cover only). It takes no room in the
+   page: the bar hangs from a line of no height that sticks to the top of the window. */
+.story-progress { position: sticky; top: var(--sticky-top); z-index: var(--z-sticky); height: 0; margin-inline: calc(var(--page-pad) * -1); pointer-events: none; }
+.cover-section > .band__inner.story-body { padding-top: 0; border-top: 0; }
+.story-progress__bar {
+  position: absolute;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 2.5rem;
+  /* Its text starts where the page's column starts, however wide the window. */
+  padding: 0 max(var(--page-pad), calc((100% - var(--page-max)) / 2));
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  color: var(--c-text);
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-line);
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease);
+}
+.story-progress[data-on] .story-progress__bar { opacity: 1; }
+/* How far through, drawn on the bar's lower edge in the colour of the beat's era. */
+.story-progress__bar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: color-mix(in srgb, var(--hue) 70%, var(--c-accent)); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); transition: transform var(--dur-3) var(--ease); }
+.story-progress__n { flex: none; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-text); font-variant-numeric: tabular-nums; }
+.story-progress__of { color: var(--c-text-3); }
+.story-progress__title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 550; }
+/* A beat linked to from elsewhere lands clear of the bar. */
+.story:not(.story--compact) > .beat { scroll-margin-top: 3rem; }
+
+/* The end of the story, and the ways on. */
+.story-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-4) var(--sp-6); margin-top: var(--sp-7); padding: var(--sp-5) 0 0 calc(2.5rem + var(--sp-5)); border-top: 1px solid var(--c-line); }
+.story-end__text { flex: 1 1 22rem; max-width: var(--measure); margin: 0; font-family: var(--font-text); font-style: italic; font-size: var(--fs-lg); line-height: 1.45; color: var(--c-text-2); }
+.story-end__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); }
+@media (max-width: 63.9375em) { .story-end { padding-left: 0; } }
+
+/* The parts as a row of links above the contents, where the hero's list of parts is not shown. */
+.parts-strip { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-5); }
+.parts-strip__item { display: inline-flex; align-items: baseline; gap: 0.5em; min-height: 2.25rem; padding: 0.4rem 0.8rem; font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.3; color: var(--c-text-2); border: 1px solid var(--c-line-strong); border-radius: var(--r-pill); text-decoration: none; }
+.parts-strip__item:hover { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); }
+.parts-strip__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-accent); }
+@media (pointer: coarse) { .parts-strip__item { min-height: 2.5rem; } }
+@media (min-width: 62.5em) { .parts-strip { display: none; } }
 
 .story--compact { margin-top: var(--sp-5); }
 .story--compact .beat { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: var(--sp-4); padding-bottom: var(--sp-5); }
@@ -101,18 +156,21 @@
 .story--compact .beat__title { font-size: var(--fs-lg); }
 .story--compact .beat__text { font-size: var(--fs-md); line-height: 1.58; }
 
-@media (max-width: 899px) {
+/* Text and picture side by side need some 58rem between them (the picture at least 16rem wide).
+   Below that the picture goes under the text, both on the reading measure. */
+@media (max-width: 63.9375em) {
   .beat { grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: var(--sp-4); padding-bottom: var(--sp-6); }
   .beat::before { left: calc(1.125rem - 0.5px); top: 2.6rem; }
   .beat__n { width: 2.25rem; height: 2.25rem; }
   .beat__when { margin-top: 0.5rem; }
-  .beat__figure { grid-column: 2; justify-self: start; max-width: 100%; margin-top: var(--sp-4); }
+  .beat__body { max-width: 37rem; }
+  .beat__figure { grid-column: 2; justify-self: start; max-width: min(100%, 30rem); margin-top: var(--sp-4); }
 }
 
 /* ── Contents (cover) ──────────────────────────────────────────── */
 .contents { display: grid; gap: clamp(var(--sp-7), 6vw, var(--sp-8)); margin-top: var(--sp-7); }
-.contents-part { display: grid; gap: var(--sp-4) var(--sp-7); align-items: start; scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
-@media (min-width: 900px) {
+.contents-part { display: grid; gap: var(--sp-4) var(--sp-7); align-items: start; }
+@media (min-width: 56.25em) {
   .contents-part { grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); }
   .contents-part__head { position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); }
 }
@@ -146,6 +204,10 @@
   margin-inline: auto;
   padding: var(--sp-7) var(--page-pad) var(--sp-8);
 }
+/* The article is first in the document (it is the content); the rail is placed to its left. Wide
+   blocks and full-width blocks share one right edge: the article never outgrows the wide measure. */
+.chapter-layout > .chapter { grid-column: 2; grid-row: 1; min-width: 0; max-width: var(--measure-wide); }
+.chapter-layout > .chapter-rail { grid-column: 1; grid-row: 1; }
 .chapter-rail { position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); max-height: calc(100vh - var(--sticky-top) - var(--sp-6)); overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--sp-2) var(--sp-4) 0; scrollbar-width: thin; scrollbar-color: var(--c-line-strong) transparent; }
 .chapter-rail__home { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-display); font-size: var(--fs-md); font-weight: 600; color: var(--c-text); text-decoration: none; }
 .chapter-rail__home:hover { color: var(--c-accent-strong); }
@@ -155,8 +217,9 @@
 
 /* Compact bar for screens without room for the rail. */
 .chapter-bar { display: none; }
-@media (max-width: 1079px) {
+@media (max-width: 67.4375em) {
   .chapter-layout { grid-template-columns: minmax(0, 1fr); padding-top: var(--sp-6); }
+  .chapter-layout > .chapter { grid-column: 1; }
   .chapter-rail { display: none; }
   .chapter-bar {
     position: sticky;
@@ -194,9 +257,15 @@
 .chapter-nav-item.is-current { color: var(--c-text); font-weight: 600; background: var(--c-surface); box-shadow: inset 2px 0 0 var(--c-accent); }
 .chapter-nav-item__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; color: var(--c-text-3); }
 .chapter-nav-item.is-current .chapter-nav-item__n { color: var(--c-accent); }
-.chapter-nav-item__mark { display: inline-flex; align-self: center; font-size: 0.85em; color: var(--c-text-3); }
+.chapter-nav-item__mark { display: inline-flex; align-items: center; align-self: center; gap: 0.35em; font-size: 0.85em; color: var(--c-text-3); }
 .chapter-nav-item__mark .firm-glyph { color: var(--c-text-3); }
 .chapter-nav-item__mark .icon { color: var(--c-ok); }
+/* The sections of the chapter being read, hung under it: the reader's place, and the way to another part. */
+.chapter-nav-sections { list-style: none; display: grid; gap: 1px; margin: 0.2rem 0 0.5rem calc(1.9rem + var(--sp-2)); padding: 0; }
+.chapter-nav-sections > li { margin: 0; }
+.chapter-nav-section { display: block; padding: 0.3rem var(--sp-2) 0.3rem var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-xs); line-height: 1.35; color: var(--c-text-3); border-left: 1px solid var(--c-line-strong); text-decoration: none; }
+.chapter-nav-section:hover { color: var(--c-text); }
+.chapter-nav-section[aria-current] { color: var(--c-text); border-left-color: var(--c-accent); box-shadow: inset 1px 0 0 var(--c-accent); }
 
 dialog.contents-sheet { position: fixed; inset: auto 0 0 0; width: 100%; max-width: none; max-height: 86dvh; margin: 0; padding: 0; flex-direction: column; color: var(--c-text); background: var(--c-overlay); border: 0; border-top: 1px solid var(--c-line-strong); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow-3); overflow: hidden; }
 dialog.contents-sheet[open] { display: flex; }
@@ -205,14 +274,17 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .contents-sheet__home { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600; color: var(--c-text); text-decoration: none; }
 .contents-sheet__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-3) var(--sp-3) calc(var(--sp-6) + env(safe-area-inset-bottom, 0px)); }
 .contents-sheet .chapter-nav-item, .contents-sheet .chapter-nav-part > summary { padding-block: 0.7rem; font-size: var(--fs-base); }
-@media (min-width: 641px) { dialog.contents-sheet { inset: 0 auto 0 0; width: min(24rem, 90vw); height: 100dvh; max-height: none; border-top: 0; border-right: 1px solid var(--c-line-strong); border-radius: 0; } }
+.contents-sheet .chapter-nav-section { padding-block: 0.65rem; font-size: var(--fs-sm); }
+@media (min-width: 40.0625em) { dialog.contents-sheet { inset: 0 auto 0 0; width: min(24rem, 90vw); height: 100dvh; max-height: none; border-top: 0; border-right: 1px solid var(--c-line-strong); border-radius: 0; } }
 @media (prefers-reduced-motion: no-preference) {
   dialog.contents-sheet[open] { animation: sheet-up var(--dur-3) var(--ease); }
   @keyframes sheet-up { from { opacity: 0; transform: translateY(1.5rem); } }
 }
 
 /* ── Chapter article ───────────────────────────────────────────── */
-.chapter-head { margin-bottom: var(--sp-6); }
+/* The title may run to the wide measure (a short title then stays on one line); what is read under it keeps the reading measure. */
+.chapter > .chapter-head { max-width: none; margin-bottom: var(--sp-6); }
+.chapter-head > .verdict, .chapter-head > .chapter-head__meta { max-width: var(--measure); }
 .chapter-head__kicker { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-4); margin-bottom: var(--sp-4); }
 .chapter-head__kicker a { color: var(--c-accent); text-decoration-color: var(--c-accent-line); }
 .chapter-head__count { color: var(--c-text-3); }
@@ -262,7 +334,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
    records cost one card of height, not four. */
 .exhibits__strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-3); align-items: stretch; }
 .exhibits__strip > .ev-card:only-child { grid-column: span 2; }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .exhibits__strip {
     position: relative;
     display: flex;
@@ -277,7 +349,20 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
   .exhibits__strip > .ev-card { flex: 0 0 min(84%, 20rem); scroll-snap-align: start; }
   .exhibits__strip > .ev-card:only-child { flex-basis: 100%; }
 }
-.chapter-table { font-family: var(--font-ui); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text); font-variant-numeric: lining-nums tabular-nums; }
+.chapter-table { container-type: inline-size; font-family: var(--font-ui); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text); font-variant-numeric: lining-nums tabular-nums; }
+/* In a narrow column (a phone) three columns of sentences are a few words wide each and a table
+   becomes several screens of slivers. There it is redrawn as a list: each row a block, each cell
+   under the name of its column, nothing to scroll sideways. The column is measured, not the window. */
+@container (max-width: 34rem) {
+  .chapter-table .table, .chapter-table .table :is(tbody, tr, td) { display: block; }
+  .chapter-table .table thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .chapter-table .table { border-top: 1px solid var(--c-line-strong); }
+  .chapter-table .table tr { padding: var(--sp-4) 0; border-bottom: 1px solid var(--c-line); }
+  .chapter-table .table td { padding: 0; border: 0; }
+  .chapter-table .table td + td { margin-top: var(--sp-3); }
+  .chapter-table .table td::before { content: attr(data-label); display: block; margin-bottom: 0.15rem; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-3); }
+  .chapter-table .table td:first-child { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: var(--w-display); line-height: 1.25; }
+}
 
 /* What pushes back */
 .chapter > .pushback { margin-top: 3.4em; padding-top: var(--sp-5); border-top: 1px solid var(--c-tension-line); }
@@ -299,6 +384,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .see-also__item { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; align-items: baseline; gap: var(--sp-3); padding: var(--sp-3) var(--sp-1); color: var(--c-text); border-bottom: 1px solid var(--c-line); text-decoration: none; }
 .see-also__item:hover { background: var(--c-surface); color: var(--c-accent-strong); }
 .see-also__n { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-accent); }
+.see-also__item .firm { font-family: var(--font-ui); font-size: var(--fs-sm); font-weight: 500; color: var(--c-text-2); }
 .see-also__title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: var(--w-display); line-height: 1.25; }
 
 /* Sources, further evidence, previous / next */
@@ -311,3 +397,16 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter-pager__link--next .label { justify-content: flex-end; }
 .chapter-pager__title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: var(--w-display); line-height: 1.22; letter-spacing: -0.01em; text-wrap: balance; }
 .chapter-pager__link:hover .chapter-pager__title { color: var(--c-accent-strong); }
+
+/* ── Print ─────────────────────────────────────────────────────── */
+/* A chapter on paper: the text, its figures, what pushes back, and the numbered sources (opened
+   for print by the shell). No rail, no bars, no way on to other chapters. */
+@media print {
+  .chapter-bar, .chapter-rail, .reading-progress, .chapter-pager, .story-progress, .parts-strip, .cover-hero__actions, .story-end__actions, .cover-parts { display: none !important; }
+  .chapter-layout { display: block; max-width: none; padding: 0; }
+  .chapter-layout > .chapter { max-width: none; }
+  .cover-hero { background: none; padding-block: 0 var(--sp-6); }
+  .chapter-head__sources { text-decoration: none; }
+  .beat, .contents-item, .compare__col, .pullquote { break-inside: avoid; }
+  .contents-part__head { position: static; }
+}

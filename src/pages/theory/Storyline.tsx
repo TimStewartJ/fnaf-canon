@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { StoryBeat, TheorySection } from "../../data/schema";
 import { theoryById } from "../../data/store";
@@ -28,12 +28,12 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
                 <ConfidenceMark value={b.confidence} variant="inline" long />
                 {argued.length > 0 && (
                   <span className="beat__argued">
-                    Argued in{" "}
-                    {argued.map((s, j) => (
-                      <span key={s.id}>
-                        {j > 0 && ", "}
-                        <Link to={chapterPath(s.id)}>{chapterNumber(s.id) ? `${chapterNumber(s.id)}. ` : ""}{smartQuotes(s.title)}</Link>
-                      </span>
+                    <span className="beat__argued-label">Argued in</span>
+                    {argued.map((s) => (
+                      <Link key={s.id} to={chapterPath(s.id)} className="beat__chapter">
+                        {chapterNumber(s.id) > 0 && <span className="beat__chapter-n">{pad2(chapterNumber(s.id))}<span className="sr-only">.</span></span>}
+                        <span className="beat__chapter-title">{smartQuotes(s.title)}</span>
+                      </Link>
                     ))}
                   </span>
                 )}
@@ -44,5 +44,51 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
         );
       })}
     </ol>
+  );
+}
+
+/**
+ * Where the reader is in the storyline: a slim line that stays at the top of the window while the
+ * beats scroll under it, with the number and title of the beat being read. For the cover, where
+ * the storyline is long (twenty beats is some twenty screens on a phone). It is drawn for the
+ * eye only; the beats are numbered headings in the page itself.
+ */
+export function StoryProgress({ beats }: { beats: StoryBeat[] }) {
+  const [at, setAt] = useState<{ on: boolean; i: number }>({ on: false, i: 0 });
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      // The beat under the reader's eye: the last one to have started in the upper part of the window.
+      const eye = line + (window.innerHeight - line) * 0.4;
+      let i = -1;
+      let end = 0;
+      for (let k = 0; k < beats.length; k++) {
+        const el = document.getElementById(beats[k].id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= eye) i = k;
+        end = r.bottom;
+      }
+      const first = document.getElementById(beats[0]?.id ?? "");
+      const on = !!first && first.getBoundingClientRect().top < line && end > eye;
+      setAt((was) => (was.on === on && was.i === Math.max(i, 0) ? was : { on, i: Math.max(i, 0) }));
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(update); };
+    window.addEventListener("scroll", on, { passive: true });
+    window.addEventListener("resize", on);
+    on();
+    return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); if (raf) cancelAnimationFrame(raf); };
+  }, [beats]);
+  const beat = beats[at.i];
+  if (!beat) return null;
+  return (
+    <div className="story-progress" data-on={at.on ? "" : undefined} aria-hidden style={{ "--hue": eraHue(beat.era), "--p": (at.i + 1) / beats.length } as CSSProperties}>
+      <div className="story-progress__bar">
+        <span className="story-progress__n">{pad2(at.i + 1)}<span className="story-progress__of"> of {beats.length}</span></span>
+        <span className="story-progress__title">{smartQuotes(beat.title)}</span>
+      </div>
+    </div>
   );
 }

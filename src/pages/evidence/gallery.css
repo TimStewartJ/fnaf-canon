@@ -10,20 +10,20 @@
 @media (pointer: coarse) { .gal-index__link { min-height: 2.5rem; padding-inline: 0.75em; } }
 
 /* One group per source */
-.gal-group { margin-top: var(--sp-7); scroll-margin-top: calc(var(--sticky-top) + var(--sp-5)); }
+.gal-group { margin-top: var(--sp-7); }
 .gal-group:first-of-type { margin-top: 0; }
 .gal-group__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sp-1) var(--sp-4); padding-bottom: var(--sp-2); margin-bottom: var(--sp-4); border-bottom: 1px solid var(--c-line-strong); }
 .gal-group__title { margin: 0; font-size: var(--fs-xl); min-width: 0; }
 .gal-group__title > a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
 .gal-group__title > a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 .gal-group__n { display: inline-flex; align-items: baseline; gap: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); white-space: nowrap; }
-@media (max-width: 640px) { .gal-group { margin-top: var(--sp-6); } }
+@media (max-width: 40em) { .gal-group { margin-top: var(--sp-6); } }
 
 /* The grid: two columns on a phone, up to five. Gallery.tsx folds groups by these same steps. */
 .gal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4) var(--sp-3); list-style: none; margin: 0; padding: 0; }
-@media (min-width: 560px) { .gal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5) var(--sp-4); } }
-@media (min-width: 900px) { .gal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (min-width: 1200px) { .gal-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (min-width: 35em) { .gal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5) var(--sp-4); } }
+@media (min-width: 56.25em) { .gal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 75em) { .gal-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 .gal-tile { margin: 0; min-width: 0; }
 /* A tile is the shared figure (frame, caption, credit), laid out for a grid: every frame the same
    shape, the whole screenshot fitted inside it on the mat and never cropped, the caption two lines. */
@@ -41,9 +41,3 @@
 .gal-zoom__records { display: block; margin-top: 0.3rem; color: var(--c-mat-text); }
 /* The viewer's mat is dark in both themes, so the link keeps the mat's text colour when hovered too (the site's link hover colour is dark on paper). */
 .gal-zoom__record, .gal-zoom__record:hover { color: inherit; }
-/* The shared viewer is 100vw wide, which on a desktop with classic scrollbars runs under the page's
-   reserved scrollbar gutter and cuts the close and next buttons. Sized by its insets it stops at the gutter. */
-.gal-zoom dialog.lightbox { width: auto; }
-/* Pixel art is drawn pixelated only when it is really enlarged (measured in Gallery.tsx). */
-.gal-zoom img[data-crisp="true"] { image-rendering: pixelated; }
-.gal-zoom img[data-crisp="false"] { image-rendering: auto; }

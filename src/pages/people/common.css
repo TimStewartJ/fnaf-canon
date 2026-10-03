@@ -12,7 +12,7 @@
 .ppl-sec__count { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem var(--sp-3); margin: 0 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); }
 .ppl-sec__lead { max-width: 34rem; margin: 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
 .ppl-sec__body { min-width: 0; max-width: 54rem; }
-@media (min-width: 900px) {
+@media (min-width: 56.25em) {
   .ppl-sec { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); padding-block: var(--sp-7); }
   .ppl-sec__head { position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); align-self: start; }
 }
@@ -35,7 +35,7 @@
 .ppl-tie__note { max-width: 38rem; margin: 0.25rem 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
 .ppl-tie__ev { grid-column: 2; min-width: 0; margin-top: var(--sp-2); }
 .ppl-tie__ev:empty { display: none; }
-@media (min-width: 760px) {
+@media (min-width: 47.5em) {
   .ppl-tie { grid-template-columns: 1rem minmax(0, 1fr) minmax(0, 17.5rem); }
   .ppl-tie__ev { grid-column: 3; margin-top: 0; text-align: right; }
   .ppl-tie__ev .src-list { justify-content: flex-end; }
@@ -50,9 +50,14 @@
 .ppl-event__title { font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.45; }
 .ppl-event__title, .ppl-event__title a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
 a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+/* On a touch screen the title takes a finger on an area 40px tall (it sits a few pixels from its date). */
+@media (pointer: coarse) {
+  a.ppl-event__title, .ppl-event__title a, .ppl-sec__lead a { position: relative; }
+  a.ppl-event__title::after, .ppl-event__title a::after, .ppl-sec__lead a::after { content: ""; position: absolute; inset: calc(50% - max(50%, 1.25rem)) 0; }
+}
 .ppl-event__cause { color: var(--c-tension); }
 .ppl-event__status { font-size: var(--fs-sm); }
-@media (min-width: 760px) {
+@media (min-width: 47.5em) {
   .ppl-event { grid-template-columns: 13.5rem minmax(0, 1fr) auto; }
   .ppl-event__what { display: contents; }
   .ppl-event__when { margin-bottom: 0; }
@@ -82,7 +87,7 @@ a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-stro
 .ppl-file__main > .label { margin: 0 0 var(--sp-2); }
 .ppl-file__text { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text); text-wrap: pretty; }
 .ppl-file__facts { align-content: start; font-size: var(--fs-sm); color: var(--c-text-2); }
-@media (min-width: 900px) {
+@media (min-width: 56.25em) {
   .ppl-file { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
   .ppl-file__facts:only-child { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); grid-column: 1 / -1; gap: var(--sp-5) var(--sp-7); }
 }
@@ -111,7 +116,9 @@ a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-stro
  * The indexes (people, places) are registers: one row per entry, the name leading. On a phone the
  * row stacks (who, then what) with the picture beside the name; from 640px it is a ledger line. */
 .ppl-found { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
-.ppl-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
+/* The list is measured, not the window: beside the section's own heading (from 900px) it is
+   narrower than on a tablet without one, and a row laid out for the window would squeeze its text. */
+.ppl-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); container-type: inline-size; }
 .ppl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who thumb" "what what"; gap: var(--sp-2) var(--sp-4); align-items: start; margin: 0; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
 .ppl-row__who { grid-area: who; min-width: 0; }
 .ppl-row__what { grid-area: what; min-width: 0; }
@@ -123,8 +130,8 @@ a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-stro
 .ppl-row__thumb { grid-area: thumb; display: block; width: 4.75rem; aspect-ratio: 3 / 2; overflow: hidden; background: var(--c-mat); border: 1px solid var(--c-line); border-radius: var(--r-md); }
 .ppl-row__thumb:hover { border-color: var(--c-line-strong); }
 .ppl-row__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* From 640px the row is a ledger line: who | what | picture. */
-@media (min-width: 640px) {
+/* With room for all three (the text column then has some 17rem at the least) the row is a ledger line: who | what | picture. */
+@container (min-width: 38rem) {
   .ppl-row { grid-template-columns: minmax(0, 14.5rem) minmax(0, 1fr) 6rem; grid-template-areas: "who what thumb"; column-gap: var(--sp-5); padding-block: var(--sp-4); }
   .ppl-row__thumb { width: 6rem; }
 }

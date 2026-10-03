@@ -29,7 +29,7 @@
 
 /* ── Index: the whole archive, then one row per source ─────────── */
 .srcs-overall { display: grid; gap: var(--sp-4) var(--sp-7); align-items: center; padding: var(--sp-5); margin-bottom: var(--sp-6); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
-@media (min-width: 900px) { .srcs-overall { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+@media (min-width: 56.25em) { .srcs-overall { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
 .srcs-overall__title { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); }
 .srcs-overall__lead { max-width: var(--measure); margin: 0; font-size: var(--fs-base); }
 .srcs-overall__lead strong { color: var(--c-text); }
@@ -37,7 +37,7 @@
 
 .srcs-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
 .srcs-item { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-3) var(--sp-7); align-items: start; margin: 0; padding: var(--sp-5) 0; border-bottom: 1px solid var(--c-line); }
-@media (min-width: 900px) { .srcs-item { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
+@media (min-width: 56.25em) { .srcs-item { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
 .srcs-item__main { display: grid; gap: var(--sp-2); min-width: 0; }
 .srcs-item__title { margin: 0; font-size: var(--fs-lg); line-height: 1.2; }
 .srcs-item__title a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
@@ -61,7 +61,7 @@
 .srcs-use__chips .chip-btn:disabled { opacity: 0.55; }
 /* The full wording where there is room, the short one on a phone so the four fit in two rows. */
 .srcs-use__short { display: none; }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .srcs-use__long { display: none; }
   .srcs-use__short { display: inline; }
 }

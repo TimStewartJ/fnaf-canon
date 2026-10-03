@@ -4,14 +4,13 @@ import type { Person } from "../../data/schema";
 import { people } from "../../data/store";
 import { isFoldedAway, unifiedPeople } from "../../data/model";
 import {
-  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, imgUrl, levelOf, personPath, plainText,
-  smartQuotes,
+  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, firmness, Thumb, levelOf, personPath, plainText,
+  smartQuotes, useAddressText,
 } from "../../components/ui";
-import { DossierSection, JumpLinks, WhenOpened } from "./Dossier";
+import { DossierSection, JumpLinks } from "./Dossier";
 import { beingOf, evidenceOf, type BeingNode, type NodeKind } from "./identity";
 import { Name } from "./Names";
 import { STATUS_RANK, plural, tieSentence } from "./ties";
-import { useUrlText } from "./urlState";
 import "./common.css";
 import "./people.css";
 
@@ -98,7 +97,7 @@ const PersonRow = memo(function PersonRow({ entry, hits }: { entry: Entry; hits:
       </div>
       {entry.image && (
         <Link to={personPath(p.id)} className="ppl-row__thumb" tabIndex={-1} aria-hidden>
-          <img src={imgUrl(entry.image)} alt="" loading="lazy" decoding="async" />
+          <Thumb file={entry.image} />
         </Link>
       )}
     </li>
@@ -136,7 +135,7 @@ const MinorIndex = memo(function MinorIndex({ list }: { list: readonly Person[] 
 });
 
 export default function People() {
-  const [q, setQ] = useUrlText("q");
+  const [q, setQ] = useAddressText("q");
   // The box answers each keystroke at once; the list follows a moment behind, and rows that do not change are not drawn again.
   const asked = useDeferredValue(q.trim());
   const needle = asked.toLowerCase();
@@ -159,12 +158,12 @@ export default function People() {
         title="People"
         lede={<>
           Who is who, and how firmly. Names, descriptors, minigame figures and machines that the model reads as one person are folded into that
-          person: {entries.length} profiles, with {folded} other records folded into them, and {minor.length} minor figures.
+          person: {entries.length} profiles, with {folded} other figures folded into them, and {minor.length} minor figures.
         </>}
       >
         <SearchField className="ppl-search" label="Find a person" placeholder="Name or alias, like Springtrap" value={q} onChange={setQ} />
         <p className="ppl-key">
-          <span className="label">How firmly a record belongs</span>
+          <span className="label">How firmly a figure belongs</span>
           <StatusMark value="canon" variant="inline" /> <StatusMark value="strong" variant="inline" long /> <StatusMark value="theory" variant="inline" />
           <span className="ppl-key__note">Names in <em className="name-desc">italics</em> are the archive’s own descriptors; the games never print them.</span>
         </p>
@@ -191,7 +190,7 @@ export default function People() {
             id={`group-${g}`}
             title={GROUP_LABEL[g] ?? g}
             count={plural(list.length, "profile")}
-            lead={g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other record")} folded into them.` : undefined}
+            lead={g === "entity" ? "Machines and entities the model does not fold into any person." : more > 0 ? `${plural(more, "other figure")} folded into them.` : undefined}
           >
             <ul className="ppl-rows">{list.map((e) => <PersonRow key={e.root.id} entry={e} hits={hitsOf(e, needle)} />)}</ul>
           </DossierSection>
@@ -208,7 +207,7 @@ export default function People() {
         >
           {needle
             ? <MinorIndex list={shownMinor} />
-            : <Collapsible summary="Every minor figure, A to Z" meta={plural(minor.length, "name")}><WhenOpened>{() => <MinorIndex list={minor} />}</WhenOpened></Collapsible>}
+            : <Collapsible summary="Every minor figure, A to Z" meta={plural(minor.length, "name")}>{() => <MinorIndex list={minor} />}</Collapsible>}
         </DossierSection>
       )}
 

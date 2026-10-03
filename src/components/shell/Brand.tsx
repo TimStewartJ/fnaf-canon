@@ -20,9 +20,9 @@ export function BrandMark({ size = 24 }: { size?: number }) {
   );
 }
 
-export function Brand() {
+export function Brand({ onClick }: { onClick?: () => void }) {
   return (
-    <Link to="/" className="brand" aria-label="Fazbear Canon Archive, home">
+    <Link to="/" className="brand" aria-label="Fazbear Canon Archive, home" onClick={onClick}>
       <BrandMark />
       <span className="brand__name">Fazbear</span>
       <span className="brand__sub">Canon Archive</span>

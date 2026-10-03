@@ -1,6 +1,6 @@
 /*
  * The app shell: skip link, header and navigation, phone menu, search palette, reader settings,
- * footer. Shared and frozen after phase 1.
+ * footer.
  */
 #root { display: flex; flex-direction: column; min-height: 100vh; }
 .site-main { flex: 1 0 auto; min-width: 0; outline: none; }
@@ -39,14 +39,19 @@
   padding-inline: var(--page-pad);
 }
 
+/* The header chooses its own layout by measuring (Header.tsx) and says which on the element:
+   data-nav (bar | menu), data-brand (full | short), data-search (full | short | icon). */
 .brand { display: inline-flex; align-items: center; gap: 0.55rem; flex: none; color: var(--c-text); text-decoration: none; margin-right: var(--sp-3); }
+.site-header[data-squeeze] .brand { flex: 0 1 auto; min-width: 0; margin-right: 0; overflow: hidden; }
 .brand:hover { color: var(--c-text); }
 .brand__mark { color: var(--c-accent); flex: none; }
 .brand__mark-cut { fill: var(--c-bg); }
 .brand__name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 620; line-height: 1; letter-spacing: -0.012em; }
 .brand__sub { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; line-height: 1; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-text-3); padding-top: 0.25em; white-space: nowrap; }
+.site-header[data-brand="short"] .brand__sub { display: none; }
 
-.site-nav { display: flex; align-items: center; gap: 2px; min-width: 0; }
+.site-nav { display: flex; align-items: center; gap: 2px; flex: none; }
+.site-header[data-nav="menu"] .site-nav, .site-header[data-nav="menu"] .site-tools__settings { display: none; }
 .nav-link {
   position: relative;
   display: inline-flex;
@@ -103,11 +108,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  flex: none;
   height: 2.25rem;
-  min-width: 11.5rem;
+  width: 11.5rem;
   padding: 0 0.5rem 0 0.7rem;
   font-family: var(--font-ui);
   font-size: var(--fs-sm);
+  white-space: nowrap;
   color: var(--c-text-3);
   background: var(--c-bg-sunk);
   border: 1px solid var(--c-line-control);
@@ -116,9 +123,18 @@
 }
 .search-trigger:hover { color: var(--c-text); border-color: var(--c-text-3); }
 .search-trigger__kbd { margin-left: auto; }
+.site-header[data-search="short"] .search-trigger { width: auto; padding-right: 0.8rem; }
+.site-header:not([data-search="full"]) .search-trigger__kbd { display: none; }
+.site-header[data-search="icon"] .search-trigger { width: 2.25rem; padding: 0; justify-content: center; color: var(--c-text-2); background: none; border-color: transparent; }
+.site-header[data-search="icon"] .search-trigger:hover { color: var(--c-text); background: var(--c-surface-2); }
+.site-header[data-search="icon"] .search-trigger__text { display: none; }
+.site-header[data-search="icon"] .search-trigger .icon { width: 1.25em; height: 1.25em; }
 .site-tools__settings { position: relative; }
 .settings-panel { position: absolute; right: 0; top: calc(100% + 0.55rem); z-index: var(--z-popover); width: 19.5rem; max-width: calc(100vw - 2rem); padding: var(--sp-4); background: var(--c-overlay); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); box-shadow: var(--shadow-2); }
 .menu-trigger { display: none; }
+.site-header[data-nav="menu"] .menu-trigger { display: inline-flex; }
+/* With the menu button the header is a touch bar: its buttons are full touch targets. */
+.site-header[data-nav="menu"] .search-trigger, .site-header[data-nav="menu"] .site-tools .icon-btn { width: var(--tap); height: var(--tap); }
 
 .reader-settings { display: grid; gap: var(--sp-3); }
 .reader-settings__row { display: grid; gap: var(--sp-1); }
@@ -126,25 +142,12 @@
 .reader-settings__row .segmented__opt { flex: 1; }
 .reader-settings__note { margin: 0; font-size: var(--fs-xs); color: var(--c-text-3); }
 
-@media (max-width: 1080px) {
-  .brand__sub { display: none; }
-  .search-trigger { min-width: 0; }
-  .search-trigger__kbd { display: none; }
-}
-@media (max-width: 899px) {
+@media (max-width: 56.1875em) {
   .site-header { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--c-bg); }
-  .site-nav, .site-tools__settings { display: none; }
-  .brand__sub { display: inline; }
-  .menu-trigger { display: inline-flex; }
-  .search-trigger { width: var(--tap); height: var(--tap); padding: 0; justify-content: center; color: var(--c-text-2); background: none; border-color: transparent; }
-  .search-trigger__text { display: none; }
-  .search-trigger .icon { width: 1.25em; height: 1.25em; }
-  .menu-trigger, .site-tools .icon-btn { width: var(--tap); height: var(--tap); }
 }
-@media (max-width: 359px) { .brand__sub { display: none; } }
 
 /* ── Phone menu ────────────────────────────────────────────────── */
-dialog.menu-sheet { position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; flex-direction: column; color: var(--c-text); background: var(--c-bg); border: 0; overflow: hidden; }
+dialog.menu-sheet { position: fixed; inset: 0; width: auto; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; flex-direction: column; color: var(--c-text); background: var(--c-bg); border: 0; overflow: hidden; }
 dialog.menu-sheet[open] { display: flex; }
 .menu-sheet__bar { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); padding-inline: var(--page-pad); border-bottom: 1px solid var(--c-line); flex: none; }
 .menu-sheet__bar .icon-btn { width: var(--tap); height: var(--tap); }
@@ -165,6 +168,19 @@ dialog.menu-sheet[open] { display: flex; }
   dialog.menu-sheet[open] { animation: menu-in var(--dur-2) var(--ease); }
   @keyframes menu-in { from { opacity: 0; transform: translateY(-0.5rem); } }
 }
+
+/* ── A page on its way ─────────────────────────────────────────── */
+/* Shown while the next page's code is being fetched, once that has taken a moment: until then the
+   old page is still up and a quick arrival should not flash anything. */
+.route-progress { position: fixed; inset: 0 0 auto 0; z-index: calc(var(--z-header) + 1); height: 2px; overflow: hidden; pointer-events: none; opacity: 0; animation: route-wait-in 0s 0.3s forwards; }
+.route-progress::before { content: ""; position: absolute; inset: 0; background: var(--c-accent); transform-origin: left; animation: route-wait 1.4s var(--ease) 0.3s infinite; }
+@keyframes route-wait-in { to { opacity: 1; } }
+@keyframes route-wait { from { transform: translateX(-60%) scaleX(0.4); } to { transform: translateX(100%) scaleX(0.6); } }
+@media (prefers-reduced-motion: reduce) { .route-progress::before { animation: none; opacity: 0.7; } }
+
+/* A message from the shell itself (something of its own could not be loaded). */
+.shell-notice { position: fixed; left: 50%; bottom: calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); z-index: var(--z-modal); transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); width: max-content; max-width: calc(100% - 2rem); padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); color: var(--c-text); background: var(--c-overlay); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); box-shadow: var(--shadow-2); }
+.shell-notice > span { flex: 1 1 16rem; }
 
 /* ── Search palette ────────────────────────────────────────────── */
 dialog.palette {
@@ -200,10 +216,12 @@ dialog.palette::backdrop { background: var(--c-scrim); }
 .palette__title { font-weight: 560; }
 .palette__sub { font-size: var(--fs-sm); color: var(--c-text-2); }
 .palette__enter { color: var(--c-text-3); }
-.palette__empty { margin: 0; padding: var(--sp-6) var(--sp-4); text-align: center; color: var(--c-text-2); }
+.palette__empty { flex: 1; margin: 0; padding: var(--sp-6) var(--sp-4); text-align: center; color: var(--c-text-2); }
+.palette__instead { flex: none; margin: 0; padding: var(--sp-3) var(--sp-4) 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.palette__instead strong { color: var(--c-text); font-weight: 600; }
 .palette__foot { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); margin: 0; padding: var(--sp-2) var(--sp-4); font-size: var(--fs-xs); color: var(--c-text-3); border-top: 1px solid var(--c-line); flex: none; }
-@media (max-width: 640px) {
-  dialog.palette { inset: 0; transform: none; width: 100vw; height: 100dvh; max-height: none; border: 0; border-radius: 0; }
+@media (max-width: 40em) {
+  dialog.palette { inset: 0; transform: none; width: auto; height: 100dvh; max-height: none; border: 0; border-radius: 0; }
   .palette__foot { display: none; }
   .palette__opt { min-height: 3.25rem; }
 }

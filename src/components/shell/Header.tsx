@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type RefObject } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ALargeSmall, ChevronDown, Menu, Search } from "lucide-react";
 import { useOutsidePointer } from "../hooks";
@@ -44,7 +44,9 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
         type="button"
         className={`nav-link nav-link--menu${active ? " is-active" : ""}`}
         aria-expanded={open}
-        aria-controls={`nav-menu-${group.id}`}
+        // The menu is in the page only while it is open, so it is only named then.
+        aria-controls={open ? `nav-menu-${group.id}` : undefined}
+        aria-current={active ? "true" : undefined}
         onClick={() => { window.clearTimeout(timer.current); if (open) onClose(); else onOpen(); }}
       >
         {group.label}
@@ -67,27 +69,85 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
   );
 }
 
-/** The site header: brand, grouped navigation (a menu button below 900px), search and reader settings. */
+/**
+ * The header's layouts, roomiest first. It takes the first one whose parts fit side by side:
+ * the brand's second line goes first, then the search field's shortcut and its width, then its
+ * word; when the navigation still does not fit as a bar, it becomes the menu button.
+ */
+const LAYOUTS: { nav: "bar" | "menu"; brand: "full" | "short"; search: "full" | "short" | "icon" }[] = [
+  { nav: "bar", brand: "full", search: "full" },
+  { nav: "bar", brand: "short", search: "full" },
+  { nav: "bar", brand: "short", search: "short" },
+  { nav: "bar", brand: "short", search: "icon" },
+  { nav: "menu", brand: "full", search: "icon" },
+  { nav: "menu", brand: "short", search: "icon" },
+];
+
+/**
+ * Chooses the header's layout by measuring it, so nothing in it can overlap or run off the page
+ * at any width, any browser font size or any wording of the links: a breakpoint would have to
+ * guess all three. The choice is written on the element (data-nav, data-brand, data-search) for
+ * the stylesheet, before the browser paints. Returns the refs for the header and its row.
+ */
+function useHeaderFit(): [RefObject<HTMLElement | null>, RefObject<HTMLDivElement | null>] {
+  const header = useRef<HTMLElement | null>(null);
+  const row = useRef<HTMLDivElement | null>(null);
+  useLayoutEffect(() => {
+    const el = header.current, box = row.current;
+    if (!el || !box) return;
+    let width = -1;
+    // The row fits when its last part ends inside its padding (scrollWidth would let it run into the padding).
+    const fits = () => {
+      const last = box.lastElementChild;
+      return !last || last.getBoundingClientRect().right <= box.getBoundingClientRect().right - parseFloat(getComputedStyle(box).paddingRight) + 0.5;
+    };
+    const fit = (force = false) => {
+      if (!force && box.clientWidth === width) return;
+      width = box.clientWidth;
+      el.removeAttribute("data-squeeze");
+      for (const l of LAYOUTS) {
+        el.setAttribute("data-nav", l.nav);
+        el.setAttribute("data-brand", l.brand);
+        el.setAttribute("data-search", l.search);
+        if (fits()) return;
+      }
+      // Not even the smallest layout fits (a very large font on a very small screen): the name gives way, the page never scrolls sideways.
+      el.setAttribute("data-squeeze", "");
+    };
+    const resized = new ResizeObserver(() => fit());
+    resized.observe(box);
+    // The links are measured in the font they are drawn in, so measure again when it has arrived.
+    void document.fonts?.ready.then(() => fit(true));
+    fit(true);
+    return () => resized.disconnect();
+  }, []);
+  return [header, row];
+}
+
+/** The site header: brand, grouped navigation (a menu button when the bar does not fit), search and reader settings. */
 export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () => void }) {
-  const location = useLocation();
-  // The open menu is tied to the history entry, so any navigation closes it without an effect.
+  const { pathname } = useLocation();
+  // The open menu is tied to the page it was opened on, so going anywhere closes it without an
+  // effect. (Not to the history entry: a page rewrites its own entry whenever a filter changes.)
   const [menu, setMenu] = useState<{ id: string; at: string } | null>(null);
-  const openId = menu && menu.at === location.key ? menu.id : null;
-  const open = (id: string) => setMenu({ id, at: location.key });
+  const openId = menu && menu.at === pathname ? menu.id : null;
+  const open = (id: string) => setMenu({ id, at: pathname });
   const close = (id: string) => setMenu((m) => (m?.id === id ? null : m));
   const settingsRef = useRef<HTMLDivElement | null>(null);
+  const settingsBtn = useRef<HTMLButtonElement | null>(null);
   useOutsidePointer([settingsRef], () => close("settings"), openId === "settings");
+  const [headerRef, rowRef] = useHeaderFit();
 
   return (
-    <header className="site-header">
-      <div className="site-header__inner">
+    <header className="site-header" ref={headerRef}>
+      <div className="site-header__inner" ref={rowRef}>
         <Brand />
         <nav className="site-nav" aria-label="Primary">
           {NAV.map((g) =>
             g.items ? (
               <NavMenu key={g.id} group={g} open={openId === g.id} onOpen={() => open(g.id)} onClose={() => close(g.id)} />
             ) : (
-              <NavLink key={g.id} to={g.to!} className={`nav-link${isInGroup(g, location.pathname) ? " is-active" : ""}`}>{g.label}</NavLink>
+              <NavLink key={g.id} to={g.to!} className={`nav-link${isInGroup(g, pathname) ? " is-active" : ""}`}>{g.label}</NavLink>
             ),
           )}
         </nav>
@@ -97,8 +157,14 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
             <span className="search-trigger__text">Search</span>
             <kbd className="search-trigger__kbd">{isMac ? "⌘K" : "Ctrl K"}</kbd>
           </button>
-          <div className="site-tools__settings" ref={settingsRef} onKeyDown={(e) => { if (e.key === "Escape") close("settings"); }}>
-            <button type="button" className="icon-btn" aria-label="Reading settings" title="Reading settings" aria-expanded={openId === "settings"} aria-controls="reader-settings" onClick={() => (openId === "settings" ? close("settings") : open("settings"))}>
+          <div
+            className="site-tools__settings"
+            ref={settingsRef}
+            // Escape closes the panel and hands focus back to its button; focus moving on past the panel closes it too.
+            onKeyDown={(e) => { if (e.key === "Escape" && openId === "settings") { close("settings"); settingsBtn.current?.focus(); } }}
+            onBlur={(e) => { if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget as Node)) close("settings"); }}
+          >
+            <button ref={settingsBtn} type="button" className="icon-btn" aria-label="Reading settings" title="Reading settings" aria-expanded={openId === "settings"} aria-controls={openId === "settings" ? "reader-settings" : undefined} onClick={() => (openId === "settings" ? close("settings") : open("settings"))}>
               <Icon icon={ALargeSmall} size="1.25em" />
             </button>
             {openId === "settings" && (

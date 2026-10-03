@@ -236,6 +236,3 @@ ul.plain > li, ol.plain > li { margin: 0; }
   @keyframes page-in { from { opacity: 0; } }
 }
 
-@media print {
-  body::before { display: none; }
-}

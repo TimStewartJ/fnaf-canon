@@ -7,7 +7,7 @@ import { LOCATION_KIND, type LocationKind, type LocationSpan } from "../../data/
 import { ERA_DATES, PLACE_DATES } from "../../data/dates";
 import {
   Button, ButtonLink, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Page,
-  PageHeader, RichText, excerpt, hueOf, imgUrl, placePath, smartQuotes, useMediaQuery,
+  PageHeader, RichText, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -16,7 +16,6 @@ import { EvidenceRows } from "./EvidenceFile";
 import { Portrait } from "./Portrait";
 import { DeathRows, EventRows } from "./Story";
 import { plural, sentenceCase } from "./ties";
-import { listParam, useUrlState } from "./urlState";
 import "./common.css";
 import "./places.css";
 
@@ -63,7 +62,7 @@ const PlaceRow = memo(function PlaceRow({ p }: { p: Place }) {
       </div>
       {p.image && (
         <Link to={placePath(p.id)} className="ppl-row__thumb" tabIndex={-1} aria-hidden>
-          <img src={imgUrl(p.image)} alt="" loading="lazy" decoding="async" />
+          <Thumb file={p.image} />
         </Link>
       )}
     </li>
@@ -71,12 +70,12 @@ const PlaceRow = memo(function PlaceRow({ p }: { p: Place }) {
 });
 
 export default function Places() {
-  const url = useUrlState();
+  const url = useAddress();
   const phone = useMediaQuery("(max-width: 640px)");
   const picked = listParam(url.get("kind"), KINDS);
-  // Works from the address bar as it is when it runs (see urlState.ts), so two quick clicks both count.
-  const toggle = (k: LocationKind) => url.set((now) => {
-    const on = listParam(now("kind"), KINDS);
+  // Works from the address as it is when it runs (see components/address.ts), so two quick clicks both count.
+  const toggle = (k: LocationKind) => url.write((now) => {
+    const on = listParam(now.get("kind"), KINDS);
     const next = on.includes(k) ? on.filter((x) => x !== k) : [...on, k];
     return { kind: next.length && next.length < KINDS.length ? KINDS.filter((x) => next.includes(x)).join(",") : null };
   });
@@ -92,7 +91,7 @@ export default function Places() {
         {KINDS.filter((k) => kindCount(k) > 0).map((k) => (
           <FilterChip key={k} on={picked.includes(k)} count={kindCount(k)} onClick={() => toggle(k)}><KindMark kind={k} /></FilterChip>
         ))}
-        {picked.length > 0 && <Button variant="quiet" size="sm" onClick={() => url.set({ kind: null })}>Show all kinds</Button>}
+        {picked.length > 0 && <Button variant="quiet" size="sm" onClick={() => url.write({ kind: null })}>Show all kinds</Button>}
       </FilterGroup>
     </FilterBar>
   );
@@ -134,7 +133,7 @@ export default function Places() {
       })}
 
       {shown.length === 0 && (
-        <Empty title="No place of that kind" action={<Button onClick={() => url.set({ kind: null })}>Show all kinds</Button>}>
+        <Empty title="No place of that kind" action={<Button onClick={() => url.write({ kind: null })}>Show all kinds</Button>}>
           Nothing matches the kinds picked.
         </Empty>
       )}
@@ -169,7 +168,7 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
   const dateKind = DATE_KIND[date?.kind ?? "unknown"] ?? DATE_KIND.unknown;
 
   return (
-    <Page title={p.name} className="place-page">
+    <Page title={p.name} kind="Place" className="place-page">
       <PageHeader
         className="ppl-head"
         crumbs={[{ to: "/places", label: "Places" }, { label: p.name }]}
@@ -264,7 +263,7 @@ export function PlaceDetail() {
   if (!p) {
     return (
       <Page title="Place not found" narrow>
-        <Empty title="Unknown place" action={<ButtonLink to="/places" variant="primary">All places</ButtonLink>}>There is no place page for “{id}”.</Empty>
+        <Empty heading title="Unknown place" action={<ButtonLink to="/places" variant="primary">All places</ButtonLink>}>There is no place page for “{id}”.</Empty>
       </Page>
     );
   }

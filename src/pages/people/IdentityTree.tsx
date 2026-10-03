@@ -26,7 +26,7 @@ function TreeItem({ node, currentId, rootName }: { node: BeingNode; currentId: s
           </p>
           <p className="person-tree__how">
             {root
-              ? "The record the others fold into"
+              ? "The figure the others fold into"
               : <>{KIND_WORD[node.kind]}<span aria-hidden> · </span><span className="sr-only">, </span>{step.word}</>}
           </p>
           {node.step?.note && <p className="person-tree__note">{smartQuotes(node.step.note)}</p>}
@@ -60,7 +60,7 @@ function TreeItem({ node, currentId, rootName }: { node: BeingNode; currentId: s
  */
 export function IdentityTree({ being, currentId }: { being: Being; currentId: string }) {
   return (
-    <ul className="person-tree" aria-label={`The records the model folds into ${being.root.person.name}`}>
+    <ul className="person-tree" aria-label={`The figures the model folds into ${being.root.person.name}`}>
       <TreeItem node={being.root} currentId={currentId} rootName={being.root.person.name} />
     </ul>
   );

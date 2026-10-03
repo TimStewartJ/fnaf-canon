@@ -6,7 +6,7 @@ import type { Evidence } from "../../data/schema";
 import { eventDate } from "../../data/dates";
 import { evidenceById } from "../../data/store";
 import {
-  Button, ChapterLink, Chip, CiteList, CiteScope, DEATH_KIND_ICON, DatePill, DeathIcon, EntityLink, EvidenceRow, Figure, Icon, RichText, StatusMark,
+  Button, ChapterLink, Chip, CiteList, CiteScope, DatePill, DeathIcon, deathKindIcon, EntityLink, EvidenceRow, Figure, Icon, RichText, StatusMark,
   chapterNumber, excerpt, levelOf, smartQuotes,
 } from "../../components/ui";
 import { type DeathRow, type EventRow, type Row, causeLabel, chaptersFor, eventLink, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
@@ -19,7 +19,7 @@ function DeathTag({ d }: { d: Death }) {
   return (
     <span className="tl-deathtag">
       <Icon icon={DeathIcon} /> Death
-      <span className="tl-deathtag__cause"><Icon icon={DEATH_KIND_ICON[d.kind] ?? DeathIcon} /> {causeLabel(d.kind)}</span>
+      <span className="tl-deathtag__cause"><Icon icon={deathKindIcon(d.kind)} /> {causeLabel(d.kind)}</span>
     </span>
   );
 }
@@ -201,7 +201,7 @@ export const TimelineRow = memo(function TimelineRow({ row, open, mark, onToggle
             {isDeath && row.d.branch && <Chip>one ending: {smartQuotes(row.d.branch)}</Chip>}
           </p>
           <h3 className="tl-row__title">
-            <button ref={toggle} type="button" className="tl-row__toggle" aria-expanded={open} aria-controls={`${row.id}-detail`} onClick={() => onToggle(row.id)}>
+            <button ref={toggle} type="button" className="tl-row__toggle" aria-expanded={open} aria-controls={open ? `${row.id}-detail` : undefined} onClick={() => onToggle(row.id)}>
               {smartQuotes(title)}
             </button>
           </h3>

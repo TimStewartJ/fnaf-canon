@@ -7,10 +7,9 @@
  * colours arrive as --hue and are only ever used for swatches, rules and tints.
  */
 
-/* The reader's text-size setting. The shell applies it to long-form prose (--fs-read); here it scales
-   the story itself: entry titles, era summaries, excerpts, an open row's summary and notes. Dates,
-   labels and controls keep their size. Medium is 1, so the default look does not depend on it. */
-.tl-page { --tl-read: var(--read-scale, 1); }
+/* The reader's text-size setting now moves the root font size (see tokens.css), so every size
+   here follows it on its own. This factor is kept at 1 for the rules that still multiply by it. */
+.tl-page { --tl-read: 1; }
 
 /* ── Page top: lede, the two views, the tools ──────────────────── */
 .tl-page .page-header { margin-bottom: var(--sp-5); }
@@ -25,16 +24,8 @@
 /* How many filters are on: a small count on the corner of the button, so the button keeps its width. */
 .tl-bar__count { position: absolute; top: -0.45rem; right: -0.45rem; display: grid; place-items: center; min-width: 1.15rem; height: 1.15rem; padding: 0 0.25em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1; color: var(--c-accent-ink); background: var(--c-accent-fill); border-radius: var(--r-pill); }
 
-.tl-key { display: inline-flex; }
-.tl-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: min(36rem, calc(100vh - 1rem)); }
-.tl-key__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-4) var(--sp-5); }
-.tl-key__col { display: grid; align-content: start; gap: 0.4rem; min-width: 0; }
-.tl-key__row { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; color: var(--c-text-2); }
-.tl-key__row > :first-child { justify-self: center; }
-.tl-key__row strong { color: var(--c-text); font-weight: 600; }
-.tl-key__next { margin-top: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
+/* The key itself is the shared one (.marks-key in components.css); only the death mark is the timeline's. */
 .tl-key__death { color: var(--c-tension); }
-.tl-key__foot { margin-top: var(--sp-2); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
 
 /* ── Filters: one control opens them; what is applied is said in words ── */
 .tl-panel { margin-bottom: var(--sp-3); }
@@ -59,7 +50,7 @@
 
 /* ── Events view: the era index beside the line, or above it ───── */
 .tl-line { min-width: 0; }
-@media (min-width: 1080px) {
+@media (min-width: 67.5em) {
   .tl-events { display: grid; grid-template-columns: 15rem minmax(0, 1fr); column-gap: var(--sp-7); align-items: start; }
 }
 
@@ -108,7 +99,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-sheet__count { flex: 1 0 100%; margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .tl-sheet__count strong { color: var(--c-text); font-weight: 600; }
 .tl-sheet .tl-eralink { padding-block: 0.7rem; font-size: var(--fs-base); }
-@media (min-width: 641px) {
+@media (min-width: 40.0625em) {
   dialog.tl-sheet--side { inset: 0 auto 0 0; width: min(24rem, 90vw); height: 100dvh; max-height: none; border-top: 0; border-right: 1px solid var(--c-line-strong); border-radius: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -126,7 +117,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-era__tally { color: var(--c-text-3); }
 .tl-era__titleline { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-4); }
 .tl-era__title { margin: 0; font-size: var(--fs-2xl); line-height: 1.1; }
-.tl-era__sum { max-width: var(--measure-wide); margin: var(--sp-3) 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
+.tl-era__sum { max-width: 76ch; margin: var(--sp-3) 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
 .tl-era__none { margin: 0; font-size: var(--fs-sm); color: var(--c-text-3); }
 
 /* A long era cut short: the spine runs on, dashed, to the button that shows the rest. */
@@ -181,7 +172,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-row__fact:not(:last-child) { margin-right: var(--sp-3); }
 .tl-row__k { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }
 /* A death the event tells: the tag, then who, on one line. */
-.tl-row__death { display: flex; align-items: baseline; gap: var(--sp-3); max-width: var(--measure-wide); margin: 0.4rem 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
+.tl-row__death { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem var(--sp-3); max-width: var(--measure-wide); margin: 0.4rem 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
 .tl-row__death .tl-deathtag { flex: none; }
 .tl-row__victim { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -232,17 +223,17 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-death__rests { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2); min-width: 0; margin: var(--sp-1) 0 0; }
 
 /* ── Narrower than the rail: the era bar is sticky, so targets clear it ──
- * A row is only ever a target of this page's own scrolling, which honours scroll-margin. An era can
- * also be the target of a plain anchor (/timeline#era-id), which the shell places by the element's
- * top edge alone; so the era's box starts a bar's height above what it shows. */
-@media (max-width: 1079px) {
+ * A row clears the bar with a scroll margin. An era does it with its box: the box starts a bar's
+ * height above what it shows, which holds for this page's own jumps and for a plain anchor
+ * (/timeline#era-id) alike, whatever places it. */
+@media (max-width: 67.4375em) {
   .tl-row { scroll-margin-top: 2.75rem; }
   .tl-era { margin-top: -2.75rem; padding-top: 2.75rem; }
   .tl-era + .tl-era { margin-top: calc(var(--sp-8) - 2.75rem); }
 }
 
 /* ── Phone: tighter rows ───────────────────────────────────────── */
-@media (max-width: 699px) {
+@media (max-width: 43.6875em) {
   .tl-era + .tl-era { margin-top: calc(var(--sp-7) - 2.75rem); }
   .tl-era__sum { font-size: calc(var(--fs-base) * var(--tl-read)); }
   .tl-row { --tl-node: 1.375rem; column-gap: var(--sp-1); }
@@ -291,6 +282,11 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc__era-name { display: block; max-height: max(0px, calc((var(--tl-cell) - 6.5rem) * 9999)); overflow: hidden; font-weight: 560; }
 .tl-loc__era:hover .tl-loc__era-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 
+/* The eras by name, under the columns, for as long as the columns themselves are too narrow to say (the same test as the names above). */
+.tl-loc__keyrow { display: grid; grid-template-columns: var(--tl-place) minmax(0, 1fr); column-gap: var(--sp-4); }
+.tl-loc__erakey { display: flex; flex-wrap: wrap; gap: 0 var(--sp-4); max-height: max(0px, calc((6.5rem - var(--tl-cell)) * 9999)); margin: 0; overflow: hidden; font-family: var(--font-ui); font-size: var(--fs-xs); line-height: 1.4; color: var(--c-text-2); }
+.tl-loc__erakey-item { padding-top: var(--sp-2); white-space: nowrap; }
+
 .tl-loc__group { margin-top: var(--sp-5); }
 .tl-loc__kind { display: flex; align-items: center; gap: var(--sp-2); margin: 0 0 var(--sp-2); padding-left: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1.4; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-2); }
 .tl-loc__swatch { width: 0.55rem; height: 0.55rem; border-radius: 1px; background: var(--hue); }
@@ -299,6 +295,8 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc__row { position: relative; display: grid; grid-template-columns: var(--tl-place) minmax(0, 1fr); column-gap: var(--sp-4); align-items: center; margin: 0; padding: var(--sp-2) 0; border-bottom: 1px solid var(--c-line); transition: background var(--dur-1) var(--ease); }
 .tl-loc__row.is-on { background: var(--c-surface); box-shadow: inset 2px 0 0 var(--c-accent); }
 .tl-loc__place { display: grid; gap: 0.25rem; justify-items: start; min-width: 0; padding-left: var(--sp-2); }
+/* The name opens the place and the date under it explains itself: on a touch screen they stand further apart. */
+@media (pointer: coarse) { .tl-loc__place { gap: 1rem; } }
 .tl-loc__name { font-size: var(--fs-base); font-weight: 600; line-height: 1.3; color: var(--c-text); text-decoration: none; }
 /* The whole row chooses the place, bar included. */
 .tl-loc__name::after { content: ""; position: absolute; inset: 0; }
@@ -331,9 +329,11 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc__span > span, .tl-loc__totals > span { display: block; padding-top: 0.25rem; }
 
 /* Phone: each place is a short stack: name, when, a thin bar across the eras, and the same in words. */
-@media (max-width: 699px) {
+@media (max-width: 43.6875em) {
   .tl-loc__head { position: static; grid-template-columns: minmax(0, 1fr); padding: var(--sp-1) 0; }
-  .tl-loc__head-label, .tl-loc__intro .tl-loc__legend { display: none; }
+  .tl-loc__head-label, .tl-loc__intro .tl-loc__legend, .tl-loc__keyrow > span { display: none; }
+  .tl-loc__keyrow { grid-template-columns: minmax(0, 1fr); }
+  .tl-loc__erakey-item { white-space: normal; }
   .tl-loc__era { justify-items: center; padding-inline: 0; }
   .tl-loc__kind { padding-left: 0; }
   .tl-loc__row { grid-template-columns: minmax(0, 1fr); row-gap: 0.45rem; padding: var(--sp-3) 0; }

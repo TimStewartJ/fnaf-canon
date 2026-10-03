@@ -1,5 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { DRAWER_KEY, OVERLAY_KEY, entryState, liveAddress, notePlace, samePath, settleAddress } from "../address";
 import { deferred } from "../deferred";
 import { evidencePath } from "../links";
 import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, type EvidenceDrawerApi } from "../evidenceDrawer";
@@ -7,7 +8,7 @@ import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, t
 // A separate chunk that never suspends (see deferred.ts): the first citation opens as fast as the rest.
 const EvidenceDrawer = deferred(() => import("../EvidenceDrawer"));
 
-interface WithDrawer { drawer?: DrawerState }
+interface WithDrawer { [DRAWER_KEY]?: DrawerState }
 
 /**
  * Provides the evidence drawer to everything below it and renders the drawer itself. The open
@@ -17,29 +18,41 @@ interface WithDrawer { drawer?: DrawerState }
 export function DrawerHost({ children }: { children: ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const drawer = (location.state as WithDrawer | null)?.drawer ?? null;
+  const drawer = (location.state as WithDrawer | null)?.[DRAWER_KEY] ?? null;
 
-  // open() and close() look up the current history entry when they are called, so the API object
-  // never changes and nothing that reads it re-renders when the drawer opens or closes.
-  const latest = useRef({ location, drawer, navigate });
-  useLayoutEffect(() => { latest.current = { location, drawer, navigate }; });
+  // open() and close() read the browser's own entry when they are called (the router's copy runs
+  // a render behind), so the API object never changes and nothing that reads it re-renders when
+  // the drawer opens or closes.
+  const latest = useRef({ pathname: location.pathname, drawer, navigate });
+  useLayoutEffect(() => { latest.current = { pathname: location.pathname, drawer, navigate }; });
 
   const api = useMemo<EvidenceDrawerApi>(() => {
     const now = () => {
-      const { location: l, drawer: d, navigate: go } = latest.current;
-      return { d, go, here: { pathname: l.pathname, search: l.search, hash: l.hash }, state: (l.state ?? {}) as WithDrawer };
+      const live = liveAddress();
+      const state = entryState<WithDrawer>() ?? {};
+      // The path as the router spells it, so the page under the drawer is not taken for a new one.
+      const pathname = samePath(latest.current.pathname, live.pathname) ? latest.current.pathname : live.pathname;
+      return { d: state[DRAWER_KEY], go: latest.current.navigate, here: { pathname, search: live.search, hash: live.hash }, state };
     };
     return {
-      open(id, group) {
+      open(id, group, of) {
+        // A filter still on its way to the address is written first: the drawer's entry, and the one under it, both say what the reader sees.
+        settleAddress();
         const { d, go, here, state } = now();
-        go(here, { state: { ...state, drawer: { id, group, pushed: d ? d.pushed : true } }, replace: !!d });
+        // Opened from another overlay (a search result, a record named under an enlarged image):
+        // the drawer takes that overlay's place in the history, so Back from the drawer is the page.
+        const { [OVERLAY_KEY]: overlay, ...rest } = state as WithDrawer & Record<string, unknown>;
+        const steps = (d?.steps ?? 1) + (d && overlay ? 1 : 0);
+        if (!d && !overlay) notePlace();
+        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, pushed: d ? d.pushed : true, steps } }, replace: !!d || !!overlay });
       },
       close() {
         const { d, go, here, state } = now();
         if (!d) return;
         const idx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
-        if (d.pushed && idx > 0) go(-1);
-        else go(here, { state: { ...state, drawer: undefined }, replace: true });
+        const steps = d.steps ?? 1;
+        if (d.pushed && idx >= steps) void go(-steps);
+        else void go(here, { state: { ...state, [DRAWER_KEY]: undefined }, replace: true });
       },
     };
   }, []);
@@ -51,7 +64,7 @@ export function DrawerHost({ children }: { children: ReactNode }) {
         <EvidenceDrawer
           props={drawer && { state: drawer, onClose: api.close }}
           // The drawer's code could not be fetched, even after a reload: show the record's own page.
-          onFail={() => { const d = latest.current.drawer; if (d) latest.current.navigate(evidencePath(d.id), { replace: true }); }}
+          onFail={() => { const d = latest.current.drawer; if (d) void latest.current.navigate(evidencePath(d.id), { replace: true }); }}
         />
       </EvidenceDrawerRecordContext.Provider>
     </EvidenceDrawerContext.Provider>

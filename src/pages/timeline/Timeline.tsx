@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
 import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
-import { landOn, useReturnVisit, useUrlState } from "./hooks";
+import { landOn, useReturnVisit } from "./hooks";
 import {
   type EraGroup, type FilterChange, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords,
   isFiltered, kindOfId, plural, readFilters, sameFilters, titleOfId, within, writeFilters,
@@ -66,7 +66,7 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
           <h2 className="tl-era__title" tabIndex={-1}>{smartQuotes(era.name)}</h2>
           {era.range && <DatePill label={era.range} kind={date?.kind ?? "unknown"} basis={date?.basis} evidence={date?.evidence} />}
         </div>
-        {era.summary && <p className="tl-era__sum">{smartQuotes(era.summary)}</p>}
+        {era.summary && <p className="tl-era__sum"><RichText text={era.summary} /></p>}
       </header>
       {rows.length > 0 ? (
         <ol className={`tl-list${folded ? " is-folded" : ""}`}>
@@ -87,7 +87,10 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
 }
 
 export default function Timeline() {
-  const [sp, update] = useUrlState();
+  // The page's state lives in the address. Filters and open rows replace the current history entry
+  // (Back leaves the page, and coming back restores the view); a change of view or a jump to an era
+  // adds one, so that Back undoes it.
+  const { params: sp, write: update } = useAddress();
   const fkey = filtersKey(sp);
   const f = useMemo(() => readFilters(new URLSearchParams(fkey)), [fkey]);
   const line = useMemo(() => buildLineup(f), [f]);
@@ -240,7 +243,7 @@ export default function Timeline() {
       </PageHeader>
 
       <div className="tl-bar" ref={bar}>
-        <Tabs tabs={VIEWS} value={view} onChange={setView} label="Views of the timeline" />
+        <Tabs tabs={VIEWS} value={view} onChange={setView} label="Views of the timeline" panel="tl-view" />
         <div className="tl-bar__tools">
           <MarksKey />
           <button
@@ -248,7 +251,7 @@ export default function Timeline() {
             type="button"
             className={`btn btn--sm tl-bar__filters${nApplied ? " on" : ""}`}
             aria-expanded={filtersOpen}
-            aria-controls={phone ? undefined : "tl-filter-panel"}
+            aria-controls={!phone && filtersOpen ? "tl-filter-panel" : undefined}
             aria-haspopup={phone ? "dialog" : undefined}
             onClick={() => setFiltersOpen((o) => !o)}
           >
@@ -267,7 +270,7 @@ export default function Timeline() {
       <AppliedSummary f={f} line={line} set={setFilters} onClear={clearFilters} idle={!applied} focusAfter={filtersBtn} onDone={filtersOpen && !phone ? () => setFiltersOpen(false) : undefined} />
 
       {view === "events" ? (
-        <div className="tl-events" role="tabpanel" aria-label="Events" tabIndex={-1} ref={panel}>
+        <TabPanel id="tl-view" tab={view} className="tl-events" tabIndex={-1} ref={panel}>
           {wide ? <EraRail entries={eraEntries} sp={sp} onGo={goToEra} /> : <EraBar entries={eraEntries} sp={sp} onGo={goToEra} />}
           <div className="tl-line">
             {lost && (
@@ -290,11 +293,11 @@ export default function Timeline() {
               </p>
             )}
           </div>
-        </div>
+        </TabPanel>
       ) : (
-        <div className="tl-places" role="tabpanel" aria-label="Locations" tabIndex={-1} ref={panel}>
+        <TabPanel id="tl-view" tab={view} className="tl-places" tabIndex={-1} ref={panel}>
           <LocationsView f={f} sp={sp} onLeave={() => { viewJump.current = true; }} />
-        </div>
+        </TabPanel>
       )}
     </Page>
   );

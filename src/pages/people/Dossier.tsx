@@ -1,8 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { Button, smartQuotes } from "../../components/ui";
-import { useAnchor } from "./urlState";
+import { Button, smartQuotes, useAddress } from "../../components/ui";
 
 /**
  * A section of a dossier page (person, place): the heading, a count and a one-line lead sit in a
@@ -67,7 +66,7 @@ export function Capped<T>({ items, cap, noun, children }: { items: readonly T[];
  * add a hash (which the shell scrolls to) and keep the page's query string.
  */
 export function JumpLinks({ items, label = "On this page" }: { items: readonly { id: string; label: string; n?: number }[]; label?: string }) {
-  const anchor = useAnchor();
+  const { link: anchor } = useAddress();
   if (items.length < 2) return null;
   return (
     <nav className="ppl-toc" aria-label={label}>
@@ -77,28 +76,3 @@ export function JumpLinks({ items, label = "On this page" }: { items: readonly {
     </nav>
   );
 }
-
-/**
- * The body of a fold that starts closed, drawn only once the fold is opened (and kept from then on).
- * A page with many closed folds (a list of people, each with their ties; the evidence of each record)
- * would otherwise draw every hidden row up front. Put it directly inside a <Collapsible>.
- * The body is ready before the fold opens (it listens for the press on the summary), so nothing flickers.
- */
-export function WhenOpened({ open = false, children }: { open?: boolean; children: () => ReactNode }) {
-  const [seen, setSeen] = useState(open);
-  const marker = useRef<HTMLSpanElement | null>(null);
-  useEffect(() => {
-    if (seen) return;
-    const details = marker.current?.closest("details");
-    if (!details) { setSeen(true); return; }
-    if (details.open) { setSeen(true); return; }
-    const show = () => setSeen(true);
-    const summary = details.querySelector("summary");
-    // The press comes before the fold opens; "toggle" covers every other way of opening it (find in page, a script).
-    summary?.addEventListener("click", show);
-    details.addEventListener("toggle", show);
-    return () => { summary?.removeEventListener("click", show); details.removeEventListener("toggle", show); };
-  }, [seen]);
-  return seen ? <>{children()}</> : <span ref={marker} hidden />;
-}
-

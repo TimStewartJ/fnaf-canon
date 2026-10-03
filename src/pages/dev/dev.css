@@ -1,7 +1,7 @@
 /* Review fixtures (/dev/blocks, /dev/kit). Owned by the lead. */
 .dev-page > .band { padding-block: var(--sp-6) var(--sp-8); }
 .dev-toc { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-4); margin-top: var(--sp-4); font-size: var(--fs-sm); }
-.dev-section { margin-top: var(--sp-8); padding-top: var(--sp-5); border-top: 1px dashed var(--c-line-strong); scroll-margin-top: calc(var(--sticky-top) + var(--sp-4)); }
+.dev-section { margin-top: var(--sp-8); padding-top: var(--sp-5); border-top: 1px dashed var(--c-line-strong); }
 .dev-label { margin: 0 0 var(--sp-5); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-open); }
 .dev-narrow { max-width: 46rem; }
 .dev-rail { max-width: 17rem; }

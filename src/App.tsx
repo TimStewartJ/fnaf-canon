@@ -1,14 +1,16 @@
 import { Suspense, lazy, memo, useEffect, useMemo, useState, type ReactNode } from "react";
-import { HashRouter, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
+import { HashRouter, Navigate, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
+import { samePath, useAddressRouter, useLivePath } from "./components/address";
 import { CiteScope } from "./components/CiteScope";
 import { deferred } from "./components/deferred";
 import { Loading } from "./components/layout";
+import { useOverlayRouter } from "./components/overlayEntry";
 import { DrawerHost } from "./components/shell/DrawerHost";
 import { Footer } from "./components/shell/Footer";
 import { Header } from "./components/shell/Header";
 import { MenuSheet } from "./components/shell/MenuSheet";
 import { PageBoundary } from "./components/shell/PageBoundary";
-import { usePrefs } from "./components/shell/prefs";
+import { usePrefs, usePrinting } from "./components/shell/prefs";
 import { ScrollManager } from "./components/shell/ScrollManager";
 
 /*
@@ -43,24 +45,28 @@ const SearchPalette = deferred(() => import("./components/shell/SearchPalette"))
 const isTyping = (el: EventTarget | null) => el instanceof HTMLElement && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
 
 /**
- * What a page sees as the current location: the URL only. History state (where the open evidence
- * drawer lives) and the entry key are left out, so opening or closing the drawer re-renders the
- * shell and the drawer, never the page underneath. The shell itself still reads the real location.
+ * What a page gets from the router: its path, and nothing else. The query and the anchor come
+ * from the address layer (components/address.ts), which shows a change the moment it is made; the
+ * router's own copy arrives a render later, as a transition. History state (where the open
+ * evidence drawer lives) and the entry key are left out too. So a change of filter, an anchor, or
+ * the drawer opening re-renders the shell, and the parts of a page that read the address, never
+ * the whole page through the router. The shell itself still reads the real location.
  *
  * react-router marks its location context "UNSAFE" because it is not a documented API; this is the
  * same provider <Routes location> renders, with a value that keeps its identity. If the router is
- * upgraded and this breaks, removing <PageLocation> restores correct (but slower) behaviour.
+ * upgraded and this breaks, removing <PageLocation> restores correct (but slower) behaviour for
+ * everything except `useSearchParams` and `useLocation().search`, which pages do not use.
  */
 function PageLocation({ children }: { children: ReactNode }) {
-  const { pathname, search, hash } = useLocation();
+  const { pathname } = useLocation();
   const value = useMemo(
-    () => ({ location: { pathname, search, hash, state: null, key: `${pathname}${search}${hash}` }, navigationType: NavigationType.Pop }),
-    [pathname, search, hash],
+    () => ({ location: { pathname, search: "", hash: "", state: null, key: pathname }, navigationType: NavigationType.Pop }),
+    [pathname],
   );
   return <LocationContext.Provider value={value}>{children}</LocationContext.Provider>;
 }
 
-/** The routed pages. Memoised with no props: only a change of URL (through PageLocation) re-renders it. */
+/** The routed pages. Memoised with no props: only a change of path (through PageLocation) re-renders it. */
 const Pages = memo(function Pages() {
   const { pathname } = useLocation();
   return (
@@ -101,11 +107,18 @@ const Pages = memo(function Pages() {
 });
 
 function Shell() {
-  const location = useLocation();
+  const { pathname, search: query, hash } = useLocation();
   const [search, setSearch] = useState(false);
-  // The phone menu belongs to the history entry it was opened on, so navigating closes it.
+  // The phone menu belongs to the page it was opened on, so going anywhere closes it. (Not to the
+  // history entry: a page rewrites its own entry whenever a filter changes.)
   const [menuAt, setMenuAt] = useState<string | null>(null);
+  const [searchFailed, setSearchFailed] = useState(false);
   usePrefs();
+  usePrinting();
+  useAddressRouter();
+  useOverlayRouter();
+  // The address has moved on and the page has not yet: its code is still being fetched.
+  const arriving = !samePath(useLivePath(), pathname);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -119,16 +132,27 @@ function Shell() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Every id in the archive is lower case, so an address typed or pasted with capitals is the same page.
+  if (pathname !== pathname.toLowerCase()) return <Navigate to={{ pathname: pathname.toLowerCase(), search: query, hash }} replace />;
+
   return (
     <DrawerHost>
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a>
-      <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(location.key)} />
-      <main id="main" className="site-main" tabIndex={-1}>
+      <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(pathname)} />
+      {arriving && <div className="route-progress" aria-hidden />}
+      <main id="main" className="site-main" tabIndex={-1} aria-busy={arriving || undefined}>
         <PageLocation><Pages /></PageLocation>
       </main>
       <Footer />
-      {menuAt === location.key && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
-      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => setSearch(false)} />
+      {menuAt === pathname && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
+      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} onFail={() => { setSearch(false); setSearchFailed(true); }} />
+      {searchFailed && (
+        <div className="shell-notice" role="alert">
+          <span>Search could not be loaded. The archive may have been updated while this tab was open, or the connection dropped.</span>
+          <button type="button" className="btn btn--sm btn--primary" onClick={() => window.location.reload()}>Reload</button>
+          <button type="button" className="btn btn--sm btn--quiet" onClick={() => setSearchFailed(false)}>Dismiss</button>
+        </div>
+      )}
     </DrawerHost>
   );
 }

@@ -55,6 +55,33 @@ export function chapterCitations(s: TheorySection): string[] {
 
 const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
+/** A heading inside a chapter: its words, and the anchor it can be linked by. */
+export interface SectionHead { id: string; text: string }
+
+/**
+ * The headings of a chapter, in order, each with an anchor that is unique on the page
+ * ("s-the-locked-box"). The chapter's contents list and the headings themselves both come from
+ * this, so a link to a section always has somewhere to land.
+ */
+export function chapterHeads(s: TheorySection): SectionHead[] {
+  const seen = new Map<string, number>();
+  const out: SectionHead[] = [];
+  for (const b of s.body) {
+    if (typeof b === "string" || b.kind !== "heading") continue;
+    const text = plainText(b.text);
+    const slug = `s-${text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/['\u2018\u2019]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section"}`;
+    const n = (seen.get(slug) ?? 0) + 1;
+    seen.set(slug, n);
+    out.push({ id: n > 1 ? `${slug}-${n}` : slug, text });
+  }
+  return out;
+}
+
+/** Words in a piece of RichText, for reading times. */
+const wordCount = (texts: string[]): number => texts.map(plainText).join(" ").split(/\s+/).filter(Boolean).length;
+/** Minutes to read some RichText at an easy pace; never less than one. */
+export const minutesFor = (texts: string[]): number => Math.max(1, Math.round(wordCount(texts) / 230));
+
 /** The chapter's question, unless it only repeats the title. */
 export function distinctQuestion(s: TheorySection): string | undefined {
   return s.question && norm(s.question) !== norm(s.title) ? s.question : undefined;
@@ -72,9 +99,7 @@ export function chapterGist(s: TheorySection): { text: string; derived: boolean 
 
 /** Rough reading time in minutes for a chapter's prose. */
 export function readingMinutes(s: TheorySection): number {
-  const words = [s.answer ?? "", ...s.body.flatMap((b) => (typeof b === "string" ? [b] : blockTexts(b))), s.tension ?? "", s.changesIf ?? ""]
-    .map(plainText).join(" ").split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 230));
+  return minutesFor([s.answer ?? "", ...s.body.flatMap((b) => (typeof b === "string" ? [b] : blockTexts(b))), s.tension ?? "", s.changesIf ?? ""]);
 }
 
 /* ── Reading progress, remembered on this device ─────────────────── */

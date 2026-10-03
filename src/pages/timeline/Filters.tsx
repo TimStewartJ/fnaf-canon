@@ -2,7 +2,7 @@ import type { RefObject } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import {
-  Button, DEATH_KIND_ICON, DeathIcon, FilterBar, FilterChip, FilterGroup, FirmGlyph, GameMark, Icon, IconButton, STATUS, Segmented, smartQuotes, useModalDialog,
+  Button, FilterBar, deathKindIcon, FilterChip, FilterGroup, FirmGlyph, GameMark, Icon, IconButton, STATUS, Segmented, smartQuotes, useModalDialog,
 } from "../../components/ui";
 import {
   type FilterChange, type Filters, type Layer, type Lineup, DEATH_KINDS, STATUSES, appliedFilters, causeLabel, countPhrase, isDescriptor, isUnknownKiller, killerName, killerOptions,
@@ -71,7 +71,7 @@ export function FilterPanel({ f, set, locationsTo, bare = false, onLeave }: { f:
             <FilterChip on={!f.cause.length} onClick={() => set((now) => ({ ...now, cause: [] }))}>Any</FilterChip>
             {DEATH_KINDS.map((k) => (
               <FilterChip key={k} on={f.cause.includes(k)} onClick={() => set((now) => ({ ...now, cause: toggleIn(DEATH_KINDS, now.cause, k) }))}>
-                <Icon icon={DEATH_KIND_ICON[k] ?? DeathIcon} /> {causeLabel(k)}
+                <Icon icon={deathKindIcon(k)} /> {causeLabel(k)}
               </FilterChip>
             ))}
           </FilterGroup>

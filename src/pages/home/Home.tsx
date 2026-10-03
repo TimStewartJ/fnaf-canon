@@ -3,13 +3,19 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { credits, eras, evidence, games, people, relations, storyline, theory, theoryById, theoryIntro, timeline } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { homeSummary, keyQuestions } from "../../data/home";
-import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, plainText, smartQuotes } from "../../components/ui";
+import * as home from "../../data/home";
+import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, numberWord, plainText, smartQuotes } from "../../components/ui";
 import { Storyline } from "../theory/Storyline";
 import { chapterNumber, partGroups } from "../theory/model";
 import "../theory/theory.css";
 import "./home.css";
 
+const { homeSummary, keyQuestions } = home;
+/**
+ * The headline: what this is, in a few words. The data may supply one (`homeHeadline` in
+ * data/home.ts); until it does, this one stands, made of words the page already uses.
+ */
+const HEADLINE = (home as { homeHeadline?: string }).homeHeadline ?? "One story, from the evidence up.";
 const HERO_IMAGE = "fnaf2-take-cake-to-the-children.png";
 const BEATS_ON_HOME = 6;
 const STRIP = ["fnaf4-fredbear-and-friends-1983-tv.png", "fnaf1-missing-children-newspapers.jpg", "fnaf3-springlock-death.png", "ffps-insanity-scup-blueprint.png"];
@@ -49,15 +55,14 @@ export default function Home() {
 
   return (
     <Page title={null} flush className="home">
+      {/* The first screen, in this order: what this is, the thesis, the ways in, an exhibit. */}
       <header className="home-hero band">
-        <div className="band__inner">
-          <div className="home-hero__grid">
-            <div className="home-hero__text">
-              <p className="kicker">Five Nights at Freddy’s, from the evidence up</p>
-              <h1 className="home-hero__title">{smartQuotes(theoryIntro.standfirst)}</h1>
-              <p className="home-hero__thesis"><RichText text={theoryIntro.thesis} /></p>
-            </div>
-            {heroImage && <Figure className="home-hero__figure" file={heroImage} tag="Exhibit" eager />}
+        <div className="band__inner home-hero__grid">
+          <div className="home-hero__text">
+            <p className="kicker">Five Nights at Freddy’s</p>
+            <h1 className="home-hero__title">{smartQuotes(HEADLINE)}</h1>
+            <p className="home-hero__thesis"><RichText text={theoryIntro.thesis} /></p>
+            <p className="home-hero__rule">Built only from the games and Scott Cawthon’s own words. <Link to="/method">How the archive works</Link></p>
           </div>
 
           <nav className="path" aria-label="Where to start">
@@ -74,9 +79,11 @@ export default function Home() {
             <Link to="/evidence" className="path__step">
               <span className="path__n">3</span>
               <span className="path__title">Then check the evidence <Icon icon={ArrowRight} /></span>
-              <span className="path__desc">{evidence.length} records, each one fact pinned to an exact spot in a game or to Scott’s own words.</span>
+              <span className="path__desc">{evidence.length.toLocaleString("en-GB")} records, each one fact pinned to an exact spot in a game or to Scott’s own words.</span>
             </Link>
           </nav>
+
+          {heroImage && <Figure className="home-hero__figure" file={heroImage} tag="Exhibit" eager />}
         </div>
       </header>
 
@@ -120,7 +127,7 @@ export default function Home() {
       <HomeSection
         id="findings"
         kicker="The ground it stands on"
-        title="Six things the evidence establishes"
+        title={`${numberWord(homeSummary.length, true)} things the evidence establishes`}
         lead="Each is marked canon, strong inference or theory. The small numbers open the records behind a sentence without leaving this page."
         more={<Link to="/method">How the archive decides what counts<Icon icon={ArrowRight} /></Link>}
       >
@@ -138,7 +145,7 @@ export default function Home() {
       <HomeSection
         id="eras"
         kicker="The timeline"
-        title="Eight eras, one line of events"
+        title={`${numberWord(eras.length, true)} eras, one line of events`}
         lead="Every event, death and location laid out in order, each date marked as printed, derived or estimated."
         more={<Link to="/timeline">Open the timeline<Icon icon={ArrowRight} /></Link>}
       >
@@ -148,9 +155,9 @@ export default function Home() {
               <span className="era-row__n">{String(i + 1).padStart(2, "0")}</span>
               <div className="era-row__body">
                 <h3 className="era-row__name"><Link to={`/timeline?era=${e.id}`}>{smartQuotes(e.name)}</Link></h3>
-                <p className="era-row__sum">{smartQuotes(e.summary)}</p>
+                <p className="era-row__when"><DatePill label={e.range} kind={ERA_DATES[e.id]?.kind ?? "unknown"} basis={ERA_DATES[e.id]?.basis} evidence={ERA_DATES[e.id]?.evidence} compact /></p>
+                <p className="era-row__sum">{smartQuotes(plainText(e.summary))}</p>
               </div>
-              <DatePill label={e.range} kind={ERA_DATES[e.id]?.kind ?? "unknown"} basis={ERA_DATES[e.id]?.basis} evidence={ERA_DATES[e.id]?.evidence} compact />
             </li>
           ))}
         </ol>
