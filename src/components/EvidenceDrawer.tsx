@@ -13,6 +13,7 @@ import { Firmness } from "./Firmness";
 import { Icon } from "./Icon";
 import { Callout, Fact, Facts } from "./layout";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
+import { smartQuotes } from "./typography";
 
 function Record({ e }: { e: Evidence }) {
   const bl = backlinksFor(e.id);
@@ -23,25 +24,25 @@ function Record({ e }: { e: Evidence }) {
   return (
     <>
       <p className="drawer__source"><SourceLine e={e} /></p>
-      <h2 className="drawer__title" id="drawer-title">{e.title}</h2>
-      <p className="drawer__claim">{e.claim}</p>
-      {e.quote && <blockquote className="drawer__quote">“{e.quote}”</blockquote>}
+      <h2 className="drawer__title" id="drawer-title">{smartQuotes(e.title)}</h2>
+      <p className="drawer__claim">{smartQuotes(e.claim)}</p>
+      {e.quote && <blockquote className="drawer__quote">“{smartQuotes(e.quote)}”</blockquote>}
       {e.image && <Figure file={e.image} />}
       <Facts className="drawer__facts">
         <Fact label="Certainty"><Firmness scale="certainty" value={e.certainty} variant="inline" /> <span className="muted">{CERTAINTY[e.certainty].help}.</span></Fact>
-        <Fact label="In-universe time"><EvidenceDate e={e} />{e.when.basis && <span className="muted"> {e.when.basis}</span>}</Fact>
+        <Fact label="In-universe time"><EvidenceDate e={e} />{e.when.basis && <span className="muted"> {smartQuotes(e.when.basis)}</span>}</Fact>
         {entities.length > 0 && <Fact label="People and places"><span className="cluster">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</span></Fact>}
         {!!e.tags?.length && <Fact label="Tags"><span className="cluster">{e.tags.map((t) => <Tag key={t} to={`/evidence?tag=${t}`}>#{t}</Tag>)}</span></Fact>}
         {e.url && <Fact label="Original"><a href={e.url} target="_blank" rel="noreferrer" className="drawer__url">{e.url.replace(/^https?:\/\//, "")}<Icon icon={ArrowUpRight} /></a></Fact>}
       </Facts>
-      {e.notes && <Callout tone="note" title="Notes and caveats"><p>{e.notes}</p></Callout>}
+      {e.notes && <Callout tone="note" title="Notes and caveats"><p>{smartQuotes(e.notes)}</p></Callout>}
       {chapters.length > 0 && (
         <section className="drawer__section">
           <h3 className="label">In the theory</h3>
           <ul className="plain">
             {chapters.map((s) => (
               <li key={s.id}>
-                <Link to={chapterPath(s.id)}>{s.title}</Link>
+                <Link to={chapterPath(s.id)}>{smartQuotes(s.title)}</Link>
                 {s.counterEvidence?.includes(e.id) && <span className="chip" data-tone="tension">pushes back</span>}
                 {!bl.theory.includes(s) && <span className="chip">filed, not cited</span>}
               </li>

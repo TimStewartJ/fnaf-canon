@@ -18,14 +18,26 @@ export interface EvidenceDrawerApi {
   /** Opens a record. `group` lists the records cited together at that spot. */
   open(id: string, group?: string[]): void;
   close(): void;
-  /** The id currently shown, if any. */
-  current: string | null;
 }
 
-export const EvidenceDrawerContext = createContext<EvidenceDrawerApi>({ open: () => {}, close: () => {}, current: null });
+/**
+ * The API object keeps its identity while the drawer opens and closes, so the hundreds of
+ * citations and cards that read it do not re-render. What is open right now travels separately.
+ */
+export const EvidenceDrawerContext = createContext<EvidenceDrawerApi>({ open: () => {}, close: () => {} });
+export const EvidenceDrawerRecordContext = createContext<string | null>(null);
 
 export function useEvidenceDrawer(): EvidenceDrawerApi {
   return useContext(EvidenceDrawerContext);
+}
+
+/**
+ * The id of the record the drawer is showing, or null. A component that calls this re-renders
+ * whenever the drawer opens, changes record or closes, so use it only where that is wanted
+ * (marking the row whose record is open, for example).
+ */
+export function useDrawerRecord(): string | null {
+  return useContext(EvidenceDrawerRecordContext);
 }
 
 /** True for a plain left click with no modifier keys (so Ctrl/Cmd/middle click still opens a new tab). */

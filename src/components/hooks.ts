@@ -1,11 +1,12 @@
 /** Small shared hooks. No components here. */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type MouseEvent, type RefObject, type SyntheticEvent } from "react";
 import { SITE_NAME } from "./labels";
+import { smartQuotes } from "./typography";
 
 /** Sets the document title for the current route: "Page · Fazbear Canon Archive". */
 export function usePageTitle(title?: string | null) {
   useEffect(() => {
-    document.title = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+    document.title = title ? `${smartQuotes(title)} · ${SITE_NAME}` : SITE_NAME;
   }, [title]);
 }
 

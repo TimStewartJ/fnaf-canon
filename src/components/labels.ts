@@ -27,7 +27,7 @@ export const CERTAINTY: Record<Certainty, FirmnessInfo> = {
 export const STATUS: Record<Status, FirmnessInfo> = {
   canon: { level: "firm", word: "Canon", short: "Canon", help: "Directly established by the cited records" },
   strong: { level: "partial", word: "Strong inference", short: "Strong", help: "Forced by several records together" },
-  theory: { level: "tentative", word: "Theory", short: "Theory", help: "This archive's reconstruction where the games leave a gap" },
+  theory: { level: "tentative", word: "Theory", short: "Theory", help: "This archive’s reconstruction where the games leave a gap" },
 };
 export const CONFIDENCE: Record<Confidence, FirmnessInfo> = {
   high: { level: "firm", word: "High confidence", short: "High", help: "The main claim rests on records that say or show it" },
@@ -52,9 +52,9 @@ export const STATUS_HELP: Record<Status, string> = { canon: STATUS.canon.help, s
 
 /** How a displayed date is supported: the fourth scale, drawn with the same glyph family. */
 export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
-  printed: { label: "Printed", help: "The date is printed or spoken in a game or in Scott's words" },
+  printed: { label: "Printed", help: "The date is printed or spoken in a game or in Scott’s words" },
   derived: { label: "Derived", help: "Calculated from printed dates and stated intervals" },
-  estimated: { label: "Estimated", help: "This archive's best estimate from the surrounding evidence" },
+  estimated: { label: "Estimated", help: "This archive’s best estimate from the surrounding evidence" },
   relative: { label: "Relative", help: "Only placed relative to other events" },
   teaser: { label: "Teaser", help: "Shown only in an official teaser, not in the game itself" },
   unknown: { label: "Undated", help: "The sources give no date" },

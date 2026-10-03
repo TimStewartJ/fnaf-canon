@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { credits, eras, evidence, games, people, relations, storyline, theory, theoryById, theoryIntro, timeline } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
 import { homeSummary, keyQuestions } from "../../data/home";
-import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, plainText } from "../../components/ui";
+import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, plainText, smartQuotes } from "../../components/ui";
 import { Storyline } from "../theory/Storyline";
 import { chapterNumber, partGroups } from "../theory/model";
 import "../theory/theory.css";
@@ -20,9 +20,9 @@ function HomeSection({ id, kicker, title, lead, more, children }: { id: string; 
     <section className="home-section band" aria-labelledby={`h-${id}`}>
       <div className="band__inner home-section__grid">
         <header className="home-section__head">
-          <p className="kicker">{kicker}</p>
-          <h2 id={`h-${id}`} className="home-section__title">{title}</h2>
-          {lead && <p className="home-section__lead">{lead}</p>}
+          <p className="kicker">{smartQuotes(kicker)}</p>
+          <h2 id={`h-${id}`} className="home-section__title">{smartQuotes(title)}</h2>
+          {lead && <p className="home-section__lead">{typeof lead === "string" ? smartQuotes(lead) : lead}</p>}
           {more && <p className="home-section__more">{more}</p>}
         </header>
         <div className="home-section__body">{children}</div>
@@ -53,8 +53,8 @@ export default function Home() {
         <div className="band__inner">
           <div className="home-hero__grid">
             <div className="home-hero__text">
-              <p className="kicker">Five Nights at Freddy's, from the evidence up</p>
-              <h1 className="home-hero__title">{theoryIntro.standfirst}</h1>
+              <p className="kicker">Five Nights at Freddy’s, from the evidence up</p>
+              <h1 className="home-hero__title">{smartQuotes(theoryIntro.standfirst)}</h1>
               <p className="home-hero__thesis"><RichText text={theoryIntro.thesis} /></p>
             </div>
             {heroImage && <Figure className="home-hero__figure" file={heroImage} tag="Exhibit" eager />}
@@ -74,7 +74,7 @@ export default function Home() {
             <Link to="/evidence" className="path__step">
               <span className="path__n">3</span>
               <span className="path__title">Then check the evidence <Icon icon={ArrowRight} /></span>
-              <span className="path__desc">{evidence.length} records, each one fact pinned to an exact spot in a game or to Scott's own words.</span>
+              <span className="path__desc">{evidence.length} records, each one fact pinned to an exact spot in a game or to Scott’s own words.</span>
             </Link>
           </nav>
         </div>
@@ -85,7 +85,7 @@ export default function Home() {
           id="story"
           kicker="The story in brief"
           title="What happened, in order"
-          lead="The model's short telling. Every beat carries a mark for how sure it is and the chapters that argue it."
+          lead="The model’s short telling. Every beat carries a mark for how sure it is and the chapters that argue it."
           more={<Link to="/theory#storyline">{storyline.length > BEATS_ON_HOME ? `Read all ${storyline.length} beats` : "Read it with the exhibits"}<Icon icon={ArrowRight} /></Link>}
         >
           <Storyline beats={storyline.slice(0, BEATS_ON_HOME)} compact />
@@ -100,16 +100,16 @@ export default function Home() {
           id="questions"
           kicker="The full case"
           title="Questions the model answers"
-          lead={`The old arguments, each with the model's answer in a sentence. The reasoning is in the chapter behind it.`}
+          lead={`The old arguments, each with the model’s answer in a sentence. The reasoning is in the chapter behind it.`}
           more={<Link to="/theory#contents">All {theory.length} chapters in {partGroups.length} parts<Icon icon={ArrowRight} /></Link>}
         >
           <ul className="qa-list">
             {questions.map((q) => (
               <li key={q.q}>
                 <Link to={chapterPath(q.section)} className="qa">
-                  <span className="qa__q">{q.q}</span>
-                  <span className="qa__a">{q.a}</span>
-                  <span className="qa__where">Chapter {chapterNumber(q.section)} · {theoryById.get(q.section)?.title}</span>
+                  <span className="qa__q">{smartQuotes(q.q)}</span>
+                  <span className="qa__a">{smartQuotes(q.a)}</span>
+                  <span className="qa__where">Chapter {chapterNumber(q.section)} · {smartQuotes(theoryById.get(q.section)?.title ?? "")}</span>
                 </Link>
               </li>
             ))}
@@ -128,7 +128,7 @@ export default function Home() {
           {homeSummary.map((s) => (
             <article key={s.title} className="finding">
               <StatusMark value={s.status} long />
-              <h3 className="finding__title">{s.title}</h3>
+              <h3 className="finding__title">{smartQuotes(s.title)}</h3>
               <p className="finding__text"><RichText text={s.text} /></p>
             </article>
           ))}
@@ -147,8 +147,8 @@ export default function Home() {
             <li key={e.id} className="era-row" style={{ "--hue": eraHue(e.id) } as CSSProperties}>
               <span className="era-row__n">{String(i + 1).padStart(2, "0")}</span>
               <div className="era-row__body">
-                <h3 className="era-row__name"><Link to={`/timeline?era=${e.id}`}>{e.name}</Link></h3>
-                <p className="era-row__sum">{e.summary}</p>
+                <h3 className="era-row__name"><Link to={`/timeline?era=${e.id}`}>{smartQuotes(e.name)}</Link></h3>
+                <p className="era-row__sum">{smartQuotes(e.summary)}</p>
               </div>
               <DatePill label={e.range} kind={ERA_DATES[e.id]?.kind ?? "unknown"} basis={ERA_DATES[e.id]?.basis} evidence={ERA_DATES[e.id]?.evidence} compact />
             </li>

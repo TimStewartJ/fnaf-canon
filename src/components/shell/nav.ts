@@ -26,7 +26,7 @@ export const NAV: NavGroup[] = [
     id: "evidence", label: "Evidence", match: ["/evidence", "/sources", "/gallery"],
     items: [
       { to: "/evidence", label: "Evidence locker", desc: "Every record, one fact each, searchable", icon: SECTION_ICON.evidence },
-      { to: "/sources", label: "Sources", desc: "The games and Scott's own words", icon: SECTION_ICON.sources },
+      { to: "/sources", label: "Sources", desc: "The games and Scott’s own words", icon: SECTION_ICON.sources },
       { to: "/gallery", label: "Gallery", desc: "The screenshots, as exhibits", icon: SECTION_ICON.gallery },
     ],
   },
@@ -44,7 +44,7 @@ export const NAV: NavGroup[] = [
     items: [
       { to: "/box", label: "The Box", desc: "What was in FNaF4's locked box", icon: SECTION_ICON.box },
       { to: "/community", label: "Theorists & Scott", desc: "Fan theories, scored against the evidence", icon: SECTION_ICON.community },
-      { to: "/author", label: "Scott & Faith", desc: "The author's background, and what it changes", icon: SECTION_ICON.author },
+      { to: "/author", label: "Scott & Faith", desc: "The author’s background, and what it changes", icon: SECTION_ICON.author },
     ],
   },
   { id: "method", label: "Method", to: "/method", desc: "What counts as evidence, and how the archive is built", icon: SECTION_ICON.method, match: ["/method"] },

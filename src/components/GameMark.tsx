@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { gameById } from "../data/store";
 import { gameMeta } from "../data/gameMeta";
+import { smartQuotes } from "./typography";
 
 /**
  * Names a source (a game, or Scott's own words): a small hue swatch plus the short code.
@@ -18,7 +19,7 @@ export function GameMark({ id, variant = "code", link = false, className }: { id
   const body = (
     <>
       <span className="game__swatch" aria-hidden />
-      {variant === "dot" ? <span className="sr-only">{title}</span> : <span className="game__name">{variant === "full" ? title : meta.short}</span>}
+      {variant === "dot" ? <span className="sr-only">{title}</span> : <span className="game__name">{variant === "full" ? smartQuotes(title) : meta.short}</span>}
     </>
   );
   if (link) return <Link to={`/sources/${id}`} className={cls} style={style} title={variant === "full" ? undefined : title}>{body}</Link>;

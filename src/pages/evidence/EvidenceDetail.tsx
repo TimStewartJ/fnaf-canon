@@ -4,7 +4,7 @@ import type { Evidence } from "../../data/schema";
 import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import {
   ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Crumbs, Empty, EntityLink, EvidenceCard, EvidenceDate, EvidenceRow, Fact, Facts,
-  Figure, GameMark, Icon, KIND_LABEL, Page, Section, SourceLine, StatusMark, Tag, chapterPath, timelineEventPath,
+  Figure, GameMark, Icon, KIND_LABEL, Page, Section, SourceLine, StatusMark, Tag, chapterPath, timelineEventPath, smartQuotes,
 } from "../../components/ui";
 import "./evidence.css";
 
@@ -31,19 +31,19 @@ export default function EvidenceDetail() {
       <Crumbs items={[{ to: "/evidence", label: "Evidence" }, { label: e.id }]} />
       <header className="ev-detail__head">
         <p className="ev-detail__source"><SourceLine e={e} /></p>
-        <h1>{e.title}</h1>
+        <h1>{smartQuotes(e.title)}</h1>
       </header>
       <div className="ev-detail-grid">
         <div className="ev-detail__main">
-          <p className="big-claim">{e.claim}</p>
-          {e.quote && <blockquote className="big-quote">“{e.quote}”</blockquote>}
+          <p className="big-claim">{smartQuotes(e.claim)}</p>
+          {e.quote && <blockquote className="big-quote">“{smartQuotes(e.quote)}”</blockquote>}
           {e.image && <Figure file={e.image} tag="Exhibit" eager />}
-          {e.notes && <Callout tone="note" title="Notes and caveats"><p>{e.notes}</p></Callout>}
+          {e.notes && <Callout tone="note" title="Notes and caveats"><p>{smartQuotes(e.notes)}</p></Callout>}
         </div>
         <aside className="panel ev-detail__facts" aria-label="Record details">
           <Facts>
             <Fact label="Source"><GameMark id={e.game} variant="full" link />{game?.released && <span className="muted"> · released {game.released}</span>}</Fact>
-            <Fact label="Where exactly">{e.location}</Fact>
+            <Fact label="Where exactly">{smartQuotes(e.location)}</Fact>
             <Fact label="Kind of source">{KIND_LABEL[e.kind] ?? e.kind}</Fact>
             <Fact label="Certainty"><CertaintyMark value={e.certainty} variant="inline" /> <span className="muted">{CERTAINTY[e.certainty].help}.</span></Fact>
             <Fact label="In-universe time"><EvidenceDate e={e} /> <span className="muted">({e.when.precision})</span>{e.when.basis && <div className="muted small">Basis: {e.when.basis}</div>}</Fact>
@@ -64,7 +64,7 @@ export default function EvidenceDetail() {
               <ul className="plain">
                 {chapters.map((s) => (
                   <li key={s.id} className="cluster">
-                    <Link to={chapterPath(s.id)}>{s.title}</Link>
+                    <Link to={chapterPath(s.id)}>{smartQuotes(s.title)}</Link>
                     {s.counterEvidence?.includes(id) && <Chip tone="tension">pushes back</Chip>}
                     {!bl.theory.includes(s) && <Chip>filed, not cited</Chip>}
                   </li>
@@ -76,7 +76,7 @@ export default function EvidenceDetail() {
           </div>
           <div>
             <h3 className="label">Timeline events citing this</h3>
-            {bl.events.length ? <ul className="plain">{bl.events.map((t) => <li key={t.id} className="cluster"><StatusMark value={t.status} /> <Link to={timelineEventPath(t.id)}>{t.yearLabel}: {t.title}</Link></li>)}</ul> : <p className="muted">None.</p>}
+            {bl.events.length ? <ul className="plain">{bl.events.map((t) => <li key={t.id} className="cluster"><StatusMark value={t.status} /> <Link to={timelineEventPath(t.id)}>{t.yearLabel}: {smartQuotes(t.title)}</Link></li>)}</ul> : <p className="muted">None.</p>}
             <h3 className="label">Relationships it supports</h3>
             {bl.relations.length ? <ul className="plain">{bl.relations.map((r, i) => <li key={i} className="cluster"><StatusMark value={r.status} /> <EntityLink id={r.from} /> <span className="muted">{r.kind.replace(/-/g, " ")}</span> <EntityLink id={r.to} /></li>)}</ul> : <p className="muted">None.</p>}
           </div>

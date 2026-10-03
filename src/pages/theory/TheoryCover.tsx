@@ -1,7 +1,7 @@
 import { Link, Navigate, useLocation } from "react-router-dom";
 import { ArrowDown, ArrowRight, BookOpenText } from "lucide-react";
 import { outsideStory, storyline, theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Page, RichText, chapterPath } from "../../components/ui";
+import { ButtonLink, Page, RichText, chapterPath, smartQuotes } from "../../components/ui";
 import { ChapterContents } from "./Contents";
 import { HowToRead, OutsideStory } from "./CoverParts";
 import { Storyline } from "./Storyline";
@@ -26,8 +26,8 @@ export default function TheoryCover() {
           <div className="cover-hero__grid">
             <div className="cover-hero__main">
               <p className="kicker">The theory · {theory.length} chapters in {partGroups.length} parts</p>
-              <h1 className="cover-hero__title">{theoryIntro.title}</h1>
-              <p className="cover-hero__standfirst">{theoryIntro.standfirst}</p>
+              <h1 className="cover-hero__title">{smartQuotes(theoryIntro.title)}</h1>
+              <p className="cover-hero__standfirst">{smartQuotes(theoryIntro.standfirst)}</p>
               <div className="thesis">
                 <p className="label">The thesis</p>
                 <p className="thesis__text"><RichText text={theoryIntro.thesis} /></p>
@@ -47,8 +47,8 @@ export default function TheoryCover() {
                   <li key={g.part?.id ?? "more"}>
                     <Link to={`/theory#part-${g.part?.id ?? "more"}`}>
                       <span className="cover-parts__n">{roman(g.n)}</span>
-                      <span className="cover-parts__title">{g.part?.title ?? "Further chapters"}</span>
-                      <span className="cover-parts__kicker">{g.part?.kicker}</span>
+                      <span className="cover-parts__title">{smartQuotes(g.part?.title ?? "Further chapters")}</span>
+                      <span className="cover-parts__kicker">{g.part?.kicker && smartQuotes(g.part.kicker)}</span>
                     </Link>
                   </li>
                 ))}
@@ -81,7 +81,7 @@ export default function TheoryCover() {
       <section className="cover-section band" id="contents" aria-labelledby="h-contents">
         <div className="band__inner">
           <p className="kicker">The full case</p>
-          <h2 id="h-contents" className="cover-section__title">Every question, and the model's answer</h2>
+          <h2 id="h-contents" className="cover-section__title">Every question, and the model’s answer</h2>
           <p className="cover-section__lead">
             {theory.length} chapters in {partGroups.length} parts. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
             {readCount > 0 && <> You have read {readCount} of {theory.length}.</>}

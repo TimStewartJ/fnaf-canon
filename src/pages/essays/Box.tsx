@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { boxTimeline, boxAnswer, boxGuesses, type BoxStep } from "../../data/box";
-import { CiteList, DatePill, Figure, Icon, PHASE_HUE, Page, PageHeader, RichText, Section, hueOf } from "../../components/ui";
+import { CiteList, DatePill, Figure, Icon, PHASE_HUE, Page, PageHeader, RichText, Section, hueOf, smartQuotes } from "../../components/ui";
 import "./essays.css";
 import "./box.css";
 
@@ -36,7 +36,7 @@ export default function Box() {
               <div className="step__date"><DatePill label={s.date} kind="printed" basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} /></div>
               <div className="step__card">
                 <span className="step__phase">{PHASE[s.phase]}</span>
-                <h3>{s.title}</h3>
+                <h3>{smartQuotes(s.title)}</h3>
                 <p className="step__text"><RichText text={s.body} /></p>
                 {s.image && <Figure file={s.image} compact />}
                 <p className="step__evidence"><span className="label">Evidence</span> <CiteList ids={s.evidence} /></p>

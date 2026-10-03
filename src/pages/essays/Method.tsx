@@ -20,7 +20,7 @@ export default function Method() {
           but in 2020 he said Fazbear Frights would "fill in some blanks" about the past, and in 2024 he answered the question ambiguously. Those statements are recorded as evidence
           (see <Link to={chapterPath("canon-rules")}>Ground rules</Link>), but this archive deliberately takes the strict line: every conclusion must stand on the games and Scott's words alone.
           As a result, names that exist only in books are never used here. When the games do not name
-          someone, this archive uses a plain descriptor ("the Crying Child", "the Cassette Man") and sets it in italics.
+          someone, this archive uses a plain descriptor ("the Crying Child", "the Cassette Man") and sets it in italics wherever people are listed.
         </p>
         <h2>Atomic records</h2>
         <p>The basic unit is a single fact: one claim, one exact source location, one in-universe time. Records carry a certainty level:</p>

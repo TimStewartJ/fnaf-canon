@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { evidenceForPerson, personById, people } from "../../data/store";
 import { isFoldedAway, unifiedPeople, type Link as MLink, type UnifiedPerson } from "../../data/model";
 import type { Person } from "../../data/schema";
-import { Empty, GameMark, Page, PageHeader, RichText, STATUS, SearchField, StatusMark, imgUrl, levelOf, personPath } from "../../components/ui";
+import { Empty, GameMark, Page, PageHeader, RichText, STATUS, SearchField, StatusMark, imgUrl, levelOf, personPath, smartQuotes } from "../../components/ui";
 import "./people.css";
 
 const GROUPS: [Person["group"], string, string][] = [
@@ -39,7 +39,7 @@ function UnifiedCard({ u }: { u: UnifiedPerson }) {
       <Link to={personPath(p.id)} className="uperson-head">
         {img ? <img src={imgUrl(img)} alt="" loading="lazy" /> : <div className="person-ph" aria-hidden>{p.name.replace(/^The /, "").slice(0, 1)}</div>}
         <div>
-          <h3 className={p.nameStatus === "canon-name" ? "name-canon" : "name-desc"}>{p.name}</h3>
+          <h3 className={p.nameStatus === "canon-name" ? "name-canon" : "name-desc"}>{smartQuotes(p.name)}</h3>
           <p className="uperson-status"><RichText text={p.status} /></p>
           <p className="uperson-meta"><GameMark id={p.firstAppearance} /> <span>{n} records</span></p>
         </div>

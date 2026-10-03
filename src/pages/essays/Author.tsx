@@ -4,7 +4,7 @@ import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, re
 import { evidenceById, theoryById } from "../../data/store";
 import {
   Chip, CiteList, ConfidenceMark, DatePill, EvidenceLink, Figure, GameMark, Icon, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, Section,
-  Tag, chapterPath, hueOf,
+  Tag, chapterPath, hueOf, smartQuotes,
 } from "../../components/ui";
 import type { Confidence } from "../../data/schema";
 import "./essays.css";
@@ -79,7 +79,7 @@ export default function Author() {
               <div className="step__date"><DatePill label={s.date} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} /></div>
               <div className="step__card">
                 <span className="step__phase">{AUTHOR_PHASE[s.phase].label}</span>
-                <h3>{s.title}</h3>
+                <h3>{smartQuotes(s.title)}</h3>
                 <p className="step__text"><RichText text={s.body} /></p>
                 {s.image && <Figure file={s.image} compact />}
                 {s.evidence.length > 0 && <p className="step__evidence"><span className="label">Evidence</span> <CiteList ids={s.evidence} /></p>}

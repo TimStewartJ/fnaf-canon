@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { StoryBeat, TheorySection } from "../../data/schema";
 import { theoryById } from "../../data/store";
-import { ConfidenceMark, Figure, RichText, chapterPath, eraHue } from "../../components/ui";
+import { ConfidenceMark, Figure, RichText, chapterPath, eraHue, smartQuotes } from "../../components/ui";
 import { chapterNumber, pad2 } from "./model";
 
 /**
@@ -22,7 +22,7 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
             <span className="beat__n" aria-hidden>{pad2(i + 1)}</span>
             <div className="beat__body">
               <p className="beat__when"><RichText text={b.when} /></p>
-              <h3 className="beat__title">{b.title}</h3>
+              <h3 className="beat__title">{smartQuotes(b.title)}</h3>
               <p className="beat__text"><RichText text={b.text} /></p>
               <p className="beat__foot">
                 <ConfidenceMark value={b.confidence} variant="inline" long />
@@ -32,7 +32,7 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
                     {argued.map((s, j) => (
                       <span key={s.id}>
                         {j > 0 && ", "}
-                        <Link to={chapterPath(s.id)}>{chapterNumber(s.id) ? `${chapterNumber(s.id)}. ` : ""}{s.title}</Link>
+                        <Link to={chapterPath(s.id)}>{chapterNumber(s.id) ? `${chapterNumber(s.id)}. ` : ""}{smartQuotes(s.title)}</Link>
                       </span>
                     ))}
                   </span>

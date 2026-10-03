@@ -10,6 +10,7 @@ import { CERTAINTY, DATE_KIND, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
+import { smartQuotes } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
@@ -25,7 +26,7 @@ export function SourceLine({ e, location = true }: { e: Evidence; location?: boo
     <span className="source-line">
       <GameMark id={e.game} />
       <span className="source-line__kind"><Icon icon={SOURCE_KIND_ICON[e.kind]} /> {kindLabel(e.kind)}</span>
-      {location && <span className="source-line__loc">{e.location}</span>}
+      {location && <span className="source-line__loc">{smartQuotes(e.location)}</span>}
     </span>
   );
 }
@@ -37,10 +38,10 @@ export function EvidencePreview({ e }: { e: Evidence }) {
         <SourceLine e={e} location={false} />
         <Firmness scale="certainty" value={e.certainty} variant="inline" />
       </span>
-      <strong className="pop__title">{e.title}</strong>
-      <span className="pop__text">{e.claim}</span>
-      {e.quote && <q className="pop__quote">{e.quote}</q>}
-      <span className="pop__meta"><Icon icon={CornerDownRight} /> {e.location}</span>
+      <strong className="pop__title">{smartQuotes(e.title)}</strong>
+      <span className="pop__text">{smartQuotes(e.claim)}</span>
+      {e.quote && <q className="pop__quote">{smartQuotes(e.quote)}</q>}
+      <span className="pop__meta"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>
       <span className="pop__hint">Click to open the record</span>
     </>
   );
@@ -126,7 +127,7 @@ export function SourceChip({ id, group, variant = "full" }: { id: string; group?
       >
         <FirmGlyph level={c.level} />
         <span className="src-chip__code">{gameMeta(e.game).short}</span>
-        {variant === "full" && <span className="src-chip__title">{e.title}</span>}
+        {variant === "full" && <span className="src-chip__title">{smartQuotes(e.title)}</span>}
         {variant === "full" && <span className="sr-only">({c.word.toLowerCase()})</span>}
       </Link>
       {pop.open && <Pop control={pop} className="pop--cite"><EvidencePreview e={e} /></Pop>}
@@ -149,7 +150,8 @@ export function CiteList({ ids, variant = "full" }: { ids: string[]; variant?: "
 /**
  * Link to a person or place page (or to the evidence filed under an entity with no page).
  *  - variant "inline" (default): a text link for running prose
- *  - variant "chip": a small labelled chip with a person or place icon, for lists of entities
+ *  - variant "chip": a small labelled chip with a person or place icon, for lists of entities;
+ *    a name the games never print (a descriptor) is set in italic
  */
 export function EntityLink({ id, variant = "inline", children }: { id: string; variant?: "inline" | "chip"; children?: ReactNode }) {
   const isPerson = personById.has(id), isPlace = placeById.has(id);
@@ -158,7 +160,9 @@ export function EntityLink({ id, variant = "inline", children }: { id: string; v
   return (
     <Link className={`entity entity--${variant} entity--${kind}`} to={to}>
       {variant === "chip" && <Icon icon={isPlace ? MapPin : User} />}
-      {children ?? labelForEntity(id)}
+      {variant === "chip" && !children && personById.get(id)?.nameStatus === "descriptor"
+        ? <span className="name-desc">{smartQuotes(labelForEntity(id))}</span>
+        : children ?? smartQuotes(labelForEntity(id))}
     </Link>
   );
 }
@@ -168,7 +172,7 @@ export function ChapterLink({ id, label }: { id: string; label?: ReactNode }) {
   const chapters = useChapterResolver();
   const s = chapters.find(id);
   if (!s) return <span className="cite cite--missing" title="Missing theory chapter">?{id}</span>;
-  return <Link className="chapter-link" to={chapters.pathOf(id)}>{label ?? s.title}</Link>;
+  return <Link className="chapter-link" to={chapters.pathOf(id)}>{label ?? smartQuotes(s.title)}</Link>;
 }
 
 /* ── Dates ─────────────────────────────────────────────────────────────────────── */
@@ -213,13 +217,13 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); pop.toggle(); }}
       >
         <DateGlyph kind={kind} />
-        <span className="date__label">{label}</span>
+        <span className="date__label">{smartQuotes(label)}</span>
       </button>
       {pop.open && (
         <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
-          <strong className="pop__title">{label}</strong>
-          <span className="pop__text">{basis || k.help}</span>
+          <strong className="pop__title">{smartQuotes(label)}</strong>
+          <span className="pop__text">{basis ? smartQuotes(basis) : k.help}</span>
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
             <span className="pop__records">
@@ -232,7 +236,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
                   onClick={(ev) => { if (!isPlainClick(ev)) return; ev.preventDefault(); pop.hide(); drawer.open(e.id, ids.length > 1 ? ids : undefined); }}
                 >
                   <GameMark id={e.game} />
-                  <span>{e.title}</span>
+                  <span>{smartQuotes(e.title)}</span>
                 </Link>
               ))}
             </span>
@@ -263,7 +267,8 @@ type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "no
  *   **bold**  *italic*            may contain other tokens
  *   <<label|kind|ids|basis>>      a date pill
  */
-export function RichText({ text }: { text: string }) {
+export function RichText({ text: source }: { text: string }) {
+  const text = smartQuotes(source);
   const pieces: Piece[] = [];
   let last = 0;
   let k = 0;

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { ChevronDown, CircleHelp, Info, KeyRound, TriangleAlert, type LucideIcon } from "lucide-react";
 import { usePageTitle } from "./hooks";
 import { Icon } from "./Icon";
+import { smartQuotes } from "./typography";
+
+/** Plain strings handed to a heading or label get typographic quotes; other nodes pass through. */
+const typeset = (node: ReactNode): ReactNode => (typeof node === "string" ? smartQuotes(node) : node);
 
 /**
  * The root of every page: sets the document title and provides the standard container.
@@ -23,7 +27,7 @@ export function Crumbs({ items }: { items: Crumb[] }) {
       {items.map((c, i) => (
         <Fragment key={i}>
           {i > 0 && <span className="crumbs__sep" aria-hidden>/</span>}
-          {c.to ? <Link to={c.to}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}
+          {c.to ? <Link to={c.to}>{typeset(c.label)}</Link> : <span aria-current="page">{typeset(c.label)}</span>}
         </Fragment>
       ))}
     </nav>
@@ -39,9 +43,9 @@ export function PageHeader({ kicker, crumbs, title, lede, children, aside, class
     <header className={`page-header${aside ? " page-header--split" : ""}${className ? ` ${className}` : ""}`}>
       <div className="page-header__main">
         {crumbs && <Crumbs items={crumbs} />}
-        {kicker && <p className="kicker">{kicker}</p>}
-        <h1 className="page-header__title">{title}</h1>
-        {lede && <p className="lede">{lede}</p>}
+        {kicker && <p className="kicker">{typeset(kicker)}</p>}
+        <h1 className="page-header__title">{typeset(title)}</h1>
+        {lede && <p className="lede">{typeset(lede)}</p>}
         {children}
       </div>
       {aside && <div className="page-header__aside">{aside}</div>}
@@ -54,10 +58,10 @@ export function Section({ title, children, aside, lead, id, className }: { title
   return (
     <section className={`section${className ? ` ${className}` : ""}`} id={id}>
       <div className="section-head">
-        <h2>{title}</h2>
-        {aside && <div className="section-head__aside">{aside}</div>}
+        <h2>{typeset(title)}</h2>
+        {aside && <div className="section-head__aside">{typeset(aside)}</div>}
       </div>
-      {lead && <p className="section-lead">{lead}</p>}
+      {lead && <p className="section-lead">{typeset(lead)}</p>}
       {children}
     </section>
   );
@@ -79,7 +83,7 @@ export function Collapsible({ summary, meta, children, defaultOpen = false, id, 
   return (
     <details className={`collapsible${className ? ` ${className}` : ""}`} open={defaultOpen || undefined} id={id}>
       <summary>
-        <span className="collapsible__title">{summary}</span>
+        <span className="collapsible__title">{typeset(summary)}</span>
         {meta && <span className="collapsible__meta">{meta}</span>}
         <Icon icon={ChevronDown} className="collapsible__chev" />
       </summary>
@@ -104,7 +108,7 @@ export function Callout({ tone = "note", title, children, className }: { tone?: 
   const c = CALLOUT[tone];
   return (
     <aside className={`callout${className ? ` ${className}` : ""}`} data-tone={tone}>
-      <p className="callout__label"><Icon icon={c.icon} /> {title ?? c.label}</p>
+      <p className="callout__label"><Icon icon={c.icon} /> {typeset(title ?? c.label)}</p>
       <div className="callout__body">{children}</div>
     </aside>
   );

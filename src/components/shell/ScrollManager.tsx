@@ -1,7 +1,13 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
+import { useLocation, useNavigationType, type Location } from "react-router-dom";
 
 const STORE_KEY = "fca:scroll";
+
+/**
+ * The key a scroll position is stored under. Entries the router did not create (the first page,
+ * an address typed into the bar) all carry the key "default", so those are told apart by URL.
+ */
+const entryKey = (l: Location) => (l.key === "default" ? `default:${l.pathname}${l.search}${l.hash}` : l.key);
 
 function loadPositions(): Map<string, number> {
   try { return new Map(JSON.parse(window.sessionStorage.getItem(STORE_KEY) ?? "[]") as [string, number][]); }
@@ -20,7 +26,7 @@ export function ScrollManager() {
   const navType = useNavigationType();
   const positions = useRef<Map<string, number> | null>(null);
   if (positions.current === null) positions.current = loadPositions();
-  const keyRef = useRef(location.key);
+  const keyRef = useRef(entryKey(location));
   const prev = useRef<{ pathname: string; hash: string } | null>(null);
   const cancel = useRef<(() => void) | null>(null);
 
@@ -38,7 +44,8 @@ export function ScrollManager() {
   useLayoutEffect(() => {
     const before = prev.current;
     prev.current = { pathname: location.pathname, hash: location.hash };
-    keyRef.current = location.key;
+    const key = entryKey(location);
+    keyRef.current = key;
     cancel.current?.();
     cancel.current = null;
 
@@ -71,7 +78,7 @@ export function ScrollManager() {
 
     if (!before) {
       // First render: a reload restores its place; a deep link with an anchor goes to it.
-      const saved = positions.current!.get(location.key);
+      const saved = positions.current!.get(key);
       if (saved != null && saved > 0) restore(saved);
       else if (location.hash) toAnchor(location.hash);
       return;
@@ -79,7 +86,7 @@ export function ScrollManager() {
     if (navType === "POP") {
       // Back or Forward: return to where the reader was. An entry never seen before (a typed
       // address) is treated like a fresh arrival.
-      const saved = positions.current!.get(location.key);
+      const saved = positions.current!.get(key);
       if (saved != null) restore(saved);
       else if (location.hash) toAnchor(location.hash);
       else restore(0);
@@ -88,15 +95,15 @@ export function ScrollManager() {
     const samePath = before.pathname === location.pathname;
     if (samePath) {
       // Filters, drawer, anchors on the same page: remember where we are under the new history entry.
-      positions.current!.set(location.key, window.scrollY);
+      positions.current!.set(key, window.scrollY);
       if (navType === "PUSH" && location.hash && location.hash !== before.hash) toAnchor(location.hash);
       return;
     }
     if (navType === "REPLACE" && !location.hash) {
-      positions.current!.set(location.key, window.scrollY);
+      positions.current!.set(key, window.scrollY);
       return;
     }
-    positions.current!.set(location.key, 0);
+    positions.current!.set(key, 0);
     if (location.hash) toAnchor(location.hash);
     else window.scrollTo(0, 0);
     document.getElementById("main")?.focus({ preventScroll: true });

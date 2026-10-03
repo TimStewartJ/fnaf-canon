@@ -1,6 +1,7 @@
-import { Suspense, lazy, useEffect, useState } from "react";
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { Suspense, lazy, memo, useEffect, useMemo, useState, type ReactNode } from "react";
+import { HashRouter, NavigationType, Route, Routes, UNSAFE_LocationContext as LocationContext, useLocation } from "react-router-dom";
 import { CiteScope } from "./components/CiteScope";
+import { deferred } from "./components/deferred";
 import { Loading } from "./components/layout";
 import { DrawerHost } from "./components/shell/DrawerHost";
 import { Footer } from "./components/shell/Footer";
@@ -35,9 +36,66 @@ const Method = lazy(() => import("./pages/essays/Method"));
 const DevBlocks = lazy(() => import("./pages/dev/Blocks"));
 const DevKit = lazy(() => import("./pages/dev/Kit"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const SearchPalette = lazy(() => import("./components/shell/SearchPalette"));
+// The palette must answer its shortcut at once, so it is split out without suspending (see deferred.ts).
+const SearchPalette = deferred(() => import("./components/shell/SearchPalette"));
 
 const isTyping = (el: EventTarget | null) => el instanceof HTMLElement && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
+
+/**
+ * What a page sees as the current location: the URL only. History state (where the open evidence
+ * drawer lives) and the entry key are left out, so opening or closing the drawer re-renders the
+ * shell and the drawer, never the page underneath. The shell itself still reads the real location.
+ *
+ * react-router marks its location context "UNSAFE" because it is not a documented API; this is the
+ * same provider <Routes location> renders, with a value that keeps its identity. If the router is
+ * upgraded and this breaks, removing <PageLocation> restores correct (but slower) behaviour.
+ */
+function PageLocation({ children }: { children: ReactNode }) {
+  const { pathname, search, hash } = useLocation();
+  const value = useMemo(
+    () => ({ location: { pathname, search, hash, state: null, key: `${pathname}${search}${hash}` }, navigationType: NavigationType.Pop }),
+    [pathname, search, hash],
+  );
+  return <LocationContext.Provider value={value}>{children}</LocationContext.Provider>;
+}
+
+/** The routed pages. Memoised with no props: only a change of URL (through PageLocation) re-renders it. */
+const Pages = memo(function Pages() {
+  const { pathname } = useLocation();
+  return (
+    // The boundary sits outside the per-page key on purpose. Navigation is a transition, and a
+    // boundary that is already showing content keeps the old page up until the new one is ready;
+    // a boundary remounted with each page would flash "Loading" on every first visit instead.
+    <Suspense fallback={<div data-route-loading><Loading /></div>}>
+      <CiteScope key={pathname}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/theory" element={<TheoryCover />} />
+          <Route path="/theory/:chapterId" element={<TheoryChapter />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/evidence" element={<EvidenceExplorer />} />
+          <Route path="/evidence/:id" element={<EvidenceDetail />} />
+          <Route path="/people" element={<People />} />
+          <Route path="/people/:id" element={<PersonDetail />} />
+          <Route path="/family" element={<FamilyTrees />} />
+          <Route path="/graph" element={<Graph />} />
+          <Route path="/places" element={<Places />} />
+          <Route path="/places/:id" element={<PlaceDetail />} />
+          <Route path="/sources" element={<Sources />} />
+          <Route path="/sources/:id" element={<SourceDetail />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/method" element={<Method />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/box" element={<Box />} />
+          <Route path="/author" element={<Author />} />
+          <Route path="/dev/blocks" element={<DevBlocks />} />
+          <Route path="/dev/kit" element={<DevKit />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </CiteScope>
+    </Suspense>
+  );
+});
 
 function Shell() {
   const location = useLocation();
@@ -63,38 +121,11 @@ function Shell() {
       <a className="skip-link" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to content</a>
       <Header onSearch={() => setSearch(true)} onMenu={() => setMenuAt(location.key)} />
       <main id="main" className="site-main" tabIndex={-1}>
-        <CiteScope key={location.pathname}>
-          <Suspense fallback={<div data-route-loading><Loading /></div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/theory" element={<TheoryCover />} />
-              <Route path="/theory/:chapterId" element={<TheoryChapter />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/evidence" element={<EvidenceExplorer />} />
-              <Route path="/evidence/:id" element={<EvidenceDetail />} />
-              <Route path="/people" element={<People />} />
-              <Route path="/people/:id" element={<PersonDetail />} />
-              <Route path="/family" element={<FamilyTrees />} />
-              <Route path="/graph" element={<Graph />} />
-              <Route path="/places" element={<Places />} />
-              <Route path="/places/:id" element={<PlaceDetail />} />
-              <Route path="/sources" element={<Sources />} />
-              <Route path="/sources/:id" element={<SourceDetail />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/method" element={<Method />} />
-              <Route path="/community" element={<Community />} />
-              <Route path="/box" element={<Box />} />
-              <Route path="/author" element={<Author />} />
-              <Route path="/dev/blocks" element={<DevBlocks />} />
-              <Route path="/dev/kit" element={<DevKit />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </CiteScope>
+        <PageLocation><Pages /></PageLocation>
       </main>
       <Footer />
       {menuAt === location.key && <MenuSheet onClose={() => setMenuAt(null)} onSearch={() => { setMenuAt(null); setSearch(true); }} />}
-      {search && <Suspense fallback={null}><SearchPalette onClose={() => setSearch(false)} /></Suspense>}
+      <SearchPalette props={search ? { onClose: () => setSearch(false) } : null} />
     </DrawerHost>
   );
 }

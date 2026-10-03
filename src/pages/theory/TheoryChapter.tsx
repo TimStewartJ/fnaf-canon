@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, List, X } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
 import { theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Empty, Icon, Page, chapterPath, useModalDialog } from "../../components/ui";
+import { ButtonLink, Empty, Icon, Page, chapterPath, useModalDialog, smartQuotes } from "../../components/ui";
 import { ChapterView, type ChapterContext } from "./ChapterView";
 import { ChapterNav } from "./Contents";
 import { chapterNumber, neighbours, ordered, pad2, partGroups, partOfChapter, useReadingProgress } from "./model";
@@ -36,7 +36,7 @@ function ContentsSheet({ current, read, onClose }: { current: string; read: Set<
   return (
     <dialog className="contents-sheet" aria-label="Contents" {...dialogProps}>
       <header className="contents-sheet__bar">
-        <Link to="/theory" className="contents-sheet__home" onClick={onClose}>{theoryIntro.title}</Link>
+        <Link to="/theory" className="contents-sheet__home" onClick={onClose}>{smartQuotes(theoryIntro.title)}</Link>
         <button type="button" className="icon-btn" onClick={onClose} aria-label="Close contents" autoFocus><Icon icon={X} /></button>
       </header>
       <div className="contents-sheet__body">
@@ -66,7 +66,7 @@ function ChapterScreen({ s }: { s: TheorySection }) {
         <button type="button" className="chapter-bar__contents" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-label={`Contents. Chapter ${number}: ${s.title}`}>
           <Icon icon={List} />
           <span className="chapter-bar__n">{pad2(number)}</span>
-          <span className="chapter-bar__title">{s.title}</span>
+          <span className="chapter-bar__title">{smartQuotes(s.title)}</span>
         </button>
         <span className="chapter-bar__pager">
           {prev ? <Link to={chapterPath(prev.id)} className="icon-btn" aria-label={`Previous chapter: ${prev.title}`}><Icon icon={ChevronLeft} /></Link> : <span className="icon-btn" aria-hidden />}
@@ -75,7 +75,7 @@ function ChapterScreen({ s }: { s: TheorySection }) {
       </div>
       <div className="chapter-layout">
         <aside className="chapter-rail">
-          <Link to="/theory" className="chapter-rail__home"><Icon icon={ArrowLeft} /> {theoryIntro.title}</Link>
+          <Link to="/theory" className="chapter-rail__home"><Icon icon={ArrowLeft} /> {smartQuotes(theoryIntro.title)}</Link>
           <p className="chapter-rail__progress" aria-live="off">{[...read].filter((id) => theoryById.has(id)).length} of {theory.length} chapters read</p>
           <nav aria-label="Chapters"><ChapterNav groups={partGroups} numberOf={chapterNumber} current={s.id} read={read} /></nav>
         </aside>

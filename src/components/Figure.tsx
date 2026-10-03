@@ -6,6 +6,7 @@ import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { useModalDialog } from "./hooks";
 import { evidencePath, imgSize, imgUrl } from "./links";
 import { Icon } from "./Icon";
+import { smartQuotes } from "./typography";
 
 /** Pixel-art PNGs stay crisp when shown larger than their natural size. */
 function markUpscaled(e: SyntheticEvent<HTMLImageElement>) {
@@ -22,6 +23,7 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
   const credit = creditByFile.get(file);
   const dialogProps = useModalDialog(true, onClose);
   const alt = typeof caption === "string" ? caption : credit?.caption ?? "";
+  const shown = caption ?? credit?.caption;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft" && onPrev) { e.preventDefault(); onPrev(); }
@@ -42,7 +44,7 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
         {onNext && <button type="button" className="icon-btn lightbox__nav" onClick={onNext} aria-label="Next image"><Icon icon={ChevronRight} /></button>}
       </div>
       <div className="lightbox__caption">
-        <span>{caption ?? credit?.caption}</span>
+        <span>{typeof shown === "string" ? smartQuotes(shown) : shown}</span>
         {credit && <a className="figure__credit" href={credit.sourcePage} target="_blank" rel="noreferrer">Image source<Icon icon={ArrowUpRight} /></a>}
       </div>
     </dialog>
@@ -72,7 +74,7 @@ export function Figure({ file, caption, alt, evidence, compact = false, tag, cla
       {!compact && (cap || credit) && (
         <figcaption className="figure__caption">
           {tag && <span className="label">{tag}</span>}
-          {cap && <span className="figure__text">{cap}</span>}
+          {cap && <span className="figure__text">{typeof cap === "string" ? smartQuotes(cap) : cap}</span>}
           <span className="figure__meta">
             {record && (
               <Link to={evidencePath(record.id)} className="figure__credit" onClick={(e) => { if (!isPlainClick(e)) return; e.preventDefault(); drawer.open(record.id); }}>

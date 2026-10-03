@@ -21,7 +21,23 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
       onPointerEnter={(e) => { if (e.pointerType === "mouse") later(onOpen, 70); }}
       onPointerLeave={(e) => { if (e.pointerType === "mouse") later(onClose, 220); }}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) onClose(); }}
-      onKeyDown={(e) => { if (e.key === "Escape" && open) { onClose(); btn.current?.focus(); } }}
+      onKeyDown={(e) => {
+        if (e.key === "Escape" && open) { onClose(); btn.current?.focus(); return; }
+        if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+        // Arrow keys open the menu and walk its items; Tab works as usual.
+        const root = e.currentTarget;
+        e.preventDefault();
+        if (!open) {
+          if (e.key === "ArrowUp") return;
+          onOpen();
+          requestAnimationFrame(() => root.querySelector<HTMLElement>(".nav-menu__item")?.focus());
+          return;
+        }
+        const items = [...root.querySelectorAll<HTMLElement>(".nav-menu__item")];
+        const at = items.indexOf(document.activeElement as HTMLElement);
+        const next = e.key === "ArrowDown" ? (at + 1) % items.length : at <= 0 ? items.length - 1 : at - 1;
+        items[next]?.focus();
+      }}
     >
       <button
         ref={btn}

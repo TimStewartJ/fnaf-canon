@@ -9,6 +9,7 @@ import { SECTION_ICON } from "../icons";
 import { Icon } from "../Icon";
 import { chapterPath, personPath, placePath, timelineEventPath } from "../links";
 import { plainText } from "../richTextPlain";
+import { smartQuotes } from "../typography";
 import { NAV_FLAT } from "./nav";
 
 type Kind = "page" | "chapter" | "person" | "place" | "event" | "evidence";
@@ -21,7 +22,7 @@ const LIMIT: Record<Kind, number> = { page: 4, chapter: 6, person: 6, place: 4, 
 let INDEX: Entry[] | null = null;
 function buildIndex(): Entry[] {
   const partTitle = new Map(theoryParts.map((p) => [p.id, p.title]));
-  const out: Entry[] = [{ kind: "page", id: "/", title: "Home", sub: "The archive's front page", hay: "home overview start", to: "/", icon: House }];
+  const out: Entry[] = [{ kind: "page", id: "/", title: "Home", sub: "The archive’s front page", hay: "home overview start", to: "/", icon: House }];
   for (const n of NAV_FLAT) out.push({ kind: "page", id: n.to, title: n.label, sub: n.desc, hay: `${n.label} ${n.desc}`.toLowerCase(), to: n.to, icon: n.icon });
   theory.forEach((s, i) => out.push({
     kind: "chapter", id: s.id, title: s.title, sub: `Chapter ${i + 1}${s.part && partTitle.get(s.part) ? ` · ${partTitle.get(s.part)}` : ""}`,
@@ -127,8 +128,8 @@ export default function SearchPalette({ onClose }: { onClose: () => void }) {
               >
                 <Icon icon={e.icon} className="palette__icon" />
                 <span className="palette__text">
-                  <span className="palette__title">{e.title}</span>
-                  <span className="palette__sub">{e.sub}</span>
+                  <span className="palette__title">{smartQuotes(e.title)}</span>
+                  <span className="palette__sub">{smartQuotes(e.sub)}</span>
                 </span>
                 {i === cur && <Icon icon={CornerDownLeft} className="palette__enter" />}
               </div>

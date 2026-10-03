@@ -1,8 +1,10 @@
-import { Suspense, lazy, useMemo, type ReactNode } from "react";
+import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { EvidenceDrawerContext, type DrawerState, type EvidenceDrawerApi } from "../evidenceDrawer";
+import { deferred } from "../deferred";
+import { EvidenceDrawerContext, EvidenceDrawerRecordContext, type DrawerState, type EvidenceDrawerApi } from "../evidenceDrawer";
 
-const EvidenceDrawer = lazy(() => import("../EvidenceDrawer"));
+// A separate chunk that never suspends (see deferred.ts): the first citation opens as fast as the rest.
+const EvidenceDrawer = deferred(() => import("../EvidenceDrawer"));
 
 interface WithDrawer { drawer?: DrawerState }
 
@@ -16,31 +18,37 @@ export function DrawerHost({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const drawer = (location.state as WithDrawer | null)?.drawer ?? null;
 
+  // open() and close() look up the current history entry when they are called, so the API object
+  // never changes and nothing that reads it re-renders when the drawer opens or closes.
+  const latest = useRef({ location, drawer, navigate });
+  useLayoutEffect(() => { latest.current = { location, drawer, navigate }; });
+
   const api = useMemo<EvidenceDrawerApi>(() => {
-    const here = { pathname: location.pathname, search: location.search, hash: location.hash };
-    const state = (location.state ?? {}) as WithDrawer;
+    const now = () => {
+      const { location: l, drawer: d, navigate: go } = latest.current;
+      return { d, go, here: { pathname: l.pathname, search: l.search, hash: l.hash }, state: (l.state ?? {}) as WithDrawer };
+    };
     return {
-      current: drawer?.id ?? null,
       open(id, group) {
-        navigate(here, { state: { ...state, drawer: { id, group, pushed: drawer ? drawer.pushed : true } }, replace: !!drawer });
+        const { d, go, here, state } = now();
+        go(here, { state: { ...state, drawer: { id, group, pushed: d ? d.pushed : true } }, replace: !!d });
       },
       close() {
-        if (!drawer) return;
+        const { d, go, here, state } = now();
+        if (!d) return;
         const idx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
-        if (drawer.pushed && idx > 0) navigate(-1);
-        else navigate(here, { state: { ...state, drawer: undefined }, replace: true });
+        if (d.pushed && idx > 0) go(-1);
+        else go(here, { state: { ...state, drawer: undefined }, replace: true });
       },
     };
-  }, [location, drawer, navigate]);
+  }, []);
 
   return (
     <EvidenceDrawerContext.Provider value={api}>
-      {children}
-      {drawer && (
-        <Suspense fallback={null}>
-          <EvidenceDrawer state={drawer} onClose={api.close} />
-        </Suspense>
-      )}
+      <EvidenceDrawerRecordContext.Provider value={drawer?.id ?? null}>
+        {children}
+        <EvidenceDrawer props={drawer && { state: drawer, onClose: api.close }} />
+      </EvidenceDrawerRecordContext.Provider>
     </EvidenceDrawerContext.Provider>
   );
 }

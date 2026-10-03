@@ -7,7 +7,7 @@ import { LOCATION_KIND } from "../../data/locations";
 import { PLACE_DATES } from "../../data/dates";
 import {
   Button, ButtonLink, CiteList, Crumbs, DEATH_KIND_ICON, DatePill, Empty, EvidenceCard, Figure, Icon, LOCATION_HUE, Page, PageHeader, RichText, Section,
-  StatusMark, Tag, hueOf, imgUrl, placePath, timelineEventPath,
+  StatusMark, Tag, hueOf, imgUrl, placePath, timelineEventPath, smartQuotes,
 } from "../../components/ui";
 import { useState } from "react";
 import "./places.css";
@@ -28,7 +28,7 @@ export default function Places() {
           <article key={p.id} className="place-card">
             {p.image && <Link to={placePath(p.id)} className="place-card__img" tabIndex={-1} aria-hidden><img src={imgUrl(p.image)} alt="" loading="lazy" /></Link>}
             <div className="place-card__body">
-              <h3><Link to={placePath(p.id)}>{p.name}</Link></h3>
+              <h3><Link to={placePath(p.id)}>{smartQuotes(p.name)}</Link></h3>
               <p><PlaceYears id={p.id} years={p.years} /></p>
               <p className="place-card__sum">{p.summary}</p>
               <p className="place-card__n">{evidenceForPlace(p.id).length} records</p>
@@ -61,7 +61,7 @@ export function PlaceDetail() {
       <Crumbs items={[{ to: "/places", label: "Places" }, { label: p.name }]} />
       <div className={`place-hero${p.image ? " place-hero--image" : ""}`}>
         <div>
-          <h1>{p.name}</h1>
+          <h1>{smartQuotes(p.name)}</h1>
           <p className="cluster place-hero__meta">
             <PlaceYears id={p.id} years={p.years} />
             {span && <span className="chip place-kind" style={{ "--hue": hueOf(LOCATION_HUE, span.kind) } as CSSProperties}>{LOCATION_KIND[span.kind].label}</span>}
@@ -74,12 +74,12 @@ export function PlaceDetail() {
       </div>
       {events.length > 0 && (
         <Section title="What happened here">
-          <ul className="plain">{events.map((t) => <li key={t.id} className="cluster"><StatusMark value={t.status} /> <Link to={timelineEventPath(t.id)}>{t.yearLabel}: {t.title}</Link></li>)}</ul>
+          <ul className="plain">{events.map((t) => <li key={t.id} className="cluster"><StatusMark value={t.status} /> <Link to={timelineEventPath(t.id)}>{t.yearLabel}: {smartQuotes(t.title)}</Link></li>)}</ul>
         </Section>
       )}
       {deathsHere.length > 0 && (
         <Section title="Deaths here" aside={`${deathsHere.length} recorded`}>
-          <ul className="plain place-deaths">{deathsHere.map((d) => <li key={d.id} className="cluster"><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{d.title}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul>
+          <ul className="plain place-deaths">{deathsHere.map((d) => <li key={d.id} className="cluster"><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{smartQuotes(d.title)}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul>
         </Section>
       )}
       <Section title="Evidence" aside={`${ev.length} records, oldest first`}>

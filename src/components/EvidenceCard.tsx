@@ -11,6 +11,7 @@ import { Figure } from "./Figure";
 import { GameMark } from "./GameMark";
 import { Icon } from "./Icon";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
+import { smartQuotes } from "./typography";
 
 /** A link to an evidence record that opens the drawer (or the full page with `open="page"`). */
 export function EvidenceLink({ id, group, open = "drawer", className, children }: { id: string; group?: string[]; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
@@ -44,12 +45,12 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
         <SourceLine e={e} location={false} />
         <Firmness scale="certainty" value={e.certainty} variant={compact ? "inline" : "tag"} />
       </header>
-      <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{e.title}</EvidenceLink></h3>
-      <p className="ev-card__claim">{e.claim}</p>
-      {e.quote && <blockquote className="ev-card__quote">“{e.quote}”</blockquote>}
+      <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{smartQuotes(e.title)}</EvidenceLink></h3>
+      <p className="ev-card__claim">{smartQuotes(e.claim)}</p>
+      {e.quote && <blockquote className="ev-card__quote">“{smartQuotes(e.quote)}”</blockquote>}
       {!compact && figure}
       <footer className="ev-card__foot">
-        <span className="ev-card__loc"><Icon icon={CornerDownRight} /> {e.location}</span>
+        <span className="ev-card__loc"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>
         {!compact && <EvidenceDate e={e} compact />}
       </footer>
       {entities.length > 0 && <p className="ev-card__entities">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</p>}
@@ -70,9 +71,9 @@ export function EvidenceRow({ e, n, group, claim = true, open = "drawer", as: Ta
       {n != null && <span className="ev-row__n">{n}</span>}
       <span className="ev-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <span className="ev-row__main">
-        <EvidenceLink id={e.id} group={group} open={open} className="ev-row__title">{e.title}</EvidenceLink>
-        {claim && <span className="ev-row__claim">{e.claim}</span>}
-        <span className="ev-row__meta"><GameMark id={e.game} /> <span>{e.location}</span></span>
+        <EvidenceLink id={e.id} group={group} open={open} className="ev-row__title">{smartQuotes(e.title)}</EvidenceLink>
+        {claim && <span className="ev-row__claim">{smartQuotes(e.claim)}</span>}
+        <span className="ev-row__meta"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></span>
       </span>
     </Tag>
   );

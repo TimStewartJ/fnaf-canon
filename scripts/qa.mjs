@@ -16,6 +16,8 @@
  *     [--axe]                          run axe-core on each route (serious and critical issues are listed)
  *     [--json report.json]             write the full report as JSON
  *     [--tag name]                     prefix for screenshot file names
+ *     [--theme paper]                  reader theme to test (night is the default); also accepts
+ *                                      --text small|large and --cites hide for the other reader settings
  * Exit code 1 when any route has a console/page error, a failed request or horizontal overflow.
  */
 import { chromium } from "playwright";
@@ -39,6 +41,9 @@ const routes = opt("routes", "").split(",").filter(Boolean);
 const scrolls = opt("scroll", "").split(",").filter(Boolean).map(Number);
 const maxHeight = Number(opt("max-height", "12000"));
 const tag = opt("tag", "");
+// Reader settings, as the site stores them (see src/components/shell/prefs.ts).
+const prefs = { theme: opt("theme", "night"), cites: opt("cites", "show"), text: opt("text", "normal") };
+const customPrefs = prefs.theme !== "night" || prefs.cites !== "show" || prefs.text !== "normal";
 fs.mkdirSync(out, { recursive: true });
 
 let AxeBuilder = null;
@@ -53,6 +58,7 @@ let bad = 0;
 for (const width of widths) {
   const height = width >= 700 ? 900 : 844;
   const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700, isMobile: width < 700 });
+  if (customPrefs) await ctx.addInitScript((p) => { try { localStorage.setItem("fca:prefs", JSON.stringify(p)); } catch { /* about:blank has no storage */ } }, prefs);
   const page = await ctx.newPage();
   let errs = [];
   page.on("pageerror", (e) => errs.push(`pageerror: ${String(e)}`));

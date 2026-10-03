@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Maximize2 } from "lucide-react";
 import { credits, evidence } from "../../data/store";
-import { EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, imgUrl } from "../../components/ui";
+import { EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, imgUrl, smartQuotes } from "../../components/ui";
 import "./gallery.css";
 
 export default function Gallery() {
@@ -25,8 +25,8 @@ export default function Gallery() {
               </button>
               <figcaption className="figure__caption">
                 <GameMark id={c.game} link />
-                <span className="figure__text">{c.caption}</span>
-                {uses.length > 0 && <span className="gal-item__uses">{uses.map((u) => <EvidenceLink key={u.id} id={u.id} className="tag">{u.title}</EvidenceLink>)}</span>}
+                <span className="figure__text">{smartQuotes(c.caption)}</span>
+                {uses.length > 0 && <span className="gal-item__uses">{uses.map((u) => <EvidenceLink key={u.id} id={u.id} className="tag">{smartQuotes(u.title)}</EvidenceLink>)}</span>}
                 <span className="figure__meta"><a className="figure__credit" href={c.sourcePage} target="_blank" rel="noreferrer">Image source<Icon icon={ArrowUpRight} /></a></span>
               </figcaption>
             </figure>

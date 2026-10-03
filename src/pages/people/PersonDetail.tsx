@@ -7,7 +7,7 @@ import { membership, unifiedById, type Link as MLink } from "../../data/model";
 import { eventDate } from "../../data/dates";
 import {
   Button, ButtonLink, Callout, CiteList, Crumbs, DEATH_KIND_ICON, DatePill, Empty, EntityLink, EvidenceCard, Fact, Facts, Figure, GameMark, Icon, Page,
-  RichText, Section, StatusMark, TableWrap, levelOf, personPath, timelineEventPath,
+  RichText, Section, StatusMark, TableWrap, levelOf, personPath, timelineEventPath, smartQuotes,
 } from "../../components/ui";
 import "./people.css";
 
@@ -33,7 +33,7 @@ function IdentCard({ l }: { l: MLink }) {
   return (
     <div className="ident-card" data-level={levelOf(l.status)}>
       <span className="kind">{KIND_LABEL[l.kind]} <StatusMark value={l.status} /></span>
-      <h4><Link to={personPath(l.id)} className={p.nameStatus === "canon-name" ? "name-canon" : "name-desc"}>{p.name}</Link> <GameMark id={p.firstAppearance} /></h4>
+      <h4><Link to={personPath(l.id)} className={p.nameStatus === "canon-name" ? "name-canon" : "name-desc"}>{smartQuotes(p.name)}</Link> <GameMark id={p.firstAppearance} /></h4>
       <p className="chain">{chainNames(l).map((n, i) => <span key={i}>{i > 0 && <span className="chain-eq"> = </span>}{n}</span>)}</p>
       {l.via.some((r) => r.note) && <p className="small muted">{l.via.map((r) => r.note).filter(Boolean).join(" ")}</p>}
       <CiteList ids={[...new Set(l.via.flatMap((r) => r.evidence))]} />
@@ -74,7 +74,7 @@ export default function PersonDetail() {
         <div className="converge">
           <Icon icon={ArrowRight} />
           <div>
-            In the model, <strong>{p.name}</strong> is {m.link.kind === "form" ? "a form of" : "the same person as"}{" "}
+            In the model, <strong>{smartQuotes(p.name)}</strong> is {m.link.kind === "form" ? "a form of" : "the same person as"}{" "}
             <Link to={personPath(m.root)}><strong>{rootP.name}</strong></Link>.
             <div className="converge__via"><StatusMark value={m.link.status} long /> <span>Rests on</span> <CiteList ids={[...new Set(m.link.via.flatMap((r) => r.evidence))]} /></div>
           </div>
@@ -84,7 +84,7 @@ export default function PersonDetail() {
         <div className="converge">
           <Icon icon={ArrowRight} />
           <div>
-            In the model, <strong>{p.name}</strong> is {m.viaVessel.link.kind === "role" ? "a role worn by" : "haunted by"}{" "}
+            In the model, <strong>{smartQuotes(p.name)}</strong> is {m.viaVessel.link.kind === "role" ? "a role worn by" : "haunted by"}{" "}
             <Link to={personPath(m.viaVessel.owner)}><strong>{personById.get(m.viaVessel.owner)?.name}</strong></Link>.
             <div className="converge__via"><StatusMark value={m.viaVessel.link.status} long /> <span>Rests on</span> <CiteList ids={m.viaVessel.link.via.flatMap((r) => r.evidence)} /></div>
           </div>
@@ -93,7 +93,7 @@ export default function PersonDetail() {
       <div className={`person-hero${p.image ? " person-hero--image" : ""}`}>
         {p.image && <Figure file={p.image} alt={p.name} eager />}
         <div>
-          <h1 className={nameClass}>{p.name}</h1>
+          <h1 className={nameClass}>{smartQuotes(p.name)}</h1>
           {p.aliases.length > 0 && <p className="person-hero__aliases">Also: {p.aliases.join(" · ")}</p>}
           <p className="person-hero__summary"><RichText text={p.summary} /></p>
           <Facts>
@@ -101,7 +101,7 @@ export default function PersonDetail() {
             <Fact label="First appearance"><GameMark id={p.firstAppearance} variant="full" link /></Fact>
             <Fact label="Identity rests on"><CiteList ids={p.evidence} /></Fact>
           </Facts>
-          {p.nameStatus === "descriptor" && <p className="note">The games never name this person. “{p.name}” is a neutral descriptor used by this archive.</p>}
+          {p.nameStatus === "descriptor" && <p className="note">The games never name this person. “{smartQuotes(p.name)}” is a neutral descriptor used by this archive.</p>}
         </div>
       </div>
       {p.theory && <Callout tone="key" title="The model's reading"><p><RichText text={p.theory} /></p></Callout>}
@@ -142,7 +142,7 @@ export default function PersonDetail() {
               return (
                 <li key={t.id} data-level={levelOf(t.status)}>
                   <DatePill label={t.yearLabel} kind={d.kind} basis={d.basis} evidence={d.evidence} compact />
-                  <Link to={timelineEventPath(t.id)}>{t.title}</Link> <StatusMark value={t.status} />
+                  <Link to={timelineEventPath(t.id)}>{smartQuotes(t.title)}</Link> <StatusMark value={t.status} />
                 </li>
               );
             })}
@@ -152,8 +152,8 @@ export default function PersonDetail() {
       {(died.length > 0 || killed.length > 0) && (
         <Section title="Deaths">
           <div className="death-cols">
-            {died.length > 0 && <div><h3 className="label">Died</h3><ul className="plain">{died.map((d) => <li key={d.id}><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{d.title}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul></div>}
-            {killed.length > 0 && <div><h3 className="label">Responsible for</h3><ul className="plain">{killed.map((d) => <li key={d.id}><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{d.title}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul></div>}
+            {died.length > 0 && <div><h3 className="label">Died</h3><ul className="plain">{died.map((d) => <li key={d.id}><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{smartQuotes(d.title)}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul></div>}
+            {killed.length > 0 && <div><h3 className="label">Responsible for</h3><ul className="plain">{killed.map((d) => <li key={d.id}><Icon icon={DEATH_KIND_ICON[d.kind]} label={DEATH_KIND[d.kind].label} /> <Link to={timelineEventPath(d.id)}>{smartQuotes(d.title)}</Link> <span className="muted small">{d.yearLabel}</span> <StatusMark value={d.status} /></li>)}</ul></div>}
           </div>
         </Section>
       )}

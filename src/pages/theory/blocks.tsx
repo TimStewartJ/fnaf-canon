@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Check } from "lucide-react";
 import type { Evidence, TheoryBlock } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText } from "../../components/ui";
+import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes } from "../../components/ui";
 
 type CompareColumn = Extract<TheoryBlock, { kind: "compare" }>["columns"][number];
 
@@ -13,9 +13,9 @@ function PullQuote({ id, text }: { id: string; text?: string }) {
   const words = text ?? e.quote;
   return (
     <figure className="pullquote">
-      <blockquote className={words ? undefined : "pullquote--claim"}>{words ?? e.claim}</blockquote>
+      <blockquote className={words ? undefined : "pullquote--claim"}>{smartQuotes(words ?? e.claim)}</blockquote>
       <figcaption>
-        <EvidenceLink id={e.id} className="pullquote__source"><GameMark id={e.game} /> <span>{e.location}</span></EvidenceLink>
+        <EvidenceLink id={e.id} className="pullquote__source"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></EvidenceLink>
         <CiteGroup ids={[e.id]} />
       </figcaption>
     </figure>
@@ -29,9 +29,9 @@ function Compare({ columns }: { columns: CompareColumn[] }) {
       {columns.map((c, i) => (
         <section key={i} className={`compare__col${c.pick ? " is-pick" : ""}`}>
           {c.pick
-            ? <p className="compare__flag"><Icon icon={Check} /> {c.verdict ?? "The model's pick"}</p>
-            : c.verdict && <p className="compare__flag">{c.verdict}</p>}
-          <h3 className="compare__title">{c.title}</h3>
+            ? <p className="compare__flag"><Icon icon={Check} /> {smartQuotes(c.verdict ?? "The model's pick")}</p>
+            : c.verdict && <p className="compare__flag">{smartQuotes(c.verdict)}</p>}
+          <h3 className="compare__title">{smartQuotes(c.title)}</h3>
           <p className="compare__text"><RichText text={c.text} /></p>
         </section>
       ))}
@@ -80,7 +80,7 @@ export function Block({ block, fig }: { block: TheoryBlock; fig?: number }) {
       const group = records.map((e) => e.id);
       return (
         <section className="exhibits full" aria-label={block.title ?? "Evidence"}>
-          <p className="label exhibits__title">{block.title ?? "Exhibits"} <span className="faint">· {records.length} record{records.length === 1 ? "" : "s"}</span></p>
+          <p className="label exhibits__title">{smartQuotes(block.title ?? "Exhibits")} <span className="faint">· {records.length} record{records.length === 1 ? "" : "s"}</span></p>
           <div className="exhibits__strip">{records.map((e) => <EvidenceCard key={e.id} e={e} group={group} compact />)}</div>
         </section>
       );

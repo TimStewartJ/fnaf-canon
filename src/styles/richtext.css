@@ -177,6 +177,7 @@
   max-width: 100%;
 }
 .entity--chip .icon { color: var(--c-text-3); }
+.entity--chip .name-desc { font-size: 1.07em; }
 .entity--chip:hover { color: var(--c-text); border-color: var(--c-accent-line); background: var(--c-accent-soft); }
 
 /* ── Chapter links ─────────────────────────────────────────────── */

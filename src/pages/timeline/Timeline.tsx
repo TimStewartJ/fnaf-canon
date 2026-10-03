@@ -9,7 +9,7 @@ import { LOCATION_KIND, type LocationKind } from "../../data/locations";
 import type { DateKind, Status, TimelineEvent } from "../../data/schema";
 import {
   Button, Collapsible, DATE_KIND, DEATH_KIND_ICON, DateGlyph, DatePill, DeathIcon, Empty, EntityLink, EvidenceCard, FilterBar, FilterChip, FilterGroup,
-  GameMark, Icon, LOCATION_HUE, Page, PageHeader, RichText, STATUS, StatusMark, eraHue, hueOf, imgUrl, levelOf, placePath,
+  GameMark, Icon, LOCATION_HUE, Page, PageHeader, RichText, STATUS, StatusMark, eraHue, hueOf, imgUrl, levelOf, placePath, smartQuotes,
 } from "../../components/ui";
 import "./timeline.css";
 
@@ -251,7 +251,7 @@ function EventItem({ t, side, open, now, refFn, onSelect }: { t: TimelineEvent }
             <span className="tl-games">{gamesOfIds(t.evidence).map((g) => <GameMark key={g} id={g} />)}</span>
             <StatusMark value={t.status} />
           </div>
-          <h3><button type="button" className="tl-title" onClick={onSelect}>{t.title}</button></h3>
+          <h3><button type="button" className="tl-title" onClick={onSelect}>{smartQuotes(t.title)}</button></h3>
           <p className="tl-sum"><RichText text={t.summary} /></p>
           <div className="tl-foot">
             <span className="tl-people">
@@ -280,7 +280,7 @@ function DeathItem({ d, side, open, now, refFn, onSelect }: { d: Death } & ItemP
             <span className="tl-death-kind"><Icon icon={DEATH_KIND_ICON[d.kind]} /> {k.label}{d.branch && <span className="chip">one ending: {d.branch}</span>}</span>
             <StatusMark value={d.status} />
           </div>
-          <h3><button type="button" className="tl-title" onClick={onSelect}>{d.title}</button></h3>
+          <h3><button type="button" className="tl-title" onClick={onSelect}>{smartQuotes(d.title)}</button></h3>
           <dl className="tl-death-facts">
             <dt>Victim</dt><dd>{d.victimLabel}</dd>
             <dt>By</dt><dd>{d.byLabel}</dd>

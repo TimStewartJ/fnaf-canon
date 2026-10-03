@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, ArrowUpRight, ChevronDown, ChevronUp, PenLine } from "lucide-react";
 import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Source, type Verdict } from "../../data/community";
 import { theoryById } from "../../data/store";
-import { Button, Callout, Chip, CiteList, FilterChip, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, Section, Tag, VERDICT_TONE, chapterPath } from "../../components/ui";
+import { Button, Callout, Chip, CiteList, FilterChip, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, Section, Tag, VERDICT_TONE, chapterPath, smartQuotes } from "../../components/ui";
 import "./essays.css";
 import "./community.css";
 
@@ -77,7 +77,7 @@ export default function Community() {
               <span className="inter-date">{x.date}</span>
               <span className="inter-dot" title={INTERACTION_KIND[x.kind].label}><Icon icon={INTERACTION_ICON[x.kind]} label={INTERACTION_KIND[x.kind].label} /></span>
               <div className="inter-body">
-                <h3>{x.title}</h3>
+                <h3>{smartQuotes(x.title)}</h3>
                 <p className="inter-kind"><Chip>{INTERACTION_KIND[x.kind].label}</Chip> <Chip tone={x.confirmed === "scott-confirmed" ? "ok" : "open"}>{x.confirmed === "scott-confirmed" ? "Scott's own words" : "Fan-inferred"}</Chip></p>
                 <p className="inter-text"><RichText text={x.summary} /></p>
                 <div className="inter-foot">

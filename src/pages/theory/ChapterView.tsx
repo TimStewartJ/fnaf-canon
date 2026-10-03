@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { CONFIDENCE, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText } from "../../components/ui";
+import { CONFIDENCE, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes } from "../../components/ui";
 import { Blocks } from "./blocks";
 import { type PartGroup, chapterCitations, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
@@ -59,13 +59,13 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
       <article className="chapter article">
         <header className="chapter-head">
           <p className="kicker chapter-head__kicker">
-            {part ? <Link to={`${ctx.coverPath}#part-${part.id}`}>Part {roman(ctx.group!.n)} · {part.title}</Link> : <Link to={ctx.coverPath}>The theory</Link>}
+            {part ? <Link to={`${ctx.coverPath}#part-${part.id}`}>Part {roman(ctx.group!.n)} · {smartQuotes(part.title)}</Link> : <Link to={ctx.coverPath}>The theory</Link>}
             <span className="chapter-head__count">Chapter {ctx.number} of {ctx.total}</span>
           </p>
-          <h1 className="chapter-head__title">{s.title}</h1>
+          <h1 className="chapter-head__title">{smartQuotes(s.title)}</h1>
           <div className="verdict" data-level={conf.level}>
-            {question && <p className="verdict__q"><span className="label">The question</span>{question}</p>}
-            {s.answer && <p className="verdict__a"><span className="label">The model's answer</span><RichText text={s.answer} /></p>}
+            {question && <p className="verdict__q"><span className="label">The question</span>{smartQuotes(question)}</p>}
+            {s.answer && <p className="verdict__a"><span className="label">The model’s answer</span><RichText text={s.answer} /></p>}
             <p className="verdict__conf">
               <ConfidenceMark value={s.confidence} variant="inline" long />
               <span className="verdict__help">{conf.help}.</span>
@@ -125,7 +125,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
                 <li key={c.id}>
                   <Link to={ctx.pathOf(c.id)} className="see-also__item">
                     <span className="see-also__n">{pad2(ctx.numberOf(c.id))}</span>
-                    <span className="see-also__title">{c.title}</span>
+                    <span className="see-also__title">{smartQuotes(c.title)}</span>
                     <ConfidenceMark value={c.confidence} variant="glyph" />
                   </Link>
                 </li>
@@ -149,7 +149,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
           {ctx.prev ? (
             <Link to={ctx.pathOf(ctx.prev.id)} className="chapter-pager__link" rel="prev">
               <span className="label"><Icon icon={ArrowLeft} /> Previous · {pad2(ctx.numberOf(ctx.prev.id))}</span>
-              <span className="chapter-pager__title">{ctx.prev.title}</span>
+              <span className="chapter-pager__title">{smartQuotes(ctx.prev.title)}</span>
             </Link>
           ) : (
             <Link to={ctx.coverPath} className="chapter-pager__link">
@@ -160,7 +160,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
           {ctx.next ? (
             <Link to={ctx.pathOf(ctx.next.id)} className="chapter-pager__link chapter-pager__link--next" rel="next">
               <span className="label">Next · {pad2(ctx.numberOf(ctx.next.id))} <Icon icon={ArrowRight} /></span>
-              <span className="chapter-pager__title">{ctx.next.title}</span>
+              <span className="chapter-pager__title">{smartQuotes(ctx.next.title)}</span>
             </Link>
           ) : (
             <Link to={`${ctx.coverPath}#contents`} className="chapter-pager__link chapter-pager__link--next">

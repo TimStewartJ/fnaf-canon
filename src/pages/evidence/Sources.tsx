@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { evidence, gameById, games } from "../../data/store";
 import { GAME_DATES } from "../../data/dates";
-import { ButtonLink, Crumbs, DatePill, Empty, EvidenceCard, GameMark, KIND_LABEL, Page, PageHeader, Section, TableWrap, Tag, sourcePath } from "../../components/ui";
+import { ButtonLink, Crumbs, DatePill, Empty, EvidenceCard, GameMark, KIND_LABEL, Page, PageHeader, Section, TableWrap, Tag, sourcePath, smartQuotes } from "../../components/ui";
 import "./sources.css";
 
 function SetIn({ id, fallback }: { id: string; fallback: string }) {
@@ -25,9 +25,9 @@ export default function Sources() {
             {games.map((g) => (
               <tr key={g.id}>
                 <td className="src-table__source">
-                  <Link to={sourcePath(g.id)} className="src-title">{g.title}</Link>
+                  <Link to={sourcePath(g.id)} className="src-title">{smartQuotes(g.title)}</Link>
                   <div className="src-table__meta"><GameMark id={g.id} /></div>
-                  <div className="muted small">{g.summary}</div>
+                  <div className="muted small">{smartQuotes(g.summary)}</div>
                 </td>
                 <td className="mono nowrap">{g.released}</td>
                 <td>{g.developer}</td>
@@ -60,9 +60,9 @@ export function SourceDetail() {
       <Crumbs items={[{ to: "/sources", label: "Sources" }, { label: g.title }]} />
       <header className="src-head">
         <p className="src-head__mark"><GameMark id={g.id} /></p>
-        <h1>{g.title}</h1>
+        <h1>{smartQuotes(g.title)}</h1>
         <p className="src-head__meta">Released {g.released} · {g.developer} · Set in <SetIn id={g.id} fallback={g.settingYearLabel} /></p>
-        <p className="lede">{g.summary}</p>
+        <p className="lede">{smartQuotes(g.summary)}</p>
         <p className="cluster">{[...byKind].map(([k, n]) => <Tag key={k} to={`/evidence?game=${g.id}&kind=${k}`}>{KIND_LABEL[k]} · {n}</Tag>)}</p>
       </header>
       <Section title="Evidence from this source" aside={`${ev.length} records`}>

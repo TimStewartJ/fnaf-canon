@@ -28,7 +28,7 @@ export const GROUP_HUE: Record<Person["group"], string> = {
   pizzaplex: "#e196c0", mimic: "#e79d73", entity: "#ec9789", other: NEUTRAL_HUE,
 };
 export const GROUP_LABEL: Record<Person["group"], string> = {
-  afton: "Afton family", emily: "Cassette Man's household", victim: "Victims", protagonist: "Guards and protagonists",
+  afton: "Afton family", emily: "Cassette Man’s household", victim: "Victims", protagonist: "Guards and protagonists",
   staff: "Voices and companies", pizzaplex: "Pizzaplex era", mimic: "The Mimic and the Murrays", entity: "Machines and entities", other: "Minor figures",
 };
 
