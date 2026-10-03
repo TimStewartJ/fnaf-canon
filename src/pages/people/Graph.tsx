@@ -304,6 +304,8 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
 const WebList = memo(function WebList({ web, focus, near, applied, unified, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: UrlState["set"] }) {
   const sorted = useMemo(() => [...web.nodes].sort(byName), [web]);
   const listed = focus ? [web.byId.get(focus)!, ...sorted.filter((n) => n.id !== focus && near?.has(n.id))] : sorted;
+  // On a phone a name and its group do not fit side by side; the swatch still gives the group.
+  const phone = useMediaQuery("(max-width: 640px)");
   return (
     <Section
       id="list"
@@ -324,8 +326,8 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
               <Collapsible
                 key={`${n.id}:${n.id === focus ? "open" : ""}`}
                 defaultOpen={n.id === focus}
-                summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} /> <Name id={n.id} as="plain" /></>}
-                meta={`${GROUP_LABEL[n.group] ?? n.group} · ${plural(ties.length, "tie")}`}
+                summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} title={GROUP_LABEL[n.group] ?? n.group} /> <Name id={n.id} as="plain" /></>}
+                meta={phone ? plural(ties.length, "tie") : `${GROUP_LABEL[n.group] ?? n.group} · ${plural(ties.length, "tie")}`}
               >
                 <WhenOpened open={n.id === focus}>
                   {() => (
