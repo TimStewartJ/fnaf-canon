@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, Tabs, eraHue, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
@@ -243,7 +243,7 @@ export default function Timeline() {
       </PageHeader>
 
       <div className="tl-bar" ref={bar}>
-        <Tabs tabs={VIEWS} value={view} onChange={setView} label="Views of the timeline" />
+        <Tabs tabs={VIEWS} value={view} onChange={setView} label="Views of the timeline" panel="tl-view" />
         <div className="tl-bar__tools">
           <MarksKey />
           <button
@@ -251,7 +251,7 @@ export default function Timeline() {
             type="button"
             className={`btn btn--sm tl-bar__filters${nApplied ? " on" : ""}`}
             aria-expanded={filtersOpen}
-            aria-controls={phone ? undefined : "tl-filter-panel"}
+            aria-controls={!phone && filtersOpen ? "tl-filter-panel" : undefined}
             aria-haspopup={phone ? "dialog" : undefined}
             onClick={() => setFiltersOpen((o) => !o)}
           >
@@ -270,7 +270,7 @@ export default function Timeline() {
       <AppliedSummary f={f} line={line} set={setFilters} onClear={clearFilters} idle={!applied} focusAfter={filtersBtn} onDone={filtersOpen && !phone ? () => setFiltersOpen(false) : undefined} />
 
       {view === "events" ? (
-        <div className="tl-events" role="tabpanel" aria-label="Events" tabIndex={-1} ref={panel}>
+        <TabPanel id="tl-view" tab={view} className="tl-events" tabIndex={-1} ref={panel}>
           {wide ? <EraRail entries={eraEntries} sp={sp} onGo={goToEra} /> : <EraBar entries={eraEntries} sp={sp} onGo={goToEra} />}
           <div className="tl-line">
             {lost && (
@@ -293,11 +293,11 @@ export default function Timeline() {
               </p>
             )}
           </div>
-        </div>
+        </TabPanel>
       ) : (
-        <div className="tl-places" role="tabpanel" aria-label="Locations" tabIndex={-1} ref={panel}>
+        <TabPanel id="tl-view" tab={view} className="tl-places" tabIndex={-1} ref={panel}>
           <LocationsView f={f} sp={sp} onLeave={() => { viewJump.current = true; }} />
-        </div>
+        </TabPanel>
       )}
     </Page>
   );

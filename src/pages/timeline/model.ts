@@ -10,6 +10,7 @@ import { canonicalId } from "../../data/model";
 import { citationsInText } from "../../data/theoryText";
 import { gameMeta } from "../../data/gameMeta";
 import { DEATH_KIND, type Death, type DeathKind } from "../../data/deaths";
+import { numberWord } from "../../components/typography";
 import { LOCATION_KIND, type LocationSpan } from "../../data/locations";
 import type { Status, TimelineEvent } from "../../data/schema";
 import { STATUS, chapterNumber, timelineEventPath } from "../../components/ui";
@@ -336,9 +337,8 @@ export function countPhrase(line: Lineup, f: Filters): string {
   return parts.join(" and ");
 }
 
-const SMALL = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
 /** Small numbers as words, for sentences. */
-export const inWords = (n: number): string => SMALL[n] ?? String(n);
+export const inWords = (n: number): string => numberWord(n);
 
 /* ── Links ──────────────────────────────────────────────────────────────────────── */
 

@@ -115,6 +115,16 @@ export function LocationsView({ f, sp, onLeave }: { f: Filters; sp: URLSearchPar
           ))}
         </div>
       </nav>
+      {/* Where the columns are too narrow to carry their names they are headed by number alone,
+          so the eras are named here, once. For the eye only: the links above always hold the names. */}
+      <div className="tl-loc__keyrow" aria-hidden>
+        <span />
+        <div className="tl-loc__chart">
+          <p className="tl-loc__erakey">
+            {eras.map((e, i) => <span key={e.id} className="tl-loc__erakey-item"><span className="tl-loc__era-n">{pad2(i + 1)}</span> {smartQuotes(e.name)}</span>)}
+          </p>
+        </div>
+      </div>
       {locationGroups.map((g) => (
         <section key={g.kind} className="tl-loc__group" style={{ "--hue": hueOf(LOCATION_HUE, g.kind) } as CSSProperties} aria-labelledby={`tl-loc-${g.kind}`}>
           <h3 className="tl-loc__kind" id={`tl-loc-${g.kind}`}><span className="tl-loc__swatch" aria-hidden />{smartQuotes(g.label)} <span className="tl-loc__kind-n">{g.rows.length}</span></h3>
