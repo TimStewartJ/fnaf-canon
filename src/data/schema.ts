@@ -234,8 +234,10 @@ export interface TheoryIntro {
   standfirst: string;
   /** RichText. The whole model in a short paragraph. */
   thesis: string;
-  /** RichText paragraphs. How to read the model: what the confidence marks and citations mean. */
+  /** RichText paragraphs. How to read the model: what the markers, the marks and the citations mean. Printed before the storyline. */
   howToRead: string[];
+  /** RichText. How a chapter is built, and what the tags on weaker records mean. Printed at the head of the chapters, after the storyline. */
+  aboutChapters?: string;
 }
 
 /** Evidence records that are deliberately not part of the story, grouped by reason (e.g. non-canon per Scott, out-of-universe). */

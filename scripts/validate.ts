@@ -114,6 +114,7 @@ for (const s of theory) {
 }
 for (const p of theoryParts) { textRefs(`part ${p.id}`, p.blurb); if (!theory.some((s) => s.part === p.id)) warnings.push(`part ${p.id}: no chapters`); }
 textRefs("theoryIntro", theoryIntro.thesis); theoryIntro.howToRead.forEach((t) => textRefs("theoryIntro", t));
+if (theoryIntro.aboutChapters) textRefs("theoryIntro", theoryIntro.aboutChapters);
 const beatIds = new Set<string>();
 for (const b of storyline) {
   if (beatIds.has(b.id)) errors.push(`storyline: duplicate beat ${b.id}`); beatIds.add(b.id);
