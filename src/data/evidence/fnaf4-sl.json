@@ -2258,7 +2258,8 @@
       "eggs-benedict"
     ],
     "places": [
-      "circus-babys-rental"
+      "circus-babys-rental",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -2283,7 +2284,8 @@
       "fredbear-plush"
     ],
     "places": [
-      "circus-babys-rental"
+      "circus-babys-rental",
+      "private-room"
     ],
     "tags": [
       "fredbear-plush",
@@ -3593,7 +3595,8 @@
     ],
     "places": [
       "circus-babys-rental",
-      "fnaf4-house"
+      "fnaf4-house",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3633,7 +3636,8 @@
     },
     "places": [
       "circus-babys-rental",
-      "fnaf4-house"
+      "fnaf4-house",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3666,7 +3670,8 @@
     },
     "places": [
       "circus-babys-rental",
-      "fnaf4-house"
+      "fnaf4-house",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3702,7 +3707,8 @@
     ],
     "places": [
       "circus-babys-rental",
-      "fnaf4-house"
+      "fnaf4-house",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3736,7 +3742,8 @@
     },
     "places": [
       "circus-babys-rental",
-      "fnaf4-house"
+      "fnaf4-house",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3772,7 +3779,8 @@
       "fredbear-plush"
     ],
     "places": [
-      "circus-babys-rental"
+      "circus-babys-rental",
+      "private-room"
     ],
     "tags": [
       "private-room",
@@ -3805,7 +3813,8 @@
       "basis": "SL gives no calendar date; HandUnit places it after 'the unfortunate closing of Freddy Fazbear's Pizza'."
     },
     "places": [
-      "circus-babys-rental"
+      "circus-babys-rental",
+      "private-room"
     ],
     "tags": [
       "private-room",
