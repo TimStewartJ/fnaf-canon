@@ -69,6 +69,9 @@ function imageSizes(): Plugin {
 export default defineConfig({
   plugins: [react(), imageSizes()],
   build: {
+    // The evidence records are one chunk of about 660 kB (140 kB compressed) because the data store
+    // loads them all at start. That is the archive's content, not code that could be split further.
+    chunkSizeWarningLimit: 750,
     rolldownOptions: {
       output: {
         // Named, stable chunks: the framework and the evidence records change on different
