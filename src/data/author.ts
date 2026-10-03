@@ -2,14 +2,17 @@
  * Scott Cawthon's Christian background, and what it does (and doesn't) change about reading the games.
  *
  * Evidence policy: Scott's own words are evidence records ([[id]]) and are quoted exactly as the records give them.
- * His pre-FNaF catalogue comes from archived pages, listed as external sources and used only for titles, years and
- * descriptions. Biography never establishes a fact inside the story. It is used only to weigh how plainly to read
- * words that the games already put in characters' mouths.
+ * Nothing on this page says what Scott believes beyond his own words, quoted: "I'm a Christian." and "I believe in
+ * God." are what is on record. His pre-FNaF catalogue comes from archived pages, listed as external sources and
+ * used only for titles, years and descriptions (the blurbs in quotation marks are those pages' own). Biography
+ * never establishes a fact inside the story. Where a reading leans on his faith at all, the page marks that part as
+ * interpretation and says that the games' own words carry the reading without it.
  *
- * The page follows the theory's rulings. The moral vocabulary is the characters' own, it arrives with Pizzeria
- * Simulator, and it reads consistently on either reading of Ultimate Custom Night, so it decides neither. Remnant
- * is no part of it: the games give that word on one blueprint and never say what it is. Ultimate Custom Night never
- * says "Hell". `section` is the id of the theory chapter that argues the point.
+ * The page follows the theory's rulings. The moral vocabulary is the characters' own. It comes late: FNaF World's
+ * framing voice has one word of it, and the rest arrives with Pizzeria Simulator. It reads consistently on either
+ * reading of Ultimate Custom Night, so it decides neither. Remnant is no part of it: the main games give that word
+ * on one blueprint and never say what it is. In the archive's records Ultimate Custom Night never says "Hell".
+ * `section` is the id of the theory chapter that argues the point.
  */
 import type { Source } from "./community";
 
@@ -39,7 +42,7 @@ export const authorAnswer: { q: string; short: string; body: string[]; confidenc
     q: "Is Scott's faith part of the evidence?",
     short: "His words are; his beliefs settle no fact inside the story.",
     body: [
-      "Scott is a professing Christian. In 2021 he wrote \"I'm a Christian.\" and \"I believe in God.\" [[scott-2021-i-am-a-christian]] In 2014 he described about twelve years of his free time spent on Christian films and games before FNaF [[scott-2014-christian-projects-before-fnaf]]. Those statements go into the archive as evidence about the **author**. None of them says who is in which suit, or when anything happened.",
+      "Scott calls himself a Christian. In 2021 he wrote \"I'm a Christian.\" and \"I believe in God.\" [[scott-2021-i-am-a-christian]] In 2014 he described about twelve years of his free time spent on Christian films and games before FNaF [[scott-2014-christian-projects-before-fnaf]]. Those statements go into the archive as evidence about the **author**. None of them says who is in which suit, or when anything happened.",
       "The same 2014 interview has the most important line on the subject. After FNaF1 he was asked whether his Christianity had gone into the game, with hidden messages such as the animals standing for vices. He answered: **\"No, Five Nights at Freddy's is just a simple horror game, although I did try to keep it relatively clean with no blood or guts.\"** [[scott-2014-no-hidden-christian-messages]] That answer is about FNaF1 and about allegory. It does not address the afterlife words that later games put in characters' mouths, and the archive does not stretch it into a ruling on them. Its own method is the same in any case: no allegorical decoding.",
     ],
     confidence: "high",
@@ -48,8 +51,8 @@ export const authorAnswer: { q: string; short: string; body: string[]; confidenc
     q: "Then what does it change?",
     short: "Only how plainly to take the afterlife words that the later games put in characters' mouths.",
     body: [
-      "From Pizzeria Simulator on, the games use religious words. The Cassette Man tells the \"monsters trapped in the corridors\" to \"be still and give up your spirits. They don't belong to you.\" [[ffps-completion-give-up-spirits]] He says \"I believe there is peace and perhaps more waiting for you after the smoke clears.\" [[ffps-completion-peace-perhaps-more]] He tells one \"old friend\" that \"the darkest pit of Hell has opened to swallow you whole, so don't keep the Devil waiting\" [[ffps-completion-old-friend-hell]], and his daughter that \"It's time to rest\" [[ffps-completion-rest]]. In Ultimate Custom Night an old man by a lake says: \"Leave the demon to his demons. Rest your own soul. There is nothing else.\" [[ucn-omc-ending]]",
-      "An author who believes in souls, judgement and rest can mean such words plainly, and nothing he has said suggests irony. So the archive reads them as the story's own **moral map**, in the characters' words: rest for the dead children, Hell named for one old friend, who is most likely the man who killed them, and for the place itself, forgetting [[ffps-completion-remaining-nearby]]. That is a reading of what characters say. The speaker qualifies the kindest of it with \"I believe\", and no game shows where anyone goes.",
+      "The religious words come late. FNaF World's frame ends on one, \"Rest.\", in 2016 [[fw-clock-ending-pieces-in-place]]; from Pizzeria Simulator on there is a vocabulary. The Cassette Man tells the \"monsters trapped in the corridors\" to \"be still and give up your spirits. They don't belong to you.\" [[ffps-completion-give-up-spirits]] He says \"I believe there is peace and perhaps more waiting for you after the smoke clears.\" [[ffps-completion-peace-perhaps-more]] He tells one \"old friend\" that \"the darkest pit of Hell has opened to swallow you whole, so don't keep the Devil waiting\" [[ffps-completion-old-friend-hell]], and his daughter that \"It's time to rest\" [[ffps-completion-rest]]. In Ultimate Custom Night an old man by a lake says: \"Leave the demon to his demons. Rest your own soul. There is nothing else.\" [[ucn-omc-ending]]",
+      "The archive reads these words plainly, as the story's own **moral map** in the characters' words: rest for the dead, Hell named for one old friend, and for the place itself, forgetting [[ffps-completion-remaining-nearby]]. Most likely the dead include the five murdered children, and the old friend is the man who killed them. The words carry that reading without their author. What his faith adds is small, and it is interpretation: an author who calls himself a Christian, and says he believes in God, can mean such words plainly, and nothing he has said on record here suggests irony. The map is a reading of what characters say. The speaker qualifies the kindest of it with \"I believe\" [[ffps-completion-peace-perhaps-more]], and no game shows where anyone goes.",
       "The map decides nothing about Ultimate Custom Night. It reads consistently whoever is in that office. If it is William Afton, Hell is named for the killer, a victim keeps him, and the old man's rest is offered to a listener who is not the demon. If it is Michael, Hell is the father's and rest the son's. Consistency does not choose between them. Which way the model leans, and how lightly, is argued in ((ucn)); ((faith)) sets out the words themselves.",
     ],
     confidence: "medium for the map as a reading of the characters' words; it is a point for neither reading of Ultimate Custom Night",
@@ -59,7 +62,7 @@ export const authorAnswer: { q: string; short: string; body: string[]; confidenc
     short: "Every factual claim in the model stands or falls on the games.",
     body: [
       "Scott's biography cannot decide whether the crying child is an Afton, who is behind the yellow bear, or whether the player of Ultimate Custom Night is William or Michael. Where a reading below leans on his faith, it is marked as interpretation. Where Scott closed a door himself, on allegory, the archive keeps it closed.",
-      "The games themselves stop short of doctrine. There is no church in them. The vocabulary is small (rest, peace, Hell, the Devil, a demon, souls, spirits), every word of it is spoken by a character, and Ultimate Custom Night never says \"Hell\" at all.",
+      "The games themselves stop short of doctrine. The archive's records show no church in them. The vocabulary is small (rest, peace, Hell, the Devil, a demon, souls, spirits, and once an afterlife), and every word of it is spoken by a character. The one \"Hell\" is Pizzeria Simulator's [[ffps-completion-old-friend-hell]]: in the archive's records Ultimate Custom Night never says the word.",
     ],
     confidence: "high",
   },
@@ -93,21 +96,21 @@ export const authorTimeline: AuthorStep[] = [
   {
     id: "a-pilgrim-game", date: "c. 2011", dateBasis: "The archived shop page carries an October 2011 review of the demo; screenshots were uploaded June 2011. GameFAQs lists 13 June 2011 (secondary).", phase: "faith-work",
     title: "The Pilgrim's Progress: The Video Game",
-    body: "A PC role-playing game of the same novel. Its shop page lists \"A battle system that focuses on spiritual warfare with emphasis on the importance of prayer and God's blessings.\" Its battle menu offers **Resist with** (Faith, Truth, Promise, Grace, Power), **Pray for** and **Blessings**, against enemies such as Apollyon and Giant Despair. It is the clearest example of Scott putting theology straight into game mechanics, and the opposite of what he says he did with FNaF.",
-    evidence: ["scott-2014-christian-projects-before-fnaf"],
+    body: "A PC role-playing game of the same novel. Its shop page lists \"A battle system that focuses on spiritual warfare with emphasis on the importance of prayer and God's blessings.\" Its battle menu offers **Resist with** (Faith, Truth, Promise, Grace, Power), **Pray for** and **Blessings**, against enemies such as Apollyon and Giant Despair. Here theology goes straight into the game's mechanics, which is what Scott says he did not do with FNaF [[scott-2014-no-hidden-christian-messages]].",
+    evidence: ["scott-2014-christian-projects-before-fnaf", "scott-2014-no-hidden-christian-messages"],
     sources: [{ who: HOPE_WHO, what: "The Pilgrim's Progress Video Game (shop page)", date: "2012-02-08", url: "https://web.archive.org/web/20120208223723/http://hopeanimation.com/shop/pilgrims-progress-video-game/", reliability: "secondary" }],
     image: "scott-pilgrims-progress-game-cover.jpg",
   },
   {
     id: "a-beaver", date: "2013", dateBasis: "Scott describes it as before FNaF; the game is usually identified as Chipper & Sons Lumber Co. (2013, secondary).", phase: "turn",
     title: "A beaver that looked like an animatronic",
-    body: "\"I had made a family friendly game about a beaver before this but it was criticized online; people said the main character looked like a scary animatronic.\" He resolved to make something much scarier [[scott-2014-beaver-game-origin]]. He puts the turn in terms of faith. His Christian projects had not gone well; after a period of despair he did not feel \"led\" to make another, and \"the events of my life\" led him to the idea for FNaF [[scott-2014-christian-projects-before-fnaf]].",
+    body: "\"I had made a family friendly game about a beaver before this but it was criticized online; people said the main character looked like a scary animatronic.\" He resolved to make something much scarier [[scott-2014-beaver-game-origin]]. Of his Christian projects he said: \"It didn't go well, but I had faith that God wanted me to create those things anyway.\" After a period of despair he did not feel \"led\" to make another, and the events of his life, he said, led him to the idea for FNaF [[scott-2014-christian-projects-before-fnaf]].",
     evidence: ["scott-2014-beaver-game-origin", "scott-2014-christian-projects-before-fnaf"],
   },
   {
-    id: "a-desolate", date: "2013–2014", dateBasis: "Free on scottgames.com by October 2013 (Hope Animation post); Steam release 2014.", phase: "turn",
+    id: "a-desolate", date: "2013–2014", dateBasis: "Free on scottgames.com by October 2013 (Hope Animation post); its Steam page gives 5 May 2014.", phase: "turn",
     title: "The Desolate Hope",
-    body: "Not a Christian game: a coffee-pot robot protects a human embryo on an abandoned station. Scott said it was not designed with abortion in mind, and that the game \"places a very high value on human life\" [[scott-2014-desolate-hope-human-life]]. It is his last major release before FNaF, and it is recorded here as biography only.",
+    body: "Not an openly Christian game: a coffee-pot robot protects a human embryo on an abandoned station. Scott said it was not designed with abortion in mind, and that the game \"places a very high value on human life\" [[scott-2014-desolate-hope-human-life]]. It reached Steam in May 2014, three months before FNaF, and it is recorded here as biography only.",
     evidence: ["scott-2014-desolate-hope-human-life"],
     sources: [
       { who: "Hope Animation (David Hutter)", what: "More games by Scott Cawthon", date: "2013-10-13", url: "https://web.archive.org/web/20140811065425/http://hopeanimation.com/news/more-games-by-scott-cawthon/", reliability: "secondary" },
@@ -116,9 +119,9 @@ export const authorTimeline: AuthorStep[] = [
     image: "scott-desolate-hope-header.jpg",
   },
   {
-    id: "a-fnaf1", date: "2014-08-08", dateBasis: "FNaF1's Steam release.", phase: "fnaf",
+    id: "a-fnaf1", date: "2014-08-08", dateBasis: "FNaF1's first release, as this archive's game list has it; its Steam page gives 19 August 2014.", phase: "fnaf",
     title: "Five Nights at Freddy's",
-    body: "None of the later vocabulary appears in it, as far as the archive's records of the game go: no souls, no rest, no Hell. Scott said he had tried to keep the game \"relatively clean with no blood or guts\" [[scott-2014-no-hidden-christian-messages]]. FNaF1 tells of its deaths at one remove, through newspaper clippings [[fnaf1-news-kids-vanish]] and a last phone message that ends in a scream [[fnaf1-call4-phone-guy-attacked]].",
+    body: "None of the later vocabulary appears in it, as far as the archive's records of the game go: no souls, no rest, no Hell. Scott said he had tried to keep the game \"relatively clean with no blood or guts\" [[scott-2014-no-hidden-christian-messages]]. FNaF1 tells of its deaths at one remove, through newspaper clippings [[fnaf1-news-kids-vanish]] and a last phone message whose transcript ends in a scream [[fnaf1-call4-phone-guy-attacked]].",
     evidence: ["scott-2014-no-hidden-christian-messages", "fnaf1-news-kids-vanish", "fnaf1-call4-phone-guy-attacked"],
   },
   {
@@ -137,19 +140,19 @@ export const authorTimeline: AuthorStep[] = [
   {
     id: "a-ffps", date: "2017-12-04", dateBasis: "Pizzeria Simulator's Steam release.", phase: "fnaf",
     title: "Hell, the Devil, and \"peace and perhaps more\"",
-    body: "Pizzeria Simulator is the first game to name Hell and the Devil. The Cassette Man tells one \"old friend\" that \"the darkest pit of Hell has opened to swallow you whole\" [[ffps-completion-old-friend-hell]]. He tells the \"monsters trapped in the corridors\" to \"be still and give up your spirits\" [[ffps-completion-give-up-spirits]], and says \"I believe there is peace and perhaps more waiting for you after the smoke clears.\" [[ffps-completion-peace-perhaps-more]] \"Be still\" also opens Scott's favourite verse [[scott-2014-favorite-verse-psalm-46-10]]. The echo is noted here, and nothing is built on it.",
+    body: "Pizzeria Simulator is the first game in the archive's records to name Hell and the Devil. The Cassette Man tells one \"old friend\" that \"the darkest pit of Hell has opened to swallow you whole\" [[ffps-completion-old-friend-hell]]. He tells the \"monsters trapped in the corridors\" to \"be still and give up your spirits\" [[ffps-completion-give-up-spirits]], and says \"I believe there is peace and perhaps more waiting for you after the smoke clears.\" [[ffps-completion-peace-perhaps-more]] \"Be still\" also opens Scott's favourite verse [[scott-2014-favorite-verse-psalm-46-10]]. The echo is noted here, and nothing is built on it.",
     evidence: ["ffps-completion-old-friend-hell", "ffps-completion-give-up-spirits", "ffps-completion-peace-perhaps-more", "scott-2014-favorite-verse-psalm-46-10"],
   },
   {
     id: "a-ucn", date: "2018-06-27", dateBasis: "Ultimate Custom Night's Steam release.", phase: "fnaf",
     title: "\"Leave the demon to his demons\"",
-    body: "In Ultimate Custom Night's secret ending an old man by a lake says, to a listener the game does not name: \"Leave the demon to his demons. Rest your own soul. There is nothing else.\" [[ucn-omc-ending]] Another voice refuses: \"I will never let you leave. I will never let you rest.\" [[ucn-happy-frog-never-rest]] The game never says \"Hell\".",
+    body: "In Ultimate Custom Night's secret ending an old man by a lake says, to a listener the game does not name: \"Leave the demon to his demons. Rest your own soul. There is nothing else.\" [[ucn-omc-ending]] Another voice refuses: \"I will never let you leave. I will never let you rest.\" [[ucn-happy-frog-never-rest]] In the archive's records the game never names Hell.",
     evidence: ["ucn-omc-ending", "ucn-happy-frog-never-rest"],
   },
   {
     id: "a-2021", date: "2021-06-12", dateBasis: "Date of Scott's Reddit post.", phase: "statement",
     title: "\"I'm a Christian.\"",
-    body: "Answering criticism of his political donations, Scott states his beliefs, among them: \"I'm a Christian.\" and \"I believe in God.\" [[scott-2021-i-am-a-christian]] The post says nothing about the games' story. Days later he announces his retirement, and says that FNaF is not ending [[scottgames-site-2021-retirement-not-end]].",
+    body: "Answering criticism of his political donations, Scott writes, among other things: \"I'm a Christian.\" and \"I believe in God.\" [[scott-2021-i-am-a-christian]] The post says nothing about the games' story. Days later he announces his retirement, and says that FNaF is not ending [[scottgames-site-2021-retirement-not-end]].",
     evidence: ["scott-2021-i-am-a-christian", "scottgames-site-2021-retirement-not-end"],
     sources: [{ who: "Scott Cawthon (Reddit)", what: "My response, and maybe last post.", date: "2021-06-12", url: "https://www.reddit.com/r/fivenightsatfreddys/comments/nybyo1/my_response_and_maybe_last_post/", reliability: "primary" }],
   },
@@ -161,7 +164,7 @@ export type LexLine = string | [string, string];
 export const lexicon: { id: string; theme: string; color: string; gloss: string; lines: LexLine[] }[] = [
   {
     id: "rest", theme: "Rest for the dead", color: "#69db7c",
-    gloss: "Rest is what the dead children are owed, and what the Cassette Man says they cannot find while they are in the machines. FNaF World's line is an echo from outside the story.",
+    gloss: "Rest is what the dead are owed, and what the Cassette Man says \"those tiny breaths of life\" will never find as they are, in the machines; the model reads them as the dead children. FNaF World's line is its framing voice echoing FNaF4: support, and no more.",
     lines: ["ffps-insanity-tiny-breaths", "ffps-completion-rest", "fw-clock-ending-pieces-in-place", ["fnaf3-happiest-day", "Shown, not said: Happiest Day. The masked children vanish, the masks fall and balloons rise."], "ucn-happy-frog-never-rest"],
   },
   {
@@ -171,23 +174,23 @@ export const lexicon: { id: string; theme: string; color: string; gloss: string;
   },
   {
     id: "beyond", theme: "Something beyond", color: "#b197fc",
-    gloss: "Only one line reaches past rest, and it is the speaker's belief, not a shown fact.",
+    gloss: "One line reaches past rest, to \"perhaps more\". What that is, the speech does not say, and it is the speaker's belief, not a shown fact.",
     lines: ["ffps-completion-peace-perhaps-more"],
   },
   {
     id: "hell", theme: "Hell, the Devil, the monster", color: "#ff6b6b",
-    gloss: "Hell is named once, in Pizzeria Simulator, for one \"old friend\", who is most likely the killer. Ultimate Custom Night speaks of a demon and never says Hell.",
+    gloss: "In the archive's records Hell is named once, in Pizzeria Simulator, for one \"old friend\", who is most likely the killer. Ultimate Custom Night speaks of a demon and, in those records, never says Hell.",
     lines: ["ffps-completion-old-friend-hell", "ffps-insanity-monster-helped-create", ["ucn-omc-ending", "“Leave the demon to his demons.” (neither the demon nor the listener is named)"]],
   },
   {
-    id: "night", theme: "What the endless night is called", color: "#ffa94d",
+    id: "night", theme: "What Ultimate Custom Night's voices call the place", color: "#ffa94d",
     gloss: "The voices of Ultimate Custom Night call the place a prison, a nightmare, an afterlife or a dream, and one of them refuses release. Who is held there is the model's lean and no firmer.",
-    lines: ["ucn-withered-bonnie-prison", ["ucn-nightmarionne-nightmare-you-wont-wake-from", "Nightmarionne calls it “a nightmare that you won't wake from” (the line is spoken with a stutter)."], "ucn-mr-hippo-afterlife-or-dream", "ucn-orville-he-tried-to-release"],
+    lines: ["ucn-withered-bonnie-prison", ["ucn-nightmarionne-nightmare-you-wont-wake-from", "Nightmarionne calls it “a nightmare that you won't wake from” (the line is spoken with a stutter)."], ["ucn-mr-hippo-afterlife-or-dream", "Mr. Hippo, in one of his rambling stories, wonders whether “this is my afterlife or my dream”, and then says it may mean nothing."], "ucn-orville-he-tried-to-release"],
   },
   {
     id: "atone", theme: "Atonement", color: "#ffd43b",
-    gloss: "The words of putting right belong to those who set the trap: a man who let a wound \"bleed out\", a father who could not save his daughter, a company voice that speaks of \"atoning for past mistakes\", and a volunteer who would rather stay.",
-    lines: ["ffps-insanity-wound-first-inflicted", "ffps-completion-shut-out", "ffps-completion-tutorial-atonement", "ffps-completion-brave-volunteer"],
+    gloss: "The words of putting right gather round the trap. The Cassette Man let a wound \"bleed out\" and could not save his daughter; a tutorial voice speaks of \"atoning for past mistakes\"; and a volunteer, he guesses, is where he wants to be.",
+    lines: ["ffps-insanity-wound-first-inflicted", "ffps-completion-shut-out", ["ffps-completion-tutorial-atonement", "The tutorial voice, after the fire: the company values “atoning for past mistakes and tying up loose ends”."], "ffps-completion-right-where-you-want-to-be"],
   },
 ];
 
@@ -204,49 +207,49 @@ export const readings: { claim: string; status: ReadingStatus; body: string; sec
   {
     claim: "FNaF's animatronics are a Christian allegory, standing for sins or vices.",
     status: "ruled-out",
-    body: "Scott was asked this in October 2014, after FNaF1, and answered \"No\" [[scott-2014-no-hidden-christian-messages]]. His answer covers FNaF1; no later game suggests the reading either, and the model decodes no allegory. The machines are machines, and some of them hold the dead.",
+    body: "Scott was asked this in October 2014, after FNaF1, and answered \"No\" [[scott-2014-no-hidden-christian-messages]]. His answer covers FNaF1, the one game that existed. Nothing in the later games' records suggests the reading either, and the model decodes no allegory. The machines are machines, and what the Cassette Man says came to inhabit them is \"those tiny breaths of life\" [[ffps-insanity-tiny-breaths]].",
     section: "faith",
   },
   {
-    claim: "The afterlife words in FFPS and UCN mean what they say inside the fiction.",
+    claim: "The afterlife words in Pizzeria Simulator and Ultimate Custom Night mean what they say inside the fiction.",
     status: "supported",
-    body: "The dead staying on in the machines is the premise of the series, and the Cassette Man says it in so many words: \"I don't know how those tiny breaths of life came to inhabit those machines.\" [[ffps-insanity-tiny-breaths]] He speaks of Hell, the Devil and peace as real destinations, though the peace is expressly his belief [[ffps-completion-old-friend-hell]] [[ffps-completion-peace-perhaps-more]]. Nothing in Scott's words suggests irony, and his stated beliefs make a plain reading the natural one. What the games never show is where anyone goes.",
+    body: "The games tell of the dead staying on in the machines, and the Cassette Man puts it in words: \"I don't know how those tiny breaths of life came to inhabit those machines.\" [[ffps-insanity-tiny-breaths]] He speaks of Hell and the Devil, and of peace, as real, though the peace is expressly his belief [[ffps-completion-old-friend-hell]] [[ffps-completion-peace-perhaps-more]]. Nothing in Scott's words on record here suggests irony. That a plain reading is the natural one for an author who calls himself a Christian is interpretation, and the reading does not need it: the words are in the games. What the games never show is where anyone goes.",
     section: "faith",
   },
   {
     claim: "The story runs on a consistent moral map: rest for the innocent, Hell for the killer.",
     status: "consistent",
-    body: "In the Cassette Man's last speech every word of rest goes to the dead: \"It's time to rest, for you, and for those you have carried in your arms.\" [[ffps-completion-rest]] The one line that names Hell goes to an \"old friend\" [[ffps-completion-old-friend-hell]], most likely the man who killed them. While they are in the machines, he says of the children, \"they will never find rest now. Not like this.\" [[ffps-insanity-tiny-breaths]] The fire is his attempt to end that, and the game presents it as the end [[ffps-completion-fire]]. The pattern in the lines can be checked; the map is the archive's reading of it, taken from one character's speeches.",
+    body: "In the Cassette Man's last speech every word of rest goes to the dead: \"It's time to rest, for you, and for those you have carried in your arms.\" [[ffps-completion-rest]] The one line that names Hell goes to an \"old friend\" [[ffps-completion-old-friend-hell]], most likely the man who killed them. Of \"those tiny breaths of life\" in the machines he says: \"they will never find rest now. Not like this.\" [[ffps-insanity-tiny-breaths]] The model reads the fire as his attempt to end that; the game does not show who lights it, and presents it as the end [[ffps-completion-fire]]. The pattern in the lines can be checked; the map is the archive's reading of it, taken from one character's speeches.",
     section: "faith",
   },
   {
     claim: "Remnant is what keeps souls from rest.",
     status: "open",
-    body: "The games do not say so. Remnant is named on one Afton Robotics blueprint, which labels an injector and a reservoir and notes that overheating \"might neutralize the effects permanently\" [[ffps-scup-blueprint]]. No game says what Remnant is, or that it holds the dead. The model reads it as the name the killer's firm gave to what it was trying to use, and says no more. An earlier version of this page made Remnant part of the moral map; that is withdrawn.",
+    body: "The games do not say so. In the main games Remnant is named on one Afton Robotics blueprint, which labels an injector and a reservoir and notes that overheating \"might neutralize the effects permanently\" [[ffps-scup-blueprint]]. Special Delivery uses the word for a collectible and explains no more [[sd-tutorial-remnant-collection]]. No game says what Remnant is, or that it holds the dead. The model reads it as the name the killer's firm gave to what it was trying to use, and says no more. An earlier version of this page made Remnant part of the moral map; that is withdrawn.",
     section: "remnant",
   },
   {
-    claim: "UCN is William Afton's Hell.",
+    claim: "Ultimate Custom Night is William Afton's Hell.",
     status: "open",
-    body: "The faith lens does not settle it, and the game never uses the word: Hell is named in Pizzeria Simulator, for one \"old friend\" [[ffps-completion-old-friend-hell]]. The model leans to William Afton as the one kept in that night, by a victim who refuses release [[ucn-orville-he-tried-to-release]], and it is only a lean. The moral map reads consistently either way. With William in the office, the old man's \"Rest your own soul\" [[ucn-omc-ending]] is said to some other listener. With Michael there, Hell is the father's and rest the son's.",
+    body: "The faith lens does not settle it, and in the archive's records the game never uses the word: Hell is named in Pizzeria Simulator, for one \"old friend\" [[ffps-completion-old-friend-hell]]. The model leans to William Afton as the one kept in that night, by a victim who refuses release [[ucn-orville-he-tried-to-release]], and it is only a lean. The moral map reads consistently either way. With William in the office, the old man's \"Rest your own soul\" [[ucn-omc-ending]] is said to some other listener. With Michael there, Hell is the father's and rest the son's.",
     section: "ucn",
   },
   {
     claim: "Michael's story is a redemption arc.",
     status: "open",
-    body: "It is only as strong as three identifications, and the model grades them unequally. That Michael is the son sent underground is firm [[sl-golden-freddy-cutscene-father]]. That he is the brother whose prank ends in the bite [[fnaf4-give-fredbear-a-kiss]], and the volunteer who would rather stay in the fire [[ffps-completion-brave-volunteer]], are held at medium. That he is the one told to rest [[ucn-omc-ending]] depends on who is in that office and on whom the old man addresses, and ((ucn)) settles neither: its lean, such as it is, runs the other way. The shape would suit Scott's stated beliefs. The games do not complete it.",
+    body: "It is only as strong as four identifications, and the model grades them unequally. That Michael is the son sent underground is firm [[sl-golden-freddy-cutscene-father]]. That he is the brother whose prank ends in the bite [[fnaf4-give-fredbear-a-kiss]], and the volunteer who, the Cassette Man guesses, is where he wants to be [[ffps-completion-brave-volunteer]] [[ffps-completion-right-where-you-want-to-be]], are held at medium or just below. That he is the one told to rest [[ucn-omc-ending]] depends on who is in that office and on whom the old man addresses, and ((ucn)) settles neither: its lean, such as it is, runs the other way. The games do not complete the shape.",
     section: "michael",
   },
   {
     claim: "The Cassette Man's \"be still\" quotes Scott's favourite verse.",
     status: "noted",
-    body: "Scott's favourite verse begins \"Be still\" [[scott-2014-favorite-verse-psalm-46-10]], and the Cassette Man says \"be still and give up your spirits\" [[ffps-completion-give-up-spirits]]. He says it to the \"monsters trapped in the corridors\". It is two common words, and Scott never linked them. Recorded as a possible echo; nothing rests on it.",
+    body: "Scott's favourite verse begins \"Be still\" [[scott-2014-favorite-verse-psalm-46-10]], and the Cassette Man says \"be still and give up your spirits\" [[ffps-completion-give-up-spirits]]. He says it to the \"monsters trapped in the corridors\". It is two common words, and no statement of Scott's on record here links them. Recorded as a possible echo; nothing rests on it.",
     section: "faith",
   },
   {
     claim: "Golden Freddy's identity was fixed from the start.",
     status: "open",
-    body: "In October 2014 Scott said: \"I can't explain Golden Freddy.\" [[scott-2014-cant-explain-golden-freddy]] That may be coy or sincere; either way he disclosed no explanation then. The model reads the yellow bear from later games, as the mark of the fifth of the five children [[fnaf2-give-gifts-give-life]] [[fnaf3-happiest-day]], at medium confidence.",
+    body: "In October 2014 Scott said: \"I can't explain Golden Freddy.\" [[scott-2014-cant-explain-golden-freddy]] Whatever he meant by it, he gave no explanation then. The model reads the yellow bear from later games, as the mark of the fifth of the five children [[fnaf2-give-gifts-give-life]] [[fnaf3-happiest-day]], at medium confidence.",
     section: "golden",
   },
 ];

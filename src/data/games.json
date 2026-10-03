@@ -4,15 +4,15 @@
     "title": "Five Nights at Freddy's",
     "released": "2014-08-08",
     "developer": "Scott Cawthon",
-    "summary": "A night guard, Mike Schmidt, works a week at Freddy Fazbear's Pizza while its four machines roam at night. A recorded voice on the phone guides him and mentions \"the Bite of '87\", and rare newspaper clippings report children lured into a back room and never found.",
-    "settingYearLabel": "A November after 1987 (the cheques print the year as 'xx')"
+    "summary": "A night guard, Mike Schmidt, works a week at Freddy Fazbear's Pizza while its four machines roam at night. A recorded voice on the phone guides him and speaks of the Bite of '87, and rare newspaper clippings report children lured into a back room and never found.",
+    "settingYearLabel": "A November after 1987 (the cheques print a day and a month, and no year)"
   },
   {
     "id": "fnaf2",
     "title": "Five Nights at Freddy's 2",
     "released": "2014-11-10",
     "developer": "Scott Cawthon",
-    "summary": "A night guard, Jeremy Fitzgerald, works the last week of a new Freddy Fazbear's Pizza, among new machines and four older ones kept for parts. The phone calls report an investigation, a lockdown and a spare yellow suit that someone used. Minigames that can follow a death show a child killed outside a party, the Puppet giving masks to dead children, and a purple man.",
+    "summary": "A night guard, Jeremy Fitzgerald, works the last week of a new Freddy Fazbear's Pizza, among new machines and four older ones kept for parts. The phone calls report an investigation, a lockdown and a spare yellow suit that someone used. Minigames that can follow a death show a purple figure killing a child who cries outside, and the Puppet giving masks to four grey, dead-looking children.",
     "settingYearLabel": "November 1987 (cheques dated 11-12-1987 and 11-13-1987)"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Five Nights at Freddy's 3",
     "released": "2015-03-02",
     "developer": "Scott Cawthon",
-    "summary": "A guard works at Fazbear's Fright, a horror attraction built from the old restaurants' relics around one real find: a yellow rabbit suit with a body inside it. Minigames between the nights show a purple man dismantling the four old machines and dying inside that suit.",
+    "summary": "A guard works at Fazbear's Fright, a local amusement park's horror attraction stocked with relics of the old pizzeria. Its builders find one animatronic, a decayed rabbit with what looks like a body inside it. Minigames between the nights show a purple figure taking the four old machines apart and dying inside a yellow rabbit suit.",
     "settingYearLabel": "Thirty years after Freddy Fazbear's Pizza closed (Scott's store text; no year)"
   },
   {
@@ -44,8 +44,8 @@
     "title": "FNaF World",
     "released": "2016-01-21",
     "developer": "Scott Cawthon",
-    "summary": "A comic role-playing game starring 'adventure' versions of the characters. Its adventure is outside the story; its opening words and its clock ending echo FNaF4 on purpose and are used only as support.",
-    "settingYearLabel": "Outside the story, except its frame voice"
+    "summary": "A comic role-playing game with the series' characters as its party. Its adventure is outside the story; its opening words end on FNaF4's promise, \"I will put you back together.\", and with its clock ending they are used only as support.",
+    "settingYearLabel": "Outside the story, except its opening and clock-ending text"
   },
   {
     "id": "sister-location",
@@ -60,16 +60,16 @@
     "title": "Freddy Fazbear's Pizzeria Simulator",
     "released": "2017-12-04",
     "developer": "Scott Cawthon",
-    "summary": "A franchisee runs a new pizzeria for one week and is offered wrecked machines to salvage. The restaurant is a trap: the Cassette Man calls four haunted machines into one building and stays as it burns.",
-    "settingYearLabel": "After the Fazbear's Fright fire (no year)"
+    "summary": "A franchisee runs a new pizzeria for one week and is offered wrecked machines to salvage. The restaurant is a trap: the Cassette Man calls four haunted machines into one building and, in the ending that the later games follow, stays as it burns.",
+    "settingYearLabel": "After the Fazbear's Fright fire, most likely (no year)"
   },
   {
     "id": "ucn",
     "title": "Ultimate Custom Night",
     "released": "2018-06-27",
     "developer": "Scott Cawthon",
-    "summary": "A custom night with fifty selectable characters from the earlier games. Many of their lines speak to the player as someone who is being kept there, and one voice says it will hold the player there \"no matter how many times they burn us\".",
-    "settingYearLabel": "After the Pizzeria Simulator fire (no year)"
+    "summary": "A custom night with fifty selectable characters from the earlier games. Their voices say that the one in the office has killed and cannot die, and one voice says it will hold that person there: \"No matter how many times they burn us.\"",
+    "settingYearLabel": "After the Pizzeria Simulator fire, most likely (no year)"
   },
   {
     "id": "help-wanted",
@@ -84,7 +84,7 @@
     "title": "Five Nights at Freddy's: Help Wanted - Curse of Dreadbear",
     "released": "2019-10-23",
     "developer": "Steel Wool Studios",
-    "summary": "A Halloween add-on to Help Wanted: new levels in the same virtual product. With a hidden rabbit mask on, the player hears a woman's side of a conversation with someone who is never heard.",
+    "summary": "A Halloween add-on to Help Wanted: new levels in the same virtual product. With a hidden rabbit mask on, and the plush from Help Wanted's Trapped ending in hand, the player hears a woman's side of a conversation with someone who is never heard.",
     "settingYearLabel": "Undated; with Help Wanted"
   },
   {
@@ -92,7 +92,7 @@
     "title": "Five Nights at Freddy's AR: Special Delivery",
     "released": "2019-11-25",
     "developer": "Illumix",
-    "summary": "An augmented-reality mobile game in which the Fazbear Funtime Service sends the company's machines to subscribers' homes. Misdirected company emails tell of a contractor's scan of old circuit boards that released a virus, and of an employee whose searches alarm a colleague.",
+    "summary": "An augmented-reality mobile game in which the Fazbear Funtime Service delivers the company's machines to its subscribers. Company emails that reach the player tell of a contractor's scan of old circuit boards that released a virus, and of an employee whose searches alarm a colleague.",
     "settingYearLabel": "Undated; its emails count only in their order"
   },
   {
@@ -100,7 +100,7 @@
     "title": "Five Nights at Freddy's: Security Breach",
     "released": "2021-12-16",
     "developer": "Steel Wool Studios",
-    "summary": "A boy, Gregory, is shut in Freddy Fazbear's Mega Pizzaplex overnight. Glamrock Freddy helps him against the other machines, the guard Vanessa and a woman in a rabbit costume. The game has six endings, one of which goes down to a pizzeria buried under the building.",
+    "summary": "A boy, Gregory, spends one night inside Freddy Fazbear's Mega Pizzaplex. Glamrock Freddy helps him against the other machines, the guard Vanessa and a woman in a rabbit costume. The game has six endings, one of which goes down to a pizzeria buried under the building.",
     "settingYearLabel": "One night; no year"
   },
   {
@@ -116,24 +116,24 @@
     "title": "Five Nights at Freddy's: Help Wanted 2",
     "released": "2023-12-14",
     "developer": "Steel Wool Studios",
-    "summary": "A staff training program of tasks in the Mega Pizzaplex, seen through a mask; with the mask off, its bright hub is a dark, derelict room. In its main ending a gift on the hub's stage opens on a recharge station, and a robot holds a rabbit mask out to a girl.",
-    "settingYearLabel": "Between Security Breach's night and RUIN"
+    "summary": "A staff training program of tasks in the Mega Pizzaplex, seen through a mask; with the mask off, its bright hub is a dark, derelict room. In its main ending, as a fan wiki describes it, a large box on the hub's stage opens on a recharge station, and a robot holds a rabbit mask out to a girl.",
+    "settingYearLabel": "Most likely between Security Breach's night and RUIN"
   },
   {
     "id": "into-the-pit",
     "title": "Five Nights at Freddy's: Into the Pit",
     "released": "2024-08-07",
     "developer": "Mega Cat Studios",
-    "summary": "An adventure game, and an adaptation that the main games never place. A boy, Oswald, climbs into a ball pit at a run-down pizzeria and comes out in an older Freddy Fazbear's Pizza, and a yellow rabbit follows him back.",
-    "settingYearLabel": "Not placed; a logo graphic reads 1985 (placement unconfirmed)"
+    "summary": "An adventure game, and an adaptation that the main games never place. A boy, Oswald, climbs into a ball pit at a run-down pizzeria and comes out in an older Freddy Fazbear's Pizza; in the present, a yellow rabbit pulls his father into the pit.",
+    "settingYearLabel": "Not placed; a logo graphic reads 1985, which dates nothing"
   },
   {
     "id": "secret-of-the-mimic",
     "title": "Five Nights at Freddy's: Secret of the Mimic",
     "released": "2025-06-13",
     "developer": "Steel Wool Studios",
-    "summary": "Fazbear Entertainment sends a technician by night into the shuttered workshop of Murray's Costume Manor to bring out its blueprints, and an endoskeleton built to take on the character of any costume hunts him there. Recordings and letters tell the story of Edwin Murray, his family and his two machines.",
-    "settingYearLabel": "1979, most likely 7 September (on a work order in the technician's van, not yet seen in play)"
+    "summary": "Fazbear Entertainment sends a technician by night into the shuttered workshop of Murray's Costume Manor to bring out its blueprints. An endoskeleton is loose in the building, and earlier visitors lie dead inside mascot costumes. Recordings and letters tell the story of Edwin Murray, his family and his two machines.",
+    "settingYearLabel": "1979, most likely 7 September (on a work order read from an image, not yet seen in play)"
   },
   {
     "id": "freddy-in-space-2",
