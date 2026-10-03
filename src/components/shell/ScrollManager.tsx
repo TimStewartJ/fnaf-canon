@@ -10,6 +10,19 @@ const FOCUS_KEY = "fca:focus";
 const INPUTS = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
 /** After a landing, how long the page must keep its shape before the landing is final. */
 const QUIET_MS = 1500;
+/** How long the page is held still to end a glide (see land). */
+const HOLD_MS = 120;
+
+/** When the page last moved, and when a finger last left the screen: together they say whether it is still gliding from a flick. */
+let lastScroll = 0;
+let lastTouchEnd = 0;
+const gliding = (): boolean => { const now = performance.now(); return now - lastTouchEnd < 3000 && now - lastScroll < 200; };
+/**
+ * When the browser last stepped to another entry (Back, Forward, a typed address) that the router
+ * has not drawn yet; 0 once it has. Until then the page on screen is still the one being left,
+ * and where it stands must not be filed under the entry being arrived at.
+ */
+let stepped = 0;
 
 /**
  * The key a scroll position is stored under. Entries the router did not create (the first page,
@@ -49,6 +62,11 @@ const pageReady = (): boolean => !document.querySelector("[data-route-loading]")
  * While it holds the page, the browser's own scroll anchoring is switched off. Anchoring keeps
  * whatever is on screen where it is when the page above it changes height; here that would hold
  * the page on what a half-drawn layout had at the place, and move the page away from the place.
+ *
+ * A page still gliding from a flick of the finger (the reader flicked, then pressed Back) would
+ * glide on from wherever it is put, or put itself back where it was gliding. So if it is gliding
+ * when the landing begins, it is first made unscrollable for a moment, which ends the glide, and
+ * is placed when it is let go.
  */
 function land(aim: () => boolean, then?: () => void): () => void {
   let stopped = false;
@@ -58,12 +76,15 @@ function land(aim: () => boolean, then?: () => void): () => void {
   const resized = new ResizeObserver(() => apply());
   const grown = new MutationObserver(() => apply());
   const root = document.documentElement;
+  let hold: number | undefined;
+  const release = () => { if (hold === undefined) return; window.clearTimeout(hold); hold = undefined; root.style.removeProperty("overflow"); };
   const stop = () => {
     if (stopped) return;
     stopped = true;
     resized.disconnect();
     grown.disconnect();
     window.clearTimeout(quiet);
+    release();
     root.style.removeProperty("overflow-anchor");
     for (const ev of INPUTS) window.removeEventListener(ev, stop);
   };
@@ -74,7 +95,8 @@ function land(aim: () => boolean, then?: () => void): () => void {
     else stop();
   };
   function apply() {
-    if (stopped) return;
+    // (Nothing is placed while a glide is being ended: a place given to a gliding page does not hold.)
+    if (stopped || hold !== undefined) return;
     // The page is no longer where this put it: the reader (or the page itself) has moved on.
     if (placed !== null && Math.abs(window.scrollY - placed) > 2) { stop(); return; }
     if (!aim()) return;
@@ -85,6 +107,10 @@ function land(aim: () => boolean, then?: () => void): () => void {
     quiet = window.setTimeout(settled, QUIET_MS);
   }
   root.style.setProperty("overflow-anchor", "none");
+  if (gliding()) {
+    root.style.setProperty("overflow", "hidden");
+    hold = window.setTimeout(() => { release(); apply(); }, HOLD_MS);
+  }
   for (const ev of INPUTS) window.addEventListener(ev, stop, { passive: true });
   resized.observe(document.body);
   if (main) { resized.observe(main); grown.observe(main, { childList: true, subtree: true }); }
@@ -130,7 +156,13 @@ export function ScrollManager() {
     if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
     // Filed under the entry the browser is on, not the one the router has drawn: a page that
     // answers a change of address at once may scroll before the router has caught up.
-    const onScroll = () => { positions.current!.set(liveKey(), window.scrollY); };
+    const onScroll = () => {
+      lastScroll = performance.now();
+      if (stepped && lastScroll - stepped < 1000) return;
+      positions.current!.set(liveKey(), window.scrollY);
+    };
+    const onStep = () => { stepped = performance.now(); };
+    const onTouchEnd = () => { lastTouchEnd = performance.now(); };
     // Focus inside an overlay is not a place on the page: the mark stays on whatever opened it.
     const onFocus = (e: FocusEvent) => { const mark = markFocus(e.target as Element | null); if (mark) marks.current!.set(liveKey(), mark); };
     const persist = () => {
@@ -140,15 +172,18 @@ export function ScrollManager() {
       } catch { /* ignore */ }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    window.addEventListener("popstate", onStep, true);
     document.addEventListener("focusin", onFocus);
     window.addEventListener("pagehide", persist);
     // A phone drops a tab it has put in the background without another word; this is the last it says.
     const onHide = () => { if (document.visibilityState === "hidden") persist(); };
     document.addEventListener("visibilitychange", onHide);
-    return () => { window.removeEventListener("scroll", onScroll); document.removeEventListener("focusin", onFocus); window.removeEventListener("pagehide", persist); document.removeEventListener("visibilitychange", onHide); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("touchend", onTouchEnd); window.removeEventListener("popstate", onStep, true); document.removeEventListener("focusin", onFocus); window.removeEventListener("pagehide", persist); document.removeEventListener("visibilitychange", onHide); };
   }, []);
 
   useLayoutEffect(() => {
+    stepped = 0;
     const before = prev.current;
     const key = entryKey(location);
     prev.current = { pathname: location.pathname, search: location.search, hash: location.hash, key };
@@ -172,6 +207,8 @@ export function ScrollManager() {
         return true;
       }, () => { if (focus && target) focusAt(target); });
     };
+    // The top of the page, for a page still gliding from a flick: held there until the glide has ended.
+    const toTop = () => { cancel.current = land(() => { if (window.scrollY !== 0) window.scrollTo({ top: 0, behavior: "instant" }); return true; }); };
     const restore = (y: number, mark?: FocusMark) => {
       cancel.current = land(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -205,6 +242,7 @@ export function ScrollManager() {
       // set in it was written to the page's entry). The page is already where it belongs.
       else if (location.key !== "default" && before.pathname === location.pathname) positions.current!.set(key, window.scrollY);
       else if (location.hash) toAnchor(location.hash, false);
+      else if (gliding()) toTop();
       else window.scrollTo({ top: 0, behavior: "instant" });
       return;
     }
@@ -229,9 +267,11 @@ export function ScrollManager() {
     // A new page: the top, with focus on <main>; then on to its anchor, if the link named one
     // (at once when it is there, otherwise when the page has arrived).
     positions.current!.set(key, 0);
-    window.scrollTo({ top: 0, behavior: "instant" });
+    const glide = gliding();
+    if (!glide) window.scrollTo({ top: 0, behavior: "instant" });
     document.getElementById("main")?.focus({ preventScroll: true });
     if (location.hash) toAnchor(location.hash, true);
+    else if (glide) toTop();
   }, [location, navType]);
 
   return null;

@@ -386,8 +386,10 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 
 /* ── The key to the marks (MarksKey) ───────────────────────────── */
 .marks-key { display: inline-flex; }
-.marks-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: min(36rem, calc(100vh - 1rem)); }
-.marks-key__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-4) var(--sp-5); }
+/* Two classes: `.pop` is declared later (richtext.css) and would otherwise set the width and height back. */
+.pop.marks-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: min(36rem, calc(100vh - 1rem)); }
+/* The same again: `.pop > *` (richtext.css) makes every child a block. */
+.pop > .marks-key__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-4) var(--sp-5); }
 .marks-key__col, .marks-key__group { display: grid; align-content: start; gap: 0.4rem; min-width: 0; }
 .marks-key__row { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; color: var(--c-text-2); }
 .marks-key__row > :first-child { justify-self: center; }

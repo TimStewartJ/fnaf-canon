@@ -25,6 +25,9 @@ function place(el: HTMLElement, anchor: HTMLElement, align: "center" | "end") {
   el.style.left = `${Math.round(left + window.scrollX)}px`;
   el.style.top = `${Math.round(top + window.scrollY)}px`;
   el.dataset.side = side;
+  // One that scrolls has to be reachable from the keyboard, or the part below its edge cannot be read without a mouse.
+  if (el.scrollHeight > el.clientHeight + 1) el.tabIndex = 0;
+  else el.removeAttribute("tabindex");
 }
 
 /**
