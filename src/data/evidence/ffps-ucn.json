@@ -2296,7 +2296,7 @@
     },
     "quote": "I was the first! I have seen everything! / I have seen him. The one you shouldn't have killed.",
     "people": [
-      "withered-chica",
+      "chica",
       "one-you-should-not-have-killed",
       "ucn-protagonist"
     ],
@@ -2697,7 +2697,7 @@
     },
     "quote": "What is this new prison? Is it me trapped, or is it you? Perhaps it is us both.",
     "people": [
-      "withered-bonnie",
+      "bonnie",
       "ucn-protagonist"
     ],
     "tags": [
@@ -4406,7 +4406,7 @@
     },
     "quote": "Time to face the consequences of your failure. / Might as well face the facts, you were always destined to fail.",
     "people": [
-      "withered-bonnie",
+      "bonnie",
       "ucn-protagonist"
     ],
     "tags": [

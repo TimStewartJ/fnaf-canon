@@ -165,8 +165,8 @@
     "location": "Night 1 phone call",
     "certainty": "stated",
     "when": {
-      "label": "'87 (assumed 1987)",
-      "precision": "approx",
+      "label": "'87 (spoken; taken as 1987)",
+      "precision": "exact",
       "year": 1987,
       "basis": "Phone Guy says 'The Bite of '87'; only the two-digit year is given"
     },
@@ -346,11 +346,12 @@
     "when": {
       "label": "June 26 (year not given), before FNaF1",
       "precision": "unknown",
+      "kind": "printed",
       "basis": "Clipping says 'the night of June 26th'; no year printed"
     },
     "people": [
       "missing-children",
-      "purple-guy"
+      "caught-man"
     ],
     "places": [
       "freddy-fazbears-pizza-fnaf1"
@@ -367,7 +368,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Headline uses the in-game misspelling 'pizzaria'. The body also says police 'think that the suspect dressed as a company mascot to earn the children's trust.' The suspect is unnamed. Tying him to the minigames' purple figure is a later reading, and 'purple-guy' is tagged here only for theory linking. The clipping names 'Freddy Fazbear's Pizza' but does not say it was the FNaF1 building. Text re-read from the in-game screenshot. The capture and the costume have their own records (fnaf1-news-suspect-captured, fnaf1-news-dressed-as-mascot)."
+    "notes": "Headline uses the in-game misspelling 'pizzaria'. The body also says police 'think that the suspect dressed as a company mascot to earn the children's trust.' The suspect is unnamed. Tying him to the minigames' purple figure is a later reading. The clipping names 'Freddy Fazbear's Pizza' but does not say it was the FNaF1 building. Text re-read from the in-game screenshot. The capture and the costume have their own records (fnaf1-news-suspect-captured, fnaf1-news-dressed-as-mascot)."
   },
   {
     "id": "fnaf1-news-five-children",
@@ -385,7 +386,7 @@
     },
     "people": [
       "missing-children",
-      "purple-guy"
+      "caught-man"
     ],
     "places": [
       "freddy-fazbears-pizza-fnaf1"
@@ -652,6 +653,7 @@
     "when": {
       "label": "November 12 (year printed as 'xx')",
       "precision": "unknown",
+      "kind": "printed",
       "basis": "Check date reads '11-12-xx'"
     },
     "people": [
@@ -685,6 +687,7 @@
     "when": {
       "label": "November 13 (year printed as 'xx')",
       "precision": "unknown",
+      "kind": "printed",
       "basis": "Check date reads '11-13-xx'"
     },
     "people": [
@@ -719,9 +722,6 @@
       "precision": "relative",
       "basis": "Follows the Night 6 check dated 11-13-xx"
     },
-    "people": [
-      "mike-schmidt"
-    ],
     "places": [
       "freddy-fazbears-pizza-fnaf1"
     ],
@@ -826,8 +826,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "toy-freddy",
@@ -861,8 +862,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -897,8 +899,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -934,8 +937,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -966,8 +970,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -998,8 +1003,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -1009,7 +1015,8 @@
       "foxy"
     ],
     "places": [
-      "freddy-fazbears-pizza-1987"
+      "freddy-fazbears-pizza-1987",
+      "freddy-fazbears-pizza-original"
     ],
     "tags": [
       "withered",
@@ -1036,8 +1043,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -1067,8 +1075,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -1096,8 +1105,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -1128,8 +1138,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -1156,8 +1167,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy"
@@ -1183,8 +1195,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy"
@@ -1215,8 +1228,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy"
@@ -1246,12 +1260,12 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
-      "phone-guy",
-      "purple-guy"
+      "phone-guy"
     ],
     "places": [
       "freddy-fazbears-pizza-1987"
@@ -1269,7 +1283,7 @@
       "fnaf1-news-dressed-as-mascot"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Ralph/Audio",
-    "notes": "Who used the suit and what for is not stated, and the suit is not named. Up to this game the only yellow figure that sits limp like an empty costume is the slumped yellow bear (fnaf1-golden-freddy-office-figure, fnaf2-golden-freddy-office), and that bear first becomes active on this night (fnaf2-golden-freddy-night6-only). Chica is yellow too, but is a working animatronic, and the older Chica sits in the back room in plain view. FNaF3 later speaks of two springlock suits and names one 'Spring Bonnie' (fnaf3-tape2-dual-suits, fnaf3-tape5-spring-bonnie-moved). Which yellow suit this is, and that its user was the killer, are theory steps; 'purple-guy' is tagged only for theory linking. Wording cross-checked with a speech-to-text pass on the game audio (Call 6b.ogg)."
+    "notes": "Who used the suit and what for is not stated, and the suit is not named. Up to this game the only yellow figure that sits limp like an empty costume is the slumped yellow bear (fnaf1-golden-freddy-office-figure, fnaf2-golden-freddy-office), and that bear first becomes active on this night (fnaf2-golden-freddy-night6-only). Chica is yellow too, but is a working animatronic, and the older Chica sits in the back room in plain view. FNaF3 later speaks of two springlock suits and names one 'Spring Bonnie' (fnaf3-tape2-dual-suits, fnaf3-tape5-spring-bonnie-moved). Which yellow suit this is, and that its user was the killer, are theory steps. Wording cross-checked with a speech-to-text pass on the game audio (Call 6b.ogg)."
   },
   {
     "id": "fnaf2-call6-birthday-day-shift",
@@ -1283,8 +1297,9 @@
     "when": {
       "label": "Day after the 11-13-1987 night (c. 11-14-1987)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "Night 6 overtime check is dated 11-13-1987; birthday is 'tomorrow'"
+      "basis": "Night 6 overtime check is dated 11-13-1987 (fnaf2-overtime-robots-scrapped); birthday is 'tomorrow'"
     },
     "people": [
       "phone-guy",
@@ -1318,8 +1333,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy"
@@ -1425,8 +1441,9 @@
     "when": {
       "label": "After 11-13-1987 (Night 7 follows the dated Night 6)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "Follows Night 6 whose check is dated 11-13-1987; slip itself undated"
+      "basis": "Follows Night 6 whose check is dated 11-13-1987 (fnaf2-overtime-robots-scrapped); slip itself undated"
     },
     "people": [
       "fritz-smith"
@@ -1459,8 +1476,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "freddy-fazbear",
@@ -1501,8 +1519,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "bonnie",
@@ -1714,8 +1733,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "golden-freddy"
@@ -1748,8 +1768,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "puppet"
@@ -1779,8 +1800,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "shadow-freddy"
@@ -1814,8 +1836,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "shadow-bonnie"
@@ -1845,8 +1868,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "jj",
@@ -2653,9 +2677,6 @@
       "fredbear",
       "spring-bonnie"
     ],
-    "places": [
-      "fredbears-family-diner"
-    ],
     "tags": [
       "minigame",
       "stage01",
@@ -2670,7 +2691,7 @@
     ],
     "image": "fnaf3-stage01.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Stage01",
-    "notes": "On-screen characters are unlabeled. The yellow rabbit matches the rare Spring Bonnie posters, and the tape names 'Spring Bonnie'. The yellow bear is later called Fredbear (FNaF4), which FNaF1-3 never state. The location is unlabeled, so the fredbears-family-diner place tag is implied only. The code 395248 is shown as a hint in the post-Night 3 minigame."
+    "notes": "On-screen characters are unlabeled. The yellow rabbit matches the rare Spring Bonnie posters, and the tape names 'Spring Bonnie'. The yellow bear is later called Fredbear (FNaF4), which FNaF1-3 never state. The location is unlabeled. The code 395248 is shown as a hint in the post-Night 3 minigame."
   },
   {
     "id": "fnaf3-stage01-cake-crying-child",
@@ -2875,9 +2896,9 @@
     "location": "Five Nights at Freddy's 3 Steam store description (2015)",
     "certainty": "stated",
     "when": {
-      "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
+      "label": "During FNaF3 (thirty years after Freddy Fazbear's Pizza closed, by the store text)",
       "precision": "relative",
-      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'"
+      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'; it does not say which closing"
     },
     "people": [
       "springtrap"
@@ -2895,28 +2916,26 @@
       "scott-2015-fnaf3-store-thirty-years"
     ],
     "url": "https://store.steampowered.com/app/354140/Five_Nights_at_Freddys_3/",
-    "notes": "Doesn't say which Freddy Fazbear's Pizza closing the thirty years count from. Fetched from the Steam appdetails API. The same store text is recorded in the Scott file as scott-2015-fnaf3-store-thirty-years."
+    "notes": "Doesn't say which Freddy Fazbear's Pizza closing the thirty years count from. Fetched from the Steam appdetails API. The same store text is recorded in the Scott file as scott-2015-fnaf3-store-thirty-years; they are two records of one text."
   },
   {
     "id": "scott-fnaf2-steam-description",
     "title": "Scott: FNaF2 animatronics tied into local criminal databases",
-    "claim": "Scott's FNaF2 Steam description says the new animatronics have 'the latest in facial recognition technology' and are 'tied into local criminal databases'. It adds that the previous guard complained about characters trying to get into the office and was moved to day shift.",
+    "claim": "Scott's FNaF2 Steam description says the new animatronics have 'the latest in facial recognition technology' and are 'tied into local criminal databases'.",
     "quote": "They are kid-friendly, updated with the latest in facial recognition technology, tied into local criminal databases, and promise to put on a safe and entertaining show for kids and grown-ups alike! What could go wrong?",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Five Nights at Freddy's 2 Steam store description (2014)",
     "certainty": "stated",
     "when": {
-      "label": "November 1987 (FNaF2 week)",
-      "precision": "approx",
-      "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "label": "During FNaF2 (store text gives no date)",
+      "precision": "unknown",
+      "basis": "Promotional text; no in-universe date"
     },
     "people": [
       "toy-freddy",
       "toy-bonnie",
-      "toy-chica",
-      "fnaf2-first-guard"
+      "toy-chica"
     ],
     "places": [
       "freddy-fazbears-pizza-1987"
@@ -2931,7 +2950,7 @@
       "scott-fnaf2-steam-old-and-aging"
     ],
     "url": "https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/",
-    "notes": "Fetched from the Steam appdetails API. The same store text is recorded in the Scott file as scott-2014-fnaf2-store-previous-guard."
+    "notes": "Fetched from the Steam appdetails API. The same store text is recorded in the Scott file as scott-2014-fnaf2-store-previous-guard, whose subject is its sentence about the previous guard; they are two records of one text. A third record holds the opening sentence (scott-fnaf2-steam-old-and-aging)."
   },
   {
     "id": "scott-fnaf1-steam-freddybear",
@@ -2943,9 +2962,9 @@
     "location": "Five Nights at Freddy's Steam store description (2014)",
     "certainty": "stated",
     "when": {
-      "label": "During FNaF1 (year not stated in game)",
+      "label": "During FNaF1 (store text gives no date)",
       "precision": "unknown",
-      "basis": "FNaF1 paychecks print the year as 'xx'; no in-game year given"
+      "basis": "Promotional text; no in-universe date"
     },
     "people": [
       "freddy-fazbear"
@@ -2963,7 +2982,7 @@
       "scott-fnaf1-steam-budget-cuts"
     ],
     "url": "https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/",
-    "notes": "Scott said in 2020 that 'Freddybear' was a very early name for Freddy that survived in the store text (scott-2020-freddybear-early-name); it is not a reference to Fredbear. The text also says 'his two friends', though the game has three other animatronics (Foxy is hidden). The same store text is recorded in the Scott file as scott-2014-fnaf1-store-freddybear."
+    "notes": "Scott said in 2020 that 'Freddybear' was a very early name for Freddy that survived in the store text (scott-2020-freddybear-early-name); it is not a reference to Fredbear. The text also says 'his two friends', though the game has three other animatronics (Foxy is hidden). The same store text is recorded in the Scott file as scott-2014-fnaf1-store-freddybear; they are two records of one text."
   },
   {
     "id": "scottgames-fnaf3-teaser-still-here",
@@ -2975,9 +2994,9 @@
     "location": "scottgames.com teaser, c. 2015-01-03",
     "certainty": "stated",
     "when": {
-      "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
-      "precision": "relative",
-      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'"
+      "label": "Undated (FNaF3 teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
     },
     "people": [
       "springtrap"
@@ -2993,7 +3012,7 @@
     ],
     "url": "https://web.archive.org/web/20150103035439/https://scottgames.com/",
     "verifiedVia": "https://web.archive.org/web/20141207193300/https://scottgames.com/",
-    "notes": "Verified against the archived page and its image (fnaf3.jpg). The archived HTML keywords read 'I remain'. The 2014-12-07 archive's keywords read '30 years later, only one'. Duplicated in the Scott file as scottgames-site-fnaf3-i-am-still-here."
+    "notes": "Verified against the archived page and its image (fnaf3.jpg). The archived HTML keywords read 'I remain'. The 2014-12-07 archive's keywords read '30 years later, only one'. The same teaser is recorded in the Scott file as scottgames-site-fnaf3-i-am-still-here; they are two records of one teaser."
   },
   {
     "id": "scottgames-fnaf3-teaser-he-always-does",
@@ -3005,14 +3024,10 @@
     "location": "scottgames.com teaser, c. 2015-01-27",
     "certainty": "stated",
     "when": {
-      "label": "During FNaF3 (30 years after Freddy Fazbear's Pizza closed)",
-      "precision": "relative",
-      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'"
+      "label": "Undated (FNaF3 teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "springtrap",
-      "purple-guy"
-    ],
     "tags": [
       "teaser",
       "purple"
@@ -3023,7 +3038,7 @@
     ],
     "url": "https://web.archive.org/web/20150127133437/https://scottgames.com/",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's_3",
-    "notes": "Verified against the archived image (always.jpg): purple text on black. Tying it to the purple figure rests only on the text color. Duplicated in the Scott file as scottgames-site-fnaf3-he-always-does. The official trailer puts the same line between 'He will come back.' and 'We have a place for him.' (scott-fnaf3-trailer-tagline)."
+    "notes": "Verified against the archived image (always.jpg): purple text on black. Tying it to the purple figure rests only on the text color. The same teaser is recorded in the Scott file as scottgames-site-fnaf3-he-always-does; they are two records of one teaser. The official trailer puts the same line between 'He will come back.' and 'We have a place for him.' (scott-fnaf3-trailer-tagline)."
   },
   {
     "id": "fnaf3-tapes-freddy-fazbears-pizza",
@@ -3208,10 +3223,11 @@
     "when": {
       "label": "The morning after June 26 (year not given), before FNaF1",
       "precision": "unknown",
+      "kind": "derived",
       "basis": "Clipping: lured 'on the night of June 26th', captured 'the following morning'; no year printed"
     },
     "people": [
-      "purple-guy",
+      "caught-man",
       "missing-children"
     ],
     "places": [
@@ -3230,7 +3246,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Read from the in-game screenshot. The sentence begins 'While video surveliance identified the man responsible and' (the clipping's spelling, as far as it can be read). The man is not named or described. Apart from the five-children clipping's 'charged' and 'convicted', this is the only statement in FNaF1 to FNaF3 that anyone was caught: no call, tape, minigame or later newspaper in these games mentions an arrest, a trial or a prisoner, and FNaF3's newspaper calls the events 'the unsolved mysteries of Freddy Fazbear's Pizza' (fnaf3-coming-soon-newspaper). 'purple-guy' is tagged only for theory linking. The game shows the four clippings at random and gives them no order; the numbers in the wiki's file names are not the game's."
+    "notes": "Read from the in-game screenshot. The sentence begins 'While video surveliance identified the man responsible and' (the clipping's spelling, as far as it can be read). The man is not named or described. Apart from the five-children clipping's 'charged' and 'convicted', this is the only statement in FNaF1 to FNaF3 that anyone was caught: no call, tape, minigame or later newspaper in these games mentions an arrest, a trial or a prisoner, and FNaF3's newspaper calls the events 'the unsolved mysteries of Freddy Fazbear's Pizza' (fnaf3-coming-soon-newspaper). The game shows the four clippings at random and gives them no order; the numbers in the wiki's file names are not the game's."
   },
   {
     "id": "fnaf1-news-dressed-as-mascot",
@@ -3244,10 +3260,10 @@
     "when": {
       "label": "June 26 (year not given), before FNaF1",
       "precision": "unknown",
+      "kind": "printed",
       "basis": "Clipping says 'the night of June 26th'; no year printed"
     },
     "people": [
-      "purple-guy",
       "missing-children"
     ],
     "places": [
@@ -3269,7 +3285,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News1.png",
-    "notes": "Read from the in-game screenshots. FNaF1 shows no costume in use. The first yellow suit tied to trouble comes in FNaF2 ('a yellow one', fnaf2-call6-yellow-suit) and the first rabbit suit in FNaF3 (fnaf3-n5-springlock-death). FNaF1 does not say which costume the clippings mean; tying them to either later suit is a reading. 'purple-guy' is tagged only for theory linking."
+    "notes": "Read from the in-game screenshots. FNaF1 shows no costume in use. The first yellow suit tied to trouble comes in FNaF2 ('a yellow one', fnaf2-call6-yellow-suit) and the first rabbit suit in FNaF3 (fnaf3-n5-springlock-death). FNaF1 does not say which costume the clippings mean; tying them to either later suit is a reading."
   },
   {
     "id": "fnaf1-news-charged-vs-convicted",
@@ -3286,7 +3302,7 @@
       "basis": "Described as past events; no year given in game"
     },
     "people": [
-      "purple-guy",
+      "caught-man",
       "missing-children"
     ],
     "places": [
@@ -3306,7 +3322,7 @@
     ],
     "image": "fnaf1-missing-children-newspapers.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:EastHall_4B_News3.png",
-    "notes": "Read from the in-game screenshot. The clipping does not name the suspect and does not say what he was charged with, whether there was a trial, or what the sentence was. 'Charged' is the weaker statement and is the one in the body text. Nothing else in FNaF1 to FNaF3 refers to a conviction. 'purple-guy' is tagged only for theory linking."
+    "notes": "Read from the in-game screenshot. The clipping does not name the suspect and does not say what he was charged with, whether there was a trial, or what the sentence was. 'Charged' is the weaker statement and is the one in the body text. Nothing else in FNaF1 to FNaF3 refers to a conviction."
   },
   {
     "id": "fnaf1-news-uphill-battle",
@@ -3391,8 +3407,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3462,8 +3479,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3501,8 +3519,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3538,8 +3557,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3577,8 +3597,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy"
@@ -3621,7 +3642,8 @@
       "foxy"
     ],
     "places": [
-      "freddy-fazbears-pizza-1987"
+      "freddy-fazbears-pizza-1987",
+      "freddy-fazbears-pizza-original"
     ],
     "tags": [
       "withered",
@@ -3690,8 +3712,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3730,8 +3753,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "phone-guy",
@@ -3801,8 +3825,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "golden-freddy"
@@ -3854,11 +3879,12 @@
       "fnaf2-save-them",
       "fnaf2-take-cake-to-the-children",
       "fnaf2-foxy-go-go-go",
-      "fnaf2-call5-lockdown"
+      "fnaf2-call5-lockdown",
+      "fnaf4-purple-guy-suits-up-employee"
     ],
     "image": "fnaf2-save-them-purple-figure.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Purple_man.png",
-    "notes": "Read from the sprite and compared with two others, the purple figures of Take Cake to the Children and Foxy Go! Go! Go!; the other games' sprites were not compared side by side for this record. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. In the capture on file FNaF3's purple figure has white eyes and no chest mark (fnaf3-n5-ghosts-safe-room). A checker who looked at the wiki's capture of FNaF4's back-room scene reports a yellow mark on that purple figure's chest too (seen 2026-10-03; not yet recorded on its own). As far as this archive's records go, this is the only purple figure shown in a building that can be read as the 1987 restaurant."
+    "notes": "Read from the sprite and compared with two others, the purple figures of Take Cake to the Children and Foxy Go! Go! Go!; the other games' sprites were not compared side by side for this record. What the mark is (a badge is the usual reading) and whether the outstretched hand holds anything are not stated; the sprite is only a few pixels across. In the capture on file FNaF3's purple figure has white eyes and no chest mark (fnaf3-n5-ghosts-safe-room). FNaF4's back-room purple figure has a chest mark too. In the wiki's capture of that scene (File:FNAF4-PurpleGuy-SpringBonnie.png, looked at on 2026-10-03) it is a short horizontal yellow bar, high on the chest and right of centre as seen, away from the arms held out to the left. This sprite's mark is larger and more orange: a block about half as wide as the torso, broader at the top, on the half of the chest nearer the outstretched arm (fnaf4-purple-guy-suits-up-employee). As far as this archive's records go, this is the only purple figure shown in a building that can be read as the 1987 restaurant."
   },
   {
     "id": "fnaf2-save-them-golden-freddy",
@@ -3943,8 +3969,9 @@
     "when": {
       "label": "After 11-13-1987 (closure of the 1987 location)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "The newspaper lies under the overtime check dated 11-13-1987; the article itself is undated"
+      "basis": "The newspaper lies under the overtime check dated 11-13-1987 (fnaf2-overtime-robots-scrapped); the article itself is undated"
     },
     "people": [
       "fazbear-entertainment",
@@ -3989,8 +4016,9 @@
     "when": {
       "label": "After 11-13-1987 (closure of the 1987 location)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "The newspaper lies under the overtime check dated 11-13-1987; the article itself is undated"
+      "basis": "The newspaper lies under the overtime check dated 11-13-1987 (fnaf2-overtime-robots-scrapped); the article itself is undated"
     },
     "people": [
       "fazbear-entertainment"
@@ -4028,8 +4056,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "bonnie",
@@ -4067,8 +4096,9 @@
     "when": {
       "label": "November 1987 (FNaF2 week)",
       "precision": "approx",
+      "kind": "derived",
       "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped)"
     },
     "people": [
       "freddy-fazbear",
@@ -4633,9 +4663,9 @@
     "location": "Five Nights at Freddy's Steam store description (2014)",
     "certainty": "stated",
     "when": {
-      "label": "During FNaF1 (year not stated in game)",
+      "label": "During FNaF1 (store text gives no date)",
       "precision": "unknown",
-      "basis": "FNaF1 paychecks print the year as 'xx'; no in-game year given"
+      "basis": "Promotional text; no in-universe date"
     },
     "people": [
       "fazbear-entertainment",
@@ -4670,10 +4700,9 @@
     "location": "Five Nights at Freddy's 2 Steam store description (2014)",
     "certainty": "stated",
     "when": {
-      "label": "November 1987 (FNaF2 week)",
-      "precision": "approx",
-      "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "label": "During FNaF2 (store text gives no date)",
+      "precision": "unknown",
+      "basis": "Promotional text; no in-universe date"
     },
     "people": [
       "freddy-fazbear",
@@ -4696,11 +4725,12 @@
       "scott-fnaf2-steam-description",
       "fnaf2-call2-older-models",
       "fnaf2-paycheck-1987",
-      "scottgames-site-fnaf2-grand-reopening"
+      "scottgames-site-fnaf2-grand-reopening",
+      "scott-2014-fnaf2-store-previous-guard"
     ],
     "url": "https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/",
     "verifiedVia": "https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/",
-    "notes": "Fetched from the Steam appdetails API. The text is written as if FNaF2 follows FNaF1 ('Welcome back', 'old and aging'), and the first teaser read 'Grand Reopening 2015' (scottgames-site-fnaf2-grand-reopening). Only the two checks, at the end of Night 5 and of Night 6, put the game in 1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). On either order the older animatronics exist before the new ones."
+    "notes": "Fetched from the Steam appdetails API. The text is written as if FNaF2 follows FNaF1 ('Welcome back', 'old and aging'), and the first teaser read 'Grand Reopening 2015' (scottgames-site-fnaf2-grand-reopening). Only the two checks, at the end of Night 5 and of Night 6, put the game in 1987 (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). On either order the older animatronics exist before the new ones. Two more records hold other sentences of this store text: scott-fnaf2-steam-description and, in the Scott file, scott-2014-fnaf2-store-previous-guard."
   },
   {
     "id": "scott-fnaf2-trailer-captions",
@@ -4712,10 +4742,9 @@
     "location": "Official Five Nights at Freddy's 2 trailer (Steam store page video, 2014), on-screen captions",
     "certainty": "stated",
     "when": {
-      "label": "November 1987 (FNaF2 week)",
-      "precision": "approx",
-      "year": 1987,
-      "basis": "FNaF2 paychecks are dated 11-12-1987 and 11-13-1987"
+      "label": "During FNaF2 (the trailer gives no date)",
+      "precision": "unknown",
+      "basis": "Promotional trailer; no in-universe date"
     },
     "people": [
       "freddy-fazbear",

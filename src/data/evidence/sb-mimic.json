@@ -317,7 +317,8 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
     "people": [
-      "fazbear-entertainment"
+      "fazbear-entertainment",
+      "staff-bots"
     ]
   },
   {
@@ -422,7 +423,8 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Duffel_Bags",
     "people": [
-      "glamrock-chica"
+      "glamrock-chica",
+      "staff-bots"
     ]
   },
   {
@@ -1459,7 +1461,8 @@
     "people": [
       "gregory",
       "vanny",
-      "glamrock-freddy"
+      "glamrock-freddy",
+      "staff-bots"
     ],
     "places": [
       "mega-pizzaplex"
@@ -1485,7 +1488,8 @@
       "vanessa",
       "vanny",
       "glamrock-freddy",
-      "the-princess"
+      "the-princess",
+      "staff-bots"
     ],
     "places": [
       "mega-pizzaplex"
@@ -1778,6 +1782,9 @@
       "precision": "relative",
       "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
     },
+    "people": [
+      "staff-bots"
+    ],
     "places": [
       "mega-pizzaplex"
     ],
@@ -2426,10 +2433,9 @@
     "location": "Freddy Fazbear's Pizza logo graphic (wiki: 'seen in the arcades'); the exact screen was not confirmed",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "The graphic recorded here reads 'FREDDY FAZBEAR'S Pizza 1985'; where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald"
@@ -2460,15 +2466,13 @@
     "location": "Prologue ('Look for Chip and Mike' / 'Escape!')",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
       "yellow-rabbit",
-      "missing-children",
       "chip",
       "mike-itp"
     ],
@@ -2495,10 +2499,9 @@
     "location": "Prologue, room east of the arcade; achievement 'It's Me'",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2547,10 +2550,9 @@
     "location": "Throughout (dialogue/objectives)",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "yellow-rabbit"
@@ -2578,10 +2580,9 @@
     "location": "Inventory item 'Strange Photo' (Party Room, Night 5); achievement 'Who are they?'",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2607,10 +2608,9 @@
     "location": "Night 1, past dining area / backstage",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2635,10 +2635,9 @@
     "location": "Night 2",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2660,10 +2659,9 @@
     "location": "Night 3",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2684,10 +2682,9 @@
     "location": "Night 4",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2709,10 +2706,9 @@
     "location": "Night 5",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2733,10 +2729,9 @@
     "location": "Phone call, Night 3 (Kitchen phone)",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "phone-guy-itp"
@@ -2757,10 +2752,9 @@
     "location": "Phone call, Night 1 (Entrance phone)",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "phone-guy-itp"
@@ -2802,10 +2796,9 @@
     "location": "1-Star ending ('Pit-y Party')",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2873,10 +2866,9 @@
     "location": "'See Ya, Dad!' ending (walk out of the past restaurant's front door)",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald"
@@ -2895,10 +2887,9 @@
     "location": "'What Am I' ending (fail Night 5 QTE)",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -2921,14 +2912,10 @@
     "location": "Arcade minigame 'Collect the Hats'",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
-    "people": [
-      "purple-guy"
-    ],
     "places": [
       "freddy-fazbears-pizza-itp"
     ],
@@ -2970,10 +2957,9 @@
     "location": "Arcade machine boot screens",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "places": [
       "freddy-fazbears-pizza-itp"
@@ -3019,7 +3005,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3046,7 +3032,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3069,7 +3055,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3102,7 +3088,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3129,7 +3115,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray",
@@ -3153,7 +3139,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3178,7 +3164,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3209,7 +3195,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3236,7 +3222,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3260,7 +3246,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "f10-n4",
@@ -3288,7 +3274,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3316,7 +3302,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3342,7 +3328,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -3369,7 +3355,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "the-mimic",
@@ -3401,7 +3387,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "wa-signatory",
@@ -3434,7 +3420,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "wa-signatory"
@@ -3465,7 +3451,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray",
@@ -3502,7 +3488,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray",
@@ -3530,9 +3516,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -3560,7 +3547,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "f10-n4",
@@ -3593,7 +3580,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "f10-n4",
@@ -3615,9 +3602,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "3 August 1979 (the 'Aug 3rd' of the header; five weeks before the 9/07/79 work order)",
+      "label": "c. summer 1979 (the message's header reads 'Aug 3rd' and gives no year)",
       "precision": "approx",
-      "basis": "Header 'Mail - Aug 3rd' and the text 'five weeks ago'; the work order in Arnold's van is dated 9/07/79, exactly five weeks after 3 August"
+      "kind": "estimated",
+      "basis": "Header 'Mail - Aug 3rd' and the text 'five weeks ago'. The year is the archive's estimate: the teaser gives 1979 for the night of the game, and a work order among the game's files reads 9/07/79, exactly five weeks after 3 August; that document has not been confirmed as legible in play"
     },
     "people": [
       "edwin-murray"
@@ -3699,7 +3687,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray",
@@ -3726,7 +3714,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "places": [
       "murray-costume-manor"
@@ -3748,7 +3736,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "the-mimic"
@@ -3771,7 +3759,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "places": [
       "murray-costume-manor"
@@ -3793,7 +3781,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray"
@@ -3816,9 +3804,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -3851,9 +3840,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -3885,9 +3875,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -3914,9 +3905,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -3944,9 +3936,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -3970,7 +3963,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "f10-n4",
@@ -3999,7 +3992,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -4023,7 +4016,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -4050,7 +4043,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray"
@@ -4075,9 +4068,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "the-mimic",
@@ -4102,9 +4096,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "the-mimic",
@@ -4141,9 +4136,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -4175,9 +4171,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -4205,9 +4202,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -4241,6 +4239,7 @@
       "year": 1979,
       "label": "1979 (teaser; a work-order texture in the game reads 9/07/79)",
       "precision": "exact",
+      "kind": "teaser",
       "basis": "Year displayed at the end of the official teaser. A work-order texture and a credential-form texture in the game carry the same year; both were read from image files and are not yet confirmed as legible in play"
     },
     "people": [
@@ -4270,9 +4269,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -4306,9 +4306,10 @@
     "certainty": "implied",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "the-mimic"
@@ -4750,8 +4751,7 @@
       "basis": "Mentions ongoing Pizzaplex hacks; no year stated"
     },
     "people": [
-      "client-46",
-      "gregory"
+      "client-46"
     ],
     "tags": [
       "retro-cds",
@@ -4907,7 +4907,7 @@
   {
     "id": "security-breach-credits-vanessa-vanny-two-parts",
     "title": "Cast credits: 'Vanessa' and 'Vanny' are two parts with two performers",
-    "claim": "Security Breach's cast list credits Heather Masters with 'Vanessa' and 'Glamrock Chica', and Marta Svetek with 'Gregory', 'Vanny' and 'Roxanne'. The guard and the rabbit-costumed woman are listed as separate parts, voiced by different performers.",
+    "claim": "Security Breach's cast list credits Heather Masters with 'Vanessa' and 'Glamrock Chica', and Marta Svetek with 'Gregory', 'Vanny' and 'Roxanne'. 'Vanessa' and 'Vanny' stand on different lines of the list, each with a different performer.",
     "quote": "Heather Masters - Vanessa/Glamrock Chica … Marta Svetek - Gregory/Vanny/Roxanne",
     "game": "security-breach",
     "kind": "text",
@@ -4933,7 +4933,7 @@
       "hw-credits-tape-girl-qa"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Security_Breach/Credits",
-    "notes": "Read from the wiki's transcription of the credits on 2026-10-03, not from a capture of the credits roll, so the layout on screen may differ. A credit names a voiced part, not a person in the story, and one performer often takes several: this list gives Vanessa's performer Glamrock Chica as well, and Vanny's performer Gregory and Roxanne. So the credits show that the game casts 'Vanessa' and 'Vanny' as two voices. They do not say that the two are different people, and they do not say that they are one. RUIN's cast list has neither part."
+    "notes": "Read from the wiki's transcription of the credits on 2026-10-03, not from a capture of the credits roll, so the layout on screen may differ. A credit names a voiced part, not a person in the story, and one performer often takes several: this list gives Vanessa's performer Glamrock Chica as well, and Vanny's performer Gregory and Roxanne. So the credits show that the game casts 'Vanessa' and 'Vanny' as two voices. They do not say that the two are different people, and they do not say that they are one. The wiki's transcription of RUIN's cast list, read the same day, has neither part."
   },
   {
     "id": "ruin-cassie-dad-faz-wrench",
@@ -5456,10 +5456,9 @@
     "location": "Yellow rabbit voice lines (chases)",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "yellow-rabbit",
@@ -5493,10 +5492,9 @@
     "location": "Yellow rabbit voice lines (chases)",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "yellow-rabbit",
@@ -5528,14 +5526,12 @@
     "location": "Sketchbook (inventory item given by Gabrielle; description: 'Gabrielle's Uncle's masterpieces.'), Chica page",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
-      "chica",
-      "missing-children"
+      "chica"
     ],
     "places": [
       "freddy-fazbears-pizza-itp"
@@ -5567,10 +5563,9 @@
     "location": "Sketchbook (inventory item given by Gabrielle), Freddy and cupcake pages",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "freddy-fazbear"
@@ -5602,10 +5597,9 @@
     "location": "Sketchbook (inventory item given by Gabrielle), guitar page",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "places": [
       "freddy-fazbears-pizza-itp",
@@ -5701,10 +5695,9 @@
     "location": "Chip and Mike dialogue, past Freddy Fazbear's Pizza",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "chip",
@@ -5737,10 +5730,9 @@
     "location": "Children in the Ball Pit Room, past Freddy Fazbear's Pizza, Day 1",
     "certainty": "stated",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald"
@@ -5767,10 +5759,9 @@
     "location": "Secret minigames 'Grant Her Wish!', 'Count the Ways' and 'Pick Up Balloons' (required for the 3-star ending)",
     "certainty": "shown",
     "when": {
-      "year": 1985,
-      "label": "1985 (the past reached through the ball pit)",
-      "precision": "approx",
-      "basis": "A game graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); the game shows no calendar and no character states the year"
+      "label": "Into the Pit's past (undated; a logo graphic reads 1985)",
+      "precision": "unknown",
+      "basis": "A logo graphic reads 'Freddy Fazbear's Pizza 1985' (into-the-pit-past-year-1985); where it is shown was not confirmed, and it may be a founding date. The game shows no calendar and no character states the year"
     },
     "people": [
       "oswald",
@@ -5843,9 +5834,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -5882,9 +5874,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -5916,9 +5909,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "arnold",
@@ -5949,9 +5943,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "dispatch",
@@ -5986,9 +5981,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "dispatch",
@@ -6023,9 +6019,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "dispatch",
@@ -6063,9 +6060,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "dispatch",
@@ -6102,9 +6100,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "dispatch",
@@ -6139,9 +6138,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -6174,9 +6174,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "f10-n4",
@@ -6210,9 +6211,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "edwin-murray",
@@ -6252,9 +6254,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "edwin-murray",
@@ -6287,9 +6290,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "edwin-murray",
@@ -6321,9 +6325,10 @@
     "certainty": "stated",
     "when": {
       "year": 1974,
-      "label": "23 April 1974 (date typed on the memo)",
-      "precision": "exact",
-      "basis": "The memo's DATE field reads 04/23/1974"
+      "label": "23 April 1974 (the date in the memo's DATE field)",
+      "precision": "approx",
+      "kind": "estimated",
+      "basis": "The memo's DATE field reads 04/23/1974; read from an image of the document; not confirmed in play"
     },
     "people": [
       "edwin-murray"
@@ -6359,7 +6364,8 @@
     "when": {
       "label": "July 197? (memo dated 07/24/197?; the last digit is not legible in the copy checked)",
       "precision": "approx",
-      "basis": "The memo's dates read 'July 21, 197_' and '07/24/197_' with the final digit worn away"
+      "kind": "estimated",
+      "basis": "The memo's dates read 'July 21, 197_' and '07/24/197_' with the final digit worn away; read from an image of the document; not confirmed in play"
     },
     "people": [
       "edwin-murray"
@@ -6390,9 +6396,10 @@
     "certainty": "shown",
     "when": {
       "year": 1975,
-      "label": "1965–1975 (years printed on the chart)",
-      "precision": "exact",
-      "basis": "The chart's axis runs from 1965 to 1975"
+      "label": "1965–1975 (the years in the chart's title and on its axis)",
+      "precision": "approx",
+      "kind": "estimated",
+      "basis": "The chart's axis runs from 1965 to 1975; read from an image of the document; not confirmed in play"
     },
     "people": [
       "edwin-murray"
@@ -6425,8 +6432,9 @@
     "when": {
       "year": 1977,
       "label": "1973–1977 (dates handwritten on the order forms)",
-      "precision": "exact",
-      "basis": "Order and pickup dates written on the forms; the latest is 04/24/1977"
+      "precision": "approx",
+      "kind": "estimated",
+      "basis": "Order and pickup dates written on the forms; the latest is 04/24/1977; read from images of the documents; not confirmed in play"
     },
     "people": [
       "edwin-murray"
@@ -6459,7 +6467,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -6497,7 +6505,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -6532,7 +6540,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "f10-n4",
@@ -6568,7 +6576,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray"
@@ -6601,7 +6609,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -6637,7 +6645,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "wa-signatory",
@@ -6670,7 +6678,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -6703,7 +6711,7 @@
     "when": {
       "label": "Before SotM's present night (undated; messages left by people trapped in the building)",
       "precision": "relative",
-      "basis": "The messages carry no date. If their writers are the Fazbear technicians sent before Arnold, as their content suggests, they fall between the foreclosure notice (summer 1979) and the work order of 9/07/79"
+      "basis": "The messages carry no date. If their writers are the Fazbear technicians sent before Arnold, as their content suggests, they fall between the foreclosure notice (most likely the summer of 1979) and the night of the game"
     },
     "people": [
       "the-mimic",
@@ -6737,7 +6745,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "wa-signatory",
@@ -6774,7 +6782,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -6811,7 +6819,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "chica",
@@ -6845,7 +6853,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray"
@@ -6879,9 +6887,10 @@
     "certainty": "stated",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "fiona-murray",
@@ -6918,9 +6927,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "freddy-fazbear",
@@ -6961,9 +6971,10 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "Secret of the Mimic present night (work order dated 9/07/79)",
-      "precision": "exact",
-      "basis": "The Fazbear Entertainment work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979); his credential form expires in 1979"
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
     },
     "people": [
       "spring-bonnie",
@@ -7003,7 +7014,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "david-murray",
@@ -7039,7 +7050,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "fiona-murray",
@@ -7076,7 +7087,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray",
@@ -7111,7 +7122,7 @@
     "when": {
       "label": "Murray family history, before SotM's present night (year not stated)",
       "precision": "relative",
-      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the present night is dated 9/07/79 (secret-of-the-mimic-work-order-1979)"
+      "basis": "Recording/document describes earlier MCM/Murray events and gives no year itself; the night of the game is most likely 7 September 1979 (secret-of-the-mimic-work-order-1979, a document not confirmed in play)"
     },
     "people": [
       "edwin-murray"

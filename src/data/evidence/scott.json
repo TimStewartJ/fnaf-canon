@@ -346,11 +346,12 @@
     "related": [
       "scott-2019-help-wanted-is-canon",
       "scott-2019-indie-dev-photo",
-      "scott-2019-silver-parasol-logo"
+      "scott-2019-silver-parasol-logo",
+      "scott-not-part-of-lore"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "The quoted sentence is followed by: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' Note the two hedges: 'supposedly' and 'may or may not'. Checked against the archived post on 2026-10-03."
+    "notes": "The quoted sentence is followed by: 'Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' Note the two hedges: 'supposedly' and 'may or may not'. Checked against the archived post on 2026-10-03. The same post is recorded in the Help Wanted file as scott-not-part-of-lore, which quotes its question and short answer; they are two records of one post."
   },
   {
     "id": "scott-2019-indie-dev-photo",
@@ -436,7 +437,7 @@
   },
   {
     "id": "scott-2019-silver-parasol-logo",
-    "title": "Silver Parasol Games logo = the 'other game developer' in Help Wanted",
+    "title": "Scott's post 'Silver Parasol Games': the logo was made for the 'other game developer' mentioned in the game",
     "claim": "Scott said he had a logo created for the mysterious 'other game developer' mentioned in Help Wanted and left it in the game, but decided against making a real website for it.",
     "quote": "I thought it would be fun to have a logo for the mysterious “other game developer” mentioned in the game, so I had a logo created for it. …",
     "game": "scott",
@@ -449,7 +450,7 @@
       "basis": "Developer statement about the franchise; describes no in-universe date"
     },
     "people": [
-      "rogue-indie-developer"
+      "silver-parasol-games"
     ],
     "tags": [
       "help-wanted",
@@ -457,11 +458,12 @@
       "silver-parasol-games"
     ],
     "related": [
-      "scott-2019-not-canon-list"
+      "scott-2019-not-canon-list",
+      "scott-silver-parasol-website"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/btaxrx/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "The post title names 'Silver Parasol Games'; the body calls it the logo for the 'other game developer'."
+    "notes": "The post title names 'Silver Parasol Games'; the body calls it the logo for the 'other game developer'. The post does not say which developer 'the other game developer' is. The same post is recorded in the Help Wanted file as scott-silver-parasol-website; they are two records of one post."
   },
   {
     "id": "scott-2015-fnaf4-box-pieces-put-together",
@@ -1339,11 +1341,13 @@
     ],
     "related": [
       "scott-2020-freddybear-early-name",
-      "scott-2014-fnaf1-store-summer-job"
+      "scott-2014-fnaf1-store-summer-job",
+      "scott-fnaf1-steam-freddybear",
+      "scott-fnaf1-steam-budget-cuts"
     ],
     "url": "https://store.steampowered.com/app/319510/",
     "verifiedVia": "Steam appdetails API (2026) and Wayback 2014 capture of the store page",
-    "notes": "Scott explained the word in 2020: it is left over from a short time when Freddy's name was going to be 'Freddybear' (scott-2020-freddybear-early-name). It is an early working name for Freddy, not a reference to Fredbear."
+    "notes": "Scott explained the word in 2020: it is left over from a short time when Freddy's name was going to be 'Freddybear' (scott-2020-freddybear-early-name). It is an early working name for Freddy, not a reference to Fredbear. The sentence with the name reads: 'If something isn't right- namely if Freddybear or his friends aren't in their proper places, you must find them on the monitors and protect yourself if needed!' The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf1-steam-freddybear, which quotes that sentence, and as scott-fnaf1-steam-budget-cuts, which also reads the sentence quoted here; they are records of one text."
   },
   {
     "id": "scott-2014-fnaf2-store-previous-guard",
@@ -1356,11 +1360,12 @@
     "certainty": "stated",
     "when": {
       "label": "During FNaF2 (store text gives no date)",
-      "precision": "relative",
-      "basis": "Promotional text describing the FNaF2 setting"
+      "precision": "unknown",
+      "basis": "Promotional text; no in-universe date"
     },
     "people": [
-      "fazbear-entertainment"
+      "fazbear-entertainment",
+      "fnaf2-first-guard"
     ],
     "places": [
       "freddy-fazbears-pizza-1987"
@@ -1370,9 +1375,13 @@
       "store-text",
       "night-guard"
     ],
+    "related": [
+      "scott-fnaf2-steam-description",
+      "scott-fnaf2-steam-old-and-aging"
+    ],
     "url": "https://store.steampowered.com/app/332800/",
     "verifiedVia": "Steam appdetails API (2026)",
-    "notes": "Also: 'As always, Fazbear Entertainment is not responsible for death or dismemberment.' Promo text, not in-game; treat as Scott's framing."
+    "notes": "Also: 'As always, Fazbear Entertainment is not responsible for death or dismemberment.' Promo text, not in-game; treat as Scott's framing. The sentence about the previous guard reads: 'The previous guard has complained about the characters trying to get into the office (he has since been moved to day-shift).' The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf2-steam-description, whose subject is the sentence quoted here, and as scott-fnaf2-steam-old-and-aging; they are records of one text."
   },
   {
     "id": "scott-2015-fnaf3-store-thirty-years",
@@ -1384,9 +1393,9 @@
     "location": "Steam store page, Five Nights at Freddy's 3 (app 354140), description",
     "certainty": "stated",
     "when": {
-      "label": "Thirty years after Freddy Fazbear's Pizza closed",
+      "label": "During FNaF3 (thirty years after Freddy Fazbear's Pizza closed, by the store text)",
       "precision": "relative",
-      "basis": "Official Steam description text"
+      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'; it does not say which closing"
     },
     "people": [
       "springtrap"
@@ -1399,9 +1408,12 @@
       "store-text",
       "thirty-years"
     ],
+    "related": [
+      "scott-fnaf3-steam-description"
+    ],
     "url": "https://store.steampowered.com/app/354140/",
     "verifiedVia": "Steam appdetails API (2026); identical text in Wayback capture of 2015-03-11",
-    "notes": "'it's' typo is in the original. Continues: 'At first there were only empty shells, a hand, a hook, an old paper-plate doll, but then a remarkable discovery was made... The attraction now has one animatronic.'"
+    "notes": "'it's' typo is in the original. Continues: 'At first there were only empty shells, a hand, a hook, an old paper-plate doll, but then a remarkable discovery was made... The attraction now has one animatronic.' The text does not say which Freddy Fazbear's Pizza closing the thirty years count from. The same store text is recorded in the FNaF1 to FNaF3 file as scott-fnaf3-steam-description; they are two records of one text."
   },
   {
     "id": "scott-2015-fnaf4-store-last-chapter",
@@ -1446,9 +1458,6 @@
       "precision": "unknown",
       "basis": "Promotional text; no in-universe date"
     },
-    "people": [
-      "crying-child"
-    ],
     "places": [
       "fnaf4-house"
     ],
@@ -1463,7 +1472,7 @@
     ],
     "url": "https://store.steampowered.com/app/388090/",
     "verifiedVia": "Steam appdetails API (2026); identical text in Wayback capture of 2015-08-03",
-    "notes": "The player-character in the nights is stated to be 'a child'; the store text does not say whether this is the same child as the minigame 'crying child'. The people tag is a lookup aid, not an identity claim."
+    "notes": "The player-character in the nights is stated to be 'a child'; the store text does not say whether this is the same child as the minigame 'crying child'."
   },
   {
     "id": "scott-2016-sl-store-text",
@@ -1563,18 +1572,19 @@
     "people": [
       "springtrap"
     ],
-    "places": [
-      "fazbears-fright"
-    ],
     "tags": [
       "fnaf3",
       "teaser",
       "springtrap"
     ],
+    "related": [
+      "scottgames-fnaf3-teaser-still-here",
+      "scottgames-site-fnaf3-source-i-remain"
+    ],
     "image": "scottgames-fnaf3-i-am-still-here.jpg",
     "url": "https://web.archive.org/web/20150103035439/http://www.scottgames.com/fnaf3.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "The name 'Springtrap' comes from FNaF3 itself, not the teaser."
+    "notes": "The name 'Springtrap' comes from FNaF3 itself, not the teaser. The same teaser is recorded in the FNaF1 to FNaF3 file as scottgames-fnaf3-teaser-still-here; they are two records of one teaser."
   },
   {
     "id": "scottgames-site-fnaf3-parts-box",
@@ -1626,9 +1636,13 @@
       "teaser",
       "purple"
     ],
+    "related": [
+      "scottgames-fnaf3-teaser-he-always-does",
+      "scott-fnaf3-trailer-tagline"
+    ],
     "url": "https://web.archive.org/web/20150127133437/http://www.scottgames.com/always.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "The teaser names no one; the only cue is the purple text colour. Posted after 'I am still here.' (2015-01-03)."
+    "notes": "The teaser names no one; the only cue is the purple text colour. Posted after 'I am still here.' (2015-01-03). The same teaser is recorded in the FNaF1 to FNaF3 file as scottgames-fnaf3-teaser-he-always-does; they are two records of one teaser."
   },
   {
     "id": "scottgames-site-fnaf3-guess-who",
@@ -1645,7 +1659,7 @@
       "basis": "Promotional teaser; states no in-universe date"
     },
     "people": [
-      "phantom-balloon-boy"
+      "phantom-bb"
     ],
     "tags": [
       "fnaf3",
@@ -2379,7 +2393,7 @@
     "image": "scottgames-hw-working-as-intended.jpg",
     "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/hw.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "Four faint, letter-spaced lines are embedded in the artwork. After high-pass filtering the capture they read 'Don't listen to them.', 'We let something inside.', 'It was an accident.' and 'Remember Jeremy.' (recorded as scottgames-hw-teaser-hidden-text). The page source of the same capture gives the image the alt text 'remember Jeremy' (scottgames-site-hw-alt-remember-jeremy). This is the cover art Scott later said used fan-model references and was re-made (Reddit, 2019-03-12/13), so this capture is the withdrawn version."
+    "notes": "Four faint, letter-spaced lines are embedded in the artwork. After high-pass filtering the capture they read 'Don't listen to them.', 'We let something inside.', 'It was an accident.' and 'Remember Jeremy.' (recorded as scottgames-hw-teaser-hidden-text). The page source of the same capture gives the image the alt text 'remember Jeremy' (scottgames-site-hw-alt-remember-jeremy). This is the cover art Scott later said used fan-model references and was re-made (Reddit, 2019-03-12/13), so this capture is the withdrawn version. This record, scottgames-hw-teaser-hidden-text and scottgames-site-hw-alt-remember-jeremy are three records of one teaser."
   },
   {
     "id": "scottgames-site-sb-rock",
@@ -3539,10 +3553,6 @@
       "precision": "unknown",
       "basis": "Developer statement about the franchise; describes no in-universe date"
     },
-    "people": [
-      "golden-freddy",
-      "one-you-should-not-have-killed"
-    ],
     "tags": [
       "naming",
       "cassidy",
@@ -3558,7 +3568,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/i92lku/comment/g1cgrfb/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment g1cgrfb and thread i92lku",
-    "notes": "Scott does not type the name; the thread title supplies it. His comment treats 'Cassidy' as one of the 'names from the lore' and treats the product as a possible lore reveal ('raise your hands if you think I'd let Cloak reveal lore using a Kazoo'). It does not say which lore (games or books) or whose name it is. People tags mark the questions it bears on, not an identification."
+    "notes": "Scott does not type the name; the thread title supplies it. His comment treats 'Cassidy' as one of the 'names from the lore' and treats the product as a possible lore reveal ('raise your hands if you think I'd let Cloak reveal lore using a Kazoo'). It does not say which lore (games or books) or whose name it is."
   },
   {
     "id": "scott-2020-cassidy-screenplay-lore-from-games",
@@ -3574,10 +3584,6 @@
       "precision": "unknown",
       "basis": "Developer statement about the franchise; describes no in-universe date"
     },
-    "people": [
-      "golden-freddy",
-      "one-you-should-not-have-killed"
-    ],
     "tags": [
       "naming",
       "cassidy",
@@ -3591,7 +3597,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/jxvesb/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post jxvesb",
-    "notes": "The entry continues: 'Spanning multiple time-periods, following multiple characters, and featuring lore from multiple games, this was pretty saturated, saturated to a fault… (Hey wait, maybe this WAS the most accurate screenplay...)'. This is the only place this archive has found Scott writing the name 'Cassidy' himself. It ties a character of that name to lore 'from multiple games' without saying who the character is. People tags mark the questions it bears on, not an identification."
+    "notes": "The entry continues: 'Spanning multiple time-periods, following multiple characters, and featuring lore from multiple games, this was pretty saturated, saturated to a fault… (Hey wait, maybe this WAS the most accurate screenplay...)'. This is the only place this archive has found Scott writing the name 'Cassidy' himself. It ties a character of that name to lore 'from multiple games' without saying who the character is."
   },
   {
     "id": "scott-2020-charlie-game-and-book-counterparts",
@@ -3607,10 +3613,6 @@
       "precision": "unknown",
       "basis": "Developer statement about the franchise; describes no in-universe date"
     },
-    "people": [
-      "cassette-mans-daughter",
-      "puppet"
-    ],
     "tags": [
       "naming",
       "charlie",
@@ -3624,7 +3626,7 @@
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/jxvesb/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post jxvesb",
-    "notes": "The only named character in the entry is Charlie ('Basic Setup: Charlie and friends sneak into Freddy's after-hours to retrieve a lost toy.'), so Scott's wording implies a game counterpart as well as a book one. It is a plural, general sentence and stops short of saying 'the girl in the games is called Charlie'. Same post: his Silver Eyes screenplays were dropped because he 'decided to focus on making a screenplay from the games and not from the books'. People tags mark the question it bears on, not an identification."
+    "notes": "The only named character in the entry is Charlie ('Basic Setup: Charlie and friends sneak into Freddy's after-hours to retrieve a lost toy.'), so Scott's wording implies a game counterpart as well as a book one. It is a plural, general sentence and stops short of saying 'the girl in the games is called Charlie'. Same post: his Silver Eyes screenplays were dropped because he 'decided to focus on making a screenplay from the games and not from the books'."
   },
   {
     "id": "scott-2020-freddybear-early-name",
@@ -3782,13 +3784,6 @@
       "precision": "unknown",
       "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "springtrap",
-      "purple-guy"
-    ],
-    "places": [
-      "fazbears-fright"
-    ],
     "tags": [
       "fnaf3",
       "teaser",
@@ -3823,7 +3818,6 @@
       "basis": "Promotional teaser; states no in-universe date"
     },
     "people": [
-      "bite-victim",
       "crying-child"
     ],
     "tags": [
@@ -4015,12 +4009,6 @@
       "precision": "unknown",
       "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "ennard",
-      "circus-baby",
-      "molten-freddy",
-      "scrap-baby"
-    ],
     "tags": [
       "ffps",
       "teaser",
@@ -4038,7 +4026,7 @@
     ],
     "url": "https://web.archive.org/web/20170611225033/http://www.scottgames.com/",
     "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
-    "notes": "The quote gives the five lines in page order, separated by slashes; each is a separate tag value, and they were added one at a time on the capture dates given. The source has a curly apostrophe in 'can't'; the quote here uses a straight one. No speaker is named. The lines answer, one for one, the five lines hidden on fnafworld.com in the same weeks (scottgames-site-2017-fnafworld-source-ejection-dialogue-one). Reading the group as Ennard's parts and the one thrown out as Baby is a reading drawn from Pizzeria Simulator, where the two turn up apart as Molten Freddy and Scrap Baby; people tags mark that reading, not a statement."
+    "notes": "The quote gives the five lines in page order, separated by slashes; each is a separate tag value, and they were added one at a time on the capture dates given. The source has a curly apostrophe in 'can't'; the quote here uses a straight one. No speaker is named. The lines answer, one for one, the five lines hidden on fnafworld.com in the same weeks (scottgames-site-2017-fnafworld-source-ejection-dialogue-one). Reading the group as Ennard's parts and the one thrown out as Baby is a reading drawn from Pizzeria Simulator, where the two turn up apart as Molten Freddy and Scrap Baby; the page states none of it."
   },
   {
     "id": "scottgames-site-2017-fnafworld-source-ejection-dialogue-one",
@@ -4054,11 +4042,6 @@
       "precision": "unknown",
       "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "circus-baby",
-      "scrap-baby",
-      "ennard"
-    ],
     "tags": [
       "ffps",
       "teaser",
@@ -4218,7 +4201,7 @@
     "image": "scottgames-hw-hidden-lines-highpass.jpg",
     "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/",
     "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252; the six linked images fetched from the same capture date; hidden lines in hw.jpg read after high-pass filtering",
-    "notes": "Meta values: 'Ggxcqw432', '9Taawf32Bb', '5sdvgHsd', 's55Hdfcaa2', 'sd3mz77fW', 'Fwxht4Scv'. Adding '.jpg' to each gives an image on the site: six halftone-filtered Help Wanted screenshots, which carry no text. A fan catalogue of the teasers lists a seventh hidden file, 0rGN.jpg; the Wayback Machine has it, but this capture's page source does not name it. Low-pass filtered, it shows a blurred endoskeleton figure and no text. The alt text repeats the fourth line hidden in the teaser artwork ('Remember Jeremy.'). It names Jeremy two months before the game's hidden tapes describe what happened to a tester of that name; it does not say who he is or whether he is any earlier Jeremy. The published image is a researcher-filtered copy of the teaser in which the four hidden lines can be made out."
+    "notes": "Meta values: 'Ggxcqw432', '9Taawf32Bb', '5sdvgHsd', 's55Hdfcaa2', 'sd3mz77fW', 'Fwxht4Scv'. Adding '.jpg' to each gives an image on the site: six halftone-filtered Help Wanted screenshots, which carry no text. A fan catalogue of the teasers lists a seventh hidden file, 0rGN.jpg; the Wayback Machine has it, but this capture's page source does not name it. Low-pass filtered, it shows a blurred endoskeleton figure and no text. The alt text repeats the fourth line hidden in the teaser artwork ('Remember Jeremy.'). It names Jeremy two months before the game's hidden tapes describe what happened to a tester of that name; it does not say who he is or whether he is any earlier Jeremy. The published image is a researcher-filtered copy of the teaser in which the four hidden lines can be made out. The same teaser is recorded as scottgames-site-hw-working-as-intended (the caption) and, in the Help Wanted file, scottgames-hw-teaser-hidden-text (the four hidden lines); they are three records of one teaser."
   },
   {
     "id": "scottgames-site-sb-source-stay-the-course",
@@ -4234,15 +4217,6 @@
       "precision": "unknown",
       "basis": "Promotional teaser; states no in-universe date"
     },
-    "people": [
-      "vanny",
-      "glitchtrap",
-      "vanessa",
-      "gregory"
-    ],
-    "places": [
-      "mega-pizzaplex"
-    ],
     "tags": [
       "security-breach",
       "teaser",
@@ -4255,11 +4229,12 @@
       "scottgames-site-sb-obey",
       "scottgames-site-sb-protect",
       "scottgames-site-sb-atrium-2020",
-      "scottgames-site-sb-rock-rabbit-figure-added"
+      "scottgames-site-sb-rock-rabbit-figure-added",
+      "scottgames-sb-source-stay-the-course"
     ],
     "url": "https://web.archive.org/web/20190808211500/http://www.scottgames.com/",
     "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252 (first seen 20190808211500, last seen 20200807140323; gone by 20210617022949)",
-    "notes": "The quote gives the eight tag values, separated by slashes, in the order they read as a dialogue; in the HTML they are packed as name and content pairs (name 'Stay the course.' content 'I will.'; name 'Focus on my voice.'; name 'I will.' content 'Don't let anyone lead you astray.'; name 'I won't.' content 'Have you selected one?'; name 'I have.'). No speaker is named. It has a follower who agrees with a voice each time and answers 'I have.' to 'Have you selected one?', and it stayed up under the 'OBEY' teaser of a figure in a rabbit costume. Taking the voice as the rabbit from Help Wanted, the follower as the costumed woman, and 'one' as a child is a reading from the games; people tags mark that reading."
+    "notes": "The quote gives the eight tag values, separated by slashes, in the order they read as a dialogue; in the HTML they are packed as name and content pairs (name 'Stay the course.' content 'I will.'; name 'Focus on my voice.'; name 'I will.' content 'Don't let anyone lead you astray.'; name 'I won't.' content 'Have you selected one?'; name 'I have.'). No speaker is named. It has a follower who agrees with a voice each time and answers 'I have.' to 'Have you selected one?', and it stayed up under the 'OBEY' teaser of a figure in a rabbit costume. Taking the voice as the rabbit from Help Wanted, the follower as the costumed woman, and 'one' as a child is a reading from the games. The same page source is recorded in the Help Wanted file as scottgames-sb-source-stay-the-course, which read captures up to 2021-02-25 that still carry the tags; they are two records of one text."
   },
   {
     "id": "scottgames-site-sb-rock-rabbit-figure-added",
@@ -4374,8 +4349,7 @@
     },
     "people": [
       "springtrap",
-      "purple-guy",
-      "william-afton"
+      "purple-guy"
     ],
     "places": [
       "fazbears-fright"
