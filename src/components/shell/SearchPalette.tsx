@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { CornerDownLeft, FileText, House, Search, type LucideIcon } from "lucide-react";
-import { evidence, people, places, theory, theoryParts, timeline } from "../../data/store";
+import { evidence, people, places, theoryParts, timeline } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import { useEvidenceDrawer } from "../evidenceDrawer";
 import { useModalDialog } from "../hooks";
@@ -10,6 +10,7 @@ import { Icon } from "../Icon";
 import { chapterPath, personPath, placePath, timelineEventPath } from "../links";
 import { plainText } from "../richTextPlain";
 import { smartQuotes } from "../typography";
+import { chapterNumber, readingOrder } from "../chapterOrder";
 import { NAV_FLAT } from "./nav";
 
 type Kind = "page" | "chapter" | "person" | "place" | "event" | "evidence";
@@ -24,8 +25,9 @@ function buildIndex(): Entry[] {
   const partTitle = new Map(theoryParts.map((p) => [p.id, p.title]));
   const out: Entry[] = [{ kind: "page", id: "/", title: "Home", sub: "The archive’s front page", hay: "home overview start", to: "/", icon: House }];
   for (const n of NAV_FLAT) out.push({ kind: "page", id: n.to, title: n.label, sub: n.desc, hay: `${n.label} ${n.desc}`.toLowerCase(), to: n.to, icon: n.icon });
-  theory.forEach((s, i) => out.push({
-    kind: "chapter", id: s.id, title: s.title, sub: `Chapter ${i + 1}${s.part && partTitle.get(s.part) ? ` · ${partTitle.get(s.part)}` : ""}`,
+  // Reading order and its numbers, not the order of the theory array (see chapterOrder.ts).
+  readingOrder.forEach((s) => out.push({
+    kind: "chapter", id: s.id, title: s.title, sub: `Chapter ${chapterNumber(s.id)}${s.part && partTitle.get(s.part) ? ` · ${partTitle.get(s.part)}` : ""}`,
     hay: `${s.title} ${s.question ?? ""} ${s.answer ? plainText(s.answer) : ""} ${s.id}`.toLowerCase(), to: chapterPath(s.id), icon: SECTION_ICON.theory,
   }));
   for (const p of people) out.push({ kind: "person", id: p.id, title: p.name, sub: p.aliases.slice(0, 3).join(" · ") || plainText(p.status).slice(0, 80), hay: `${p.name} ${p.aliases.join(" ")} ${p.id}`.toLowerCase(), to: personPath(p.id), icon: SECTION_ICON.people });

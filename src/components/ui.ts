@@ -10,6 +10,7 @@ export * from "./icons";
 export * from "./hooks";
 export * from "./citeScope";
 export * from "./chapterResolver";
+export * from "./chapterOrder";
 export * from "./evidenceDrawer";
 export * from "./deferred";
 export * from "./popover";

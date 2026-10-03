@@ -4,34 +4,17 @@
  * Reading order is by part (in theoryParts order), then by the chapter's position in theory.ts.
  * Chapters are numbered in that order, so the number a reader sees always counts up through the book.
  */
-import type { TheoryBlock, TheoryPart, TheorySection } from "../../data/schema";
-import { theory, theoryParts } from "../../data/store";
+import type { TheoryBlock, TheorySection } from "../../data/schema";
+import { partGroups, readingOrder, type PartGroup } from "../../components/chapterOrder";
 import { blockEvidenceIds, blockTexts, citationsInText } from "../../data/theoryText";
 import { excerpt, plainText } from "../../components/richTextPlain";
 import { useCallback, useMemo } from "react";
 import { useStored } from "../../components/hooks";
 
-export interface PartGroup {
-  /** null for chapters that name no part (or an unknown one). */
-  part: TheoryPart | null;
-  /** 1-based part number, shown as a roman numeral. */
-  n: number;
-  chapters: TheorySection[];
-}
-
-export function groupByPart(chapters: readonly TheorySection[], parts: readonly TheoryPart[]): PartGroup[] {
-  const known = new Set(parts.map((p) => p.id));
-  const groups: PartGroup[] = parts.map((part, i) => ({ part, n: i + 1, chapters: chapters.filter((s) => s.part === part.id) }));
-  const rest = chapters.filter((s) => !s.part || !known.has(s.part));
-  if (rest.length) groups.push({ part: null, n: parts.length + 1, chapters: rest });
-  return groups.filter((g) => g.chapters.length);
-}
-
-export const partGroups: PartGroup[] = groupByPart(theory, theoryParts);
+// The ordering itself lives in components/chapterOrder.ts so the search palette shares it.
+export { groupByPart, partGroups, chapterNumber, type PartGroup } from "../../components/chapterOrder";
 /** Every chapter in reading order. */
-export const ordered: TheorySection[] = partGroups.flatMap((g) => g.chapters);
-const numbers = new Map(ordered.map((s, i) => [s.id, i + 1]));
-export const chapterNumber = (id: string): number => numbers.get(id) ?? 0;
+export const ordered: TheorySection[] = readingOrder;
 export const partOfChapter = (id: string): PartGroup | undefined => partGroups.find((g) => g.chapters.some((s) => s.id === id));
 export function neighbours(id: string): { prev?: TheorySection; next?: TheorySection } {
   const i = ordered.findIndex((s) => s.id === id);
