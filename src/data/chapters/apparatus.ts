@@ -394,7 +394,7 @@ export const chapters: TheorySection[] = [
       ] },
       { kind: "heading", text: "The locked box" },
       "This chapter began at a locked box (see ((nightmares))). In 2015 Scott wrote: \"What's in the box? It's the pieces put together.\" [[scott-2015-fnaf4-box-pieces-put-together]] He then decided that \"maybe some things are best left forgotten, forever\" [[scott-2015-box-best-left-forgotten]]. In a 2018 interview (a transcript) he said that its contents \"have changed over the years\" [[scott-2018-box-meaning-changed]]. In a 2024 interview (a transcript) he said: \"there is something in the box, but I never pursued it\" [[scott-2024-box-interview]].",
-      "The model treats the box as closed.",
+      "The model treats the box as closed, most likely for good.",
     ],
     changesIf: "A year printed after 1987; a name for whoever sits in Ultimate Custom Night's office; a statement of which machine the scanned boards came from, or a date for the scan against the fire; a scene of Murray's endoskeleton between 1979 and the Pizzaplex; a word from Scott on the retcon, or on which FNaF3 ending happened. Any of these would settle several entries at once, and the chapter changes whenever a game answers one.",
     seeAlso: ["thesis", "canon-rules", "timeline-math", "november-1987", "ucn", "burntrap", "mimic"],

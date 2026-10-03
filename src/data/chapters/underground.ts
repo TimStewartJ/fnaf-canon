@@ -1,7 +1,7 @@
 import type { TheorySection } from "../schema";
 
 /**
- * The Unified Model, part 9: Under the Pizzaplex (The newest building).
+ * The Unified Model, part 9: Under the Pizzaplex (The buried pizzeria).
  * What stands in the ruin beneath it, what waits behind poured concrete, and what the whole story keeps coming back to.
  *
  * One file per part, so that parts can be written in parallel. Chapters appear on the site in this order.
