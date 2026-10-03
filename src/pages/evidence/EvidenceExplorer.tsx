@@ -1,4 +1,4 @@
-import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import type { Evidence } from "../../data/schema";
@@ -39,27 +39,49 @@ interface Local {
   /** Addresses this page has asked for and not yet seen. */
   sent: string[];
 }
-function fromAddress(sp: URLSearchParams, url: string): Local {
-  const query = parseQuery(sp);
+function fromAddress(url: string): Local {
+  const query = parseQuery(new URLSearchParams(url));
   return { query, text: query.q, url, sent: [] };
 }
+/** The state once the address the router shows is taken in: this page's own write coming back only moves the bookmark; any other address replaces the state. */
+function reconcile(l: Local, url: string): Local {
+  if (url === l.url) return l;
+  const echo = l.sent.indexOf(url);
+  return echo >= 0 ? { ...l, url, sent: l.sent.slice(echo + 1) } : fromAddress(url);
+}
+const applyChange = (l: Local, fn: (l: Local) => Local): Local => fn(l);
 /** An address as this page would write it, so an old or hand-typed link is not rewritten just for its spelling. */
 const canonical = (url: string): string => toParams(parseQuery(new URLSearchParams(url))).toString();
 
 /**
+ * True when the history entry the browser is on holds an open evidence drawer (see DrawerHost).
+ * The router shows a new entry a moment after it is made, so this is true from the click that
+ * opens a record, before anything on the page can know of it. (The router keeps an entry's state
+ * under `usr`.)
+ */
+const drawerInEntry = (): boolean => !!(window.history.state as { usr?: { drawer?: unknown } | null } | null)?.usr?.drawer;
+
+/**
  * Writes the wanted address. It is a component of its own because it watches the evidence drawer,
  * and so re-renders whenever the drawer opens or closes, which the page with its long list must
- * not. The drawer lives in the current history entry: rewriting that entry while the drawer is open
- * would close it. A change made just before a record was opened is written when the drawer closes.
+ * not. The drawer lives in the current history entry: rewriting that entry while the drawer is
+ * open, or is about to be, would close it. A change made just before a record was opened is
+ * written when the drawer closes: the check runs after every render, so nothing is left waiting.
  */
 function AddressWriter({ want, url, sent, onSent }: { want: string; url: string; sent: string[]; onSent: (key: string) => void }) {
   const [, setSp] = useSearchParams();
   const drawerOpen = useDrawerRecord() !== null;
+  const have = useMemo(() => canonical(url), [url]);
+  /** The last address asked for, and what the router was showing then. */
+  const asked = useRef<{ want: string; at: string } | null>(null);
   useEffect(() => {
-    if (drawerOpen || want === canonical(url) || sent.includes(want)) return;
+    if (want === have || drawerOpen || drawerInEntry()) return;
+    // Not asked for twice: neither before the page has heard of the first time, nor while it is on its way.
+    if ((asked.current?.want === want && asked.current.at === url) || sent[sent.length - 1] === want) return;
+    asked.current = { want, at: url };
     onSent(want);
     setSp(new URLSearchParams(want), { replace: true });
-  }, [drawerOpen, want, url, sent, onSent, setSp]);
+  });
   return null;
 }
 
@@ -73,28 +95,29 @@ function GroupHead({ g }: { g: Group }) {
 }
 
 export default function EvidenceExplorer() {
-  const [sp] = useSearchParams();
-  const url = sp.toString();
+  const url = useSearchParams()[0].toString();
   const wide = useMediaQuery("(min-width: 1080px)");
   const phone = useMediaQuery("(max-width: 640px)");
   const [sheet, setSheet] = useState(false);
 
-  const [local, setLocal] = useState<Local>(() => fromAddress(sp, url));
-  if (url !== local.url) {
-    // The echo of this page's own write only moves the bookmark; anything else replaces the state.
-    const echo = local.sent.indexOf(url);
-    setLocal(echo >= 0 ? { ...local, url, sent: local.sent.slice(echo + 1) } : fromAddress(sp, url));
-  }
+  // A reducer, not useState, and on purpose. The address is taken in while rendering (the change
+  // below). React abandons its render of a router change when the reader clicks or types in the
+  // middle of it, but useState then works out that click's new state ahead of time from what the
+  // abandoned render had set: the click was lost and the page fell back to an older address.
+  // A reducer's changes are always worked out from the state that is on screen.
+  const [local, change] = useReducer(applyChange, url, fromAddress);
+  if (url !== local.url) change((l) => reconcile(l, url));
   const { query, text } = local;
+  const want = useMemo(() => toParams(query).toString(), [query]);
 
   /** Changes the query. Any change starts the list again from its top, unless it is to the list's own extent. */
   const update = useCallback((patch: Partial<Query> | ((q: Query) => Partial<Query>)) => {
-    setLocal((l) => {
+    change((l) => {
       const p = typeof patch === "function" ? patch(l.query) : patch;
       return { ...l, text: p.q ?? l.text, query: { ...l.query, q: l.text, n: null, from: 0, ...p } };
     });
   }, []);
-  const onSent = useCallback((key: string) => setLocal((l) => ({ ...l, sent: [...l.sent.slice(-7), key] })), []);
+  const onSent = useCallback((key: string) => change((l) => ({ ...l, sent: [...l.sent.slice(-7), key] })), []);
 
   // Results follow every keystroke; the query (and with it the address) takes the words once typing pauses.
   const drafting = text !== query.q;
@@ -183,14 +206,14 @@ export default function EvidenceExplorer() {
 
   return (
     <Page title="Evidence locker" className="evx-explorer">
-      <AddressWriter want={toParams(query).toString()} url={local.url} sent={local.sent} onSent={onSent} />
+      <AddressWriter want={want} url={local.url} sent={local.sent} onSent={onSent} />
       <PageHeader
         kicker="Evidence"
         title="Evidence locker"
         lede="Every record is one fact, pinned to an exact spot in a game or in Scott’s own words. Nothing here is a theory."
       />
       <div className="evx-top" role="search" aria-label="Search and filter the evidence">
-        <SearchField className="evx-search" label="Search the evidence: titles, claims, quotes, locations and ids" placeholder="Search claims, quotes, locations, ids" value={text} onChange={(v) => setLocal((l) => ({ ...l, text: v }))} />
+        <SearchField className="evx-search" label="Search the evidence: titles, claims, quotes, locations and ids" placeholder="Search claims, quotes, locations, ids" value={text} onChange={(v) => change((l) => ({ ...l, text: v }))} />
         {!wide && (
           <Button icon={SlidersHorizontal} className="evx-filters-btn" aria-haspopup="dialog" onClick={() => setSheet(true)}>
             Filters{filters > 0 && <span className="evx-badge">{filters}<span className="sr-only"> in use</span></span>}

@@ -20,7 +20,7 @@
 import type { Evidence } from "../../data/schema";
 import { allTags, evidence, games, labelForEntity, personById, placeById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
-import { CERTAINTY, KIND_LABEL } from "../../components/ui";
+import { CERTAINTY, KIND_LABEL, smartQuotes } from "../../components/ui";
 import { isPlace, placeOf, type Place } from "./coverage";
 
 export type Sort = "match" | "time" | "game";
@@ -345,10 +345,12 @@ function around(text: string, at: number, before: number, length: number): strin
  */
 export function claimFor(e: Evidence, terms: string[]): string {
   if (!terms.length) return e.claim;
-  const low = fold(e.claim);
+  // Quotes are curled before the text is cut, so a quotation mark at the cut still faces the right way.
+  const claim = smartQuotes(e.claim);
+  const low = fold(claim);
   const first = terms.map((t) => low.indexOf(t)).filter((i) => i >= 0).sort((a, b) => a - b)[0];
-  if (first === undefined || first < IN_VIEW || low.length !== e.claim.length) return e.claim;
-  return around(e.claim, first, 50, e.claim.length);
+  if (first === undefined || first < IN_VIEW || low.length !== claim.length) return claim;
+  return around(claim, first, 50, claim.length);
 }
 
 /**
@@ -360,7 +362,7 @@ export function elsewhere(e: Evidence, terms: string[]): { label: string; text: 
   const shown = fold(`${e.title} \n ${e.claim} \n ${e.location}`);
   const missing = terms.filter((t) => !shown.includes(t));
   if (!missing.length) return null;
-  const fields: [string, string][] = [["Quote", e.quote ?? ""], ["Note", e.notes ?? ""], ["Id", e.id], ["Tags", (e.tags ?? []).map((t) => `#${t}`).join(" ")]];
+  const fields: [string, string][] = [["Quote", smartQuotes(e.quote ?? "")], ["Note", smartQuotes(e.notes ?? "")], ["Id", e.id], ["Tags", (e.tags ?? []).map((t) => `#${t}`).join(" ")]];
   for (const [label, text] of fields) {
     const low = fold(text);
     const hit = missing.map((t) => low.indexOf(t)).filter((i) => i >= 0).sort((a, b) => a - b)[0];

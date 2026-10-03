@@ -39,7 +39,8 @@
 
 /* Inside the shared lightbox: the records an image illustrates */
 .gal-zoom__records { display: block; margin-top: 0.3rem; color: var(--c-mat-text); }
-.gal-zoom__record { color: inherit; }
+/* The viewer's mat is dark in both themes, so the link keeps the mat's text colour when hovered too (the site's link hover colour is dark on paper). */
+.gal-zoom__record, .gal-zoom__record:hover { color: inherit; }
 /* The shared viewer is 100vw wide, which on a desktop with classic scrollbars runs under the page's
    reserved scrollbar gutter and cuts the close and next buttons. Sized by its insets it stops at the gutter. */
 .gal-zoom dialog.lightbox { width: auto; }

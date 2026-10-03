@@ -123,8 +123,8 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
   // The two pickers hold several hundred entries each; their lists are only worked out while one is open.
   const tags = useCallback(() => tagOptions(counts.tag, query.tag), [counts.tag, query.tag]);
   const entities = useCallback(() => entityOptions(counts.entity, query.entity), [counts.entity, query.entity]);
-  const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (query.img ? 1 : 0) + (query.sort ? 1 : 0);
   const defaultSort: Sort = searching ? "match" : "time";
+  const folded = query.use.length + (query.tag ? 1 : 0) + (query.entity ? 1 : 0) + (query.img ? 1 : 0) + (outcome.sort !== defaultSort ? 1 : 0);
   const more = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const el = more.current;
