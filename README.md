@@ -4,7 +4,7 @@ An interactive, evidence-first reconstruction of the Five Nights at Freddy's sto
 
 ## How the archive is built
 
-**Evidence.** `src/data/evidence/*.json` holds 1,045 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes; an approximate date says how it is known (derived, estimated, or taken from a teaser). `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
+**Evidence.** `src/data/evidence/*.json` holds 1,046 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes; an approximate date says how it is known (derived, estimated, or taken from a teaser). `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
 
 **The theory**, called the Unified Model, is the archive's single account of the story. It lives in `src/data/theory.ts` and `src/data/chapters/*.ts` (one file per part), and its shapes are defined under "Theory content contract" in `src/data/schema.ts`.
 
@@ -13,7 +13,7 @@ An interactive, evidence-first reconstruction of the Five Nights at Freddy's sto
 - `storyline` is the short telling: 20 beats in the model's order of events, each pointing at the chapters that argue it.
 - `outsideStory` lists the records that deliberately carry no story weight, grouped by reason (releases Scott ruled non-canon, cut and unused content, jokes, promotion and so on).
 
-**The coverage rule.** Every evidence record must be cited by a chapter, filed under a chapter as further evidence, or listed in `outsideStory` with a reason. The validator reports the accounting, which currently stands at 1,045 of 1,045.
+**The coverage rule.** Every evidence record must be cited by a chapter, filed under a chapter as further evidence, or listed in `outsideStory` with a reason. The validator reports the accounting, which currently stands at 1,046 of 1,046.
 
 **The other synthesis layers** cite records by id and mark each entry canon (stated or shown), strong (a near-certain inference) or theory (the model's reading):
 

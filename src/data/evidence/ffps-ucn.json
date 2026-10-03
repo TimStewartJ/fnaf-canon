@@ -2768,6 +2768,9 @@
     "tags": [
       "recognition"
     ],
+    "related": [
+      "ffps-catalog-rockstar-bonnie"
+    ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Rockstar_Bonnie/Audio"
   },
   {
@@ -4225,6 +4228,35 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Lawsuits",
     "notes": "Written as a joke, like all the lawsuits, and it says 'a Fazbear Entertainment, Inc. establishment', not this pizzeria by name. Reading it as a hint of a hollow space under this pizzeria, beside the Completion speech's 'a labyrinth' and 'corridors' and the pizzeria of this name that Security Breach finds at the bottom of a sinkhole, is interpretation."
+  },
+  {
+    "id": "ffps-catalog-rockstar-bonnie",
+    "title": "The catalogue sells Rockstar Bonnie as an animatronic for the pizzeria",
+    "claim": "Pizzeria Simulator's catalogue lists Rockstar Bonnie under Smiles and Servos, Inc: an animatronic, priced at $2000, that the franchisee can buy for the pizzeria.",
+    "game": "ffps",
+    "kind": "mechanic",
+    "location": "Catalogue – Smiles and Servos, Inc",
+    "certainty": "shown",
+    "when": {
+      "label": "During FFPS (the franchisee's Monday–Saturday work week)",
+      "precision": "relative",
+      "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
+    },
+    "people": [
+      "rockstar-bonnie"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "catalogue",
+      "rockstar-bonnie"
+    ],
+    "notes": "Read on 2026-10-03 from the wiki's table of catalogue items (product type 'Animatronic', price '$2000', 'Heavy Animatronic'); the catalogue screen itself was not captured. A figure of the same name is on Ultimate Custom Night's roster and greets the player as 'my truest friend' (ucn-rockstar-bonnie-truest-friend).",
+    "related": [
+      "ucn-rockstar-bonnie-truest-friend"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Catalog"
   },
   {
     "id": "scott-2017-ffps-patch-green-man",

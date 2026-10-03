@@ -1271,10 +1271,10 @@ export const people: Person[] = [
   },
   {
     id: "rockstar-bonnie", name: "Rockstar Bonnie", aliases: [], nameStatus: "canon-name", group: "other",
-    summary: "A figure of Ultimate Custom Night. It greets the player \"So good to see you again, my truest friend. But now your life must end.\" [[ucn-rockstar-bonnie-truest-friend]]",
+    summary: "An animatronic that the franchisee of Pizzeria Simulator can buy from the catalogue for the pizzeria [[ffps-catalog-rockstar-bonnie]], and a figure of Ultimate Custom Night. There it greets the player \"So good to see you again, my truest friend. But now your life must end.\" [[ucn-rockstar-bonnie-truest-friend]]",
     status: "—",
-    firstAppearance: "ucn",
-    evidence: ["ucn-rockstar-bonnie-truest-friend"],
+    firstAppearance: "ffps",
+    evidence: ["ffps-catalog-rockstar-bonnie", "ucn-rockstar-bonnie-truest-friend"],
   },
   {
     id: "dee-dee", name: "Dee Dee", aliases: [], nameStatus: "canon-name", group: "other",
