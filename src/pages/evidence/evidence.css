@@ -39,7 +39,7 @@
 .evx-main :is(a, button, summary) { scroll-margin-top: calc(var(--evx-bar) + var(--sp-3)); }
 
 .evx-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5) var(--sp-7); align-items: start; }
-@media (min-width: 1080px) { .evx-layout { grid-template-columns: 17.5rem minmax(0, 1fr); } }
+@media (min-width: 67.5em) { .evx-layout { grid-template-columns: 17.5rem minmax(0, 1fr); } }
 .evx-main { min-width: 0; }
 
 /* ── Filters: the rail on a wide screen ────────────────────────── */
@@ -99,10 +99,10 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-sheet__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--c-line); flex: none; }
 .evx-sheet__foot > .btn--primary { flex: 1 1 auto; }
 .evx-sheet__view { display: grid; justify-items: start; gap: var(--sp-1); margin-top: var(--sp-5); }
-@media (min-width: 641px) {
+@media (min-width: 40.0625em) {
   dialog.evx-sheet { inset: 0 auto 0 0; width: min(23rem, 90vw); height: 100dvh; max-height: none; border-top: 0; border-right: 1px solid var(--c-line-strong); border-radius: 0; }
 }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .evx-sheet .evx-facet__opts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-4); }
   .evx-sheet .evx-facets--more .evx-facet__opts { grid-template-columns: minmax(0, 1fr); }
 }
@@ -111,7 +111,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
   dialog.evx-sheet[open]::backdrop { animation: evx-scrim-in var(--dur-3) var(--ease); }
   @keyframes evx-sheet-in { from { opacity: 0; transform: translateY(1.5rem); } }
   @keyframes evx-scrim-in { from { opacity: 0; } }
-  @media (min-width: 641px) {
+  @media (min-width: 40.0625em) {
     dialog.evx-sheet[open] { animation-name: evx-side-in; }
     @keyframes evx-side-in { from { opacity: 0; transform: translateX(-1.5rem); } }
   }
@@ -141,7 +141,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-group__n { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.04em; color: var(--c-text-3); white-space: nowrap; }
 .evx-results--cards .evx-group { margin-bottom: var(--sp-3); }
 .evx-results--cards .evx-section + .evx-section > .evx-group { margin-top: var(--sp-5); }
-@media (max-width: 760px) { .evx-group { padding-inline: 0; } }
+@media (max-width: 47.5em) { .evx-group { padding-inline: 0; } }
 
 /* The list is a size container: its rows fold their source column underneath when the list itself
    is narrow (a phone, or a wide screen with the filter rail beside it), whatever the window is. */
@@ -159,7 +159,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
   .evx-row:hover { background: var(--c-surface); }
   .evx-row:hover .evx-row__title { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 }
-.evx-row__claim, .evx-row__extra { margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.evx-row__claim, .evx-row__extra { max-width: 84ch; margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .evx-row__extra { -webkit-line-clamp: 1; line-clamp: 1; color: var(--c-text-3); }
 .evx-row__extra-label { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.05em; text-transform: uppercase; }
 .evx-row__src { display: grid; gap: 0.2rem; min-width: 0; font-size: var(--fs-xs); line-height: 1.4; color: var(--c-text-3); }
@@ -175,7 +175,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
   .evx-row__src { grid-column: 2; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.7rem; }
   .evx-row__loc { -webkit-line-clamp: 1; line-clamp: 1; flex: 1 1 8rem; }
 }
-@media (max-width: 760px) { .evx-row { padding-inline: 0; } }
+@media (max-width: 47.5em) { .evx-row { padding-inline: 0; } }
 
 .evx-next { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); margin: var(--sp-5) 0 0; }
 .evx-next--earlier { margin: 0 0 var(--sp-4); }
@@ -204,7 +204,7 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 .evx-rec__lead > *, .evx-rec__more > * { margin: 0; }
 /* The details sit beside the claim on a wide screen, and between the quote and the image on a
    narrow one. The second row takes any height the panel adds, so the claim and quote stay together. */
-@media (min-width: 900px) {
+@media (min-width: 56.25em) {
   .evx-rec__body { grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); grid-template-rows: auto 1fr; column-gap: var(--sp-7); }
   .evx-rec__lead { grid-column: 1; grid-row: 1; }
   .evx-rec__facts { grid-column: 2; grid-row: 1 / span 2; }
@@ -214,7 +214,7 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 .evx-rec__quote { max-width: var(--measure); font-size: var(--fs-lg); line-height: 1.5; }
 .evx-rec__facts { font-size: var(--fs-base); }
 /* Between a phone and the two-column layout the panel is a wide strip: its short facts sit two abreast. */
-@media (min-width: 600px) and (max-width: 899px) {
+@media (min-width: 37.5em) and (max-width: 56.1875em) {
   .evx-rec__facts .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-6); }
   /* A fact shorter than its neighbour keeps its value under its label. */
   .evx-rec__facts .fact { align-content: start; }
@@ -246,7 +246,7 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 .evx-link__meta { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); text-align: right; }
 .evx-rels { list-style: none; margin: 0; padding: var(--sp-2) 0 0; display: grid; gap: var(--sp-2); border-top: 1px solid var(--c-line); }
 .evx-rels > li { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); align-items: baseline; gap: var(--sp-3); margin: 0; padding-inline: var(--sp-1); }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .evx-link--wide { grid-template-columns: 1.5rem minmax(0, 1fr); }
   .evx-link--wide > .evx-link__meta { grid-column: 2; text-align: left; }
 }
@@ -260,7 +260,7 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 .evx-pager__link--next > .label { justify-content: flex-end; }
 .evx-pager__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.25; text-wrap: balance; }
 .evx-pager__link:hover .evx-pager__title { color: var(--c-accent-strong); }
-@media (max-width: 640px) {
+@media (max-width: 40em) {
   .evx-pager { grid-template-columns: minmax(0, 1fr); }
   .evx-pager > span:empty { display: none; }
   .evx-pager__link--next { grid-column: 1; }

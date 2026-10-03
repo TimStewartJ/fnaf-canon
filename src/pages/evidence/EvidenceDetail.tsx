@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, CircleHelp } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
-  ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, Empty, EntityLink, EvidenceDate, Fact, Facts, Figure, GameMark, Icon, Page,
-  RichText, SOURCE_KIND_ICON, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, kindLabel, smartQuotes, sourcePath, sourceWords, timelineEventPath,
-  type LucideIcon,
+  ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, Empty, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Page,
+  RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieWords, timelineEventPath,
 } from "../../components/ui";
 import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
@@ -21,7 +20,7 @@ const RELATED_SHOWN = 10;
 const bare = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
 function Outbound({ href }: { href: string }) {
-  return <a href={href} target="_blank" rel="noreferrer" className="evx-rec__url">{bare(href)}<Icon icon={ArrowUpRight} /></a>;
+  return <ExternalLink href={href} className="evx-rec__url">{bare(href)}</ExternalLink>;
 }
 
 /** Where a web address ends inside a sentence: not at its own brackets, but before the punctuation after it. */
@@ -138,7 +137,7 @@ export default function EvidenceDetail() {
     .map((r) => evidenceById.get(r)).filter((x): x is Evidence => !!x && x.id !== id);
   const relatedIds = related.map((r) => r.id);
   const profiles = [...bl.people.map((p) => p.id), ...bl.places.map((p) => p.id)];
-  const kindIcon: LucideIcon = (SOURCE_KIND_ICON as Record<string, LucideIcon>)[e.kind] ?? CircleHelp;
+  const kindIcon = sourceKindIcon(e.kind);
   const certainty = (CERTAINTY as Record<string, { help: string }>)[e.certainty];
   const hasTheory = bl.theory.length + bl.filed.length + beats.length > 0 || !!outside;
   const hasOther = bl.events.length + bl.relations.length + profiles.length > 0;
@@ -147,9 +146,9 @@ export default function EvidenceDetail() {
     : place === "filed" ? `Filed under ${records(bl.filed.length, "chapter")}` : PLACE[place].word;
 
   return (
-    <Page title={e.title} className="evx-rec">
+    <Page title={e.title} kind="Record" className="evx-rec">
       <div className="evx-rec__top">
-        <Crumbs items={[{ to: "/evidence", label: "Evidence" }, { to: sourcePath(e.game), label: gameMeta(e.game).short }, { label: e.id }]} />
+        <Crumbs items={[{ to: "/evidence", label: "Evidence" }, { to: sourcePath(e.game), label: gameMeta(e.game).short }, { label: "Record" }]} />
         <Pager e={e} compact />
       </div>
       <header className="evx-rec__head">
@@ -171,7 +170,7 @@ export default function EvidenceDetail() {
             </Fact>
             <Fact label="Source">
               <GameMark id={e.game} variant="full" link />
-              {game?.released && <div className="evx-rec__sub">Released {game.released}</div>}
+              {game?.released && isRelease(e.game) && <div className="evx-rec__sub">Released <time dateTime={game.released}>{longDate(game.released)}</time></div>}
             </Fact>
             <Fact label="Kind of source">
               <Tag to={`/evidence?game=${encodeURIComponent(e.game)}&kind=${encodeURIComponent(e.kind)}`} title={`Every ${kindLabel(e.kind).toLowerCase()} record from this source`}>
@@ -183,7 +182,7 @@ export default function EvidenceDetail() {
               {certainty && <span className="muted"> {certainty.help}.</span>}
             </Fact>
             <Fact label="In-universe time">
-              <EvidenceDate e={e} /> <span className="muted">({e.when.precision})</span>
+              <EvidenceDate e={e} self />
               {e.when.basis && <div className="evx-rec__sub">Basis: {smartQuotes(e.when.basis)}</div>}
             </Fact>
             {!!e.people?.length && <Fact label="People"><span className="cluster">{e.people.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
@@ -256,7 +255,7 @@ export default function EvidenceDetail() {
                     {bl.relations.map((r, i) => (
                       <li key={i}>
                         <StatusMark value={r.status} variant="glyph" />
-                        <span><EntityLink id={r.from} /> <span className="muted">{r.kind.replace(/-/g, " ")}</span> <EntityLink id={r.to} /></span>
+                        <span><EntityLink id={r.from} /> <span className="muted">{tieWords(r.kind).says}</span> <EntityLink id={r.to} /></span>
                       </li>
                     ))}
                   </ul>

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, CircleHelp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, gameById, games } from "../../data/store";
 import {
-  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, SOURCE_KIND_ICON, Section, kindLabel, listParam, smartQuotes, sourcePath, type LucideIcon,
+  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Page, PageHeader, sourceKindIcon, Section, isRelease, kindLabel, listParam, longDate, smartQuotes, sourcePath,
 } from "../../components/ui";
 import { useAddressState } from "./addressState";
 import { PLACE, PLACES, accounted, count, isPlace, percent, placeOf, records, tally, type Place } from "./coverage";
@@ -24,7 +24,7 @@ const STEP = 25;
 const MOST = FOLD + 2 * STEP;
 
 const lockerPath = (params: Record<string, string>) => `/evidence?${new URLSearchParams(params).toString()}`;
-const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<string, LucideIcon>)[kind] ?? CircleHelp;
+const kindIcon = sourceKindIcon;
 
 /**
  * What a source page shows, kept in the address:
@@ -82,7 +82,7 @@ export default function Sources() {
                 <h2 className="srcs-item__title"><Link to={sourcePath(g.id)}>{smartQuotes(g.title)}</Link></h2>
                 <p className="srcs-item__meta">
                   <GameMark id={g.id} />
-                  <span><span className="srcs-item__k">Released</span> <span className="mono">{g.released}</span></span>
+                  {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
                   <span><span className="srcs-item__k">By</span> {g.developer}</span>
                   <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>
                 </p>
@@ -140,11 +140,11 @@ export function SourceDetail() {
   const inUse: Record<string, string> = use.length ? { use: use.join(" ") } : {};
 
   return (
-    <Page title={g.title} className="srcs-page">
+    <Page title={g.title} kind="Source" className="srcs-page">
       <PageHeader crumbs={[{ to: "/sources", label: "Sources" }, { label: g.title }]} title={g.title}>
         <p className="srcs-head__meta">
           <GameMark id={g.id} />
-          <span><span className="srcs-item__k">Released</span> <span className="mono">{g.released}</span></span>
+          {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
           <span><span className="srcs-item__k">By</span> {g.developer}</span>
           <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>
         </p>

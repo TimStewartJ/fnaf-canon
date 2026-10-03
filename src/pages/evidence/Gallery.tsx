@@ -1,10 +1,9 @@
-import { memo, useCallback, useEffect, useRef, useState, type SyntheticEvent } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Maximize2 } from "lucide-react";
 import type { Evidence, ImageCredit } from "../../data/schema";
 import { credits, evidence, gameById, games } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
-import { Collapsible, EvidenceLink, GameMark, Icon, Lightbox, Page, PageHeader, evidencePath, imgSize, imgUrl, isPlainClick, listParam, smartQuotes, sourcePath, useAddress, useEvidenceDrawer, useMediaQuery } from "../../components/ui";
+import { Collapsible, EvidenceLink, ExternalLink, FigureFrame, GameMark, Lightbox, Page, PageHeader, evidencePath, isPlainClick, listParam, smartQuotes, sourcePath, useAddress, useEvidenceDrawer, useMediaQuery } from "../../components/ui";
 import { useAddressState } from "./addressState";
 import { count, records } from "./coverage";
 import "./gallery.css";
@@ -25,14 +24,6 @@ const GROUPS: Group[] = (() => {
 
 /** Rows of a group shown before "show all". */
 const ROWS = 2;
-
-/** Keeps pixel art crisp when a small PNG is drawn larger than it is. The image is fitted inside its box, so both sides are compared. */
-function crisp(ev: SyntheticEvent<HTMLImageElement>) {
-  const img = ev.currentTarget;
-  const png = /\.png(\?|$)/i.test(img.currentSrc || img.src);
-  const scale = img.naturalWidth > 0 && img.naturalHeight > 0 ? Math.min(img.clientWidth / img.naturalWidth, img.clientHeight / img.naturalHeight) : 0;
-  img.classList.toggle("is-upscaled", png && scale > 1.05);
-}
 
 /** ?open=fnaf2+scott lists the groups shown in full. Other parameters are left alone. */
 const readOpen = (sp: URLSearchParams): string[] => listParam(sp.get("open"));
@@ -64,10 +55,7 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
           return (
             <li key={credit.file} className="gal-tile">
               <figure className="figure">
-                <button type="button" className="figure__frame" onClick={() => onZoom(g.id, at)} aria-label={`Enlarge image: ${credit.caption}`}>
-                  <img src={imgUrl(credit.file)} {...imgSize(credit.file)} alt={credit.caption} loading="lazy" decoding="async" onLoad={crisp} />
-                  <span className="figure__zoom" aria-hidden><Icon icon={Maximize2} /></span>
-                </button>
+                <FigureFrame file={credit.file} alt={credit.caption} near onZoom={() => onZoom(g.id, at)} />
                 <figcaption className="figure__caption">
                   <span className="figure__text">{smartQuotes(credit.caption)}</span>
                   <span className="figure__meta">
@@ -77,7 +65,7 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
                         <span className="sr-only">: {uses.map((u) => u.title).join("; ")}</span>
                       </EvidenceLink>
                     )}
-                    <a className="figure__credit" href={credit.sourcePage} target="_blank" rel="noreferrer">Image source<Icon icon={ArrowUpRight} /></a>
+                    <ExternalLink className="figure__credit" href={credit.sourcePage}>Image source</ExternalLink>
                   </span>
                 </figcaption>
               </figure>
@@ -96,32 +84,6 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
     </section>
   );
 });
-
-/**
- * The shared lightbox decides whether to draw an image pixelated from the width of the image's box,
- * which in the viewer is the whole stage: a tall PNG that is in fact being shrunk is then drawn
- * with nearest-neighbour sampling and loses rows of pixels. Until that is fixed in the shared layer,
- * the gallery measures the fitted image itself and says so on the element (see .gal-zoom in gallery.css).
- */
-function useCrispZoom() {
-  const [el, setEl] = useState<HTMLDivElement | null>(null);
-  useEffect(() => {
-    if (!el) return;
-    const measure = (img: HTMLImageElement) => {
-      const png = /\.png(\?|$)/i.test(img.currentSrc || img.src);
-      const scale = img.naturalWidth > 0 && img.naturalHeight > 0 ? Math.min(img.clientWidth / img.naturalWidth, img.clientHeight / img.naturalHeight) : 0;
-      img.dataset.crisp = String(png && scale > 1.05);
-    };
-    const onLoad = (ev: Event) => { if (ev.target instanceof HTMLImageElement) measure(ev.target); };
-    const onResize = () => { for (const img of el.querySelectorAll("img")) measure(img); };
-    // Load events do not bubble, so they are caught on the way down.
-    el.addEventListener("load", onLoad, true);
-    window.addEventListener("resize", onResize);
-    for (const img of el.querySelectorAll("img")) if (img.complete) measure(img);
-    return () => { el.removeEventListener("load", onLoad, true); window.removeEventListener("resize", onResize); };
-  }, [el]);
-  return setEl;
-}
 
 export default function Gallery() {
   const drawer = useEvidenceDrawer();
@@ -153,7 +115,6 @@ export default function Gallery() {
   /** One modal at a time: the viewer closes, then the record opens over the gallery. */
   const openRecords = (ids: string[], id: string) => { setZoom(null); drawer.open(id, ids.length > 1 ? ids : undefined, "for this image"); };
 
-  const zoomRef = useCrispZoom();
   const phone = useMediaQuery("(max-width: 640px)");
   // A jump keeps the rest of the address: the groups that are open.
   const { link } = useAddress();
@@ -189,7 +150,7 @@ export default function Gallery() {
       {GROUPS.map((g) => <GroupSection key={g.id} g={g} all={open.includes(g.id)} fold={fold} onShowAll={onShowAll} onZoom={onZoom} />)}
 
       {zoom && zoomGroup && zoomShot && (
-        <div className="gal-zoom" ref={zoomRef}>
+        <div className="gal-zoom">
           <Lightbox
             file={zoomShot.credit.file}
             counter={`${zoom.at + 1} of ${zoomGroup.shots.length} · ${gameMeta(zoomGroup.id).short}`}

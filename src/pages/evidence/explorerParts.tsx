@@ -1,16 +1,17 @@
-import { memo, useCallback, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { CircleHelp, Image as ImageIcon, X } from "lucide-react";
+import { memo, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { Image as ImageIcon, X } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { gameById, labelForEntity } from "../../data/store";
+import { gameMeta } from "../../data/gameMeta";
 import {
-  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, SOURCE_KIND_ICON, firmness, kindLabel, smartQuotes, sourceWordsPlain, useDrawerRecord,
-  useModalDialog, type LucideIcon,
+  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, sourceKindIcon, firmness, kindLabel, smartQuotes, sourceWordsPlain, useDrawerRecord,
+  useModalDialog,
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
 import "./evidence.css";
 import { certaintyOrder, claimFor, elsewhere, entityKind, entityOptions, fold, kindOrder, marks, tagOptions, type Option, type Outcome, type Query, type Sort } from "./explorerState";
 
-const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<string, LucideIcon>)[kind] ?? CircleHelp;
+const kindIcon = sourceKindIcon;
 
 /** Display text with the matched search words marked. */
 export function Marked({ text, terms }: { text: string; terms: string[] }) {
@@ -79,12 +80,13 @@ function reveal(el: HTMLElement | null, always = false) {
   if (always || r.bottom > b.bottom) box.scrollTop += r.top - b.top - 8;
 }
 
-function Opt({ checked, n, label, onChange, children, title }: { checked: boolean; n: number; label: string; onChange: (on: boolean) => void; children: ReactNode; title?: string }) {
+/** `shown` is the text on screen when it is shorter than the full `label` (a source's code): the option's name then starts with it, so it can be asked for by what is seen. */
+function Opt({ checked, n, label, shown, onChange, children, title }: { checked: boolean; n: number; label: string; shown?: string; onChange: (on: boolean) => void; children: ReactNode; title?: string }) {
   // An option that would match nothing is switched off, unless it is ticked (so it can be unticked).
   const dead = n === 0 && !checked;
   return (
     <label className={`evx-opt${checked ? " on" : ""}${dead ? " is-dead" : ""}`} title={title}>
-      <input type="checkbox" checked={checked} disabled={dead} aria-label={`${label}, ${records(n)}`} onChange={(ev) => onChange(ev.target.checked)} />
+      <input type="checkbox" checked={checked} disabled={dead} aria-label={`${shown && shown !== label ? `${shown}, ` : ""}${label}, ${records(n)}`} onChange={(ev) => onChange(ev.target.checked)} />
       <span className="evx-opt__name">{children}</span>
       <span className="evx-opt__n" aria-hidden>{count(n)}</span>
     </label>
@@ -139,7 +141,7 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
       {skipTo && <button type="button" className="evx-skip" onClick={() => document.getElementById(skipTo)?.focus()}>Skip the filters</button>}
       <Facet label="Source" wide>
         {sources.map((id) => (
-          <Opt key={id} checked={query.game.includes(id)} n={counts.game.get(id) ?? 0} label={gameById.get(id as never)?.title ?? id} onChange={() => actions.toggle("game", id)}>
+          <Opt key={id} checked={query.game.includes(id)} n={counts.game.get(id) ?? 0} label={gameById.get(id as never)?.title ?? id} shown={gameMeta(id).short} onChange={() => actions.toggle("game", id)}>
             <GameMark id={id} />
           </Opt>
         ))}
@@ -269,10 +271,11 @@ export function Combo({ label, placeholder, options: getOptions, value, valueLab
         aria-expanded={open} aria-controls={`${uid}-list`} aria-autocomplete="list" aria-activedescendant={open && current ? optId(current) : undefined}
         placeholder={value ? `Change: ${placeholder.toLowerCase()}` : placeholder} value={text}
         onChange={(ev) => { setText(ev.target.value); setOpen(true); setActive(0); }}
-        onFocus={() => setOpen(true)} onClick={() => setOpen(true)} onKeyDown={onKeyDown}
+        // A press or typing opens the list. Focus alone does not: tabbing past must not throw a list over the page.
+        onClick={() => setOpen(true)} onKeyDown={onKeyDown}
       />
       <div className="evx-combo__pop" hidden={!open}>
-        <ul id={`${uid}-list`} role="listbox" aria-label={label} className="evx-combo__list">
+        <ul id={`${uid}-list`} role="listbox" aria-label={label} className="evx-combo__list" tabIndex={-1}>
           {shown.map((o) => {
             const live = o.count > 0;
             return (
@@ -322,7 +325,8 @@ export function AppliedChips({ query, text, sort, searching, actions, after }: {
   if (q) items.push({ key: "q", name: "Search", value: `“${q}”`, label: `Search ${q}`, remove: () => actions.set({ q: "" }) });
   for (const id of query.game) {
     const title = gameById.get(id as never)?.title ?? id;
-    items.push({ key: `game:${id}`, name: "Source", value: <GameMark id={id} />, label: `Source ${title}`, remove: () => actions.toggle("game", id) });
+    // The name carries the code the chip shows, then the full title.
+    items.push({ key: `game:${id}`, name: "Source", value: <GameMark id={id} />, label: `Source ${gameMeta(id).short} (${title})`, remove: () => actions.toggle("game", id) });
   }
   for (const id of query.kind) items.push({ key: `kind:${id}`, name: "Kind", value: kindLabel(id), label: `Kind ${kindLabel(id)}`, remove: () => actions.toggle("kind", id) });
   for (const id of query.cert) {
@@ -341,19 +345,33 @@ export function AppliedChips({ query, text, sort, searching, actions, after }: {
     const word = sort === "game" ? "release order" : sort === "time" ? "in-universe time" : "best match";
     items.push({ key: "sort", name: "Order", value: word, label: `Order: ${word}`, remove: () => actions.set({ sort: null }) });
   }
+  // A chip that is pressed disappears, and focus would fall to the top of the document with it.
+  // It moves to the chip that takes its place, or to the results when no filter is left.
+  const list = useRef<HTMLUListElement | null>(null);
+  const leaving = useRef<{ at: number; of: number; when: number } | null>(null);
+  useLayoutEffect(() => {
+    const left = leaving.current;
+    if (!left || items.length === left.of) return;
+    leaving.current = null;
+    // Only for the change that press made: a filter set a while later is not its doing.
+    if (performance.now() - left.when > 1500) return;
+    const chips = list.current ? [...list.current.querySelectorAll<HTMLElement>(".evx-chip")] : [];
+    const next = left.at < 0 ? undefined : chips[Math.min(left.at, chips.length - 1)];
+    (next ?? document.getElementById("evx-results"))?.focus({ preventScroll: true });
+  });
   if (!items.length) return null;
   return (
-    <ul className="evx-applied" aria-label="Filters in use">
-      {items.map((a) => (
+    <ul className="evx-applied" aria-label="Filters in use" ref={list}>
+      {items.map((a, i) => (
         <li key={a.key}>
-          <button type="button" className="evx-chip" onClick={a.remove} aria-label={`Remove filter: ${a.label}`} title="Remove this filter">
+          <button type="button" className="evx-chip" onClick={() => { leaving.current = { at: i, of: items.length, when: performance.now() }; a.remove(); }} aria-label={`Remove filter: ${a.label}`} title="Remove this filter">
             <span className="evx-chip__k">{a.name}</span>
             <span className="evx-chip__v">{a.value}</span>
             <Icon icon={X} />
           </button>
         </li>
       ))}
-      {after && <li>{after}</li>}
+      {after && <li onClickCapture={() => { leaving.current = { at: -1, of: items.length, when: performance.now() }; }}>{after}</li>}
     </ul>
   );
 }
