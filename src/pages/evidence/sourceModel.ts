@@ -6,6 +6,7 @@
  */
 import type { Evidence } from "../../data/schema";
 import { evidence } from "../../data/store";
+import { GAME_DATES } from "../../data/dates";
 import { kindOrder } from "./explorerState";
 
 export interface KindGroup { kind: string; items: Evidence[] }
@@ -46,3 +47,6 @@ export function neighbours(e: Evidence): { prev?: Evidence; next?: Evidence; at:
   const i = list.findIndex((x) => x.id === e.id);
   return { prev: list[i - 1], next: list[i + 1], at: i + 1, of: list.length };
 }
+
+/** True when there is something to say about when a source is set (a label with nothing after it is worse than no label). */
+export const hasSetIn = (id: string, fallback: string | undefined): boolean => !!GAME_DATES[id] || /[\p{L}\p{N}]/u.test(fallback ?? "");

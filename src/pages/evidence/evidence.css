@@ -104,7 +104,7 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 }
 @media (max-width: 40em) {
   .evx-sheet .evx-facet__opts { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-4); }
-  .evx-sheet .evx-facets--more .evx-facet__opts { grid-template-columns: minmax(0, 1fr); }
+  .evx-sheet .evx-facets--more .evx-facet__opts, .evx-sheet .evx-facet__opts--long { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: no-preference) {
   dialog.evx-sheet[open] { animation: evx-sheet-in var(--dur-3) var(--ease); }
