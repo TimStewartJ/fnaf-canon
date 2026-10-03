@@ -1,19 +1,16 @@
-/* Scott & Faith. Cluster D. Shared essay pieces are in essays.css. */
-.reading-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: var(--sp-4); }
-.reading { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-2); min-width: 0; padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.reading > * { margin: 0; }
-.reading h3 { font-size: var(--fs-lg); line-height: 1.25; }
-.reading p { font-size: var(--fs-sm); line-height: 1.55; color: var(--c-text-2); }
-.reading .tag { margin-top: auto; }
+/* Scott & Faith. Cluster D. The essay template is in essays.css. */
 
-.lex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: var(--sp-4); align-items: start; }
-.lex-group { min-width: 0; padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-top: 3px solid var(--hue, var(--c-text-3)); border-radius: var(--r-md); }
-.lex-group h3 { margin: 0 0 var(--sp-1); font-size: var(--fs-lg); }
-.lex-group__gloss { margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
-.lex-group ul { list-style: none; margin: var(--sp-3) 0 0; padding: 0; display: grid; gap: 2px; }
-.lex-group li { margin: 0; }
-.lex-line { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--sp-3); align-items: baseline; padding: var(--sp-2); margin-inline: calc(-1 * var(--sp-2)); color: var(--c-text); border-radius: var(--r-sm); text-decoration: none; }
-.lex-line:hover { color: var(--c-text); background: var(--c-surface-2); }
-.lex-text { font-family: var(--font-text); font-style: italic; font-size: var(--fs-base); line-height: 1.45; }
-.lex-text--plain { font-style: normal; color: var(--c-text-2); }
-.author-note { max-width: var(--measure-wide); margin: var(--sp-4) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+/* The games' own vocabulary: themes, each with the lines that carry it. A line opens its record. */
+/* The quotes sit on the reading measure; the source mark hangs in a column before them. */
+.author-lex { display: grid; gap: var(--sp-6); max-width: calc(var(--measure) + 4.75rem + var(--sp-3)); }
+.author-lex__group { min-width: 0; }
+.author-lex__theme { display: flex; align-items: baseline; gap: var(--sp-3); margin: 0; font-size: var(--fs-lg); line-height: 1.25; }
+.author-lex__theme > .essay-swatch { align-self: center; }
+.author-lex__gloss { max-width: var(--measure); margin: var(--sp-1) 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); }
+.author-lex__lines { list-style: none; margin: var(--sp-3) 0 0; padding: 0; border-top: 1px solid var(--c-line); }
+.author-lex__lines > li { margin: 0; border-bottom: 1px solid var(--c-line); }
+.author-lex__line { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr); gap: var(--sp-3); align-items: baseline; padding: var(--sp-3) var(--sp-2); margin-inline: calc(-1 * var(--sp-2)); color: var(--c-text); border-radius: var(--r-sm); text-decoration: none; }
+.author-lex__line:hover { color: var(--c-text); background: var(--c-surface); }
+.author-lex__words { font-family: var(--font-text); font-style: italic; font-size: var(--fs-md); line-height: 1.45; text-wrap: pretty; }
+.author-lex__words--plain { font-style: normal; color: var(--c-text-2); }
+.author-lex__line:hover .author-lex__words { color: var(--c-accent-strong); }

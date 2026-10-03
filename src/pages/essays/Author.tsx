@@ -1,107 +1,175 @@
-import type { CSSProperties } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type LexLine as Line } from "../../data/author";
-import { evidenceById, theoryById } from "../../data/store";
+import { memo } from "react";
+import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type AuthorStep, type LexLine } from "../../data/author";
+import { creditByFile, evidenceById } from "../../data/store";
+import { Chip, CiteScope, DatePill, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, hueOf, smartQuotes } from "../../components/ui";
 import {
-  Chip, CiteList, ConfidenceMark, DatePill, EvidenceLink, Figure, GameMark, Icon, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, Section,
-  Tag, chapterPath, hueOf, smartQuotes,
-} from "../../components/ui";
-import type { Confidence } from "../../data/schema";
+  EssayAnswers, EssayArgument, EssayChapterLink, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
+  type EssayAnswerItem,
+} from "./essay";
+import { answerId, citedIn, countOverYears, facts, knownRecords, readingMinutes } from "./essayModel";
+import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./author.css";
 
-function LexLine({ line }: { line: Line }) {
+type Reading = (typeof readings)[number];
+
+/** The header's exhibit: page furniture, with a caption written for it. Left out if the archive no longer holds the image. */
+const HERO_FILE = "scott-pilgrims-progress-game-shot.jpg";
+const HERO = creditByFile.has(HERO_FILE) ? HERO_FILE : undefined;
+
+const lineId = (line: LexLine): string => (typeof line === "string" ? line : line[0]);
+
+// Everything below is read off the data when the page loads: no ids or counts are written here.
+const STEP_IDS = authorTimeline.map((s) => s.id);
+const READING_IDS = readings.map((_, i) => `reading-${i + 1}`);
+/** Every record the page cites, in reading order. It fixes the citation numbers and is the source list. */
+const CITED = knownRecords([
+  ...authorAnswer.flatMap((a) => citedIn(...a.body)),
+  ...readings.flatMap((r) => citedIn(r.body)),
+  ...lexicon.flatMap((g) => g.lines.map(lineId)),
+  ...authorTimeline.flatMap((s) => [...citedIn(s.body), ...s.evidence]),
+]);
+const ANSWERS: EssayAnswerItem[] = authorAnswer.map((a, i) => ({ q: a.q, a: a.short, confidence: a.confidence, to: answerId(i) }));
+const FACTS = facts([readings.length, "reading tested", "readings tested"], [authorTimeline.length, "dated step"]);
+const MINUTES = readingMinutes(authorAnswer.flatMap((a) => [a.short, ...a.body]));
+/** The vocabulary as it can be shown: lines whose record the archive holds, and the groups that still have a line. */
+const LEXICON = lexicon.map((g) => ({ ...g, lines: g.lines.filter((l) => evidenceById.has(lineId(l))) })).filter((g) => g.lines.length > 0);
+const LINE_COUNT = LEXICON.reduce((n, g) => n + g.lines.length, 0);
+
+const ReadingRow = memo(function ReadingRow({ r, id }: { r: Reading; id: string }) {
+  return (
+    <EssayRow id={id} kicker={<Chip tone={READING_TONE[r.status]}>{READING_STATUS[r.status]?.label ?? r.status}</Chip>} title={r.claim}>
+      <p className="essay-text"><RichText text={r.body} /></p>
+      <EssayChapterLink id={r.section} />
+    </EssayRow>
+  );
+});
+
+/** The readings. The section owns which of them are open. */
+function Readings() {
+  const tested = useEssayRows(READING_IDS);
+  return (
+    <EssaySection
+      id="readings"
+      kicker="Applied"
+      title="Readings, tested against this background"
+      lead={<p>Each reading is judged on the games first. Scott’s faith only affects how literally the games’ own words are taken.</p>}
+      actions={<EssayToggleAll control={tested} what="readings" />}
+    >
+      <EssayRows control={tested} label="Readings, tested against this background">
+        {readings.map((r, i) => <ReadingRow key={READING_IDS[i]} r={r} id={READING_IDS[i]} />)}
+      </EssayRows>
+    </EssaySection>
+  );
+}
+
+/** One line of the games' vocabulary: where it is from and the words themselves. It opens its record. */
+function LexRow({ line, group }: { line: LexLine; group: string[] }) {
   const [id, text] = typeof line === "string" ? [line, undefined] : line;
   const e = evidenceById.get(id);
   if (!e) return null;
   return (
     <li>
-      <EvidenceLink id={id} className="lex-line">
+      <EvidenceLink id={id} group={group} className="author-lex__line">
         <GameMark id={e.game} />
-        <span className={text ? "lex-text lex-text--plain" : "lex-text"}>{text ?? (e.quote ? `“${e.quote.replace(/\s*…$/, "")}”` : e.title)}</span>
+        {text
+          ? <span className="author-lex__words author-lex__words--plain">{smartQuotes(text)}</span>
+          : <span className="author-lex__words">{e.quote ? `“${smartQuotes(e.quote.replace(/\s*…$/, ""))}”` : smartQuotes(e.title)}</span>}
       </EvidenceLink>
     </li>
   );
 }
 
-const isConfidence = (c: string): c is Confidence => c === "high" || c === "medium" || c === "low";
+const StepRow = memo(function StepRow({ s }: { s: AuthorStep }) {
+  return (
+    <EssayRow
+      id={s.id}
+      when={<DatePill variant="inline" label={s.date} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+      node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
+      kicker={<span className="label">{AUTHOR_PHASE[s.phase]?.label ?? s.phase}</span>}
+      title={s.title}
+    >
+      <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" />
+    </EssayRow>
+  );
+});
 
-export default function Author() {
+/** The dated history. The section owns which steps are open. */
+function History() {
+  const steps = useEssayRows(STEP_IDS);
+  return (
+    <EssaySection
+      id="history"
+      kicker="The record, in order"
+      title="From Christian films to Freddy’s"
+      lead={<p>{countOverYears(authorTimeline.length, "dated step", authorTimeline.map((s) => s.date))}. Open a step for the passage and the records behind it.</p>}
+      actions={<EssayToggleAll control={steps} what="steps" />}
+    >
+      <EssayRows control={steps} variant="spine" label="From Christian films to Freddy’s">
+        {authorTimeline.map((s) => <StepRow key={s.id} s={s} />)}
+      </EssayRows>
+      <p className="essay-note">
+        Hope Animation was a Christian media website run from the UK by David Hutter that sold and hosted Scott’s films; it was not Scott’s own studio.
+        Its archived pages are used here only for titles, years and descriptions. Scott’s words are the evidence.
+      </p>
+    </EssaySection>
+  );
+}
+
+function Author() {
   return (
     <Page title="Scott & Faith" className="essay author-page">
-      <PageHeader
-        kicker="Essay · The author"
-        title="Scott & Faith"
-        lede="Before Five Nights at Freddy's, Scott Cawthon spent about twelve years making Christian films and games. Here is that background, what he has said about faith and FNaF in his own words, and what it does and does not change about reading the games."
-        aside={<Figure file="scott-pilgrims-progress-game-shot.jpg" caption="The Pilgrim's Progress: The Video Game (c. 2011). The battle commands are Faith, Truth, Pray for and Blessings." tag="Exhibit" eager />}
-      />
+      <CiteScope prime={CITED}>
+        <PageHeader
+          kicker="Essay · The author"
+          title="Scott & Faith"
+          lede="Before Five Nights at Freddy’s, Scott Cawthon spent about twelve years making Christian films and games. Does that background change how the games should be read?"
+          aside={HERO && <EssayFigure file={HERO} caption="The Pilgrim’s Progress: The Video Game (c. 2011). The battle commands are Faith, Truth, Pray for and Blessings." size="hero" eager />}
+        >
+          <EssayAnswers items={ANSWERS} />
+          <EssayMeta minutes={MINUTES} facts={FACTS} cited={CITED.length} />
+        </PageHeader>
 
-      <section className="answers" aria-label="The short answers">
-        {authorAnswer.map((a) => (
-          <article key={a.q} className="answer-card">
-            <h2>{a.q}</h2>
-            <p className="answer-card__short">{smartQuotes(a.short)}</p>
-            <div className="prose">{a.body.map((b, i) => <p key={i}><RichText text={b} /></p>)}</div>
-            <p className="answer-card__conf">{isConfidence(a.confidence) ? <ConfidenceMark value={a.confidence} variant="inline" long /> : <><span className="label">Confidence</span>{a.confidence}</>}</p>
-          </article>
-        ))}
-      </section>
+        <EssayArgument answers={authorAnswer} shown={HERO} />
 
-      <Section title="Readings, tested against this background" lead="Each reading is judged on the games first. Scott's faith only affects how literally the games' own words are taken.">
-        <div className="reading-grid">
-          {readings.map((r) => (
-            <article key={r.claim} className="reading">
-              <span className="verdict-tag" data-tone={READING_TONE[r.status]}>{READING_STATUS[r.status].label}</span>
-              <h3>{smartQuotes(r.claim)}</h3>
-              <p><RichText text={r.body} /></p>
-              {r.section && theoryById.has(r.section) && <Tag to={chapterPath(r.section)}>In the theory <Icon icon={ArrowRight} /></Tag>}
-            </article>
-          ))}
-        </div>
-      </Section>
+        {/* A list with nothing in it is not announced: the section goes with it. */}
+        {readings.length > 0 && <Readings />}
 
-      <Section title="The games' own vocabulary" lead="The religious and afterlife lines in the archive's records, grouped by what they do in the story. Select a line to open its record.">
-        <div className="lex-grid">
-          {lexicon.map((g) => (
-            <div key={g.id} className="lex-group" style={{ "--hue": hueOf(LEXICON_HUE, g.id) } as CSSProperties}>
-              <h3>{g.theme}</h3>
-              <p className="lex-group__gloss">{g.gloss}</p>
-              <ul>{g.lines.map((l) => <LexLine key={typeof l === "string" ? l : l[0]} line={l} />)}</ul>
+        {LINE_COUNT > 0 && (
+          <EssaySection
+            id="vocabulary"
+            kicker="In the games’ words"
+            title="The games’ own vocabulary"
+            lead={
+              <p>
+                {LINE_COUNT === 1 ? "The one religious or afterlife line" : `The ${LINE_COUNT} religious and afterlife lines`} in the archive’s records,
+                grouped by what they do in the story. Select a line to open its record.
+              </p>
+            }
+          >
+            <div className="author-lex">
+              {LEXICON.map((g) => {
+                const group = g.lines.map(lineId);
+                return (
+                  <section key={g.id} className="author-lex__group" aria-labelledby={`lex-${g.id}`}>
+                    <h3 className="author-lex__theme" id={`lex-${g.id}`}><EssaySwatch hue={hueOf(LEXICON_HUE, g.id)} />{smartQuotes(g.theme)}</h3>
+                    <p className="author-lex__gloss">{smartQuotes(g.gloss)}</p>
+                    <ul className="author-lex__lines">{g.lines.map((l) => <LexRow key={lineId(l)} line={l} group={group} />)}</ul>
+                  </section>
+                );
+              })}
             </div>
-          ))}
-        </div>
-      </Section>
+          </EssaySection>
+        )}
 
-      <Section title="From Christian films to Freddy's">
-        <ol className="steps">
-          {authorTimeline.map((s) => (
-            <li key={s.id} className="step" style={{ "--hue": hueOf(PHASE_HUE, s.phase) } as CSSProperties}>
-              <div className="step__date"><DatePill label={s.date} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} /></div>
-              <div className="step__card">
-                <span className="step__phase">{AUTHOR_PHASE[s.phase].label}</span>
-                <h3>{smartQuotes(s.title)}</h3>
-                <p className="step__text"><RichText text={s.body} /></p>
-                {s.image && <Figure file={s.image} compact />}
-                {s.evidence.length > 0 && <p className="step__evidence"><span className="label">Evidence</span> <CiteList ids={s.evidence} /></p>}
-                {s.sources && s.sources.length > 0 && (
-                  <ul className="ref-list">
-                    {s.sources.map((src, i) => (
-                      <li key={i} className="ref-line">
-                        <a href={src.url} target="_blank" rel="noreferrer">{src.who} · <em>{src.what}</em>{src.date ? ` · ${src.date}` : ""}<Icon icon={ArrowUpRight} /></a>
-                        {src.reliability !== "primary" && <Chip>archive</Chip>}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="author-note">
-          Hope Animation was a Christian media website run from the UK by David Hutter that sold and hosted Scott's films; it was not Scott's own studio.
-          Its archived pages are used here only for titles, years and descriptions. Scott's words are the evidence.
-        </p>
-      </Section>
+        {authorTimeline.length > 0 && <History />}
+
+        <EssaySources ids={CITED} />
+        <EssayMore current="/author" />
+      </CiteScope>
     </Page>
   );
 }
+
+// Nothing in the page's frame depends on the address, so an opened row never re-renders it.
+export default memo(Author);

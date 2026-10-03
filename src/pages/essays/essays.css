@@ -1,46 +1,211 @@
 /*
- * Shared by the long-form pages of cluster D: The Box, Theorists & Scott, Scott & Faith, Method.
- * Each of those pages also has its own file.
+ * The essay template. Cluster D: The Box, Theorists & Scott, Scott & Faith, Method.
+ * Markup is in essay.tsx; each page also has a small file of its own.
+ *
+ * An essay reads top to bottom as: the header (the question, the short answers, an exhibit), then
+ * sections whose heading sits beside their content on a wide screen, then the records cited.
+ * It borrows its proportions from the theory: the 17rem side column and ruled lists of the cover's
+ * contents, the question / answer / confidence block of a chapter, the spine of the storyline.
  */
 
-/* Question-and-answer cards at the top of an essay. */
-.answers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr)); gap: var(--sp-5); align-items: start; margin: var(--sp-6) 0 var(--sp-7); }
-.answer-card { padding: var(--sp-5) var(--sp-5) var(--sp-5) calc(var(--sp-5) - 3px); background: var(--c-surface); border: 1px solid var(--c-line); border-left: 3px solid var(--c-accent); border-radius: var(--r-md); }
-.answer-card h2 { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); }
-.answer-card__short { max-width: var(--measure); margin: 0 0 var(--sp-4); font-family: var(--font-text); font-size: var(--fs-lg); font-weight: 560; line-height: 1.4; color: var(--c-text); }
-.answer-card__conf { margin: var(--sp-4) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
-.answer-card__conf .label { margin-right: var(--sp-2); }
-
-/* A dated sequence of steps: date on the left, card on the right, a rule joining them. */
-.steps { list-style: none; margin: var(--sp-4) 0; padding: 0; position: relative; }
-.steps::before { content: ""; position: absolute; left: calc(9.5rem + var(--sp-5) / 2); top: 0.6rem; bottom: 0; width: 1px; background: var(--c-line-strong); }
-.step { position: relative; display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: var(--sp-5); margin: 0 0 var(--sp-4); }
-.step::before { content: ""; position: absolute; left: calc(9.5rem + var(--sp-5) / 2 - 0.3rem); top: 1.15rem; width: 0.6rem; height: 0.6rem; background: var(--hue, var(--c-text-3)); border: 2px solid var(--c-bg); border-radius: 1px; box-sizing: content-box; margin: -2px; }
-.step__date { padding-top: 0.75rem; text-align: right; }
-.step__card { min-width: 0; padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.step__card > * { margin: 0; }
-.step__card > * + * { margin-top: var(--sp-2); }
-.step__phase { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-text-2); }
-.step__phase::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 1px; background: var(--hue, var(--c-text-3)); }
-.step__card h3 { font-size: var(--fs-lg); }
-.step__text { max-width: var(--measure); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.6; color: var(--c-text-read); }
-.step__card .figure { max-width: 22rem; margin-top: var(--sp-3); }
-.step__card .figure--compact .figure__frame img { max-height: 14rem; object-fit: contain; }
-.step__evidence { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
-@media (max-width: 760px) {
-  .steps::before { left: 0.3rem; }
-  .step { grid-template-columns: minmax(0, 1fr); gap: var(--sp-2); padding-left: var(--sp-5); }
-  .step::before { left: 0; top: 0.5rem; }
-  .step__date { padding: 0; text-align: left; }
+/* ── Header ────────────────────────────────────────────────────────
+ * The shared PageHeader, laid out so the exhibit starts level with the title and the text column
+ * (which holds the short answers) is the wider one. */
+.essay > .page-header { margin-bottom: 0; }
+.essay > .page-header .lede { margin-bottom: 0; }
+.essay > .page-header > .page-header__aside { max-width: 32rem; }
+@media (min-width: 900px) {
+  .essay > .page-header--split { grid-template-columns: minmax(0, 1fr) clamp(20rem, 36%, 27rem); align-items: start; }
+  .essay > .page-header > .page-header__aside { max-width: none; padding-top: var(--sp-5); }
 }
 
-/* Outside references (videos, posts): links, never evidence. */
-.ref-list { list-style: none; margin: var(--sp-2) 0 0; padding: 0; display: grid; gap: var(--sp-1); font-size: var(--fs-sm); }
-.ref-list--inline { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-4); margin: 0; }
-.ref-line { margin: 0; color: var(--c-text-2); }
-.ref-line a { color: var(--c-text-2); }
-.ref-line a:hover { color: var(--c-accent-strong); }
-.ref-line .chip { margin-left: var(--sp-2); }
+/* The short answers: a ruled list under the lede. The answer is the loudest thing in each item. */
+.essay-answers { max-width: var(--measure); margin-top: var(--sp-6); }
+.essay-answers > .label { margin-bottom: var(--sp-2); }
+.essay-answers__list { margin: 0; border-top: 1px solid var(--c-line-strong); }
+.essay-answer { position: relative; display: grid; gap: 0.3rem; padding: var(--sp-4) 0 var(--sp-4) 2.25rem; border-bottom: 1px solid var(--c-line); }
+.essay-answer > * { margin: 0; min-width: 0; }
+.essay-answer__n { position: absolute; left: 0; top: calc(var(--sp-4) + 0.3rem); font-family: var(--font-mono); font-size: var(--fs-xs); font-style: normal; font-weight: 500; line-height: 1.4; color: var(--c-accent); }
+.essay-answer__q { font-family: var(--font-text); font-style: italic; font-size: var(--fs-md); line-height: 1.4; color: var(--c-text-2); }
+.essay-answer__a { font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-lg); line-height: 1.42; color: var(--c-text); text-wrap: pretty; }
+.essay-answer__foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.2rem var(--sp-5); margin-top: 0.2rem; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
+.essay-answer__foot > .essay-conf { flex: 1 1 14rem; min-width: 0; }
+.essay-answer__more { display: inline-flex; align-items: center; gap: 0.3em; margin-left: auto; white-space: nowrap; }
+.essay-conf > .label { margin-right: var(--sp-1); }
 
-/* A verdict label: the word carries the meaning, the tone supports it. */
-.verdict-tag { display: inline-flex; align-items: center; padding: 0.2em 0.6em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.3; color: var(--tone, var(--c-text-2)); background: var(--tone-soft, transparent); border: 1px solid var(--tone-line, var(--c-line-strong)); border-radius: var(--r-sm); white-space: nowrap; }
+/* Reading time, what the page holds, a way to the source list. */
+.essay-meta { margin: var(--sp-5) 0 0; font-family: var(--font-mono); font-size: var(--fs-xs); line-height: 1.7; color: var(--c-text-3); }
+.essay-meta__sources { padding: 0; font: inherit; color: var(--c-text-2); background: none; border: 0; text-decoration: underline; text-decoration-color: var(--c-line-strong); text-underline-offset: 0.2em; cursor: pointer; }
+.essay-meta__sources:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+
+/* ── Sections ──────────────────────────────────────────────────────
+ * The heading sits above the content on a narrow screen. From 1080px (where a chapter gets its
+ * rail) it moves into a 17rem column beside the content and stays in view while the content scrolls. */
+/* No scroll-margin here or on rows: the document's scroll-padding already clears the sticky header. */
+.essay-section { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: 1px solid var(--c-line); }
+.essay > .page-header + .essay-section { margin-top: var(--sp-7); }
+.essay-section__head { margin-bottom: var(--sp-5); }
+.essay-section__head > .kicker { margin-bottom: var(--sp-2); }
+.essay-section__title { margin: 0; font-size: var(--fs-2xl); line-height: 1.12; }
+.essay-section__lead { max-width: var(--measure); margin-top: var(--sp-3); font-family: var(--font-text); font-size: var(--fs-md); line-height: 1.5; color: var(--c-text-2); }
+.essay-section__lead > * { margin: 0; }
+.essay-section__lead > * + * { margin-top: var(--sp-3); }
+.essay-section__actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-3); margin-left: -0.5rem; }
+/* A grid, so the gap between blocks holds whatever margins the blocks set on themselves. */
+.essay-section__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); min-width: 0; }
+.essay-section__body > * { margin-block: 0; }
+.essay-section__body > .prose > :first-child { margin-top: 0; }
+@media (min-width: 1080px) {
+  .essay-section { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); column-gap: var(--sp-7); align-items: start; }
+  .essay-section__head { position: sticky; top: calc(var(--sticky-top) + var(--sp-5)); margin-bottom: 0; }
+  .essay-section__title { font-size: var(--fs-xl); line-height: 1.18; }
+  .essay-section__lead { font-size: var(--fs-base); }
+}
+
+/* A section that argues one of the short answers: its heading is the question, and the answer
+   and its confidence ride along beside the argument. */
+.essay-verdict__a { font-size: var(--fs-md); line-height: 1.5; color: var(--c-text); }
+.essay-verdict__conf { font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
+/* Stacked, the short answers sit a screen above in the header, so the section opens on its question alone. */
+@media (max-width: 1079px) { .essay-section--answer > .essay-section__head > .essay-section__lead { display: none; } }
+
+/* ── Rows that open in place ───────────────────────────────────────
+ * One anatomy for theories, readings and dated steps: an optional date beside the row, a line of
+ * small marks, the title, an optional one-line gist. The detail opens underneath. */
+.essay-rows { list-style: none; margin: 0; padding: 0; }
+.essay-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; }
+.essay-row__item { min-width: 0; }
+.essay-row__head { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.3rem; padding: var(--sp-3) 0; }
+.essay-row__head > * { min-width: 0; }
+/* As a disclosure the head reserves room on the right for its chevron, which sits at mid-height however many lines the head has. */
+summary.essay-row__head { list-style: none; margin-inline: calc(-1 * var(--sp-2)); padding-inline: var(--sp-2) 2.75rem; border-radius: var(--r-sm); }
+summary.essay-row__head::-webkit-details-marker { display: none; }
+.essay-row__head > .essay-row__chev { position: absolute; right: var(--sp-3); top: calc(50% - 0.55em); color: var(--c-text-3); }
+.essay-row__kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem var(--sp-3); min-height: 1.3rem; }
+/* A dated row carries its marks twice: beside the date on a narrow screen, above the title on a wide one. */
+.essay-row__kicker--wide { display: none; }
+.essay-row__when > .essay-row__kicker { display: inline-flex; }
+/* Titles here are often whole sentences in a list: they fill the line instead of balancing, so rows line up. */
+.essay-row__title { margin: 0; font-size: var(--fs-md); line-height: 1.25; letter-spacing: -0.008em; color: var(--c-text); text-wrap: pretty; }
+.essay-row__sub { max-width: var(--measure); font-family: var(--font-text); font-style: italic; font-size: var(--fs-base); line-height: 1.45; color: var(--c-text-2); }
+/* Hover only where there is a pointer that hovers: on touch it would stick to the last row tapped. */
+@media (hover: hover) {
+  summary.essay-row__head:hover { background: var(--c-surface); }
+  summary.essay-row__head:hover .essay-row__title { color: var(--c-accent-strong); }
+  summary.essay-row__head:hover .essay-row__chev { color: var(--c-text); }
+}
+.essay-row__item[open] > summary .essay-row__chev { transform: rotate(180deg); }
+@media (prefers-reduced-motion: no-preference) {
+  summary.essay-row__head { transition: background var(--dur-1) var(--ease); }
+  .essay-row__chev { transition: transform var(--dur-2) var(--ease); }
+}
+.essay-row__body { display: grid; gap: var(--sp-4); min-width: 0; padding: var(--sp-1) 0 var(--sp-5); }
+.essay-row__body > * { margin: 0; min-width: 0; }
+
+.essay-row__when { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; line-height: 1.4; color: var(--c-text-2); padding-top: var(--sp-3); }
+.essay-row--dated > .essay-row__item > .essay-row__head { padding-top: 0.3rem; }
+@media (max-width: 699px) {
+  /* Stacked, the line of date and marks above the title is part of the row's tap target. The
+     overlay belongs to the summary, so a tap on it opens the row; a date that explains itself
+     stays on top and keeps its own tap. One line tall, so it never reaches the row above. */
+  .essay-row--dated > .essay-row__item > summary.essay-row__head::after { content: ""; position: absolute; inset: auto 0 100% 0; height: 2.1rem; }
+  .essay-row__when .date-wrap { position: relative; z-index: var(--z-raised); }
+}
+@media (min-width: 700px) {
+  .essay-row__title { font-size: var(--fs-lg); }
+  .essay-row--dated { grid-template-columns: 6.75rem minmax(0, 1fr); column-gap: var(--sp-4); }
+  .essay-row--dated > .essay-row__when { display: block; padding-top: calc(var(--sp-3) + 0.08rem); text-align: right; }
+  .essay-row__kicker--wide { display: flex; }
+  .essay-row__when > .essay-row__kicker--narrow { display: none; }
+  .essay-row--dated > .essay-row__item > .essay-row__head { padding-top: var(--sp-3); }
+}
+
+/* Ledger: ruled rows, like the contents of the theory. */
+.essay-rows--ledger { border-top: 1px solid var(--c-line-strong); }
+.essay-rows--ledger > .essay-row { border-bottom: 1px solid var(--c-line); }
+
+/* Spine: rows hung on a vertical line, for dated histories. The mark on the line is a swatch or an icon. */
+.essay-rows--spine > .essay-row { grid-template-columns: 1.5rem minmax(0, 1fr); column-gap: var(--sp-3); }
+.essay-rows--spine > .essay-row > .essay-row__when, .essay-rows--spine > .essay-row > .essay-row__item { grid-column: 2; }
+.essay-row__node { grid-column: 1; grid-row: 1 / span 2; position: relative; display: flex; justify-content: center; padding-top: calc(var(--sp-3) - 0.2rem); }
+.essay-row__node::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 0.5px); width: 1px; background: var(--c-line-strong); }
+.essay-rows--spine > .essay-row:first-child > .essay-row__node::before { top: var(--sp-4); }
+.essay-rows--spine > .essay-row:last-child > .essay-row__node::before { bottom: auto; height: var(--sp-4); }
+.essay-row__dot { position: relative; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; color: var(--c-text-2); background: var(--c-bg); border-radius: 50%; }
+.essay-row__dot > .icon { font-size: var(--fs-base); }
+@media (min-width: 700px) {
+  .essay-rows--spine > .essay-row { grid-template-columns: 6.75rem 1.5rem minmax(0, 1fr); }
+  .essay-rows--spine > .essay-row > .essay-row__when { grid-column: 1; grid-row: 1; }
+  .essay-rows--spine > .essay-row > .essay-row__node { grid-column: 2; grid-row: 1; }
+  .essay-rows--spine > .essay-row > .essay-row__item { grid-column: 3; grid-row: 1; }
+}
+
+/* A small square in a data hue. Always beside the word it colours. */
+.essay-swatch { display: inline-block; flex: none; width: 0.6rem; height: 0.6rem; border-radius: 1px; background: var(--hue, var(--c-text-3)); }
+
+/* ── What rows and sections hold ───────────────────────────────── */
+/* A passage in the reading face. */
+.essay-text { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.6; color: var(--c-text-read); text-wrap: pretty; }
+.essay-text strong { color: var(--c-text); }
+.essay-note { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-2); }
+
+/* A dated step, opened: the passage, its exhibit beside it on a wide screen, its records, its links. */
+.essay-entry { display: grid; gap: var(--sp-4); min-width: 0; }
+.essay-entry > * { margin: 0; min-width: 0; }
+@media (min-width: 900px) {
+  .essay-entry--figure { grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); column-gap: var(--sp-5); align-items: start; }
+  .essay-entry--figure > * { grid-column: 1; }
+  .essay-entry--figure > .essay-figure { grid-column: 2; grid-row: 1 / span 4; justify-self: end; }
+}
+
+.essay-evidence { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin: 0; }
+
+/* Exhibits. Never wider than the image's own pixels, unless it is tiny pixel art. */
+.essay-figure { width: 100%; max-width: max(var(--essay-natural, 100%), 20rem); }
+.essay-figure--wide { max-width: min(var(--measure), max(var(--essay-natural, 100%), 20rem)); }
+.essay-figure--side { max-width: min(20rem, max(var(--essay-natural, 100%), 12rem)); }
+.essay-figure--wide .figure__frame img { max-height: 27rem; }
+.essay-figure--side .figure__frame img { max-height: 22rem; }
+.essay-section__body > .essay-figure { margin-top: var(--sp-2); }
+
+/* Links out of the archive: where something came from, never evidence. */
+.essay-refs { display: grid; gap: 0.3rem; min-width: 0; }
+.essay-refs__note { color: var(--c-text-3); }
+.essay-refs__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.45; }
+.essay-ref { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem var(--sp-2); min-width: 0; margin: 0; color: var(--c-text-2); overflow-wrap: anywhere; }
+.essay-ref > * { min-width: 0; }
+.essay-ref a { color: var(--c-text-2); }
+.essay-ref a:hover { color: var(--c-accent-strong); }
+.essay-ref a > .icon { margin-left: 0.15em; }
+.essay-ref cite { font-family: var(--font-text); font-style: italic; font-size: 1.06em; }
+@media (pointer: coarse) { .essay-refs__list { gap: 0; } .essay-ref a { padding-block: 0.66rem; } }
+
+/* The chapter of the theory that argues the point. */
+.essay-chapter { display: grid; gap: 0.3rem; max-width: var(--measure); padding: var(--sp-3) var(--sp-4); color: var(--c-text); border: 1px solid var(--c-line-strong); border-radius: var(--r-md); text-decoration: none; }
+.essay-chapter:hover { color: var(--c-text); background: var(--c-surface); border-color: var(--c-accent-line); }
+.essay-chapter__main { display: flex; align-items: baseline; gap: var(--sp-3); min-width: 0; }
+.essay-chapter__n { flex: none; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-accent); }
+.essay-chapter__title { flex: 1 1 auto; min-width: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.25; letter-spacing: -0.008em; }
+.essay-chapter:hover .essay-chapter__title { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+.essay-chapter__go { align-self: center; color: var(--c-text-3); }
+
+/* ── The foot ──────────────────────────────────────────────────── */
+.essay-end { margin-top: var(--sp-8); }
+.essay-end .essay-note { margin-bottom: var(--sp-3); }
+.essay-more { margin-top: var(--sp-7); }
+.essay-more > .label { margin-bottom: var(--sp-3); }
+.essay-more__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--sp-4); }
+.essay-more__list > li { margin: 0; }
+.essay-more__item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-3); align-content: start; height: 100%; padding: var(--sp-4) var(--sp-5); color: var(--c-text); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); text-decoration: none; }
+.essay-more__item:hover { color: var(--c-text); background: var(--c-surface); border-color: var(--c-accent-line); }
+.essay-more__title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: var(--w-display); line-height: 1.22; letter-spacing: -0.01em; }
+.essay-more__item:hover .essay-more__title { color: var(--c-accent-strong); }
+.essay-more__desc { grid-column: 1; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.45; color: var(--c-text-2); }
+.essay-more__go { grid-column: 2; grid-row: 1; align-self: center; color: var(--c-text-3); }
+
+/* ── Touch ─────────────────────────────────────────────────────────
+ * Small standalone links and the dates beside rows get a thumb-sized hit area without moving anything. */
+@media (pointer: coarse) {
+  .essay-answer__more, .essay-meta__sources { padding-block: 0.7rem; margin-block: -0.7rem; }
+  .essay-row__when .date { padding-block: 0.75rem; margin-block: -0.75rem; }
+}

@@ -1,104 +1,217 @@
-import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronDown, ChevronUp, PenLine } from "lucide-react";
-import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Source, type Verdict } from "../../data/community";
-import { theoryById } from "../../data/store";
-import { Button, Callout, Chip, CiteList, FilterChip, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, Section, Tag, VERDICT_TONE, chapterPath, smartQuotes } from "../../components/ui";
+import { memo } from "react";
+import { useLocation } from "react-router-dom";
+import { Check, PenLine, X } from "lucide-react";
+import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Interaction, type Verdict } from "../../data/community";
+import {
+  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, INTERACTION_ICON, Icon, Page, PageHeader, RichText, VERDICT_TONE, smartQuotes,
+} from "../../components/ui";
+import {
+  EssayAnswers, EssayChapterLink, EssayEntry, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssayToggleAll, type EssayAnswerItem,
+} from "./essay";
+import { citedIn, count, countOverYears, facts, knownRecords, sentenceList, tally } from "./essayModel";
+import { hashTarget, useEssayAddress, useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./community.css";
 
-function SourceLine({ s }: { s: Source }) {
-  const body = <>{s.who} · <em>{s.what}</em>{s.date ? ` · ${s.date}` : ""}</>;
-  return (
-    <li className="ref-line">
-      {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{body}<Icon icon={ArrowUpRight} /></a> : body}
-      {s.reliability !== "primary" && <Chip>{s.reliability}</Chip>}
-    </li>
-  );
-}
+// Everything below is read off the data when the page loads: no ids or counts are written here.
+const VERDICTS = Object.keys(VERDICT) as Verdict[];
+const THEORIES = [...theories].sort((a, b) => a.year - b.year);
+const THEORY_BY_ID = new Map(theories.map((t) => [t.id, t]));
+const MOMENTS = [...interactions].sort((a, b) => a.date.localeCompare(b.date));
+const MOMENT_IDS = MOMENTS.map((x) => x.id);
+const TALLY = tally(theories, (t) => t.verdict);
+/** The verdicts that at least one theory carries, in the scale's own order. */
+const PRESENT = VERDICTS.filter((v) => TALLY.get(v));
+const INFERRED = MOMENTS.filter((x) => x.confirmed !== "scott-confirmed").length;
+/** "24 dated moments, 2014 to 2024". */
+const MOMENTS_COUNTED = countOverYears(MOMENTS.length, "dated moment", MOMENTS.map((x) => x.date));
+/** How many of the moments rest on what: said once in the timeline's lead. */
+const MOMENTS_BASIS = INFERRED === 0
+  ? "All rest on Scott’s own words."
+  : INFERRED === MOMENTS.length
+    ? `${INFERRED === 1 ? "It is" : "All are"} fan-inferred and marked.`
+    : `${MOMENTS.length - INFERRED} ${MOMENTS.length - INFERRED === 1 ? "rests" : "rest"} on Scott’s own words; ${INFERRED} ${INFERRED === 1 ? "is" : "are"} fan-inferred and marked.`;
+/** Every record the page cites, in reading order. It fixes the citation numbers and is the source list. */
+const CITED = knownRecords([
+  ...THEORIES.flatMap((t) => citedIn(t.right, t.wrong, t.scott)),
+  ...MOMENTS.flatMap((x) => [...citedIn(x.summary), ...x.evidence]),
+]);
 
-function TheoryCard({ t }: { t: CommunityTheory }) {
+const verdictLabel = (v: string): string => VERDICT[v as Verdict]?.label ?? v;
+const kindLabel = (k: string): string => INTERACTION_KIND[k as Interaction["kind"]]?.label ?? k;
+
+const ANSWERS: EssayAnswerItem[] = [
+  ...(theories.length ? [{
+    q: "How did the theories hold up?",
+    a: `Of ${count(theories.length, "well-known theory", "well-known theories")}: ${sentenceList(PRESENT.map((v) => `${TALLY.get(v)} ${verdictLabel(v).toLowerCase()}`))}.`,
+    to: "theories", more: "The scorecard",
+  }] : []),
+  ...(MOMENTS.length ? [{
+    q: "How did Scott respond?",
+    a: `He read the theories, gave YouTubers early access, answered on Steam and Reddit, pranked the fandom and put nods to it inside the games: ${MOMENTS_COUNTED}.`,
+    to: "timeline", more: "The timeline",
+  }] : []),
+];
+const FACTS = facts([theories.length, "theory scored", "theories scored"], [MOMENTS.length, "dated moment"]);
+const SOURCES_NOTE = "These records are the evidence for the judgements above. The theories and videos themselves are not evidence.";
+
+/** A theory: the row, and under it the verdict in a sentence, both sides of the ledger, Scott's reply, the archive's chapter, where it came from. */
+const TheoryRow = memo(function TheoryRow({ t }: { t: CommunityTheory }) {
   const v = VERDICT[t.verdict];
-  const [open, setOpen] = useState(false);
   return (
-    <article className="th-card" id={t.id}>
-      <header className="th-card__head">
-        <span className="verdict-tag" data-tone={VERDICT_TONE[t.verdict]} title={v.help}>{v.label}</span>
-        <span className="th-year">{t.emerged}</span>
-        <span className="th-games">{t.games.map((g) => <GameMark key={g} id={g} />)}</span>
-      </header>
-      <h3>{t.name}</h3>
-      {t.aka && t.aka.length > 0 && <p className="th-aka">Also: {smartQuotes(t.aka.join(" · "))}</p>}
-      <p className="th-claim">“{t.claim}”</p>
-      <div className="th-cols">
-        <div><h4 className="label" data-tone="ok">What it got right</h4><p><RichText text={t.right} /></p></div>
-        <div><h4 className="label" data-tone="tension">What it got wrong</h4><p><RichText text={t.wrong} /></p></div>
+    <EssayRow
+      id={t.id}
+      when={smartQuotes(t.emerged)}
+      kicker={<><Chip tone={VERDICT_TONE[t.verdict] ?? "neutral"}>{verdictLabel(t.verdict)}</Chip>{t.games.map((g) => <GameMark key={g} id={g} />)}</>}
+      title={t.name}
+      sub={smartQuotes(t.claim)}
+    >
+      {v && <p className="cmty-verdict"><strong>{v.label}.</strong> {smartQuotes(v.help)}.</p>}
+      {t.aka && t.aka.length > 0 && <p className="cmty-verdict">Also known as {smartQuotes(t.aka.join(" · "))}.</p>}
+      <div className="cmty-sides">
+        <div className="cmty-side" data-tone="ok">
+          <h4 className="label cmty-side__label"><Icon icon={Check} /> What it got right</h4>
+          <p className="essay-text"><RichText text={t.right} /></p>
+        </div>
+        <div className="cmty-side" data-tone="tension">
+          <h4 className="label cmty-side__label"><Icon icon={X} /> What it got wrong</h4>
+          <p className="essay-text"><RichText text={t.wrong} /></p>
+        </div>
       </div>
-      {t.scott && <div className="th-scott"><h4 className="label"><Icon icon={PenLine} /> Scott's side</h4><p><RichText text={t.scott} /></p></div>}
-      <footer className="th-card__foot">
-        {t.modelSection && theoryById.has(t.modelSection) ? <Tag to={chapterPath(t.modelSection)}>This archive's reading <Icon icon={ArrowRight} /></Tag> : <span />}
-        <Button variant="quiet" size="sm" onClick={() => setOpen(!open)} aria-expanded={open} iconEnd={open ? ChevronUp : ChevronDown}>
-          {open ? "Hide sources" : `Where it came from (${t.sources.length})`}
-        </Button>
-      </footer>
-      {open && <ul className="ref-list">{t.sources.map((s, i) => <SourceLine key={i} s={s} />)}</ul>}
-    </article>
+      {t.scott && (
+        <div className="cmty-scott">
+          <h4 className="label cmty-side__label"><Icon icon={PenLine} /> Scott’s side</h4>
+          <p className="essay-text"><RichText text={t.scott} /></p>
+        </div>
+      )}
+      <EssayChapterLink id={t.modelSection} label="This archive’s reading" />
+      <EssayRefs items={t.sources} label="Where it came from" />
+    </EssayRow>
+  );
+});
+
+/** The scorecard: the verdict filter (kept in the address) and the theories it leaves on show. */
+function Theories() {
+  const { search, hash } = useLocation();
+  const address = useEssayAddress();
+  const asked = new URLSearchParams(search).get("verdict");
+  // A link to one theory (…#its-id) always shows it: a filter that would hide it is not applied.
+  const linked = THEORY_BY_ID.get(hashTarget(hash));
+  const verdict = asked && Object.hasOwn(VERDICT, asked) && !(linked && linked.verdict !== asked) ? (asked as Verdict) : null;
+  const shown = verdict ? THEORIES.filter((t) => t.verdict === verdict) : THEORIES;
+  const scored = useEssayRows(shown.map((t) => t.id));
+
+  const setVerdict = (v: Verdict | null) => {
+    const now = address.read();
+    const params = new URLSearchParams(now.search);
+    if (v) params.set("verdict", v); else params.delete("verdict");
+    const text = params.toString();
+    // The address may name an open theory. If the new filter hides that theory, the name has to go, or it would overrule the filter.
+    const named = THEORY_BY_ID.get(hashTarget(now.hash));
+    address.write({ search: text ? `?${text}` : "", hash: named && v && named.verdict !== v ? "" : now.hash });
+  };
+
+  return (
+    <EssaySection
+      id="theories"
+      kicker="The scorecard"
+      title="The theories, scored"
+      lead={<p>Judged against the evidence, not against each other, in the order they emerged. Open one for what it got right and wrong.</p>}
+      actions={<EssayToggleAll control={scored} what="theories" />}
+    >
+      <FilterGroup label="Verdict">
+        <FilterChip on={!verdict} count={theories.length} onClick={() => setVerdict(null)}>All</FilterChip>
+        {PRESENT.map((v) => (
+          <FilterChip key={v} on={verdict === v} count={TALLY.get(v)} title={smartQuotes(VERDICT[v].help)} onClick={() => setVerdict(verdict === v ? null : v)}>{VERDICT[v].label}</FilterChip>
+        ))}
+      </FilterGroup>
+      <p className="cmty-status" role="status">
+        {verdict
+          ? <>Showing {shown.length} of {theories.length}. <strong>{VERDICT[verdict].label}.</strong> {smartQuotes(VERDICT[verdict].help)}.</>
+          : <>All {count(theories.length, "theory", "theories")}. Choose a verdict to narrow the list.</>}
+      </p>
+      {shown.length > 0 ? (
+        <EssayRows control={scored} label="The theories, scored">
+          {shown.map((t) => <TheoryRow key={t.id} t={t} />)}
+        </EssayRows>
+      ) : (
+        <Empty title="No theory carries this verdict." action={<Button onClick={() => setVerdict(null)}>Show all theories</Button>} />
+      )}
+    </EssaySection>
   );
 }
 
-export default function Community() {
-  const [verdict, setVerdict] = useState<Verdict | "">("");
-  const sorted = useMemo(() => [...theories].sort((a, b) => a.year - b.year), []);
-  const shown = sorted.filter((t) => !verdict || t.verdict === verdict);
-  const counts = useMemo(() => {
-    const c = new Map<Verdict, number>();
-    for (const t of theories) c.set(t.verdict, (c.get(t.verdict) ?? 0) + 1);
-    return c;
-  }, []);
-  const inter = useMemo(() => [...interactions].sort((a, b) => a.date.localeCompare(b.date)), []);
-
+const MomentRow = memo(function MomentRow({ x }: { x: Interaction }) {
+  const inferred = x.confirmed !== "scott-confirmed";
   return (
-    <Page title="Theorists & Scott" className="essay community">
-      <PageHeader
-        kicker="Essay"
-        title="Theorists & Scott"
-        lede="Five Nights at Freddy's grew up alongside its theory community. Scott read the theories, gave YouTubers early access, answered on Steam and Reddit, pranked the fandom, and put nods to it inside the games. This page tracks that relationship and scores the major theories against the evidence."
-      />
-      <Callout tone="note" title="Not evidence" className="not-evidence">
+    <EssayRow
+      id={x.id}
+      when={x.date}
+      node={INTERACTION_ICON[x.kind] ? <Icon icon={INTERACTION_ICON[x.kind]} /> : null}
+      kicker={<><span className="label">{kindLabel(x.kind)}</span>{inferred && <Chip tone="open">Fan-inferred</Chip>}</>}
+      title={x.title}
+    >
+      <p className="cmty-verdict">
+        {inferred
+          ? <><strong>Fan-inferred.</strong> Fans read it this way; neither Scott nor the game says so.</>
+          : <><strong>Scott’s own words.</strong> He said or published this himself.</>}
+      </p>
+      <EssayEntry text={x.summary} evidence={x.evidence} sources={x.external} />
+    </EssayRow>
+  );
+});
+
+/** The dated timeline. The section owns which moments are open. */
+function Moments() {
+  const moments = useEssayRows(MOMENT_IDS);
+  return (
+    <EssaySection
+      id="timeline"
+      kicker="In order"
+      title="Scott and the community, over time"
+      lead={
         <p>
-          Nothing on this page is used to build the archive's model. Theories are shown to see what they got right and wrong, and each judgement cites
-          the game records or Scott statements it rests on. The sources listed are links to the theories themselves.
+          {MOMENTS_COUNTED}. {MOMENTS_BASIS} Open one for the passage and the records behind it.
         </p>
-      </Callout>
+      }
+      actions={<EssayToggleAll control={moments} what="moments" />}
+    >
+      <EssayRows control={moments} variant="spine" label="Scott and the community, over time">
+        {MOMENTS.map((x) => <MomentRow key={x.id} x={x} />)}
+      </EssayRows>
+    </EssaySection>
+  );
+}
 
-      <Section title="Scott and the community, over time" aside={`${inter.length} moments`}>
-        <ol className="inter-tl">
-          {inter.map((x) => (
-            <li key={x.id} className="inter">
-              <span className="inter-date">{x.date}</span>
-              <span className="inter-dot" title={INTERACTION_KIND[x.kind].label}><Icon icon={INTERACTION_ICON[x.kind]} label={INTERACTION_KIND[x.kind].label} /></span>
-              <div className="inter-body">
-                <h3>{smartQuotes(x.title)}</h3>
-                <p className="inter-kind"><Chip>{INTERACTION_KIND[x.kind].label}</Chip> <Chip tone={x.confirmed === "scott-confirmed" ? "ok" : "open"}>{x.confirmed === "scott-confirmed" ? "Scott's own words" : "Fan-inferred"}</Chip></p>
-                <p className="inter-text"><RichText text={x.summary} /></p>
-                <div className="inter-foot">
-                  {x.evidence.length > 0 && <span className="cluster"><span className="label">Evidence</span> <CiteList ids={x.evidence} /></span>}
-                  {x.external && x.external.length > 0 && <ul className="ref-list ref-list--inline">{x.external.map((s, i) => <SourceLine key={i} s={s} />)}</ul>}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </Section>
+function Community() {
+  return (
+    <Page title="Theorists & Scott" className="essay cmty-page">
+      <CiteScope prime={CITED}>
+        <PageHeader
+          kicker="Essay"
+          title="Theorists & Scott"
+          lede="Five Nights at Freddy’s grew up alongside its theory community. This page scores the best-known theories against the evidence, and follows what Scott said and did in reply."
+        >
+          <Callout tone="note" title="Not evidence" className="cmty-notice">
+            <p>
+              Nothing on this page is used to build the archive’s model. Theories are shown to see what they got right and wrong, and each judgement cites
+              the game records or Scott statements it rests on. The outside links are links to the theories themselves.
+            </p>
+          </Callout>
+          <EssayAnswers items={ANSWERS} />
+          <EssayMeta facts={FACTS} cited={CITED.length} />
+        </PageHeader>
 
-      <Section title="The theories, scored" aside="Judged against the evidence, not against each other">
-        <div className="verdict-bar" role="group" aria-label="Filter by verdict">
-          <FilterChip on={!verdict} onClick={() => setVerdict("")} count={theories.length}>All</FilterChip>
-          {(Object.keys(VERDICT) as Verdict[]).filter((v) => counts.get(v)).map((v) => (
-            <FilterChip key={v} on={verdict === v} onClick={() => setVerdict(verdict === v ? "" : v)} count={counts.get(v)} title={VERDICT[v].help}>{VERDICT[v].label}</FilterChip>
-          ))}
-        </div>
-        <div className="th-grid">{shown.map((t) => <TheoryCard key={t.id} t={t} />)}</div>
-      </Section>
+        {/* A list with nothing in it is not announced: the section goes with it. */}
+        {THEORIES.length > 0 && <Theories />}
+        {MOMENTS.length > 0 && <Moments />}
+
+        <EssaySources ids={CITED} note={SOURCES_NOTE} />
+        <EssayMore current="/community" />
+      </CiteScope>
     </Page>
   );
 }
+
+// Nothing in the page's frame depends on the address, so a filter or an opened row never re-renders it.
+export default memo(Community);
