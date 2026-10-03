@@ -14,6 +14,18 @@ The public site presents only the current model. Its history, and the notes of e
   October 2026 pass overtook, refined or kept a finding, the last sentence of its resolution says so.
   `scripts/validate.ts` checks that every record id and chapter id in the ledger still exists.
 
-What is not here: the working notes of the October 2026 pass (the analysts' memos, the full rulings with their
-arguments, the review reports and the fact-check reports) were kept outside the repository. Their conclusions are in the theory itself:
-each chapter states its confidence, lists the records that push back, and says what would change it.
+- `rulings.md`: the rulings of the October 2026 pass (R1 to R33), in their short form: each ruling, its
+  confidence, the records for and against it, the wording it requires and what would change it. It is the
+  standing authority for the theory's text. At its head are the rounds that corrected its wording, in the
+  order they were made. `model.md` is the same rulings with their full arguments, the order of events and the dating table.
+- `open-checks.md`: what the pass could not verify (scenes described and not watched, cast lists held as
+  transcriptions, dates read from images), the records still to add, and the decisions that are the owner's.
+  Start here before the next pass.
+- `2026-10-pass/`: the working papers of that pass, kept as written: the analysts' memos, the adversarial
+  reviews, the fact-check reports, the writers' and layer owners' accounts of what they changed, the records
+  editor's reports, two readers' memos, the last verification and the two interface reviews. Its own README
+  lists them.
+
+The rule between these documents and the site: the records govern what is shown or stated; the rulings govern
+how firmly a chapter may say what it infers; and each chapter states its confidence, lists the records that
+push back, and says what would change it.

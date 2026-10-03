@@ -25,7 +25,7 @@ An interactive, evidence-first reconstruction of the Five Nights at Freddy's sto
 
 **Text conventions.** Text fields use a small markup: `[[evidence-id]]` for a citation, `{{person-or-place-id}}` for an entity link, `((chapter-id))` for a chapter link, `**bold**`, `*italic*`, and date pills `<<label|kind|evidence-ids|basis>>`. People the games never name are called by description (the Cassette Man, the crying child). Names found only in the books are not used. The one exception is on the Theorists & Scott page, where a single fan theory is listed under the book name the fandom gives it, and the entry says that no game prints the name and that the archive does not use it.
 
-`research/` holds the history behind the scenes: the changelog of the model's conclusions, and the ledger of the September 2026 audit.
+`research/` holds what stands behind the site: the changelog of the model's conclusions, the rulings that the theory's text follows (`rulings.md`, `model.md`), the list of what is still unverified (`open-checks.md`), the working papers of the October 2026 pass, and the ledger of the September 2026 audit.
 
 ## Scripts
 

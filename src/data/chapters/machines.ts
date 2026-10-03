@@ -79,7 +79,7 @@ export const chapters: TheorySection[] = [
       "One other game on record uses the word. Special Delivery's Remnant is something the player collects, which \"is used to power up your animatronics\" [[sd-tutorial-remnant-collection]]: a game resource, and no evidence of what the word means in the story.",
     ],
     counterEvidence: ["sd-tutorial-remnant-collection"],
-    tension: "No record states a link between the substance and the dead, and the tape that speaks of small souls names no machine. The only other use of the word on record is Special Delivery's collectible [[sd-tutorial-remnant-collection]], which treats it as a resource and explains nothing. The model's reading rests on the sheet's heading and on the company the sheet keeps: it is on the screen while the Cassette Man speaks of small souls \"set to new purpose\" [[ffps-insanity-small-souls-prisons]]. That is thin, which is why the chapter is marked low.",
+    tension: "No record states a link between the substance and the dead, and the tape that speaks of small souls names no machine. Special Delivery uses the word for a thing the player collects [[sd-tutorial-remnant-collection]], which is no evidence either way. The model's reading rests on the sheet's heading and on the company the sheet keeps: it is on the screen while the Cassette Man speaks of small souls \"set to new purpose\" [[ffps-insanity-small-souls-prisons]]. That is thin, which is why the chapter is marked low.",
     changesIf: "A game that defines the word.",
     seeAlso: ["funtimes", "michael", "springtrap", "salvage", "ffps", "golden"],
     // Every record with this chapter as its home is cited in the text.

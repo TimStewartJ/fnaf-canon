@@ -292,7 +292,7 @@ export const chapters: TheorySection[] = [
   {
     id: "games", part: "apparatus", title: "What each game adds",
     question: "Where does each game fit?",
-    answer: "Every release has a place. Several were made to answer the one before, which is why a later game is the authority on what an earlier one left unclear. This chapter is a table: each game, when it is set, what it adds to the story, and the chapters that argue it.",
+    answer: "Every release has a place. Several were made to answer the one before, which is why the model reads backwards: a later game made to mend an earlier one governs the point in dispute. This chapter is a table: each game, when it is set, what it adds to the story, and the chapters that argue it.",
     confidence: "high",
     body: [
       "FNaF4 was sold as \"this last chapter of the Five Nights at Freddy's original story\" [[scott-2015-fnaf4-store-last-chapter]], and its first teaser read \"THE FINAL CHAPTER\" [[scottgames-site-fnaf4-final-chapter]]. It was not the last. In a 2018 interview (a transcript) Scott said that the first game had told \"a small snippet of a larger story\" [[scott-2018-interview-first-game-snippet-of-larger-story]]. Each game after the third, he said, grew out of what he disliked in the one before.",
