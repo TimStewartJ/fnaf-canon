@@ -820,7 +820,7 @@
   {
     "id": "ffps-scup-blueprint",
     "title": "SCUP blueprint (Afton Robotics): Remnant injector and reservoir",
-    "claim": "An Insanity-ending blueprint headed 'S.calable C.reation of U.lterior P.resence' and marked Afton Robotics, LLC labels four parts: A, an 'Excavating Arm'; B, a 'Remnant Injector'; C, an 'Arm Base and Balance'; D, a 'Remnant Reservoir'. Its notes say the substance must be kept heated and that 'overheating might neutralize the effects permanently'.",
+    "claim": "An Insanity-ending blueprint headed 'S.calable C.reation of U.lterior P.resence' and marked 'Afton Robotics, LLC' labels four parts: A, an 'Excavating Arm'; B, a 'Remnant Injector'; C, an 'Arm Base and Balance'; D, a 'Remnant Reservoir'. The reservoir's notes go on: 'Substance should be malleable, but not more.' and 'There is a possibility that overheating might neutralize the effects permanently.'",
     "game": "ffps",
     "kind": "text",
     "location": "Insanity ending – terminal blueprint (SCUP / Scooper)",
@@ -830,7 +830,7 @@
       "precision": "relative",
       "basis": "FFPS presents a six-day work week at the newly re-branded pizzeria; no year is given in-game"
     },
-    "quote": "S.calable C.reation of U.lterior P.resence / A: Excavating Arm / B: Remnant Injector. NOTES: Leave trace line amount on interior. Over-usage/ Over-exposure negates effect. / C: Arm Base and Balance / D: Remnant Reservoir. NOTES: When heated, no observable motion. Keep in heated tank at sustained temperature. Substance should be malleable, but not more. There is a possibility that overheating might neutralize the effects permanently. / Afton Robotics, LLC",
+    "quote": "S.calable C.reation of U.lterior P.resence / A: Excavating Arm / B: Remnant Injector. NOTES: Leave trace line amount on interior. Over-usage/ Over-exposure negates effect. / D: Remnant Reservoir. NOTES: When heated, no observable motion. Keep in heated tank at sustained temperature. …",
     "people": [
       "afton-robotics"
     ],
@@ -852,7 +852,7 @@
     ],
     "image": "ffps-insanity-scup-blueprint.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:SCUP_Print.png",
-    "notes": "The whole sheet is transcribed in the quote, read from the image on file (2026-10-03). First in-game use of the word 'Remnant' in the core series. The Scooper is also Sister Location's scooping machine (Circus Baby's UCN line mentions 'the Scooping Room'). The only other game record of the word is Special Delivery's collectible 'Remnant' (sd-tutorial-remnant-collection)."
+    "notes": "The whole sheet was read from the image on file (2026-10-03): the quote holds its heading and parts A, B and D, and the claim gives part C and the rest of D's notes word for word. First in-game use of the word 'Remnant' in the core series. The Scooper is also Sister Location's scooping machine (Circus Baby's UCN line mentions 'the Scooping Room'). The only other game record of the word is Special Delivery's collectible 'Remnant' (sd-tutorial-remnant-collection)."
   },
   {
     "id": "ffps-insanity-egg-baby-trigger",
