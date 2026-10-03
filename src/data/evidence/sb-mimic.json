@@ -1563,8 +1563,8 @@
   },
   {
     "id": "security-breach-burntrap-appearance",
-    "title": "Burntrap: a burnt rabbit-shaped animatronic with a human jawbone",
-    "claim": "The underground animatronic has an olive/yellow damaged rabbit suit, an exposed human-looking jawbone and teeth, purple-glowing eyes, and a five-fingered clawed hand; it emerges from a recharge station and remotely controls Freddy and other technology.",
+    "title": "The burnt rabbit under the Pizzaplex: a rabbit shell over bare endoskeleton, a toothed jaw below the mask",
+    "claim": "The underground animatronic keeps pieces of an olive-yellow rabbit shell on its head and torso; its legs and one clawed, five-fingered forearm are bare metal endoskeleton; a toothed jaw shows below the mask and its eyes glow purple. It emerges from a recharge station and remotely controls Freddy and other technology.",
     "game": "security-breach",
     "kind": "environment",
     "location": "'I AM NOT ME' cutscene and the underground boss room",
@@ -1585,7 +1585,7 @@
       "springlock"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Burntrap",
-    "notes": "Resemblance to Springtrap/Scraptrap is visual only; the game does not identify him. Checked against the wiki's close-up from the ending: the head and torso keep pieces of a rabbit shell, the legs and the clawed forearm are bare metal endoskeleton, and a toothed jaw shows below the mask. Whether any of what shows is organic could not be judged from the images checked, so 'human-looking' describes the look, not a finding.",
+    "notes": "Resemblance to Springtrap and to Pizzeria Simulator's salvaged rabbit is visual only; the game does not identify the figure. Checked against the wiki's close-up from the ending: the head and torso keep pieces of a rabbit shell, the legs and the clawed forearm are bare metal endoskeleton, and a toothed jaw shows below the mask. Whether any of what shows is organic could not be judged from the images checked, so the archive does not call the jaw human.",
     "related": [
       "scott-2024-interview-burntrap-never-meant-to-move",
       "security-breach-freddy-take-control",
@@ -3475,11 +3475,14 @@
       "hen",
       "fazbear-link"
     ],
-    "notes": "'The diner' is unnamed. A 'Fredbear's Family Diner' poster with a yellow rabbit is among this game's posters (secret-of-the-mimic-fredbears-diner-poster), and the game also has a burger restaurant called Chica's Party World (secret-of-the-mimic-ad-chicas-party-world). The message is addressed to Fiona, so it was written while she was alive: the springlocks for the diner come before her death, before M1 and before M2.",
+    "notes": "'The diner' is unnamed. A 'Fredbear's Family Diner' poster with a yellow rabbit is among this game's posters (secret-of-the-mimic-fredbears-diner-poster), and the game also has a burger restaurant called Chica's Party World (secret-of-the-mimic-ad-chicas-party-world). The message is unsigned and addressed to 'Fiona'. Read as a note to Fiona Murray, it puts the springlocks for the diner in her lifetime, before the first machine and the second. That reading is likely and not certain: after her death the first machine speaks as Fiona (secret-of-the-mimic-log-m1-as-fiona), an employee hears 'Fiona's voice' with Edwin through a vent in R&D (secret-of-the-mimic-mail-heard-fiona), and the floor whose kitchen holds this mailbox has an opening memo of its own (secret-of-the-mimic-mcm-rnd-floor-opening-memo). What is firm is that the message is older than the night the game is set on.",
     "related": [
       "secret-of-the-mimic-fredbears-diner-poster",
       "secret-of-the-mimic-log-friends",
-      "secret-of-the-mimic-ad-chicas-party-world"
+      "secret-of-the-mimic-ad-chicas-party-world",
+      "secret-of-the-mimic-log-m1-as-fiona",
+      "secret-of-the-mimic-mail-heard-fiona",
+      "secret-of-the-mimic-mcm-rnd-floor-opening-memo"
     ]
   },
   {
@@ -4229,9 +4232,9 @@
     "certainty": "shown",
     "when": {
       "year": 1979,
-      "label": "1979 (teaser; matched by the in-game work order dated 9/07/79)",
+      "label": "1979 (teaser; a work-order texture in the game reads 9/07/79)",
       "precision": "exact",
-      "basis": "Year displayed at the end of the official teaser; the game prints the same year on Arnold's work order and credential form"
+      "basis": "Year displayed at the end of the official teaser. A work-order texture and a credential-form texture in the game carry the same year; both were read from image files and are not yet confirmed as legible in play"
     },
     "people": [
       "the-mimic"
@@ -4243,7 +4246,7 @@
     "tags": [
       "dating"
     ],
-    "notes": "The wiki's game page still says 'whether the game is set in 1979 or if the year is simply just connected to the story remains unknown', but the game prints the year: a Fazbear work order in Arnold's van is dated 9/07/79 (secret-of-the-mimic-work-order-1979) and his credential form expires in 1979 (secret-of-the-mimic-credential-form-1979).",
+    "notes": "The wiki's game page still says 'whether the game is set in 1979 or if the year is simply just connected to the story remains unknown'. Two textures in the game agree with the teaser: a Fazbear work order in Arnold's van dated 9/07/79 (secret-of-the-mimic-work-order-1979) and a credential form that expires in 1979 (secret-of-the-mimic-credential-form-1979). Both were read from image files, and neither has been confirmed as legible in play, so the archive says the year is on a work order's texture and does not say the game prints it.",
     "related": [
       "secret-of-the-mimic-work-order-1979",
       "secret-of-the-mimic-credential-form-1979",
