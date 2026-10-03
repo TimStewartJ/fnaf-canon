@@ -1,22 +1,21 @@
-/* Places index and place page. Cluster C. */
-.place-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.5rem), 1fr)); gap: var(--sp-4); align-items: start; }
-.place-card { min-width: 0; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); overflow: hidden; }
-.place-card:hover { border-color: var(--c-line-strong); }
-.place-card__img { display: block; background: var(--c-mat); }
-.place-card__img img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.place-card__body { display: grid; gap: var(--sp-2); padding: var(--sp-4); }
-.place-card__body > * { margin: 0; }
-.place-card h3 { font-size: var(--fs-lg); line-height: 1.2; }
-.place-card h3 a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
-.place-card h3 a:hover { color: var(--c-accent-strong); }
-.place-card__sum { font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
-.place-card__n { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
+/* Places index and place page. Cluster C. Rows, sections and the file card are in common.css. */
 
-.place-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5) var(--sp-7); align-items: start; margin-bottom: var(--sp-5); }
-@media (min-width: 900px) { .place-hero--image { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
-.place-hero h1 { margin: 0 0 var(--sp-3); }
-.place-hero__meta { margin: 0 0 var(--sp-4); }
-.place-hero__summary { max-width: var(--measure); margin: 0 0 var(--sp-4); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-lg); line-height: 1.55; color: var(--c-text); }
-.place-kind::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 1px; background: var(--hue); }
-.place-deaths > li > .icon { color: var(--c-tension); }
-.place-more { display: flex; justify-content: center; margin: var(--sp-5) 0 0; }
+/* A kind of place: a hue swatch and the word. */
+.place-kind { display: inline-flex; align-items: center; gap: 0.45em; }
+.place-kind::before { content: ""; flex: none; width: 0.55em; height: 0.55em; border-radius: 1px; background: var(--hue, var(--c-text-3)); }
+
+/* Index */
+.place-filters__bar { margin: 0 0 var(--sp-2); }
+.place-filters .place-filters__bar { margin: 0; }
+.place-row__when { margin: 0 0 var(--sp-2); }
+
+/* Place page: when it existed, and how the archive knows */
+.place-when { margin-bottom: var(--sp-3); }
+.place-basis { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.55; color: var(--c-text-2); text-wrap: pretty; }
+.place-basis__kind { color: var(--c-text); white-space: nowrap; }
+.place-basis__ev { margin: var(--sp-3) 0 0; }
+.place-era, .place-span { display: block; }
+.place-span { color: var(--c-text-3); }
+.place-tl { display: inline-flex; align-items: center; gap: 0.35em; margin-top: 0.2rem; }
+.place-people { list-style: none; margin: 0; padding: 0; }
+.place-people > li { margin: 0; }

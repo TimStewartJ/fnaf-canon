@@ -5,17 +5,7 @@
 .ppl-search { max-width: 34rem; margin-bottom: var(--sp-4); }
 .ppl-key { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-4); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .ppl-key__note { flex-basis: 100%; }
-.ppl-found { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 
-.ppl-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
-.ppl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who thumb" "what what"; gap: var(--sp-2) var(--sp-4); align-items: start; margin: 0; padding: var(--sp-3) 0; border-bottom: 1px solid var(--c-line); }
-.ppl-row__who { grid-area: who; min-width: 0; }
-.ppl-row__what { grid-area: what; min-width: 0; }
-.ppl-row__name { margin: 0; font-size: var(--fs-lg); line-height: 1.2; }
-.ppl-row__name a { color: var(--c-text); text-decoration-color: var(--c-line-strong); }
-.ppl-row__name a:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
-.ppl-row__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--sp-3); margin: 0.35rem 0 0; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
-.ppl-row__status { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; max-width: 38rem; margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); }
 .ppl-row__aka { display: grid; gap: 0.1rem; margin: 0; }
 .ppl-row__status + .ppl-row__aka { margin-top: var(--sp-2); }
 .ppl-aka { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: var(--sp-2); align-items: baseline; }
@@ -25,14 +15,6 @@
 .ppl-aka__link:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 /* the alias a search matched */
 .ppl-aka__link.is-hit { color: var(--c-text); font-weight: 600; text-decoration-color: var(--c-accent); background: var(--c-accent-soft); box-shadow: 0 0 0 3px var(--c-accent-soft); }
-.ppl-row__thumb { grid-area: thumb; display: block; width: 4.75rem; aspect-ratio: 3 / 2; overflow: hidden; background: var(--c-mat); border: 1px solid var(--c-line); border-radius: var(--r-md); }
-.ppl-row__thumb:hover { border-color: var(--c-line-strong); }
-.ppl-row__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* From 640px the row is a ledger line: who | what | picture. */
-@media (min-width: 640px) {
-  .ppl-row { grid-template-columns: minmax(0, 14.5rem) minmax(0, 1fr) 6rem; grid-template-areas: "who what thumb"; column-gap: var(--sp-5); padding-block: var(--sp-4); }
-  .ppl-row__thumb { width: 6rem; }
-}
 @media (pointer: coarse) { .ppl-aka__link { padding-block: 0.35rem; } }
 
 /* Minor figures: an index in columns, one short line each. */
@@ -51,11 +33,8 @@
 /* ── Person page ───────────────────────────────────────────────────
  * A dossier: who this is, what became of them, who else they are, who they are tied to, where they
  * appear in the story and in the theory, then the evidence. Sections are .ppl-sec (common.css). */
-.person-head { align-items: start; margin-bottom: var(--sp-5); }
-.person-head .page-header__title { margin-bottom: var(--sp-3); }
 .person-head__aliases { margin: 0 0 var(--sp-4); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .person-head__aliases > .label { display: inline; margin-right: 0.5em; }
-.person-head__summary { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: clamp(1.0625rem, 0.98rem + 0.45vw, 1.25rem); line-height: 1.55; color: var(--c-text-read); text-wrap: pretty; }
 
 /* For a record folded into another: what the model reads it as. The left rule is drawn in the firmness of the chain. */
 .person-standing { max-width: var(--measure); margin: 0 0 var(--sp-5); padding: var(--sp-1) 0 var(--sp-1) var(--sp-4); border-left: 3px var(--firm-style, solid) var(--c-accent); }
@@ -63,16 +42,6 @@
 .person-standing__line a { color: var(--c-text); }
 .person-standing__line a:hover { color: var(--c-accent-strong); }
 .person-standing__how { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
-
-/* The file card under the header: fate on the left, the filed facts on the right. */
-.person-file { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5) var(--sp-7); padding-block: var(--sp-5); border-top: 1px solid var(--c-line-strong); }
-.person-fate > .label { margin: 0 0 var(--sp-2); }
-.person-fate__text { max-width: var(--measure); margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.55; color: var(--c-text); text-wrap: pretty; }
-.person-file__facts { align-content: start; font-size: var(--fs-sm); color: var(--c-text-2); }
-@media (min-width: 900px) {
-  .person-file { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
-  .person-file__facts:only-child { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); grid-column: 1 / -1; gap: var(--sp-5) var(--sp-7); }
-}
 
 /* The model's own interpretation, set like the thesis on the theory cover. */
 .person-reading { max-width: var(--measure); margin: 0; padding-left: var(--sp-4); border-left: 3px solid var(--c-accent); font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.62; color: var(--c-text-read); text-wrap: pretty; }
@@ -110,20 +79,3 @@
 }
 .person-scope { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin-top: var(--sp-4); }
 
-/* ── Chapters that discuss the record ─────────────────────────── */
-.person-chapters { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
-.person-chapters > li { margin: 0; border-bottom: 1px solid var(--c-line); }
-.person-chapter { display: grid; grid-template-columns: 2rem minmax(0, 1fr); align-items: baseline; gap: var(--sp-3); padding: var(--sp-3) var(--sp-2); margin-inline: calc(-1 * var(--sp-2)); color: inherit; text-decoration: none; }
-.person-chapter:hover { color: inherit; background: var(--c-surface); }
-.person-chapter__n { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-accent); }
-.person-chapter__body { display: grid; gap: 0.15rem; min-width: 0; }
-.person-chapter__title { font-family: var(--font-display); font-size: var(--fs-md); font-weight: var(--w-display); line-height: 1.25; letter-spacing: -0.01em; color: var(--c-text); }
-.person-chapter:hover .person-chapter__title { color: var(--c-accent-strong); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
-.person-chapter__why { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-3); font-size: var(--fs-sm); color: var(--c-text-2); }
-
-/* ── Story extras and evidence ─────────────────────────────────── */
-.person-places { --gap: var(--sp-2) var(--sp-3); }
-.person-place { display: inline-flex; align-items: baseline; gap: 0.35rem; }
-.person-place__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
-.person-locker { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); }
-.person-locker a { display: inline-flex; align-items: center; gap: 0.35em; }

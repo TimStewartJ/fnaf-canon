@@ -4,10 +4,11 @@ import { ArrowRight } from "lucide-react";
 import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
-  ButtonLink, CiteList, Collapsible, ConfidenceMark, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, Page, PageHeader,
-  RichText, Segmented, StatusMark, chapterPath, firmness, levelOf, personPath, smartQuotes, useMediaQuery,
+  ButtonLink, CiteList, Collapsible, Empty, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, Page, PageHeader,
+  RichText, Segmented, StatusMark, firmness, levelOf, personPath, smartQuotes, useMediaQuery,
 } from "../../components/ui";
-import { chaptersAbout, type ChapterHit } from "./chapters";
+import { chaptersAbout } from "./chapters";
+import { ChapterRows } from "./Chapters";
 import { Capped, DossierSection, GroupLabel, JumpLinks } from "./Dossier";
 import { EvidenceRows } from "./EvidenceFile";
 import { IdentityTree } from "./IdentityTree";
@@ -51,29 +52,6 @@ function Standing({ node, being, base }: { node: BeingNode; being: Being; base: 
         <Link to={`${base}#identity`}>The whole chain</Link>
       </p>
     </div>
-  );
-}
-
-function ChapterRows({ hits }: { hits: readonly ChapterHit[] }) {
-  return (
-    <ul className="person-chapters">
-      {hits.map((h) => (
-        <li key={h.section.id}>
-          <Link to={chapterPath(h.section.id)} className="person-chapter">
-            <span className="person-chapter__n">{String(h.n).padStart(2, "0")}</span>
-            <span className="person-chapter__body">
-              <span className="person-chapter__title">{smartQuotes(h.section.title)}</span>
-              <span className="person-chapter__why">
-                <ConfidenceMark value={h.section.confidence} variant="inline" long />
-                {h.names && <span>Discusses this record by name</span>}
-                {h.cited > 0 && <span>Rests on {h.cited} of these records</span>}
-                {h.against > 0 && <span>{h.against} push{h.against === 1 ? "es" : ""} back</span>}
-              </span>
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -127,7 +105,7 @@ function Dossier({ p }: { p: Person }) {
   return (
     <Page title={p.name} className="person-page">
       <PageHeader
-        className="person-head"
+        className="ppl-head"
         crumbs={[{ to: "/people", label: "People" }, { label: p.name }]}
         kicker={`${GROUP_LABEL[p.group] ?? "People"} · ${descriptor ? "Descriptor" : "Canon name"}`}
         title={<span className={descriptor ? "name-desc" : "name-canon"}>{smartQuotes(p.name)}</span>}
@@ -135,17 +113,17 @@ function Dossier({ p }: { p: Person }) {
       >
         {p.aliases.length > 0 && <p className="person-head__aliases"><span className="label">Also</span> {p.aliases.map(smartQuotes).join(" · ")}</p>}
         {me.parent && <Standing node={me} being={being} base={base} />}
-        <p className="lede person-head__summary"><RichText text={p.summary} /></p>
+        <p className="ppl-summary"><RichText text={p.summary} /></p>
       </PageHeader>
 
-      <div className="person-file">
+      <div className="ppl-file">
         {hasText(p.status) && (
-          <div className="person-fate">
+          <div className="ppl-file__main">
             <h2 className="label">What became of {it}</h2>
-            <p className="person-fate__text"><RichText text={p.status} /></p>
+            <p className="ppl-file__text"><RichText text={p.status} /></p>
           </div>
         )}
-        <Facts className="person-file__facts">
+        <Facts className="ppl-file__facts">
           <Fact label="First appearance"><GameMark id={p.firstAppearance} variant="full" link /></Fact>
           <Fact label="Name">
             {descriptor
@@ -155,8 +133,8 @@ function Dossier({ p }: { p: Person }) {
           {p.evidence.length > 0 && <Fact label="Established by"><CiteList ids={p.evidence} variant="code" /></Fact>}
           {view.places.length > 0 && (
             <Fact label="Places in the records">
-              <span className="cluster person-places">
-                {view.places.slice(0, PLACES_SHOWN).map(([id, n]) => <span key={id} className="person-place"><EntityLink id={id} variant="chip" /><span className="person-place__n" title={`${plural(n, "record")} filed under both`}>{n}</span></span>)}
+              <span className="cluster ppl-chips">
+                {view.places.slice(0, PLACES_SHOWN).map(([id, n]) => <span key={id} className="ppl-chips__item"><EntityLink id={id} variant="chip" /><span className="ppl-chips__n" title={`${plural(n, "record")} filed under both`}>{n}</span></span>)}
                 {view.places.length > PLACES_SHOWN && <span className="faint">and {view.places.length - PLACES_SHOWN} more</span>}
               </span>
             </Fact>
@@ -233,17 +211,17 @@ function Dossier({ p }: { p: Person }) {
           view.groups.map((g, i) => (
             <Collapsible key={g.node.id} defaultOpen={i === 0} summary={<>Filed under <Name id={g.node.id} as="plain" /></>} meta={plural(g.records.length, "record")}>
               <EvidenceRows records={g.records} cap={cap("evidence")} />
-              <p className="person-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
+              <p className="ppl-locker"><Link to={`/evidence?entity=${g.node.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
             </Collapsible>
           ))
         ) : view.records.length > 0 ? (
           <>
             <EvidenceRows records={view.records} cap={cap("evidence")} />
-            <p className="person-locker"><Link to={`/evidence?entity=${p.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
+            <p className="ppl-locker"><Link to={`/evidence?entity=${p.id}`}>Browse these in the evidence locker <Icon icon={ArrowRight} /></Link></p>
           </>
         ) : <p className="muted">No evidence record is filed under this name.</p>}
         {me.parent && !narrow && (
-          <p className="person-locker"><Link to={`${personPath(being.root.id)}#evidence`}>All the evidence for <Name id={being.root.id} as="plain" /> <Icon icon={ArrowRight} /></Link></p>
+          <p className="ppl-locker"><Link to={`${personPath(being.root.id)}#evidence`}>All the evidence for <Name id={being.root.id} as="plain" /> <Icon icon={ArrowRight} /></Link></p>
         )}
       </DossierSection>
     </Page>
