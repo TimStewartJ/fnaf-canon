@@ -131,9 +131,11 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
     return out;
   }, [web]);
 
-  /* ── Dragging a disc ── */
+  /* ── Pressing and dragging a disc ──
+   * A mouse or a pen drags a disc. A finger only taps: a swipe that starts on a disc belongs to the page, which
+   * scrolls (the browser then cancels the press, so it is not taken for a tap either). */
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const drag = useRef<{ id: string; pointer: number; x0: number; y0: number; moved: boolean } | null>(null);
+  const drag = useRef<{ id: string; pointer: number; x0: number; y0: number; moved: boolean; finger: boolean } | null>(null);
   const toSvg = (e: ReactPointerEvent) => {
     const svg = svgRef.current!;
     const m = svg.getScreenCTM();
@@ -143,14 +145,16 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
   };
   const onDown = (e: ReactPointerEvent<SVGGElement>, id: string) => {
     if (e.button !== 0) return;
-    drag.current = { id, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, moved: false };
-    e.currentTarget.setPointerCapture(e.pointerId);
+    const finger = e.pointerType === "touch";
+    drag.current = { id, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, moved: false, finger };
+    if (!finger) e.currentTarget.setPointerCapture(e.pointerId);
   };
   const onMove = (e: ReactPointerEvent<SVGGElement>) => {
     const d = drag.current;
     if (!d || d.pointer !== e.pointerId) return;
-    if (!d.moved && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < 5) return;
+    if (!d.moved && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < (d.finger ? 10 : 5)) return;
     d.moved = true;
+    if (d.finger) return;
     const p = toSvg(e), was = at.get(d.id);
     if (!was) return;
     const next = { ...was, x: Math.max(was.r + 4, Math.min(width - was.r - 4, p.x)), y: Math.max(was.r + 4, Math.min(height - was.r - 4, p.y)) };
@@ -163,7 +167,8 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
     if (!d.moved) onFocus(focus === id ? "" : id);
   };
 
-  /* ── Keyboard: one tab stop; the arrow keys go to the nearest person that way. ── */
+  /* ── Keyboard: one tab stop; the arrow keys go to the nearest person that way; Page Up and Page Down step through
+   * everyone in reading order, so nobody is out of reach however the picture falls. ── */
   const order = useMemo(() => [...web.nodes].sort((a, b) => { const p = at.get(a.id)!, q = at.get(b.id)!; return p.y - q.y || p.x - q.x; }), [web, at]);
   const [active, setActive] = useState("");
   const tabStop = web.byId.has(active) ? active : focus || order[0]?.id || "";
@@ -189,6 +194,10 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
     else if (e.key === "ArrowUp") go(toward(0, -1));
     else if (e.key === "Home") go(order[0]?.id);
     else if (e.key === "End") go(order[order.length - 1]?.id);
+    else if (e.key === "PageDown" || e.key === "PageUp") {
+      const i = order.findIndex((n) => n.id === id) + (e.key === "PageDown" ? 1 : -1);
+      go(order[(i + order.length) % order.length]?.id);
+    }
     else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onFocus(focus === id ? "" : id); }
   };
 
@@ -204,7 +213,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
       className={`graph-svg${compact ? " is-compact" : ""}`}
       viewBox={`0 0 ${width} ${height}`}
       role="group"
-      aria-label={`A picture of ${plural(web.nodes.length, "person", "people")} and the ${plural(web.relCount, "tie")} between them. Tab reaches the people; the arrow keys move between them and Enter picks one. Everything in it is also in the list below.`}
+      aria-label={`A picture of ${plural(web.nodes.length, "person", "people")} and the ${plural(web.relCount, "tie")} between them. Tab reaches the people; the arrow keys move between them, Page Up and Page Down step through them all, and Enter picks one. Everything in it is also in the list below.`}
     >
       <g aria-hidden="true">
         {web.ties.map((t) => {
@@ -345,6 +354,7 @@ export default function Graph() {
   const support = useMemo(() => supportOf(supportParam), [supportParam]);
   const unified = url.get("unified") !== "0";
   const web = useMemo(() => buildWeb(new Set(support), unified), [support, unified]);
+  const finger = useMediaQuery("(pointer: coarse)");
 
   // ?focus= takes any record: one that is folded into a person focuses that person.
   const asked = url.get("focus");
@@ -396,7 +406,11 @@ export default function Graph() {
             : focus ? <PersonBar node={web.byId.get(focus)!} web={web} onClose={() => url.set({ focus: null })} />
             : (
               <div className="graph-foot">
-                <p className="graph-foot__hint">Select a person to focus on their ties, a line for its evidence. Drag a disc to move it; double-click opens the person. A larger disc has more evidence.</p>
+                <p className="graph-foot__hint">
+                  {finger
+                    ? "Tap a person to focus on their ties, a line for its evidence. A larger disc has more evidence."
+                    : "Select a person to focus on their ties, a line for its evidence. Drag a disc to move it; double-click opens the person. A larger disc has more evidence."}
+                </p>
               </div>
             )}
         </div>

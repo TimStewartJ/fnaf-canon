@@ -12,10 +12,12 @@
 
 .graph-frame { position: relative; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
 .graph-canvas { padding: var(--sp-1); }
-/* A swipe that starts on the picture still scrolls the page; only a disc takes a drag. */
+/* Under a finger a swipe anywhere on the picture scrolls the page, discs included (browsers take touch-action
+   from the svg itself, not from the shapes inside it), so the picture can never trap a scroll. A mouse or a
+   pen drags a disc. */
 .graph-svg { display: block; width: 100%; height: auto; touch-action: pan-y pinch-zoom; -webkit-user-select: none; user-select: none; }
 
-.graph-node { cursor: grab; touch-action: none; }
+.graph-node { cursor: grab; }
 .graph-node:active { cursor: grabbing; }
 .graph-node:focus-visible { outline: none; }
 .graph-node__hit { fill: transparent; stroke: none; }
