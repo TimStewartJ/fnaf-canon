@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { TimelineEvent } from "../../data/schema";
 import { eventDate } from "../../data/dates";
 import { DEATH_KIND, type Death } from "../../data/deaths";
-import { DEATH_KIND_ICON, DatePill, Icon, StatusMark, levelOf, smartQuotes, timelineEventPath } from "../../components/ui";
+import { DatePill, Icon, StatusMark, deathKindIcon, levelOf, smartQuotes, timelineEventPath } from "../../components/ui";
 
 /** Timeline events as compact rows: the date (with its justification), the event, how firm it is. */
 export function EventRows({ events }: { events: readonly TimelineEvent[] }) {
@@ -33,7 +33,7 @@ export function DeathRows({ deaths }: { deaths: readonly Death[] }) {
           <div className="ppl-event__what">
             <span className="ppl-event__when"><DatePill label={d.yearLabel} kind={d.date.kind} basis={d.date.basis} evidence={d.date.evidence} compact /></span>
             <span className="ppl-event__title">
-              <Icon icon={DEATH_KIND_ICON[d.kind] ?? DEATH_KIND_ICON.unknown} label={DEATH_KIND[d.kind]?.label ?? "Death"} className="ppl-event__cause" />{" "}
+              <Icon icon={deathKindIcon(d.kind)} label={DEATH_KIND[d.kind]?.label ?? "Death"} className="ppl-event__cause" />{" "}
               <Link to={timelineEventPath(d.id)}>{smartQuotes(d.title)}</Link>
             </span>
           </div>

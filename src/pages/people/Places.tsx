@@ -7,7 +7,7 @@ import { LOCATION_KIND, type LocationKind, type LocationSpan } from "../../data/
 import { ERA_DATES, PLACE_DATES } from "../../data/dates";
 import {
   Button, ButtonLink, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Page,
-  PageHeader, RichText, excerpt, hueOf, imgUrl, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
+  PageHeader, RichText, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -62,7 +62,7 @@ const PlaceRow = memo(function PlaceRow({ p }: { p: Place }) {
       </div>
       {p.image && (
         <Link to={placePath(p.id)} className="ppl-row__thumb" tabIndex={-1} aria-hidden>
-          <img src={imgUrl(p.image)} alt="" loading="lazy" decoding="async" />
+          <Thumb file={p.image} />
         </Link>
       )}
     </li>
@@ -168,7 +168,7 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
   const dateKind = DATE_KIND[date?.kind ?? "unknown"] ?? DATE_KIND.unknown;
 
   return (
-    <Page title={p.name} className="place-page">
+    <Page title={p.name} kind="Place" className="place-page">
       <PageHeader
         className="ppl-head"
         crumbs={[{ to: "/places", label: "Places" }, { label: p.name }]}
@@ -263,7 +263,7 @@ export function PlaceDetail() {
   if (!p) {
     return (
       <Page title="Place not found" narrow>
-        <Empty title="Unknown place" action={<ButtonLink to="/places" variant="primary">All places</ButtonLink>}>There is no place page for “{id}”.</Empty>
+        <Empty heading title="Unknown place" action={<ButtonLink to="/places" variant="primary">All places</ButtonLink>}>There is no place page for “{id}”.</Empty>
       </Page>
     );
   }

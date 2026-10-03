@@ -16,7 +16,8 @@
 .ppl-aka__link:hover { color: var(--c-accent-strong); text-decoration-color: currentColor; }
 /* the alias a search matched */
 .ppl-aka__link.is-hit { color: var(--c-text); font-weight: 600; text-decoration-color: var(--c-accent); background: var(--c-accent-soft); box-shadow: 0 0 0 3px var(--c-accent-soft); }
-@media (pointer: coarse) { .ppl-aka__link { padding-block: 0.35rem; } }
+/* Stacked rows of these touch each other, so on a touch screen each is a full 40px tall. */
+@media (pointer: coarse) { .ppl-aka__link { padding-block: 0.6rem; } }
 
 /* Minor figures: an index in columns, one short line each. */
 .ppl-index { columns: 13rem auto; column-gap: var(--sp-6); }
@@ -28,7 +29,7 @@
 .ppl-index__link:hover { color: var(--c-accent-strong); }
 .ppl-index__link:hover .ppl-index__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 .ppl-index__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
-@media (max-width: 640px) { .ppl-index { columns: 2; column-gap: var(--sp-4); } }
+@media (max-width: 40em) { .ppl-index { columns: 2; column-gap: var(--sp-4); } }
 @media (pointer: coarse) { .ppl-index__link { padding-block: 0.6rem; } }
 
 /* ── Person page ───────────────────────────────────────────────────
@@ -73,7 +74,7 @@
 .person-tree__also { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-3); margin: var(--sp-2) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
 .person-tree__also-status { font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); white-space: nowrap; }
 .person-tree__ev { min-width: 0; }
-@media (min-width: 760px) {
+@media (min-width: 47.5em) {
   .person-tree__row { grid-template-columns: minmax(0, 1fr) minmax(0, 17.5rem); }
   .person-tree__ev { text-align: right; }
   .person-tree__ev .src-list { justify-content: flex-end; }

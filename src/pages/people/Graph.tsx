@@ -8,7 +8,6 @@ import {
   Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
   personPath, smartQuotes, useMediaQuery, listParam, useAddress, type Address,
 } from "../../components/ui";
-import { WhenOpened } from "./Dossier";
 import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
 import { Name } from "./Names";
 import { TieBar, TieLegend } from "./RelParts";
@@ -328,18 +327,16 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
                 summary={<><span className="graph-swatch" style={{ "--hue": hueOf(GROUP_HUE, n.group) } as CSSProperties} title={GROUP_LABEL[n.group] ?? n.group} /> <Name id={n.id} as="plain" /></>}
                 meta={phone ? plural(ties.length, "tie") : `${GROUP_LABEL[n.group] ?? n.group} · ${plural(ties.length, "tie")}`}
               >
-                <WhenOpened open={n.id === focus}>
-                  {() => (
-                    <>
-                      {n.folded.length > 0 && <p className="graph-list__with">Shown as one with {n.folded.map((id, i) => <span key={id}>{i > 0 && ", "}<Name id={id} /></span>)}.</p>}
-                      <OwnTies rels={ties} pageId={n.id} scope={new Set([n.id, ...n.folded])} />
-                      <p className="graph-list__links">
-                        <Link to={personPath(n.id)}>Open their page <Icon icon={ArrowRight} /></Link>
-                        {n.id !== focus && <Button variant="quiet" size="sm" onClick={() => set({ focus: n.id, tie: null })}>Focus the picture on them</Button>}
-                      </p>
-                    </>
-                  )}
-                </WhenOpened>
+                {() => (
+                  <>
+                    {n.folded.length > 0 && <p className="graph-list__with">Shown as one with {n.folded.map((id, i) => <span key={id}>{i > 0 && ", "}<Name id={id} /></span>)}.</p>}
+                    <OwnTies rels={ties} pageId={n.id} scope={new Set([n.id, ...n.folded])} />
+                    <p className="graph-list__links">
+                      <Link to={personPath(n.id)}>Open their page <Icon icon={ArrowRight} /></Link>
+                      {n.id !== focus && <Button variant="quiet" size="sm" onClick={() => set({ focus: n.id, tie: null })}>Focus the picture on them</Button>}
+                    </p>
+                  </>
+                )}
               </Collapsible>
             );
           })}
@@ -401,7 +398,8 @@ export default function Graph() {
       </div>
 
       {web.nodes.length > 0 ? (
-        <div className="graph-frame">
+        // Escape lets go of what is chosen: first the line, then the person.
+        <div className="graph-frame" onKeyDown={(e) => { if (e.key === "Escape" && (selected || focus)) { e.preventDefault(); url.write(selected ? { tie: null } : { focus: null }); } }}>
           <WebCanvas web={web} focus={focus} near={near} selected={selected} onFocus={(id) => url.write({ focus: id || null, tie: null })} onSelect={(t) => url.write((now) => ({ tie: t && now.get("tie") !== t.key ? t.key : null }))} />
           {selected ? <TieBar tie={selected} onClose={() => url.write({ tie: null })} />
             : focus ? <PersonBar node={web.byId.get(focus)!} web={web} onClose={() => url.write({ focus: null })} />
@@ -409,8 +407,8 @@ export default function Graph() {
               <div className="graph-foot">
                 <p className="graph-foot__hint">
                   {finger
-                    ? "Tap a person to focus on their ties, a line for its evidence. A larger disc has more evidence."
-                    : "Select a person to focus on their ties, a line for its evidence. Drag a disc to move it; double-click opens the person. A larger disc has more evidence."}
+                    ? "Tap a person to focus on their ties, a line for its evidence. A larger disc has more evidence. Every tie is also listed below, with its records."
+                    : "Select a person to focus on their ties, or click a line for its evidence. Drag a disc to move it; double-click opens the person. A larger disc has more evidence. Every tie is also listed below, with its records."}
                 </p>
               </div>
             )}

@@ -5,9 +5,9 @@ import type { Relation } from "../../data/schema";
 import { labelForEntity, personById } from "../../data/store";
 import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
-  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
+  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, TabPanel, Tabs, Toggle, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
-import { GroupLabel, WhenOpened } from "./Dossier";
+import { GroupLabel } from "./Dossier";
 import { useContentWidth } from "./measure";
 import { buildTree, defaultKinds, describeTree, routingOf, tiesWithin, type TreeEdge } from "./familyModel";
 import { TieBar, TieLegend } from "./RelParts";
@@ -30,16 +30,14 @@ const sameNumbers = (a: readonly number[], b: readonly number[]) => a.length ===
 const TieList = memo(function TieList({ drawn }: { drawn: readonly Relation[] }) {
   return (
     <Collapsible className="fam-list" summary="The ties drawn, as a list" meta={plural(drawn.length, "tie")}>
-      <WhenOpened>
-        {() => byFamily(drawn, (r) => r.kind).map((g) => (
-          <div key={g.family} className="ppl-tie-group">
-            <GroupLabel as="h2" count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
-            <ul className="ppl-ties">
-              {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
-            </ul>
-          </div>
-        ))}
-      </WhenOpened>
+      {() => byFamily(drawn, (r) => r.kind).map((g) => (
+        <div key={g.family} className="ppl-tie-group">
+          <GroupLabel as="h2" count={g.items.length}>{TIE_FAMILY_LABEL[g.family]}</GroupLabel>
+          <ul className="ppl-ties">
+            {g.items.map((r) => <TieRow key={`${r.from}|${r.kind}|${r.to}`} status={r.status} note={r.note} evidence={r.evidence}><TieSentence r={r} /></TieRow>)}
+          </ul>
+        </div>
+      ))}
     </Collapsible>
   );
 });
@@ -198,7 +196,8 @@ function TreeView({ tree }: { tree: FamilyTree }) {
       </Collapsible>
       <TieLegend families={families} />
 
-      <div className="fam-frame">
+      {/* Escape lets go of a chosen line, from anywhere in the picture or its bar. */}
+      <div className="fam-frame" onKeyDown={(ev) => { if (ev.key === "Escape" && selected) { ev.preventDefault(); select(null); } }}>
         {/* A tree wider than its frame scrolls sideways; only then is the frame a stop for the keyboard. */}
         <div className="fam-scroll scroll-x" ref={scrollRef} {...(rows?.overflow ? { role: "region", "aria-label": `${tree.title}: family tree, scrolls sideways`, tabIndex: 0 } : {})}>
           {ready && (
@@ -315,8 +314,8 @@ export default function FamilyTrees() {
       />
       {tree ? (
         <>
-          <Tabs label="Family" tabs={familyTrees.map((t) => ({ id: t.id, label: smartQuotes(t.title) }))} value={tree.id} onChange={(id) => url.write({ tree: id === familyTrees[0]?.id ? null : id, tie: null })} />
-          <TreeView key={tree.id} tree={tree} />
+          <Tabs label="Family" tabs={familyTrees.map((t) => ({ id: t.id, label: smartQuotes(t.title) }))} value={tree.id} onChange={(id) => url.write({ tree: id === familyTrees[0]?.id ? null : id, tie: null })} panel="fam-tree" />
+          <TabPanel id="fam-tree" tab={tree.id}><TreeView key={tree.id} tree={tree} /></TabPanel>
         </>
       ) : <Empty title="No family trees yet">The data holds no family tree.</Empty>}
     </Page>
