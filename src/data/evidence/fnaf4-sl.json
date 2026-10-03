@@ -1187,7 +1187,8 @@
     "related": [
       "fnaf4-still-your-friends",
       "fw-opening-put-you-back-together",
-      "fw-clock-ending-pieces-in-place"
+      "fw-clock-ending-pieces-in-place",
+      "fw-android-port-clock-ending"
     ],
     "image": "fw-clock-ending-still-your-friends.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocksend2.jpg",
@@ -1215,7 +1216,8 @@
       "fnaf4-locked-box-ending",
       "scott-2015-fnaf4-box-pieces-put-together",
       "fw-crying-child-character",
-      "fw-clock-games-five-tasks"
+      "fw-clock-games-five-tasks",
+      "fw-android-port-clock-ending"
     ],
     "image": "fw-clock-ending-pieces-in-place.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocksend3.jpg to File:Clocksend6.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Trophies_(FW)",
@@ -1492,11 +1494,12 @@
     ],
     "related": [
       "ucn-omc-ending",
-      "fw-8bit-fredbear-made-for-one-thing"
+      "fw-8bit-fredbear-made-for-one-thing",
+      "fw-drowning-ending"
     ],
     "image": "fw-old-man-consequences.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Fourthglitch2.jpg and https://freddy-fazbears-pizza.fandom.com/wiki/File:Fourthglitch3.jpg",
-    "notes": "His first box reads: 'I'm sorry to say that you have gone too deep into the code. There is no way back out.' The game prints 'no where' as two words. Walking into the lake instead gives the wiki's 'drowning' ending, which has no text. The same character and lake return in UCN (ucn-omc-ending)."
+    "notes": "His first box reads: 'I'm sorry to say that you have gone too deep into the code. There is no way back out.' The game prints 'no where' as two words. Going into the lake instead gives a wordless 'drowning' ending (fw-drowning-ending). The same character and lake return in UCN (ucn-omc-ending)."
   },
   {
     "id": "sl-intro-mr-afton-board",
@@ -2935,7 +2938,7 @@
     ],
     "image": "fnaf4-minigame-house-rooms.png",
     "verifiedVia": "720p captures (https://www.youtube.com/watch?v=EURVGdotG70 ; https://www.youtube.com/watch?v=pTCY2dDFdp0 ; https://www.youtube.com/watch?v=36TkKbnWEQA) ; https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "No kitchen, bathroom or parents' room is drawn. The 8-bit bedroom has one door, at the top; the 3D bedroom of the night gameplay has two side doors and a closet. The game never states that they are the same room, or that the gameplay house is the minigame house. The one shared fixture is the grandfather clock: the gameplay Left Hall has one at its far end too."
+    "notes": "No kitchen, bathroom or parents' room is drawn. The 8-bit bedroom has one door, at the top; the 3D bedroom of the night gameplay has two side doors and a closet. The game never states that they are the same room, or that the gameplay house is the minigame house. The one fixture the two visibly share is a clock in the hallway: the gameplay Left Hall has one at its dark far end (fnaf4-left-hall-grandfather-clock)."
   },
   {
     "id": "fnaf4-second-bedroom",
@@ -3506,7 +3509,8 @@
       "fw-animdude-puppet-master",
       "fw-8bit-fredbear-puppet-master",
       "fw-normal-ending-still-in-control",
-      "scott-2015-story-complete"
+      "scott-2015-story-complete",
+      "fw-chippers-revenge-ending"
     ],
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Hardend09.jpg to https://freddy-fazbears-pizza.fandom.com/wiki/File:Hardend15.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
     "notes": "Before it: 'Was I REALLY the villain in your mind?' and 'I just do what is demanded of me!' The 'puppet-master' 8-bit Fredbear warns about is, inside the game, its author. The other endings print 'the end' in lower case."
@@ -4783,11 +4787,11 @@
   },
   {
     "id": "fnaf4-left-hall-grandfather-clock",
-    "title": "A grandfather clock stands in both hallways",
-    "claim": "A grandfather clock stands at the far end of the Left Hall in the night gameplay, with a box on the floor beside it and framed pictures along the wall. The minigame house's hallway also has a grandfather clock and framed pictures on its wall.",
+    "title": "A clock at the end of the Left Hall; a grandfather clock in the minigame hallway",
+    "claim": "In the night gameplay a clock with a round pale face in a reddish-brown wooden case is at the dark far end of the Left Hall, and framed pictures hang on the hall's walls. The minigame house's hallway has a grandfather clock with a pendulum and five framed blue pictures on its wall.",
     "game": "fnaf4",
     "kind": "environment",
-    "location": "Night gameplay, Left Hall (far end, in the dark); minigame house, hallway",
+    "location": "Night gameplay, Left Hall (far end, in the dark); minigame house, hallway (post-Night 1 and post-Night 3 minigames)",
     "certainty": "shown",
     "when": {
       "label": "During FNaF4's nights (undated)",
@@ -4808,7 +4812,96 @@
       "sl-private-room-monitor-bedroom"
     ],
     "image": "fnaf4-left-hall-grandfather-clock.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:LeftHall.png (brightened) ; https://freddy-fazbears-pizza.fandom.com/wiki/Left_Hall ; 720p capture, c. 154 s (https://www.youtube.com/watch?v=36TkKbnWEQA)",
-    "notes": "Upper left: the game's Left Hall render with brightness raised 2.6x; right: the boxed far end enlarged, brightness 4x; lower left: the minigame hallway, with the Fredbear plush sitting on its clock. At the game's own brightness the far end of the hall is almost black, so the clock is easy to miss. The two clocks are an 8-bit sprite and a 3D model and cannot be matched in detail. This is the one piece of furniture the gameplay house and the minigame house visibly share; the game never states that they are one house. The wiki says the clock chimes during play (audio, not checked)."
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:LeftHall.png (the game's render, brightened) ; https://freddy-fazbears-pizza.fandom.com/wiki/Left_Hall ; 720p captures, hallway at c. 154 s of https://www.youtube.com/watch?v=36TkKbnWEQA and in https://www.youtube.com/watch?v=pTCY2dDFdp0",
+    "notes": "Upper left: the game's Left Hall render, brightened; the white outline marks the area enlarged at right. Lower left: the minigame hallway, the Fredbear plush sitting on its clock. At the game's own brightness the far end of the hall is almost black and the clock is easy to miss. Even brightened, its hands can barely be made out and its lower part is lost in the dark, so the still does not show whether it stands on the floor like the minigame's clock or hangs on the wall; the wiki calls it a grandfather clock. A paler cap above the dial appears to be the top of the case, and nothing recognisable as a figure is on it. The wiki also mentions a box beside the clock; the still shows a low object there that cannot be identified. In the lit part of the 3D hall a large framed picture and a group of small ones hang on the walls; the 8-bit pictures are plain blue rectangles in dark-red frames. The two clocks are a 3D model and an 8-bit sprite and cannot be matched in detail. A clock in a picture-hung hallway is the one fixture the gameplay house and the minigame house visibly share; the game never states that they are one house. The wiki says the clock chimes during play (audio, not checked)."
+  },
+  {
+    "id": "fw-android-port-clock-ending",
+    "title": "Android port: the clock ending's two dots become a Bouncepot",
+    "claim": "The Android port of FNaF World rewrites the clock ending as a joke. The two yellow dots say 'I am ready to reveal myself' and 'It was me', claim to have caused 'the bite of 87', and are replaced by a small potted-plant creature that the text hails as Bouncepot. 'the end' follows.",
+    "quote": "I caused the bite of 87. That's right. Mind Blown! It all makes sense when you think about it. All hail Bouncepot!",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Android port (Google Play, January 2017): Clock ending",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "tags": [
+      "clock-ending",
+      "mobile-port",
+      "meta",
+      "eyes"
+    ],
+    "related": [
+      "fw-clock-ending-still-your-friends",
+      "fw-clock-ending-pieces-in-place",
+      "fw-opening-put-you-back-together",
+      "fw-update2-game-bombed",
+      "fnaf1-call1-bite-of-87",
+      "scott-2018-interview-fnaf-world-tied-to-canon-mistake"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) (Clock Ending, Mobile) ; on-screen text of https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaFWAndroidClockEnding1.png to File:FNaFWAndroidClockEnding5.png ; the same screens in a capture uploaded 14 January 2017 (https://www.youtube.com/watch?v=RypcMQiI8mY) ; https://freddy-fazbears-pizza.fandom.com/wiki/FNaF_World_(Mobile) ; Scott's post of 17 January 2017: https://gamejolt.com/p/a-farewell-to-fnaf-world-uvpkwgtr",
+    "notes": "Screen by screen: 'You've been through a lot. I am ready to reveal myself.' / 'You see. I've been there all along. It was me.' / the quoted lines (two screens) / 'the end'. The screen prints 'bite of 87' without an apostrophe. On Windows the same quest ends 'We are still your friends... The pieces are in place for you... Rest.' (fw-clock-ending-still-your-friends, fw-clock-ending-pieces-in-place). Per the wiki the port went up on Google Play on 12 January 2017 and came down a day later, replaced Fredbear's and 8-bit Fredbear's lines with jokes, and left out the Update 2 scene with the man at the desk (wiki transcript; not checked on screen). On 17 January 2017 Scott wrote on Game Jolt that there would be no Update 3 and no mobile ports. Reading, not label: the port treats the frame voice as material for a joke. It does not change what the 2016 release says, and its line about the bite is not evidence about the Bite of '87."
+  },
+  {
+    "id": "fw-drowning-ending",
+    "title": "Drowning ending: the player's sprite goes into Old Man Consequences' lake",
+    "claim": "At Old Man Consequences' lake the player's sprite can go into the water. The screen then turns black with one white shape at its centre, and afterwards shows a black human silhouette in front of a white rectangle, its arms held out and down to either side, with a grey shape at each side. No text appears.",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Fourth sub-tunnel lake (Drowning ending)",
+    "certainty": "shown",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "people": [
+      "old-man-consequences"
+    ],
+    "places": [
+      "fnaf-world-sub-tunnel-4"
+    ],
+    "tags": [
+      "old-man-consequences",
+      "lake",
+      "drowning"
+    ],
+    "related": [
+      "fw-old-man-consequences",
+      "ucn-omc-ending-drowning",
+      "ucn-omc-ending"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) (Drowning Ending) ; screens https://freddy-fazbears-pizza.fandom.com/wiki/File:Drowning1.jpg to File:Drowning4.jpg",
+    "notes": "From the wiki's text, not checked in play: the sprite slips in after the player paces above the lake and then presses left and right; the white shape is the sprite falling; the last screen comes about two minutes later, its background flashes colours, and the game then has to be restarted. The ending has no trophy of its own. The game does not say who the three shapes on the last screen are. UCN returns to this lake and leaves its player nothing to do but sink into it (ucn-omc-ending-drowning)."
+  },
+  {
+    "id": "fw-chippers-revenge-ending",
+    "title": "Chipper's Revenge: 'You wanted to be scared... Obscurity...'",
+    "claim": "Beaten, the optional boss Chipper's Revenge says that it was always supposed to be him, that his lush, colourful world was not enough for the player, who wanted to be scared, and that what happened to him was obscurity. He vows that he, not Freddy Fazbear, will sharpen his teeth on the player's bones. 'The End' follows.",
+    "quote": "You haven't seen the last of me. Freddy Fazbear isn't the one who will be sharpening his teeth on your bones. It will be me.",
+    "game": "fnaf-world",
+    "kind": "ending",
+    "location": "Chipper's Revenge ending (optional boss, Mysterious Mine)",
+    "certainty": "stated",
+    "when": {
+      "label": "FNaF World (outside the core timeline; undated)",
+      "precision": "unknown",
+      "basis": "FNaF World gives no in-universe date."
+    },
+    "tags": [
+      "meta",
+      "chipper"
+    ],
+    "related": [
+      "fw-hard-ending-killing-the-storyteller",
+      "fw-normal-ending-still-in-control",
+      "fw-update2-game-bombed"
+    ],
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) (Chipper's Revenge Ending) ; on-screen text of https://freddy-fazbears-pizza.fandom.com/wiki/File:Chipperending1.jpg to File:Chipperending7.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Chipper%27s_Revenge",
+    "notes": "Earlier boxes include 'This isn't fair...' and 'You wanted to be scared. You wanted to feel dread.' Per the wiki the boss is modelled on a robot beaver from Scott Cawthon's earlier game Chipper & Sons Lumber Co. Reading, not label: the author's older, gentler work complaining that Freddy eclipsed it. It says nothing about the story's events."
   }
 ]
