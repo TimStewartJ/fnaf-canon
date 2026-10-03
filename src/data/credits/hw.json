@@ -2,19 +2,19 @@
   {
     "file": "hw-tape-room.jpg",
     "game": "help-wanted",
-    "caption": "The hidden Tape Room where Tape Girl's logs are played",
+    "caption": "The hidden Tape Room where the tester's logs are played",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:VRTapeRoom.jpg"
   },
   {
     "file": "hw-glitchtrap-tape-room.jpg",
     "game": "help-wanted",
-    "caption": "Glitchtrap appearing behind the player in the Tape Room (rare)",
+    "caption": "The rabbit figure appearing behind the player in the Tape Room (rare)",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:VRGlitchtrapTapeRoom.jpg"
   },
   {
     "file": "hw-glitchtrap-behind-player.jpg",
     "game": "help-wanted",
-    "caption": "Glitchtrap's near-opaque form looming in the hub",
+    "caption": "The rabbit figure in its near-solid form: a yellow rabbit costume with a purple vest, bow tie and eyes",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:VRabbit.png"
   },
   {
@@ -26,7 +26,7 @@
   {
     "file": "codb-dancing-glitchtrap.jpg",
     "game": "curse-of-dreadbear",
-    "caption": "Glitchtrap dancing on a distant hill in the Halloween hub",
+    "caption": "The rabbit figure dancing on a distant hill in the Halloween hub",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:CoDB_Dancing_Glitchtrap_easter_egg.png"
   },
   {
@@ -38,7 +38,7 @@
   {
     "file": "hw2-hub-real-world.jpg",
     "game": "help-wanted-2",
-    "caption": "The Help Wanted 2 hub as seen with the Security Mask removed",
+    "caption": "The Help Wanted 2 hub with the mask removed: a dark, derelict pizzeria room",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Main_hub_(Ruined).png"
   },
   {
@@ -50,7 +50,133 @@
   {
     "file": "hw2-pq4-vanny-crushes-glitchtrap.jpg",
     "game": "help-wanted-2",
-    "caption": "Princess Quest IV ending: Vanny outside the claw machine with the Glitchtrap plush",
+    "caption": "Princess Quest IV ending: the giant rabbit-masked figure outside the claw machine, hands closed on the tiny rabbit",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Vanny_crushing_Glitchtrap.png"
+  },
+  {
+    "file": "hw-intro-closed-poster.jpg",
+    "game": "help-wanted",
+    "caption": "Intro-ride poster: a Freddy Fazbear's storefront, closed and crossed with police tape",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:IntroPoster_Shutdown.png"
+  },
+  {
+    "file": "hw-trapped-ending-door.jpg",
+    "game": "help-wanted",
+    "caption": "Trapped ending: the rabbit figure, finger to its lips, behind the hatch of a sealed metal door",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Screenshot_2019-05-28_at_12.11.15_PM.png"
+  },
+  {
+    "file": "hw-trapped-ending-plush.jpg",
+    "game": "help-wanted",
+    "caption": "The green rabbit plush left behind by the Trapped ending",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:VRGlitchtrapPlush.jpg"
+  },
+  {
+    "file": "hw-pq1-final-room.jpg",
+    "game": "help-wanted",
+    "caption": "Princess Quest's final room: a purple rabbit-eared mass above the Princess, with a line of glyphs",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PrincessQuestGlitchtrap.png"
+  },
+  {
+    "file": "hw-pq1-graveyard.png",
+    "game": "help-wanted",
+    "caption": "Princess Quest's graveyard: six stones, each with a brazier (wiki screenshot; version not stated)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PQ1_MCI_graveyard.png"
+  },
+  {
+    "file": "hw-hub-fnaf1-menu.jpg",
+    "game": "help-wanted",
+    "caption": "The hub's level-select monitor, headed 'FNAF 1' (cropped)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:HW1_hub.png"
+  },
+  {
+    "file": "hw-pizza-party-room.jpg",
+    "game": "help-wanted",
+    "caption": "Pizza Party's final room, dressed for a birthday",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:VRPizzaPartyBackstage.jpg"
+  },
+  {
+    "file": "codb-fallfest-83-banner.jpg",
+    "game": "curse-of-dreadbear",
+    "caption": "The Halloween hub's banner, 'FALLFEST 83'', with the truck's purple headlights at left",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FallFest_83.png"
+  },
+  {
+    "file": "codb-purple-headlights.jpg",
+    "game": "curse-of-dreadbear",
+    "caption": "The old truck in the Halloween hub with its headlights turned purple",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:CoDB_purple_car_easter_egg.png"
+  },
+  {
+    "file": "hw2-hidden-room-pq4-poster.jpg",
+    "game": "help-wanted-2",
+    "caption": "The hidden room: the 'Princess Quest IV' cabinet, the blocking device and the 'TAKE OFF YOUR MASK!' poster",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PQ4_storage_area_(AR).png"
+  },
+  {
+    "file": "hw2-poster-take-off-your-mask.jpg",
+    "game": "help-wanted-2",
+    "caption": "Staff poster texture: 'CLOCKING OUT? ALREADY? TAKE OFF YOUR MASK!'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:T_Poster_Mask2.png"
+  },
+  {
+    "file": "hw2-pq4-old-man-you-are-won.jpg",
+    "game": "help-wanted-2",
+    "caption": "Princess Quest IV: the old man's line 'You are Won. And you remain.'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Old_Man_talking_to_the_Princess.png"
+  },
+  {
+    "file": "hw2-pq4-fair-trade.jpg",
+    "game": "help-wanted-2",
+    "caption": "Princess Quest IV: the old man with the green rabbit plush, 'It is a fair trade'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Glitchtrap_plush_OMC.png"
+  },
+  {
+    "file": "hw2-pq4-moon-takes-plush.jpg",
+    "game": "help-wanted-2",
+    "caption": "Princess Quest IV ending: Moon carries the green plush toward the giant rabbit-masked figure",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Glitchtrap_plushie_moon.png"
+  },
+  {
+    "file": "hw2-memory-doll-hand.jpg",
+    "game": "help-wanted-2",
+    "caption": "A costumed arm holds out the Chica-masked memory doll from a trash bin",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Glitchtrap_holding_Chica_memory_doll.png"
+  },
+  {
+    "file": "hw2-white-tiger-hand.jpg",
+    "game": "help-wanted-2",
+    "caption": "The White Tiger doll held out after the keypad code 1979",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Glitchtrap_holding_White_Tiger_memory_doll.png"
+  },
+  {
+    "file": "hw2-fall-fest-1970-poster.jpg",
+    "game": "help-wanted-2",
+    "caption": "Poster texture: 'AUTUMN ARRIVES / 19 70 / FALL FEST'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:T_Poster_Fallfest.png"
+  },
+  {
+    "file": "hw2-mcm-puzzle.jpg",
+    "game": "help-wanted-2",
+    "caption": "The 'MCM DOUBLE-VISION PUZZLE' box art: a shopfront signed 'MASKS' and 'GIFTS HERE'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:MCMPuzzle.jpg"
+  },
+  {
+    "file": "hw2-hub-helpi-gift.jpg",
+    "game": "help-wanted-2",
+    "caption": "Hub screen card: 'Why are you ignoring the gift?' (cropped)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FF_upset2.png"
+  },
+  {
+    "file": "hw2-pq4-secret-bonnie-mask.jpg",
+    "game": "help-wanted-2",
+    "caption": "Princess Quest IV's secret chest: a Bonnie mask under the caption 'This looks familiar...'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:The_secret_bonnie_mask.png"
+  },
+  {
+    "file": "hw2-pq4-take-it.jpg",
+    "game": "help-wanted-2",
+    "caption": "The cabinet screen reads 'Princess Quest (Alpha)' and 'Take it' as the Princess reaches out of the game",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:HW_2_protagonis_reciewing_the_sword.png"
   }
 ]

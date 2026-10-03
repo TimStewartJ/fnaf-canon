@@ -64,5 +64,59 @@
     "game": "ucn",
     "caption": "UCN final cutscene: classic Golden Freddy in the void",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:UCN-FinalCutscene.jpg"
+  },
+  {
+    "file": "ffps-lorekeeper-the-end.jpg",
+    "game": "ffps",
+    "caption": "Post-credits Lorekeeper image at full size: five stones in a row (Gabriel, Fritz, Susie, Jeremy, one hidden by grass), a sixth on the hill, and 'THE END'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:The_End.png"
+  },
+  {
+    "file": "ffps-security-puppet-child-outside.png",
+    "game": "ffps",
+    "caption": "Security Puppet minigame: the Puppet at the EXIT door, the assigned child with the green bracelet outside the window",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:SeucurityPuppetMinigame.png"
+  },
+  {
+    "file": "ffps-midnight-motorist-secret-drive.png",
+    "game": "ffps",
+    "caption": "Midnight Motorist's secret area: a dark purple car on a rainy forest road at night",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:MidnightMotorist_Gameplay2.png"
+  },
+  {
+    "file": "ffps-molten-freddy-alley.jpg",
+    "game": "ffps",
+    "caption": "Rare back-alley screen: Molten Freddy, a tangle of wires and loose eyes under a plated bear face",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Molten_Freddy_Alley.png"
+  },
+  {
+    "file": "ffps-scrap-baby-alley.jpg",
+    "game": "ffps",
+    "caption": "Rare back-alley screen: Scrap Baby, with a toothed claw in place of her right hand",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Scrap_Baby_Alley.png"
+  },
+  {
+    "file": "ffps-scraptrap-alley.jpg",
+    "game": "ffps",
+    "caption": "Rare back-alley screen: the salvaged rabbit animatronic the credits name William Afton",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:1913.png"
+  },
+  {
+    "file": "ffps-completion-pizza-place-condemned.png",
+    "game": "ffps",
+    "caption": "Completion ending slide: a building signed 'Freddy Fazbear's Pizza Place' with a CONDEMNED notice",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FFPSCompletionEnding3.png"
+  },
+  {
+    "file": "ucn-roster-teaser.jpg",
+    "game": "ucn",
+    "caption": "Scott's scottgames.com teaser of UCN's fifty-character roster, with Springtrap and the FFPS rabbit ('Afton') both on it",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:UCN_CustomNight-Teaser13.jpg"
+  },
+  {
+    "file": "ucn-toy-chica-finale.jpg",
+    "game": "ucn",
+    "caption": "'Toy Chica: The High School Years' finale: Toy Chica writing under a tree, her backpack of classmates' parts behind it",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:1793.png"
   }
 ]

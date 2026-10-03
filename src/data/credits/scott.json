@@ -88,5 +88,47 @@
     "game": "scott",
     "caption": "The Desolate Hope (Scott Cawthon, 2014), Steam header",
     "sourcePage": "https://store.steampowered.com/app/298180/The_Desolate_Hope/"
+  },
+  {
+    "file": "scottgames-fnaf2-something-borrowed.jpg",
+    "game": "scottgames-site",
+    "caption": "FNaF2 teaser 'something borrowed... something new...' (official scottgames.com file, Sept 2014)",
+    "sourcePage": "https://web.archive.org/web/20140928232213im_/http://www.scottgames.com/fnaf2.jpg"
+  },
+  {
+    "file": "scottgames-fnaf3-parts-box-brightened.jpg",
+    "game": "scottgames-site",
+    "caption": "FNaF3 teaser 'whatcanweuse.jpg' (official scottgames.com file, Jan 2015) beside a researcher-brightened copy showing a figure at the right",
+    "sourcePage": "https://web.archive.org/web/20150115162844im_/http://www.scottgames.com/whatcanweuse.jpg"
+  },
+  {
+    "file": "scottgames-fnafworld-iamstillhere-eyes.jpg",
+    "game": "scottgames-site",
+    "caption": "fnafworld.com teaser 'Iamstillhere.jpg': two green eyes (official file, June 2017)",
+    "sourcePage": "https://web.archive.org/web/20170611225135im_/http://www.fnafworld.com/Iamstillhere.jpg"
+  },
+  {
+    "file": "scottgames-ffps-pixel-cake-teaser.jpg",
+    "game": "scottgames-site",
+    "caption": "Pizzeria Simulator teaser: 8-bit Freddy carrying a cake to three children (official scottgames.com file, Oct 2017)",
+    "sourcePage": "https://web.archive.org/web/20171028210059im_/http://www.scottgames.com/image01.jpg"
+  },
+  {
+    "file": "scottgames-sb-rock-rabbit-figure-compare.jpg",
+    "game": "scottgames-site",
+    "caption": "Security Breach 'ROCK!' teaser, same area enlarged from two versions of the official file: Sept 2019 (left) and Nov 2019 (right, with a rabbit-eared figure). Researcher-made crop",
+    "sourcePage": "https://web.archive.org/web/20191106080529im_/http://www.scottgames.com/7_1.jpg"
+  },
+  {
+    "file": "scottgames-fnafworld-58-hidden-quotes.jpg",
+    "game": "scottgames-site",
+    "caption": "fnafworld.com '58' teaser with its hidden mock quotes (official file, Aug 2019, brightened by researcher)",
+    "sourcePage": "https://web.archive.org/web/20190808234425im_/http://www.fnafworld.com/58.jpg"
+  },
+  {
+    "file": "scottgames-hw-hidden-lines-highpass.jpg",
+    "game": "scottgames-site",
+    "caption": "Help Wanted teaser (official scottgames.com file, 11 Mar 2019), high-pass filtered by researcher so the four hidden lines show",
+    "sourcePage": "https://web.archive.org/web/20190311231606im_/http://www.scottgames.com/hw.jpg"
   }
 ]

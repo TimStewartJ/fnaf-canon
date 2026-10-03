@@ -67,8 +67,8 @@
   },
   {
     "file": "fnaf4-plush-night6-dots.jpg",
-    "game": "fnaf4",
-    "caption": "Night 6: 'I will put you back together.' over two small white dots, the plush's pupils",
+    "game": "fnaf-world",
+    "caption": "MISFILED: this is FNaF World's opening screen ('I will put you back together.' over two dots), not FNaF4's Night 6. No record uses it any more; see fw-opening-put-you-back-together.png.",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ImHere.jpg"
   },
   {
@@ -82,5 +82,161 @@
     "game": "fnaf-world",
     "caption": "FNaF World's unused 'ChestOpen' asset: FNaF4's box, opened and empty",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ChestOpen.png"
+  },
+  {
+    "file": "sl-private-room-1983-monitors.jpg",
+    "game": "sister-location",
+    "caption": "Private Room after the keypad code: the three monitors show a bedroom (top), a hallway with a chair (bottom left) and a bed (bottom right); Fredbear plush at their left. Clock 4 AM, power 42%.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Maxresdefault_(1).jpg"
+  },
+  {
+    "file": "sl-private-room-feeds-fnaf4.png",
+    "game": "sister-location",
+    "caption": "The three Private Room monitor feeds as game textures (2.5x upscale, side by side): bedroom, hallway, bed. Wiki files Private Room-Habitación / -Hallway / -Cama (FNaF 4)-Sister Location.png.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Private_Room-Habitaci%C3%B3n_(FNaF_4)-Sister_Location.png"
+  },
+  {
+    "file": "sl-private-room-plush-handset.jpg",
+    "game": "sister-location",
+    "caption": "Private Room desk: the Fredbear plush with a grey handset (antenna, keys, speaker grille) in its lap (wiki close-up of the room render, downscaled).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDoll.png"
+  },
+  {
+    "file": "sl-breaker-panel-ingame.jpg",
+    "game": "sister-location",
+    "caption": "Night 2 Breaker Room panel in game (2x upscale): eight restartable systems ending in Obsv.1 and Obsv.2 (cursor over the last label), and the map with three faint clusters outside the facility.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Fnafslmap.webp"
+  },
+  {
+    "file": "sl-breaker-map-clean.png",
+    "game": "sister-location",
+    "caption": "Breaker Room map texture: the facility in bold outline and three faint clusters (upper left, upper right, lower left), each with one white dot.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Circus_Babys_Entertainment_and_Rental_map.png"
+  },
+  {
+    "file": "sl-obsv2-vs-fnaf4-house-map.png",
+    "game": "sister-location",
+    "caption": "Left: the upper-right faint cluster (Obsv.2) of Sister Location's breaker map, 4x. Right: FNaF4's House Map cheat screen (wiki File:FnaF4Map.png). Side-by-side composite of two game textures.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Circus_Babys_Entertainment_and_Rental_map.png"
+  },
+  {
+    "file": "sl-private-room-camera-map.png",
+    "game": "sister-location",
+    "caption": "Private Room camera map texture (3x upscale): the office marked YOU, a central vent, two halls and a wide room above.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PrivateRoomMap.png"
+  },
+  {
+    "file": "sl-extras-map-afton-robotics.jpg",
+    "game": "sister-location",
+    "caption": "Extras menu map titled 'Circus Baby's Entertainment & Rental', footer 'Copyright (c) Afton Robotics LLC' (2x upscale).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_CBE%26R_Layout.png"
+  },
+  {
+    "file": "sl-blueprint-circus-baby.jpg",
+    "game": "sister-location",
+    "caption": "Rare blueprint screen: Circus Baby (air hose attachment, internal ice cream dispenser, song databank, emergency stop).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Baby_Blueprints.png"
+  },
+  {
+    "file": "sl-blueprint-ballora.jpg",
+    "game": "sister-location",
+    "caption": "Rare blueprint screen: Ballora (audio activation sensor, 'Deter & Misdirect Remote Activation see: Circus Baby dir07').",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Ballora_Blueprints.png"
+  },
+  {
+    "file": "sl-blueprint-funtime-freddy.jpg",
+    "game": "sister-location",
+    "caption": "Rare blueprint screen: Funtime Freddy (proximity sensor/grouping coordination, parental tracking, voice mimic/luring, storage tank).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Funtime_Freddy_Blueprints.png"
+  },
+  {
+    "file": "sl-blueprint-funtime-foxy.jpg",
+    "game": "sister-location",
+    "caption": "Rare blueprint screen: Funtime Foxy (light activation sensor, parental voice sync & replay, variable scent release, remote floor anchor).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Funtime_Foxy_Blueprints.png"
+  },
+  {
+    "file": "sl-custom-night-decay-stages.png",
+    "game": "sister-location",
+    "caption": "Custom Night walking cutscenes: first frame of each of the six walk sprites, in order (wiki files AftonWalk1.gif to AftonWalk6.gif).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:AftonWalk1.gif"
+  },
+  {
+    "file": "sl-golden-freddy-cutscene-fazbears-fright.png",
+    "game": "sister-location",
+    "caption": "Golden Freddy V. Hard cutscene: a burnt building with a 'FAZBE… / FRI…' sign and a rabbit-eared figure at the right.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:SLSpringtrap.png"
+  },
+  {
+    "file": "fnaf4-night6-put-you-back-together.png",
+    "game": "fnaf4",
+    "caption": "Night 6 cutscene at 'I will put you back together.': the child and the whole Fredbear plush, the other plushies already gone (frame from a gameplay capture).",
+    "sourcePage": "https://www.youtube.com/watch?v=jz6BZbZotGo"
+  },
+  {
+    "file": "fnaf4-bite-fredbear-stage.png",
+    "game": "fnaf4",
+    "caption": "Post-Night 5 minigame: the child in Fredbear's mouth on the stage, Spring Bonnie beside it, the four masked boys below.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:TheBiteof83.png"
+  },
+  {
+    "file": "fnaf4-house-second-bedroom.png",
+    "game": "fnaf4",
+    "caption": "Post-Night 3 minigame: the house's second bedroom (pink bed, flower picture, pink-and-white toy pieces on the floor), the Fredbear plush at its doorway (frame from a gameplay capture).",
+    "sourcePage": "https://www.youtube.com/watch?v=36TkKbnWEQA"
+  },
+  {
+    "file": "fnaf4-minigame-house-rooms.png",
+    "game": "fnaf4",
+    "caption": "The four rooms of the minigame house: living room, hallway with grandfather clock, second bedroom, the child's bedroom (four frames from gameplay captures, half size each).",
+    "sourcePage": "https://www.youtube.com/watch?v=36TkKbnWEQA"
+  },
+  {
+    "file": "fw-opening-put-you-back-together.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World first-launch opening: two yellow dots in the dark, 'I will put you back together.' (official IndieDB screenshot).",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaFWorld_IndieDB-Screenshot4.jpg"
+  },
+  {
+    "file": "fw-clock-ending-still-your-friends.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World clock ending: 'We are still your friends. Do you believe that?' over two yellow dots.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocksend2.jpg"
+  },
+  {
+    "file": "fw-clock-game-395248.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World, fourth clock game: the number 395248 on screen.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks5-7.jpg"
+  },
+  {
+    "file": "fw-8bit-fredbear-breadcrumbs.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World: 8-bit Fredbear's 'You have to leave breadcrumbs for him, to help him find his way.'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks1-2.jpg"
+  },
+  {
+    "file": "fw-old-man-consequences.jpg",
+    "game": "fnaf-world",
+    "caption": "FNaF World fourth-glitch ending: 'My name is Old Man Consequences. Come have a seat, and let's fish for a while.'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Fourthglitch3.jpg"
+  },
+  {
+    "file": "fw-desk-man-dead.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World Update 2: the man at the desk slumped in a dark red pool after the lights return.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:DeskManDead.png"
+  },
+  {
+    "file": "fw-desk-man-her-name-is-baby.png",
+    "game": "fnaf-world",
+    "caption": "FNaF World Update 2 final scene: the man at the desk, 'Her name is Baby.' (frame from a gameplay capture).",
+    "sourcePage": "https://www.youtube.com/watch?v=Na0kBMXXuKk"
+  },
+  {
+    "file": "fnaf4-left-hall-grandfather-clock.jpg",
+    "game": "fnaf4",
+    "caption": "Upper left: FNaF4's gameplay Left Hall (wiki File:LeftHall.png, brightness raised 2.6x). Right: the boxed far end enlarged, brightness 4x: a grandfather clock and a box. Lower left: the minigame hallway's grandfather clock (frame from a gameplay capture, https://www.youtube.com/watch?v=36TkKbnWEQA). Composite.",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:LeftHall.png"
   }
 ]

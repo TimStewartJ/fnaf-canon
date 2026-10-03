@@ -70,5 +70,71 @@
     "game": "secret-of-the-mimic",
     "caption": "Framed (Unfinished Business) ending: the Mimic at Arnold's crashed van",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Mimi_Checking_Up_On_Arnold2.png"
+  },
+  {
+    "file": "sotm-work-order-1979.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Fazbear Entertainment work order from Arnold's van, dated 9/07/79: 'Extract Blueprints from MCM Facility'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Arnold_work_order_1.png"
+  },
+  {
+    "file": "sotm-credential-form-1979.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Arnold's Fazbear Entertainment Employee Credential Form: expiration year 1979",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Arnold_employee_credentials_form.png"
+  },
+  {
+    "file": "sotm-mxes-subterminal.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "H.E.L.P.E.R. sub-terminal headed 'Mechanical X-form Experimental Storage #1', offering RUN: CRADLE.EXE",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:M.X.E.S._1_sub_terminal.png"
+  },
+  {
+    "file": "sotm-f10n4-and-mxes-cabinets.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Three in-game screenshots, cropped and set side by side: the F10-N4 cabinet (Secret of the Mimic), the M.X.E.S. cabinet in RUIN's deepest room (File:MXES_Computer_room.png), and the M.X.E.S. cabinet in Help Wanted 2's van (File:HW2_Van_MXES.png)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:F10-N4_temp.png"
+  },
+  {
+    "file": "sotm-fredbears-diner-poster.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Poster texture: 'JOIN US AT... FREDBEAR'S FAMILY DINER' with a yellow rabbit, 'NEW MENU ITEMS!'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:T_CarnivalPosters_FFD_Bonnie_.png"
+  },
+  {
+    "file": "sotm-mcm-memo-1974.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Murray's Costume Manor interoffice memo dated 04/23/1974 on 'bring your child to work day'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:MCM_interoffice_memo.png"
+  },
+  {
+    "file": "ruin-gregory-comic-pages.jpg",
+    "game": "ruin",
+    "caption": "The eight collectible comic pages attributed to Gregory. Composite of the wiki's Comic1.png to Comic8.png",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Comic1.png"
+  },
+  {
+    "file": "ruin-newspaper-earthquake.jpg",
+    "game": "ruin",
+    "caption": "Newspaper texture from the ruined Pizzaplex: 'Pizza Plex Destroyed', 'Earthquake shakes pizza plex' (enlarged from a small texture)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PizzaplexEarthquake_Nespaper.png"
+  },
+  {
+    "file": "ruin-safe-spot-ending-hill.jpg",
+    "game": "ruin",
+    "caption": "RUIN's Safe Spot ending: Gregory, Helpi and Vanessa with ice creams on the hill from Security Breach's Redemption ending. Subtitle: 'Cassie! I'm ok. I found a spot to hide.'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Ruin-brazil-ending.webp"
+  },
+  {
+    "file": "itp-freddys-logo-1985.png",
+    "game": "into-the-pit",
+    "caption": "Freddy Fazbear's Pizza logo graphic from Into the Pit, with the year 1985",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ITP_Freddy_Fazbear%27s_Pizza_logo_1985.png"
+  },
+  {
+    "file": "itp-sketchbook-chica-smell.jpg",
+    "game": "into-the-pit",
+    "caption": "Technician's sketchbook, Chica page: 'Why is she starting to smell bad?'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ITP_Sketchbook_1.png"
   }
 ]
