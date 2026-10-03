@@ -24,7 +24,7 @@ export function TieRow({ status, children, note, evidence, extra }: { status: St
 }
 
 /** The sentence of a tie with both ends named: "William Afton is the parent of Michael Afton". */
-export function TieSentence({ r }: { r: Pick<Relation, "from" | "to" | "kind"> }) {
+export function TieSentence({ r }: { r: { from: string; to: string; kind: string } }) {
   return <><Name id={r.from} /> {tieWords(r.kind).says} <Name id={r.to} /></>;
 }
 

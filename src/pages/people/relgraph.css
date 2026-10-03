@@ -1,29 +1,50 @@
 /*
- * Shared by the Family Trees and Web pages (cluster C): SVG edges and nodes, and the panel that
- * shows the evidence behind a selected tie.
+ * Shared by the Family Trees and the Web (cluster C): the lines of a diagram, the key to them, and
+ * the panel for the tie that is picked.
  *
- * A tie's firmness is its line style (solid = canon, dashed = strong inference, dotted = theory),
- * set by data-level on the edge. Its family (data-tie) sets the colour, with the word always
- * available in the legend and in the detail panel.
+ * A line says two things. Its style is how firm the tie is: solid, dashed or dotted, the same
+ * firmness grammar as everywhere else (data-level on the line sets --firm-dash). Its colour is the
+ * family of tie (data-tie): neutral for family and work, the accent for identity, the tension tone
+ * for killing and hunting, the open tone for making and controlling. The words are always given
+ * too: in the key, in the tooltip, in the panel and in the list beside the diagram.
  */
-.tree-wrap, .graph-wrap { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-2); }
-.edge { cursor: pointer; --tie: var(--c-text-2); }
-.edge[data-tie="identity"] { --tie: var(--c-accent); }
-.edge[data-tie="harm"] { --tie: var(--c-tension); }
-.edge[data-tie="made"] { --tie: var(--c-open); }
-.edge-hit { stroke: transparent; stroke-width: 16; fill: none; }
-.edge-line { fill: none; stroke: var(--tie); stroke-width: 1.8; stroke-dasharray: var(--firm-dash, none); stroke-linecap: round; }
-.edge:hover .edge-line { stroke-width: 3; }
-.edge.sel .edge-line { stroke-width: 4; }
-.edge.dim, .gnode.dim { opacity: 0.14; }
+.rel-edge { --tie: var(--c-text-2); }
+.rel-edge[data-tie="identity"] { --tie: var(--c-accent); }
+.rel-edge[data-tie="harm"] { --tie: var(--c-tension); }
+.rel-edge[data-tie="made"] { --tie: var(--c-open); }
 
-.rel-detail { margin-top: var(--sp-4); padding: var(--sp-4) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line-strong); border-radius: var(--r-lg); }
-.rel-detail h3 { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: 0 0 var(--sp-2); font-family: var(--font-ui); font-size: var(--fs-md); font-weight: 600; letter-spacing: 0; }
-.rel-detail p { margin: var(--sp-2) 0 0; }
-.rel-under { padding-top: var(--sp-3); margin-top: var(--sp-3); border-top: 1px solid var(--c-line); }
-.rel-under:first-of-type { border-top: 0; padding-top: 0; }
+g.rel-edge { cursor: pointer; }
+g.rel-edge:focus-visible { outline: none; }
+.rel-edge__hit { fill: none; stroke: transparent; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; pointer-events: stroke; }
+.rel-edge__line { fill: none; stroke: var(--tie); stroke-width: 1.6; stroke-dasharray: var(--firm-dash, none); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.rel-edge__arrow { fill: var(--tie); stroke: var(--tie); stroke-width: 1; stroke-linejoin: round; pointer-events: none; }
+g.rel-edge:hover .rel-edge__line { stroke-width: 3; }
+g.rel-edge.is-sel .rel-edge__line { stroke-width: 3.2; }
+g.rel-edge.is-sel .rel-edge__hit { stroke: var(--c-accent-soft); stroke-width: 12; }
+g.rel-edge:focus-visible .rel-edge__hit { stroke: var(--c-focus); stroke-opacity: 0.45; stroke-width: 9; }
+g.rel-edge.is-dim { opacity: 0.28; }
+@media (prefers-reduced-motion: no-preference) {
+  g.rel-edge { transition: opacity var(--dur-1) var(--ease); }
+}
 
-.tie-legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-5); margin: var(--sp-3) 0; font-size: var(--fs-sm); color: var(--c-text-2); }
-.tie-legend span { display: inline-flex; align-items: center; gap: 0.5em; }
-.tie-legend svg { flex: none; }
-.tie-legend line { stroke: var(--tie, var(--c-text-2)); stroke-width: 2; stroke-linecap: round; }
+/* ── The key ───────────────────────────────────────────────────── */
+.rel-key { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-7); margin: var(--sp-3) 0; }
+.rel-key__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-4); margin: 0; font-size: var(--fs-sm); color: var(--c-text-2); }
+.rel-key__item { display: inline-flex; align-items: center; gap: 0.5em; }
+.rel-key__line { flex: none; }
+.rel-key__line line { stroke: var(--c-text-2); stroke-width: 2; stroke-linecap: round; stroke-dasharray: var(--firm-dash, none); }
+.rel-key__line--plain line { stroke: var(--tie, var(--c-text-2)); stroke-dasharray: none; }
+
+/* ── The tie that is picked ────────────────────────────────────────
+ * Sticks to the bottom of the diagram's frame while the frame is on screen. The left rule is drawn
+ * in the firmness of the tie. */
+.rel-bar { position: sticky; bottom: 0; z-index: var(--z-raised); max-height: min(48vh, 26rem); overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-2) var(--sp-3) var(--sp-4) var(--sp-4); background: var(--c-overlay); border-top: 1px solid var(--c-line-strong); border-left: 3px var(--firm-style, solid) var(--c-accent); border-radius: 0 0 var(--r-lg) var(--r-lg); box-shadow: var(--shadow-2); }
+.rel-bar__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-3); }
+.rel-bar__line { margin: 0.45rem 0 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-md); line-height: 1.4; color: var(--c-text); }
+.rel-bar__line > .firm { margin-left: 0.5em; font-family: var(--font-ui); font-size: var(--fs-sm); }
+.rel-bar__note { max-width: 44rem; margin: var(--sp-1) 0 0; font-family: var(--font-text); font-size: var(--fs-base); line-height: 1.5; color: var(--c-text-2); text-wrap: pretty; }
+.rel-bar__body { margin-top: var(--sp-1); }
+.rel-bar__rel + .rel-bar__rel { margin-top: var(--sp-3); padding-top: var(--sp-3); border-top: 1px solid var(--c-line); }
+.rel-bar__sub { margin: 0; font-family: var(--font-text); font-size: var(--fs-base); color: var(--c-text); }
+.rel-bar__sub > .firm { margin-left: 0.5em; font-family: var(--font-ui); font-size: var(--fs-sm); }
+.rel-bar__ev { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); margin: var(--sp-2) 0 0; }

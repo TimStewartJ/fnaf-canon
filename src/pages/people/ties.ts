@@ -5,7 +5,7 @@
  * Everything is keyed by the relation kinds in the data and falls back to the kind's own id, so a
  * kind added to the schema later still renders (as "employed by" does for "employed-by").
  */
-import type { Relation, Status } from "../../data/schema";
+import type { Status } from "../../data/schema";
 import { labelForEntity } from "../../data/store";
 
 /** What a tie is about. It picks the line colour in the diagrams; the word is always shown too. */
@@ -77,7 +77,7 @@ export const weakest = (list: Status[]): Status => list.reduce<Status>((w, s) =>
 export const strongest = (list: Status[]): Status => list.reduce<Status>((w, s) => (STATUS_RANK[s] > STATUS_RANK[w] ? s : w), "theory");
 
 /** A full plain-text sentence for a relation: "William Afton is the parent of Michael Afton". */
-export function tieSentence(r: Pick<Relation, "from" | "to" | "kind">): string {
+export function tieSentence(r: { from: string; to: string; kind: string }): string {
   return `${labelForEntity(r.from)} ${tieWords(r.kind).says} ${labelForEntity(r.to)}`;
 }
 
