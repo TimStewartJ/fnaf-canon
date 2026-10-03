@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
@@ -66,7 +66,7 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
           <h2 className="tl-era__title" tabIndex={-1}>{smartQuotes(era.name)}</h2>
           {era.range && <DatePill label={era.range} kind={date?.kind ?? "unknown"} basis={date?.basis} evidence={date?.evidence} />}
         </div>
-        {era.summary && <p className="tl-era__sum">{smartQuotes(era.summary)}</p>}
+        {era.summary && <p className="tl-era__sum"><RichText text={era.summary} /></p>}
       </header>
       {rows.length > 0 ? (
         <ol className={`tl-list${folded ? " is-folded" : ""}`}>

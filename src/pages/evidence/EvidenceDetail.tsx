@@ -6,7 +6,7 @@ import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   ButtonLink, CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, Empty, EntityLink, EvidenceDate, Fact, Facts, Figure, GameMark, Icon, Page,
-  RichText, SOURCE_KIND_ICON, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, kindLabel, smartQuotes, sourcePath, timelineEventPath,
+  RichText, SOURCE_KIND_ICON, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, kindLabel, smartQuotes, sourcePath, sourceWords, timelineEventPath,
   type LucideIcon,
 } from "../../components/ui";
 import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
@@ -160,7 +160,7 @@ export default function EvidenceDetail() {
       <div className="evx-rec__body">
         <div className="evx-rec__lead">
           <p className="evx-rec__claim">{smartQuotes(e.claim)}</p>
-          {e.quote && <blockquote className="evx-rec__quote">“{smartQuotes(e.quote)}”</blockquote>}
+          {e.quote && <blockquote className="evx-rec__quote">“{sourceWords(e.quote)}”</blockquote>}
         </div>
 
         <aside className="panel evx-rec__facts" aria-label="Record details">
@@ -196,7 +196,7 @@ export default function EvidenceDetail() {
         {(e.image || e.notes || e.verifiedVia) && (
           <div className="evx-rec__more">
             {e.image && <Figure file={e.image} tag="Exhibit" eager />}
-            {e.notes && <Callout tone="note" title="Notes and caveats"><p>{smartQuotes(e.notes)}</p></Callout>}
+            {e.notes && <Callout tone="note" title="Notes and caveats"><p>{sourceWords(e.notes)}</p></Callout>}
             {e.verifiedVia && <p className="evx-rec__check"><span className="label">How the wording was checked</span> <Linked text={e.verifiedVia} /></p>}
           </div>
         )}

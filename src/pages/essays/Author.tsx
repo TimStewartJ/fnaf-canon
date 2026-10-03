@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type AuthorStep, type LexLine } from "../../data/author";
 import { creditByFile, evidenceById } from "../../data/store";
-import { Chip, CiteScope, DatePill, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, hueOf, smartQuotes } from "../../components/ui";
+import { Chip, CiteScope, DatePill, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, hueOf, smartQuotes, sourceWords } from "../../components/ui";
 import {
   EssayAnswers, EssayArgument, EssayChapterLink, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
   type EssayAnswerItem,
@@ -74,7 +74,7 @@ function LexRow({ line, group }: { line: LexLine; group: string[] }) {
         <GameMark id={e.game} />
         {text
           ? <span className="author-lex__words author-lex__words--plain">{smartQuotes(text)}</span>
-          : <span className="author-lex__words">{e.quote ? `“${smartQuotes(e.quote.replace(/\s*…$/, ""))}”` : smartQuotes(e.title)}</span>}
+          : <span className="author-lex__words">{e.quote ? <>“{sourceWords(e.quote.replace(/\s*…$/, ""))}”</> : smartQuotes(e.title)}</span>}
       </EvidenceLink>
     </li>
   );

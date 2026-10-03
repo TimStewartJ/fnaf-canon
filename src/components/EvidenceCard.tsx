@@ -11,7 +11,7 @@ import { Figure } from "./Figure";
 import { GameMark } from "./GameMark";
 import { Icon } from "./Icon";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
-import { smartQuotes } from "./typography";
+import { smartQuotes, sourceWords } from "./typography";
 
 /** A link to an evidence record that opens the drawer (or the full page with `open="page"`). */
 export function EvidenceLink({ id, group, open = "drawer", className, children }: { id: string; group?: string[]; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
@@ -47,7 +47,7 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
       </header>
       <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{smartQuotes(e.title)}</EvidenceLink></h3>
       <p className="ev-card__claim">{smartQuotes(e.claim)}</p>
-      {e.quote && <blockquote className="ev-card__quote">“{smartQuotes(e.quote)}”</blockquote>}
+      {e.quote && <blockquote className="ev-card__quote">“{sourceWords(e.quote)}”</blockquote>}
       {!compact && figure}
       <footer className="ev-card__foot">
         <span className="ev-card__loc"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>

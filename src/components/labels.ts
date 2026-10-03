@@ -56,7 +56,7 @@ export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
   derived: { label: "Derived", help: "Calculated from printed dates and stated intervals" },
   estimated: { label: "Estimated", help: "This archive’s best estimate from the surrounding evidence" },
   relative: { label: "Relative", help: "Only placed relative to other events" },
-  teaser: { label: "Teaser", help: "Shown only in an official teaser, not in the game itself" },
+  teaser: { label: "Teaser", help: "Shown in an official teaser. Where a document in the game agrees, the note says so" },
   unknown: { label: "Undated", help: "The sources give no date" },
 };
 export const DATE_KINDS: DateKind[] = ["printed", "derived", "estimated", "relative", "teaser", "unknown"];

@@ -3,7 +3,7 @@ import { CircleHelp, Image as ImageIcon, X } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { gameById, labelForEntity } from "../../data/store";
 import {
-  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, SOURCE_KIND_ICON, firmness, kindLabel, smartQuotes, useDrawerRecord,
+  Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, SOURCE_KIND_ICON, firmness, kindLabel, smartQuotes, sourceWordsPlain, useDrawerRecord,
   useModalDialog, type LucideIcon,
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
@@ -14,7 +14,7 @@ const kindIcon = (kind: string): LucideIcon => (SOURCE_KIND_ICON as Record<strin
 
 /** Display text with the matched search words marked. */
 export function Marked({ text, terms }: { text: string; terms: string[] }) {
-  const shown = smartQuotes(text);
+  const shown = sourceWordsPlain(text);
   if (!terms.length || fold(shown).length !== shown.length) return <>{shown}</>;
   return <>{marks(shown, terms).map((p, i) => (p.hit ? <mark key={i} className="evx-mark">{p.s}</mark> : p.s))}</>;
 }

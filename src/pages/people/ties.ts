@@ -31,7 +31,8 @@ const WORDS: Record<string, TieWords> = {
   "parent-of": { label: "parent of", says: "is the parent of", own: "parent of", other: "child of", family: "family", directed: false, known: true },
   "sibling-of": { label: "sibling of", says: "is the sibling of", own: "sibling of", other: "sibling of", family: "family", directed: false, known: true },
   "spouse-of": { label: "spouse of", says: "is the spouse of", own: "spouse of", other: "spouse of", family: "family", directed: false, known: true },
-  "partner-of": { label: "partner of", says: "is the partner of", own: "partner of", other: "partner of", family: "family", directed: false, known: true },
+  // The archive does not call anyone a business partner, founder or owner: the sources never do. Data that still uses this kind reads as a working tie.
+  "partner-of": { label: "worked with", says: "worked with", own: "worked with", other: "worked with", family: "family", directed: false, known: true },
   "worked-with": { label: "worked with", says: "worked with", own: "worked with", other: "worked with", family: "family", directed: false, known: true },
   "employed-by": { label: "employed by", says: "was employed by", own: "employed by", other: "employer of", family: "family", directed: true, known: true },
   "same-as": { label: "same being as", says: "is the same being as", own: "the same being as", other: "the same being as", family: "identity", directed: false, known: true },
@@ -54,14 +55,14 @@ export function tieWords(kind: string): TieWords {
 
 export const TIE_FAMILIES: TieFamily[] = ["family", "identity", "harm", "made"];
 export const TIE_FAMILY_LABEL: Record<TieFamily, string> = {
-  family: "Family, partners and work",
+  family: "Family and work",
   identity: "Identity",
   harm: "Killed or hunted",
   made: "Made or controlled",
 };
 /** One line saying what the family covers, for legends. */
 export const TIE_FAMILY_HELP: Record<TieFamily, string> = {
-  family: "parent, sibling, spouse, partner, colleague, employer",
+  family: "parent, sibling, spouse, colleague, employer",
   identity: "haunts, wore, became, the same being",
   harm: "killed, hunted",
   made: "created, controls",

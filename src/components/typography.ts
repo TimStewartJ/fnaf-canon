@@ -5,6 +5,8 @@
  * is applied by <RichText> and the shared components; call it yourself on any other plain string
  * you display (names, titles). Do not use it on ids, URLs or search text.
  */
+import { createElement, type ReactNode } from "react";
+
 const OPENS_AFTER = /[\s([{<|/\u2014\u2013\u2012-]/;
 const WORD = /[\p{L}\p{N}]/u;
 const ELISION = /^(?:em|til|tis|twas|cause|n)\b/i;
@@ -29,3 +31,21 @@ export function smartQuotes(text: string): string {
   }
   return out;
 }
+
+const EMPHASIS = /\*([^\s*](?:[^*\n]*[^\s*])?)\*/g;
+
+/**
+ * A source's own words, for display: typographic quotes, and the emphasis the source marked with
+ * asterisks (Scott's "*are*", a transcript's "*gets cut off*") set in italics. For the `quote`
+ * and `notes` of evidence records, which are plain text by contract and never carry RichText.
+ */
+export function sourceWords(text: string): ReactNode {
+  const shown = smartQuotes(text);
+  if (shown.indexOf("*") < 0) return shown;
+  // With one capture group, split() puts the emphasised runs at the odd positions.
+  return shown.split(EMPHASIS).map((part, i) => (i % 2 ? createElement("em", { key: i }, part) : part));
+}
+
+/** The same words with the asterisks dropped, where italics cannot be shown (an attribute, a search excerpt). */
+export const sourceWordsPlain = (text: string): string => smartQuotes(text).replace(EMPHASIS, "$1");
+

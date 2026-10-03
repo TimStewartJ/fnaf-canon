@@ -148,7 +148,7 @@ export default function Home() {
               <span className="era-row__n">{String(i + 1).padStart(2, "0")}</span>
               <div className="era-row__body">
                 <h3 className="era-row__name"><Link to={`/timeline?era=${e.id}`}>{smartQuotes(e.name)}</Link></h3>
-                <p className="era-row__sum">{smartQuotes(e.summary)}</p>
+                <p className="era-row__sum">{smartQuotes(plainText(e.summary))}</p>
               </div>
               <DatePill label={e.range} kind={ERA_DATES[e.id]?.kind ?? "unknown"} basis={ERA_DATES[e.id]?.basis} evidence={ERA_DATES[e.id]?.evidence} compact />
             </li>

@@ -79,12 +79,20 @@ export function chaptersFor(evidenceIds: string[]): string[] {
 }
 
 /* ── Deaths that a story event already tells ────────────────────────────────────────
- * The data does not link a death to an event, so the link is derived: a death belongs to the story
- * event of the same era that cites at least one of the death's own records. When several do, the
- * one nearest on the line wins, then the one sharing more records. Such a death is shown on its
- * event's row; every other death gets a row of its own. */
+ * Such a death is shown on its event's row; every other death gets a row of its own.
+ * The data says which event tells a death (`Death.event`). Where it does, it is the whole answer: a
+ * death it leaves unlinked has no event (Edwin Murray's disappearance, undated, is not part of the
+ * night of 1979 although the two share records), and a link to an event that does not exist is
+ * ignored. Only data that links no death at all falls back to the rule this page used before the
+ * field existed: a death belongs to the story event of the same era that cites at least one of the
+ * death's own records; when several do, the one nearest on the line wins, then the one sharing more. */
 const hostId = new Map<string, string>();
+const linkedInData = deaths.some((d) => d.event !== undefined);
 for (const d of deaths) {
+  if (linkedInData) {
+    if (d.event !== undefined && eventById.has(d.event)) hostId.set(d.id, d.event);
+    continue;
+  }
   const own = new Set(d.evidence);
   let best: { id: string; gap: number; shared: number } | null = null;
   for (const t of timeline) {

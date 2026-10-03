@@ -10,7 +10,7 @@ import { CERTAINTY, DATE_KIND, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
-import { smartQuotes } from "./typography";
+import { smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
@@ -40,7 +40,7 @@ export function EvidencePreview({ e }: { e: Evidence }) {
       </span>
       <strong className="pop__title">{smartQuotes(e.title)}</strong>
       <span className="pop__text">{smartQuotes(e.claim)}</span>
-      {e.quote && <q className="pop__quote">{smartQuotes(e.quote)}</q>}
+      {e.quote && <q className="pop__quote">{sourceWords(e.quote)}</q>}
       <span className="pop__meta"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>
       <span className="pop__hint">Click to open the record</span>
     </>
@@ -213,7 +213,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         className={`date date--${variant}${compact ? " date--compact" : ""}`}
         data-kind={kind}
         aria-expanded={pop.open}
-        aria-label={`${label}: ${k.label.toLowerCase()} date. Why this date?`}
+        aria-label={kind in DATE_KIND && kind !== "unknown" ? `${label}: ${k.label.toLowerCase()} date. Why this date?` : `${label}: no date is given. Why?`}
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); pop.toggle(); }}
       >
         <DateGlyph kind={kind} />
@@ -223,7 +223,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
           <strong className="pop__title">{smartQuotes(label)}</strong>
-          <span className="pop__text">{basis ? smartQuotes(basis) : k.help}</span>
+          <span className="pop__text">{basis ? smartQuotes(basis) : `${k.help}.`}</span>
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
             <span className="pop__records">

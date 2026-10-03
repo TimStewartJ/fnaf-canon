@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Check } from "lucide-react";
 import type { Evidence, TheoryBlock } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes } from "../../components/ui";
+import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes, sourceWords } from "../../components/ui";
 
 type CompareColumn = Extract<TheoryBlock, { kind: "compare" }>["columns"][number];
 
@@ -13,7 +13,7 @@ function PullQuote({ id, text }: { id: string; text?: string }) {
   const words = text ?? e.quote;
   return (
     <figure className="pullquote">
-      <blockquote className={words ? undefined : "pullquote--claim"}>{smartQuotes(words ?? e.claim)}</blockquote>
+      <blockquote className={words ? undefined : "pullquote--claim"}>{sourceWords(words ?? e.claim)}</blockquote>
       <figcaption>
         <EvidenceLink id={e.id} className="pullquote__source"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></EvidenceLink>
         <CiteGroup ids={[e.id]} />
