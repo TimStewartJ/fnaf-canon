@@ -56,7 +56,7 @@
       "abuse"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "'He' is not named here; the older brother is the only tormentor shown in later minigames (inference)."
+    "notes": "'He' is not named here; the older brother is the one shown scaring the child at home in later minigames (inference)."
   },
   {
     "id": "fnaf4-plushies-these-are-my-friends",
@@ -111,7 +111,7 @@
   },
   {
     "id": "fnaf4-brother-foxy-mask-tv",
-    "title": "Older brother in Foxy mask scares the child",
+    "title": "An older boy in a Foxy mask scares the child",
     "claim": "In the post-Night 1 minigame the child explores the house; when he reaches the TV, an older boy wearing a Foxy mask jumps out and scares him, and the child collapses crying.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -139,11 +139,11 @@
       "fnaf4-plush-he-is-hiding-again"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4) ; 720p capture https://www.youtube.com/watch?v=pTCY2dDFdp0",
-    "notes": "Seen in a capture: a large red Foxy-masked head pops out from behind the TV and the child falls flat on the rug. The masked boy is identified as the child's brother by dialogue in the Night 5 minigame ('your brother') and the Night 6 cutscene. The plush's lines in this minigame are in fnaf4-plush-he-is-hiding-again."
+    "notes": "Seen in a capture: a large red Foxy-masked head pops out from behind the TV and the child falls flat on the rug. The masked boy is identified as the child's brother by dialogue in the Night 5 minigame ('your brother'). The plush's lines in this minigame are in fnaf4-plush-he-is-hiding-again."
   },
   {
     "id": "fnaf4-mangle-pieces-in-house",
-    "title": "A Mangle-like toy lies in pieces in the house",
+    "title": "A pink-and-white toy lies in pieces in the house",
     "claim": "A pulled-apart pink-and-white toy lies scattered on the floor of the house's second bedroom, the one with the pink bed.",
     "game": "fnaf4",
     "kind": "environment",
@@ -204,12 +204,12 @@
   },
   {
     "id": "fnaf4-fredbear-suit-employee-chase",
-    "title": "An employee in a Fredbear suit blocks the exit",
+    "title": "An adult in a Fredbear suit blocks the exit",
     "claim": "An adult wearing a Fredbear suit (face visible in the mouth) appears at the exit and follows the child; the plush warns 'You know what will happen if he catches you!'",
     "quote": "It's too late. Hurry the other way and find someone who will help! You know what will happen if he catches you!",
     "game": "fnaf4",
     "kind": "minigame",
-    "location": "Post-Night 2 minigame, diner entrance",
+    "location": "Post-Night 2 minigame, restaurant entrance",
     "certainty": "shown",
     "when": {
       "label": "c. 1983 — 3 days until the party",
@@ -262,7 +262,7 @@
   {
     "id": "fnaf4-fredbear-spring-bonnie-shadows",
     "title": "Fredbear and Spring Bonnie on stage (shadows)",
-    "claim": "Heading left, the child sees shadows of Fredbear and a Spring Bonnie character performing on the diner's stage; the plush says he can find help if he gets past them. The child hides under a table crying instead.",
+    "claim": "Heading left, the child sees shadows of Fredbear and a Spring Bonnie character performing on the restaurant's stage; the plush says he can find help if he gets past them. The child hides under a table crying instead.",
     "quote": "You can find help if you can get past them. You have to be strong.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -354,7 +354,7 @@
     "quote": "Where is your plush toy? Mine is Spring Bonnie. My Daddy says I have to be careful with him or I will pinch my finger. He is a finger trap, he says.",
     "game": "fnaf4",
     "kind": "minigame",
-    "location": "Post-Night 3 minigame, outside the diner",
+    "location": "Post-Night 3 minigame, outside the restaurant",
     "certainty": "stated",
     "when": {
       "label": "c. 1983 — 2 days until the party",
@@ -397,7 +397,7 @@
       "missing-children"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4) ; read on screen in a 720p capture (https://www.youtube.com/watch?v=36TkKbnWEQA)",
-    "notes": "Cream text. The two sentences quoted were read on screen. The wiki's transcript continues: 'Why do you look so worried? See you at the party! Ha ha ha!' 'They' presumably means the animatronics (inference). A child's rumour, not a confirmed fact; note that it circulates before any killing the games date."
+    "notes": "Cream text. The two sentences quoted were read on screen. The wiki's transcript continues: 'Why do you look so worried? See you at the party! Ha ha ha!' 'They' presumably means the animatronics (inference). A child's rumour, not a confirmed fact. The games give no year for any killing, so whether it is told before or after one is not shown."
   },
   {
     "id": "fnaf4-kid-who-hides-under-table",
@@ -446,7 +446,7 @@
       "dating-clue"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Minor_Characters_(FNaF4)",
-    "notes": "Figures identified by appearance. Toy-animatronic merchandise existing in this c.1983 scene is a timeline wrinkle worth tracking."
+    "notes": "Figures identified by appearance. Figures that look like the Toy animatronics in a c. 1983 scene are a wrinkle worth tracking, not a dating fact."
   },
   {
     "id": "fnaf4-its-your-birthday",
@@ -506,7 +506,7 @@
   {
     "id": "fnaf4-plush-be-careful",
     "title": "Plush: 'Be careful.'",
-    "claim": "When the child reaches home in the 2-days minigame the plush says 'Be careful.'; the brother then scares him from under his bed.",
+    "claim": "When the child reaches home in the 2-days minigame the plush says 'Be careful.'; the older boy then scares him from under his bed.",
     "quote": "Be careful.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -533,8 +533,8 @@
   },
   {
     "id": "fnaf4-plush-follows-child",
-    "title": "The plush follows and watches the child",
-    "claim": "The Fredbear plush keeps reappearing near the child after Nights 1 and 3: on his bed, on the couch, on top of the hallway clock, at a bedroom doorway, by the garden fence, as a head on a flower (the wiki also lists behind a car and in a storm drain). Indoors its pupils turn to follow him; outdoors it has plain black eyes. It is never seen to move, and no plush sprite appears inside the diner, though its text does.",
+    "title": "The plush keeps reappearing near the child",
+    "claim": "The Fredbear plush keeps reappearing near the child after Nights 1 and 3: on his bed, on the couch, on top of the hallway clock, at a bedroom doorway, by the garden fence, as a head on a flower (the wiki also lists behind a car and in a storm drain). Indoors its pupils turn to follow him; outdoors it has plain black eyes. It is never seen to move, and no plush sprite appears inside the restaurant, though its text does.",
     "game": "fnaf4",
     "kind": "minigame",
     "location": "Post-Night 1 and post-Night 3 minigames",
@@ -556,8 +556,8 @@
   },
   {
     "id": "fnaf4-locked-backstage",
-    "title": "Child locked in the diner's back room",
-    "claim": "On the 1-day minigame the child is locked in a parts room containing a headless spring-lock suit, endoskeleton parts, and Fredbear and Spring Bonnie heads on shelves; he cries to be let out and curls up.",
+    "title": "Child locked in a parts room",
+    "claim": "On the 1-day minigame the child is locked in a parts room containing a headless yellow suit, endoskeleton parts, and Fredbear and Spring Bonnie heads on shelves; he cries to be let out and curls up.",
     "quote": "Please let me out.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -706,8 +706,8 @@
   },
   {
     "id": "fnaf4-night6-brother-apology",
-    "title": "Brother: 'Can you hear me? … I'm sorry.'",
-    "claim": "In the Night 6 cutscene, set in darkness, the older brother's voice text asks whether the child can hear him and apologises.",
+    "title": "'Can you hear me? … I'm sorry.' (grey lines of Night 6)",
+    "claim": "In the Night 6 cutscene, set in darkness, grey text with no speaker label asks whether the listener can hear and then apologises. Grey is the colour the game gives the older brother's lines at the party.",
     "quote": "Can you hear me? I don't know if you can hear me. ....I'm sorry.",
     "game": "fnaf4",
     "kind": "cutscene",
@@ -734,12 +734,12 @@
       "sl-fake-ending-girl-voice"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "Grey text with no speaker label. Grey is the colour of the brother's lines at the party, and the content (an apology straight after the Bite) fits him; the attribution is still a reading. The game shows four leading dots before 'I'm sorry.'"
+    "notes": "Grey text with no speaker label. Grey is the colour of the brother's lines at the party, and the content (an apology straight after the bite) fits him; the attribution is still a reading. The game shows four leading dots before 'I'm sorry.'"
   },
   {
     "id": "fnaf4-youre-broken",
     "title": "'You're broken.' (first yellow line of Night 6)",
-    "claim": "After the brother's grey apology, the first of five yellow lines reads 'You're broken.' The child, the Fredbear plush and the four plushies are all on screen; no speaker is named.",
+    "claim": "After the grey apology, the first of five yellow lines reads 'You're broken.' The child, the Fredbear plush and the four plushies are all on screen; no speaker is named.",
     "quote": "You're broken.",
     "game": "fnaf4",
     "kind": "cutscene",
@@ -765,7 +765,7 @@
       "sl-baby-something-bad-inside"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4) ; frame read of a 720p capture (https://www.youtube.com/watch?v=jz6BZbZotGo)",
-    "notes": "Yellow is the Fredbear plush's text colour in every earlier minigame, and the plush sits beside the child here, so the plush is the natural speaker. The wiki says this line is in a different colour from the plush's usual one. Measured in captures from one uploader, all five Night 6 lines share one colour (about RGB 249,253,188). That is paler than the plush's first lines before Night 1 (242,249,139) but the same as its lines after Night 3 (247,251,180), so colour does not separate this speaker from the plush. A second speaker is not ruled out; it just has no colour evidence. Circus Baby later says of herself 'I'm broken. I can't be fixed.' (sl-baby-something-bad-inside)."
+    "notes": "Yellow is the Fredbear plush's text colour in every earlier minigame, and the plush sits beside the child here, so the plush is the natural speaker. The wiki says this line is in a different colour from the plush's usual one. Measured in captures from one uploader, all five Night 6 lines share one colour (about RGB 249,253,188). That is paler than the plush's first lines before Night 1 (242,249,139) but close to its lines after Night 3 (247,251,180), so colour does not separate this speaker from the plush. A second speaker is not ruled out; it just has no colour evidence. Circus Baby later says of herself 'I'm broken. I can't be fixed.' (sl-baby-something-bad-inside)."
   },
   {
     "id": "fnaf4-still-your-friends",
@@ -831,12 +831,12 @@
     ],
     "image": "fnaf4-night6-put-you-back-together.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4) ; frame read of a 720p capture (https://www.youtube.com/watch?v=jz6BZbZotGo)",
-    "notes": "No speaker is named; the text is the plush's yellow and the plush is the only other figure left. The same seven words open FNaF World, said by two yellow dots in the dark (fw-opening-put-you-back-together). Michael later tells his father 'I put her back together, just like you asked me to', and UCN's Nightmare Fredbear says 'Let me put you back together, then take you apart all over again.'"
+    "notes": "No speaker is named; the text is the plush's yellow and the plush is the only other figure left. The same six words end FNaF World's opening, shown above two dots in the dark (fw-opening-put-you-back-together). Michael later tells his father 'I put her back together, just like you asked me to', and UCN's Nightmare Fredbear says 'Let me put you back together, then take you apart all over again.'"
   },
   {
     "id": "fnaf4-flatline",
-    "title": "Child fades with a flatline tone",
-    "claim": "The child sobs and then fades out as a faint heart-monitor flatline tone plays.",
+    "title": "Child fades out; a flatline tone is reported",
+    "claim": "The child sobs alone, then fades out, and the screen goes black. The wiki describes a faint heart-monitor flatline tone as he fades; it was not checked by ear.",
     "game": "fnaf4",
     "kind": "cutscene",
     "location": "Night 6 ending cutscene",
@@ -885,7 +885,7 @@
   },
   {
     "id": "fnaf4-bedroom-setting",
-    "title": "Gameplay setting: a child's bedroom",
+    "title": "Gameplay setting: a bedroom",
     "claim": "FNaF4's nights are played in a bedroom of a house: the player checks two hallway doors, a closet and the bed with a flashlight, and listens for breathing instead of using cameras.",
     "game": "fnaf4",
     "kind": "mechanic",
@@ -967,8 +967,8 @@
   },
   {
     "id": "fnaf4-nightmare-shares-fredbear-sounds",
-    "title": "'Nightmare' shares Fredbear's laughter",
-    "claim": "The dark 'Nightmare' character of Night 7 uses the same laughter and bed/closet sounds as Nightmare Fredbear, and its full-body extras image unlocks only after beating Nightmare mode.",
+    "title": "'Nightmare' is reported to share Nightmare Fredbear's sounds",
+    "claim": "The wiki reports that the dark 'Nightmare' character of Night 7 uses the same laughter and bed/closet sounds as Nightmare Fredbear. Its full-body extras image unlocks only after beating Nightmare mode.",
     "game": "fnaf4",
     "kind": "mechanic",
     "location": "Night 7 (Nightmare); Extras",
@@ -986,7 +986,7 @@
       "nightmare"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Nightmare/Audio",
-    "notes": "The shared sounds are an audio claim taken from the wiki and were not checked by ear in this pass. Scott confirmed that 'Nightmare' is its own character, not Nightmare Freddy (scott-2016-nightmare-not-nightmare-freddy). Nightmare's UCN voice lines belong to UCN, not this group."
+    "notes": "The shared sounds are an audio claim taken from the wiki and were not checked by ear in this pass. Scott said of a mislabelled toy that the character 'is indeed Nightmare, and not Nightmare Freddy' (scott-2016-nightmare-not-nightmare-freddy). Nightmare's UCN voice lines belong to UCN, not this group."
   },
   {
     "id": "fnaf4-bedside-items",
@@ -1017,8 +1017,8 @@
   },
   {
     "id": "fnaf4-reversed-phone-guy",
-    "title": "Reversed Phone Guy call as ambience",
-    "claim": "A reversed, low-pitched fragment of the FNaF1 Night 1 phone call can rarely be heard as background ambience during FNaF4 nights.",
+    "title": "Reversed Phone Guy call as ambience (reported)",
+    "claim": "The wiki reports that a reversed, low-pitched fragment of the FNaF1 Night 1 phone call can rarely be heard as background ambience during FNaF4 nights.",
     "game": "fnaf4",
     "kind": "hidden",
     "location": "Night ambience, rare",
@@ -1036,7 +1036,7 @@
       "audio-easter-egg"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF4)",
-    "notes": "Wiki reports odds of 1/40 (Night 1) and 1/200 after."
+    "notes": "Wiki reports odds of 1/40 (Night 1) and 1/200 after. The sound was not checked by ear."
   },
   {
     "id": "fnaf4-fun-with-plushtrap",
@@ -1192,7 +1192,7 @@
     ],
     "image": "fw-clock-ending-still-your-friends.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocksend2.jpg",
-    "notes": "Echoes FNaF4's Night 6 wording with 'Do you believe that?' in place of 'Do you still believe that?'. The speaker is not named. The two dots are the ones that open the game with 'I will put you back together.' (fw-opening-put-you-back-together), so one FNaF World voice speaks both of FNaF4's closing sentences."
+    "notes": "Echoes FNaF4's Night 6 wording with 'Do you believe that?' in place of 'Do you still believe that?'. The speaker is not named. Two dots in the dark also speak the game's opening, which ends 'I will put you back together.' (fw-opening-put-you-back-together); they are white in that record's capture and yellow in this one's. If the two pairs are one speaker, one FNaF World voice speaks two of FNaF4's Night 6 lines."
   },
   {
     "id": "fw-clock-ending-pieces-in-place",
@@ -1221,7 +1221,7 @@
     ],
     "image": "fw-clock-ending-pieces-in-place.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW) ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocksend3.jpg to File:Clocksend6.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Trophies_(FW)",
-    "notes": "FNaF World's 'Crying Child' is the pale weeping child of the FNaF2 and FNaF3 minigames, not the brown-haired boy of FNaF4 (fw-crying-child-character), so the trophy does not by itself point at FNaF4's child. What does point there is the wording: 'We are still your friends' and 'put you back together' are FNaF4's Night 6 lines, and 'the pieces' is Scott's phrase for what the FNaF4 box holds (scott-2015-fnaf4-box-pieces-put-together)."
+    "notes": "FNaF World's 'Crying Child' is the pale weeping child of the FNaF2 and FNaF3 minigames, not the brown-haired boy of FNaF4 (fw-crying-child-character), so the trophy does not by itself point at FNaF4's child. The wording is shared with FNaF4: 'We are still your friends' (this ending) and 'put you back together' (the game's opening) are FNaF4's Night 6 lines, and 'the pieces' is Scott's phrase for what the FNaF4 box holds (scott-2015-fnaf4-box-pieces-put-together). Reading the ending as pointing at FNaF4's child rests on that wording."
   },
   {
     "id": "fw-8bit-fredbear-breadcrumbs",
@@ -1276,7 +1276,7 @@
       "fw-opening-safe-place-something-went-wrong"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks2-2.jpg",
-    "notes": "The box before it reads 'Yes, the world beneath the surface world.' and the one after, 'There is a task for you to complete. Before you follow this passage, go back. Find the clock.' The opening eyes call the same place 'a safe place... a sanctuary' (fw-opening-safe-place-something-went-wrong); here 8-bit Fredbear takes it back."
+    "notes": "The box before it reads 'Yes, the world beneath the surface world.' and the one after, 'There is a task for you to complete. Before you follow this passage, go back. Find the clock.' The opening eyes use the same words, 'This is a safe place. This is a sanctuary.' (fw-opening-safe-place-something-went-wrong); here 8-bit Fredbear takes them back."
   },
   {
     "id": "fw-8bit-fredbear-puppet-master",
@@ -1306,7 +1306,7 @@
       "fw-normal-ending-still-in-control"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear ; read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks3-1.jpg, File:Clocks3-2.jpg, File:Clocks4-1.jpg, File:Clocks5-2.jpg, File:Clocks7-2.jpg",
-    "notes": "Other lines read on screen: 'Play along for now. You are being pulled on a string for his amusement.', 'The one who pulls the strings is always watching. He allows you to progress.', 'Don't be deceived by the one pulling the strings.' Hard Mode's final boss, Scott's avatar, says 'It was fun being the puppet-master', so inside the game the puppet-master is the game's own author; any deeper reading is theory."
+    "notes": "Other lines read on screen: 'Play along for now. You are being pulled on a string for his amusement.', 'The one who pulls the strings is always watching. He allows you to progress.', 'Don't be deceived by the one pulling the strings.' Hard Mode's final boss, Scott's avatar, says 'It was fun being the puppet-master'. The plain reading is that the puppet-master is the game's own author; any deeper reading is theory."
   },
   {
     "id": "fw-8bit-fredbear-something-terrible",
@@ -1333,12 +1333,12 @@
   },
   {
     "id": "fw-desk-man-made-something-terrible",
-    "title": "Desk Man: 'Her name is Baby.'",
-    "claim": "After Chica's Magic Rainbow is beaten, the grey Desk Man says his mind isn't right, that he has made something terrible named Baby, and that it is too late to deactivate her.",
+    "title": "The man at the desk: 'Her name is Baby.'",
+    "claim": "After Chica's Magic Rainbow is beaten, the grey man at the desk says his mind isn't right, that he has made something terrible named Baby, and that it is too late to deactivate her.",
     "quote": "But my mind isn't right. I've made something terrible. Her name is Baby. It's too late to deactivate her. I'm sorry.",
     "game": "fnaf-world",
     "kind": "dialogue",
-    "location": "Desk Man's house, after Chica's Magic Rainbow (Update 2)",
+    "location": "Grey house, after Chica's Magic Rainbow (Update 2)",
     "certainty": "stated",
     "when": {
       "label": "FNaF World (outside the core timeline; undated)",
@@ -1365,7 +1365,7 @@
   },
   {
     "id": "fw-desk-man-found-dead",
-    "title": "Desk Man found dead; 'The show will begin momentarily'",
+    "title": "The man at the desk slumped in a red pool; 'The show will begin momentarily'",
     "claim": "After his last line the room goes black and two small yellow eyes appear in the dark while a voice says the show will begin momentarily. When the lights return the man is slumped over his desk in a dark red pool. 'to be continued...' follows.",
     "quote": "The show will begin momentarily. Everyone please stay in your seats.",
     "game": "fnaf-world",
@@ -1393,12 +1393,12 @@
   },
   {
     "id": "fw-desk-man-pendulum",
-    "title": "Desk Man: 'The pendulum swings…'",
-    "claim": "From update 1.2, Desk Man says it's a vicious cycle, the pendulum swings one way then the other, 'Now we return to darkness. Something terrible is coming.'",
+    "title": "The man at the desk: 'The pendulum swings…'",
+    "claim": "From update 1.2, the man at the desk says it's a vicious cycle, the pendulum swings one way then the other, 'Now we return to darkness. Something terrible is coming.'",
     "quote": "It's a vicious cycle, you know. But then, most things in life are. The pendulum swings one way, then it swings the other. Now we return to darkness. Something terrible is coming.",
     "game": "fnaf-world",
     "kind": "dialogue",
-    "location": "Desk Man's house (v1.2+)",
+    "location": "Grey house (v1.2+)",
     "certainty": "stated",
     "when": {
       "label": "FNaF World (outside the core timeline; undated)",
@@ -1473,7 +1473,7 @@
     "id": "fw-old-man-consequences",
     "title": "Old Man Consequences in the fourth sub-tunnel",
     "claim": "In the fourth, hidden sub-tunnel the player reaches a red-on-black lake where a red figure sits fishing. He says the player has gone too deep into the code with no way back out, gives his name as Old Man Consequences and invites them to sit and fish. 'the end' follows.",
-    "quote": "My name is Old Man Consequences. Come have a seat, and let's fish for a while. You have no where else to go.",
+    "quote": "I'm sorry to say that you have gone too deep into the code. There is no way back out. / My name is Old Man Consequences. Come have a seat, and let's fish for a while. You have no where else to go.",
     "game": "fnaf-world",
     "kind": "hidden",
     "location": "Fourth Glitch ending (fourth sub-tunnel)",
@@ -1503,8 +1503,8 @@
   },
   {
     "id": "sl-intro-mr-afton-board",
-    "title": "Intro: a board member questions 'Mr. Afton'",
-    "claim": "The game opens with audio of a board member praising the robots technically but asking about 'certain design choices'; the designer lists Circus Baby's features including dispensing ice cream, and is addressed as 'Mr. Afton'.",
+    "title": "Intro: an unnamed man questions 'Mr. Afton'",
+    "claim": "The game opens with audio of an unnamed man, speaking as 'we', who praises the robots technically but asks about 'certain design choices'; the man he addresses as 'Mr. Afton' answers by listing what 'she' can do, including dispensing ice cream.",
     "quote": "With all due respect, those aren't the design choices we were curious about, Mr. Afton.",
     "game": "sister-location",
     "kind": "cutscene",
@@ -1532,7 +1532,7 @@
       "scottgames-site-sl-source-service-log-afton-robotics"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/William_Afton/Audio",
-    "notes": "Only the surname 'Afton' is spoken. Designer's line: 'She can dance, she can sing, she's equipped with a built-in helium tank for inflating balloons right at her fingertips. She can take song requests. She can even dispense ice cream.' The board member is unnamed; the wiki calls him a Fazbear Entertainment board member (company not named in the audio)."
+    "notes": "Only the surname 'Afton' is spoken. Designer's line: 'She can dance, she can sing, she's equipped with a built-in helium tank for inflating balloons right at her fingertips. She can take song requests. She can even dispense ice cream.' The first speaker is unnamed; 'board member' is the wiki's label, and it calls him a Fazbear Entertainment board member (no company is named in the audio). 'She' is not named in the audio either; balloons and ice cream are Circus Baby's elsewhere in the game (sl-girl-daddy-let-me-play, sl-baby-ice-cream-story). The wiki's transcript opens: 'There's no doubting what you've achieved on a technical level. These are clearly state-of-the-art. There are just certain design choices that were made for these robots that we don't fully understand. We were hoping that you could shed some light on those.'"
   },
   {
     "id": "sl-girl-daddy-let-me-play",
@@ -2146,7 +2146,7 @@
       "deception"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "She also says 'Ballora will not return to her body.' Later events show this speech was part of a lure (see real ending)."
+    "notes": "She also says 'Ballora will not return to her body.' Her instructions that night end with the player in the scooping room (see real ending); that this speech was part of a lure is the usual reading."
   },
   {
     "id": "sl-baby-card-and-passcode",
@@ -2213,7 +2213,7 @@
   {
     "id": "sl-real-ending-scooped-mirror",
     "title": "Real ending: scooped, then purple eyes in the mirror",
-    "claim": "The scooper strikes the player; a cutscene then shows his dark silhouette before a mirror, whose eyes open to reveal glowing purple-and-white animatronic eyes.",
+    "claim": "The scooper strikes the player; a cutscene then shows a dark silhouette before a mirror, and its eyes open, glowing purple and white.",
     "game": "sister-location",
     "kind": "ending",
     "location": "Night 5 Real Ending cutscene",
@@ -2241,7 +2241,7 @@
   },
   {
     "id": "sl-private-room-restricted",
-    "title": "Private Room: HandUnit locks the player in until 6 AM",
+    "title": "Private Room: HandUnit says the player cannot leave until 6 AM",
     "claim": "If the player ignores Baby and enters the Private Room (needs the minigame keycard), HandUnit says he has wandered into a restricted area and can't leave until the cleanup crew arrives at 6 AM.",
     "quote": "Due to the sensitive nature of the materials that you may be exposed to here, you will not be allowed to leave until the cleanup crew arrives at 6 am. So hang tight! …",
     "game": "sister-location",
@@ -2304,7 +2304,7 @@
   },
   {
     "id": "sl-fake-ending-to-be-with-her-again",
-    "title": "Ennard: 'To be with her again?'",
+    "title": "Outside the Private Room: 'To be with her again?'",
     "claim": "While trying to get into the Private Room, the voice asks why the player didn't trust it, says 'we need you… so that we can look like you', and asks 'Isn't this why you came here? To be with her again?'",
     "quote": "Isn't this why you came here? To be with her again?",
     "game": "sister-location",
@@ -2338,8 +2338,8 @@
   },
   {
     "id": "sl-fake-ending-girl-voice",
-    "title": "Fake ending: the voice becomes the little girl's",
-    "claim": "After 4 AM the voice switches to the little girl's, saying 'I know it was an accident', 'Everything is okay. I'm still here.' and 'Isn't this why you came here? To be with me again?'",
+    "title": "Fake ending: the voice becomes a little girl's",
+    "claim": "After 4 AM the voice switches to a little girl's, saying 'I know it was an accident', 'Everything is okay. I'm still here.' and 'Isn't this why you came here? To be with me again?'",
     "quote": "I know it was an accident. / Everything is okay. I'm still here. / Isn't this why you came here? To be with me again?",
     "game": "sister-location",
     "kind": "dialogue",
@@ -2374,7 +2374,7 @@
   {
     "id": "sl-fake-ending-home",
     "title": "Fake ending: Ennard reaches the player's home",
-    "claim": "After surviving to 6 AM, the player watches TV at home with an 'Exotic Butters' basket on the TV; when the show ends, Ennard is seen dragging itself into the room.",
+    "claim": "After surviving to 6 AM, the player watches TV at home; when the show ends, Ennard is seen dragging itself into the room. The wiki's text adds an 'Exotic Butters' basket on the TV.",
     "game": "sister-location",
     "kind": "ending",
     "location": "Fake Ending cutscene (home)",
@@ -2399,7 +2399,7 @@
       "sl-exotic-butters"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings ; https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room",
-    "notes": "The basket on the TV is from the wiki's text; the home frames checked in this pass (the between-night version) do not show it. Scott later called the Custom Night gameplay non-canon, and this branch is contradicted by the Real Ending, in which the player is scooped."
+    "notes": "The basket on the TV is from the wiki's text; the home frames checked in this pass (the between-night version) do not show it. The other ending of the same night is the one in which the player is scooped (sl-real-ending-scooped-mirror). Scott's 'It will NOT be canon' was said of the Custom Night, not of this ending (scott-2016-sl-custom-night-not-canon)."
   },
   {
     "id": "sl-exotic-butters",
@@ -2454,11 +2454,11 @@
     ],
     "image": "sl-custom-night-decay-stages.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Custom_Night_(FNaF:_SL) ; sprites https://freddy-fazbears-pizza.fandom.com/wiki/File:AftonWalk1.gif to File:AftonWalk6.gif",
-    "notes": "Colours read from the six walk sprites. The neighbours who wave, then stare and hide, are from the wiki's text; its pages disagree on how many there are per scene. The wiki's file names call the sprite 'Afton'; the game prints no name here. Scott stated the cutscenes are canon, and later listed 'Purpleguy being literally purple' among the things one video had cleared up (scott-2017-matpat-final-theory)."
+    "notes": "Colours read from the six walk sprites. The neighbours who wave, then stare and hide, are from the wiki's text; its pages disagree on how many there are per scene. The wiki's file names call the sprite 'Afton'; the game prints no name here. Scott wrote 'Cutscenes are canon' when he added the last cutscene (scott-2016-cutscenes-are-canon). In 2017 he told fans 'upset about the idea of Purpleguy being literally purple' to watch a theory video; he did not state its conclusions himself (scott-2017-matpat-final-theory)."
   },
   {
     "id": "sl-custom-night-ennard-ejected",
-    "title": "The purple body ejects Ennard into a sewer",
+    "title": "The purple man brings up a mass of wires and eyes into a sewer drain",
     "claim": "In the final walking cutscene, the fully purple man stops, his stomach heaves, and he regurgitates a mass of wires/eyes into a sewer drain, then collapses.",
     "game": "sister-location",
     "kind": "cutscene",
@@ -2480,11 +2480,11 @@
     ],
     "image": "sl-custom-night-michael-ejects-ennard.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF:_SL)",
-    "notes": "Read from the wiki's sprites: grey debris with coloured eyes pours into a drain, where six eyes open. The wiki identifies the mass as Ennard. Scott's 2017 page-source dialogue 'We found a way to eject you.' (scottgames-site-2017-source-ejection-dialogue-group) is a later, separate ejection among the machine's own parts."
+    "notes": "Read from the wiki's sprites: grey debris with coloured eyes pours into a drain, where six eyes open. The wiki identifies the mass as Ennard. Scott's 2017 page-source line 'We found a way to eject you.' (scottgames-site-2017-source-ejection-dialogue-group) names no speaker. The usual reading takes it for a later ejection among the machine's own parts, not for this scene."
   },
   {
     "id": "sl-you-wont-die",
-    "title": "'You won't die.' — the body rises",
+    "title": "'You won't die.' — the purple man gets back up",
     "claim": "After the collapse, a voice repeats 'You won't die.' until the purple man gets back up.",
     "quote": "You won't die.",
     "game": "sister-location",
@@ -2581,7 +2581,7 @@
   },
   {
     "id": "sl-golden-freddy-cutscene-springtrap",
-    "title": "Burned Fazbear's Fright; Springtrap appears",
+    "title": "A burnt building with a 'FAZBE… / FRI…' sign; a rabbit-eared figure appears",
     "claim": "The Golden Freddy cutscene shows a burnt-out building with a partly legible 'FAZBE… / FRI…' sign. After the monologue a rabbit-eared figure steps out of the dark at the right and the scene ends.",
     "game": "sister-location",
     "kind": "cutscene",
@@ -2642,7 +2642,7 @@
       "ffps-scup-blueprint"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Unlockable_Extras_(FNaF:_SL) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Baby_Blueprints.png (and the three sister files)",
-    "notes": "Each sheet gives a name, height, weight and four lettered features, over the footer 'Copyright © xxxx Afton Robotics, LLC'. The annotations are transcribed in the four per-animatronic records. The 1-in-10,000 odds are the wiki's figure."
+    "notes": "Each sheet gives a name, height, weight and four lettered features, over the footer 'Copyright © xxxx Afton Robotics, LLC'. The annotations are transcribed in the four per-animatronic records. The 1-in-10,000 odds are the wiki's figure. The sheets were read from the wiki's image files (see the image credits); no capture of one appearing in play is on file."
   },
   {
     "id": "sl-baby-guides-past-ballora",
@@ -2679,7 +2679,7 @@
     "claim": "FNaF4's minigames use two versions of the Fredbear plush sprite. One has small white pupils in its black eyes, which shift to track the crying child across frames. The other has plain black eyes and no pupils.",
     "game": "fnaf4",
     "kind": "environment",
-    "location": "End-of-night minigames: plush sprite assets (pupil-tracking sprite and eyeless sprite)",
+    "location": "End-of-night minigames: plush sprite assets (sprite with moving pupils and sprite without pupils)",
     "certainty": "shown",
     "when": {
       "label": "c. 1983 (minigame week)",
@@ -2708,7 +2708,7 @@
   {
     "id": "fnaf4-plush-eyes-by-scene",
     "title": "Where the plush has pupils, and where it doesn't",
-    "claim": "The plush has white pupils that move with the child whenever it shares a room of the house with him: on his bed (before Night 1, after Night 1, after Night 3), on the hallway clock, on the couch, at the doorway of the second bedroom, and beside him in the Night 6 cutscene. It has plain black eyes on the black screen where its first lines appear before Night 1, and outdoors after Night 3 (sitting by the garden fence, and as a head on a flower). No plush sprite appears inside the diner after Night 2 or in the parts room after Night 4.",
+    "claim": "The plush has white pupils that move with the child wherever it shares a room of the house with him (on his bed before Night 1, after Night 1 and after Night 3; on the hallway clock; on the couch; at the doorway of the second bedroom), and also beside him in the Night 6 cutscene. It has plain black eyes on the black screen where its first lines appear before Night 1, and outdoors after Night 3 (sitting by the garden fence, and as a head on a flower). No plush sprite appears inside the restaurant after Night 2 or in the parts room after Night 4.",
     "game": "fnaf4",
     "kind": "environment",
     "location": "End-of-night minigames, pre-Night 1 to the Night 6 cutscene (plush placements)",
@@ -2737,7 +2737,7 @@
       "fnaf4-plush-night6-pupils-only"
     ],
     "verifiedVia": "Own zoomed frames of 720p gameplay captures (FNaF Resources channel): 5 days https://www.youtube.com/watch?v=EURVGdotG70 ; 4 days https://www.youtube.com/watch?v=pTCY2dDFdp0 ; 3 days https://www.youtube.com/watch?v=uo2E4sLLPVQ ; 2 days https://www.youtube.com/watch?v=36TkKbnWEQA ; 1 day https://www.youtube.com/watch?v=1a4Hzz3qDEg ; Night 6 https://www.youtube.com/watch?v=jz6BZbZotGo",
-    "notes": "Re-verified in the theory pass and raised from 'implied' to 'shown'. The earlier version said the plush at the second bedroom's doorway had no pupils (it has them) and called that room 'the girl's bedroom' (the game never says whose room it is). One playthrough of each minigame was checked. The couch was zoomed only in the 2-days minigame. The wiki also lists the plush behind a car and in a storm drain after Night 3; those two placements were not zoomed. The pattern that survives: pupils indoors with the child and at Night 6, none on the opening black screen or outdoors."
+    "notes": "Re-verified in the theory pass and raised from 'implied' to 'shown'. The earlier version said the plush at the second bedroom's doorway had no pupils (it has them) and called that room 'the girl's bedroom' (the game never says whose room it is). One playthrough of each minigame was checked. The couch was zoomed only in the 2-days minigame. The wiki also lists the plush behind a car and in a storm drain after Night 3; those two placements were not zoomed. The pattern that survives: pupils indoors with the child and at Night 6, none on the opening black screen or in the two outdoor placements checked."
   },
   {
     "id": "fnaf4-plush-night6-pupils-only",
@@ -2834,7 +2834,7 @@
       "fnaf4-he-hates-you"
     ],
     "verifiedVia": "Read on screen in a 720p capture (https://www.youtube.com/watch?v=pTCY2dDFdp0) ; https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "The first sentence is shown in the bedroom and the second in the hallway; the capture cuts the second off at 'hi', completed from the wiki's transcript. The wiki adds a later 'Over there.', not seen in this playthrough. 'He' turns out to be the Foxy-masked brother behind the television. The plush knows where the brother is and that he is doing it 'again': it speaks as something that watches the household, not only the child."
+    "notes": "The first sentence is shown in the bedroom and the second in the hallway; the capture cuts the second off at 'hi', completed from the wiki's transcript. The wiki adds a later 'Over there.', not seen in this playthrough. 'He' turns out to be the Foxy-masked boy behind the television (fnaf4-brother-foxy-mask-tv). The plush says he is hiding 'again'. That it knows where he is rests on the wiki's 'Over there.', which was not seen; that it speaks as something that watches the household is a reading."
   },
   {
     "id": "fnaf4-night6-fade-order",
@@ -2976,7 +2976,7 @@
   },
   {
     "id": "fnaf4-no-parent-shown",
-    "title": "No parent appears anywhere in FNaF4",
+    "title": "No adult appears in the house, and none is shown as a parent",
     "claim": "No parent or other adult appears or speaks in any scene set in the house. The only adults drawn in the minigames are at the restaurant: a person in a Fredbear suit, and a purple man fitting a Spring Bonnie head onto someone. A child outside mentions their own 'Daddy'; nobody mentions the crying child's parents.",
     "game": "fnaf4",
     "kind": "minigame",
@@ -3010,12 +3010,12 @@
       "fnaf4-spring-bonnie-plush-finger-trap"
     ],
     "verifiedVia": "720p gameplay captures of each minigame (FNaF Resources channel): https://www.youtube.com/watch?v=EURVGdotG70 ; https://www.youtube.com/watch?v=pTCY2dDFdp0 ; https://www.youtube.com/watch?v=uo2E4sLLPVQ ; https://www.youtube.com/watch?v=36TkKbnWEQA ; https://www.youtube.com/watch?v=1a4Hzz3qDEg ; https://www.youtube.com/watch?v=wYXv0UTrSpU ; https://www.youtube.com/watch?v=jz6BZbZotGo ; https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "An absence, checked across one playthrough of each minigame and the wiki's scene descriptions. The child is locked in his room, left behind at the restaurant and shut in a parts room without any adult stepping in; the one voice that attends to him is the plush's."
+    "notes": "An absence, checked across one playthrough of each minigame and the wiki's scene descriptions. The child is locked in his room, left behind at the restaurant and shut in a parts room without any adult stepping in."
   },
   {
     "id": "fnaf4-diner-unnamed",
     "title": "FNaF4 never prints the restaurant's name",
-    "claim": "The restaurant of the minigames has no readable name anywhere in FNaF4. Outside, a large Fredbear figure stands beside red double doors; inside are a stage with a yellow bear and a rabbit, party tables, balloons and a poster of a smiling yellow bear's face in a purple hat. The only name printed in the game is the television's 'Fredbear & Friends!'.",
+    "claim": "The restaurant of the minigames has no readable name anywhere in FNaF4. Outside, a large Fredbear figure stands beside red double doors; inside are a stage with a yellow bear and a rabbit, party tables, balloons and a poster of a smiling yellow bear's face in a purple hat. The nearest printed name is the television's 'Fredbear & Friends!', seen at the house.",
     "game": "fnaf4",
     "kind": "environment",
     "location": "Post-Night 2, post-Night 3 and post-Night 5 minigames (the restaurant, inside and out)",
@@ -3045,7 +3045,7 @@
       "scottgames-site-fnaf4-property-of-fr"
     ],
     "verifiedVia": "720p captures (https://www.youtube.com/watch?v=uo2E4sLLPVQ ; https://www.youtube.com/watch?v=36TkKbnWEQA ; https://www.youtube.com/watch?v=wYXv0UTrSpU) ; https://freddy-fazbears-pizza.fandom.com/wiki/End-of-Night_Minigames_(FNaF4)",
-    "notes": "'Fredbear's Family Diner' is FNaF2's name for 'the original restaurant'. It is attached to this place by the pair on stage, the same yellow bear and rabbit as FNaF3's 'Stage01', and by the Fredbear name on the television. Scott's pre-release teaser hides 'PROPERTY OF FR…ER' under a purple hat and bow tie."
+    "notes": "'Fredbear's Family Diner' is FNaF2's name for 'the original restaurant'. It is attached to this place by the pair on stage, a yellow bear and a rabbit like those of FNaF3's 'Stage01', and by the Fredbear name on the television. Scott's pre-release teaser hides 'PROPERTY OF FR…ER' under a purple hat and bow tie."
   },
   {
     "id": "fnaf4-party-no-other-guests",
@@ -3083,12 +3083,12 @@
     ],
     "image": "fnaf4-bite-fredbear-stage.png",
     "verifiedVia": "720p capture (https://www.youtube.com/watch?v=wYXv0UTrSpU) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:TheBiteof83.png",
-    "notes": "The balloon boy says 'Everyone is going to the party', so the empty room may be economy of drawing and not a statement. It does mean the game shows no witness to the Bite except the four boys who caused it."
+    "notes": "The balloon boy says 'Everyone is going to the party', so the empty room may be economy of drawing and not a statement. The game draws no onlooker at FNaF4's bite other than the four boys and the two figures on stage."
   },
   {
     "id": "fnaf4-house-map-cheat",
     "title": "House Map cheat: the plan of the gameplay house",
-    "claim": "FNaF4's 'House Map' cheat draws the house of the night gameplay as a grid of squares with markers for the animatronics: a top row of four squares, the fourth set apart at the right; a column running down from each end of the first three; a grey square in the centre and a grey square at the bottom centre.",
+    "claim": "FNaF4's 'House Map' cheat draws a house plan as a grid of squares: a top row of four squares, the fourth set apart at the right; a column running down from each end of the first three; a grey square in the centre and a grey square at the bottom centre.",
     "game": "fnaf4",
     "kind": "hidden",
     "location": "Extras > Cheats > House Map (unlocked by beating Nightmare; added in update 1.1)",
@@ -3145,12 +3145,12 @@
     ],
     "url": "https://www.youtube.com/watch?v=A-taWymx1WI",
     "verifiedVia": "Captions read frame by frame from the video on the official channel; date and title from the video's metadata",
-    "notes": "Three separate title cards, followed by 'CLOSE THE DOORS', 'CHECK THE CLOSET', 'WATCH YOUR BACK' over gameplay. Read plainly, the first two questions warn the player against taking what the nights show at face value, and the third says something was 'brought home'. He does not say what. UCN's Nightmare Fredbear later says 'This time, there is more than an illusion to fear.'"
+    "notes": "Three separate title cards, followed by 'CLOSE THE DOORS', 'CHECK THE CLOSET', 'WATCH YOUR BACK' over gameplay. One reading is that the first two questions tell the player not to take the game at face value; the third says something was 'brought home'. He does not say what. UCN's Nightmare Fredbear later says 'This time, there is more than an illusion to fear.'"
   },
   {
     "id": "fnaf4-night8-no-story-text",
-    "title": "Night 8 ('20/20/20/20') adds no story",
-    "claim": "After Nightmare, typing 20202020 on the Extras screen turns that mode into '20/20/20/20' (Night 8), a harder repeat in which Nightmare again replaces the others at 4 AM. Beating it awards the last star and no new text or scene. The padlocked box after Night 7 is FNaF4's last story screen.",
+    "title": "Night 8 ('20/20/20/20'): no new text or scene reported",
+    "claim": "By the wiki's description, after Nightmare, typing 20202020 on the Extras screen turns that mode into '20/20/20/20' (Night 8), a harder repeat in which Nightmare again replaces the others at 4 AM. Beating it awards the last star and no new text or scene. The padlocked box after Night 7 is FNaF4's last story screen.",
     "game": "fnaf4",
     "kind": "mechanic",
     "location": "Extras > Nightmare, after typing 20202020 (Night 8)",
@@ -3178,8 +3178,8 @@
   },
   {
     "id": "fw-opening-safe-place-something-went-wrong",
-    "title": "FNaF World opens with two eyes in the dark: 'something has gone wrong'",
-    "claim": "On first launch, before the title, two small yellow dots in darkness speak: everything that happens 'out there' has an effect 'here'; this is a safe place, a sanctuary, but something has gone wrong and can now be seen here; something went very wrong, and that is why the speaker is here.",
+    "title": "FNaF World opens with two dots in the dark: 'something has gone wrong'",
+    "claim": "On first launch, before the title, two small dots in darkness speak: everything that happens 'out there' has an effect 'here'; this is a safe place, a sanctuary, but something has gone wrong and can now be seen here; something went very wrong, and that is why the speaker is here.",
     "quote": "This is a safe place. This is a sanctuary. But something has gone wrong, and now it can be seen here.",
     "game": "fnaf-world",
     "kind": "cutscene",
@@ -3203,12 +3203,12 @@
       "fw-clock-ending-still-your-friends"
     ],
     "verifiedVia": "Read on screen: five screenshots at https://five-nights-at-freddys-world.fandom.com/wiki/Story (File:FWOpening1.jpg to File:FWOpening5.jpg) and a separate capture (https://www.youtube.com/watch?v=xHHbvLf0y1w)",
-    "notes": "The five screens in order: 'Everything that happens out there, has an effect here. Do you understand?' / the quoted screen / 'Something went very wrong. That's why I am here.' / 'But I won't let the same happen to you.' / 'I will put you back together.' The typed text on the wiki has 'I'm' where the screen has 'I am'. No speaker is named and no body is drawn."
+    "notes": "The five screens in order: 'Everything that happens out there, has an effect here. Do you understand?' / the quoted screen / 'Something went very wrong. That's why I am here.' / 'But I won't let the same happen to you.' / 'I will put you back together.' The typed text on the wiki has 'I'm' where the screen has 'I am'. No speaker is named and no body is drawn. In the capture on file for the last screen the dots and the text are white (fw-opening-put-you-back-together); the clock ending's dots are yellow (fw-clock-ending-still-your-friends)."
   },
   {
     "id": "fw-opening-put-you-back-together",
     "title": "FNaF World's first words end: 'I will put you back together.'",
-    "claim": "The opening eyes end with 'But I won't let the same happen to you.' and 'I will put you back together.', the closing sentence of FNaF4's Night 6 cutscene. The same two dots return at the clock ending.",
+    "claim": "The opening ends with 'But I won't let the same happen to you.' and 'I will put you back together.', the last yellow line of FNaF4's Night 6 cutscene. Two dots in the dark also speak the clock ending.",
     "quote": "But I won't let the same happen to you. I will put you back together.",
     "game": "fnaf-world",
     "kind": "cutscene",
@@ -3236,11 +3236,11 @@
     ],
     "image": "fw-opening-put-you-back-together.png",
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaFWorld_IndieDB-Screenshot4.jpg (Scott's own IndieDB screenshot) ; https://five-nights-at-freddys-world.fandom.com/wiki/Story ; capture https://www.youtube.com/watch?v=xHHbvLf0y1w",
-    "notes": "This is the screen an earlier record took for FNaF4's Night 6 (see fnaf4-plush-night6-pupils-only). 'The same' has no antecedent on screen: it implies someone the speaker did not keep it from. The words are addressed to 'you', whoever starts the game. Scott published this screen himself among the game's promotional screenshots, so the link to FNaF4 was part of how the game was sold."
+    "notes": "This is the screen an earlier record took for FNaF4's Night 6 (see fnaf4-plush-night6-pupils-only). 'The same' has no antecedent on screen: it implies someone the speaker did not keep it from. The words are addressed to 'you', whoever starts the game. Scott published this screen himself among the game's promotional screenshots. In this capture the dots and the text are white; in the clock ending's capture the dots are yellow and the text pale yellow (fw-clock-ending-still-your-friends). That the two pairs of dots are one speaker is a reading."
   },
   {
     "id": "fw-fredbear-flipside",
-    "title": "Fredbear: something bad happened 'on the flipside'",
+    "title": "Fredbear: something bad 'must have happened on the flipside'",
     "claim": "In the main story Fredbear tells the party that something bad must have happened 'on the flipside', that their world is 'a safe haven, a sanctuary', and that whatever happened there is making this world fracture.",
     "quote": "Something horrible must have happened on the flipside, because it's causing this world to fracture.",
     "game": "fnaf-world",
@@ -3265,7 +3265,7 @@
       "fw-8bit-fredbear-breadcrumbs"
     ],
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDialogue1-4.jpg, https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDialogue2-2.jpg and https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDialogue2-3.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Fredbear_(FW)",
-    "notes": "First conversation: 'We aren't prepared to deal with situations like this. Something bad must have happened on the flipside.' Second: 'You don't know as much as I do, but I will tell you that this is a safe haven, a sanctuary.' 'The flipside' is never defined. Set beside the opening it is the 'out there' whose events 'have an effect here'."
+    "notes": "First conversation: 'We aren't prepared to deal with situations like this. Something bad must have happened on the flipside.' Second: 'You don't know as much as I do, but I will tell you that this is a safe haven, a sanctuary.' 'The flipside' is never defined. Set beside the opening it reads as the 'out there' whose events have 'an effect here'; the game does not say so."
   },
   {
     "id": "fw-clock-games-five-tasks",
@@ -3326,7 +3326,7 @@
     ],
     "image": "fw-clock-game-395248.png",
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks5-7.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
-    "notes": "An exact cross-game match, not a resemblance. It ties FNaF World's clock quest to FNaF3's hidden minigames in particular, and to the one that shows Fredbear and Spring Bonnie on stage."
+    "notes": "An exact cross-game match, not a resemblance. Reading: it ties FNaF World's clock quest to FNaF3's hidden minigames, and to the one that shows a yellow bear and a yellow rabbit on stage in particular."
   },
   {
     "id": "fw-8bit-fredbear-true-goal",
@@ -3357,7 +3357,7 @@
       "fw-normal-ending-still-in-control"
     ],
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks6-1.jpg, https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks6-3.jpg and https://freddy-fazbears-pizza.fandom.com/wiki/File:Clocks8-2.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/8-Bit_Fredbear",
-    "notes": "Earlier boxes: 'One thing is true. Nothing here is as it seems.' and 'Find the clock. Everything else is a deception.' The 'true goal' turns out to be the clock ending. Inside FNaF World, then, the adventure is the cover story and the clock quest is the part that speaks to the earlier games."
+    "notes": "Earlier boxes: 'One thing is true. Nothing here is as it seems.' and 'Find the clock. Everything else is a deception.' The 'true goal' turns out to be the clock ending. Reading: inside FNaF World the adventure is the cover story and the clock quest is the part that speaks to the earlier games."
   },
   {
     "id": "fw-desk-man-first-dialogue",
@@ -3419,7 +3419,7 @@
       "scott-2018-interview-fnaf-world-tied-to-canon-mistake"
     ],
     "verifiedVia": "Read on screen in a gameplay capture (https://www.youtube.com/watch?v=Na0kBMXXuKk) ; https://freddy-fazbears-pizza.fandom.com/wiki/Desk_Man",
-    "notes": "Lines in order: 'I'm impressed.' / 'What are you doing here? Can't you see that I'm busy?' / the quoted lines / then 'But my mind isn't right. I've made something terrible.' 'His games' are the four minigames of the Halloween Update Backstage, which the player has just shut down and which Update 2's Fredbear says 'he' has been making. He is a maker of games inside a game that talks about itself as a game. That is the frame in which 'Her name is Baby' is said."
+    "notes": "Lines in order: 'I'm impressed.' / 'What are you doing here? Can't you see that I'm busy?' / the quoted lines / then 'But my mind isn't right. I've made something terrible.' 'His games' are the four minigames of the Halloween Update Backstage, which the player has just shut down and which Update 2's Fredbear says 'he' has been making. He speaks as the maker of the games the player has just shut down. 'Her name is Baby' follows in the same scene."
   },
   {
     "id": "fw-update2-fredbear-he-has-gone-insane",
@@ -3457,7 +3457,7 @@
   {
     "id": "fw-update2-game-bombed",
     "title": "Update 2 Fredbear: 'The game bombed; end of story.'",
-    "claim": "Update 2 opens with Fredbear dropping the story voice: he says there is nothing new to see, that the game bombed, and that he has applied for a job at the Fazburger down the street. He later says the Halloween characters were sent backstage 'to have their code recycled for spin-off games'.",
+    "claim": "Update 2 opens with Fredbear saying that there is nothing new to see, that the game bombed, and that he has applied for a job at the Fazburger down the street. He later says the Halloween characters were sent backstage 'to have their code recycled for spin-off games'.",
     "quote": "The game bombed; end of story. I've already put in my application at the Fazburger down the street.",
     "game": "fnaf-world",
     "kind": "dialogue",
@@ -3483,7 +3483,7 @@
       "scott-2015-story-complete"
     ],
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDialogueUpd2-1.png to https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDialogueUpd2-20.png",
-    "notes": "Other boxes: 'I mean, what are you even doing here?', 'There is nothing new to see here.', 'I recommend that you exit the game and go find yourself a nice indie-horror game; get some hot chocolate.' Update 2's frame is the game talking about itself as a product. Everything in it, the man at the desk included, is said inside that frame."
+    "notes": "Other boxes: 'I mean, what are you even doing here?', 'There is nothing new to see here.', 'I recommend that you exit the game and go find yourself a nice indie-horror game; get some hot chocolate.' Reading: in these lines the game talks about itself as a product. The scene with the man at the desk is in the same update."
   },
   {
     "id": "fw-hard-ending-killing-the-storyteller",
@@ -3515,7 +3515,7 @@
       "fw-chippers-revenge-ending"
     ],
     "verifiedVia": "Read on screen: https://freddy-fazbears-pizza.fandom.com/wiki/File:Hardend09.jpg to https://freddy-fazbears-pizza.fandom.com/wiki/File:Hardend15.jpg ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings_(FW)",
-    "notes": "Before it: 'Was I REALLY the villain in your mind?' and 'I just do what is demanded of me!' The 'puppet-master' 8-bit Fredbear warns about is, inside the game, its author. The other endings print 'the end' in lower case."
+    "notes": "Before it: 'Was I REALLY the villain in your mind?' and 'I just do what is demanded of me!' On the plain reading the 'puppet-master' 8-bit Fredbear warns about is, inside the game, its author. The other endings print 'the end' in lower case."
   },
   {
     "id": "fw-normal-ending-still-in-control",
@@ -3549,8 +3549,8 @@
   },
   {
     "id": "fw-crying-child-character",
-    "title": "FNaF World's 'Crying Child' is the weeping child of FNaF2 and FNaF3, not FNaF4's boy",
-    "claim": "FNaF World has a character named 'Crying Child': a small pale blocky figure with black eye sockets and long tear streaks, the weeping-child sprite of the FNaF2 and FNaF3 minigames. Its loading screen reads 'Still sad.' It is not the brown-haired boy of FNaF4's minigames. Its trophy is the reward for the clock ending.",
+    "title": "FNaF World's 'Crying Child' is drawn as the weeping child of FNaF2 and FNaF3, not as FNaF4's boy",
+    "claim": "FNaF World has a character named 'Crying Child': a small pale blocky figure with black eye sockets and long tear streaks, the weeping-child sprite of the FNaF2 and FNaF3 minigames. Its loading screen reads 'Still sad.' It is not drawn as the brown-haired boy of FNaF4's minigames. Its trophy is the reward for the clock ending.",
     "quote": "Still sad.",
     "game": "fnaf-world",
     "kind": "mechanic",
@@ -3575,12 +3575,12 @@
       "fnaf3-stage01-cake-crying-child"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Adventure_Crying_Child ; https://freddy-fazbears-pizza.fandom.com/wiki/Trophies_(FW) ; images compared: https://freddy-fazbears-pizza.fandom.com/wiki/File:Crying_child_load.png, https://freddy-fazbears-pizza.fandom.com/wiki/File:CryingChildThrophy.png and FNaF4's https://freddy-fazbears-pizza.fandom.com/wiki/File:The_Crying_Child.png",
-    "notes": "This matters for naming. 'The crying child' is this archive's descriptor for FNaF4's boy, but the one time a game prints 'Crying Child' as a name it is on the generic weeping child of the earlier games' minigames: the children who are given cake in FNaF3. The clock ending's trophy therefore points at those children, and the clock games rehearse FNaF3's path to them. The wiki notes that its attack animation flickers into a green-shirted child from FNaF2's 'Take Cake to the Children'."
+    "notes": "This matters for naming. 'The crying child' is this archive's descriptor for FNaF4's boy, but the one time a game prints 'Crying Child' as a name it is on the generic weeping child of the earlier games' minigames: the children who are given cake in FNaF3. Reading: the clock ending's trophy points at those children rather than at FNaF4's boy, and the clock games rehearse FNaF3's path to them (fw-clock-games-five-tasks). The wiki notes that its attack animation flickers into a green-shirted child from FNaF2's 'Take Cake to the Children'."
   },
   {
     "id": "sl-private-room-keypad-1983",
-    "title": "Private Room keypad: 1-9-8-3 turns the monitors into camera feeds",
-    "claim": "In the Private Room on Night 5, entering 1-9-8-3 on the small wall keypad makes the three desk monitors switch from static to greyscale camera views, one after another, the top one first. They stay on for the rest of the night. The game gives no prompt for the code and never says what the number means.",
+    "title": "Private Room keypad: 1-9-8-3 turns the monitors from static to views of three rooms",
+    "claim": "In the Private Room on Night 5, entering 1-9-8-3 on the small wall keypad makes the three desk monitors switch from static to greyscale views of three rooms, one after another, the top one first. They stay on for the rest of the night. The game gives no prompt for the code and never says what the number means.",
     "game": "sister-location",
     "kind": "hidden",
     "location": "Night 5, Private Room (Fake Ending route): wall keypad left of the 'CELEBRATE!' poster",
@@ -3619,7 +3619,7 @@
     ],
     "image": "sl-private-room-1983-monitors.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_5_(FNaF:_SL) ; https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room/Trivia ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Maxresdefault_(1).jpg ; two gameplay captures published on the game's release day (https://www.youtube.com/watch?v=mDKXnm0xSNA and https://www.youtube.com/watch?v=NankCuG6q-4)",
-    "notes": "Checked by eye: in both captures the player clicks the wall keypad at 12 AM with 99% power and the monitors change from static to the three views within seconds; a wiki screenshot shows them still on at 4 AM, 42% power. The keypad has no display, so the digits themselves rest on the wiki's text (four of its pages agree) and the captures' titles, not on a readable frame. 1983 is the only year FNaF4 prints (its television), which is why the code is read as that year; the game does not say so. The wiki says the code does nothing in Custom Night, where the keys are used against another character. Status: the Private Room night is the 'fake ending' branch of Night 5, which the Real Ending contradicts, and Scott called Custom Night's gameplay non-canon. The room, its desk and what its monitors are wired to are part of the facility on either branch. Scott said in 2018 that he put things into this game to ground FNaF4's story."
+    "notes": "Checked by eye: in both captures the player clicks the wall keypad at 12 AM with 99% power and the monitors change from static to the three views within seconds; a wiki screenshot shows them still on at 4 AM, 42% power. The keypad has no display, so the digits themselves rest on the wiki's text (four of its pages agree) and the captures' titles, not on a readable frame. 1983 is the only year FNaF4 prints (its television), which is why the code is read as that year; the game does not say so. The wiki says the code does nothing in Custom Night, where the keys are used against another character. Status: the Private Room night is the 'fake ending' branch of Night 5, which the Real Ending contradicts, and Scott called Custom Night's gameplay non-canon. Reading: the room, its desk and its monitors belong to the facility whichever ending is taken. In 2018 Scott agreed when an interviewer said he had put things into Sister Location to ground FNaF4's story; he did not say which things (scott-2018-interview-sl-made-to-ground-story)."
   },
   {
     "id": "sl-private-room-monitor-bedroom",
@@ -3687,7 +3687,7 @@
     ],
     "image": "sl-private-room-feeds-fnaf4.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Private_Room-Cama_(FNaF_4)-Sister_Location.png compared with FNaF4's https://freddy-fazbears-pizza.fandom.com/wiki/File:Bed.png",
-    "notes": "Right panel of the image. The quilt pattern is the match that cannot be an accident. The object at the headboard is the right size and place for the Freddy plush but cannot be made out at this resolution (the texture is about 155 by 139 pixels). No bedside table is in view, so the feed says nothing about the flowers, pills and drip."
+    "notes": "Right panel of the image. The quilt pattern is the closest match. The object at the headboard is the right size and place for the Freddy plush but cannot be made out at this resolution (the texture is about 155 by 139 pixels). No bedside table is in view, so the view says nothing about the flowers, pills and drip."
   },
   {
     "id": "sl-private-room-monitor-hallway",
@@ -3725,7 +3725,7 @@
     ],
     "image": "sl-private-room-feeds-fnaf4.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Private_Room-Hallway_(FNaF_4)-Sister_Location.png compared with FNaF4's https://freddy-fazbears-pizza.fandom.com/wiki/File:Hallwayempty.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Hallway",
-    "notes": "Middle panel of the image. In FNaF4's minigame Plushtrap starts each round on this chair; here the chair is bare. Scott's teaser 'Terrible things come in small packages.' shows the same chair in the same hallway. So the facility watches the room of the between-night game as well as the bedroom."
+    "notes": "Middle panel of the image. In FNaF4's minigame Plushtrap starts each round on this chair; here the chair is bare. Scott's teaser 'Terrible things come in small packages.' shows the same chair in the same hallway. So the monitors show the room of the between-night game as well as the bedroom."
   },
   {
     "id": "sl-private-room-feeds-empty",
@@ -3760,7 +3760,7 @@
     ],
     "image": "sl-private-room-feeds-fnaf4.png",
     "verifiedVia": "The three monitor textures on the wiki (https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room/Gallery) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Maxresdefault_(1).jpg",
-    "notes": "They are still pictures given scan lines by the monitor. Nothing says whether they are live or recorded, or when the rooms were filmed; 'camera feeds' is the wiki's phrase. Empty rooms fit Sister Location's own time (long after the child of FNaF4) at least as well as they fit a recording. The breaker map, by contrast, puts one white dot in the bedroom's place (sl-breaker-map-dots)."
+    "notes": "They are still pictures given scan lines by the monitor. Nothing says whether they are live or recorded, or when the rooms were filmed; 'camera feeds' is the wiki's phrase. Empty rooms fit a view taken at the time of Sister Location at least as well as they fit a recording. The breaker map, by contrast, puts one white dot in the place read as the bedroom's (sl-breaker-map-dots)."
   },
   {
     "id": "sl-private-room-handset-beside-plush",
@@ -3796,11 +3796,11 @@
     ],
     "image": "sl-private-room-plush-handset.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FredbearDoll.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room ; https://freddy-fazbears-pizza.fandom.com/wiki/Plushies",
-    "notes": "The wiki calls it a 'remote control' on one page and a 'walkie-talkie or remote' on another; the game does not name it. An antenna and a speaker grille are what a two-way radio or cordless phone has; the keys would also suit a remote. The plush that talks to the child in FNaF4 is this design, and the handset sits against its twin in the one room that can watch that child's bedroom. That someone spoke through the toy from here is a reading, and it is the only physical thing the games offer toward explaining how a plush talks."
+    "notes": "The wiki calls it a 'remote control' on one page and a 'walkie-talkie or remote' on another; the game does not name it. An antenna and a speaker grille are what a two-way radio or cordless phone has; the keys would also suit a remote. The plush that talks to the child in FNaF4 is this design, and the handset rests against a plush of that design in the room whose monitors show FNaF4's bedroom. That someone spoke through the toy from here is a reading; neither game says so."
   },
   {
     "id": "sl-private-room-camera-map",
-    "title": "Private Room camera map: office marked 'YOU', a vent and two halls",
+    "title": "Private Room camera map: office marked 'YOU', a narrow shaft and two halls",
     "claim": "The Private Room's camera map shows the office at the bottom centre, marked 'YOU' with a white square, a narrow shaft running up from it, a long hall on each side with a square room off it, and a wide room across the top. The breaker panel draws the same arrangement in bold above Funtime Auditorium.",
     "quote": "YOU",
     "game": "sister-location",
@@ -3827,7 +3827,7 @@
     ],
     "image": "sl-private-room-camera-map.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PrivateRoomMap.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Private_Room",
-    "notes": "The wiki counts seven cameras, one of them in the vent, and says the room has two doors and a vent that can be shut, limited power and a 12-to-6 clock, like the offices of the earlier games. The white square under 'YOU' is the game's own mark for where a person is, which bears on the white dots of the breaker map."
+    "notes": "The wiki counts seven cameras, one of them in the vent, and says the room has two doors and a vent that can be shut, limited power and a 12-to-6 clock, like the offices of the earlier games. On this map the white square under 'YOU' marks the player's own place. Reading the breaker map's white dots the same way is a reading (sl-breaker-map-dots)."
   },
   {
     "id": "sl-breaker-panel-obsv-systems",
@@ -3860,12 +3860,12 @@
     ],
     "image": "sl-breaker-panel-ingame.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Fnafslmap.webp (in-game screenshot) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Obsv_1_text.png ; https://freddy-fazbears-pizza.fandom.com/wiki/File:Obsv_2_text.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Breaker_Control_Box_Interface ; captures https://www.youtube.com/watch?v=Zal_RWz5FVg (16 s) and https://www.youtube.com/watch?v=PcCViwDuJjo (262-268 s)",
-    "notes": "In the image the cursor covers the '2' of the last label; the captures and the wiki's rip of the label texture show it. 'Observation' is the obvious expansion and the wiki uses it; the game does not. The night cannot be finished until all eight are back, so both 'Obsv.' systems run on the facility's power. This panel is in the main, canonical run of the game, not in the fake-ending branch."
+    "notes": "In the image the cursor covers the '2' of the last label; the captures and the wiki's rip of the label texture show it. 'Observation' is the obvious expansion and the wiki uses it; the game does not. The night cannot be finished until all eight are restarted. This panel is on Night 2, which every playthrough passes; it is not in the fake-ending branch."
   },
   {
     "id": "sl-breaker-map-faint-clusters",
     "title": "Breaker map: three faint clusters of rooms outside the facility, each joined to it",
-    "claim": "The panel's map draws the facility's rooms in bold outline and, outside them, three clusters of rooms in thin faint outline: one at upper left, one at upper right, one at lower left. A faint line joins each to the facility: the upper-left cluster to Circus Gallery, the upper-right one to the bold complex above Funtime Auditorium (the Private Room and its halls), and the lower-left one to the underside of Ballora Gallery.",
+    "claim": "The panel's map draws the facility's rooms in bold outline and, outside them, three clusters of rooms in thin faint outline: one at upper left, one at upper right, one at lower left. A faint line joins each to the facility: the upper-left cluster to Circus Gallery, the upper-right one to the bold complex above Funtime Auditorium, and the lower-left one to the underside of Ballora Gallery.",
     "game": "sister-location",
     "kind": "environment",
     "location": "Night 2, Breaker Room control panel (map)",
@@ -3931,7 +3931,7 @@
   {
     "id": "sl-breaker-map-obsv2-house-layout",
     "title": "Obsv.2 is laid out like FNaF4's House Map",
-    "claim": "The Obsv.2 cluster has a wide room across the top with a small square room beside its right end, a narrow room running down from each end of the wide room, and a small room at the bottom centre. FNaF4's 'House Map' cheat has the same arrangement: a top row whose fourth square is set apart at the right, a column down each side, a centre square and a bottom-centre square.",
+    "claim": "The Obsv.2 cluster has a wide room across the top with a small square room beside its right end, a narrow room running down from each end of the wide room, and a small room at the bottom centre. FNaF4's 'House Map' cheat has a similar arrangement: a top row whose fourth square is set apart at the right, a column down each side and a bottom-centre square; it also has a centre square.",
     "game": "sister-location",
     "kind": "environment",
     "location": "Night 2, Breaker Room control panel (map, upper-right cluster)",
@@ -3961,7 +3961,7 @@
     ],
     "image": "sl-obsv2-vs-fnaf4-house-map.png",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Circus_Babys_Entertainment_and_Rental_map.png ; https://freddy-fazbears-pizza.fandom.com/wiki/File:FnaF4Map.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Map ; https://freddy-fazbears-pizza.fandom.com/wiki/Breaker_Control_Box_Interface",
-    "notes": "'Implied' because it is a match between two drawings and no label says so. It is element for element, and it is confirmed from another side: this cluster's line runs to the Private Room, whose monitors show FNaF4's bedroom, bed and hallway. The wiki reads the small right-hand square as the kitchen, after FNaF4's map; neither game labels it. The system that powers this place is called 'Obsv.2'."
+    "notes": "'Implied' because it is a match between two drawings and no label says so. The match is close, and it is supported from another side: this cluster's line runs to the complex identified as the Private Room, whose monitors show FNaF4's bedroom, bed and hallway. The wiki reads the small right-hand square as the kitchen, after FNaF4's map; neither game labels it. The system whose marker sits over this cluster is labelled 'Obsv.2'."
   },
   {
     "id": "sl-breaker-map-obsv1-layout",
@@ -4033,7 +4033,7 @@
   },
   {
     "id": "sl-breaker-map-dots",
-    "title": "Breaker map dots: one white dot in each faint cluster, grey dots where the animatronics are",
+    "title": "Breaker map dots: one white dot in each faint cluster, grey dots in the facility and the clusters",
     "claim": "Small square dots are drawn on the map with no legend. Inside the facility there are four grey dots and no white one: in Circus Gallery, Ballora Gallery, the Breaker Room and Funtime Auditorium. Each faint cluster holds exactly one white dot and some grey ones: Obsv.1 has two grey, Obsv.2 four, the corridor cluster five.",
     "game": "sister-location",
     "kind": "environment",
@@ -4104,7 +4104,7 @@
     ],
     "image": "sl-extras-map-afton-robotics.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_CBE%26R_Layout.png ; https://freddy-fazbears-pizza.fandom.com/wiki/Unlockable_Extras_(FNaF:_SL)",
-    "notes": "This is where Sister Location prints the facility's name; HandUnit never says it in this game (it does in Help Wanted). Icons mark who is kept where: Circus Baby and a Bidybab in Circus Gallery, Ballora and a Minireena in Ballora Gallery, Funtime Freddy in the Breaker Room and, with Bon-Bon, in Parts & Service, Funtime Foxy in Funtime Auditorium. A white square stands in the Elevator, where the player starts. The surname in the company's name is the one the board member uses in the opening ('Mr. Afton')."
+    "notes": "This is where Sister Location prints the facility's name; HandUnit never says it in this game (it does in Help Wanted). Icons mark who is kept where: Circus Baby and a Bidybab in Circus Gallery, Ballora and a Minireena in Ballora Gallery, Funtime Freddy in the Breaker Room and, with Bon-Bon, in Parts & Service, Funtime Foxy in Funtime Auditorium. A white square stands in the Elevator, where the player starts. The surname in the company's name is the one spoken in the opening ('Mr. Afton')."
   },
   {
     "id": "sl-blueprint-circus-baby",
@@ -4139,7 +4139,7 @@
     ],
     "image": "sl-blueprint-circus-baby.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Baby_Blueprints.png (read directly)",
-    "notes": "The sheet lists what the designer lists to the board (balloons by air hose, songs, ice cream) and no claw; the claw appears only in Baby's minigame. The year is printed as 'xxxx'. Ballora's and Funtime Foxy's sheets refer back to this one: 'see: Circus Baby dir07'."
+    "notes": "The sheet lists what the opening's 'Mr. Afton' lists (balloons by air hose, songs, ice cream) and no claw; the claw appears only in Baby's minigame. The year on the sheet reads 'xxxx'. Ballora's and Funtime Foxy's sheets refer back to this one: 'see: Circus Baby dir07'."
   },
   {
     "id": "sl-blueprint-ballora",
@@ -4172,7 +4172,7 @@
     ],
     "image": "sl-blueprint-ballora.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Ballora_Blueprints.png (read directly)",
-    "notes": "The quote joins three printed lines of entry B. What 'dir07' is, the sheet does not say; it reads as a directive filed with Circus Baby, which would make Baby the unit the others are worked through. 'Deter & Misdirect' is a job done to onlookers, not a dance feature. 'Audio Activation' matches play: Baby says Ballora 'can only listen for your movement'."
+    "notes": "The quote joins three printed lines of entry B. What 'dir07' is, the sheet does not say; it reads as a directive filed with Circus Baby, which would make Baby the unit the others are worked through. The sheet does not say who is to be deterred or misdirected. 'Audio Activation' matches play: Baby says Ballora 'can only listen for your movement'."
   },
   {
     "id": "sl-blueprint-funtime-freddy",
@@ -4209,7 +4209,7 @@
     ],
     "image": "sl-blueprint-funtime-freddy.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Funtime_Freddy_Blueprints.png (read directly)",
-    "notes": "Read together the four entries are about locating children in a group, keeping track of their parents, imitating a voice to lure, and holding something in a tank. The sheet draws no such conclusion itself; the board member's unanswered question about 'design choices' is the game's only comment. The wireframe torso contains rounded shapes that the wiki calls a child inside; nothing labels them and they are too vague to say."
+    "notes": "Read together the four entries suggest locating people in a group, keeping track of parents, imitating a voice to lure, and holding something in a tank. The sheet draws no such conclusion itself; the opening's unanswered question about 'design choices' is the game's only comment. The wireframe torso contains rounded shapes that the wiki calls a child inside; nothing labels them and they are too vague to say."
   },
   {
     "id": "sl-blueprint-funtime-foxy",
@@ -4244,11 +4244,11 @@
     ],
     "image": "sl-blueprint-funtime-foxy.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAFSL_Funtime_Foxy_Blueprints.png (read directly)",
-    "notes": "A machine that can record a parent's voice and play it back, and release a chosen smell. HandUnit calls Funtime Foxy 'motion-activated' and has the room kept dark; the sheet's word is light. Like Ballora's, this sheet points to 'Circus Baby dir07'."
+    "notes": "As labelled, entries B and C are about a parent's voice, synced and replayed, and a scent that can be varied. The sheet does not explain them. HandUnit calls Funtime Foxy 'motion-activated' and has the room kept dark; the sheet's word is light. Like Ballora's, this sheet points to 'Circus Baby dir07'."
   },
   {
     "id": "sl-elevator-underground-facility",
-    "title": "Every night begins with an elevator ride down",
+    "title": "Every night but the fourth begins with an elevator ride down",
     "claim": "Each night except the fourth begins inside an elevator that descends to the facility while HandUnit talks. At the bottom the player presses a red button and crawls out through a vent to the Primary Control Module.",
     "game": "sister-location",
     "kind": "mechanic",
@@ -4278,7 +4278,7 @@
       "sl-golden-freddy-cutscene-found-it"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Elevator ; https://freddy-fazbears-pizza.fandom.com/wiki/Night_1_(FNaF:_SL)",
-    "notes": "The game shows the descent and never says how deep the facility lies or what stands above it. Scott's trailer supplies the words 'DEEP BELOW GROUND'. The breaker map draws the three watched places on one sheet with the facility and joins them to it by lines; that is the only in-game sign of what the facility is next to. HandUnit calls the control module 'a crawl space between the two front showrooms'."
+    "notes": "The game shows the descent and never says how deep the facility lies or what stands above it. Scott's trailer supplies the words 'DEEP BELOW GROUND'. The breaker map draws three faint clusters of rooms on one sheet with the facility and joins them to it by lines; that is the only in-game sign of what the facility is joined to. HandUnit calls the control module 'a crawl space between the two front showrooms'."
   },
   {
     "id": "sl-trailer-deep-below-ground",
@@ -4309,7 +4309,7 @@
     ],
     "url": "https://www.youtube.com/watch?v=Uw4-bZkxyKQ",
     "verifiedVia": "Captions read frame by frame from the video on the official channel; date from the video's metadata",
-    "notes": "The four caption lines are separate title cards; the slashes mark the cuts. The trailer's spoken lines were not transcribed in this pass. Its FNaF4 clip is the house's left hall. It is the one place Scott puts the facility's depth in words, and the 'memories' that sleep there fit a place that keeps watch on FNaF4's rooms."
+    "notes": "The four caption lines are separate title cards; the slashes mark the cuts. The trailer's spoken lines were not transcribed in this pass. Its FNaF4 clip is the house's left hall. The captions do not say what lies below ground; taking them for the facility is a reading."
   },
   {
     "id": "sl-handunit-rented-for-private-parties",
@@ -4346,13 +4346,13 @@
       "sl-blueprint-funtime-freddy"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio ; https://freddy-fazbears-pizza.fandom.com/wiki/Night_1_(FNaF:_SL)",
-    "notes": "Scott's teaser-period page source shows the same business: a weekly booking schedule for the units, a client directory of birthday bookings, and 'be watching for her to appear at a neighborhood party near you'. Read with the blueprints, day rental to private children's parties is how these machines would reach children after the pizzeria that was built for them never opened; the game itself does not connect the two."
+    "notes": "Scott's teaser-period page source shows the same business: a weekly booking schedule for the units, a client directory of birthday bookings, and 'be watching for her to appear at a neighborhood party near you'. Read with the blueprints, day rental to private parties is a way these machines would reach children; the game itself does not connect the two."
   },
   {
     "id": "sl-handunit-intro-job-ad",
     "title": "HandUnit greets a new hire: a job fair, an ad, or a dare",
-    "claim": "On the first night HandUnit welcomes the player as a new employee who may have been approached at a job fair, answered the company's ad in 'Screws, Bolts and Hairpins' or come on a dare, and introduces itself as a Model 5 of the Handyman's Robotics and Unit Repair System.",
-    "quote": "Whether you were approached at a job fair, read our ad in Screws, Bolts and Hairpins, or if this is the result of a dare, we welcome you.",
+    "claim": "On the first night HandUnit welcomes the player as a new employee who may have been approached at a job fair, answered the company's ad in 'Screws, Bolts and Hairpins' or come on a dare, and introduces itself as a Model 5 of the Handyman's Robotics and Unit Repair System, which he can call HandUnit.",
+    "quote": "Whether you were approached at a job fair, read our ad in Screws, Bolts and Hairpins, or if this is the result of a dare, we welcome you. … you can call me HandUnit.",
     "game": "sister-location",
     "kind": "phone-call",
     "location": "Night 1, HandUnit (elevator)",
@@ -4382,7 +4382,7 @@
       "sl-golden-freddy-cutscene-found-it"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/HandUnit/Audio",
-    "notes": "HandUnit treats him as an ordinary new technician and promises 'endless janitorial opportunities'. Nothing HandUnit says suggests the company knows who he is. Three other lines say he came by choice and for a reason: Baby's 'to come here... willingly', the fake ending's 'Isn't this why you came here?' and his own 'It was right where you said it would be.'"
+    "notes": "HandUnit treats him as an ordinary new technician and promises 'endless janitorial opportunities'. Nothing HandUnit says suggests the company knows who he is. Three other lines bear on why he came: Baby's 'It's a strange thing to want to do, to come here', the fake ending's 'Isn't this why you came here?' and, if its speaker is the player, the last cutscene's 'It was right where you said it would be.'"
   },
   {
     "id": "sl-baby-i-remember-this-scenario",
@@ -4418,7 +4418,7 @@
       "hw2-what-makes-you-so-special"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "She goes on: 'I'm curious what events would lead a person to want to spend their nights in a place like this... willingly. Maybe curiosity? Maybe ignorance.' Compare Michael's later report, 'They didn't recognize me at first, but then... they thought I was you': this line is the first half of that sentence, said from the other side."
+    "notes": "She goes on: 'I'm curious what events would lead a person to want to spend their nights in a place like this... willingly. Maybe curiosity? Maybe ignorance.' Compare the last cutscene's 'They didn't recognize me at first, but then... they thought I was you'. If its speaker is the player, this line is the first half of that sentence, said from the other side."
   },
   {
     "id": "sl-bidybab-same-person",
@@ -4525,7 +4525,7 @@
       "sl-handunit-rented-for-private-parties"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Technicians",
-    "notes": "The reply: 'Who knows. It's always the same, man. Some kinda hardware malfunction.' and 'It's all automated, we don't have to be here for it. Just get her on the rollers and, we can go.' The staff see only breakdowns, and the scooping is a daily, unattended routine. Both men are found hanged the next night."
+    "notes": "The reply: 'Who knows. It's always the same, man. Some kinda hardware malfunction.' and 'It's all automated, we don't have to be here for it. Just get her on the rollers and, we can go.' The two men speak of breakdowns and of an automated process they need not stay for. Two figures hang in the galleries the next night (sl-technicians-hanged)."
   },
   {
     "id": "sl-real-ending-already-been-here-today",
@@ -4565,7 +4565,7 @@
       "ffps-molten-freddy-lines"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "It opens: 'You are in the scooping room now.' The voice is Circus Baby's, and it names Circus Baby in the third person among those already scooped: the speaker is what was taken out of the four. Scott's teaser for the combined figure reads 'There's a little of me in every body.'"
+    "notes": "It opens: 'You are in the scooping room now.' The voice is Circus Baby's, and it names Circus Baby in the third person among those that have 'already been here today'. The usual reading is that the speaker is what was taken out of the four. Scott's teaser for the combined figure reads 'There's a little of me in every body.'"
   },
   {
     "id": "sl-real-ending-they-always-put-us-back",
@@ -4603,7 +4603,7 @@
       "sl-golden-freddy-cutscene-put-her-back-together"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "'They' are not named; the game shows the technicians and the scooper's routine. The line slides from 'me' to 'us'. It is the motive for the whole week's deception: a human skin is the one disguise that would not be put back."
+    "notes": "'They' are not named; the game shows the technicians and the scooper's routine. The line slides from 'me' to 'us'. Reading: this is why the voice wants to look like the player; in the same scene it says 'if we looked like you, then we could hide' (sl-real-ending-if-we-looked-like-you)."
   },
   {
     "id": "sl-fake-ending-we-need-you",
@@ -4641,11 +4641,11 @@
       "sd-circus-baby-something-bad-inside"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Circus_Baby/Audio",
-    "notes": "In Circus Baby's voice. Further lines: 'We need you... so that we can look like you.', 'If they find us like this, we won't be able to try again.', 'You must let us inside the room.', 'You won't die. And it will only hurt for a moment.' and, last, 'I will find a way out.' 'You won't die' is said here before it is said over his body in the Custom Night cutscene."
+    "notes": "In Circus Baby's voice. Further lines: 'We need you... so that we can look like you.', 'If they find us like this, we won't be able to try again.', 'You must let us inside the room.', 'You won't die. And it will only hurt for a moment.' and, last, 'I will find a way out.' The same words are repeated over the fallen purple man in the last walking cutscene (sl-you-wont-die)."
   },
   {
     "id": "sl-immortal-and-the-restless",
-    "title": "The soap opera at home: a father who says the baby isn't his",
+    "title": "The soap opera at home: a vampire who says the baby isn't his",
     "claim": "After Nights 1, 2 and 4 the player is at home watching 'The Immortal and the Restless', a soap opera in which a vampire, Vlad, keeps telling Clara that her baby is not his while she lists the vampire things the child does and tells him to be part of his son's life. She sets his house on fire. The finale, shown only after the Private Room night, ends with the two kissing and the narrator asking what will become of the baby.",
     "game": "sister-location",
     "kind": "cutscene",
@@ -4711,7 +4711,7 @@
       "ffps-scrap-baby-completion-monologue"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton (two transcripts of the same audio on that page agree on the wording)",
-    "notes": "'It' is not named. The only place the game shows him go is the underground facility, and 'they' fits its animatronics, so 'it' reads as the facility: he went, on his father's directions, to a place his father knew and he did not. Punctuation is the transcriber's; the line is spoken."
+    "notes": "'It' is not named. If the speaker is the player, the one place the game shows him go is the facility, and 'they' fits its animatronics, so 'it' reads as the facility. Punctuation is the transcriber's; the line is spoken."
   },
   {
     "id": "sl-golden-freddy-cutscene-they-thought-i-was-you",
@@ -4750,7 +4750,7 @@
       "ucn-protagonist-unnamed-killer"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton (two transcripts of the same audio on that page agree on the wording)",
-    "notes": "Inside the game, Baby's Night 2 line is 'I don't recognize you. You are new.' What made them take him for his father is not said: his looks, his voice, or simply his coming there. It implies the machines knew the father by sight. The line is also the games' own statement that father and son can be mistaken for each other, which matters wherever a later game leaves a purple or unnamed figure unidentified."
+    "notes": "Inside the game, Baby's Night 2 line is 'I don't recognize you. You are new.' What made them take him for his father is not said: his looks, his voice, or simply his coming there. The line has the speaker taken for his father, which bears on any scene that leaves a purple or unnamed figure unidentified."
   },
   {
     "id": "sl-golden-freddy-cutscene-put-her-back-together",
@@ -4792,7 +4792,7 @@
       "scottgames-site-2017-fnafworld-source-ejection-dialogue-one"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Michael_Afton (two transcripts of the same audio on that page agree on the wording)",
-    "notes": "'Her' is not named in this speech; the fake ending's 'Isn't this why you came here? To be with her again?' and the girl's voice that follows point to the daughter in Circus Baby. What 'put her back together' covers is never shown. In the Real Ending the machines are scooped, combined and walk out inside him: on his account that was the errand, and 'She's free now' is his judgment of the result. 'Put back together' is the promise made to the child at the end of FNaF4; here it is a task a father set his son, done. In FFPS Scrap Baby turns the phrase round: 'just like he asked you to'."
+    "notes": "'Her' is not named in this speech; the fake ending's 'Isn't this why you came here? To be with her again?' and the girl's voice that follows are the nearest pointers to who 'her' is. What 'put her back together' covers is never shown. The same words end FNaF4's Night 6 cutscene ('I will put you back together.'). In FFPS Scrap Baby turns the phrase round: 'just like he asked you to'."
   },
   {
     "id": "fnaf4-left-hall-grandfather-clock",
@@ -4827,7 +4827,7 @@
   {
     "id": "fw-android-port-clock-ending",
     "title": "Android port: the clock ending's two dots become a Bouncepot",
-    "claim": "The Android port of FNaF World rewrites the clock ending as a joke. The two yellow dots say 'I am ready to reveal myself' and 'It was me', claim to have caused 'the bite of 87', and are replaced by a small potted-plant creature that the text hails as Bouncepot. 'the end' follows.",
+    "claim": "In the Android port of FNaF World the clock ending has different text. The two yellow dots say 'I am ready to reveal myself' and 'It was me', claim to have caused 'the bite of 87', and are replaced by a small potted-plant creature that the text hails as Bouncepot. 'the end' follows.",
     "quote": "I caused the bite of 87. That's right. Mind Blown! It all makes sense when you think about it. All hail Bouncepot!",
     "game": "fnaf-world",
     "kind": "ending",
@@ -4857,11 +4857,11 @@
   },
   {
     "id": "fw-drowning-ending",
-    "title": "Drowning ending: the player's sprite goes into Old Man Consequences' lake",
+    "title": "The lake ending: the player's sprite goes into Old Man Consequences' lake",
     "claim": "At Old Man Consequences' lake the player's sprite can go into the water. The screen then turns black with one white shape at its centre, and afterwards shows a black human silhouette in front of a white rectangle, its arms held out and down to either side, with a grey shape at each side. No text appears.",
     "game": "fnaf-world",
     "kind": "ending",
-    "location": "Fourth sub-tunnel lake (Drowning ending)",
+    "location": "Fourth sub-tunnel lake (the ending the wiki calls 'Drowning')",
     "certainty": "shown",
     "when": {
       "label": "FNaF World (outside the core timeline; undated)",
