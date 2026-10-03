@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
-import { ConfidenceMark, FirmGlyph, Icon, RichText, chapterPath, CONFIDENCE, smartQuotes } from "../../components/ui";
-import { type PartGroup, chapterGist, distinctQuestion, pad2, roman } from "./model";
+import { ConfidenceMark, FirmGlyph, Icon, RichText, chapterPath, firmness, smartQuotes } from "../../components/ui";
+import { type PartGroup, type SectionHead, chapterGist, distinctQuestion, pad2, roman } from "./model";
 
 type NumberOf = (id: string) => number;
 
@@ -51,8 +51,10 @@ export function ChapterContents({ groups, numberOf, read, pathOf = chapterPath }
 /**
  * The chapter list used beside a chapter (the rail) and in the phone contents sheet: parts as
  * collapsible groups, the current part open, the current chapter marked, finished chapters ticked.
+ * Under the current chapter come its own sections (`sections`), with the one being read marked
+ * (`section`): the reader's place inside a long chapter, and the way to another part of it.
  */
-export function ChapterNav({ groups, numberOf, current, read, onNavigate, pathOf = chapterPath }: { groups: PartGroup[]; numberOf: NumberOf; current?: string; read: Set<string>; onNavigate?: () => void; pathOf?: (id: string) => string }) {
+export function ChapterNav({ groups, numberOf, current, read, onNavigate, pathOf = chapterPath, sections = [], section }: { groups: PartGroup[]; numberOf: NumberOf; current?: string; read: Set<string>; onNavigate?: () => void; pathOf?: (id: string) => string; sections?: SectionHead[]; section?: string | null }) {
   return (
     <ol className="chapter-nav-list">
       {groups.map((g) => {
@@ -63,20 +65,37 @@ export function ChapterNav({ groups, numberOf, current, read, onNavigate, pathOf
               <summary>
                 <span className="chapter-nav-part__n">{roman(g.n)}</span>
                 <span className="chapter-nav-part__title">{smartQuotes(g.part?.title ?? "Further chapters")}</span>
-                <span className="chapter-nav-part__count">{g.chapters.length}</span>
+                <span className="chapter-nav-part__count" aria-hidden>{g.chapters.length}</span>
+                <span className="sr-only">, {g.chapters.length} {g.chapters.length === 1 ? "chapter" : "chapters"}</span>
               </summary>
               <ol>
-                {g.chapters.map((s) => (
-                  <li key={s.id}>
-                    <Link to={pathOf(s.id)} className={`chapter-nav-item${s.id === current ? " is-current" : ""}`} aria-current={s.id === current ? "page" : undefined} onClick={onNavigate}>
-                      <span className="chapter-nav-item__n">{pad2(numberOf(s.id))}</span>
-                      <span className="chapter-nav-item__title">{smartQuotes(s.title)}</span>
-                      <span className="chapter-nav-item__mark" title={read.has(s.id) ? "Read" : CONFIDENCE[s.confidence].word}>
-                        {read.has(s.id) ? <Icon icon={Check} label="Read" /> : <FirmGlyph level={CONFIDENCE[s.confidence].level} />}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+                {g.chapters.map((s) => {
+                  const conf = firmness("confidence", s.confidence);
+                  const done = read.has(s.id);
+                  return (
+                    <li key={s.id}>
+                      <Link to={pathOf(s.id)} className={`chapter-nav-item${s.id === current ? " is-current" : ""}`} aria-current={s.id === current ? "page" : undefined} onClick={onNavigate}>
+                        <span className="chapter-nav-item__n">{pad2(numberOf(s.id))}</span>
+                        <span className="chapter-nav-item__title">{smartQuotes(s.title)}</span>
+                        {/* The tick says it has been read; the mark still says how sure the chapter is. Both are in the link's name. */}
+                        <span className="chapter-nav-item__mark" title={done ? `${conf.word} · Read` : conf.word}>
+                          {done && <Icon icon={Check} />}
+                          <FirmGlyph level={conf.level} />
+                        </span>
+                        <span className="sr-only">, {conf.word.toLowerCase()}{done ? ", read" : ""}</span>
+                      </Link>
+                      {s.id === current && sections.length > 1 && (
+                        <ol className="chapter-nav-sections" aria-label="In this chapter">
+                          {sections.map((h) => (
+                            <li key={h.id}>
+                              <Link to={`${pathOf(s.id)}#${h.id}`} className="chapter-nav-section" aria-current={h.id === section ? "location" : undefined} onClick={onNavigate}>{smartQuotes(h.text)}</Link>
+                            </li>
+                          ))}
+                        </ol>
+                      )}
+                    </li>
+                  );
+                })}
               </ol>
             </details>
           </li>

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { CONFIDENCE, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes } from "../../components/ui";
+import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes } from "../../components/ui";
 import { Blocks } from "./blocks";
-import { type PartGroup, chapterCitations, distinctQuestion, pad2, readingMinutes, roman } from "./model";
+import { type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
 /** Everything a chapter needs to know about its surroundings. The fixture route supplies its own. */
 export interface ChapterContext {
@@ -24,9 +24,11 @@ export interface ChapterContext {
  * One chapter of the model as a reading page: where it sits, the question, the answer set large,
  * the confidence in words, the hero image, the body blocks, what pushes back, what would change the
  * answer, related chapters, the numbered sources, further evidence, and previous / next.
- * Every optional field may be missing.
+ * Every optional field may be missing. `heads` are the chapter's section headings with their
+ * anchors (worked out here when the caller has not already done so for a contents list).
  */
-export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterContext; onEnd?: () => void }) {
+export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: ChapterContext; onEnd?: () => void; heads?: SectionHead[] }) {
+  const sections = useMemo(() => heads ?? chapterHeads(s), [heads, s]);
   const cited = useMemo(() => chapterCitations(s), [s]);
   const numbers = useMemo(() => new Map(cited.map((id, i) => [id, i + 1])), [cited]);
   const counter = (s.counterEvidence ?? []).map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
@@ -34,7 +36,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
   const further = (s.further ?? []).filter((id) => !numbers.has(id) && evidenceById.has(id));
   const seeAlso = (s.seeAlso ?? []).map(ctx.find).filter((c): c is TheorySection => !!c);
   const question = distinctQuestion(s);
-  const conf = CONFIDENCE[s.confidence];
+  const conf = firmness("confidence", s.confidence);
   const part = ctx.group?.part;
 
   const uid = useId();
@@ -89,7 +91,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
           />
         )}
 
-        <Blocks blocks={s.body} />
+        <Blocks blocks={s.body} heads={sections} />
 
         {(counter.length > 0 || s.tension) && (
           <section className="pushback" aria-labelledby={`${uid}-pushback`}>
@@ -126,7 +128,7 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
                   <Link to={ctx.pathOf(c.id)} className="see-also__item">
                     <span className="see-also__n">{pad2(ctx.numberOf(c.id))}</span>
                     <span className="see-also__title">{smartQuotes(c.title)}</span>
-                    <ConfidenceMark value={c.confidence} variant="glyph" />
+                    <ConfidenceMark value={c.confidence} variant="inline" />
                   </Link>
                 </li>
               ))}
@@ -135,11 +137,11 @@ export function ChapterView({ s, ctx, onEnd }: { s: TheorySection; ctx: ChapterC
         )}
 
         <div className="chapter-end" ref={sourcesRef}>
-          <Collapsible summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
+          <Collapsible print summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
-            <Collapsible summary="Further evidence filed here" meta={`${further.length} more record${further.length === 1 ? "" : "s"} on this thread, not cited above`}>
+            <Collapsible eager summary="Further evidence filed here" meta={`${further.length} more record${further.length === 1 ? "" : "s"} on this thread, not cited above`}>
               <EvidenceList ids={further} />
             </Collapsible>
           )}
