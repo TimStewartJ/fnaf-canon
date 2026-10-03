@@ -4,7 +4,7 @@
     "title": "Five Nights at Freddy's",
     "released": "2014-08-08",
     "developer": "Scott Cawthon",
-    "summary": "A night guard, Mike Schmidt, works a week at Freddy Fazbear's Pizza while its four machines roam at night. A recorded voice on the phone guides him and mentions \"the Bite of '87\", and rare newspaper clippings report children lured into a back room and never found.",
+    "summary": "A night guard, Mike Schmidt, works a week at Freddy Fazbear's Pizza while its four machines roam at night. A recorded voice on the phone guides him and speaks of the Bite of '87, and rare newspaper clippings report children lured into a back room and never found.",
     "settingYearLabel": "A November after 1987 (the cheques print the year as 'xx')"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Five Nights at Freddy's 3",
     "released": "2015-03-02",
     "developer": "Scott Cawthon",
-    "summary": "A guard works at Fazbear's Fright, a horror attraction built from the old restaurants' relics around one real find: a yellow rabbit suit with a body inside it. Minigames between the nights show a purple man dismantling the four old machines and dying inside that suit.",
+    "summary": "A guard works at Fazbear's Fright, a local amusement park's horror attraction built from the old restaurants' relics around one real find: a yellow rabbit suit with what looks like a body inside it. Minigames between the nights show a purple man dismantling the four old machines and dying inside a yellow rabbit suit.",
     "settingYearLabel": "Thirty years after Freddy Fazbear's Pizza closed (Scott's store text; no year)"
   },
   {
@@ -44,8 +44,8 @@
     "title": "FNaF World",
     "released": "2016-01-21",
     "developer": "Scott Cawthon",
-    "summary": "A comic role-playing game starring 'adventure' versions of the characters. Its adventure is outside the story; its opening words and its clock ending echo FNaF4 on purpose and are used only as support.",
-    "settingYearLabel": "Outside the story, except its frame voice"
+    "summary": "A comic role-playing game with the series' characters as its party. Its adventure is outside the story; its opening words and its clock ending echo FNaF4 on purpose and are used only as support.",
+    "settingYearLabel": "Outside the story, except its opening and clock-ending text"
   },
   {
     "id": "sister-location",
@@ -60,16 +60,16 @@
     "title": "Freddy Fazbear's Pizzeria Simulator",
     "released": "2017-12-04",
     "developer": "Scott Cawthon",
-    "summary": "A franchisee runs a new pizzeria for one week and is offered wrecked machines to salvage. The restaurant is a trap: the Cassette Man calls four haunted machines into one building and stays as it burns.",
-    "settingYearLabel": "After the Fazbear's Fright fire (no year)"
+    "summary": "A franchisee runs a new pizzeria for one week and is offered wrecked machines to salvage. The restaurant is a trap: the Cassette Man calls four haunted machines into one building and, in the ending that the later games follow, stays as it burns.",
+    "settingYearLabel": "After the Fazbear's Fright fire, most likely (no year)"
   },
   {
     "id": "ucn",
     "title": "Ultimate Custom Night",
     "released": "2018-06-27",
     "developer": "Scott Cawthon",
-    "summary": "A custom night with fifty selectable characters from the earlier games. Many of their lines speak to the player as someone who is being kept there, and one voice says it will hold the player there \"no matter how many times they burn us\".",
-    "settingYearLabel": "After the Pizzeria Simulator fire (no year)"
+    "summary": "A custom night with fifty selectable characters from the earlier games. Their voices say that the one in the office has killed and cannot die, and one voice says it will hold that person there: \"No matter how many times they burn us.\"",
+    "settingYearLabel": "After the Pizzeria Simulator fire, most likely (no year)"
   },
   {
     "id": "help-wanted",
@@ -84,7 +84,7 @@
     "title": "Five Nights at Freddy's: Help Wanted - Curse of Dreadbear",
     "released": "2019-10-23",
     "developer": "Steel Wool Studios",
-    "summary": "A Halloween add-on to Help Wanted: new levels in the same virtual product. With a hidden rabbit mask on, the player hears a woman's side of a conversation with someone who is never heard.",
+    "summary": "A Halloween add-on to Help Wanted: new levels in the same virtual product. With a hidden rabbit mask on, and the plush from Help Wanted's Trapped ending in hand, the player hears a woman's side of a conversation with someone who is never heard.",
     "settingYearLabel": "Undated; with Help Wanted"
   },
   {
@@ -132,7 +132,7 @@
     "title": "Five Nights at Freddy's: Secret of the Mimic",
     "released": "2025-06-13",
     "developer": "Steel Wool Studios",
-    "summary": "Fazbear Entertainment sends a technician by night into the shuttered workshop of Murray's Costume Manor to bring out its blueprints, and an endoskeleton built to take on the character of any costume hunts him there. Recordings and letters tell the story of Edwin Murray, his family and his two machines.",
+    "summary": "Fazbear Entertainment sends a technician by night into the shuttered workshop of Murray's Costume Manor to bring out its blueprints, and an endoskeleton that has left earlier visitors dead inside mascot costumes is loose in the building. Recordings and letters tell the story of Edwin Murray, his family and his two machines.",
     "settingYearLabel": "1979, most likely 7 September (on a work order in the technician's van, not yet seen in play)"
   },
   {
