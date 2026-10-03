@@ -11,7 +11,7 @@ export const chapters: TheorySection[] = [
   {
     id: "thesis", part: "story", title: "The story in one paragraph",
     question: "What is the whole story, and how much of it is firm?",
-    answer: "William Afton kills children, the mascot machines keep them, and everything after is an attempt to end that or to copy it. Who the killer is, what his company built and how the trap burns are firm. That his own project came after the five, who holds him after the fire and what the rabbit in the code is are the model's readings.",
+    answer: "William Afton kills children, the mascot machines keep them, and everything after is an attempt to end that or to copy it. Who the killer is, what his company built and how the trap burns are firm. What his \"new way to desecrate\" was, whether anyone keeps him after the fire, and what the rabbit in the code is, are the model's readings.",
     confidence: "medium",
     // PLACEHOLDER BODY: the previous model's text, kept so the site builds. Replace the whole `body` with the
     // chapter written to its outline (telling.md, section A).
@@ -22,7 +22,7 @@ export const chapters: TheorySection[] = [
       "Each section below states how strongly it is supported. Where records push back, they are listed.",
     ],
     counterEvidence: ["ucn-omc-ending", "fnaf2-save-them", "sd-which-board-unknown", "hw2-pq4-graveyard-order"],
-    tension: "Four records press on the paragraph's weakest clauses. Old Man Consequences says \"Leave the demon to his demons. Rest your own soul\" to whoever reaches him [[ucn-omc-ending]], and on the model's reading the one in that office is the demon; ((ucn)) takes the line as meant for his keeper and calls that its weakest point. SAVE THEM shows small bodies in the 1987 building [[fnaf2-save-them]]; ((november-1987)) reads them as the earlier five. No game says which machine the scanned boards came from [[sd-which-board-unknown]], which is why ((digital)) says \"something of him\" and no more. And a later graveyard is solved in an order that ends with the Puppet [[hw2-pq4-graveyard-order]]; the paragraph gives the first murders as a list, not a sequence, for that reason (see ((child-outside))).",
+    tension: "Four records press on the paragraph's weakest clauses. Old Man Consequences says \"Leave the demon to his demons. Rest your own soul\" to whoever reaches him [[ucn-omc-ending]], and on the model's lean the one in that office is the demon; ((ucn)) gives the line another listener, does not choose which, and calls that its weakest point. SAVE THEM shows small bodies in the 1987 building [[fnaf2-save-them]]; ((november-1987)) reads them as the earlier five. No game says which machine the scanned boards came from [[sd-which-board-unknown]], which is why ((digital)) says \"something of him\" and no more. And a later graveyard is solved in an order that ends with the Puppet [[hw2-pq4-graveyard-order]]; the paragraph gives the first murders as a list, not a sequence, for that reason (see ((child-outside))).",
     changesIf: "A game that names the player of Ultimate Custom Night, dates Afton's own machines against the five, or says which machine the scanned boards came from would change the clause it touches. Each chapter says what would change its own answer.",
     seeAlso: ["killer", "patterns", "timeline-math", "games", "open"],
     // Coverage plan: each record below has this chapter as its home. Cite it inline and delete it here, or leave it filed.

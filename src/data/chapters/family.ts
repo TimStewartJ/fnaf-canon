@@ -95,7 +95,7 @@ export const chapters: TheorySection[] = [
   {
     id: "nightmares", part: "family", title: "The nights in the bedroom",
     question: "Are FNaF4's nights a dream, and what are the Nightmares?",
-    answer: "The bedroom is a real place: years later it is on the monitors of Afton's facility. Whether the boy was awake in it or dreaming in that bed, the games do not settle; the model leans to awake. Either way, what he fights is not what is there: a later game's word for it is \"illusion\".",
+    answer: "The bedroom is a real place: in Sister Location's time it is on the monitors of Afton's facility. Whether the boy was awake in it or dreaming in that bed, the games do not settle; the model leans to awake. Either way, what he fights is not what is there: a later game's word for it is \"illusion\".",
     confidence: "low",
     hero: { image: "fnaf4-bedside-iv-drip.jpg", caption: "The bed behind FNaF4's player, in the rare variant with a drip stand beside it [[fnaf4-bedside-items]]. The quilt and the headboard are the ones on the Private Room's monitor." },
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to

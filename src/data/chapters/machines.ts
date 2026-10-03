@@ -11,7 +11,7 @@ export const chapters: TheorySection[] = [
   {
     id: "funtimes", part: "machines", title: "Afton Robotics",
     question: "What were the Funtime animatronics built for?",
-    answer: "To take children. Their blueprints, each marked Afton Robotics, list the features: \"Parental Tracking\", \"Voice Mimic/ Luring\", \"Storage Tank\". The one child the games show these machines take is their maker's own daughter.",
+    answer: "To lure a child and take it. That rests on three things together: the labels on their blueprints, such as \"Voice Mimic/ Luring\" and \"Storage Tank\"; what Circus Baby did the one time a child was alone with her; and a father who would not let his own daughter near her. That daughter is the one child the games show these machines take.",
     confidence: "high",
     hero: { image: "sl-blueprint-funtime-freddy.jpg", caption: "A rare screen in Sister Location: Funtime Freddy's blueprint, with \"Parental Tracking\", \"Voice Mimic/ Luring\" and \"Storage Tank\" among its labels [[sl-blueprint-funtime-freddy]]." },
     // PLACEHOLDER BODY: the previous model's text, kept so the site builds. Replace the whole `body` with the
@@ -23,7 +23,7 @@ export const chapters: TheorySection[] = [
       "The Afton Robotics blueprint shows the technology directly: an excavating arm, a **Remnant Injector** and a **Remnant Reservoir** [[ffps-scup-blueprint]]. Its companion blueprints are a bear built to lure and extract [[ffps-lefte-blueprint]] and a unit that holds a heat reading at 98.6 [[ffps-rasc-blueprint]].",
     ],
     counterEvidence: ["sl-fake-ending-girl-voice"],
-    tension: "No child other than the daughter is shown taken by these machines, and her death was something her father had tried to prevent: he kept her away from Baby, and a voice like hers later says \"I know it was an accident\" [[sl-fake-ending-girl-voice]]. That does not make the designs innocent. The labels are \"Luring\" and \"Deter & Misdirect\", and Baby's own account is of a machine doing what it was built to do when a child was alone. It does mean the model claims no second victim.",
+    tension: "No child other than the daughter is shown taken by these machines, and her father had kept her away from Baby. A voice like hers later says \"I know it was an accident\" [[sl-fake-ending-girl-voice]]; nothing says which accident, and the model gives the line no weight either way. The sheets themselves do not say what the machines are for. The answer stands on three things together: the labels, Baby's own account of a machine acting when a child was alone, and the father's prohibition. The model claims no second victim.",
     changesIf: "A second victim of these machines, or a dated record for Circus Baby's Pizza World.",
     seeAlso: ["killer", "michael", "remnant", "salvage", "afton-house", "timeline-math"],
     // Coverage plan: each record below has this chapter as its home. Cite it inline and delete it here, or leave it filed.
@@ -53,7 +53,7 @@ export const chapters: TheorySection[] = [
   {
     id: "remnant", part: "machines", title: "Remnant",
     question: "What is Remnant?",
-    answer: "The games say very little: it is a substance on an Afton Robotics blueprint, kept in a heated tank and injected in traces by a machine named for the \"scalable creation of ulterior presence\", with a note that overheating \"might neutralize the effects permanently\". The model reads it as Afton's name for what the dead leave in the machines, and as his attempt to make on purpose what first happened by accident.",
+    answer: "The games give one sheet. A blueprint marked Afton Robotics names a machine for the \"scalable creation of ulterior presence\" and labels on it a \"Remnant Injector\" and a \"Remnant Reservoir\", with a note that overheating \"might neutralize the effects permanently\". No game says what Remnant is. The model reads it as the name the killer's firm gave to what it was trying to make use of, and says no more.",
     confidence: "low",
     // PLACEHOLDER BODY: a new chapter, not yet written. Replace the whole `body` with the chapter written to
     // its outline (telling.md, section A).
@@ -61,7 +61,7 @@ export const chapters: TheorySection[] = [
       { kind: "callout", tone: "note", title: "Being written", text: "This chapter is new in the rebuilt model, and its argument is still being written. The answer above is the model’s ruling; the records it rests on are listed under further evidence." },
     ],
     counterEvidence: ["sd-tutorial-remnant-collection"],
-    tension: "Nothing in any game states a link between the substance and the dead, and the tape that speaks of small souls names no machine. The only other use of the word is a collectible in Special Delivery that \"is used to power up your animatronics\" [[sd-tutorial-remnant-collection]], which treats it as a resource and explains nothing. The model's reading rests on the machine's own name and on the company the sheet keeps: it is shown while the Cassette Man speaks of what was done to the children. That is thin, which is why the chapter is rated low and why no other chapter builds on it.",
+    tension: "Nothing in any game states a link between the substance and the dead, and the tape that speaks of small souls names no machine. The only other use of the word is a collectible in Special Delivery that \"is used to power up your animatronics\" [[sd-tutorial-remnant-collection]], which treats it as a resource and explains nothing. The model's reading rests on the machine's own name and on the company the sheet keeps: it is on the screen while the Cassette Man speaks of small souls \"set to new purpose\". That is thin, which is why the chapter is rated low, why it says nothing about what the substance is, and why no other chapter builds on it.",
     changesIf: "A game that defines the word.",
     seeAlso: ["funtimes", "michael", "springtrap", "salvage", "ffps", "golden"],
     // Coverage plan: each record below has this chapter as its home. Cite it inline and delete it here, or leave it filed.
@@ -76,7 +76,7 @@ export const chapters: TheorySection[] = [
   {
     id: "michael", part: "machines", title: "The son who should be dead",
     question: "What happened to Michael Afton?",
-    answer: "His father sent him underground to find his sister. The machines there scooped him hollow and walked out wearing him. His body rotted, threw them up into a sewer, and got back up. He is most likely FNaF4's older brother and, later, the manager of Pizzeria Simulator's pizzeria.",
+    answer: "On his father's instructions he went underground, where the machines scooped him hollow and walked out wearing him. His body rotted, threw them up into a sewer, and got back up. He is most likely FNaF4's older brother and, later, the manager of Pizzeria Simulator's pizzeria.",
     confidence: "high",
     hero: { image: "sl-golden-freddy-cutscene-fazbears-fright.png", caption: "Sister Location's last cutscene: the burnt shell of Fazbear's Fright, and a figure with rabbit's ears at the right [[sl-golden-freddy-cutscene-springtrap]]." },
     // PLACEHOLDER BODY: the previous model's text, kept so the site builds. Replace the whole `body` with the
