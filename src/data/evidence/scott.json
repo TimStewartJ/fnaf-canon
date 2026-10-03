@@ -61,8 +61,8 @@
   {
     "id": "scott-2015-book-reimagining",
     "title": "The Silver Eyes is a re-imagining",
-    "claim": "Scott described the first novel as a re-imagining of the Five Nights at Freddy's story and asked readers not to try to 'solve' anything with it.",
-    "quote": "I would actually ask anyone wanting to read the book, even if you are a devout fan of the games, to read the book for the sake of enjoying the book, and don't try to …",
+    "claim": "Scott described the first novel as a re-imagining of the Five Nights at Freddy's story and asked readers to read it for its own sake rather than to 'solve' anything.",
+    "quote": "The book is a re-imagining of the Five Nights at Freddy's story, and if you go into it with that mindset, I think you will really enjoy it.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam, FNaF 4 General Discussions, thread \"Is the book canon?\" by Scott, 2015-12-18",
@@ -78,10 +78,13 @@
       "silver-eyes"
     ],
     "related": [
-      "scott-2015-books-separate-continuity"
+      "scott-2015-books-separate-continuity",
+      "scott-2015-book-canon-not-puzzle-pieces",
+      "scott-2016-silver-eyes-not-100-percent-games"
     ],
     "url": "https://steamcommunity.com/app/388090/discussions/0/494632768623412182/",
-    "verifiedVia": "http://web.archive.org/web/20160528214625/http://steamcommunity.com:80/app/388090/discussions/0/494632768623412182/ (thread no longer loads live)"
+    "verifiedVia": "http://web.archive.org/web/20160528214625/http://steamcommunity.com:80/app/388090/discussions/0/494632768623412182/ (thread no longer loads live)",
+    "notes": "The sentence before it reads: 'I would actually ask anyone wanting to read the book, even if you are a devout fan of the games, to read the book for the sake of enjoying the book, and don't try to \"solve\" anything.'"
   },
   {
     "id": "scott-2015-alternate-timeline-comment",
@@ -262,8 +265,8 @@
   },
   {
     "id": "scott-2024-no-new-lore-on-products",
-    "title": "Licensed products must not create lore (e.g. 'EST 1983')",
-    "claim": "Scott said he tells licensed partners not to create new lore and to avoid even established dates such as 'EST 1983' on merchandise because it confuses the lore.",
+    "title": "Licensed products must not create lore (not even an 'EST 1983')",
+    "claim": "Scott said licensed partners sometimes invent lore while designing products and that he stops them: even a founding date such as 'EST 1983' on a T-shirt is refused, because printing an establishment date confuses the lore.",
     "quote": "Almost every time this happens, however, I step in and say- No, don't create lore; just focus on established lore. …",
     "game": "scott",
     "kind": "scott-statement",
@@ -281,11 +284,12 @@
       "dates"
     ],
     "related": [
-      "scott-2017-tff-annotations-not-lore"
+      "scott-2017-tff-annotations-not-lore",
+      "scott-2020-cassidy-kazoo-names-from-lore"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/1ciq5f6/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "Same post: an unpublished 'Talbert Files' manuscript, if genuine, 'was obviously rejected'; he also said emails attributed to him about it were fake. Implication: merchandise/unpublished material is not a lore source."
+    "notes": "'An established date' here is an 'EST' (founded-in) date on a product. The sentence does not say that 1983 is, or is not, a date in the story; it says merchandise must not assert one. Same post: an unpublished 'Talbert Files' manuscript, if genuine, 'was obviously rejected', and emails attributed to him about it were fake. Implication: merchandise and unpublished material are not lore sources."
   },
   {
     "id": "scott-2019-help-wanted-is-canon",
@@ -345,13 +349,14 @@
       "scott-2019-silver-parasol-logo"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/",
-    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')"
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
+    "notes": "The quoted sentence is followed by: 'Only the idea of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.' Note the two hedges: 'supposedly' and 'may or may not'."
   },
   {
     "id": "scott-2019-indie-dev-photo",
     "title": "Scott's photo used for the in-game indie developer, but it is not him",
     "claim": "Scott said his name is never mentioned in Help Wanted and that using his own photo for the in-game indie developer does not necessarily mean the developer is him in-universe.",
-    "quote": "My name is never actually mentioned in the game. [...] Yes, I used my own picture for this indie developer because it’s an obvious parallel, but that doesn’t necessarily mean that it’s actually *me* in-universe.",
+    "quote": "Yes, I used my own picture for this indie developer because it’s an obvious parallel, but that doesn’t necessarily mean that it’s actually *me* in-universe.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Reddit post \"A lore question about Help Wanted, and an answer!\", 2019-09-29",
@@ -369,11 +374,13 @@
       "meta"
     ],
     "related": [
-      "scott-2019-not-canon-list"
+      "scott-2019-not-canon-list",
+      "scott-2019-hw-rebrand-or-part-of-the-plan",
+      "scott-2019-only-game-developer-existence-canon"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "[...] marks omitted text between two sentences of the same paragraph. He summarized the game's framing as a developer 'tarnishing the brand of Fazbear Entertainment' ('Or was it all part of the plan?')."
+    "notes": "[...] marks omitted text between two sentences of the same paragraph. He summarized the game's framing as a developer 'tarnishing the brand of Fazbear Entertainment' ('Or was it all part of the plan?'). Earlier in the same paragraph: 'Is Scott Cawthon now a part of FNAF lore? The short answer is: No. My name is never actually mentioned in the game.' The sentences between are his summary of the game's premise (scott-2019-hw-rebrand-or-part-of-the-plan)."
   },
   {
     "id": "scott-2019-ucn-child-face-jason",
@@ -459,7 +466,7 @@
   {
     "id": "scott-2015-fnaf4-box-pieces-put-together",
     "title": "'What's in the box? It's the pieces put together.'",
-    "claim": "Scott stated that the contents of the FNaF4 box are 'the pieces put together' – i.e. the assembled hidden FNaF4 story.",
+    "claim": "Scott stated that what is in the FNaF4 box is 'the pieces put together', and asked whether the community would accept it that way.",
     "quote": "What's in the box? It's the pieces put together. But the bigger question is- would the community accept it that way?",
     "game": "scott",
     "kind": "scott-statement",
@@ -479,11 +486,13 @@
       "scott-2015-fnaf4-story-hidden",
       "scott-2015-box-best-left-forgotten",
       "scott-2024-box-interview",
-      "scott-2016-box-sarcasm"
+      "scott-2016-box-sarcasm",
+      "scott-2018-box-meaning-changed",
+      "scott-2015-considered-opening-box"
     ],
     "url": "https://steamcommunity.com/games/388090/announcements/detail/410179229588187100",
     "verifiedVia": "Steam ISteamNews GetNewsForApp API (steam_community_announcements feed, author 'Scott')",
-    "notes": "Scott does not say what the 'pieces' are. The same post says the Halloween update would not open the box."
+    "notes": "Scott does not say what the 'pieces' are. The paragraph before it is about the pieces of FNaF4's story that no one had found, so reading 'the pieces put together' as that story assembled is the natural reading, but it is a reading. The same post says the Halloween update would not open the box."
   },
   {
     "id": "scott-2015-fnaf4-story-hidden",
@@ -533,7 +542,8 @@
       "meta"
     ],
     "related": [
-      "scott-2017-matpat-final-theory"
+      "scott-2017-matpat-final-theory",
+      "scott-2015-community-uncovered-fnaf1-3"
     ],
     "url": "https://steamcommunity.com/games/388090/announcements/detail/410179229588187100",
     "verifiedVia": "Steam ISteamNews GetNewsForApp API (steam_community_announcements feed, author 'Scott')",
@@ -543,7 +553,7 @@
     "id": "scott-2015-box-best-left-forgotten",
     "title": "Box contents 'best left forgotten, forever'",
     "claim": "Scott said he had decided the box would not be opened, echoing FNaF4's in-game box text but changing 'for now' to 'forever'.",
-    "quote": "The fact that the pieces have remained elusive this time strikes me as incredible, and special, a fitting conclusion in some ways, and because of that, I've decided that maybe some things are best left …",
+    "quote": "…a fitting conclusion in some ways, and because of that, I've decided that maybe some things are best left forgotten, forever.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam announcement \"Halloween Content Update\", 2015-08-24",
@@ -563,19 +573,19 @@
     ],
     "url": "https://steamcommunity.com/games/388090/announcements/detail/410179229588187100",
     "verifiedVia": "Steam ISteamNews GetNewsForApp API (steam_community_announcements feed, author 'Scott')",
-    "notes": "The FNaF4 Night 7 box screen reads 'Perhaps some things are best left forgotten, for now.' (in-game; see the FNaF4 group's records)."
+    "notes": "The FNaF4 Night 7 box screen reads 'Perhaps some things are best left forgotten, for now.' (in-game; see the FNaF4 group's records). The quote starts mid-sentence, after 'The fact that the pieces have remained elusive this time strikes me as incredible, and special,'."
   },
   {
     "id": "scott-2024-box-interview",
-    "title": "2024: 'there is something in the box, but I never pursued that'",
-    "claim": "In a 2024 video interview Scott said something was in the FNaF4 box, but the story went in other directions, he never pursued it, and he doesn't know if he can find the idea again.",
-    "quote": "All of that to say there is something in the box, but I never pursued that, and I don't know if I can find it again. …",
+    "title": "2024: 'there is something in the box, but I never pursued it'",
+    "claim": "In the 2024 interview Scott said that something was definitely there when he made the box, that the progression of the story did not go there, and that there is something in the box which he never pursued and may not be able to find again.",
+    "quote": "All of that to say, there is something in the box, but I never pursued it, and I don't know if I can find it again.",
     "game": "scott",
     "kind": "scott-statement",
-    "location": "Dawko, \"An Interview with Scott Cawthon 2.0\" (YouTube, 2024-08-04), c. 52:36",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 54:44 (answer begins 53:15)",
     "certainty": "stated",
     "when": {
-      "label": "Out-of-universe statement (posted 2024-08-04)",
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
       "precision": "unknown",
       "basis": "Developer statement about the franchise; describes no in-universe date"
     },
@@ -586,11 +596,12 @@
     ],
     "related": [
       "scott-2015-fnaf4-box-pieces-put-together",
-      "scott-2015-box-best-left-forgotten"
+      "scott-2015-box-best-left-forgotten",
+      "scott-2018-box-meaning-changed"
     ],
-    "url": "https://youtu.be/lrgSbteWMC8?t=3156",
-    "verifiedVia": "Transcript excerpt in Screen Rant, 'Five Nights At Freddy's Creator Finally Addresses The Franchise's...' (https://screenrant.com/five-nights-freddys-fnaf-4-box-mystery/); YouTube captions could not be fetched directly",
-    "notes": "Spoken words, verified only via a secondary transcript. Tension with 2015 ('It's the pieces put together'): the 2024 answer says the idea was never pursued."
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=3195s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable. Screen Rant prints the same sentence with 'I never pursued that' (https://screenrant.com/five-nights-freddys-fnaf-4-box-mystery/).",
+    "notes": "As transcribed, leading up to it: 'even though at the time, something was definitely there… The progression of the story didn't go there. And so those strings never got pulled on, and the other half of that idea remained in the ether, remained in my subconscious.' He describes the box as the first half of an idea whose second half he never worked out. Tension with 2015 ('It's the pieces put together') and 2018 (the contents 'changed over the years'): the three answers agree only that the box was never given a final content."
   },
   {
     "id": "scott-2016-box-sarcasm",
@@ -755,7 +766,7 @@
     "id": "scott-2016-cutscenes-are-canon",
     "title": "'Cutscenes are canon' (SL Custom Night final cutscene)",
     "claim": "When adding the final cutscene to Sister Location's Golden Freddy Mode (Custom Night), Scott stated that cutscenes are canon.",
-    "quote": "It gives a little additional power for Golden Freddy Mode on Very Hard, and also adds the final cutscene! [...] (By the way- Cutscenes are canon.)",
+    "quote": "It gives a little additional power for Golden Freddy Mode on Very Hard, and also adds the final cutscene! Enjoy! (By the way- Cutscenes are canon.)",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam announcement \"Golden Freddy Update is Live!\" (Sister Location news, v1.12), 2016-12-04",
@@ -799,11 +810,14 @@
     ],
     "related": [
       "scott-2017-sl-cleared-fnaf4-misconception",
-      "scott-2017-adult-theory-teaser"
+      "scott-2017-adult-theory-teaser",
+      "scott-2017-retcon-seamless",
+      "scott-2017-clarification-is-not-retcon",
+      "scott-2017-story-developed-new-details"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "Follow-up comment (dmjx7t9): 'The retcon was actually very seamless and went unnoticed by most people.' The night before, he had joked 'Never had to retcon anything' (dmj4bft)."
+    "notes": "Follow-up comment (dmjx7t9): 'The retcon was actually very seamless and went unnoticed by most people.' The night before, in a thread asking whether he had planned the whole lore from FNaF 1, he had joked 'All planned. All along. From the beginning of time. Never had to retcon anything.' (dmj4bft); this post answers the reaction to that joke."
   },
   {
     "id": "scott-2017-sl-cleared-fnaf4-misconception",
@@ -828,7 +842,10 @@
     "related": [
       "scott-2017-one-retcon",
       "scott-2015-fnaf4-story-hidden",
-      "scott-2017-matpat-final-theory"
+      "scott-2017-matpat-final-theory",
+      "scott-2017-clarification-is-not-retcon",
+      "scott-2018-interview-fnaf4-too-broad",
+      "scott-2018-interview-sl-made-to-ground-story"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
@@ -851,15 +868,18 @@
     "tags": [
       "clarification",
       "teasers",
-      "fnaf4"
+      "sister-location",
+      "page-source"
     ],
     "related": [
       "scott-2017-one-retcon",
-      "scottgames-site-fnaf4-terrible-things"
+      "scott-2017-clarification-is-not-retcon",
+      "scottgames-site-sl-source-rental-schedule",
+      "scottgames-site-sl-source-client-directory"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "Scott doesn't identify the teaser. 'Adult theory' was a mid-2016 rumour that Sister Location's teasers (a chart in scottgames.com's page source) hinted at 'mature' content. Fans at the time credited a 'birthday' addition to the page source as Scott's debunk (Steam thread 'Fnaf SL DeBunk: The \"Adult\" Theory', 2016-06-20). It is not the FNaF4 'adult protagonist' idea."
+    "notes": "Scott does not identify the teaser. 'Adult theory' was a June 2016 rumour that Sister Location would have mature content, built on the 'MAT' entries in a rental schedule hidden in scottgames.com's page source (scottgames-site-sl-source-rental-schedule, captured 2016-06-17). By the 2016-06-20 capture the same source had gained a client directory of birthday bookings and children's entertainment (scottgames-site-sl-source-client-directory), and fans at the time took that as the answer (Steam thread 'Fnaf SL DeBunk: The \"Adult\" Theory', 2016-06-20). Tying Scott's 'additional teaser' to that page-source change is an inference from the dates, not his statement. In the 2018 Dawko interview (c. 69:40, machine transcript of the archived video) he tells the same story: 'whenever Sister Location first came out there was adult theory', he 'could see where it was being derived from', and he released a new teaser 'within a couple of days' to steer it back. It has nothing to do with the FNaF4 idea of an adult protagonist."
   },
   {
     "id": "scott-2017-matpat-final-theory",
@@ -890,11 +910,14 @@
     "related": [
       "scott-2017-misunderstood-not-reveals",
       "scott-2015-game-theory-fnaf2-almost-right",
-      "scott-2017-sl-cleared-fnaf4-misconception"
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scott-2017-matpat-answered-some-things",
+      "scott-2017-michael-voice-not-robotic",
+      "scott-2017-fnaf6-existed-to-clear-things-up"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/7b27bf/comment/dpf8b3p/",
     "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com) – author 'animdude' (flair 'Scott Cawthon')",
-    "notes": "Scott endorses a third-party theory video without stating its conclusions himself ('I won’t go through the video point by point'; 'it’s obviously not 100%'). Do NOT encode the video's claims as Scott statements. He also said some issues arose 'especially since SL custom night'."
+    "notes": "The quoted sentence ends: 'watch MatPat's video, and breathe a sigh of relief. :)'. The video is https://www.youtube.com/watch?v=uhgMZ8w9lb8 (published 2017-11-05). Scott endorses a third-party theory video without stating its conclusions himself ('I won't go through the video point by point'; 'it's obviously not 100%', said twice). Do NOT encode the video's claims as Scott statements. He also said some issues arose 'especially since SL custom night'."
   },
   {
     "id": "scott-2017-misunderstood-not-reveals",
@@ -1134,7 +1157,7 @@
     "id": "scott-2015-mangle-gender-yes",
     "title": "Mangle's gender: 'The answer is- Yes.'",
     "claim": "Asked whether Mangle is a boy or a girl, Scott answered 'Yes', deliberately declining to specify.",
-    "quote": "OK. …",
+    "quote": "I think it's time that I finally answer the burning question about whether Mangle is a boy or a girl, so that this community can finally put the matter behind them. The answer is- Yes.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Steam, FNaF 4 General Discussions, thread \"Scott please answer this so the fandom can move on to the actual story\", reply #c523897653300619891, 2015-09-17",
@@ -1157,7 +1180,7 @@
     ],
     "url": "https://steamcommunity.com/app/388090/discussions/0/523897653300510719/#c523897653300619891",
     "verifiedVia": "Live Steam thread HTML (comments_raw author 'Scott')",
-    "notes": "Non-answer; template for his 2024 book-canonicity reply."
+    "notes": "Non-answer, and the template for his 2024 book-canonicity reply. The quote starts mid-sentence; the reply opens 'OK. People have been asking me about Mangle's gender for almost a year now, and I think it's time…'."
   },
   {
     "id": "scott-2017-tff-annotations-not-lore",
@@ -1314,9 +1337,13 @@
       "naming",
       "anomaly"
     ],
+    "related": [
+      "scott-2020-freddybear-early-name",
+      "scott-2014-fnaf1-store-summer-job"
+    ],
     "url": "https://store.steampowered.com/app/319510/",
     "verifiedVia": "Steam appdetails API (2026) and Wayback 2014 capture of the store page",
-    "notes": "'Freddybear' is likely an informal/typo name; do not conflate with Fredbear without further evidence. Recorded as an anomaly only."
+    "notes": "Scott explained the word in 2020: it is left over from a short time when Freddy's name was going to be 'Freddybear' (scott-2020-freddybear-early-name). It is an early working name for Freddy, not a reference to Fredbear."
   },
   {
     "id": "scott-2014-fnaf2-store-previous-guard",
@@ -1552,7 +1579,7 @@
   {
     "id": "scottgames-site-fnaf3-parts-box",
     "title": "FNaF3 teaser: box of old animatronic parts",
-    "claim": "A FNaF3 teaser (file 'whatcanweuse.jpg') shows a box of animatronic parts (heads, a hook, a guitar) under a spotlight beneath a large '3'.",
+    "claim": "A FNaF3 teaser (file 'whatcanweuse.jpg') shows a box of animatronic parts (heads, a hook, a guitar) under a spotlight beneath a large '3'. Brightened, it also shows a dark standing figure with two pale eye dots in the shadows to the right.",
     "game": "scottgames-site",
     "kind": "teaser",
     "location": "scottgames.com image whatcanweuse.jpg, captured 2015-01-15",
@@ -1571,11 +1598,14 @@
       "parts"
     ],
     "related": [
-      "scott-2015-fnaf3-store-thirty-years"
+      "scott-2015-fnaf3-store-thirty-years",
+      "scottgames-site-fnaf3-source-30-years-later-only-one",
+      "scottgames-site-fnaf3-i-am-still-here"
     ],
+    "image": "scottgames-fnaf3-parts-box-brightened.jpg",
     "url": "https://web.archive.org/web/20150115162843/http://www.scottgames.com/whatcanweuse.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "No caption text in the image; 'what can we use' is only the filename. Echoes the FNaF3 store text ('empty shells, a hand, a hook...')."
+    "notes": "No caption text in the image; 'what can we use' is only the filename. Echoes the FNaF3 store text ('empty shells, a hand, a hook…'). The figure at the right is invisible at normal brightness; at about 25 times gain it shows a yellow-green head with two eye dots above a torso, the same colouring as the face in the 'I am still here.' teaser. Calling it Springtrap is a reading of that likeness. The published image puts the official file beside a researcher-brightened copy."
   },
   {
     "id": "scottgames-site-fnaf3-he-always-does",
@@ -1675,7 +1705,7 @@
     ],
     "url": "https://web.archive.org/web/20150304014025/http://www.scottgames.com/hat.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "No visible text even when brightened."
+    "notes": "No visible text even when brightened. The Wayback capture list holds two different files at this address: 2015-03-04 (this one) and 2015-04-22, a few days before the first FNaF4 teaser. The second file shows the same spotlight and floor with the hat gone (both captures fetched and compared)."
   },
   {
     "id": "scottgames-site-fnaf4-final-chapter",
@@ -1711,11 +1741,11 @@
   {
     "id": "scottgames-site-fnaf4-html-87",
     "title": "scottgames.com page title seeded with 7s and 8s",
-    "claim": "While the first FNaF4 teaser was up, the scottgames.com page text rendered as 'Sc8ot7t 8G8a78m8778es' – 'Scott Games' interleaved with the digits 7 and 8.",
+    "claim": "While the first FNaF4 teaser was up, the scottgames.com page title read 'Sc8ot7t 8G8a78m8778es' and its meta tags and logo alt text were scrambled the same way: 'Scott Games' and ordinary tag names interleaved with the digits 8 and 7.",
     "quote": "Sc8ot7t 8G8a78m8778es",
     "game": "scottgames-site",
     "kind": "hidden",
-    "location": "scottgames.com HTML, Wayback capture 2015-04-28 08:32 UTC",
+    "location": "scottgames.com HTML (title, meta tag names and image alt text), Wayback capture 2015-04-28 08:32 UTC",
     "certainty": "shown",
     "when": {
       "label": "Undated (FNaF4 teaser period)",
@@ -1728,9 +1758,13 @@
       "87",
       "hidden-text"
     ],
+    "related": [
+      "scottgames-site-fnaf4-html-83",
+      "scottgames-site-fnaf4-final-chapter"
+    ],
     "url": "https://web.archive.org/web/20150428083205/http://www.scottgames.com/",
     "verifiedVia": "Raw HTML of the Wayback capture",
-    "notes": "Later captures that day show fewer digits ('Sco7tt Ga8mes'). Fans read this as '87'; Scott never explained it. The FNaF wiki also reports later HTML with '83'; not verified here."
+    "notes": "Same capture: meta names '8ke7y8w8o77rd8s', 'd7e8s87cr8i88p87ti87on' (content 'S8c7ott8ga78m7es'), 'g8e87ne7r8a7t8or', 'a8u7t8h7or' (content 'S7c8ott Ca8w78t8h7o8n'), 'c8op7yrig8h7t'; logo alt 'l8o7g8o7'. By 23:06 UTC the same day the title was 'Sco7tt Ga8mes'; from 2015-05-07 only 'ke8ywords', 'descr7iption' (content 'Sco8ttga7mes') and the alt text kept digits. The 2015-06-12 capture adds the HTML comment 'All Content Copyright 0871 Scott Cawthon'. On 2015-07-21, two days before release, the 7 in 'Sco8ttga7mes' had become a 3 (scottgames-site-fnaf4-html-83). Fans read the digits as '87'; Scott never explained them."
   },
   {
     "id": "scottgames-site-fnaf4-was-it-me-bonnie",
@@ -1851,7 +1885,7 @@
     "image": "scottgames-fnaf4-property-of-brightened.jpg",
     "url": "https://web.archive.org/web/20150612021039/http://www.scottgames.com/4.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "Middle letters are missing in the file; completing it as 'FREDBEAR' is an inference (FNaF wiki reports an HTML cipher 'gsfecfbs' decoding to 'Fredbear', not verified here). Published image is a researcher-brightened copy of the official file."
+    "notes": "Middle letters are missing in the file; completing it as 'FREDBEAR' is an inference. A later capture of the page supports it: on 2015-06-25 (Wayback 20150625233842) the meta tag normally named 'author' is named 'gsfecfbs', which is 'fredbear' with every letter moved one place forward in the alphabet. Published image is a researcher-brightened copy of the official file."
   },
   {
     "id": "scottgames-site-fnaf4-or-was-it-me-fredbear",
@@ -1881,7 +1915,7 @@
     ],
     "url": "https://web.archive.org/web/20150625233843/http://www.scottgames.com/4.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "FNaF wiki reads the faint text as 'Or was it me?'; only fragments were legible here, so no quote is given."
+    "notes": "FNaF wiki reads the faint text as 'Or was it me?'; only fragments were legible here, so no quote is given. The page source captured with this teaser (Wayback 20150625233842) names one meta tag 'gsfecfbs': 'fredbear' with each letter moved one place forward, which is Scott's own label for the bear in this teaser."
   },
   {
     "id": "scottgames-site-fnaf4-terrible-things",
@@ -1911,7 +1945,7 @@
     ],
     "url": "https://web.archive.org/web/20150709183412/http://www.scottgames.com/4.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "Scott did not say which teaser dispelled 'adult theory' (see scott-2017-adult-theory-teaser); no link is asserted."
+    "notes": "The page source captured with this teaser (Wayback 20150709183411) renames three meta tags 'Cyh', 'gvh' and 'gpe' and changes the HTML comment to 'All Content Copyright 13,12,11 Scott Cawthon'. Moving the letters forward by 13, 12 and 11 places gives 'Plu', 'sht', 'rap': the character's name. ('Adult theory', which Scott mentions in 2017, belongs to the 2016 Sister Location teasers and has no link to this image.)"
   },
   {
     "id": "scottgames-site-fnaf4-the-end",
@@ -2338,12 +2372,14 @@
       "corporate-voice"
     ],
     "related": [
-      "scott-2019-not-canon-list"
+      "scott-2019-not-canon-list",
+      "scottgames-hw-teaser-hidden-text",
+      "scottgames-site-hw-alt-remember-jeremy"
     ],
     "image": "scottgames-hw-working-as-intended.jpg",
     "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/hw.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "Faint scattered letters are embedded in the artwork; not legible enough here to transcribe. This is the cover art Scott later said used fan-model references and was re-made (Reddit, 2019-03-12/13), so this capture may be the withdrawn version."
+    "notes": "Four faint, letter-spaced lines are embedded in the artwork. After high-pass filtering the capture they read 'Don't listen to them.', 'We let something inside.', 'It was an accident.' and 'Remember Jeremy.' (recorded as scottgames-hw-teaser-hidden-text). The page source of the same capture gives the image the alt text 'remember Jeremy' (scottgames-site-hw-alt-remember-jeremy). This is the cover art Scott later said used fan-model references and was re-made (Reddit, 2019-03-12/13), so this capture is the withdrawn version."
   },
   {
     "id": "scottgames-site-sb-rock",
@@ -2369,8 +2405,12 @@
       "security-breach",
       "teaser"
     ],
+    "related": [
+      "scottgames-site-sb-rock-rabbit-figure-added"
+    ],
     "url": "https://web.archive.org/web/20190929203920/http://www.scottgames.com/7_1.jpg",
-    "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture"
+    "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
+    "notes": "This capture (2019-09-29) has nothing on the upper level behind Freddy. By the 2019-11-06 capture the same file had been replaced with a version that adds a faint rabbit-eared figure there (scottgames-site-sb-rock-rabbit-figure-added)."
   },
   {
     "id": "scottgames-site-sb-atrium-2020",
@@ -2393,9 +2433,12 @@
       "security-breach",
       "teaser"
     ],
+    "related": [
+      "scottgames-site-sb-source-stay-the-course"
+    ],
     "url": "https://web.archive.org/web/20190808211500/http://www.scottgames.com/9.jpg",
     "verifiedVia": "Original file viewed and brightened by researcher from the Wayback Machine capture",
-    "notes": "'2020' is a release-year tease, not an in-universe date. Security Breach released 2021-12-16."
+    "notes": "'2020' is a release-year tease, not an in-universe date. Scott confirmed it when he delayed the game: 'since I listed 2020 as the release year on the first teaser' (Reddit post jvykwj, 2020-11-17, verified via the Arctic Shift archive). Security Breach released 2021-12-16. The page source under this teaser carried a hidden dialogue (scottgames-site-sb-source-stay-the-course)."
   },
   {
     "id": "scottgames-site-sb-protect",
@@ -2563,11 +2606,13 @@
     ],
     "related": [
       "scott-2017-one-retcon",
-      "scott-2017-sl-cleared-fnaf4-misconception"
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scott-2017-clarification-is-not-retcon",
+      "scott-2017-story-developed-new-details"
     ],
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
     "verifiedVia": "Arctic Shift Reddit archive API (post 6y0qb1 and comment dmjx7t9, author animdude)",
-    "notes": "Comment wording: 'The retcon was actually very seamless and went unnoticed by most people. If the retcon was currently being argued about or debated, then that would mean it was a failure, and I would have addressed it here.'"
+    "notes": "The edit continues: 'If it had caused problems or confusion then I would have addressed it here.' Comment wording: 'The retcon was actually very seamless and went unnoticed by most people. If the retcon was currently being argued about or debated, then that would mean it was a failure, and I would have addressed it here.' Times (UTC, 2017-09-04): post 14:47, comment 16:16, post edited 16:25."
   },
   {
     "id": "scott-2015-dawko-razzbowski-early-access",
@@ -2666,17 +2711,17 @@
   },
   {
     "id": "scott-2018-box-meaning-changed",
-    "title": "2018: MatPat was 'absolutely right' that the box's meaning changed",
-    "claim": "In a 2018 interview, asked about MatPat's theory that the box's meaning had changed over time, Scott agreed ('He's absolutely right') and described trying to 'craft it into something better' as the story and the audience's reaction developed.",
-    "quote": "He's absolutely right",
+    "title": "2018: 'The contents of that box have changed over the years'",
+    "claim": "In the 2018 interview Scott said MatPat was absolutely right that the contents of the box had changed over the years: after the reaction to FNaF4 he set out to craft the story into something better, and that indirectly changed the contents of the box.",
+    "quote": "He's absolutely right. The contents of that box have changed over the years",
     "game": "scott",
     "kind": "scott-statement",
-    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (YouTube, 2018-08-08), c. 36:34",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 36:31",
     "certainty": "stated",
     "when": {
-      "label": "Out-of-universe statement (2018-08-08)",
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
       "precision": "unknown",
-      "basis": "Developer statement in an interview"
+      "basis": "Developer statement about the franchise; describes no in-universe date"
     },
     "tags": [
       "box",
@@ -2685,11 +2730,15 @@
     ],
     "related": [
       "scott-2015-fnaf4-box-pieces-put-together",
-      "scott-2024-box-interview"
+      "scott-2024-box-interview",
+      "scott-2018-interview-fnaf4-too-broad",
+      "scott-2018-interview-sl-made-to-ground-story",
+      "scott-2017-one-retcon",
+      "scott-2017-clarification-is-not-retcon"
     ],
-    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2194s",
-    "verifiedVia": "Secondary: ScreenRant, GameRant and CBR recaps quoting the interview (YouTube captions could not be fetched)",
-    "notes": "Only these short fragments are verified; the fuller wording is unverified. No source says what the box originally held and what it was changed to."
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2191s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable. Short fragments of the same passage are also quoted by Screen Rant, GameRant and CBR.",
+    "notes": "As transcribed: 'it's because of what I was intending the game to be when it happened, and then after the reaction of it, I was like, I need to craft this into something better for the people who see this as important. And that kind of indirectly does change the contents of the box… because it changes the contents of everything that came before.' He does not say what the box held before or after. This is his plainest admission that the work done after FNaF4 changed the meaning of earlier material. In 2017 he had described the same work as clearing up a misconception, which he said is 'not really a retcon'."
   },
   {
     "id": "scott-2016-dawko-dedication",
@@ -2731,12 +2780,12 @@
       "troll",
       "ffps"
     ],
-    "url": "https://steamcommunity.com/games/506610/announcements/detail/1343611811951288957",
-    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
-    "notes": "The 'pizzeria tycoon' hint came true as Freddy Fazbear's Pizzeria Simulator, which opens as a fake tycoon game.",
     "related": [
       "scott-2017-fnaf6-cancelled-tycoon-hint"
-    ]
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/1343611811951288957",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
+    "notes": "The 'pizzeria tycoon' hint came true as Freddy Fazbear's Pizzeria Simulator, which opens as a fake tycoon game."
   },
   {
     "id": "scott-2017-ffps-apology",
@@ -2757,18 +2806,18 @@
       "troll",
       "ffps"
     ],
-    "url": "https://steamcommunity.com/games/506610/announcements/detail/1464097289865855649",
-    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
-    "notes": "FFPS then turned out to be the story's climax, the Cassette Man's trap. This is Scott's biggest misdirection of the fandom.",
     "related": [
       "scott-2017-ffps-lite-announcement"
-    ]
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/1464097289865855649",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott'",
+    "notes": "FFPS then turned out to be the story's climax, the Cassette Man's trap. This is Scott's biggest misdirection of the fandom."
   },
   {
     "id": "scott-2014-christian-projects-before-fnaf",
     "title": "Twelve years of Christian films and games before FNaF",
     "claim": "Scott said that for about twelve years he spent his free time making Christian movies and later Christian video games, which were financial failures, and that he then stopped feeling 'led' to make another Christian game; the events of his life led him to the idea for FNaF.",
-    "quote": "For about twelve years I dedicated my free time to creating Christian movies and later Christian video games. … I just didn't feel \"led\" to make another Christian game.",
+    "quote": "For about twelve years I dedicated my free time to creating Christian movies and later Christian video games. It didn't go well, but I had faith that God wanted me to create those things anyway.",
     "game": "scott",
     "kind": "scott-statement",
     "location": "Geeks Under Grace, 'Developer Spotlight: Scott Cawthon' (written interview), published 2014-10-25",
@@ -2788,7 +2837,8 @@
       "scott-2021-i-am-a-christian"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
-    "notes": "Scott names The Pilgrim's Progress as one of these projects in the same interview. The archived Hope Animation catalogue lists his films Noah's Ark (2004), The Pilgrim's Progress (2005), A Christmas Journey (2006) and The Jesus Kids Club, plus The Pilgrim's Progress video game (c. 2011). Hope Animation was a Christian media website run by David Hutter that hosted his work; it was not Scott's own company. In the same answer Scott describes a period of despair before FNaF."
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
+    "notes": "Scott names The Pilgrim's Progress as one of these projects in the same interview. The archived Hope Animation catalogue lists his films Noah's Ark (2004), The Pilgrim's Progress (2005), A Christmas Journey (2006) and The Jesus Kids Club, plus The Pilgrim's Progress video game (c. 2011). Hope Animation was a Christian media website run by David Hutter that hosted his work; it was not Scott's own company. In the same answer Scott describes a period of despair before FNaF. Later in the same answer: 'It's not that I wanted to leave the Christian market, I just didn't feel \"led\" to make another Christian game. Instead, the events of my life led me to a great idea for a horror game- Five Nights at Freddy's.'"
   },
   {
     "id": "scott-2014-no-hidden-christian-messages",
@@ -2815,6 +2865,7 @@
       "scott-2014-faith-and-work"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
     "notes": "Said in October 2014, after FNaF1 and before FNaF2's release. It answers the question of allegory (animatronics standing for sins); it does not address the explicit afterlife language that later games (FFPS 2017, UCN 2018) put in characters' mouths."
   },
   {
@@ -2839,7 +2890,8 @@
     "related": [
       "scott-2014-no-hidden-christian-messages"
     ],
-    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/"
+    "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)"
   },
   {
     "id": "scott-2014-favorite-verse-psalm-46-10",
@@ -2864,6 +2916,7 @@
       "ffps-completion-give-up-spirits"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
     "notes": "FFPS's completion speech tells the machines' occupants to \"be still and give up your spirits\" [ffps-completion-give-up-spirits]. The two-word echo is noted by this archive; Scott has never linked them, and \"be still\" is a common phrase."
   },
   {
@@ -2888,6 +2941,7 @@
       "scott-2014-christian-projects-before-fnaf"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
     "notes": "He does not name the game here. It is generally identified as Chipper & Sons Lumber Co. (2013), which is secondary identification."
   },
   {
@@ -2915,6 +2969,7 @@
       "fnaf2-custom-night-names"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
     "notes": "Could be sincere or coy. Either way, in October 2014 Scott disclosed no explanation of Golden Freddy; the archive's reading of the character comes from later games."
   },
   {
@@ -2940,6 +2995,7 @@
       "scott-2014-christian-projects-before-fnaf"
     ],
     "url": "https://www.geeksundergrace.com/gaming/developer-spotlight-scott-cawthon/",
+    "verifiedVia": "Article text fetched from the live page on 2026-10-02 and compared word for word (the page prints curly apostrophes and quotation marks)",
     "notes": "The Desolate Hope (free on scottgames.com in 2013, on Steam in 2014) is his last major pre-FNaF game: a coffee-pot robot protects a human embryo on an abandoned station. It is recorded as biography only."
   },
   {
@@ -2968,5 +3024,2002 @@
     "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/nybyo1/my_response_and_maybe_last_post/",
     "verifiedVia": "https://web.archive.org/web/20210612173622/https://www.reddit.com/r/fivenightsatfreddys/comments/nybyo1/my_response_and_maybe_last_post/",
     "notes": "He announced his retirement days later. The post is about his personal beliefs and says nothing about the games' lore."
+  },
+  {
+    "id": "scott-2015-fnaf3-multiple-springtraps-hallucinations",
+    "title": "Extra Springtraps on the cameras are hallucinations",
+    "claim": "Scott said that seeing Springtrap on several cameras at once in FNaF3 is not a glitch: while the red light flashes after a ventilation error, the extra Springtraps are hallucinations.",
+    "quote": "As long as the red light is flashing after a ventilation error, you may see multiple Springtraps. These are hallucinations.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement \"Update 1.03\" (FNaF 3 news), 2015-03-23",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2015-03-23)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "springtrap"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "fnaf3",
+      "hallucination",
+      "clarification",
+      "mechanics"
+    ],
+    "related": [
+      "scottgames-site-fnaf3-all-in-your-mind",
+      "scott-2015-fnaf3-store-thirty-years"
+    ],
+    "url": "https://steamcommunity.com/games/354140/announcements/detail/517125768655115496",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott', gid 517125768655115496",
+    "notes": "The sentence before it: 'It's not a glitch, even though I should have explained this better when I released the game.' Scott's own statement that FNaF3 shows the guard things that are not there, and that there is only one Springtrap. It says nothing about the phantom animatronics."
+  },
+  {
+    "id": "scott-2015-community-uncovered-fnaf1-3",
+    "title": "By August 2015 the community had 'found everything' in FNaF1 to FNaF3",
+    "claim": "Scott said players found every bit of lore and story in the first game quickly, found everything in the second, and uncovered the third game's story as well, so that it seemed there was nothing he could hide.",
+    "quote": "Then part 3 came out, and once again the story was uncovered by the community. It seemed that there was nothing I could hide!",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement \"Halloween Content Update\" (FNaF 4 news), 2015-08-24",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2015-08-24)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "fan-theory",
+      "endorsement",
+      "fnaf1",
+      "fnaf2",
+      "fnaf3",
+      "community"
+    ],
+    "related": [
+      "scott-2015-game-theory-fnaf2-almost-right",
+      "scott-2015-fnaf4-story-hidden",
+      "scott-2017-one-retcon",
+      "scott-2018-interview-fnaf3-end-of-trilogy"
+    ],
+    "url": "https://steamcommunity.com/games/388090/announcements/detail/410179229588187100",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott', gid 410179229588187100",
+    "notes": "Before it: 'when I released the first game over a year ago, I was amazed at how quickly everyone found every bit of lore and story. Then the same happened with part 2, fans and youtubers dug in and found everything.' A general endorsement of the community's 2015 understanding of the first three games, without naming any conclusion. It is his widest endorsement and his least specific. It also dates his view: in August 2015 he regarded the story of FNaF1 to FNaF3 as told and understood."
+  },
+  {
+    "id": "scott-2015-book-canon-not-puzzle-pieces",
+    "title": "'The book is canon, just as the games are', but not two puzzle pieces",
+    "claim": "Scott said the first novel is canon just as the games are, and that this does not mean the book and the games are intended to fit together.",
+    "quote": "So yes, the book is canon, just as the games are. That doesn't mean that they are intended to fit together like two puzzle pieces.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam, FNaF 4 General Discussions, pinned thread \"Is the book canon?\" by Scott, 2015-12-18",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2015-12-18)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "continuity",
+      "novels",
+      "silver-eyes",
+      "canon"
+    ],
+    "related": [
+      "scott-2015-books-separate-continuity",
+      "scott-2015-book-not-a-guide",
+      "scott-2015-book-reimagining",
+      "scott-2016-silver-eyes-not-100-percent-games"
+    ],
+    "url": "https://steamcommunity.com/app/388090/discussions/0/494632768623412182/",
+    "verifiedVia": "http://web.archive.org/web/20160528214625/http://steamcommunity.com:80/app/388090/discussions/0/494632768623412182/ (thread no longer loads live)",
+    "notes": "Split out from scott-2015-books-separate-continuity so the sentence can be quoted exactly. 'Canon' here means official and part of the franchise in its own continuity; the sentence before it says the games and the books 'should be considered to be separate continuities'."
+  },
+  {
+    "id": "scott-2016-silver-eyes-not-100-percent-games",
+    "title": "The Silver Eyes 'doesn't follow the events of the games 100%'",
+    "claim": "Thanking readers when The Silver Eyes reached number one on a New York Times list, Scott said the book does not follow the events of the games 100% but that most people had accepted it as part of the FNaF universe.",
+    "quote": "…while it's true that it doesn't follow the events of the games 100%, it's still good to see that most people have accepted it as a part of the FNaF universe.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement \"#1 New York Times Bestseller!\" (Sister Location news), 2016-10-22",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2016-10-22)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "continuity",
+      "novels",
+      "silver-eyes"
+    ],
+    "related": [
+      "scott-2015-books-separate-continuity",
+      "scott-2015-book-canon-not-puzzle-pieces",
+      "scott-2015-book-reimagining"
+    ],
+    "url": "https://steamcommunity.com/games/506610/announcements/detail/234577531170703758",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott', gid 234577531170703758",
+    "notes": "The quote starts mid-sentence, after 'A lot of effort went into this book, and'. Ten months after the 'separate continuities' ruling, Scott repeats in his own words that the novel's events differ from the games'."
+  },
+  {
+    "id": "scott-2017-clarification-is-not-retcon",
+    "title": "Clarifying a misread intention in the next game is 'not really a retcon'",
+    "claim": "Scott said that when his original intentions did not come across clearly he clarifies them in the next game, and that this is not a retcon but an attempt to guide the story to where it was originally intended to go.",
+    "quote": "In those instances, I make a point to clarify in the next game. That's not really a retcon, it's simply an attempt to guide the story toward where it was originally intended to go.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"The retcon issue\" by u/animdude, 2017-09-04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2017-09-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "retcon",
+      "clarification",
+      "continuity"
+    ],
+    "related": [
+      "scott-2017-one-retcon",
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scott-2017-adult-theory-teaser",
+      "scott-2017-story-developed-new-details",
+      "scott-2017-retcon-seamless"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post 6y0qb1",
+    "notes": "This is in the original post, straight after the sentence about the one retcon, and it is the test that rules candidates out: whatever Sister Location did to correct a reading of FNaF4 is, by Scott's definition, a clarification and so cannot be the retcon. The sentence before it: 'There have been other times, however, when my original intentions didn't come across clearly.'"
+  },
+  {
+    "id": "scott-2017-story-developed-new-details",
+    "title": "The story 'developed new details over time' that were not planned from the start",
+    "claim": "Scott said the story has developed new details over time that may not have been planned from the beginning, and that the pieces still fit together as a whole.",
+    "quote": "So, while it's true that the story has developed new details over time that may not have been planned from the beginning, that doesn't mean that the pieces don't fit together as a whole.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"The retcon issue\" by u/animdude, 2017-09-04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2017-09-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "retcon",
+      "continuity",
+      "planning"
+    ],
+    "related": [
+      "scott-2017-one-retcon",
+      "scott-2017-clarification-is-not-retcon",
+      "scott-2018-interview-first-game-snippet-of-larger-story"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/6y0qb1/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post 6y0qb1",
+    "notes": "A third category beside 'retcon' and 'clarification': details added later that were never planned. Adding a detail where an earlier game said nothing is therefore not what Scott counts as the retcon. Followed by: 'There is a lot of information crammed into these games, and there will always be details that I don't convey 100% as intended. I try to clear up those items, but I'm certainly not retonning things at will.' (spelling as posted)."
+  },
+  {
+    "id": "scott-2017-matpat-answered-some-things",
+    "title": "'Some of those things have been… answered(!), by MatPat'",
+    "claim": "Scott said the community's recent points of contention were partly simple misunderstandings of the story and partly things he had left too few clues about, that he had felt he needed to answer them with a new game, and that the Game Theory video had now answered some of them.",
+    "quote": "They became things that I felt I needed to answer with a new game, but now some of those things have been… answered(!), by MatPat!",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on post \"Game Theory: FNAF, The FINAL Theory! (Five Nights at Freddy's) - pt 2\", 2017-11-06",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2017-11-06)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "fan-theory",
+      "endorsement",
+      "clarification",
+      "ffps"
+    ],
+    "related": [
+      "scott-2017-matpat-final-theory",
+      "scott-2017-misunderstood-not-reveals",
+      "scott-2017-fnaf6-existed-to-clear-things-up",
+      "scott-2017-sl-cleared-fnaf4-misconception"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/7b27bf/comment/dpf8b3p/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment dpf8b3p",
+    "notes": "'Some of those things', not all, and in the same comment: 'Obviously, it's not 100%' (said twice) and 'I won't go through the video point by point.' The sentence before the quote: 'Some of these issues were simple misunderstandings with the story, others were maybe just things I didn't leave enough clues about.' The ellipsis and '(!)' are Scott's."
+  },
+  {
+    "id": "scott-2017-michael-voice-not-robotic",
+    "title": "The 'robotic' voice was an accident of slowing the line down",
+    "claim": "Replying to a fan who had believed Springtrap was Michael because 'Michael had a robotic voice and Springtrap was on screen', Scott said the robotic sound was an unintended side effect of slowing the end of the line reading.",
+    "quote": "The \"robotic\" sound in the voice was actually an unintended side effect of me slowing down the end of the line reading (for dramatic effect). It wasn't intended to sound robotic.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread \"The story is a lot more confusing now.\" (r/fivenightsatfreddys), 2017-11-06",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2017-11-06)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "michael-afton",
+      "springtrap",
+      "william-afton"
+    ],
+    "tags": [
+      "clarification",
+      "miketrap",
+      "sister-location",
+      "identity",
+      "voice"
+    ],
+    "related": [
+      "scott-2017-matpat-final-theory",
+      "scott-2016-cutscenes-are-canon",
+      "sl-golden-freddy-cutscene-father",
+      "sl-golden-freddy-cutscene-come-find-you",
+      "scott-ucn-character-guide-afton",
+      "scott-2018-interview-purple-guy-in-springtrap"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/7b5lnh/comment/dpfdk10/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment dpfdk10 and thread 7b5lnh",
+    "notes": "The thread opens: 'With the confirmation of WillTrap, I'm now confused. I always believed in miketrap, because Michael had a robotic voice and Springtrap was on screen When Michael spoke'. Scott's reply begins 'I'll clear this up right now for you guys' and ends 'Unfortunately, this minor detail caused a lot of confusion.' He removes the one clue the poster gives for 'Miketrap' and leaves the 'WillTrap' premise unchallenged; he does not himself say who Springtrap is in this comment. The line meant is the end of the speech in Sister Location's Golden Freddy Mode cutscene (sl-golden-freddy-cutscene-father, sl-golden-freddy-cutscene-come-find-you)."
+  },
+  {
+    "id": "scott-2017-fnaf6-existed-to-clear-things-up",
+    "title": "The next game 'was really only existing to clear up things'",
+    "claim": "Scott said the game he had been working on existed only to clear up things that were frustrating the community, and that with those issues solved the burden was off him.",
+    "quote": "As I said in a previous post, the new game, which I was struggling with anyway, was really only existing to clear up things that were frustrating people in the community.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread \"A bit disappointing tbh\" (r/fivenightsatfreddys), 2017-11-08",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2017-11-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "ffps",
+      "clarification",
+      "misdirection",
+      "development"
+    ],
+    "related": [
+      "scott-2017-matpat-answered-some-things",
+      "scott-2017-ffps-lite-announcement",
+      "scott-2017-ffps-apology",
+      "scott-2017-fnaf6-cancelled-tycoon-hint",
+      "scott-2018-wanted-to-finish-story"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/7bhflu/comment/dpj0yco/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment dpj0yco and thread 7bhflu",
+    "notes": "Continues: 'Now that those issues have been solved, that burden isn't on me anymore… I don't have to do it anymore, which is actually very freeing. :)'. Freddy Fazbear's Pizzeria Simulator came out 26 days later, so 'you don't need fnaf 6 anymore' is also part of his misdirection about that game. What stands either way is the stated purpose of the next game: to settle points the community had misread. The thread's opening post says 'Was totally wrong about Springtrap… William is just a corpse inside a suit'."
+  },
+  {
+    "id": "scott-2018-custom-night-no-cryptic-hints",
+    "title": "A custom night update 'wouldn't be with teasers and cryptic hints'",
+    "claim": "Floating an endless mode or a custom night as a free update to Pizzeria Simulator, Scott said that if he made one it would come without teasers and cryptic hints, with an open devlog instead.",
+    "quote": "If I did though, it wouldn't be with teasers and cryptic hints. I think I'd rather just have a devlog and share with the community about what I'm working on, …",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement \"Future of FNaF Games and Update Ideas\" (Pizzeria Simulator news), 2018-02-16",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2018-02-16)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "ucn",
+      "development",
+      "canon"
+    ],
+    "related": [
+      "scott-2018-ucn-for-pizzeria-simulator",
+      "scott-2018-ucn-voice-lines-when-they-kill-you",
+      "scott-2016-sl-custom-night-not-canon",
+      "scott-2018-wanted-to-finish-story"
+    ],
+    "url": "https://steamcommunity.com/games/738060/announcements/detail/3263292131055945567",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp), author 'Scott', gid 3263292131055945567",
+    "notes": "This is how Ultimate Custom Night was first framed: a free community update developed in the open. The same post says he had wanted to finish the series and the story himself and that, with Pizzeria Simulator released, future games would not come directly from him. It does not say UCN has no story, and none of his posts rules UCN canon or non-canon."
+  },
+  {
+    "id": "scott-2018-afton-name-for-ffps-springtrap",
+    "title": "Scott calls the Pizzeria Simulator Springtrap 'Afton'",
+    "claim": "In a thread about merchandise of the Pizzeria Simulator Springtrap design, which the thread calls 'Scraptrap', Scott referred to the character simply as 'Afton'.",
+    "quote": "This wasn't a profound declaration that Afton \"would get no merch.\"",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread \"(Reupload) Why Not Making Scraptrap Merch Because People Don't Like Him Is A Stupid Idea\", 2018-08-27",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2018-08-27)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "scraptrap",
+      "william-afton",
+      "springtrap"
+    ],
+    "tags": [
+      "identity",
+      "springtrap",
+      "naming",
+      "merchandise"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "scott-2017-michael-voice-not-robotic",
+      "scott-2018-interview-purple-guy-in-springtrap"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/9akb5b/comment/e4wad2b/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comments e4wad2b and e4wvxyc",
+    "notes": "The subject is a rejected shirt design, which carries no story. The use is the name: in his own Reddit comments Scott calls the burnt Springtrap of Pizzeria Simulator and UCN 'Afton', as his UCN Character Guide does ('William Afton (AKA Scraptrap)'). A second comment in the thread says an artist's 'artwork was amazing for Afton'."
+  },
+  {
+    "id": "scott-2018-fredbear-plush-design",
+    "title": "Scott calls the yellow bear plush 'my Fredbear plush design'",
+    "claim": "Answering a complaint that a Funko toy copied a fan model, Scott said both were based on 'my Fredbear plush design'.",
+    "quote": "Emil made something based on my design, and so did Funko, they will obviously look similar because they are both based on my Fredbear plush design.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread \"(Reupload) Why Not Making Scraptrap Merch Because People Don't Like Him Is A Stupid Idea\", 2018-08-27",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2018-08-27)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "fredbear-plush",
+      "fredbear"
+    ],
+    "tags": [
+      "naming",
+      "plush",
+      "fredbear",
+      "merchandise"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/9akb5b/comment/e4wvxyc/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment e4wvxyc and its parent e4whfa4",
+    "notes": "The comment he answers calls the toy 'Pyschic Friend Fredbear' (sic), the fan label for the plush that follows the child in FNaF4. The subject is merchandise; the only use here is that Scott himself names the plush a Fredbear plush. It says nothing about who speaks through it."
+  },
+  {
+    "id": "scott-2018-frights-some-connected-to-games",
+    "title": "New book series: stories 'some connected directly to the games, and some not'",
+    "claim": "Announcing the short-story series later published as Fazbear Frights, Scott said it takes place in the FNAF universe and that some of its stories are connected directly to the games and some are not.",
+    "quote": "The series will launch with five books, each containing three different short stories with unique characters and plot lines, some connected directly to the games, and some not.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam, Ultimate Custom Night General Discussions, thread \"Upcoming Projects Mega-Thread!\" by Scott (developer), text headed \"Updated 11-12-18\"",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2018-11-12)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "continuity",
+      "novels",
+      "fazbear-frights",
+      "canon"
+    ],
+    "related": [
+      "scott-2020-novels-fill-blanks",
+      "scott-2020-novels-means-fazbear-frights",
+      "scott-2015-books-separate-continuity",
+      "scott-2024-books-canonicity-yes"
+    ],
+    "url": "https://steamcommunity.com/app/871720/discussions/0/1733210552660120120/",
+    "verifiedVia": "Wayback captures of the thread: http://web.archive.org/web/20181114095349/https://steamcommunity.com/app/871720/discussions/0/1733210552660120120/ and the 2019-03-23 capture (same text). Scott linked the thread from his Steam announcement \"New Progress Updates! 11/12/18\".",
+    "notes": "He does not say which stories are which, here or later. The sentence before it: 'This will be very different from the original book series, as it will be a collection of short horror stories that takes place in the FNAF universe.' Read with his 2020 remark that the novels 'fill in some of blanks to the past', this is the furthest his own words go: some Frights stories bear directly on the games, unnamed. The books themselves are still not evidence under this project's source policy."
+  },
+  {
+    "id": "scott-2018-movie-universe-fnaf1-3-only",
+    "title": "The film universe covers FNAF 1-3 only",
+    "claim": "Scott said the film and any sequels would take place in the universe of FNAF 1-3 only, and that the games after FNaF3 would not exist in the movie universe.",
+    "quote": "…the movie (and sequels I hope) will take place in the universe of FNAF 1-3 only. The games after Five Nights at Freddy's 3 will not exist in the movie universe.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam, Ultimate Custom Night General Discussions, thread \"Upcoming Projects Mega-Thread!\" by Scott (developer), text headed \"Updated 11-12-18\"",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2018-11-12)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "continuity",
+      "film",
+      "canon"
+    ],
+    "related": [
+      "scott-2024-movie-doug-canon",
+      "scott-2020-cassidy-screenplay-lore-from-games",
+      "scott-2020-charlie-game-and-book-counterparts"
+    ],
+    "url": "https://steamcommunity.com/app/871720/discussions/0/1733210552660120120/",
+    "verifiedVia": "Wayback captures of the thread: http://web.archive.org/web/20181114095349/https://steamcommunity.com/app/871720/discussions/0/1733210552660120120/ and the 2019-03-23 capture (same text)",
+    "notes": "The quote starts mid-sentence, after 'One thing that most of you might want to know is that'. A continuity ruling: the films are their own universe and are not evidence for the games. He adds: 'I felt that this was the best portion of the storyline to really focus in on.' This described a script later replaced; the 2023 film is still a separate continuity."
+  },
+  {
+    "id": "scott-2019-only-game-developer-existence-canon",
+    "title": "Only 'the existence of a game developer' is canon, with two hedges",
+    "claim": "Scott said the only thing Help Wanted's framing makes canon is the existence of a game developer who supposedly made video games based on actual events, which may or may not be a cover-up by Fazbear Entertainment.",
+    "quote": "Only the existence of a game developer that supposedly made video games based on actual events that may or may not be a cover up by Fazbear Entertainment is canon.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"A lore question about Help Wanted, and an answer!\" by u/animdude, 2019-09-29",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2019-09-29)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "canon",
+      "help-wanted",
+      "continuity",
+      "games-within-games"
+    ],
+    "related": [
+      "scott-2019-not-canon-list",
+      "scott-2019-help-wanted-is-canon",
+      "scott-2019-hw-rebrand-or-part-of-the-plan",
+      "scott-2019-indie-dev-photo",
+      "scott-2019-silver-parasol-logo"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post daxx9z",
+    "notes": "Split out from scott-2019-not-canon-list so the positive half of the ruling can be quoted exactly. Both hedges are Scott's: the developer 'supposedly' made the games, and the 'actual events' 'may or may not be a cover up'. The ruling makes the developer's existence canon; it does not say how much of the earlier games' content is true in-universe."
+  },
+  {
+    "id": "scott-2019-hw-rebrand-or-part-of-the-plan",
+    "title": "Help Wanted's premise in Scott's words: '(Or was it all part of the plan?)'",
+    "claim": "Scott summarised Help Wanted's framing: an indie developer tarnished Fazbear Entertainment's brand with video games about it, forcing the company to rebrand with a VR game that made light of the stories. He added in brackets: 'Or was it all part of the plan?'",
+    "quote": "…forcing them to rebrand and try to reclaim their good name by making a VR game that made light of those *crazy stories*. (Or was it all part of the plan?)",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"A lore question about Help Wanted, and an answer!\" by u/animdude, 2019-09-29",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2019-09-29)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "help-wanted",
+      "games-within-games",
+      "hint",
+      "cover-up"
+    ],
+    "related": [
+      "scott-2019-only-game-developer-existence-canon",
+      "scott-2019-not-canon-list",
+      "scott-2019-help-wanted-is-canon",
+      "scott-2019-indie-dev-photo"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/daxx9z/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post daxx9z",
+    "notes": "The quote starts mid-sentence. The full sentence begins: 'The game says that an indie developer was tarnishing the brand of Fazbear Entertainment by making video games about them,'. Asterisks are Reddit italics. The bracketed question is a hint, not a statement: it leaves open that the company wanted the indie games made. Whose plan is not said."
+  },
+  {
+    "id": "scott-2020-cassidy-kazoo-names-from-lore",
+    "title": "A licensed 'Cassidy Kazoo': 'companies randomly throw around names from the lore'",
+    "claim": "When a clothing partner listed a 'Cassidy Kazoo', Scott said he rejects many designs because companies throw around names from the lore, that this one had probably slipped through, and that he was pulling it.",
+    "quote": "But seriously, I can't tell you how many designs I've rejected because companies randomly throw around names from the lore.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread 'You can now buy an official \"Cassidy Kazoo\" on Cloak's website!', 2020-08-13",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2020-08-13)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "golden-freddy",
+      "one-you-should-not-have-killed"
+    ],
+    "tags": [
+      "naming",
+      "cassidy",
+      "merchandise",
+      "identity",
+      "continuity"
+    ],
+    "related": [
+      "scott-2024-no-new-lore-on-products",
+      "scott-2020-cassidy-screenplay-lore-from-games",
+      "scott-2019-ucn-child-face-jason",
+      "scott-2014-cant-explain-golden-freddy"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/i92lku/comment/g1cgrfb/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment g1cgrfb and thread i92lku",
+    "notes": "Scott does not type the name; the thread title supplies it. His comment treats 'Cassidy' as one of the 'names from the lore' and treats the product as a possible lore reveal ('raise your hands if you think I'd let Cloak reveal lore using a Kazoo'). It does not say which lore (games or books) or whose name it is. People tags mark the questions it bears on, not an identification."
+  },
+  {
+    "id": "scott-2020-cassidy-screenplay-lore-from-games",
+    "title": "A rejected film script followed 'the story of Cassidy' with 'lore from multiple games'",
+    "claim": "Listing rejected film screenplays, Scott described one as following the story of Cassidy, packed with lore, spanning several time periods and featuring lore from multiple games.",
+    "quote": "Diving deep, this screenplay packed in a lot of lore, following the story of Cassidy.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"Bad news about the FNAF movie. :(\" by u/animdude, 2020-11-20, entry 'The \"Cassidy\" screenplay'",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2020-11-20)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "golden-freddy",
+      "one-you-should-not-have-killed"
+    ],
+    "tags": [
+      "naming",
+      "cassidy",
+      "film",
+      "identity"
+    ],
+    "related": [
+      "scott-2020-cassidy-kazoo-names-from-lore",
+      "scott-2020-charlie-game-and-book-counterparts",
+      "scott-2018-movie-universe-fnaf1-3-only"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/jxvesb/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post jxvesb",
+    "notes": "The entry continues: 'Spanning multiple time-periods, following multiple characters, and featuring lore from multiple games, this was pretty saturated, saturated to a fault… (Hey wait, maybe this WAS the most accurate screenplay...)'. This is the only place Scott writes the name 'Cassidy' himself. It ties a character of that name to lore 'from multiple games' without saying who the character is. People tags mark the questions it bears on, not an identification."
+  },
+  {
+    "id": "scott-2020-charlie-game-and-book-counterparts",
+    "title": "A rejected script's 'Charlie' had 'game and book counterparts'",
+    "claim": "Describing a rejected screenplay in which 'Charlie and friends' sneak into Freddy's, Scott said its characters shared names with familiar characters from the series but had nothing to do with their game and book counterparts.",
+    "quote": "Although sharing names of familiar characters from the series, these characters had nothing to do with their game and book counterparts.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit post \"Bad news about the FNAF movie. :(\" by u/animdude, 2020-11-20, entry 'The \"Random Charlie\" screenplay'",
+    "certainty": "implied",
+    "when": {
+      "label": "Out-of-universe statement (posted 2020-11-20)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "cassette-mans-daughter",
+      "puppet"
+    ],
+    "tags": [
+      "naming",
+      "charlie",
+      "film",
+      "identity",
+      "novels"
+    ],
+    "related": [
+      "scott-2020-cassidy-screenplay-lore-from-games",
+      "scott-2015-books-separate-continuity"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/jxvesb/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), post jxvesb",
+    "notes": "The only named character in the entry is Charlie ('Basic Setup: Charlie and friends sneak into Freddy's after-hours to retrieve a lost toy.'), so Scott's wording implies a game counterpart as well as a book one. It is a plural, general sentence and stops short of saying 'the girl in the games is called Charlie'. Same post: his Silver Eyes screenplays were dropped because he 'decided to focus on making a screenplay from the games and not from the books'. People tags mark the question it bears on, not an identification."
+  },
+  {
+    "id": "scott-2020-freddybear-early-name",
+    "title": "'Freddybear' was Freddy's name for a very short time",
+    "claim": "Told that the FNaF1 Steam description still says 'Freddybear', Scott said it was copied from a time before the character was called Freddy Fazbear, when his name was briefly going to be Freddybear.",
+    "quote": "For a very short time, Freddy's name was going to be Freddybear, and that must have been when I originally typed this.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Reddit comment by u/animdude on thread \"Petition for Scott to finally change Freddy's name in the Steam description for FNaF 1…\", 2020-12-19",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (posted 2020-12-19)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "freddy-fazbear"
+    ],
+    "tags": [
+      "naming",
+      "fnaf1",
+      "store-text",
+      "development"
+    ],
+    "related": [
+      "scott-2014-fnaf1-store-freddybear",
+      "scott-fnaf1-steam-freddybear"
+    ],
+    "url": "https://www.reddit.com/r/fivenightsatfreddys/comments/kfvzyp/comment/ggdu7yt/",
+    "verifiedVia": "Arctic Shift Reddit archive API (https://arctic-shift.photon-reddit.com), author 'animdude' (flair 'Scott Cawthon'), comment ggdu7yt and thread kfvzyp",
+    "notes": "Settles the 'Freddybear' anomaly: it is an early working name for Freddy, 'copy and pasted from a time before Freddy's name was Freddy Fazbear', not a reference to Fredbear. He adds: 'I actually never knew about this!!! That is a pretty special \"typo\" actually'."
+  },
+  {
+    "id": "scott-2014-fnaf1-store-summer-job",
+    "title": "FNaF1 Steam description: 'your new summer job'",
+    "claim": "The FNaF1 Steam description (by Scott) calls the night guard position 'your new summer job at Freddy Fazbear's Pizza'.",
+    "quote": "Welcome to your new summer job at Freddy Fazbear's Pizza, where kids and parents alike come for entertainment and food as far as the eye can see!",
+    "game": "scott",
+    "kind": "teaser",
+    "location": "Steam store page, Five Nights at Freddy's (app 319510), description, first sentence",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (FNaF1 store text; places the job in summer)",
+      "precision": "unknown",
+      "basis": "Store description states a season, no year"
+    },
+    "people": [
+      "mike-schmidt"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-fnaf1"
+    ],
+    "tags": [
+      "fnaf1",
+      "store-text",
+      "season",
+      "timeline"
+    ],
+    "related": [
+      "scott-2014-fnaf1-store-freddybear",
+      "scott-fnaf1-steam-freddybear",
+      "fnaf1-paycheck-night5",
+      "fnaf1-paycheck-night6",
+      "scott-2020-freddybear-early-name"
+    ],
+    "url": "https://store.steampowered.com/app/319510/",
+    "verifiedVia": "Steam appdetails API (2026) and http://web.archive.org/web/20140820185203/http://store.steampowered.com/app/319510/ (two days after release; same text)",
+    "notes": "The only seasonal marker for FNaF1 in Scott's own words, and it disagrees with the game: FNaF1's pay cheques are dated 11-12 and 11-13 (fnaf1-paycheck-night5, fnaf1-paycheck-night6). The store text addresses the buyer, so 'summer job' is best treated as sales copy written before the dates were settled, like 'Freddybear' in the same description. Recorded so that it is not used to date FNaF1 against the game."
+  },
+  {
+    "id": "scottgames-site-fnaf2-something-borrowed",
+    "title": "FNaF2 teaser: 'something borrowed... something new...'",
+    "claim": "The second FNaF2 teaser puts a dark, worn Bonnie with no face on the left beside a bright new Bonnie with rosy cheeks on the right, captioned 'something borrowed...' and 'something new...'.",
+    "quote": "something borrowed... something new...",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "scottgames.com image fnaf2.jpg, captured 2014-09-28",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated (FNaF2 teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "bonnie"
+    ],
+    "places": [
+      "freddy-fazbears-pizza-1987"
+    ],
+    "tags": [
+      "fnaf2",
+      "teaser",
+      "withered",
+      "toy-animatronics"
+    ],
+    "related": [
+      "scottgames-site-fnaf2-grand-reopening",
+      "scott-2014-fnaf2-store-previous-guard",
+      "scott-fnaf2-steam-description"
+    ],
+    "image": "scottgames-fnaf2-something-borrowed.jpg",
+    "url": "https://web.archive.org/web/20140928232213/http://www.scottgames.com/fnaf2.jpg",
+    "verifiedVia": "Original file fetched from the Wayback Machine capture and viewed by the researcher",
+    "notes": "The two captions sit beside the two figures: 'something borrowed...' by the old Bonnie, 'something new...' by the new one. It previews FNaF2's two casts, the old animatronics kept alongside the new. The file fnaf2.jpg was replaced four more times (captures 2014-09-24 'Grand Reopening', 2014-10-08 curtains with a '2', 2014-10-16 'NO PLACE TO RUN / and exactly one place to hide.' seen through a mask's eye holes, 2014-11-11 a dark camera view of the Puppet); none of those adds story beyond the game."
+  },
+  {
+    "id": "scottgames-site-fnaf3-source-30-years-later-only-one",
+    "title": "FNaF3 first hint in the page source: '30 years later, only one'",
+    "claim": "In early December 2014 the scottgames.com page keywords read 'five, nights, at, freddys, 30 years later, only one' while the 'offline' image gained a faint hidden '3'.",
+    "quote": "30 years later, only one",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML meta keywords, Wayback capture 2014-12-07; image offline.jpg, captures 2014-12-06 and 2014-12-08",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (FNaF3 teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "springtrap"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "fnaf3",
+      "teaser",
+      "page-source",
+      "thirty-years",
+      "timeline"
+    ],
+    "related": [
+      "scott-2015-fnaf3-store-thirty-years",
+      "scott-fnaf3-steam-description",
+      "scottgames-site-fnaf3-offline-until-next-time",
+      "scottgames-site-fnaf3-source-i-remain",
+      "scottgames-fnaf3-teaser-still-here"
+    ],
+    "url": "https://web.archive.org/web/20141207193300/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252; the hidden 3 seen by brightening the 2014-12-06 and 2014-12-08 captures of offline.jpg",
+    "notes": "Scott's first FNaF3 hint, three months before release. Both halves reappear in the store text: 'Thirty years after Freddy Fazbear's Pizza closed it's doors' and 'The attraction now has one animatronic.' It does not say thirty years after what; the store text supplies that. By the 2014-12-09 capture the keywords were 'five nights at freddys, taking a break, Merry Christmas everyone! :)' and the hidden 3 had been swapped for a hidden 'Merry Christmas!'."
+  },
+  {
+    "id": "scottgames-site-fnaf3-source-i-remain",
+    "title": "FNaF3 page source: 'I remain'",
+    "claim": "Through January 2015, under the FNaF3 teasers 'I am still here.', the parts box and 'He always does.', the scottgames.com page keywords read 'I remain'.",
+    "quote": "I remain",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML meta keywords, Wayback captures 2015-01-03, 2015-01-15 and 2015-01-27",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (FNaF3 teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "springtrap",
+      "purple-guy"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "fnaf3",
+      "teaser",
+      "page-source",
+      "first-person",
+      "springtrap"
+    ],
+    "related": [
+      "scottgames-site-fnaf3-i-am-still-here",
+      "scottgames-fnaf3-teaser-still-here",
+      "scottgames-site-fnaf3-he-always-does",
+      "scottgames-fnaf3-teaser-he-always-does",
+      "scottgames-site-fnaf3-parts-box",
+      "scottgames-site-fnaf3-source-30-years-later-only-one"
+    ],
+    "url": "https://web.archive.org/web/20150103035439/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "A second first-person line beside the teaser's 'I am still here.', written for the figure in the rabbit suit; who that is is not said. Later keywords were gameplay words: 'CAM15' with a camera-map image (2015-02-03) and 'fear' with the phantom teasers (2015-03-02), then blank."
+  },
+  {
+    "id": "scottgames-site-fnaf4-html-83",
+    "title": "Two days before FNaF4's release the page-source digits changed from 87 to 83",
+    "claim": "In the scottgames.com page source, the scrambled description 'Sco8ttga7mes' had become 'Sco8ttga3mes' by 21 July 2015, two days before FNaF4 was released: the hidden digits went from 8 and 7 to 8 and 3.",
+    "quote": "Sco8ttga3mes",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag named 'descr7iption', Wayback capture 2015-07-21 21:16 UTC (previous capture 2015-07-09 still reads 'Sco8ttga7mes')",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated (FNaF4 teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "bite-victim",
+      "crying-child"
+    ],
+    "tags": [
+      "fnaf4",
+      "teaser",
+      "page-source",
+      "83",
+      "87",
+      "1983",
+      "bite",
+      "timeline"
+    ],
+    "related": [
+      "scottgames-site-fnaf4-html-87",
+      "scott-2017-matpat-final-theory",
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scott-2018-interview-fnaf4-too-broad"
+    ],
+    "url": "https://web.archive.org/web/20150721211635/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252 (20150709183411 and 20150721211635); reset to plain 'Scottgames' by 20150727015052",
+    "notes": "The digits are not explained anywhere by Scott. The change is his: the same tag had carried an 8 and a 7 since April, and it was edited to an 8 and a 3 just before the game with the 'Fredbear & Friends 1983' television screen came out. It is the earliest sign that the game was meant to be read against 1983 as well as 1987. In 2017 he listed being 'hung up on 1983 vs 1987' among the misunderstandings. The tag name keeps its own 7 ('descr7iption')."
+  },
+  {
+    "id": "scottgames-site-sl-source-rental-schedule",
+    "title": "Sister Location page source: a weekly booking schedule for five animatronics",
+    "claim": "In June 2016 the scottgames.com page source carried a coded weekly schedule for five units, ANM01 to ANM05, with each day marked BKD, AVL, PVT or MAT and the fifth unit marked OOS, plus the words 'ClientDIR_unavailable'.",
+    "quote": "ANM01BBYMON:BKDTUES:AVLWED:BKDTHR:BKDFRI:AVLSAT:PVTSUN:MAT",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, name of the first meta tag, Wayback capture 2016-06-17",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Sister Location teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "circus-baby"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "teaser",
+      "page-source",
+      "rental",
+      "schedule"
+    ],
+    "related": [
+      "scottgames-site-sl-source-client-directory",
+      "scottgames-site-sl-source-service-log-afton-robotics",
+      "scott-2017-adult-theory-teaser",
+      "scott-2016-sl-store-text"
+    ],
+    "url": "https://web.archive.org/web/20160617190700/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "Full string: 'ANM01BBYMON:BKDTUES:AVLWED:BKDTHR:BKDFRI:AVLSAT:PVTSUN:MAT,ANM02BALMON:BKDTUES:BKDWED:BKDTHR:BKDFRI:BKDSAT:PVTSUN:MAT,ANM03FTFMON:BKDTUES:BKDWED:BKDTHR:BKDFRI:BKDSAT:MATSUN:MAT,ANM04FTFMON:AVLTUES:AVLWED:AVLTHR:BKDFRI:AVLSAT:MATSUN:MAT,ANM05OOS'. The unit codes fit Baby (BBY), Ballora (BAL) and two Funtime units (FTF); the fifth is out of service. Reading BKD as booked, AVL as available, PVT as private and OOS as out of service is the natural expansion, not something Scott spelled out. 'MAT' is the code fans misread as 'mature' (the 'adult theory'); maintenance fits the service log added three days later. The schedule shows the animatronics as units hired out by the day, before the game said so."
+  },
+  {
+    "id": "scottgames-site-sl-source-client-directory",
+    "title": "Sister Location page source: client directory of birthday bookings",
+    "claim": "By 20 June 2016 the page source replaced 'ClientDIR_unavailable' with three client entries: 'ChcasPrtyWrld' with birthday accessories and novelties, a private birthday booking with children's entertainment and props, and 'CRMN_Inst/Project'.",
+    "quote": "Client_Dir001:ChcasPrtyWrld/BirthdayAccessories/Novelties",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag names and contents, Wayback captures 2016-06-20, 2016-08-08 and 2016-08-11",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Sister Location teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "circus-baby"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "teaser",
+      "page-source",
+      "rental",
+      "birthday",
+      "chicas-party-world"
+    ],
+    "related": [
+      "scottgames-site-sl-source-rental-schedule",
+      "scottgames-site-sl-source-service-log-afton-robotics",
+      "scott-2017-adult-theory-teaser",
+      "secret-of-the-mimic-mail-chicas-party-world",
+      "scottgames-site-sl-source-bright-future-circus-baby"
+    ],
+    "url": "https://web.archive.org/web/20160620004031/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "The other two entries: 'Client_Dir002:PrivateBDayBooking[5OL]/Chldrn_ENT/BdayProps/Novelties' and 'Client_Dir003:CRMN_Inst/Project'. The clients are children's parties, which is what answered the 'adult theory' reading of the schedule (see scott-2017-adult-theory-teaser). 'ChcasPrtyWrld' reads as Chica's Party World, a name that appears in a game only in Secret of the Mimic (2025). '[5OL]' and 'CRMN_Inst/Project' are not explained; no expansion is offered here."
+  },
+  {
+    "id": "scottgames-site-sl-source-service-log-afton-robotics",
+    "title": "Sister Location page source names 'AftnROBTCS' as maintainer",
+    "claim": "From 20 June 2016 the scottgames.com page source included the line 'SRVC_LOG:MAINTN_C/O_AftnROBTCS.': a service log with maintenance care of Afton Robotics, months before the game was released.",
+    "quote": "SRVC_LOG:MAINTN_C/O_AftnROBTCS.",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag name, Wayback captures 2016-06-20, 2016-08-08 and 2016-08-11",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Sister Location teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "william-afton"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "teaser",
+      "page-source",
+      "afton",
+      "afton-robotics",
+      "naming"
+    ],
+    "related": [
+      "scottgames-site-sl-source-rental-schedule",
+      "scottgames-site-sl-source-client-directory",
+      "sl-intro-mr-afton-board"
+    ],
+    "url": "https://web.archive.org/web/20160620004031/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "The first appearance of the name Afton in anything Scott published for the games, nearly four months before Sister Location (released 2016-10-07) opened with a board member addressing 'Mr. Afton' (sl-intro-mr-afton-board). Expanding 'AftnROBTCS' to Afton Robotics rests on the game's own name for the company. It shows the company that maintains the rented animatronics, not who Afton is."
+  },
+  {
+    "id": "scottgames-site-sl-source-bright-future-circus-baby",
+    "title": "Sister Location page source: 'a bright future for Circus Baby… at a neighborhood party near you'",
+    "claim": "Under the 'CANCELLED – Due to leaks.' teaser, the page source carried 'no comment' four times and then a company statement that the venture was just too soon and that Circus Baby would appear at neighbourhood parties.",
+    "quote": "There is still a bright future for Circus Baby, so be watching for her to appear at a neighborhood party near you!",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag names and contents, Wayback capture 2016-08-16",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Sister Location teaser period; in-universe statement after the Pizza World cancellation)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "circus-baby",
+      "fazbear-entertainment"
+    ],
+    "places": [
+      "circus-babys-pizza-world",
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "teaser",
+      "page-source",
+      "rental",
+      "pizza-world",
+      "cancellation"
+    ],
+    "related": [
+      "scottgames-site-sl-cancelled-teaser",
+      "scottgames-site-sl-news-gas-leak-cancellation",
+      "scottgames-site-sl-news-kids-tested",
+      "scottgames-site-sl-news-equipment-removed",
+      "scottgames-site-sl-news-entrepreneur",
+      "scottgames-site-sl-source-client-directory"
+    ],
+    "url": "https://web.archive.org/web/20160816163426/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "The sentence before it, in the same tag: 'If anything, it was just too soon for such an ambitious venture.' It reads as the end of the hidden news report in the image (repeated 'no comment', then a statement), though the page does not say who speaks. It is Scott's own bridge from the cancelled Circus Baby's Pizza World to the rental business the game shows: the animatronics go on to private parties. By 2016-08-28 the tags read '4g7n0c...' and '...28jk12', which are not decoded here."
+  },
+  {
+    "id": "scottgames-site-2017-source-ejection-dialogue-group",
+    "title": "2017 page source, scottgames.com: 'We found a way to eject you.'",
+    "claim": "Between March and June 2017 the scottgames.com page source gained five lines, one at a time, in a plural voice: 'You are crowding us.', 'You can't tell us what to do anymore.', 'We outnumber you.', 'We found a way to eject you.' and 'Ha, ha! Say goodbye to our friend!'.",
+    "quote": "You are crowding us. / You can't tell us what to do anymore. / We outnumber you. / We found a way to eject you. / Ha, ha! Say goodbye to our friend!",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag names and contents, Wayback captures 2017-03-31, 2017-04-02, 2017-04-20, 2017-05-17 and 2017-06-11",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (2017 teaser period, between Sister Location and Pizzeria Simulator)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "ennard",
+      "circus-baby",
+      "molten-freddy",
+      "scrap-baby"
+    ],
+    "tags": [
+      "ffps",
+      "teaser",
+      "page-source",
+      "ennard",
+      "ejection",
+      "dialogue"
+    ],
+    "related": [
+      "scottgames-site-2017-fnafworld-source-ejection-dialogue-one",
+      "scottgames-site-2017-fnafworld-iamstillhere-eyes",
+      "scottgames-site-sl-little-of-me",
+      "sl-custom-night-ennard-ejected",
+      "ffps-molten-freddy-lines"
+    ],
+    "url": "https://web.archive.org/web/20170611225033/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "The quote gives the five lines in page order, separated by slashes; each is a separate tag value, and they were added one at a time on the capture dates given. The curly apostrophe in 'can't' is in the source. No speaker is named. The lines answer, one for one, the five lines hidden on fnafworld.com in the same weeks (scottgames-site-2017-fnafworld-source-ejection-dialogue-one). Reading the group as Ennard's parts and the one thrown out as Baby is a reading drawn from Pizzeria Simulator, where the two turn up apart as Molten Freddy and Scrap Baby; people tags mark that reading, not a statement."
+  },
+  {
+    "id": "scottgames-site-2017-fnafworld-source-ejection-dialogue-one",
+    "title": "2017 page source, fnafworld.com: 'I can put myself back together.'",
+    "claim": "Between March and June 2017 the fnafworld.com page source gained five lines in a single voice answering the lines on scottgames.com: 'Be quiet.', 'Yes, I can. You will do everything that I tell you to do.', 'That doesn't matter, dummy.', 'You would be lost without me' and 'I can put myself back together.'.",
+    "quote": "Be quiet. / Yes, I can. You will do everything that I tell you to do. / That doesn't matter, dummy. / You would be lost without me / I can put myself back together.",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "fnafworld.com HTML, meta tag names and contents, Wayback captures 2017-03-31, 2017-04-22, 2017-05-11 and 2017-06-11",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (2017 teaser period, between Sister Location and Pizzeria Simulator)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "circus-baby",
+      "scrap-baby",
+      "ennard"
+    ],
+    "tags": [
+      "ffps",
+      "teaser",
+      "page-source",
+      "baby",
+      "ejection",
+      "dialogue"
+    ],
+    "related": [
+      "scottgames-site-2017-source-ejection-dialogue-group",
+      "scottgames-site-2017-fnafworld-iamstillhere-eyes",
+      "ffps-scrap-baby-heard-call"
+    ],
+    "url": "https://web.archive.org/web/20170611225135/http://www.fnafworld.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252",
+    "notes": "The quote gives the five lines in page order, separated by slashes; each is a separate tag value ('You would be lost without me' has no full stop in the source). Paired with the other site's lines the exchange runs: 'You are crowding us.' / 'Be quiet.'; 'You can't tell us what to do anymore.' / 'Yes, I can. You will do everything that I tell you to do.'; 'We outnumber you.' / 'That doesn't matter, dummy.'; 'We found a way to eject you.' / 'You would be lost without me'; 'Ha, ha! Say goodbye to our friend!' / 'I can put myself back together.' No speaker is named; the image on this site at the end was a pair of green eyes in a file called Iamstillhere.jpg. Identifying the voice as Baby is a reading drawn from Pizzeria Simulator."
+  },
+  {
+    "id": "scottgames-site-2017-fnafworld-iamstillhere-eyes",
+    "title": "fnafworld.com, June 2017: two green eyes, file name 'Iamstillhere.jpg'",
+    "claim": "In June 2017 fnafworld.com showed a black image with two glowing green eyes with long lashes, in a file named 'Iamstillhere.jpg'; by November 2017 the file showed the same eyes dim and teal.",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "fnafworld.com image Iamstillhere.jpg, Wayback captures 2017-06-11 and 2017-11-08",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated (2017 teaser period, before Pizzeria Simulator)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "circus-baby",
+      "scrap-baby"
+    ],
+    "tags": [
+      "ffps",
+      "teaser",
+      "baby",
+      "eyes",
+      "filename"
+    ],
+    "related": [
+      "scottgames-site-2017-fnafworld-source-ejection-dialogue-one",
+      "scottgames-site-2017-source-ejection-dialogue-group",
+      "scottgames-site-fnaf3-i-am-still-here"
+    ],
+    "image": "scottgames-fnafworld-iamstillhere-eyes.jpg",
+    "url": "https://web.archive.org/web/20170611225135/http://www.fnafworld.com/Iamstillhere.jpg",
+    "verifiedVia": "Original file fetched from the Wayback Machine capture and viewed by the researcher; capture list shows exactly two versions of the file (20170611225135 and 20171108181629)",
+    "notes": "No text in the image; 'I am still here' exists only as the file name, echoing the FNaF3 teaser. The page it sat on carried the single-voice lines ending 'I can put myself back together.' Green eyes with lashes match Circus Baby as she appears after Sister Location's ending and as Scrap Baby in Pizzeria Simulator; that match is the reason for the people tags, not a caption."
+  },
+  {
+    "id": "scottgames-site-ffps-source-what-is-paragraph-4",
+    "title": "Pizzeria Simulator page source: 'What is paragraph 4?'",
+    "claim": "From 28 October 2017 the page source of both scottgames.com and fnafworld.com replaced the earlier dialogue with one question repeated in every tag: 'What is paragraph 4?'.",
+    "quote": "What is paragraph 4?",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com and fnafworld.com HTML, meta tag names and contents, Wayback captures 2017-10-28 (both sites)",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Pizzeria Simulator teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "ffps",
+      "teaser",
+      "page-source",
+      "paragraph-4",
+      "contract"
+    ],
+    "related": [
+      "ffps-cassette-intro-paragraph-4",
+      "scottgames-site-ffps-pixel-teasers",
+      "scott-2017-ffps-lite-announcement",
+      "scott-2017-ffps-apology",
+      "scott-2017-fnaf6-existed-to-clear-things-up"
+    ],
+    "url": "https://web.archive.org/web/20171028210058/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252 (20171028210058 scottgames.com and 20171028210129 fnafworld.com); still present on 2018-02-18",
+    "notes": "Scott never answered it outside the game. The game answers it: the Cassette Man's opening tape speaks of the player's 'special obligations under Paragraph 4' (ffps-cassette-intro-paragraph-4). The question was posted five weeks before release, while his public posts called the game a light holiday release, so it is his own pointer to the hidden half of the game."
+  },
+  {
+    "id": "scottgames-site-ffps-pixel-teasers",
+    "title": "Pizzeria Simulator teasers: 8-bit Freddy brings cake to three children",
+    "claim": "From late October 2017 scottgames.com showed 8-bit teasers: Freddy trailing a rainbow and carrying a cake to three children, then Freddy juggling pizzas, then 'Freddy Fazbear's Pizzeria Simulator coming soon!'.",
+    "quote": "Freddy Fazbear's Pizzeria Simulator coming soon!",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "scottgames.com image image01.jpg, Wayback captures 2017-10-28, 2017-11-08 and 2017-12-03",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated (Pizzeria Simulator teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "freddy-fazbear"
+    ],
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "ffps",
+      "teaser",
+      "8-bit",
+      "misdirection"
+    ],
+    "related": [
+      "scottgames-site-ffps-source-what-is-paragraph-4",
+      "scott-2017-ffps-lite-announcement",
+      "scott-2017-ffps-store-text"
+    ],
+    "image": "scottgames-ffps-pixel-cake-teaser.jpg",
+    "url": "https://web.archive.org/web/20171028210059/http://www.scottgames.com/image01.jpg",
+    "verifiedVia": "Original file fetched from the Wayback Machine capture and viewed by the researcher (three captures). Earlier and later versions of the file were seen only in a fan catalogue of the teasers (thefnafarchive.org, entries 113-123), used as a research aid",
+    "notes": "The teasers show only the cheerful pizza-game surface, in the style of FNaF2's cake minigame; nothing in the images hints at the salvage or the ending. The fan catalogue lists the rest of the cycle: a Freddy plush with thin lines descending onto it (August-September 2017), a first rainbow frame without the children, and three countdown frames of the pizza-throwing screen ('IN TWO DAYS...', 'IN ONE DAY...', 'AVAILABLE NOW!')."
+  },
+  {
+    "id": "scottgames-site-hw-alt-remember-jeremy",
+    "title": "Help Wanted teaser page source: alt text 'remember Jeremy'",
+    "claim": "On 11 March 2019 the scottgames.com page gave the Help Wanted teaser image the alt text 'remember Jeremy', changed the page title to 'Scot0t Games', and listed six random-looking strings in its meta tags that were the file names of six further images on the site.",
+    "quote": "remember Jeremy",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML (image alt text, title and meta tags), Wayback capture 2019-03-11",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Help Wanted teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "jeremy-hw",
+      "tape-girl"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "help-wanted",
+      "teaser",
+      "page-source",
+      "jeremy",
+      "hidden-text"
+    ],
+    "related": [
+      "scottgames-site-hw-working-as-intended",
+      "scottgames-hw-teaser-hidden-text",
+      "hw-game-over-remember-jeremy",
+      "hw-jeremy-self-injury-implied"
+    ],
+    "image": "scottgames-hw-hidden-lines-highpass.jpg",
+    "url": "https://web.archive.org/web/20190311231606/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252; the six linked images fetched from the same capture date; hidden lines in hw.jpg read after high-pass filtering",
+    "notes": "Meta values: 'Ggxcqw432', '9Taawf32Bb', '5sdvgHsd', 's55Hdfcaa2', 'sd3mz77fW', 'Fwxht4Scv'. Adding '.jpg' to each gives an image on the site: six halftone-filtered Help Wanted screenshots, which carry no text. A fan catalogue of the teasers lists a seventh hidden file, 0rGN.jpg; the Wayback Machine has it, but this capture's page source does not name it. Low-pass filtered, it shows a blurred endoskeleton figure and no text. The alt text repeats the fourth line hidden in the teaser artwork ('Remember Jeremy.'). It names Jeremy two months before the game's hidden tapes describe what happened to a tester of that name; it does not say who he is or whether he is any earlier Jeremy. The published image is a researcher-filtered copy of the teaser in which the four hidden lines can be made out."
+  },
+  {
+    "id": "scottgames-site-sb-source-stay-the-course",
+    "title": "Security Breach page source: 'Focus on my voice.' / 'Have you selected one?' / 'I have.'",
+    "claim": "From August 2019 to at least August 2020, under the Security Breach teasers, the scottgames.com page source held an eight-line exchange between an instructing voice and a follower, ending 'Have you selected one?' and 'I have.'.",
+    "quote": "Stay the course. / I will. / Focus on my voice. / I will. / Don't let anyone lead you astray. / I won't. / Have you selected one? / I have.",
+    "game": "scottgames-site",
+    "kind": "hidden",
+    "location": "scottgames.com HTML, meta tag names and contents, Wayback captures from 2019-08-08 to 2020-08-07",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (Security Breach teaser period)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "vanny",
+      "glitchtrap",
+      "vanessa",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "security-breach",
+      "teaser",
+      "page-source",
+      "dialogue",
+      "vanny",
+      "control"
+    ],
+    "related": [
+      "scottgames-site-sb-obey",
+      "scottgames-site-sb-protect",
+      "scottgames-site-sb-atrium-2020",
+      "scottgames-site-sb-rock-rabbit-figure-added"
+    ],
+    "url": "https://web.archive.org/web/20190808211500/http://www.scottgames.com/",
+    "verifiedVia": "Raw HTML of the Wayback capture(s), fetched with the id_ flag and decoded as Windows-1252 (first seen 20190808211500, last seen 20200807140323; gone by 20210617022949)",
+    "notes": "The quote gives the eight tag values, separated by slashes, in the order they read as a dialogue; in the HTML they are packed as name and content pairs (name 'Stay the course.' content 'I will.'; name 'Focus on my voice.'; name 'I will.' content 'Don't let anyone lead you astray.'; name 'I won't.' content 'Have you selected one?'; name 'I have.'). No speaker is named. It previews a follower who obeys a voice and has 'selected one', and it stayed up under the 'OBEY' teaser of a figure in a rabbit costume. Taking the voice as the rabbit from Help Wanted, the follower as the costumed woman, and 'one' as a child is a reading from the games; people tags mark that reading."
+  },
+  {
+    "id": "scottgames-site-sb-rock-rabbit-figure-added",
+    "title": "Security Breach 'ROCK!' teaser, second version: a rabbit-eared figure on the balcony",
+    "claim": "Between the 29 September and 6 November 2019 captures, the 'ROCK!' teaser was replaced with a version that adds a faint, thin figure with long rabbit ears standing on the upper level behind Glamrock Freddy.",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "scottgames.com image 7_1.jpg, Wayback captures 2019-09-29 (no figure) and 2019-11-06 (figure added), upper left",
+    "certainty": "shown",
+    "when": {
+      "label": "Undated (Security Breach teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "people": [
+      "vanny",
+      "glamrock-freddy"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "security-breach",
+      "teaser",
+      "vanny",
+      "rabbit",
+      "hidden-figure",
+      "changed-over-time"
+    ],
+    "related": [
+      "scottgames-site-sb-rock",
+      "scottgames-site-sb-obey",
+      "scottgames-site-sb-source-stay-the-course"
+    ],
+    "image": "scottgames-sb-rock-rabbit-figure-compare.jpg",
+    "url": "https://web.archive.org/web/20191106080529/http://www.scottgames.com/7_1.jpg",
+    "verifiedVia": "Original file fetched from the Wayback Machine capture and viewed by the researcher; the capture list holds exactly these two versions of the file. Both were compared pixel for pixel by the researcher",
+    "notes": "The published image is a researcher-made crop of the same area from both captures, enlarged, earlier version on the left. The figure is pale, human in build, with two long ears and one arm raised. It appeared about two months before the 'OBEY' teaser showed a rabbit-costumed figure up close. Calling it Vanny is a reading from that later teaser and the game; the people tag marks that reading."
+  },
+  {
+    "id": "scottgames-site-2019-fnafworld-58-mock-quotes",
+    "title": "fnafworld.com '58' teaser hides mock reviews, one about 'dream theory'",
+    "claim": "On 8 August 2019 fnafworld.com showed the number '58' with five faint mock quotes hidden around it, attributed to a 'fnaf fan', a 'rando person', a 'concerned citizen' and a 'reddit user'; one reads 'stopped caring after dream theory....'.",
+    "quote": "\"stopped caring after dream theory....\" -reddit user",
+    "game": "scottgames-site",
+    "kind": "teaser",
+    "location": "fnafworld.com image 58.jpg (hidden text), Wayback capture 2019-08-08",
+    "certainty": "stated",
+    "when": {
+      "label": "Undated (2019 anniversary teaser)",
+      "precision": "unknown",
+      "basis": "Promotional teaser; states no in-universe date"
+    },
+    "tags": [
+      "teaser",
+      "joke",
+      "dream-theory",
+      "hidden-text",
+      "community"
+    ],
+    "related": [
+      "scott-2017-matpat-final-theory",
+      "scott-2015-fnaf4-story-hidden"
+    ],
+    "image": "scottgames-fnafworld-58-hidden-quotes.jpg",
+    "url": "https://web.archive.org/web/20190808234425/http://www.fnafworld.com/58.jpg",
+    "verifiedVia": "Original file fetched from the Wayback Machine capture and viewed by the researcher and brightened; the capture list holds one version of the file",
+    "notes": "The other four: '\"probably the worst idea he's ever had...\" -fnaf fan', '\"It's like he doesn't even care anymore.\" -rando person', '\"Five years for this?\" -concerned citizen', '\"Are we a joke to you?\" -fnaf fan'. Scott is making fun of himself with invented complaints about an unannounced side project (the '58' game became Freddy in Space 2). It is the only place he mentions 'dream theory' by name, and it is a joke: it shows he knew the reading was unpopular and rules nothing in or out. The published image is a researcher-brightened copy."
+  },
+  {
+    "id": "scott-2018-interview-first-game-snippet-of-larger-story",
+    "title": "2018: FNaF1's story was 'a small snippet of a larger story', not a full plan",
+    "claim": "Asked whether he was planning sequels while making FNaF1, Scott said he left things open-ended and did not have the entire story planned out, but knew the first game told a small part of a larger story.",
+    "quote": "I definitely knew that the story I was telling in the first game was a small snippet of a larger story.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 13:18",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "planning",
+      "fnaf1",
+      "interview",
+      "continuity"
+    ],
+    "related": [
+      "scott-2017-story-developed-new-details",
+      "scott-2017-one-retcon",
+      "scott-2018-interview-fnaf3-end-of-trilogy"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=798s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed, just before: 'I did not have the entire story planned out… some kind of mad genius that had seven games planned from the beginning. No, I didn't.' And after: 'Even if I didn't have all the details of that story fleshed out yet, I knew that the story being told in that game was a smaller part of a whole.' It agrees with his 2017 post that details were added over time, and it limits any argument of the form 'Scott must already have meant X in the first game'."
+  },
+  {
+    "id": "scott-2018-interview-purple-guy-in-springtrap",
+    "title": "2018: 'his purple corpse is in that whole body that whole time'",
+    "claim": "Talking about modelling Springtrap, Scott said the Purple Guy's corpse is inside the suit for the whole of FNaF3, even though the player almost never sees it.",
+    "quote": "his purple corpse is in that whole body that whole time",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 23:21",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "springtrap",
+      "purple-guy",
+      "william-afton"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "identity",
+      "springtrap",
+      "purple-guy",
+      "fnaf3",
+      "interview"
+    ],
+    "related": [
+      "fnaf3-springtrap-corpse-screens",
+      "scott-2017-michael-voice-not-robotic",
+      "scott-ucn-character-guide-afton",
+      "scott-2018-afton-name-for-ffps-springtrap",
+      "scottgames-site-fnaf3-source-i-remain"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=1401s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "Fuller passage as transcribed: 'So he did take longer to model, and, you know, his purple corpse is in that whole body that whole time. You know, even though the majority of the game, you never see it… Yeah, purple guy, he's in there.' 'Whole body' could be 'hollow body'; all three transcripts give 'whole'. Scott names the occupant only as 'purple guy', his usual word for the killer of the minigames; he does not say 'William Afton' here (his UCN guide, two months earlier, does). 'Purple corpse' is said in passing and should not be pressed for the man's colour: in 2017 he listed 'Purpleguy being literally purple' among the misunderstandings."
+  },
+  {
+    "id": "scott-2018-interview-fnaf3-ending-unanswered",
+    "title": "2018: which FNaF3 ending happened? 'Very interesting… complex', and not answered",
+    "claim": "Asked which FNaF3 ending really happened, Scott said the answer is very interesting and complex and declined to give it because it would only cause strife.",
+    "quote": "The answer is very interesting. The answer is complex.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 24:55",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "missing-children"
+    ],
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "fnaf3",
+      "endings",
+      "unanswered",
+      "interview"
+    ],
+    "related": [
+      "fnaf3-good-ending-heads",
+      "fnaf3-bad-ending-heads",
+      "fnaf3-happiest-day",
+      "scott-2015-mangle-gender-yes"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=1495s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "He goes on (as transcribed): 'However, I'm not gonna answer it, because it's only gonna cause strife', giving the flame wars over Mangle's gender as his example. Neither the 'good' nor the 'bad' ending is ruled the true one, and 'complex' warns against a plain either/or."
+  },
+  {
+    "id": "scott-2018-interview-fnaf3-end-of-trilogy",
+    "title": "2018: FNaF3 'was the end of a trilogy'",
+    "claim": "Asked whether FNaF3 was meant to be the final game, Scott said that in his mind it was the end of a trilogy and the original story was going to be three games; unhappiness with FNaF3's jump scare is what pushed him to make another.",
+    "quote": "I think when I was making that game, in my mind, that was the end of a trilogy.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 26:01",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "fnaf3",
+      "planning",
+      "trilogy",
+      "interview",
+      "continuity"
+    ],
+    "related": [
+      "scott-2015-fnaf4-store-last-chapter",
+      "scott-2015-story-complete",
+      "scott-2018-interview-first-game-snippet-of-larger-story",
+      "scott-2018-interview-fnaf4-too-broad"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=1561s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed, he continues: 'I think in my mind, the original story was going to be three games', then explains that people 'were not happy with the jump scare' of Springtrap and that this 'wouldn't let the series rest'. Later in the interview he says he made games one to four 'in one sitting' and only then sat back to rethink. So FNaF1 to FNaF3 were built as a complete story, and FNaF4 onward were added to it afterwards."
+  },
+  {
+    "id": "scott-2018-interview-fnaf4-too-broad",
+    "title": "2018: FNaF4 'went too broad for interpretation'",
+    "claim": "Scott said people were not happy with FNaF4 from a lore standpoint: it strayed too far from an actual story, went too broad for interpretation, and was so mysterious that there was no real way to work out what was going on.",
+    "quote": "It went too broad for interpretation, and that left people unsatisfied.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 34:48",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "crying-child"
+    ],
+    "places": [
+      "fnaf4-house"
+    ],
+    "tags": [
+      "fnaf4",
+      "box",
+      "interpretation",
+      "interview",
+      "clarification"
+    ],
+    "related": [
+      "scott-2015-fnaf4-story-hidden",
+      "scott-2015-fnaf4-box-pieces-put-together",
+      "scott-2018-interview-sl-made-to-ground-story",
+      "scott-2018-box-meaning-changed",
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scottgames-site-fnaf4-html-83"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2088s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'I felt that it had strayed too far from an actual story in a way'; 'Whereas the other ones, yeah, there were mysteries, four ended up just too mysterious… There was no real way to figure out what was going on'; 'the box is tied into this very, very closely'. The question he is answering names 'the box at the end', 'the TV advertisement with 1983' and 'the bite of '87 debate'. In 2015 he had said that no one had found the pieces; here he puts the failure on the game, not on the players."
+  },
+  {
+    "id": "scott-2018-interview-sl-made-to-ground-story",
+    "title": "2018: another game was needed to 'ground it in storytelling again'",
+    "claim": "Scott said the reaction to FNaF4 made him decide he had to make another game to straighten things out and ground the series in storytelling again, and he agreed when the interviewer said he had put things into Sister Location to ground the story of FNaF4.",
+    "quote": "I need to make another game. I need to ground this again, not necessarily in reality, but I need to ground it in storytelling again",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 35:53 and 37:17",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "places": [
+      "circus-babys-rental",
+      "fnaf4-house"
+    ],
+    "tags": [
+      "sister-location",
+      "fnaf4",
+      "clarification",
+      "interview"
+    ],
+    "related": [
+      "scott-2017-sl-cleared-fnaf4-misconception",
+      "scott-2017-clarification-is-not-retcon",
+      "scott-2018-interview-fnaf4-too-broad",
+      "scott-2018-box-meaning-changed"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2153s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "He is recalling his thinking at the time: 'I knew that I had to go in and straighten that out. People aren't really happy with this.' A minute later the interviewer says, 'you put some things into Sister Location to ground out the story of FNAF 4, right?' and Scott answers 'Mm-hmm. Yeah, right.' (the transcripts hear the game's name as 'this location'). He does not say which things. On his own account, then, what Sister Location shows about the FNaF4 house is his corrective for how FNaF4 was read."
+  },
+  {
+    "id": "scott-2018-interview-fnaf-world-tied-to-canon-mistake",
+    "title": "2018: FNaF World should not have been tied 'in to a canon game'",
+    "claim": "Looking back on FNaF World, Scott said he had needed to make something lighthearted after two years on a story of murders, and that he should have made something obviously for fun and not tried to tie it in to a canon game.",
+    "quote": "I should have just done something that was obviously for fun and not tried to somehow tie it in to a canon game",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 38:26",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "fnaf-world",
+      "canon",
+      "continuity",
+      "interview"
+    ],
+    "related": [
+      "scott-2015-story-complete",
+      "scott-2016-fnaf-world-last-game",
+      "fw-clock-ending-pieces-in-place",
+      "fw-clock-ending-still-your-friends"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2306s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "The phrase can be heard two ways: he tried to make FNaF World tie in as a canon game, or he tied it to a particular canon game. Either way he confirms that FNaF World's links to the main story were deliberate and says they were a mistake; he does not rule its content in or out. In 2015 he had said FNaF World would 'not add to' the story. A little later in the same answer he speaks of being 'satisfied with all the canon games', which sets FNaF World apart from them."
+  },
+  {
+    "id": "scott-2018-interview-sl-suit-question-unanswered",
+    "title": "2018: whose suit on Sister Location's Night 4? Not answered",
+    "claim": "Asked whose springlock suit the player is inside on Night 4 of Sister Location, Scott declined to answer and said it would have to remain a topic of discussion.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 47:13",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "michael-afton"
+    ],
+    "places": [
+      "circus-babys-rental"
+    ],
+    "tags": [
+      "sister-location",
+      "springlock",
+      "unanswered",
+      "interview"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=2833s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable. No quote is given because the transcripts differ on small words.",
+    "notes": "As transcribed by two models: 'I'm afraid I'm not gonna be able to answer that for you… That's gonna have to remain a topic of discussion.' An open question he chose to leave open."
+  },
+  {
+    "id": "scott-2024-interview-placeholder-names-canon",
+    "title": "2024: 'Glitchtrap' and 'Burntrap' were placeholder names that became canon",
+    "claim": "Scott said 'Glitchtrap' and 'Burntrap' began as temporary planning names ('he's glitchy', 'he's burned') that ended up in the source code, and that once someone finds such a name there it is the canon name.",
+    "quote": "And once they're in the source code, and once someone finds them in the source code, that's it. Like, that's the canon name now, and there's nothing I can do about it",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 17:47",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "glitchtrap",
+      "burntrap"
+    ],
+    "tags": [
+      "naming",
+      "glitchtrap",
+      "burntrap",
+      "canon",
+      "interview",
+      "game-files"
+    ],
+    "related": [
+      "security-breach-burntrap-name-not-in-game",
+      "scott-2024-interview-glitchtrap-possession-of-ai",
+      "scott-2024-interview-burntrap-never-meant-to-move"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1067s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'we come up with temporary names for these characters… I'll say, oh, well, he's glitchy, we'll call him Glitchtrap. Oh yeah, he's burned, we'll just call him Burntrap. But then those names get embedded in the source code'. He says he is 'not a huge fan of the name' and contrasts M.X.E.S. in Ruin, a name he thought through himself. Two things follow. By his own rule a name found only in the game files is canon. And both names were casual labels built on '-trap', so the names by themselves are weak evidence about who or what either character is."
+  },
+  {
+    "id": "scott-2024-interview-glitchtrap-possession-of-ai",
+    "title": "2024: Glitchtrap as 'possession of AI or possession of machines or circuitry'",
+    "claim": "Asked about Glitchtrap, Scott said he leans towards science fiction even though he tries to come back to the supernatural roots, and that he loves anything involving possession of AI, machines or circuitry, which is why he loves the idea of Glitchtrap.",
+    "quote": "So anything that involves possession of AI or possession of machines or circuitry, I love that sort of thing. So I love the idea of Glitchtrap.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 17:14",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "glitchtrap"
+    ],
+    "places": [
+      "freddy-fazbear-virtual-experience"
+    ],
+    "tags": [
+      "glitchtrap",
+      "possession",
+      "sci-fi",
+      "supernatural",
+      "interview",
+      "hint"
+    ],
+    "related": [
+      "scott-2024-interview-placeholder-names-canon",
+      "hw-tape-05",
+      "scottgames-site-sb-source-stay-the-course"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1034s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable. One transcript has an extra 'that' before 'I love'.",
+    "notes": "As transcribed, just before: 'I always lean sci-fi… even though I try to come back into the roots of the supernatural instead.' This is the nearest Scott comes to saying what Glitchtrap is: a case of possession of an AI, a machine or circuitry. 'Possession' keeps a possessor in the picture, on the supernatural side of his own contrast; he does not say who or what the possessor is. It neither confirms nor excludes Afton."
+  },
+  {
+    "id": "scott-2024-interview-sb-story-not-as-intended",
+    "title": "2024: Security Breach's story is 'very different' from the one Scott had in mind",
+    "claim": "Scott said he had a very specific story in mind for Security Breach and that it is very different from the one in the released game: he told Steel Wool what to place and what characters should do without telling them the plot, and they connected the same pieces into a different story.",
+    "quote": "I had a very specific story in mind and it is very different than the one that got in the game",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 20:29",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "burntrap",
+      "vanny",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "security-breach",
+      "authorship",
+      "intent",
+      "interview",
+      "ruin"
+    ],
+    "related": [
+      "scott-2024-interview-burntrap-never-meant-to-move",
+      "scott-2024-interview-vanny-underused",
+      "scott-2024-interview-mimic-not-the-last",
+      "scottgames-site-2021-retirement-not-end"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1229s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en and small.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'I was trying to tell Steel Wool to do specific things throughout the game, put specific items in specific places, have specific characters do certain things. Meanwhile, I'm not telling them what the story plot was… what you ended up having were the same pieces but telling completely different stories.' He blames himself, and says Ruin was made to put it right: 'we made Ruin for it. And I hope that redeemed the game'. For the model this splits Security Breach in two: the pieces (objects, placements, what characters do) were Scott's, the story that joins them in the base game was not. He does not say what his story was."
+  },
+  {
+    "id": "scott-2024-interview-burntrap-never-meant-to-move",
+    "title": "2024: 'Originally, Burntrap was never supposed to move'",
+    "claim": "Scott said Burntrap was originally never supposed to move: he was to be glimpsed in corners or propped against a wall like a decaying movie prop, with a specific purpose Scott declined to state, whereas the released game has him climb out of a capsule and come after the player.",
+    "quote": "Originally, Burntrap was never supposed to move.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 21:56",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "burntrap"
+    ],
+    "places": [
+      "mega-pizzaplex",
+      "buried-pizzeria"
+    ],
+    "tags": [
+      "burntrap",
+      "security-breach",
+      "intent",
+      "interview"
+    ],
+    "related": [
+      "scott-2024-interview-sb-story-not-as-intended",
+      "scott-2024-interview-placeholder-names-canon",
+      "security-breach-burntrap-appearance",
+      "scott-2024-interview-mimic-not-the-last"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1316s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'I'm hesitant to say this because I don't like messing with the lore but I think in this case, it's okay'; 'almost like some kind of decaying movie prop. And you never fully understood what his purpose was. And he had a very specific purpose. And I'm not going to say what that purpose was, but realistically, he never moved'; 'In Security Breach we got a capsule opening and purple smoke flowing out and him climbing out and coming to get you. And so it's not quite the same thing.' So the walking, attacking Burntrap of the base game's ending is, on Scott's account, not what he intended; an inert burnt rabbit body with an unstated purpose is."
+  },
+  {
+    "id": "scott-2024-interview-mimic-not-the-last",
+    "title": "2024: the Mimic is 'a really terrific antagonist' and not gone",
+    "claim": "Asked about the Mimic at the end of Ruin, Scott said he could not share thoughts beyond liking the character very much, calling it a terrific antagonist and saying he does not think it is the last we have seen of it.",
+    "quote": "I think it's a really terrific antagonist and I don't think it's the last that we've seen of the Mimic.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 23:45",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "the-mimic"
+    ],
+    "tags": [
+      "mimic",
+      "ruin",
+      "interview",
+      "antagonist"
+    ],
+    "related": [
+      "ruin-mimic-reveal",
+      "scott-2024-interview-burntrap-never-meant-to-move",
+      "scott-2024-interview-sb-story-not-as-intended"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1425s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "The interviewer introduces it as 'a new character into the games, the Mimic', and Scott does not correct that. He says nothing here that links the Mimic to Burntrap, Glitchtrap or Afton, and nothing that separates them: 'I cannot share any thoughts on the Mimic.'"
+  },
+  {
+    "id": "scott-2024-interview-vanny-underused",
+    "title": "2024: Vanny 'was not utilized to her fullest potential'",
+    "claim": "Scott said he has always liked Vanny as a character, does not think she was used to her fullest potential, and hopes for another opportunity for her to return.",
+    "quote": "I don't think that Vanny was utilized to her fullest potential",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 24:20",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "vanny"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "vanny",
+      "security-breach",
+      "intent",
+      "interview"
+    ],
+    "related": [
+      "scott-2024-interview-sb-story-not-as-intended",
+      "scottgames-site-sb-obey",
+      "scottgames-site-sb-source-stay-the-course"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=1460s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and, for the quoted sentence, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "Said straight after the Security Breach answer. It fits his statement that the released story is not the one he planned, and it is a reason to give weight to his own teasers for the character. He speaks of Vanny as one character and says 'her'; he does not say who she is."
+  },
+  {
+    "id": "scott-2018-interview-fnaf3-teaser-read-as-golden-freddy",
+    "title": "2018: people first took the FNaF3 teaser figure for Golden Freddy",
+    "claim": "When the interviewer recalled that people first took the figure in the first FNaF3 teaser for Fredbear rather than a rabbit, Scott agreed that they thought it was Golden Freddy.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 24:18",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "golden-freddy",
+      "springtrap",
+      "spring-bonnie"
+    ],
+    "tags": [
+      "fnaf3",
+      "teaser",
+      "golden-freddy",
+      "yellow-suit",
+      "interview",
+      "reception"
+    ],
+    "related": [
+      "scottgames-site-fnaf3-i-am-still-here",
+      "scottgames-fnaf3-teaser-still-here",
+      "fnaf2-call6-yellow-suit",
+      "scott-2017-one-retcon"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=1458s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable. No quote is given: one transcript has Scott say 'Yeah, they thought it was Golden Freddy, yeah', another runs his words into the interviewer's.",
+    "notes": "A statement about how the audience read the teaser in January 2015, before FNaF3 showed a yellow rabbit suit: the yellow thing tied to the killer was expected to be Golden Freddy, and Scott knew it. It says nothing about what he intended in FNaF2. It bears on the question of whether the yellow suit changed identity between FNaF2 and FNaF3."
+  },
+  {
+    "id": "scott-2018-interview-each-game-fixed-the-last",
+    "title": "2018: each game answered what he was unhappy with in the one before",
+    "claim": "Scott said that from FNaF3 on there was always something he was not completely happy with that became the core of the next game: FNaF3's jump scares led to FNaF4, FNaF4's storyline led to Sister Location, and plot points left by Sister Location led to Pizzeria Simulator.",
+    "quote": "With three, I wasn't completely happy with the jump scares, so I worked on four. With four, I wasn't completely happy with the storyline, so I made Sister Location.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 60:04",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "planning",
+      "fnaf4",
+      "sister-location",
+      "ffps",
+      "interview",
+      "continuity"
+    ],
+    "related": [
+      "scott-2018-interview-fnaf3-end-of-trilogy",
+      "scott-2018-interview-fnaf4-too-broad",
+      "scott-2018-interview-sl-made-to-ground-story",
+      "scott-2018-interview-ffps-made-to-resolve-plot-points",
+      "scott-2018-interview-ucn-capstone",
+      "scott-2017-clarification-is-not-retcon"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=3604s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "He continues (as transcribed): 'With Sister Location, I feel like it leaned a little too sci-fi and left a few plot points… there were a few plot points that were really bothering people, so then I made Pizzeria Simulator.' One transcript has 'felt' for 'feel'. This is his own map of why each game exists: Sister Location was made to mend FNaF4's storyline, Pizzeria Simulator to settle what Sister Location left open."
+  },
+  {
+    "id": "scott-2018-interview-ffps-made-to-resolve-plot-points",
+    "title": "2018: Pizzeria Simulator existed 'just to resolve some plot points'",
+    "claim": "Scott said Pizzeria Simulator was born of necessity: he needed to bring a conclusion to several events from the series and resolve issues with the story, and its purpose was to resolve plot points, not to make money or build hype.",
+    "quote": "…the purpose of it was not to build a lot of hype, it was just to resolve some plot points that people wanted to see",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 52:57",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "places": [
+      "ffps-pizzeria"
+    ],
+    "tags": [
+      "ffps",
+      "purpose",
+      "resolution",
+      "interview",
+      "misdirection"
+    ],
+    "related": [
+      "scott-2017-fnaf6-existed-to-clear-things-up",
+      "scott-2018-wanted-to-finish-story",
+      "scott-2017-ffps-lite-announcement",
+      "scott-2017-ffps-apology",
+      "scottgames-site-ffps-source-what-is-paragraph-4",
+      "scott-2018-interview-each-game-fixed-the-last"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=3177s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'that was a game that was born out of necessity because I needed to bring a conclusion to several events from the series'; 'I needed to resolve a lot of issues with the story'; 'I worked on that game for a year in secret'; it is 'truly there for just people who wanted to have kind of a resolution to some of the story'. This is Scott saying in his own voice that Pizzeria Simulator is where the story's open events were meant to be concluded, and that the 'lite' marketing was cover. He does not list the events."
+  },
+  {
+    "id": "scott-2018-interview-ucn-capstone",
+    "title": "2018: Ultimate Custom Night was the 'capstone' that 'brought in all of the characters'",
+    "claim": "Asked whether he was satisfied with Ultimate Custom Night possibly being the last FNaF game he makes, Scott said yes: even though he was happy with Pizzeria Simulator he felt he needed a capstone, a bookend, and Ultimate Custom Night brought in all of the characters.",
+    "quote": "even with Pizzeria Simulator, even though I was really happy with the game, I don't know, I just felt like I needed a capstone",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 59:54",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "ucn-protagonist"
+    ],
+    "tags": [
+      "ucn",
+      "purpose",
+      "capstone",
+      "interview",
+      "canon"
+    ],
+    "related": [
+      "scott-2018-ucn-for-pizzeria-simulator",
+      "scott-2018-custom-night-no-cryptic-hints",
+      "scott-2018-ucn-voice-lines-when-they-kill-you",
+      "scott-ucn-store-once-again-trapped",
+      "scott-2018-interview-each-game-fixed-the-last",
+      "scott-2016-sl-custom-night-not-canon"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=3594s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed, he goes on: 'I needed… some other bookend… and Ultimate Custom Night brought in all of the characters'. Earlier in the interview: 'at the very beginning it was gonna be an add-on to Pizzeria Simulator, but it was very soon afterwards that I realized… this just needs to be its own full game'. He describes UCN by its place in the series (a bookend that gathers the whole cast) and says nothing about its story, its setting or who the player is. In his chain of reasons, Pizzeria Simulator is the game that resolves plot points; UCN is not given that job."
+  },
+  {
+    "id": "scott-2018-interview-books-extra-stories-not-definitive",
+    "title": "2018: the books were 'never intended to be the definitive story'",
+    "claim": "Explaining why the film would not be based on the books, Scott said the books were designed for people who wanted extra stories and a little more detail, and were never intended to be the definitive story of Five Nights at Freddy's.",
+    "quote": "never intended to be the definitive story of Five Nights at Freddy's",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2018-08-08), c. 77:02",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2018-08-08)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "tags": [
+      "continuity",
+      "novels",
+      "film",
+      "interview"
+    ],
+    "related": [
+      "scott-2015-books-separate-continuity",
+      "scott-2015-book-not-a-guide",
+      "scott-2018-frights-some-connected-to-games",
+      "scott-2018-movie-universe-fnaf1-3-only"
+    ],
+    "url": "https://www.youtube.com/watch?v=03E_hZdXqBE&t=4622s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-the-creator-of-five-nights-at-freddys) with three Whisper models (base.en, small.en, medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'originally the script was going to be based on the books, which eventually I decided was not the way to go. The books were originally designed for people who just wanted extra stories… a little bit more detail, more story, but that was never intended to be the definitive story of Five Nights at Freddy's'. In August 2018 'the books' are the novel trilogy; the Fazbear Frights series was announced three months later. He goes on to say filmgoers will 'want to see the first game'."
+  },
+  {
+    "id": "scott-2024-interview-into-the-pit-began-as-novelty",
+    "title": "2024: the Into the Pit game 'was still just supposed to be a novelty'",
+    "claim": "Asked about the Into the Pit game, which the interviewer describes as based on a Fazbear Frights story, Scott said it began years earlier as a small novelty project with a company that makes 16-bit cartridges and grew into a full-sized game.",
+    "quote": "It was still just supposed to be a novelty.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Dawko, 'An Interview with Scott Cawthon 2.0 - The Creator of Five Nights at Freddy's' (video interview, YouTube, 2024-08-04), c. 41:43",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (interview published 2024-08-04)",
+      "precision": "unknown",
+      "basis": "Developer statement about the franchise; describes no in-universe date"
+    },
+    "people": [
+      "oswald",
+      "yellow-rabbit"
+    ],
+    "places": [
+      "the-pit"
+    ],
+    "tags": [
+      "into-the-pit",
+      "canon",
+      "adaptation",
+      "novels",
+      "interview"
+    ],
+    "related": [
+      "scott-2018-frights-some-connected-to-games",
+      "scott-2020-novels-fill-blanks",
+      "into-the-pit-prologue-mci",
+      "into-the-pit-past-year-1985"
+    ],
+    "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=2503s",
+    "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
+    "notes": "As transcribed: 'originally, it was just supposed to be a little novelty one-off… here's this little company that makes 16-bit cartridges'; 'they just kept going… and it just turned into this big full-fledged full-sized game'. The interviewer then asks about 'the future of FNAF spin-offs made by other studios' and Scott answers that it is 'definitely a possibility', naming another Frights story he would like made into a game. So on his account Into the Pit is the adaptation of a book story that began as a novelty, and he accepts the word 'spin-off' for it. He does not say whether its events belong to the continuity of the main games."
   }
 ]

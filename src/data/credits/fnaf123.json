@@ -70,5 +70,137 @@
     "game": "fnaf3",
     "caption": "Nightmare ending newspaper: 'IT BURNS! Fazbear's Fright burns to the ground!'",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAF_ending_paper.png"
+  },
+  {
+    "file": "fnaf1-help-wanted-ad.jpg",
+    "game": "fnaf1",
+    "caption": "FNaF1's intro newspaper: the HELP WANTED ad for a night security guard",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaF1Newspaper-Updated.png"
+  },
+  {
+    "file": "fnaf1-game-over-stuffed-suit.jpg",
+    "game": "fnaf1",
+    "caption": "FNaF1's game-over screen: a Freddy suit in the Backstage room with human-looking eyes and teeth",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:5NAF.png"
+  },
+  {
+    "file": "fnaf1-golden-freddy-office.jpg",
+    "game": "fnaf1",
+    "caption": "The slumped yellow bear in the FNaF1 office (rare)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Office_Gold.png"
+  },
+  {
+    "file": "fnaf1-pink-slip.jpg",
+    "game": "fnaf1",
+    "caption": "FNaF1's Custom Night notice of termination",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:I_didnt_want_to_work_here_anyway.png"
+  },
+  {
+    "file": "fnaf2-help-wanted-ad.jpg",
+    "game": "fnaf2",
+    "caption": "FNaF2's intro newspaper: the Grand Re-Opening HELP WANTED ad",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaF2Newspaper-Updated.jpeg"
+  },
+  {
+    "file": "fnaf2-cutscene-night3-golden-freddy.jpg",
+    "game": "fnaf2",
+    "caption": "Post-Night 3 cutscene (scene panorama): the yellow bear standing in front of the viewer, between Chica and Bonnie",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:3rdNightCutscene.png"
+  },
+  {
+    "file": "fnaf2-cutscene-eye-holes.jpg",
+    "game": "fnaf2",
+    "caption": "Post-Night 2 cutscene as seen in the game, through two eye holes (brightened)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Chicarechereche.png"
+  },
+  {
+    "file": "fnaf2-shadow-freddy-parts-service.jpg",
+    "game": "fnaf2",
+    "caption": "Rare dark bear sitting in Parts/Service (CAM 08)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:269.png"
+  },
+  {
+    "file": "fnaf2-parts-service-old-models.jpg",
+    "game": "fnaf2",
+    "caption": "Parts/Service (CAM 08): the older Bonnie, faceless and missing an arm, and the older Freddy on the floor",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PartsService.png"
+  },
+  {
+    "file": "fnaf2-game-over-inside-suit.jpg",
+    "game": "fnaf2",
+    "caption": "FNaF2's game-over screen: the older Freddy seen through the eye holes of a mask",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNAF2GameOverScreen.png"
+  },
+  {
+    "file": "fnaf2-golden-freddy-office.jpg",
+    "game": "fnaf2",
+    "caption": "Golden Freddy slumped in the FNaF2 office",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:OfficeGolden_Freddy.png"
+  },
+  {
+    "file": "fnaf2-save-them-map.png",
+    "game": "fnaf2",
+    "caption": "Full map of the 'SAVETHEM' death minigame: Toy animatronics on stage, the older models in a back room, five small grey bodies",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FiveNights2_8bit_01.png"
+  },
+  {
+    "file": "fnaf2-foxy-go-go-go.png",
+    "game": "fnaf2",
+    "caption": "Map of the 'Foxy Go! Go! Go!' death minigame: 'Get Ready!', the curtained stage and five children",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FiveNights2_minigame-3_01.png"
+  },
+  {
+    "file": "fnaf2-save-them-purple-figure.png",
+    "game": "fnaf2",
+    "caption": "The rare purple figure of 'SAVETHEM', with a yellow mark on its chest (sprite, enlarged)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Purple_man.png"
+  },
+  {
+    "file": "fnaf3-coming-soon.jpg",
+    "game": "fnaf3",
+    "caption": "FNaF3's intro newspaper: 'COMING SOON! Fazbear's Fright: The Horror Attraction!'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FazbearsFrightComingSoon.png"
+  },
+  {
+    "file": "fnaf3-bad-ending.jpg",
+    "game": "fnaf3",
+    "caption": "FNaF3's 'Bad ending.' screen: four heads with lit eyes and a fifth behind them",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:HeadsGlowing.png"
+  },
+  {
+    "file": "fnaf3-good-ending.jpg",
+    "game": "fnaf3",
+    "caption": "FNaF3's other Night 5 end screen: the four heads with unlit eyes, captioned 'the end'",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Heads.png"
+  },
+  {
+    "file": "fnaf3-springtrap-corpse-screen.jpg",
+    "game": "fnaf3",
+    "caption": "Rare Springtrap screen showing remains inside the suit",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:252.png"
+  },
+  {
+    "file": "fnaf3-shadow-freddy-office.jpg",
+    "game": "fnaf3",
+    "caption": "The FNaF3 office with the rare slumped bear at far left, the box of relics and the Freddy suit in the hall",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:GoldenFreddyInOffice.png"
+  },
+  {
+    "file": "fnaf3-office-relic-box.jpg",
+    "game": "fnaf3",
+    "caption": "The box of relics in the FNaF3 office: heads of the 1987 cast, a hook arm, a guitar and a paper-plate doll (cropped, enlarged and brightened)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:GoldenFreddyInOffice.png"
+  },
+  {
+    "file": "fnaf3-eon-minigame-map-brightened.png",
+    "game": "fnaf3",
+    "caption": "Full map of FNaF3's end-of-night minigames (brightened)",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:FNaF3-FollowMeMap.png"
+  },
+  {
+    "file": "fnaf3-happiest-day.png",
+    "game": "fnaf3",
+    "caption": "The 'Happiest Day' minigame, full scene",
+    "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:HappiestDayFull.jpg"
   }
 ]

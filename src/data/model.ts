@@ -12,7 +12,7 @@ export const weaker = (a: Status, b: Status): Status => (RANK[a] <= RANK[b] ? a 
 
 /** Preferred canonical record when several merge (earlier wins). */
 const PRIMARY = [
-  "william-afton", "michael-afton", "elizabeth-afton", "crying-child", "cassette-man", "henrys-daughter",
+  "william-afton", "michael-afton", "elizabeth-afton", "crying-child", "cassette-man", "cassette-mans-daughter",
   "missing-children", "vanessa", "gregory", "the-mimic", "edwin-murray",
 ];
 
