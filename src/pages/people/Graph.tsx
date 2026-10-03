@@ -6,7 +6,7 @@ import { labelForEntity, personById } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import {
   Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, firmness, hueOf, levelOf,
-  personPath, smartQuotes,
+  personPath, smartQuotes, useMediaQuery,
 } from "../../components/ui";
 import { forgetTextWidths, remScale, textWidth, useContentWidth } from "./measure";
 import { Name } from "./Names";
@@ -57,6 +57,8 @@ function WebCanvas(props: CanvasProps) {
 /** The picture: people as discs, ties as lines. Laid out for the width it is given. */
 function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room }: CanvasProps & { avail: number; room: number }) {
   const nav = useNavigate();
+  // Under a finger a disc answers over at least 44px, whatever its size; under a mouse 32px is enough and leaves the lines nearby free.
+  const reach = useMediaQuery("(pointer: coarse)") ? 22 : 16;
   // Sizes move in steps, so dragging the window edge does not lay the web out again at every pixel.
   const width = Math.max(280, Math.floor(avail / 20) * 20);
   const compact = width < 520;
@@ -251,7 +253,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
             onKeyDown={(e) => onKey(e, n.id)}
           >
             <title>{`${labelForEntity(n.id)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map(labelForEntity).join(", ")}` : ""}`}</title>
-            <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, 16)} />
+            <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, reach)} />
             <circle className="graph-node__disc" cx={p.x} cy={p.y} r={p.r} />
             {l && label(n.id, l)}
           </g>
@@ -289,7 +291,7 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
  * The same web in words: each person with their ties as recorded, following the filters above.
  * Memoised, because it is long and picking a line in the picture changes nothing in it.
  */
-const WebList = memo(function WebList({ web, focus, near, applied, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; set: UrlState["set"] }) {
+const WebList = memo(function WebList({ web, focus, near, applied, unified, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: UrlState["set"] }) {
   const sorted = useMemo(() => [...web.nodes].sort(byName), [web]);
   const listed = focus ? [web.byId.get(focus)!, ...sorted.filter((n) => n.id !== focus && near?.has(n.id))] : sorted;
   return (
@@ -299,6 +301,7 @@ const WebList = memo(function WebList({ web, focus, near, applied, set }: { web:
       aside={`${plural(listed.length, "person", "people")}${focus ? "" : `, ${plural(web.relCount, "tie")}`}`}
       lead={<>
         Showing {applied}.
+        {unified && <> A tie that reaches a person through a folded record counts as no firmer than the fold.</>}
         {focus && <> The focus is on {labelForEntity(focus)}, so the list holds them and everyone they are tied to.</>}
         {web.untied > 0 && <> {plural(web.untied, "person", "people")} with a profile {web.untied === 1 ? "has" : "have"} no tie under these settings and {web.untied === 1 ? "is" : "are"} left out; the <Link to="/people">people index</Link> lists everyone.</>}
       </>}
@@ -404,7 +407,7 @@ export default function Graph() {
         </>
       )}
 
-      <WebList web={web} focus={focus} near={near} applied={applied} set={url.set} />
+      <WebList web={web} focus={focus} near={near} applied={applied} unified={unified} set={url.set} />
     </Page>
   );
 }

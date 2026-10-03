@@ -25,7 +25,8 @@ const eraById = new Map(eras.map((e) => [e.id, e]));
 
 function PlaceYears({ p, compact }: { p: Place; compact?: boolean }) {
   const d = PLACE_DATES[p.id];
-  return <DatePill label={p.years} kind={d?.kind ?? "unknown"} basis={d?.basis} evidence={d?.evidence} compact={compact} />;
+  // A place the data gives no years for still says so, rather than showing an empty tag.
+  return <DatePill label={p.years.trim() || DATE_KIND.unknown.label} kind={d?.kind ?? "unknown"} basis={d?.basis} evidence={d?.evidence} compact={compact} />;
 }
 
 function KindMark({ kind }: { kind: LocationKind }) {
@@ -184,7 +185,7 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
           <h2 className="label">When it existed, and how we know</h2>
           <p className="ppl-file__text place-when"><PlaceYears p={p} /></p>
           <p className="place-basis">
-            <span className="place-basis__kind"><DateGlyph kind={date?.kind ?? "unknown"} /> {dateKind.label} date.</span>{" "}
+            <span className="place-basis__kind"><DateGlyph kind={date?.kind ?? "unknown"} /> {dateKind === DATE_KIND.unknown ? `${dateKind.label}.` : `${dateKind.label} date.`}</span>{" "}
             {smartQuotes(date?.basis ?? `${dateKind.help}.`)}
           </p>
           {date && date.evidence.length > 0 && <p className="place-basis__ev"><CiteList ids={date.evidence} variant="code" /></p>}

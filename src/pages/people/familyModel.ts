@@ -9,7 +9,8 @@ import type { Relation } from "../../data/schema";
 import type { FamilyTree } from "../../data/familyTrees";
 import { relations } from "../../data/store";
 import { canonicalId } from "../../data/model";
-import { STATUS_RANK, tieWords, type DrawnTie } from "./ties";
+import { drawInto } from "./identity";
+import { tieWords, type DrawnTie } from "./ties";
 import { routeGrid, type GridEdge, type GridNode, type Routing } from "./treeLayout";
 
 export interface TreeNode extends GridNode {
@@ -29,8 +30,6 @@ export interface TreeModel {
   /** How many records are folded into another. */
   folded: number;
 }
-
-export const edgeKey = (from: string, kind: string, to: string) => `${from}~${kind}~${to}`;
 
 /** Every relation between two members of a tree, whatever is switched on. */
 export function tiesWithin(tree: FamilyTree): Relation[] {
@@ -73,11 +72,7 @@ export function buildTree(tree: FamilyTree, fold: { ids: boolean; vessels: boole
   for (const r of relations) {
     if (!inTree.has(r.from) || !inTree.has(r.to) || !shown.has(r.kind)) continue;
     const from = target(r.from), to = target(r.to);
-    if (from === to) continue;
-    const key = edgeKey(from, r.kind, to);
-    const e = edges.get(key);
-    if (!e) edges.set(key, { key, from, to, kind: r.kind, status: r.status, rels: [r] });
-    else edges.set(key, { ...e, rels: [...e.rels, r], status: STATUS_RANK[r.status] > STATUS_RANK[e.status] ? r.status : e.status });
+    if (from !== to) drawInto(edges, (t) => t, r, from, to);
   }
   return { nodes, edges: [...edges.values()], nRows: gens.length, nCols, folded: tree.members.length - kept.length };
 }

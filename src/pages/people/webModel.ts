@@ -4,13 +4,14 @@
  * With `unified` on, each record is replaced by the person the model reads it as (identities, forms,
  * vessels and roles all fold in). Ties whose ends then coincide are merged into one line that keeps
  * every underlying relation and its evidence; ties that end up inside one person disappear, because
- * that person's page shows them as identity.
+ * that person's page shows them as identity. A line that reaches a person through a fold is drawn
+ * no firmer than the fold (see DrawnTie in ties.ts), and the firmness filter goes by the line as drawn.
  */
 import type { Person, Relation, Status } from "../../data/schema";
 import { evidenceForPerson, people, personById, relations } from "../../data/store";
 import { canonicalId } from "../../data/model";
-import { beingOf, evidenceOf } from "./identity";
-import { STATUS_RANK, type DrawnTie } from "./ties";
+import { asDrawn, beingOf, drawInto, evidenceOf } from "./identity";
+import type { DrawnTie } from "./ties";
 
 export interface WebNode {
   id: string;
@@ -39,19 +40,16 @@ export interface Web {
   untied: number;
 }
 
-export const webKey = (from: string, kind: string, to: string) => `${from}~${kind}~${to}`;
-
 export function buildWeb(statuses: ReadonlySet<Status>, unified: boolean): Web {
   const map = (id: string) => (unified ? canonicalId(id) : id);
   const ties = new Map<string, WebTie>();
   for (const r of relations) {
-    if (!statuses.has(r.status) || !personById.has(r.from) || !personById.has(r.to)) continue;
+    if (!personById.has(r.from) || !personById.has(r.to)) continue;
     const from = map(r.from), to = map(r.to);
     if (from === to) continue;
-    const key = webKey(from, r.kind, to);
-    const t = ties.get(key);
-    if (!t) ties.set(key, { key, from, to, kind: r.kind, status: r.status, rels: [r] });
-    else ties.set(key, { ...t, rels: [...t.rels, r], status: STATUS_RANK[r.status] > STATUS_RANK[t.status] ? r.status : t.status });
+    // The firmness filter goes by the line as drawn: a tie that reaches a person only through a fold is no firmer than the fold.
+    const drawn = asDrawn(r, from, to);
+    if (statuses.has(drawn.status)) drawInto(ties, (t) => t, r, from, to, drawn);
   }
   const tiesOf = new Map<string, WebTie[]>();
   const relsOf = new Map<string, Relation[]>();

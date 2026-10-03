@@ -287,7 +287,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
               <span>{model.edges.length > 0 ? "Select a line for its evidence, a person for their page." : "Select a person to open their page."}</span>
               {hasDescriptor && <span><em className="name-desc">Italic</em> a descriptor, not a name the games print</span>}
               {hasMachine && <span><Icon icon={Bot} /> a machine or a suit</span>}
-              {model.folded > 0 && <span><span className="fam-node__badge fam-node__badge--inline">+2</span> records folded into the box</span>}
+              {model.folded > 0 && <span><span className="fam-node__badge fam-node__badge--inline">+2</span> records folded into the box; a line that reaches one is no firmer than the fold</span>}
             </p>
           </div>
         )}

@@ -1,8 +1,9 @@
 import { X } from "lucide-react";
+import type { Relation } from "../../data/schema";
 import { CiteList, IconButton, StatusMark, levelOf, smartQuotes } from "../../components/ui";
 import { Name } from "./Names";
 import { TieSentence } from "./Ties";
-import { STATUSES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, isFolded, type DrawnTie, type TieFamily } from "./ties";
+import { STATUSES, TIE_FAMILY_HELP, TIE_FAMILY_LABEL, type DrawnTie, type TieFamily } from "./ties";
 
 function Sample({ dash }: { dash?: boolean }) {
   return <svg className={`rel-key__line${dash ? "" : " rel-key__line--plain"}`} viewBox="0 0 30 6" width="30" height="6" aria-hidden focusable="false"><line x1="1" y1="3" x2="29" y2="3" /></svg>;
@@ -40,29 +41,40 @@ export function TieLegend({ families }: { families: readonly TieFamily[] }) {
  * in view wherever the reader is looking.
  *
  * A line whose ends were folded together is never restated in the folded names (that could say
- * something no record says); the relations behind it are given as they are recorded.
+ * something no record says). The panel gives the relations as they are recorded, then each fold
+ * with its own firmness, so it is plain why the line is drawn as it is: no firmer than its weakest
+ * link.
  */
 export function TieBar({ tie, onClose }: { tie: DrawnTie; onClose: () => void }) {
-  const folded = isFolded(tie);
+  // Relations recorded between the two records shown, and those that reach them only through a fold.
+  const direct = tie.rels.filter((r) => r.from === tie.from && r.to === tie.to);
+  const folded = tie.rels.filter((r) => !direct.includes(r));
+  const body = (r: Relation) => (
+    <>
+      {r.note && <p className="rel-bar__note">{smartQuotes(r.note)}</p>}
+      <p className="rel-bar__ev"><span className="label">Evidence</span> <CiteList ids={r.evidence} /></p>
+    </>
+  );
   return (
     <div className="rel-bar" data-level={levelOf(tie.status)}>
       <div className="rel-bar__head">
         <p className="rel-bar__line" role="status">
-          {folded ? <>Between <Name id={tie.from} /> and <Name id={tie.to} /></> : <TieSentence r={tie} />} <StatusMark value={tie.status} variant="inline" long />
+          {direct.length > 0 ? <TieSentence r={tie} /> : <>Between <Name id={tie.from} /> and <Name id={tie.to} /></>}
+          <span className="rel-bar__status"><StatusMark value={tie.status} variant="inline" long /></span>
         </p>
         <IconButton icon={X} label="Close" onClick={onClose} />
       </div>
-      {folded && (
-        <p className="rel-bar__note">
-          This line stands for {tie.rels.length === 1 ? "a relation recorded" : `${tie.rels.length} relations recorded`} under other names, which are folded into these two.
-        </p>
-      )}
+      {direct.length === 0 && <p className="rel-bar__note">This line reaches them through folded records, so it is drawn no firmer than its weakest link.</p>}
       <div className="rel-bar__body">
-        {tie.rels.map((r) => (
+        {direct.map((r) => <div key={`${r.from}|${r.kind}|${r.to}`} className="rel-bar__rel">{body(r)}</div>)}
+        {direct.length > 0 && folded.length > 0 && <p className="label rel-bar__more">Also behind this line, through folded records</p>}
+        {folded.map((r) => (
           <div key={`${r.from}|${r.kind}|${r.to}`} className="rel-bar__rel">
-            {folded && <p className="rel-bar__sub"><TieSentence r={r} /> <StatusMark value={r.status} variant="inline" /></p>}
-            {r.note && <p className="rel-bar__note">{smartQuotes(r.note)}</p>}
-            <p className="rel-bar__ev"><span className="label">Evidence</span> <CiteList ids={r.evidence} /></p>
+            <p className="rel-bar__sub"><TieSentence r={r} /><span className="rel-bar__status"><StatusMark value={r.status} variant="inline" /></span></p>
+            {tie.folds.filter((f) => f.record === r.from || f.record === r.to).map((f) => (
+              <p key={f.record} className="rel-bar__sub rel-bar__fold"><Name id={f.record} /> is shown as <Name id={f.into} /><span className="rel-bar__status"><StatusMark value={f.status} variant="inline" /></span></p>
+            ))}
+            {body(r)}
           </div>
         ))}
       </div>

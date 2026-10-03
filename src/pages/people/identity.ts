@@ -11,7 +11,7 @@
 import type { Evidence, Person, Relation, Status } from "../../data/schema";
 import { evidenceForPerson, personById, relations } from "../../data/store";
 import { canonicalId, unifiedById, weaker, type Link } from "../../data/model";
-import { STATUS_RANK, isIdentityKind } from "./ties";
+import { STATUS_RANK, isIdentityKind, weakest, type DrawnTie, type Fold } from "./ties";
 
 export type NodeKind = "self" | Link["kind"];
 
@@ -156,3 +156,36 @@ export function linkCounts(being: Being): Record<Status, number> {
   for (const n of being.nodes) if (n.kind !== "self") counts[n.status] += 1;
   return counts;
 }
+
+/**
+ * How firmly a record folds into another record of its being (`into`, somewhere above it in the
+ * tree): the weakest link on the way, and "canon" when the two are the same record. When `into` is
+ * not above the record, the answer is the weakest link all the way to the root, which can only
+ * understate.
+ */
+export function foldStatus(id: string, into: string): Status {
+  if (id === into) return "canon";
+  const start = beingOf(id)?.byId.get(id);
+  if (!start) return "theory";
+  let status: Status = "canon";
+  for (let n: BeingNode | null = start; n && n.id !== into && n.parent; n = n.parent) status = weaker(status, n.stepStatus);
+  return status;
+}
+
+/** A relation as a diagram draws it between `from` and `to` (the records its own ends are shown as): its folds and how firm that makes it. */
+export function asDrawn(r: Relation, from: string, to: string): { status: Status; folds: Fold[] } {
+  const folds: Fold[] = [];
+  if (r.from !== from) folds.push({ record: r.from, into: from, status: foldStatus(r.from, from) });
+  if (r.to !== to) folds.push({ record: r.to, into: to, status: foldStatus(r.to, to) });
+  return { status: weakest([r.status, ...folds.map((f) => f.status)]), folds };
+}
+
+/** Adds a relation to the lines of a diagram: a new line, or one more relation behind the line already drawn between those two for that kind. */
+export function drawInto<T extends DrawnTie>(lines: Map<string, T>, make: (tie: DrawnTie) => T, r: Relation, from: string, to: string, drawn = asDrawn(r, from, to)): void {
+  const key = `${from}~${r.kind}~${to}`;
+  const line = lines.get(key);
+  if (!line) { lines.set(key, make({ key, from, to, kind: r.kind, status: drawn.status, rels: [r], folds: drawn.folds })); return; }
+  const more = drawn.folds.filter((f) => !line.folds.some((g) => g.record === f.record && g.into === f.into));
+  lines.set(key, { ...line, rels: [...line.rels, r], folds: [...line.folds, ...more], status: STATUS_RANK[drawn.status] > STATUS_RANK[line.status] ? drawn.status : line.status });
+}
+

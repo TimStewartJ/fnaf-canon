@@ -96,21 +96,33 @@ export function byFamily<T>(items: readonly T[], kindOf: (item: T) => string): {
     .filter((g) => g.items.length > 0);
 }
 
+/** A record of a relation that a diagram shows as another record, and how firmly the model reads it as that other. */
+export interface Fold { record: string; into: string; status: Status }
+
 /** A tie as the diagrams draw it: one line, standing for one relation or for several whose ends were folded together. */
 export interface DrawnTie {
   key: string;
   from: string;
   to: string;
   kind: string;
-  /** The firmest of the relations the line stands for. */
+  /**
+   * How firm the line is. A relation is recorded between two records; when a diagram shows one of
+   * them as another (folds it), the line between the records shown is no firmer than that fold. So
+   * each relation counts as the weakest of itself and its folds, and the line takes the firmest of
+   * the relations it stands for.
+   */
   status: Status;
   rels: readonly Relation[];
+  /** The folds behind the line. Empty when every relation is recorded between the two records shown. */
+  folds: readonly Fold[];
 }
-
-/** True when a drawn tie's ends are not the ends of the relations behind it (records were folded together). */
-export const isFolded = (tie: DrawnTie): boolean => tie.rels.some((r) => r.from !== tie.from || r.to !== tie.to);
 
 const statusWord: Record<Status, string> = { canon: "canon", strong: "strong inference", theory: "theory" };
 
-/** What a drawn tie says, in plain words: the relations behind it, by the names they are recorded under. */
-export const tieTitle = (tie: DrawnTie): string => tie.rels.map((r) => `${tieSentence(r)} (${statusWord[r.status] ?? r.status})`).join("; ");
+/** What a drawn tie says, in plain words: the relations behind it, by the names they are recorded under, and any folds. */
+export function tieTitle(tie: DrawnTie): string {
+  const said = tie.rels.map((r) => `${tieSentence(r)} (${statusWord[r.status] ?? r.status})`).join("; ");
+  if (!tie.folds.length) return said;
+  const folds = tie.folds.map((f) => `${labelForEntity(f.record)} is shown as ${labelForEntity(f.into)} (${statusWord[f.status] ?? f.status})`).join("; ");
+  return `${said}. ${folds}. Drawn as ${statusWord[tie.status] ?? tie.status}.`;
+}
