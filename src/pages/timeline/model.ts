@@ -5,14 +5,14 @@
  * Everything is derived from src/data at load: no era id, count or name is written down in this
  * folder, so eras, events, deaths and location spans can be added, renamed or re-dated freely.
  */
-import { deaths, eras, evidenceById, games, labelForEntity, LOCATION_SPANS, personById, placeById, places, timeline } from "../../data/store";
+import { backlinksFor, deaths, eras, evidenceById, games, labelForEntity, LOCATION_SPANS, personById, placeById, places, timeline } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import { citationsInText } from "../../data/theoryText";
 import { gameMeta } from "../../data/gameMeta";
 import { DEATH_KIND, type Death, type DeathKind } from "../../data/deaths";
 import { LOCATION_KIND, type LocationSpan } from "../../data/locations";
 import type { Status, TimelineEvent } from "../../data/schema";
-import { STATUS, timelineEventPath } from "../../components/ui";
+import { STATUS, chapterNumber, timelineEventPath } from "../../components/ui";
 
 export type Era = (typeof eras)[number];
 export type Layer = "all" | "events" | "deaths";
@@ -58,6 +58,20 @@ export function imageOf(t: TimelineEvent): { file: string; evidence?: string } |
  */
 export function recordOrder(t: TimelineEvent): string[] {
   return unique([...citationsInText(t.summary), ...t.evidence]).filter((id) => evidenceById.has(id));
+}
+
+/** How many chapters an entry names at most. */
+const CHAPTERS_SHOWN = 3;
+/**
+ * The theory chapters that argue an entry: those citing its records. The chapter sharing the most
+ * records comes first and is always named; another is named only if it shares at least two, so a
+ * chapter that touches one record in passing is left out.
+ */
+export function chaptersFor(evidenceIds: string[]): string[] {
+  const shared = new Map<string, number>();
+  for (const id of unique(evidenceIds)) for (const ch of backlinksFor(id).theory) shared.set(ch.id, (shared.get(ch.id) ?? 0) + 1);
+  const ranked = [...shared].sort((a, b) => b[1] - a[1] || chapterNumber(a[0]) - chapterNumber(b[0]));
+  return ranked.filter(([, n], i) => i === 0 || n >= 2).slice(0, CHAPTERS_SHOWN).map(([id]) => id);
 }
 
 /* ── Deaths that a story event already tells ────────────────────────────────────────

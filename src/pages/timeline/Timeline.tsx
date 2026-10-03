@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { Link } from "react-router-dom";
 import { SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, Tabs, eraHue, smartQuotes, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
 import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
-import { landOn, useUrlState } from "./hooks";
+import { landOn, useReturnVisit, useUrlState } from "./hooks";
 import {
-  type EraGroup, type Filters, type View, TOTAL_DEATHS, TOTAL_EVENTS, buildLineup, countPhrase, filtersKey, inWords, isFiltered, kindOfId, plural,
-  readFilters, writeFilters,
+  type EraGroup, type Filters, type View, TOTAL_DEATHS, TOTAL_EVENTS, buildLineup, filtersKey, inWords, isFiltered, kindOfId, plural,
+  readFilters, within, writeFilters,
 } from "./model";
 import "./timeline.css";
 
@@ -49,7 +50,7 @@ function EraSection({ g, total, open, marks, onToggle }: { g: EraGroup; total: n
           <h2 className="tl-era__title" tabIndex={-1}>{smartQuotes(era.name)}</h2>
           {era.range && <DatePill label={era.range} kind={date?.kind ?? "unknown"} basis={date?.basis} evidence={date?.evidence} />}
         </div>
-        {era.summary && <p className="tl-era__sum"><RichText text={era.summary} /></p>}
+        {era.summary && <p className="tl-era__sum">{smartQuotes(era.summary)}</p>}
       </header>
       {g.rows.length > 0 ? (
         <ol className="tl-list">
@@ -129,35 +130,48 @@ export default function Timeline() {
     el.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
   }, [edit]);
 
-  const setView = (v: View) => edit((p) => { if (v === "locations") p.set("view", v); else p.delete("view"); });
+  // A change of view made on this page (not one reached with Back or Forward, which the shell restores).
+  const viewJump = useRef(false);
+  const setView = (v: View) => {
+    viewJump.current = true;
+    // A view is a place to come back from: Back returns to the other view, where the reader left it.
+    edit((p) => { if (v === "locations") p.set("view", v); else p.delete("view"); }, { push: true });
+  };
 
   /* ── Landing on what a link points at ─────────────────────────────────────────── */
   const want = landing(sp);
+  const returnVisit = useReturnVisit();
   const arrived = useRef(false);
+  const stopLanding = useRef<(() => void) | null>(null);
   useLayoutEffect(() => {
     const first = !arrived.current;
     arrived.current = true;
+    // Back or Forward to an entry already shown: the shell puts the reader where they were. Do not move.
+    const back = returnVisit();
     if (want === asked.current) return;
     asked.current = want;
-    if (view !== "events" || !want) return;
+    if (back || view !== "events" || !want) return;
     const [kind, id] = [want.slice(0, want.indexOf(":")), want.slice(want.indexOf(":") + 1)];
     const el = document.getElementById(kind === "era" ? `era-${id}` : line.rowOf.get(id) ?? "");
-    // On arrival the shell may be restoring the reader's place (Back, reload): it has already moved the page, so leave it.
+    // A reload: the shell has already restored the reader's place, so leave it.
     if (!el || (first && window.scrollY > 1)) return;
-    return landOn(el);
-  }, [want, view, line]);
+    stopLanding.current?.();
+    stopLanding.current = landOn(el);
+  }, [want, view, line, returnVisit]);
 
-  // Leaving the Locations view by choosing a place: start at the top of the line, and keep focus on the page.
+  // After a change of view, start at the top of the new one, and keep keyboard focus on the page.
   const lastView = useRef(view);
   useEffect(() => {
     if (lastView.current === view) return;
     lastView.current = view;
+    if (!viewJump.current) return;
+    viewJump.current = false;
     if (bar.current && bar.current.getBoundingClientRect().top < 0 && !want) bar.current.scrollIntoView({ block: "start", behavior: "instant" });
     if (!document.activeElement || document.activeElement === document.body) panel.current?.focus({ preventScroll: true });
   }, [view, want]);
 
   /* ── What to render ───────────────────────────────────────────────────────────── */
-  const entries: EraEntry[] = line.groups.filter((g) => g.era.id).map((g) => ({
+  const eraEntries: EraEntry[] = line.groups.filter((g) => g.era.id).map((g) => ({
     id: g.era.id, n: g.index + 1, name: g.era.name, range: g.era.range, count: g.rows.length, on: !filtered || g.rows.length > 0, hue: eraHue(g.era.id),
   }));
   const sections = line.groups.filter((g) => g.rows.length > 0 || (!filtered && g.era.id));
@@ -198,12 +212,11 @@ export default function Timeline() {
         </div>
       )}
       {filtersOpen && phone && <FilterSheet f={f} set={setFilters} line={line} onClear={clearFilters} onClose={() => setFiltersOpen(false)} locationsTo={locationsTo} />}
-      {applied && <AppliedSummary f={f} line={line} set={setFilters} onClear={clearFilters} focusAfter={filtersBtn} onDone={filtersOpen && !phone ? () => setFiltersOpen(false) : undefined} />}
-      <p className="sr-only" role="status">{filtered ? `Showing ${countPhrase(line, f)}.` : ""}</p>
+      <AppliedSummary f={f} line={line} set={setFilters} onClear={clearFilters} idle={!applied} focusAfter={filtersBtn} onDone={filtersOpen && !phone ? () => setFiltersOpen(false) : undefined} />
 
       {view === "events" ? (
         <div className="tl-events" role="tabpanel" aria-label="Events" tabIndex={-1} ref={panel}>
-          {wide ? <EraRail entries={entries} sp={sp} onGo={goToEra} /> : <EraBar entries={entries} sp={sp} onGo={goToEra} />}
+          {wide ? <EraRail entries={eraEntries} sp={sp} onGo={goToEra} /> : <EraBar entries={eraEntries} sp={sp} onGo={goToEra} />}
           <div className="tl-line">
             {lost && (
               <p className="tl-notice" role="status">
@@ -218,11 +231,17 @@ export default function Timeline() {
                 No story event or death fits every filter at once.
               </Empty>
             )}
+            {sections.length > 0 && (
+              <p className="tl-end">
+                {filtered ? "That is everything these filters leave on the line." : "The line ends here."}{" "}
+                Next: <Link to={within(locationsTo)}>every place across the eras</Link>, or <Link to="/theory">the theory that connects these events</Link>.
+              </p>
+            )}
           </div>
         </div>
       ) : (
         <div className="tl-places" role="tabpanel" aria-label="Locations" tabIndex={-1} ref={panel}>
-          <LocationsView f={f} sp={sp} />
+          <LocationsView f={f} sp={sp} onLeave={() => { viewJump.current = true; }} />
         </div>
       )}
     </Page>

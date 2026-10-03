@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { Death } from "../../data/deaths";
 import { eventDate } from "../../data/dates";
+import { evidenceById } from "../../data/store";
 import {
-  Chip, CiteList, CiteScope, DEATH_KIND_ICON, DatePill, DeathIcon, EntityLink, EvidenceList, Figure, Icon, RichText, StatusMark,
-  excerpt, levelOf, smartQuotes,
+  ChapterLink, Chip, CiteList, CiteScope, DEATH_KIND_ICON, DatePill, DeathIcon, EntityLink, EvidenceList, Figure, Icon, RichText, StatusMark,
+  chapterNumber, excerpt, levelOf, smartQuotes,
 } from "../../components/ui";
-import { type DeathRow, type EventRow, type Row, causeLabel, eventLink, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
+import { type DeathRow, type EventRow, type Row, causeLabel, chaptersFor, eventLink, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
 
 /** How much of a summary a closed row shows. CSS clamps it further on a narrow screen. */
 const EXCERPT = 190;
@@ -47,7 +48,7 @@ function DeathInEvent({ d, marked, eventTitle }: { d: Death; marked: boolean; ev
       </p>
       {d.title !== eventTitle && <h4 className="tl-death__title">{smartQuotes(d.title)}</h4>}
       <DeathFacts d={d} ending />
-      {d.note && <p className="tl-death__note"><RichText text={d.note} /></p>}
+      {d.note && <p className="tl-death__note">{smartQuotes(d.note)}</p>}
       <p className="tl-death__rests"><span className="label">Rests on</span> <CiteList ids={d.evidence} /></p>
     </div>
   );
@@ -66,6 +67,30 @@ function Entities({ people, places }: { people: string[]; places: string[] }) {
   );
 }
 
+/** The theory chapters that argue an entry, as links. Nothing when no chapter cites its records. */
+function ArguedIn({ evidence }: { evidence: string[] }) {
+  const chapters = useMemo(() => chaptersFor(evidence), [evidence]);
+  if (!chapters.length) return null;
+  return (
+    <div className="tl-detail__argued">
+      <h4 className="label">Argued in the theory</h4>
+      <ul className="tl-argued">
+        {chapters.map((id) => <li key={id}><span className="tl-argued__n">{chapterNumber(id)}</span> <ChapterLink id={id} /></li>)}
+      </ul>
+    </div>
+  );
+}
+
+/** The records behind an entry, as rows that open the evidence drawer. An entry with none says so. */
+function Records({ ids, numbers }: { ids: string[]; numbers?: (id: string) => number | undefined }) {
+  return (
+    <div className="tl-detail__records">
+      <h4 className="label">Evidence · {plural(ids.length, "record")}</h4>
+      {ids.length > 0 ? <EvidenceList ids={ids} numbers={numbers} claim={false} /> : <p className="tl-detail__none">No evidence records are filed under this entry.</p>}
+    </div>
+  );
+}
+
 function EventDetail({ row, mark }: { row: EventRow; mark?: string }) {
   const t = row.ev;
   // Citations in the summary are numbered 1, 2, 3 in this row, and the records below carry the same numbers.
@@ -80,12 +105,10 @@ function EventDetail({ row, mark }: { row: EventRow; mark?: string }) {
         <div className="tl-detail__rest">
           {row.deaths.map((d) => <DeathInEvent key={d.id} d={d} marked={mark === d.id} eventTitle={t.title} />)}
           <Entities people={peopleOfEvent(t)} places={t.places ?? []} />
+          <ArguedIn evidence={t.evidence} />
         </div>
       </div>
-      <div className="tl-detail__records">
-        <h4 className="label">Evidence · {plural(order.length, "record")}</h4>
-        <EvidenceList ids={order} numbers={(id) => numbers.get(id)} claim={false} />
-      </div>
+      <Records ids={order} numbers={(id) => numbers.get(id)} />
     </CiteScope>
   );
 }
@@ -97,15 +120,13 @@ function DeathDetail({ row }: { row: DeathRow }) {
       <div className="tl-detail__top">
         <DeathFacts d={d} />
         <div className="tl-detail__rest">
-          {d.note && <p className="tl-death__note"><RichText text={d.note} /></p>}
+          {d.note && <p className="tl-death__note">{smartQuotes(d.note)}</p>}
           {row.host && <p className="tl-detail__told">Told in the story event <Link to={eventLink(row.host)}>{smartQuotes(row.host.title)}</Link>.</p>}
           <Entities people={peopleOfDeath(d)} places={[]} />
+          <ArguedIn evidence={d.evidence} />
         </div>
       </div>
-      <div className="tl-detail__records">
-        <h4 className="label">Evidence · {plural(d.evidence.length, "record")}</h4>
-        <EvidenceList ids={d.evidence} claim={false} />
-      </div>
+      <Records ids={d.evidence.filter((id) => evidenceById.has(id))} />
     </>
   );
 }

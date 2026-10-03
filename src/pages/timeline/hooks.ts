@@ -82,3 +82,33 @@ export function landOn(el: HTMLElement): () => void {
   timers.push(window.setTimeout(stop, 1200));
   return stop;
 }
+
+/*
+ * History entries on which this page has been shown, kept for as long as the tab lives (the page
+ * itself is unmounted whenever the reader goes elsewhere). Being on one of them again means the
+ * reader came back with Back or Forward, and the shell is returning them to where they were.
+ */
+const shownEntries = new Set<string>();
+/** The router's key for the current history entry. Entries it did not create share one key, so those are told apart by address. */
+const entryKey = (): string => {
+  const key = (window.history.state as { key?: string } | null)?.key;
+  return key && key !== "default" ? key : `default:${window.location.hash}`;
+};
+
+/**
+ * Says whether the history entry now on screen is one the reader has come back to. Returns a
+ * function to call from a layout effect after each render; it answers for the current entry.
+ */
+export function useReturnVisit(): () => boolean {
+  const state = useRef({ entry: "", back: false });
+  return useCallback(() => {
+    const key = entryKey();
+    const s = state.current;
+    if (key !== s.entry) {
+      s.back = shownEntries.has(key);
+      s.entry = key;
+      shownEntries.add(key);
+    }
+    return s.back;
+  }, []);
+}

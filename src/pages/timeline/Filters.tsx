@@ -45,8 +45,8 @@ export function FilterPanel({ f, set, locationsTo, bare = false }: { f: Filters;
       <FilterGroup label="Place">
         <select value={f.place} onChange={(e) => set({ ...f, place: e.target.value })} aria-label="Place">
           <option value="">Everywhere</option>
-          {f.place && !placeOptions.some((p) => p.id === f.place) && <option value={f.place}>{placeName(f.place)}</option>}
-          {placeOptions.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
+          {f.place && !placeOptions.some((p) => p.id === f.place) && <option value={f.place}>{smartQuotes(placeName(f.place))}</option>}
+          {placeOptions.map((p) => <option key={p.id} value={p.id}>{smartQuotes(p.name)}</option>)}
         </select>
         <Link className="tl-filters__more" to={within(locationsTo)}>See every place across the eras</Link>
       </FilterGroup>
@@ -109,16 +109,18 @@ export function FilterSheet({ f, set, line, onClear, onClose, locationsTo }: { f
 
 /**
  * What is applied, in plain words: how much of the line is showing, each filter as a phrase that can
- * be removed on its own, and a way to clear them all. Rendered while a filter is on or the panel is open.
+ * be removed on its own, and a way to clear them all. The count is a live region, so a change is
+ * announced; it stays in the page (for a screen reader only) while nothing is applied.
+ *  - idle        nothing is applied and the panel is closed: keep the count, hide the rest
  *  - focusAfter  where focus goes when the button that was pressed disappears with its filter
  *  - onDone      closes the panel above it (given only while that panel is open)
  */
-export function AppliedSummary({ f, line, set, onClear, focusAfter, onDone }: { f: Filters; line: Lineup; set: (next: Filters) => void; onClear: () => void; focusAfter: RefObject<HTMLElement | null>; onDone?: () => void }) {
+export function AppliedSummary({ f, line, set, onClear, idle, focusAfter, onDone }: { f: Filters; line: Lineup; set: (next: Filters) => void; onClear: () => void; idle: boolean; focusAfter: RefObject<HTMLElement | null>; onDone?: () => void }) {
   const applied = appliedFilters(f);
   const then = (act: () => void) => () => { act(); focusAfter.current?.focus({ preventScroll: true }); };
   return (
-    <div className="tl-applied">
-      <p className="tl-applied__count">Showing <strong>{countPhrase(line, f)}</strong></p>
+    <div className={`tl-applied${idle ? " sr-only" : ""}`}>
+      <p className="tl-applied__count" role="status">Showing <strong>{countPhrase(line, f)}</strong></p>
       {applied.length > 0 && (
         <ul className="tl-applied__list" aria-label="Filters applied">
           {applied.map((a) => (
@@ -130,10 +132,12 @@ export function AppliedSummary({ f, line, set, onClear, focusAfter, onDone }: { 
           ))}
         </ul>
       )}
-      <span className="tl-applied__acts">
-        {applied.length > 0 && <Button variant="quiet" size="sm" onClick={then(onClear)}>Clear all</Button>}
-        {onDone && <Button size="sm" onClick={then(onDone)}>Done</Button>}
-      </span>
+      {!idle && (
+        <span className="tl-applied__acts">
+          {applied.length > 0 && <Button variant="quiet" size="sm" onClick={then(onClear)}>Clear all</Button>}
+          {onDone && <Button size="sm" onClick={then(onDone)}>Done</Button>}
+        </span>
+      )}
     </div>
   );
 }
