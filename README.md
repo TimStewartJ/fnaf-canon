@@ -19,11 +19,13 @@ An interactive, evidence-first reconstruction of the Five Nights at Freddy's sto
 
 - `people.ts`, `relations.ts`, `familyTrees.ts`: who is who, and how identities are joined. A tie may give the records' own words in place of its kind's verb.
 - `places.ts`, `locations.ts`: the buildings and when they stood.
-- `timeline.ts`, `dates.ts`, `deaths.ts`: events, eras and deaths. Every displayed date says how it is supported. No year after 1987 is printed, because no game prints one.
+- `timeline.ts`, `dates.ts`, `deaths.ts`: events, eras, and deaths and other fates (an entry's `outcome` says which it is). Every displayed date says how it is supported. No year after 1987 is printed, because no game prints one.
 - `home.ts`: the home page's summary cards and questions.
 - `community.ts`, `box.ts`, `author.ts`: the Theorists & Scott, Locked Box and Scott & Faith pages. Fan theories are described and scored there; they are never evidence.
 
 **Text conventions.** Text fields use a small markup: `[[evidence-id]]` for a citation, `{{person-or-place-id}}` for an entity link, `((chapter-id))` for a chapter link, `**bold**`, `*italic*`, and date pills `<<label|kind|evidence-ids|basis>>`. People the games never name are called by description (the Cassette Man, the crying child). Names found only in the books are not used. The one exception is on the Theorists & Scott page, where a single fan theory is listed under the book name the fandom gives it, and the entry says that no game prints the name and that the archive does not use it.
+
+`docs/DESIGN.md` is the interface's handbook: its rules, tokens and shared components, and the words it uses (for a death and for any other fate, among others). Read it before changing a page.
 
 `research/` holds what stands behind the site: the changelog of the model's conclusions, the rulings that the theory's text follows (`rulings.md`, `model.md`), the list of what is still unverified (`open-checks.md`), the working papers of the October 2026 pass, and the ledger of the September 2026 audit.
 
