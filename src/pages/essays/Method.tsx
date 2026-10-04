@@ -228,8 +228,8 @@ function Method() {
           title="Method"
           lede="What counts as evidence here, how a record is built, and how to tell how far any claim on this site can be trusted."
           aside={
-            <div className="method-today">
-              <p className="label">The archive today</p>
+            <aside className="panel method-today" aria-labelledby="h-method-today">
+              <p className="label" id="h-method-today">The archive today</p>
               <Facts>
                 <Fact label="Records"><span className="method-today__v"><Link to="/evidence">{plural(evidence.length, "record")}</Link><span className="method-today__more">, one fact each</span></span></Fact>
                 <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{plural(SOURCE_COUNT, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
@@ -240,7 +240,7 @@ function Method() {
                   </Fact>
                 )}
               </Facts>
-            </div>
+            </aside>
           }
         >
           <EssayAnswers items={ANSWERS} />

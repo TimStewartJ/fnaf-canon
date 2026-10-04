@@ -178,7 +178,7 @@ export default function Home() {
         id="eras"
         kicker="The timeline"
         title={`${numberWord(eras.length, true)} eras, one line of events`}
-        lead="Every event, death and location laid out in order, each date marked as printed, derived or estimated."
+        lead="Every event, death and location laid out in order, each date marked for how it is known."
         more={<Link to="/timeline">Open the timeline<Icon icon={ArrowRight} /></Link>}
       >
         <ol className="era-list">

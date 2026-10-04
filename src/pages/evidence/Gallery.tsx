@@ -62,7 +62,7 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
                     {uses.length > 0 && (
                       <EvidenceLink id={uses[0].id} group={ids.length > 1 ? ids : undefined} className="figure__credit">
                         {uses.length === 1 ? "Record" : records(uses.length)}
-                        <span className="sr-only">: {uses.map((u) => u.title).join("; ")}</span>
+                        <span className="sr-only">: {uses.map((u) => smartQuotes(u.title)).join("; ")}</span>
                       </EvidenceLink>
                     )}
                     <ExternalLink className="figure__credit" href={credit.sourcePage}>Image source</ExternalLink>

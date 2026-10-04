@@ -20,6 +20,7 @@ export const fxChapters: TheorySection[] = [
     body: [
       "A plain paragraph with every inline token. A citation on its own [[fnaf2-take-cake-to-the-children]]. Three citations in a row [[fnaf3-n5-springlock-death]] [[ffps-completion-fire]] [[fnaf1-news-five-children]], which should group into one cluster. A repeat of the first one [[fnaf2-take-cake-to-the-children]] keeps its number. **Bold text**, *italic text*, and **bold with a citation inside [[ffps-scup-blueprint]]**. A person: {{william-afton}}. A place: {{fredbears-family-diner}}. An entity with no page: {{nobody-by-this-id}}. A chapter link: ((fx-bare)). A chapter link with a label: ((fx-edge|the edge-case chapter)).",
       "Every kind of date: <<1983|printed|fnaf4-fredbear-and-friends-1983|Printed in the title of the TV broadcast.>>, <<c. 1983|derived|fnaf4-fredbear-and-friends-1983,fnaf4-the-bite|The party ends a five-day countdown whose only printed year is 1983.>>, <<c. 2017|estimated||This archive's estimate from the surrounding evidence.>>, <<after the Bite|relative|fnaf4-the-bite|Placed only by what it follows.>>, <<1979|teaser||Shown only in a teaser.>> and <<undated|unknown||The sources give no date.>>.",
+      "The four tags on a weaker kind of record, each a marker that says what it means: a scene told (as described) [[fnaf1-call4-phone-guy-attacked]], a document (read from an image), a count (a fan wiki's account) [[fnaf2-golden-freddy-night6-only]] and an interview (a transcript). The phrase inside a longer bracket is marked on its own (a rabbit costume's, by a fan wiki's account).",
       { kind: "heading", text: "A heading inside the chapter, which may also cite [[sl-golden-freddy-cutscene-father]]" },
       "A paragraph after a heading. The pull quote below takes its words from the record's own quote.",
       { kind: "quote", evidence: "fnaf4-i-will-put-you-back-together" },
@@ -117,7 +118,9 @@ export const fxStoryline: StoryBeat[] = Array.from({ length: 16 }, (_, i) => ({
   id: `fx-beat-${i + 1}`,
   when: i === 0 ? "Before <<1983|printed|fnaf4-fredbear-and-friends-1983|The one year printed in FNaF4.>>" : i % 5 === 0 ? "Years later" : i % 3 === 0 ? "<<c. 1983|derived|fnaf4-fredbear-and-friends-1983|From the printed TV year.>>" : "Undated",
   title: i === 7 ? "A beat with a long title that has to wrap onto a second line on a phone" : `Fixture beat ${i + 1}`,
-  text: i % 4 === 3
+  text: i === 1
+    ? "A beat that rests on a weaker kind of record carries the tag in its sentence: the message ends in a scream (as described) [[fnaf1-call4-phone-guy-attacked]], and a poster (read from an image) names the diner."
+    : i % 4 === 3
     ? "A short beat with one sentence and one citation [[fnaf4-the-bite]]."
     : "A beat is two to five sentences. It cites the records it rests on [[fnaf2-take-cake-to-the-children]] [[fnaf1-news-five-children]], may name {{william-afton}}, and stays readable when a dozen of them run one after another. This one is long enough to fill three or four lines on a desktop screen.",
   confidence: CONF[i % 3],

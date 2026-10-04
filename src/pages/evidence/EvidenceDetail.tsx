@@ -6,7 +6,7 @@ import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
-  RealDate, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
+  RealDate, RecordText, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
 import { readCheck } from "./checked";
 import { PLACE, beatsCiting, count, outsideGroupOf, placeOf, records } from "./coverage";
@@ -84,7 +84,7 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
         {prev
           ? <Link to={evidencePath(prev.id)} className="evx-step__btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronLeft} /></span>}
-        <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{at} of {of} in {short}</Link>
+        <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{count(at)} of {count(of)} in {short}</Link>
         {next
           ? <Link to={evidencePath(next.id)} className="evx-step__btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronRight} /></span>}
@@ -143,7 +143,7 @@ export default function EvidenceDetail() {
 
       <div className="evx-rec__body">
         <div className="evx-rec__lead">
-          <p className="evx-rec__claim">{smartQuotes(e.claim)}</p>
+          <p className="evx-rec__claim"><RecordText text={e.claim} self={e.id} /></p>
           {e.quote && <blockquote className="evx-rec__quote">“{sourceWords(e.quote)}”</blockquote>}
         </div>
 
@@ -168,7 +168,7 @@ export default function EvidenceDetail() {
             </Fact>
             <Fact label="In-universe time">
               <EvidenceDate e={e} self />
-              {e.when.basis && <div className="evx-rec__sub">Basis: {smartQuotes(e.when.basis)}</div>}
+              {e.when.basis && <div className="evx-rec__sub">Basis: <RecordText text={e.when.basis} self={e.id} /></div>}
             </Fact>
             {!!e.people?.length && <Fact label="People"><span className="cluster">{e.people.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
             {!!e.places?.length && <Fact label="Places"><span className="cluster">{e.places.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
@@ -180,7 +180,7 @@ export default function EvidenceDetail() {
         {(e.image || e.notes || e.verifiedVia) && (
           <div className="evx-rec__more">
             {e.image && <Figure file={e.image} tag="Exhibit" eager />}
-            {e.notes && <Callout tone="note" title="Notes and caveats"><p>{sourceWords(e.notes)}</p></Callout>}
+            {e.notes && <Callout tone="note" title="Notes and caveats"><p><RecordText text={e.notes} emphasis self={e.id} /></p></Callout>}
             {e.verifiedVia && <Checked note={e.verifiedVia} />}
           </div>
         )}

@@ -1,5 +1,7 @@
 import type { LucideIcon } from "lucide-react";
+import { eras } from "../../data/timeline";
 import { SECTION_ICON } from "../icons";
+import { numberWord } from "../typography";
 
 export interface NavItem { to: string; label: string; desc: string; icon: LucideIcon }
 export interface NavGroup {
@@ -21,7 +23,7 @@ export interface NavGroup {
  */
 export const NAV: NavGroup[] = [
   { id: "theory", label: "The Theory", to: "/theory", desc: "The Unified Model: the whole story, argued chapter by chapter", icon: SECTION_ICON.theory, match: ["/theory"] },
-  { id: "timeline", label: "Timeline", to: "/timeline", desc: "Events, deaths and places across eight eras", icon: SECTION_ICON.timeline, match: ["/timeline"] },
+  { id: "timeline", label: "Timeline", to: "/timeline", desc: `Events, deaths and places across ${numberWord(eras.length)} eras`, icon: SECTION_ICON.timeline, match: ["/timeline"] },
   {
     id: "evidence", label: "Evidence", match: ["/evidence", "/sources", "/gallery"],
     items: [
@@ -42,7 +44,7 @@ export const NAV: NavGroup[] = [
   {
     id: "essays", label: "Essays", match: ["/box", "/community", "/author"],
     items: [
-      { to: "/box", label: "The Box", desc: "What was in FNaF4's locked box", icon: SECTION_ICON.box },
+      { to: "/box", label: "The Box", desc: "What was in FNaF4’s locked box", icon: SECTION_ICON.box },
       { to: "/community", label: "Theorists & Scott", desc: "Fan theories, scored against the evidence", icon: SECTION_ICON.community },
       { to: "/author", label: "Scott & Faith", desc: "The author’s background, and what it changes", icon: SECTION_ICON.author },
     ],

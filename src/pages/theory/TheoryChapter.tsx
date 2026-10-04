@@ -31,8 +31,17 @@ function ReadingProgress() {
 }
 
 /**
+ * How far under the line a link would put it on a block may be and still be the one being read: a
+ * reader who scrolls stops with a heading near the top of the window, seldom exactly on that line.
+ */
+const READING_SLACK = 96;
+
+/**
  * The section of the chapter the reader is in: the last heading to have reached the top of the
- * window (where a link to it would put it). Null before the first one.
+ * window. The top is where a link to the heading would put it: under the document's scroll padding
+ * and the heading's own scroll margin (the pinned chapter bar's height, where there is a bar), and
+ * a little under that. Without the margin a section a reader had just jumped to was never the one
+ * marked, on any screen with the bar. Null before the first heading.
  */
 function useCurrentSection(ids: string[]): string | null {
   const [at, setAt] = useState<string | null>(null);
@@ -40,12 +49,15 @@ function useCurrentSection(ids: string[]): string | null {
     let raf = 0;
     const update = () => {
       raf = 0;
-      const line = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + 8;
+      const pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      // The headings share one scroll margin: read from the first there is.
+      let own: number | null = null;
       let now: string | null = null;
       for (const id of ids) {
         const el = document.getElementById(id);
         if (!el) continue;
-        if (el.getBoundingClientRect().top > line) break;
+        own ??= parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+        if (el.getBoundingClientRect().top > pad + own + READING_SLACK) break;
         now = id;
       }
       setAt(now);
@@ -71,7 +83,7 @@ function useNotedPlace(id: string): void {
       timer = 0;
       const marks = document.querySelectorAll<HTMLElement>(".chapter > p[id], .chapter > h2[id]");
       // The line a link to an anchor would put it on, and a little under: the block being read from.
-      const line = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + 96;
+      const line = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + READING_SLACK;
       let at: string | undefined;
       for (const el of marks) { if (el.getBoundingClientRect().top > line) break; at = el.id; }
       const max = document.documentElement.scrollHeight - window.innerHeight;

@@ -5,7 +5,7 @@ import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
   EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
-  IconButton, Loading, Page, PageHeader, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel,
+  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, smartQuotes,
 } from "../../components/ui";
 import "./dev.css";
 
@@ -65,6 +65,8 @@ export default function DevKit() {
       <Section title="Dates">
         <div className="dev-row">{DATE_KINDS.map((k: DateKind) => <DatePill key={k} label={k === "unknown" ? "undated" : "c. 1983"} kind={k} basis={`Example of a ${k} date.`} evidence={k === "printed" ? ["fnaf4-fredbear-and-friends-1983"] : []} />)}</div>
         <div className="dev-row"><span className="label">compact</span><DatePill compact label="1987" kind="printed" /><DatePill compact label="before c. 1979 – 1983" kind="estimated" /></div>
+        {/* A date in figures with the month first keeps its figures; the popover gives it in words. Figures whose first number is no month are left alone. */}
+        <div className="dev-row" id="kit-monthfirst"><span className="label">month first</span><DatePill label="11-12-1987" kind="printed" basis="The date printed on the Night 5 cheque." /><DatePill label="11-12-1987 and 11-13-1987" kind="printed" basis="Printed on the two cheques." /><DatePill label="11-12-xx" kind="printed" basis="The year is blanked on the cheque." /><DatePill label="After 11-13-1987 (the closure)" kind="derived" /><DatePill label="25-12-1987" kind="estimated" basis="Not a date with the month first: nothing is added." /></div>
         <p className="prose"><RichText text="Inline, in a sentence: the party falls in <<c. 1983|derived|fnaf4-fredbear-and-friends-1983|From the printed TV year.>>, and the bite of <<'87|printed|fnaf1-call1-bite-of-87|Spoken by Phone Guy.>> is a different event." /></p>
       </Section>
 
@@ -76,6 +78,24 @@ export default function DevKit() {
         {/* Names are stored as they run in a sentence; a name that stands alone or opens a sentence takes a capital, and a descriptor is italic where people are listed. */}
         <div className="dev-row"><span className="label">A descriptor</span><EntityLink id="glitchtrap" variant="chip" /><span>alone: <EntityLink id="glitchtrap" alone /></span><span>in a sentence: see <EntityLink id="glitchtrap" />.</span></div>
         <p className="prose"><RichText text="{{glitchtrap}} opens a sentence with a capital. Inside one, {{glitchtrap}} keeps its small letter." /></p>
+        {/* One full stop, not two: a link or a name whose label ends in a stop, standing at the end of a sentence. */}
+        <p className="prose" id="kit-stops"><RichText text="A link whose label ends in a full stop and also ends the sentence is followed by no second one: see ((hen-and-wa)). The same for a name: the letter is signed {{wa-signatory}}. And in bold: **((hen-and-wa))**. Inside a sentence nothing changes, as in ((hen-and-wa)), and three dots stay three: ((hen-and-wa))..." /></p>
+        <p className="prose" id="kit-stops-plain">{plainText("As plain words: see ((hen-and-wa)). Signed {{wa-signatory}}. In bold: **((hen-and-wa))**.")}</p>
+        {/* Quotation marks are read from both sides: a mark after a bracket can close, a quotation can open on a bracket, a sign or a figure, and only a year cut short keeps its apostrophe. */}
+        <p className="prose" id="kit-quotes">{smartQuotes(`Quotation marks: a post called "Bad news about the FNAF movie. :(" by its author; an email headed '(no subject)' and signed '- Vanessa'; a tiny '?', a price of '$2000', the year '1983' and a hidden '10'; but the Bite of '87, the '80s and the brothers' room keep their apostrophes.`)}</p>
+        {/* The four tags on a weaker kind of record. Each is the words as written, with a dotted line and its meaning on hover, focus or a press. */}
+        <p className="prose" id="kit-tags"><RichText text="The four tags: the call ends in a scream (as described) [[fnaf1-call4-phone-guy-attacked]], a poster among the textures (read from an image) names the diner, the keypad answers to 1-9-8-3 (a fan wiki's account), and in a 2018 interview (a transcript) Scott said more. In bold the tag keeps its mark: **(as described)**. Inside a longer bracket the phrase alone is marked (a rabbit costume's, by a fan wiki's account). Outside a bracket the same words are a sentence and are left alone: by a fan wiki's account, read from an image." /></p>
+        {/* A tag in text that is cut off takes no tab stop: this paragraph is held to two lines, and its tag is on a later one. */}
+        <p className="prose dev-clamp" id="kit-tags-cut"><RichText text="A paragraph held to two lines, as a caption is in a tile or a summary is on a phone. Its first lines are plain words, long enough to fill the two lines that show at any width from a phone to a desk, and then some more words to be sure of it. The tag stands in the part that is cut off (as described), where no key should stop." /></p>
+      </Section>
+
+      <Section title="A record’s own prose">
+        {/* Notes, claims and date bases name other records by id. A known id is printed as the record's title, as a link that opens it; a long title is cut; an id no record has, and a word that only looks like one, stay as written. */}
+        <p className="read dev-narrow" id="kit-recordtext"><RecordText emphasis text="The year is hidden on the first game's cheque (fnaf1-paycheck-night5); see fnaf2-overtime-robots-scrapped and secret-of-the-mimic-opening-call-arnold-dispatch. An id that no record has stays as written (fnaf9-no-such-record), and so does a word that only looks like one: end-of-night, 11-12-1987. The source's own *emphasis* is kept." /></p>
+        <p className="read dev-narrow" id="kit-recordtext-plain"><span className="label">plain</span> <RecordText plain text="Where a link cannot go the title is words only (fnaf1-paycheck-night5)." /></p>
+        {/* A card whose claim names another record, and the same record as a row. */}
+        <div className="dev-grid" id="kit-recordtext-card">{["into-the-pit-new-mill-fathers"].map((id) => evidenceById.get(id)).map((e) => e && <EvidenceCard key={e.id} e={e} />)}</div>
+        <EvidenceList ids={["into-the-pit-new-mill-fathers", "ffps-lorekeeper-gravestones"]} />
       </Section>
 
       <Section title="Buttons and controls">

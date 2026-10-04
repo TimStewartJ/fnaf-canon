@@ -12,3 +12,5 @@
 .dev-swatch > i { display: block; height: 2.75rem; border: 1px solid var(--c-line-strong); border-radius: var(--r-sm); }
 .dev-type > * { margin: 0 0 var(--sp-3); }
 .dev-type small { display: block; font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+/* Text held to two lines, for markers that must take no tab stop where they are cut off. */
+.dev-clamp { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
