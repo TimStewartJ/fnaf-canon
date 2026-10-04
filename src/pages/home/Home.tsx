@@ -53,6 +53,9 @@ export default function Home() {
     [credits.length, "screenshots", "/gallery"],
   ];
   const questions = keyQuestions.filter((q) => theoryById.has(q.section));
+  // The cards under it are graded, each by its weakest link (data/home.ts), so the heading promises
+  // no grade: it is true of six cards that are all canon and of six that are all theory.
+  const findingsTitle = `${numberWord(homeSummary.length, true)} ${homeSummary.length === 1 ? "thing" : "things"} the model says`;
   const resume = useContinue();
   // A phone shows the questions and the findings as lists to open, not as a wall: the page should
   // send its reader into the story or the case within a few screens.
@@ -120,7 +123,7 @@ export default function Home() {
           id="questions"
           kicker="The full case"
           title="Questions the model answers"
-          lead={`The old arguments, each with the model’s answer in a sentence. The reasoning is in the chapter behind it.`}
+          lead="The old arguments, each with the model’s answer in a sentence or two. The reasoning is in the chapter behind it."
           more={<Link to="/theory#contents">All {theory.length} chapters in {partGroups.length} parts<Icon icon={ArrowRight} /></Link>}
         >
           <ul className="qa-list">
@@ -147,8 +150,8 @@ export default function Home() {
 
       <HomeSection
         id="findings"
-        kicker="The ground it stands on"
-        title={`${numberWord(homeSummary.length, true)} things the evidence establishes`}
+        kicker="How firm it is"
+        title={findingsTitle}
         lead="Each is marked canon, strong inference or theory. The small numbers open the records behind a sentence without leaving this page."
         more={<Link to="/method">How the archive decides what counts<Icon icon={ArrowRight} /></Link>}
       >
