@@ -69,7 +69,12 @@
   border-radius: var(--r-xs);
 }
 .cite:hover, .cite:focus-visible { color: var(--c-accent-strong); background: var(--c-accent-soft); text-decoration: underline; }
-.cites__sep { color: var(--c-text-3); margin-inline: 0.04em 0.1em; }
+/* The comma between two numbers belongs to the number before it: it is drawn against that number
+   and the air follows it, as in "24, 28, 11". It is moved by its position and not by its margins,
+   so the line is laid out exactly as before: no number moves, no link's box changes and no
+   paragraph breaks its lines anew. A tap or click on the comma goes through it to the number
+   whose padding lies underneath. */
+.cites__sep { color: var(--c-text-3); margin-inline: 0.04em 0.1em; position: relative; inset-inline-start: -0.08em; pointer-events: none; }
 .cite--missing { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-tension); border: 1px dashed var(--c-tension-line); border-radius: var(--r-xs); padding: 0 0.3em; }
 
 /* Reader setting: clean reading, no markers in running text. */
@@ -84,7 +89,7 @@
   .cite { padding: 0.9em 0.45em; margin: -0.9em -0.33em; }
   .cites > .cite-wrap:first-child .cite { padding-left: 0.85em; margin-left: -0.73em; }
   .cites > .cite-wrap:last-child .cite { padding-right: 0.85em; margin-right: -0.73em; }
-  .cites__sep { margin-inline: 0.06em 0.16em; }
+  .cites__sep { margin-inline: 0.06em 0.16em; inset-inline-start: -0.18em; }
 }
 
 /* Source chips: explicit lists of records outside running prose. */
