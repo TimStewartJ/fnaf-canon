@@ -108,6 +108,16 @@ export const chapters: TheorySection[] = [
       "scott-2015-community-expectations-halloween", // [stated] 'The community's expectations demanded more'
       "scott-2016-silver-eyes-not-100-percent-games", // [stated] The Silver Eyes 'doesn't follow the events of the games 100%'
       "scott-2018-interview-books-extra-stories-not-definitive", // [stated] 2018: the books were 'never intended to be the definitive story'
+      "scott-ucn-character-guide-rxq-shadow-bonnie", // [stated] Scott's guide to Ultimate Custom Night: 'RXQ aka Shadow Bonnie'
+      "scott-ucn-character-guide-withered-chica-bonnie", // [stated] Scott's guide: 'Withered Chica' and 'Withered Bonnie'
+      "scott-ucn-character-guide-jj-marionette-phantom-mangle", // [stated] Scott's guide: 'JJ', 'The Marionette' and 'Phantom Mangle'
+      "scott-ucn-character-guide-lefty-funtime-rockstar", // [stated] Scott's guide: 'Lefty', 'Funtime Foxy', 'Rockstar Bonnie', and its full list of headings
+      "scott-ucn-character-guide-nightmare-scrap-baby", // [stated] Scott's guide: 'Nightmare Bonnie', 'Nightmare Mangle' and 'Scrap Baby'
+      "into-the-pit-oswald-named-in-dialogue", // [stated] Into the Pit prints the name 'Oswald': the father's first line, and the boy's own speaker label
+      "secret-of-the-mimic-opening-call-arnold-dispatch", // [stated] The opening call: 'Arnold! Hey buddy, this is dispatch with Fazbear Entertainment'; the subtitles label both speakers
+      "secret-of-the-mimic-f10-n4-cabinet-lettering", // [shown] The cabinet in the mock-up pizzeria's office is lettered 'F10-N4'
+      "security-breach-credits-cast-list", // [stated] The cast list in the credits roll: 'Glamrock Freddy', 'Glamrock Chica', 'Montgomery Gator'
+      "ruin-maskbot-subtitle-label", // [stated] RUIN's subtitles label the robot that hands over the mask 'Maskbot'
     ],
   },
   {

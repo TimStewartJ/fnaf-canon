@@ -299,6 +299,8 @@ export const chapters: TheorySection[] = [
       "security-breach-cd46-doing-the-manipulating", // [stated] Therapist to client 46 (CD 15): 'I think you're the one doing the manipulating'
       "ruin-gregory-friend-maps", // [stated] Gregory's 'friend' has the building maps
       "ruin-item-bonnie-replaced-dad-wouldnt-say", // [stated] Cassie: 'Dad wouldn't tell me why they replaced Bonnie.'
+      "security-breach-intercom-pizzaplex-now-closed", // [stated] The intercom at midnight: 'Freddy Fazbear's Mega Pizzaplex is now closed'; Gregory: 'I'm still here!'
+      "security-breach-freddy-doors-reopen-6am", // [stated] Freddy, once the doors have closed: 'You should be able to escape when the security doors reopen at 6:00am'
       // colour
       "hw2-achievement-ggy", // [stated] Achievement 'GGY': 'Beat all high scores.'
       "security-breach-msg-hello-gregory", // [stated] Freddy's first message names Gregory

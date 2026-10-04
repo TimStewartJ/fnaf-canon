@@ -225,7 +225,7 @@ export const people: Person[] = [
     summary: "The boy of Into the Pit. He hides in the old ball pit at Jeff's Pizza and comes out in an older, busy Freddy Fazbear's Pizza [[into-the-pit-jeffs-pizza-ball-pit]]. There a yellow rabbit leads him to a room of dead children [[into-the-pit-prologue-mci]], and later pulls his father into the ball pit; the father who comes out has glowing eyes, and nobody else sees anything wrong [[into-the-pit-rabbit-replaces-dad]].",
     status: "His fate depends on the ending.",
     firstAppearance: "into-the-pit", image: "itp-one-star-ending-party-room.jpg",
-    evidence: ["into-the-pit-jeffs-pizza-ball-pit", "into-the-pit-prologue-mci", "into-the-pit-rabbit-replaces-dad"],
+    evidence: ["into-the-pit-jeffs-pizza-ball-pit", "into-the-pit-prologue-mci", "into-the-pit-rabbit-replaces-dad", "into-the-pit-oswald-named-in-dialogue"],
     theory: "Into the Pit is an adaptation that the main games never place. Its events are not on this archive's timeline, and nothing rests on them: where it matches the main games it agrees, and it establishes nothing. See ((edges)).",
   },
 
@@ -297,7 +297,7 @@ export const people: Person[] = [
     summary: "The voice on the van radio in Secret of the Mimic. The opening call, from a voice that says it is dispatch with Fazbear Entertainment, goes on: \"We had this contractor named Edwin Murray. He was developing some tech for us, but he's gone quiet.\" [[secret-of-the-mimic-dispatch-contractor-murray]] It adds that under his contract everything he was working on \"is now legally ours\", and that the technician is being sent in to get it [[secret-of-the-mimic-dispatch-contract-legally-ours]]. A voice using the same name then briefs the technician by radio inside the building [[secret-of-the-mimic-dispatch-retrieve-schematic]]. In the ending where the technician walks away, a Dispatch voice comes on the van radio, says \"We've been trying to get ahold of you all night\", and dismisses him [[secret-of-the-mimic-clock-out-real-dispatch]]; the usual reading is that this is the real dispatcher.",
     status: "Last heard on the van radio, dismissing the technician, in one of the game's three endings.",
     firstAppearance: "secret-of-the-mimic",
-    evidence: ["secret-of-the-mimic-dispatch-contractor-murray", "secret-of-the-mimic-dispatch-contract-legally-ours", "secret-of-the-mimic-clock-out-real-dispatch"],
+    evidence: ["secret-of-the-mimic-dispatch-contractor-murray", "secret-of-the-mimic-dispatch-contract-legally-ours", "secret-of-the-mimic-clock-out-real-dispatch", "secret-of-the-mimic-opening-call-arnold-dispatch"],
     theory: "The opening call states the contract, and the model takes it as the company's own voice (high): the wiki lists it under the real Dispatch. A machine in the security office had been speaking as Dispatch [[secret-of-the-mimic-f10n4-reveal]], and where its imitation begins is not stated. So what the voice inside the building says about Murray's work, including its sentence about an endoskeleton that can adapt to any costume, is not quoted as Fazbear Entertainment's. See {{f10-n4}} and ((mimic)).",
   },
   {
@@ -329,7 +329,7 @@ export const people: Person[] = [
     summary: "The assistant program of the Security Mask that a Mask Bot gives Cassie in RUIN [[ruin-mask-bot-helpi-vanni]]. With the mask on she sees a layer of the building in which, by the wiki's account, she can pass barriers and is not seen by the animatronics. The Gregory voice on her radio tells her \"I updated Helpi with a signal jammer. That rabbit thing won't bother you anymore.\" [[ruin-fake-gregory-signal-jammer]] In one ending she puts the mask on at a dead end and sees Gregory, Helpi and a blonde woman eating ice cream on a hill [[ruin-ending-safe-spot]].",
     status: "—",
     firstAppearance: "ruin", image: "ruin-safe-spot-ending-hill.jpg",
-    evidence: ["ruin-mask-bot-helpi-vanni", "ruin-fake-gregory-signal-jammer", "ruin-ending-safe-spot"],
+    evidence: ["ruin-mask-bot-helpi-vanni", "ruin-fake-gregory-signal-jammer", "ruin-ending-safe-spot", "ruin-helpi-alert-anomalous-entity", "ruin-helpi-entity-bypassed-signal-jammer"],
     theory: "In RUIN the letters V.A.N.N.I. belong to the network that the mask opens, and Helpi is its assistant. Neither is a name for the rabbit-costumed woman, and the mask is the Security Mask (see ((vanny)) and ((mimic))).",
   },
 
@@ -379,7 +379,7 @@ export const people: Person[] = [
     summary: "A boy who hides inside Glamrock Freddy on the night of Security Breach. Freddy scans him and says \"Your guest profile is unknown to me.\" [[security-breach-intro-not-in-database]] Vanessa says he cannot be sent home, because \"there's no record of him\" [[security-breach-vanessa-no-record]]. At six in the morning he says that if he leaves, \"There will be more disappearances.\" [[security-breach-gregory-more-disappearances]] In RUIN his face is on posters that read \"MISSING\" [[ruin-missing-gregory-poster]], and a message in his voice brings Cassie into the building [[ruin-cassie-seeks-gregory]]. After the endoskeleton is uncovered, a second voice of his reaches her, and is taken as the real Gregory's: \"I'm not at the Pizzaplex. Something is trying to trick you!\" [[ruin-real-gregory-not-at-pizzaplex]] The game does not show the speaker.",
     status: "Alive and away from the Pizzaplex in RUIN, by the voice that is taken as his own [[ruin-real-gregory-not-at-pizzaplex]].",
     firstAppearance: "security-breach",
-    evidence: ["security-breach-msg-hello-gregory", "security-breach-intro-not-in-database", "security-breach-vanessa-no-record", "security-breach-gregory-more-disappearances", "ruin-missing-gregory-poster", "ruin-real-gregory-not-at-pizzaplex"],
+    evidence: ["security-breach-msg-hello-gregory", "security-breach-intro-not-in-database", "security-breach-vanessa-no-record", "security-breach-gregory-more-disappearances", "ruin-missing-gregory-poster", "ruin-real-gregory-not-at-pizzaplex", "security-breach-intercom-pizzaplex-now-closed"],
     theory: "He has no record in the Pizzaplex's systems. The games do not say that he has none anywhere. That he is the unnamed child of the second set of therapy recordings is a possibility the model notes and does not use (medium-low; see {{client-46}}). See ((pizzaplex)).",
   },
   {
@@ -403,7 +403,7 @@ export const people: Person[] = [
     summary: "The lead performer of the Pizzaplex, who shelters Gregory through the night of Security Breach [[security-breach-msg-hello-gregory]]. Under the building he says \"I have been here before. She brought me here.\" [[security-breach-freddy-been-here-before]] There a burnt rabbit rises from a recharge station and takes hold of him from a distance. He says \"I AM NOT ME.\" [[security-breach-freddy-i-am-not-me]] and \"He is trying to take control of me.\" [[security-breach-freddy-take-control]] Of the company's past he says \"But that was not me. Those were older models - Flawed.\" [[security-breach-freddy-older-models-flawed]]",
     status: "His fate depends on the ending.",
     firstAppearance: "security-breach",
-    evidence: ["security-breach-msg-hello-gregory", "security-breach-intro-not-in-database", "security-breach-freddy-been-here-before", "security-breach-freddy-i-am-not-me", "security-breach-freddy-take-control", "security-breach-freddy-older-models-flawed", "security-breach-gregory-what-is-that-thing"],
+    evidence: ["security-breach-msg-hello-gregory", "security-breach-intro-not-in-database", "security-breach-freddy-been-here-before", "security-breach-freddy-i-am-not-me", "security-breach-freddy-take-control", "security-breach-freddy-older-models-flawed", "security-breach-gregory-what-is-that-thing", "security-breach-credits-cast-list"],
     theory: "Whom Freddy means by \"She\", the game does not say. Of the burnt rabbit under the Pizzaplex he says \"He is trying to take control of me.\" [[security-breach-freddy-take-control]], and Gregory only asks \"He? What is that thing?\" [[security-breach-gregory-what-is-that-thing]]: no character says what it is (see ((burntrap))).",
   },
   {
@@ -418,14 +418,14 @@ export const people: Person[] = [
     summary: "One of the Pizzaplex's performers. A management report says \"With Bonnie out of commision, we are making Monty the new bass player.\" [[security-breach-msg-understudy]] A maintenance log says that his claw upgrades let him play the bass, and that after performances \"he mostly uses them to cause damage\" [[security-breach-msg-monty-upgrade]]. Another report has him missing a show and found on the catwalks over Monty Golf [[security-breach-msg-monty-mischief]]. Damaged, he appears in the fight under the building [[security-breach-shattered-glamrocks-underground]].",
     status: "Shown damaged in the fight under the building, on the route that goes underground [[security-breach-shattered-glamrocks-underground]].",
     firstAppearance: "security-breach",
-    evidence: ["security-breach-msg-understudy", "security-breach-msg-monty-upgrade", "security-breach-msg-monty-mischief", "security-breach-shattered-glamrocks-underground"],
+    evidence: ["security-breach-msg-understudy", "security-breach-msg-monty-upgrade", "security-breach-msg-monty-mischief", "security-breach-shattered-glamrocks-underground", "security-breach-credits-cast-list"],
   },
   {
     id: "glamrock-chica", name: "Glamrock Chica", aliases: [], nameStatus: "canon-name", group: "entity",
     summary: "One of the Pizzaplex's performers. A behaviour report says that a new slushy syrup \"has adverse effects on her programming. She has attacked patrons, employees and S.T.A.F.F. for it.\" [[security-breach-msg-chica-report]] A maintenance log warns \"Don't let her sing! Messes with the navigation of the other bots.\" [[security-breach-msg-chica-upgrade]] Damaged, she appears in the fight under the building [[security-breach-shattered-glamrocks-underground]].",
     status: "Shown damaged in the fight under the building, on the route that goes underground [[security-breach-shattered-glamrocks-underground]].",
     firstAppearance: "security-breach",
-    evidence: ["security-breach-msg-chica-report", "security-breach-msg-chica-upgrade", "security-breach-shattered-glamrocks-underground"],
+    evidence: ["security-breach-msg-chica-report", "security-breach-msg-chica-upgrade", "security-breach-shattered-glamrocks-underground", "security-breach-credits-cast-list"],
   },
   {
     id: "sun-moon", name: "Daycare Attendant", aliases: ["Sun (its daytime side, in the records' words)", "Moon (its night-time side, in the records' words)"], nameStatus: "canon-name", group: "entity",
@@ -481,7 +481,7 @@ export const people: Person[] = [
     summary: "A cabinet computer in the security office of the research floor at Murray's Costume Manor, in Secret of the Mimic [[secret-of-the-mimic-mxes-machine]]. On the night of Secret of the Mimic it speaks to the technician by radio as Dispatch. Found, it speaks in Fiona Murray's voice: \"Edwin abandoned us, he shut himself away in our home.\" and \"We must convince him to repair M2.\" [[secret-of-the-mimic-f10n4-reveal]] In another message it says \"I miss my child more. I watched him grow up, through this machine.\" [[secret-of-the-mimic-f10n4-miss-my-child]] In Murray's logs a voice speaking as Fiona, which the wiki gives to his first machine, M1, urges him \"You need to try again. Build another.\" [[secret-of-the-mimic-log-try-again-build-another]] An unsigned message says that M2 \"began as a copy of my program\" [[secret-of-the-mimic-mail-received-5-min-ago]]. The records call the cabinet F10-N4, and none of them quotes that label from the game.",
     status: "Its fate depends on the ending. In one of them the complex burns.",
     firstAppearance: "secret-of-the-mimic", image: "sotm-f10n4-and-mxes-cabinets.jpg",
-    evidence: ["secret-of-the-mimic-mxes-machine", "secret-of-the-mimic-f10n4-reveal", "secret-of-the-mimic-f10n4-miss-my-child", "secret-of-the-mimic-log-m1-as-fiona", "secret-of-the-mimic-log-try-again-build-another", "secret-of-the-mimic-mail-received-5-min-ago"],
+    evidence: ["secret-of-the-mimic-mxes-machine", "secret-of-the-mimic-f10n4-reveal", "secret-of-the-mimic-f10n4-miss-my-child", "secret-of-the-mimic-log-m1-as-fiona", "secret-of-the-mimic-log-try-again-build-another", "secret-of-the-mimic-mail-received-5-min-ago", "secret-of-the-mimic-f10-n4-cabinet-lettering", "secret-of-the-mimic-reveal-subtitle-labels", "secret-of-the-mimic-cabinet-message-for-edwin"],
     theory: "The model reads this cabinet as the mind of M1, the first of Murray's two machines. No record states it. The reading is joined from four records: the voice [[secret-of-the-mimic-log-m1-as-fiona]], the words \"our home\" [[secret-of-the-mimic-f10n4-reveal]], the grief for a child watched \"through this machine\" [[secret-of-the-mimic-f10n4-miss-my-child]], and the message about \"my program\" [[secret-of-the-mimic-mail-received-5-min-ago]]. On that reading M1 is the babysitter that took the voice of Fiona, David's dead mother, and M2 began as a copy of its program. The voice that briefs the technician inside the building is this machine's and not the company's, so nothing it says is quoted as Fazbear Entertainment's. Cabinets of the same design carry the nameplate M.X.E.S. at the bottom of the Pizzaplex in RUIN and in a van in Help Wanted 2. M.X.E.S. is Murray's technology (medium-high): the letters are spelled out on a terminal in his house [[secret-of-the-mimic-mxes-acronym-on-screen]]. That the cabinet under the Pizzaplex is this same machine is not shown. See {{the-entity}} and ((mimic)).",
   },
   {
@@ -489,7 +489,7 @@ export const people: Person[] = [
     summary: "The Fazbear Entertainment technician of Secret of the Mimic. At the end of a 36-hour shift he is sent into Murray's Costume Manor to fetch the contractor's work [[secret-of-the-mimic-arnold-assignment]]. A work order on Fazbear Entertainment paper, which the wiki captions as found in his van, names the employee as \"Arnie\" and reads \"DATE: 9/07/79\" and \"Extract Blueprints from MCM Facility\" [[secret-of-the-mimic-work-order-1979]] (read from an image of the document, and not yet confirmed in play). Inside he finds bodies in character suits, and the Dispatch voice on his radio says that previous technicians lost limbs and died of blood loss; that the bodies are theirs is the usual reading, and it rests on that voice's account [[secret-of-the-mimic-previous-technicians]]. In the ending where he walks away, a Dispatch voice on the van radio, usually read as the real dispatcher, dismisses him for misplacing company property, and he wakes inside a springlock suit, the one that the game's files label Fredbear, on the stage of the mock-up pizzeria [[secret-of-the-mimic-ending-clock-out]]. In another he runs a program that sets off a self-destruct and fire across the complex, and the endoskeleton rides his van, causes a crash and walks away [[secret-of-the-mimic-ending-unfinished-business]]. The opening call on his van radio addresses him as Arnold, by the wiki's table of that audio [[secret-of-the-mimic-dispatch-contractor-murray]].",
     status: "Sent in on <<a night in 1979, most likely 7 September|teaser|secret-of-the-mimic-work-order-1979,secret-of-the-mimic-teaser-1979,secret-of-the-mimic-mail-foreclosure|The year is on the game teaser and on a work order that the wiki captions as found in his van. The day has two supports, and either alone gives 7 September: the date on the work order, and a mailbox message dated Aug 3rd that puts the last mail five weeks back. The work order is read from an image of the document and is not yet confirmed in play.>>. His fate depends on the ending.",
     firstAppearance: "secret-of-the-mimic", image: "sotm-work-order-1979.jpg",
-    evidence: ["secret-of-the-mimic-arnold-assignment", "secret-of-the-mimic-dispatch-contractor-murray", "secret-of-the-mimic-work-order-1979", "secret-of-the-mimic-previous-technicians", "secret-of-the-mimic-ending-clock-out", "secret-of-the-mimic-ending-unfinished-business"],
+    evidence: ["secret-of-the-mimic-arnold-assignment", "secret-of-the-mimic-dispatch-contractor-murray", "secret-of-the-mimic-work-order-1979", "secret-of-the-mimic-previous-technicians", "secret-of-the-mimic-ending-clock-out", "secret-of-the-mimic-ending-unfinished-business", "secret-of-the-mimic-opening-call-arnold-dispatch"],
     theory: "Men had been sent before him and had not come back, by the account of the voice in the building. That voice is not his employer's (see {{f10-n4}}). See ((mimic)).",
   },
   {
@@ -579,7 +579,7 @@ export const people: Person[] = [
     summary: "The masked figure of FNaF2's Prize Corner, kept in its box by a music box [[fnaf2-puppet-music-box-mechanic]]. The caller of 1987 says \"I never liked that puppet thing. It's always...thinking, and it can go anywhere.\" [[fnaf2-call2-foxy-puppet]] In a FNaF2 minigame it gives gifts to four grey, dead-looking children, and then the heads of the four mascots [[fnaf2-give-gifts-give-life]]. In Pizzeria Simulator's Security Puppet game it is set to guard one child, marked by a green bracelet [[ffps-security-puppet-assignment]]. Shut in its box while that child is outside, it gets out too late and collapses beside the body in the rain [[ffps-security-puppet-dead-child]]. The Cassette Man tells his daughter to rest, with \"those you have carried in your arms\" [[ffps-completion-rest]].",
     status: "Most likely caught inside Lefty, and among the machines gathered for Pizzeria Simulator's fire.",
     firstAppearance: "fnaf2", image: "fnaf2-give-gifts-give-life.png",
-    evidence: ["fnaf2-call2-foxy-puppet", "fnaf2-puppet-music-box-mechanic", "fnaf2-give-gifts-give-life", "ffps-security-puppet-assignment", "ffps-security-puppet-dead-child", "ffps-completion-rest"],
+    evidence: ["fnaf2-call2-foxy-puppet", "fnaf2-puppet-music-box-mechanic", "fnaf2-give-gifts-give-life", "ffps-security-puppet-assignment", "ffps-security-puppet-dead-child", "ffps-completion-rest", "scott-ucn-character-guide-jj-marionette-phantom-mangle"],
     theory: "The Cassette Man's daughter most likely stays on in it (medium-high; see {{cassette-mans-daughter}}). It is the one hand the games show at work on the dead children: it gives them the mascots' heads. How those \"tiny breaths of life\" came to be in the machines, the Cassette Man says he does not know [[ffps-insanity-tiny-breaths]]. No record says who made the Puppet. See ((child-outside)) and ((remnant)).",
   },
   {
@@ -643,7 +643,7 @@ export const people: Person[] = [
     summary: "The rabbit of Freddy Fazbear's Pizza, named on FNaF1's custom night screen [[fnaf1-custom-night-names]]. In a FNaF2 minigame the Puppet gives one of four grey, dead-looking children his head [[fnaf2-give-gifts-give-life]]. By the wiki's activity tables the older Bonnie is active from the third night of 1987's week [[fnaf2-old-models-walk-from-night2]], and in FNaF3's minigames a purple figure takes him apart [[fnaf3-eon-purple-guy-dismantles]]. In Ultimate Custom Night Withered Bonnie, the older Bonnie as that game shows him, asks \"What is this new prison? Is it me trapped, or is it you? Perhaps it is us both.\" [[ucn-withered-bonnie-prison]]",
     status: "Taken apart by the killer. One of the five most likely stayed on in him until then.",
     firstAppearance: "fnaf1",
-    evidence: ["fnaf1-custom-night-names", "fnaf2-custom-night-names", "fnaf2-give-gifts-give-life", "fnaf2-old-models-walk-from-night2", "fnaf3-eon-purple-guy-dismantles", "ucn-withered-bonnie-prison", "ucn-withered-bonnie-consequences-of-failure"],
+    evidence: ["fnaf1-custom-night-names", "fnaf2-custom-night-names", "fnaf2-give-gifts-give-life", "fnaf2-old-models-walk-from-night2", "fnaf3-eon-purple-guy-dismantles", "ucn-withered-bonnie-prison", "ucn-withered-bonnie-consequences-of-failure", "scott-ucn-character-guide-withered-chica-bonnie"],
     theory: "Which child is in which machine, no game says. Help Wanted 2 has an achievement titled \"Remember Jeremy?\" whose icon is a doll in a Bonnie mask [[hw2-remember-jeremy-achievement]]: a hint, and no more (low-medium). See ((murders)).",
   },
   {
@@ -651,7 +651,7 @@ export const people: Person[] = [
     summary: "The chicken of Freddy Fazbear's Pizza, named on FNaF1's custom night screen [[fnaf1-custom-night-names]]. In a FNaF2 minigame the Puppet gives one of four grey, dead-looking children her head [[fnaf2-give-gifts-give-life]]. By the wiki's activity tables the older Chica is active from the third night of 1987's week [[fnaf2-old-models-walk-from-night2]], and in FNaF3's minigames a purple figure takes her apart [[fnaf3-eon-purple-guy-dismantles]]. In Ultimate Custom Night Withered Chica, the older Chica as that game shows her, says \"I was the first! I have seen everything!\" and \"I have seen him. The one you shouldn't have killed.\" [[ucn-withered-chica-toysnhk]]",
     status: "Taken apart by the killer. One of the five most likely stayed on in her until then.",
     firstAppearance: "fnaf1",
-    evidence: ["fnaf1-custom-night-names", "fnaf2-custom-night-names", "fnaf2-give-gifts-give-life", "fnaf2-old-models-walk-from-night2", "fnaf3-eon-purple-guy-dismantles", "ucn-withered-chica-toysnhk"],
+    evidence: ["fnaf1-custom-night-names", "fnaf2-custom-night-names", "fnaf2-give-gifts-give-life", "fnaf2-old-models-walk-from-night2", "fnaf3-eon-purple-guy-dismantles", "ucn-withered-chica-toysnhk", "scott-ucn-character-guide-withered-chica-bonnie"],
     theory: "That \"the first\" means the first of the five is a reading at low-medium. Which child is in which machine, no game says. See ((murders)) and ((ucn)).",
   },
   {
@@ -674,7 +674,7 @@ export const people: Person[] = [
     summary: "A dark silhouette shaped like a rabbit, seen in FNaF2 and FNaF3. In FNaF2 it appears in the office, very rarely, and the game closes if the player stares at it [[fnaf2-shadow-bonnie-office]]. In FNaF3 a dark rabbit figurine on the desk starts a hidden minigame, in which a black rabbit flies and passes between the other minigames' rooms to a place where a crying child can be given cake [[fnaf3-shadow-bonnie-minigame]]. Neither game shows a name for it.",
     status: "—",
     firstAppearance: "fnaf2",
-    evidence: ["fnaf2-shadow-bonnie-office", "fnaf3-shadow-bonnie-minigame"],
+    evidence: ["fnaf2-shadow-bonnie-office", "fnaf3-shadow-bonnie-minigame", "scott-ucn-character-guide-rxq-shadow-bonnie"],
     theory: "What it is, the model leaves open. That it helps in FNaF3 is medium: its minigame is one of the steps toward Happiest Day. See ((open)).",
   },
   {
@@ -690,7 +690,7 @@ export const people: Person[] = [
     summary: "A glitching, rabbit-shaped figure in RUIN. It appears when Cassie wears the Security Mask too long, and alerts the animatronics to her [[ruin-the-entity]]. The Gregory voice on Cassie's radio calls it \"That rabbit thing\" and says it has fitted Helpi with a signal jammer against it [[ruin-fake-gregory-signal-jammer]]. At the deepest level, beside a cabinet with the nameplate M.X.E.S., it comes out of the machine and is pulled back in [[ruin-mxes-hub]]. In the standard ending the Gregory voice that is taken as the real one says that the M.X.E.S. security program \"was designed to keep it hidden\", meaning the thing in the sinkhole [[ruin-gregory-mxes-explanation]]. In Help Wanted 2 a rabbit-shaped figure of the same kind comes out of a machine with a keypad in a van and is pulled back in [[hw2-mimic-teaser-mxes-ending]].",
     status: "Last seen pulled back into the M.X.E.S. cabinet, after the last security node is switched off.",
     firstAppearance: "ruin",
-    evidence: ["ruin-the-entity", "ruin-fake-gregory-signal-jammer", "ruin-mxes-hub", "ruin-gregory-mxes-explanation", "hw2-mimic-teaser-mxes-ending"],
+    evidence: ["ruin-the-entity", "ruin-fake-gregory-signal-jammer", "ruin-mxes-hub", "ruin-gregory-mxes-explanation", "hw2-mimic-teaser-mxes-ending", "ruin-helpi-alert-anomalous-entity", "ruin-helpi-entity-bypassed-signal-jammer"],
     theory: "The model reads it as part of the guard that kept the copying endoskeleton hidden: it turns the animatronics on the one person who is switching that guard off, and the endoskeleton's voice wants it gone. M.X.E.S. is Murray's technology (medium-high). The model does not identify this figure with the rabbit in Help Wanted's code, though both are rabbit-shaped. Why Murray's guard should wear a rabbit's shape is not explained. See ((mimic)).",
   },
   {
@@ -874,7 +874,7 @@ export const people: Person[] = [
     summary: "A staff robot with rabbit ears that gives Cassie the Security Mask at the start of RUIN [[ruin-mask-bot-helpi-vanni]]. By the wiki's summaries, Help Wanted 2's main ending cuts to a staff robot starting up and holding a rabbit mask out to a girl [[hw2-faz-force-ending]], and that ending's achievement reads \"Take this mask. Take this mask.\" [[hw2-faz-force-achievement]]",
     status: "—",
     firstAppearance: "ruin",
-    evidence: ["ruin-mask-bot-helpi-vanni", "hw2-faz-force-ending", "hw2-faz-force-achievement"],
+    evidence: ["ruin-mask-bot-helpi-vanni", "hw2-faz-force-ending", "hw2-faz-force-achievement", "ruin-maskbot-subtitle-label"],
   },
   {
     id: "staff-bots", name: "the Pizzaplex's service robots", aliases: ["S.T.A.F.F. bots (S.T.A.F.F. is the name in the Pizzaplex's notices)"], nameStatus: "descriptor", group: "other",
@@ -1203,14 +1203,14 @@ export const people: Person[] = [
     summary: "A burnt-looking Mangle among the figures that appear to the guard of Fazbear's Fright. The Extras menu does not list it. Their attacks do not kill: they knock the attraction's systems offline [[fnaf3-phantom-hallucinations]].",
     status: "—",
     firstAppearance: "fnaf3",
-    evidence: ["fnaf3-phantom-hallucinations"],
+    evidence: ["fnaf3-phantom-hallucinations", "scott-ucn-character-guide-jj-marionette-phantom-mangle"],
   },
   {
     id: "jj", name: "the figure under the desk in FNaF2", aliases: ["JJ (the name in Ultimate Custom Night's roster and in Scott's guide to that game)"], nameStatus: "descriptor", group: "other",
     summary: "A recoloured figure like BB that sits, rarely, under the desk of FNaF2's office [[fnaf2-jj-endo-puppet-visions]]. FNaF2 shows no name for it; by that record's note, Ultimate Custom Night's roster and Scott's guide to that game later call it JJ.",
     status: "—",
     firstAppearance: "fnaf2",
-    evidence: ["fnaf2-jj-endo-puppet-visions"],
+    evidence: ["fnaf2-jj-endo-puppet-visions", "scott-ucn-character-guide-jj-marionette-phantom-mangle"],
   },
   {
     id: "building-designer", name: "the designer who told of the boarded-up room", aliases: [], nameStatus: "descriptor", group: "other",

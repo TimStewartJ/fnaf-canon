@@ -122,6 +122,8 @@ export const chapters: TheorySection[] = [
       "ruin-candy-cadet-story", // [stated] Candy Cadet: mother, son and a monster in the basement
       "ruin-item-gregory-seen-this-mask-before", // [stated] Cassie on a comic page of a rabbit mask: 'Gregory must have seen this mask before.'
       "scott-2024-interview-mxes-name-thought-through", // [stated] Scott, in an interview: M.X.E.S. is 'a character' whose name he thought through in his own design of RUIN
+      "ruin-helpi-alert-anomalous-entity", // [stated] Helpi's alert: 'an anomalous entity in the V.A.N.N.I. network'
+      "ruin-helpi-entity-bypassed-signal-jammer", // [stated] Helpi: 'Looks like the entity has bypassed my signal jammer and activated one of its own'
       // colour
       "hw2-mystic-hippo-hello", // [stated] Mystic Hippo: 'Hello, can you hear me?'
       "hw2-mystic-hippo-she-needs-you", // [stated] Mystic Hippo: 'It needs you.' / 'She needs you.'
