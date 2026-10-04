@@ -13,7 +13,7 @@ import { Figure } from "./Figure";
 import { Firmness } from "./Firmness";
 import { Callout, Fact, Facts } from "./layout";
 import { RecordText } from "./RecordText";
-import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
+import { DateInWords, EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { count, smartQuotes, sourceWords } from "./typography";
 
 function Record({ e }: { e: Evidence }) {
@@ -32,7 +32,13 @@ function Record({ e }: { e: Evidence }) {
       {e.image && <Figure file={e.image} />}
       <Facts className="drawer__facts">
         <Fact label="Certainty"><Firmness scale="certainty" value={e.certainty} variant="inline" /> <span className="muted">{firmness("certainty", e.certainty).help}.</span></Fact>
-        <Fact label="In-universe time"><EvidenceDate e={e} self />{e.when.basis && <span className="muted"> <RecordText text={e.when.basis} self={e.id} /></span>}</Fact>
+        <Fact label="In-universe time">
+          <EvidenceDate e={e} self />
+          {/* A date printed month first (11-12-1987) is said in words beside it; the reason follows, and any such date only the reason has. */}
+          <DateInWords text={e.when.label} className="muted drawer__inwords" />
+          {e.when.basis && <span className="muted"> <RecordText text={e.when.basis} self={e.id} /></span>}
+          {e.when.basis && <DateInWords text={e.when.basis} except={e.when.label} className="muted drawer__inwords" />}
+        </Fact>
         {entities.length > 0 && <Fact label="People and places"><span className="cluster">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</span></Fact>}
         {!!e.tags?.length && <Fact label="Tags"><span className="cluster">{e.tags.map((t) => <Tag key={t} to={`/evidence?tag=${t}`}>#{t}</Tag>)}</span></Fact>}
         {e.url && <Fact label="Original"><ExternalLink href={e.url} className="drawer__url">{e.url.replace(/^https?:\/\//, "")}</ExternalLink></Fact>}

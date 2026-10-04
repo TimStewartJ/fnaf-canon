@@ -13,7 +13,7 @@ import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
 import { recordsNamed, recordWords } from "./richTextPlain";
 import { recordTagPieces } from "./textMarks";
-import { longDate, monthFirstNote, smartQuotes, sourceWords } from "./typography";
+import { keepFigures, longDate, monthFirstNote, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
@@ -224,7 +224,7 @@ const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "es
  * which records support it. The reason is given in full, however long, and in plain words: a
  * record it names by id is not printed there but listed under "Rests on" with the rest. A label
  * that is a date in figures with the month first (11-12-1987, as a cheque prints it) is also
- * given in words there; the label itself is never changed.
+ * given in words there, and so is such a date in the reason; the label itself is never changed.
  *  - own   the record whose own page or drawer the pill stands on: never listed under "Rests on"
  *  - variant "tag" (default): a compact mono label, for cards, tables and headers
  *  - variant "inline": sits in a sentence without changing its rhythm (what <RichText> uses)
@@ -240,8 +240,9 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
   const rests = basis ? [...new Set([...evidence, ...recordsNamed(basis)])].filter((id) => id !== own) : evidence;
   const evs = rests.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   const ids = evs.map((e) => e.id);
-  // A cheque dated 11-12-1987 is 12 November to its printer and 11 December to half its readers: the popover says which.
-  const inWords = monthFirstNote(label);
+  // A cheque dated 11-12-1987 is 12 November to its printer and 11 December to half its readers: the popover says
+  // which, for the date itself and for any other such date in the reason given for it.
+  const inWords = monthFirstNote(label), basisInWords = basis ? monthFirstNote(basis, label) : "";
   return (
     <span className="date-wrap" {...pop.wrapProps}>
       <button
@@ -260,8 +261,9 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
           <strong className="pop__title">{smartQuotes(label)}</strong>
-          {inWords && <span className="pop__text pop__inwords">{inWords}</span>}
-          <span className="pop__text">{basis ? recordWords(basis) : `${k.help}.`}</span>
+          {inWords && <span className="pop__text pop__inwords">{keepFigures(inWords)}</span>}
+          <span className="pop__text">{basis ? keepFigures(recordWords(basis)) : `${k.help}.`}</span>
+          {basisInWords && <span className="pop__text pop__inwords">{keepFigures(basisInWords)}</span>}
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
             <span className="pop__records">
@@ -274,7 +276,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
                   onClick={(ev) => { if (!isPlainClick(ev)) return; ev.preventDefault(); pop.hide(); drawer.open(e.id, ids.length > 1 ? ids : undefined, "behind this date"); }}
                 >
                   <GameMark id={e.game} />
-                  <span>{smartQuotes(e.title)}</span>
+                  <span>{keepFigures(smartQuotes(e.title))}</span>
                 </Link>
               ))}
             </span>
@@ -283,6 +285,17 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
       )}
     </span>
   );
+}
+
+/**
+ * A date printed month first, said in words: the line under a record's "In-universe time" ("11-12-1987
+ * is 12 November 1987: the month is written first."). `text` is the date's label, or the reason given
+ * for it with `except` the label, so that a date the label has is not said twice. Draws nothing when
+ * there is no such date to say.
+ */
+export function DateInWords({ text, except, className }: { text: string; except?: string; className?: string }) {
+  const note = monthFirstNote(text, except);
+  return note ? <div className={className}>{keepFigures(note)}</div> : null;
 }
 
 /**

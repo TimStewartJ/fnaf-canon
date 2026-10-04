@@ -30,7 +30,7 @@ export { GameMark } from "./GameMark";
 export { FirmnessLegend } from "./Legend";
 export { MarksKey } from "./MarksKey";
 export { OutcomeMark, FateTag } from "./Outcome";
-export { RichText, Cite, CiteGroup, CiteList, SourceChip, EntityLink, ChapterLink, DatePill, DateGlyph, EvidenceDate, RealDate, RecordTagMark, EvidencePreview, SourceLine } from "./RichText";
+export { RichText, Cite, CiteGroup, CiteList, SourceChip, EntityLink, ChapterLink, DatePill, DateGlyph, DateInWords, EvidenceDate, RealDate, RecordTagMark, EvidencePreview, SourceLine } from "./RichText";
 export * from "./textMarks";
 export { EvidenceCard, EvidenceRow, EvidenceList, EvidenceLink } from "./EvidenceCard";
 export { RecordText } from "./RecordText";

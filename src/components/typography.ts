@@ -135,22 +135,60 @@ export function longDate(iso: string, short = false): string {
 
 /** A date in figures with the month first, as the games' cheques print it: 11-12-1987, or 11-12-xx where the year is blanked. The first group is what stands before it. */
 const MONTH_FIRST = /(^|[^\d-])(\d{1,2})-(\d{1,2})-(\d{4}|xx)(?![\d-])/gi;
+/** The most days each month can have (February in a leap year). */
+const MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+interface FigureDate { figures: string; day: number; month: string; year: string }
+function monthFirstDates(text: string): FigureDate[] {
+  const out: FigureDate[] = [];
+  for (const m of text.matchAll(MONTH_FIRST)) {
+    const month = MONTHS[Number(m[2]) - 1], day = Number(m[3]);
+    // Figures that name no day of that month are not a date, and are left unexplained.
+    if (!month || day < 1 || day > MONTH_DAYS[Number(m[2]) - 1]) continue;
+    const figures = m[0].slice(m[1].length);
+    if (!out.some((d) => d.figures === figures)) out.push({ figures, day, month, year: /^\d/.test(m[4]) ? m[4] : "" });
+  }
+  return out;
+}
+/** "a", "a and b", "a, b and c". */
+const listed = (items: (string | number)[]): string => (items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`);
 /**
  * What a date printed month first says, in words, for a reader who writes the day first and
  * would take 11-12-1987 for 11 December: "11-12-1987 is 12 November 1987: the month is written
- * first." One sentence for every such date in the text (a date pill's label), or "" when it has
- * none. Figures whose first number cannot be a month are not such a date and are left alone.
- * The label itself is what the source prints and is never changed.
+ * first." One sentence for every such date in the text: a date pill's label, or the reason given
+ * for it. Dates of one month and year share their ending ("11-12-1987 and 11-13-1987 are 12 and
+ * 13 November 1987"). Returns "" when the text has none. Figures whose first number cannot be a
+ * month are not such a date and are left alone, and so is a date that `except` already holds
+ * (the label, when the reason repeats it). What the source prints is never changed.
  */
-export function monthFirstNote(text: string): string {
-  const said: string[] = [];
+export function monthFirstNote(text: string, except = ""): string {
+  const said = monthFirstDates(except).map((d) => d.figures);
+  const dates = monthFirstDates(text).filter((d) => !said.includes(d.figures));
+  if (!dates.length) return "";
+  const when = (d: FigureDate) => `${d.month}${d.year ? ` ${d.year}` : " (no year is printed)"}`;
+  const alike = dates.every((d) => when(d) === when(dates[0]));
+  const body = alike
+    ? `${listed(dates.map((d) => d.figures))} ${dates.length > 1 ? "are" : "is"} ${listed(dates.map((d) => d.day))} ${when(dates[0])}`
+    : dates.map((d) => `${d.figures} is ${d.day} ${when(d)}`).join(", and ");
+  return `${body}: the month is written first.`;
+}
+
+/**
+ * Text that quotes dates in figures (11-13-1987), for display: each such date is kept on one line.
+ * A browser may end a line after a hyphen, and a date cut in two ("11-" over "13-1987") has to be
+ * read twice. For short lines that are about the date: a popover's reason, the date said in words.
+ */
+export function keepFigures(text: string): ReactNode {
+  const out: ReactNode[] = [];
+  let at = 0;
   for (const m of text.matchAll(MONTH_FIRST)) {
-    const month = MONTHS[Number(m[2]) - 1], day = Number(m[3]);
-    if (!month || day < 1 || day > 31) continue;
-    const one = `${m[0].slice(m[1].length)} is ${day} ${month}${/^\d/.test(m[4]) ? ` ${m[4]}` : " (no year is printed)"}`;
-    if (!said.includes(one)) said.push(one);
+    const start = m.index + m[1].length, end = m.index + m[0].length;
+    if (start > at) out.push(text.slice(at, start));
+    out.push(createElement("span", { key: start, className: "nowrap" }, text.slice(start, end)));
+    at = end;
   }
-  return said.length ? `${said.join(", and ")}: the month is written first.` : "";
+  if (!out.length) return text;
+  if (at < text.length) out.push(text.slice(at));
+  return out;
 }
 
 const FIGURES = new Intl.NumberFormat("en-GB");

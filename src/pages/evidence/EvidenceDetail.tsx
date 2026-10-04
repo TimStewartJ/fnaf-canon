@@ -5,7 +5,7 @@ import type { Evidence, TheorySection } from "../../data/schema";
 import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
-  CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
+  CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, DateInWords, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
   RealDate, RecordText, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
 import { readCheck } from "./checked";
@@ -168,7 +168,9 @@ export default function EvidenceDetail() {
             </Fact>
             <Fact label="In-universe time">
               <EvidenceDate e={e} self />
+              <DateInWords text={e.when.label} className="evx-rec__sub evx-rec__inwords" />
               {e.when.basis && <div className="evx-rec__sub">Basis: <RecordText text={e.when.basis} self={e.id} /></div>}
+              {e.when.basis && <DateInWords text={e.when.basis} except={e.when.label} className="evx-rec__sub evx-rec__inwords" />}
             </Fact>
             {!!e.people?.length && <Fact label="People"><span className="cluster">{e.people.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
             {!!e.places?.length && <Fact label="Places"><span className="cluster">{e.places.map((p) => <EntityLink key={p} id={p} variant="chip" />)}</span></Fact>}
