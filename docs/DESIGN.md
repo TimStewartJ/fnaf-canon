@@ -1275,8 +1275,9 @@ data).
 
 Added by the text pass (branch `ws/ui-text`), which changed nothing but the way a string from the data reaches
 the page. The code is `components/RichText.tsx`, `RecordText.tsx`, `textMarks.ts`, `richTextPlain.ts`,
-`typography.ts` and `labels.ts`; `/dev/kit` has a case for each rule below. The pass's scripted checks are in
-its working folder (`text/tools/`, not in the repository); 21.9 lists them.
+`typography.ts` and `labels.ts`; `/dev/kit` has a case for each rule below, and `/dev/blocks` has the
+storyline's (21.5). The pass's scripted checks are in its working folder (`text/tools/`, not in the
+repository); 21.9 lists them.
 
 ### 21.1 The four tags on a weaker kind of record
 
