@@ -5,7 +5,7 @@ import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
   EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
-  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, smartQuotes,
+  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, smartQuotes,
 } from "../../components/ui";
 import "./dev.css";
 
@@ -76,6 +76,9 @@ export default function DevKit() {
         {/* Names are stored as they run in a sentence; a name that stands alone or opens a sentence takes a capital, and a descriptor is italic where people are listed. */}
         <div className="dev-row"><span className="label">A descriptor</span><EntityLink id="glitchtrap" variant="chip" /><span>alone: <EntityLink id="glitchtrap" alone /></span><span>in a sentence: see <EntityLink id="glitchtrap" />.</span></div>
         <p className="prose"><RichText text="{{glitchtrap}} opens a sentence with a capital. Inside one, {{glitchtrap}} keeps its small letter." /></p>
+        {/* One full stop, not two: a link or a name whose label ends in a stop, standing at the end of a sentence. */}
+        <p className="prose" id="kit-stops"><RichText text="A link whose label ends in a full stop and also ends the sentence is followed by no second one: see ((hen-and-wa)). The same for a name: the letter is signed {{wa-signatory}}. And in bold: **((hen-and-wa))**. Inside a sentence nothing changes, as in ((hen-and-wa)), and three dots stay three: ((hen-and-wa))..." /></p>
+        <p className="prose" id="kit-stops-plain">{plainText("As plain words: see ((hen-and-wa)). Signed {{wa-signatory}}. In bold: **((hen-and-wa))**.")}</p>
         {/* Quotation marks are read from both sides: a mark after a bracket can close, a quotation can open on a bracket, a sign or a figure, and only a year cut short keeps its apostrophe. */}
         <p className="prose" id="kit-quotes">{smartQuotes(`Quotation marks: a post called "Bad news about the FNAF movie. :(" by its author; an email headed '(no subject)' and signed '- Vanessa'; a tiny '?', a price of '$2000', the year '1983' and a hidden '10'; but the Bite of '87, the '80s and the brothers' room keep their apostrophes.`)}</p>
         {/* The four tags on a weaker kind of record. Each is the words as written, with a dotted line and its meaning on hover, focus or a press. */}

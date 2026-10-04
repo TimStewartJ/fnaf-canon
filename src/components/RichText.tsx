@@ -387,6 +387,9 @@ const TOKEN_RE = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\
 
 type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "node"; node: ReactNode };
 
+/** A link token that closes a piece of source text, with any emphasis marks after it: {{id}}, ((id)), ((id|label)). */
+const CLOSING_LINK = /(?:\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\|([^)]+))?\)\))\**$/;
+
 /**
  * Renders RichText (see the grammar in data/schema.ts):
  *   [[evidence-id]]               citation marker; adjacent citations are grouped into one cluster
@@ -397,16 +400,27 @@ type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "no
  * and, in the plain text between them, the four tags on a weaker kind of record ("(as described)"),
  * each drawn as a marker that says what it means (see RecordTagMark).
  *
+ * A link whose label ends in a full stop ("Hen and W.A.") and which also ends a sentence is
+ * followed by no second stop.
+ *
  * Names are stored as they run in a sentence ("the rabbit in the code"), so an entity that opens
  * the text or follows the end of a sentence is printed with a capital. The text is taken to open
  * a sentence itself (a paragraph, a list item, a table cell, a caption all do); pass
  * `opens={false}` for a phrase that is set inside a longer line.
  */
 export function RichText({ text: source, opens = true }: { text: string; opens?: boolean }) {
+  const chapters = useChapterResolver();
   const text = smartQuotes(source);
   const pieces: Piece[] = [];
   let last = 0;
   let k = 0;
+  /** True when what a token prints ends in a full stop of its own: a link to "Hen and W.A.", the name "W.A.", or emphasis that closes on one. */
+  const endsInStop = (token: string): boolean => {
+    const m = CLOSING_LINK.exec(token.replace(/^\*+/, ""));
+    if (!m) return false;
+    const label = m[1] ? entityName(m[1]) : m[3] ?? chapters.find(m[2])?.title ?? "";
+    return label.trimEnd().endsWith(".");
+  };
   for (const m of text.matchAll(TOKEN_RE)) {
     const between = text.slice(last, m.index);
     const prev = pieces[pieces.length - 1];
@@ -429,6 +443,9 @@ export function RichText({ text: source, opens = true }: { text: string; opens?:
       pieces.push({ t: "node", node });
     }
     last = m.index + m[0].length;
+    // One full stop, not two: where a label that ends in a stop also ends the sentence ("See Hen and W.A."),
+    // the label's own stop does both jobs. Three dots after it are an ellipsis and stay.
+    if (!m[1] && !m[7] && text[last] === "." && text[last + 1] !== "." && endsInStop(m[0])) last += 1;
   }
   if (last < text.length) pieces.push({ t: "text", s: text.slice(last) });
 
