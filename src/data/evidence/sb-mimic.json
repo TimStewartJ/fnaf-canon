@@ -5664,7 +5664,7 @@
   {
     "id": "into-the-pit-new-mill-fathers",
     "title": "Per the wiki, in the past the boys' fathers work at 'the new mill'",
-    "claim": "By the wiki's character pages (lines not retrieved), in the past pizzeria Chip and Mike say their fathers work at the new local mill; in the present an item description says Oswald's father lost his job at the mill (into-the-pit-mill-closure).",
+    "claim": "By the wiki's character pages (lines not retrieved), in the past pizzeria Chip and Mike say their fathers work at the new local mill; in the present an item description says Oswald's father lost his job at the mill.",
     "game": "into-the-pit",
     "kind": "dialogue",
     "location": "Chip and Mike dialogue, past Freddy Fazbear's Pizza",
@@ -5694,7 +5694,7 @@
       "into-the-pit-sketchbook-strings-dumped-at-mill"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Chip",
-    "notes": "From the wiki's character pages ('In the game adaptation, Chip says that his father works at the new local mill'); the lines were not retrieved verbatim. Reading: a mill that is new on one side of the ball pit and has laid a father off on the other suggests about a generation between them. That the mill has closed is the book's statement as the wiki gives it; the game text on file says only that he lost his job there."
+    "notes": "From the wiki's character pages ('In the game adaptation, Chip says that his father works at the new local mill'); the lines were not retrieved verbatim. Reading: a mill that is new on one side of the ball pit and has laid a father off on the other suggests about a generation between them. That the mill has closed is the book's statement as the wiki gives it; the game text on file says only that he lost his job there. The item description is its own record (into-the-pit-mill-closure)."
   },
   {
     "id": "into-the-pit-kids-ghostbusters",
