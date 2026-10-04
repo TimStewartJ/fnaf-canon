@@ -6,7 +6,7 @@ import { theory, theoryById, theoryIntro } from "../../data/store";
 import { Icon, Missing, Page, chapterPath, count, useModalDialog, useSheetPull, smartQuotes } from "../../components/ui";
 import { ChapterView, type ChapterContext } from "./ChapterView";
 import { ChapterNav } from "./Contents";
-import { type SectionHead, chapterHeads, chapterNumber, neighbours, ordered, pad2, partGroups, partOfChapter, saveReadingPlace, useReadingProgress } from "./model";
+import { type SectionHead, chapterHeads, chapterNumber, closingHeads, neighbours, ordered, pad2, partGroups, partOfChapter, saveReadingPlace, useReadingProgress } from "./model";
 import "./theory.css";
 
 /** A thin bar showing how far down the page the reader is. */
@@ -121,7 +121,9 @@ function ChapterScreen({ s }: { s: TheorySection }) {
   useNotedPlace(s.id);
   const onEnd = useCallback(() => markRead(s.id), [markRead, s.id]);
   const heads = useMemo(() => chapterHeads(s), [s]);
-  const section = useCurrentSection(useMemo(() => heads.map((h) => h.id), [heads]));
+  // The chapter's contents: its own headings, then the parts it closes with.
+  const parts = useMemo(() => [...heads, ...closingHeads(s)], [heads, s]);
+  const section = useCurrentSection(useMemo(() => parts.map((h) => h.id), [parts]));
   // The rail scrolls on its own when the window is short. It is moved (not the page) so that the
   // chapter being read is in it.
   const rail = useRef<HTMLElement | null>(null);
@@ -158,10 +160,10 @@ function ChapterScreen({ s }: { s: TheorySection }) {
         <aside className="chapter-rail" ref={rail}>
           <Link to="/theory" className="chapter-rail__home"><Icon icon={ArrowLeft} /> {smartQuotes(theoryIntro.title)}</Link>
           <p className="chapter-rail__progress" aria-live="off">{count([...read].filter((id) => theoryById.has(id)).length)} of {count(theory.length)} chapters read</p>
-          <nav aria-label="Chapters"><ChapterNav groups={partGroups} numberOf={chapterNumber} current={s.id} read={read} sections={heads} section={section} /></nav>
+          <nav aria-label="Chapters"><ChapterNav groups={partGroups} numberOf={chapterNumber} current={s.id} read={read} sections={parts} section={section} /></nav>
         </aside>
       </div>
-      {sheet && <ContentsSheet current={s.id} read={read} onClose={() => setSheet(false)} sections={heads} section={section} />}
+      {sheet && <ContentsSheet current={s.id} read={read} onClose={() => setSheet(false)} sections={parts} section={section} />}
     </Page>
   );
 }

@@ -166,10 +166,10 @@ const CALLOUT: Record<CalloutTone, { icon: LucideIcon; label: string }> = {
  * A boxed aside. Tones: key (the point to remember), note (an aside), tension (evidence that pushes
  * back), open (unresolved). Each tone has its own icon and label as well as its colour.
  */
-export function Callout({ tone = "note", title, children, className }: { tone?: CalloutTone; title?: ReactNode; children: ReactNode; className?: string }) {
+export function Callout({ tone = "note", title, children, className, id }: { tone?: CalloutTone; title?: ReactNode; children: ReactNode; className?: string; id?: string }) {
   const c = CALLOUT[tone];
   return (
-    <aside className={`callout${className ? ` ${className}` : ""}`} data-tone={tone}>
+    <aside className={`callout${className ? ` ${className}` : ""}`} data-tone={tone} id={id}>
       <p className="callout__label"><Icon icon={c.icon} /> {typeset(title ?? c.label)}</p>
       <div className="callout__body">{children}</div>
     </aside>

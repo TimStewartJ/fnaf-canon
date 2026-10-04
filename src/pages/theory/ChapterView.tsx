@@ -6,7 +6,7 @@ import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
 import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
-import { type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
+import { CLOSING, type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
 /** Everything a chapter needs to know about its surroundings. The fixture route supplies its own. */
 export interface ChapterContext {
@@ -93,7 +93,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         <Blocks blocks={s.body} heads={sections} />
 
         {(counter.length > 0 || s.tension) && (
-          <section className="pushback" aria-labelledby={`${uid}-pushback`}>
+          <section className="pushback" id={CLOSING.pushback} aria-labelledby={`${uid}-pushback`}>
             <h2 id={`${uid}-pushback`}><Icon icon={TriangleAlert} className="pushback__icon" /> What pushes back</h2>
             {counter.length > 0 && (
               <>
@@ -113,7 +113,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         {s.changesIf && (
-          <Callout tone="open" title="What would change this" className="chapter-changes">
+          <Callout tone="open" title="What would change this" className="chapter-changes" id={CLOSING.changes}>
             <p><RichText text={s.changesIf} /></p>
           </Callout>
         )}
@@ -129,7 +129,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         {seeAlso.length > 0 && (
-          <section className="see-also" aria-labelledby={`${uid}-seealso`}>
+          <section className="see-also" id={CLOSING.alongside} aria-labelledby={`${uid}-seealso`}>
             <h2 id={`${uid}-seealso`} className="label">Read alongside</h2>
             <ul className="see-also__list">
               {seeAlso.map((c) => (
@@ -146,7 +146,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         <div className="chapter-end">
-          <Collapsible print id="sources" summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
+          <Collapsible print id={CLOSING.sources} summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (

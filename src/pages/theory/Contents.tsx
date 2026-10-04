@@ -88,8 +88,9 @@ export function ChapterNav({ groups, numberOf, current, read, onNavigate, pathOf
                       </Link>
                       {s.id === current && sections.length > 1 && (
                         <ol className="chapter-nav-sections" aria-label="In this chapter">
-                          {sections.map((h) => (
-                            <li key={h.id}>
+                          {sections.map((h, i) => (
+                            // The parts every chapter closes with stand a little apart from its own headings.
+                            <li key={h.id} className={h.closing && i > 0 && !sections[i - 1].closing ? "chapter-nav-sections__closing" : undefined}>
                               <Link to={`${pathOf(s.id)}#${h.id}`} className="chapter-nav-section" aria-current={h.id === section ? "location" : undefined} onClick={onNavigate}>{smartQuotes(h.text)}</Link>
                             </li>
                           ))}

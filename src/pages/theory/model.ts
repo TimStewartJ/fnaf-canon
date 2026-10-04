@@ -6,6 +6,7 @@
  */
 import type { TheoryBlock, TheorySection } from "../../data/schema";
 import { partGroups, readingOrder, type PartGroup } from "../../components/chapterOrder";
+import { evidenceById, theoryById } from "../../data/store";
 import { blockEvidenceIds, blockTexts, citationsInText } from "../../data/theoryText";
 import { excerpt, plainText } from "../../components/richTextPlain";
 
@@ -54,7 +55,25 @@ export function chapterCitations(s: TheorySection): string[] {
 const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
 /** A heading inside a chapter: its words, and the anchor it can be linked by. */
-export interface SectionHead { id: string; text: string }
+export interface SectionHead { id: string; text: string; /** One of the parts every chapter closes with, not a heading of its own. */ closing?: boolean }
+
+/** The anchors of the parts a chapter closes with. */
+export const CLOSING = { pushback: "pushback", changes: "changes", alongside: "read-alongside", sources: "sources" } as const;
+
+/**
+ * The parts a chapter closes with, after its own sections: what pushes back, what would change
+ * it, what to read alongside, and its sources; each only where the chapter has it. The chapter's
+ * contents list them after its headings, so the list goes on saying where the reader is to the
+ * foot of the page (it used to mark the last section of the argument all the way down).
+ */
+export function closingHeads(s: TheorySection): SectionHead[] {
+  const out: SectionHead[] = [];
+  if ((s.counterEvidence ?? []).some((id) => evidenceById.has(id)) || s.tension) out.push({ id: CLOSING.pushback, text: "What pushes back", closing: true });
+  if (s.changesIf) out.push({ id: CLOSING.changes, text: "What would change this", closing: true });
+  if ((s.seeAlso ?? []).some((id) => theoryById.has(id))) out.push({ id: CLOSING.alongside, text: "Read alongside", closing: true });
+  out.push({ id: CLOSING.sources, text: "Sources", closing: true });
+  return out;
+}
 
 /**
  * The headings of a chapter, in order, each with an anchor that is unique on the page

@@ -299,6 +299,7 @@
 /* The sections of the chapter being read, hung under it: the reader's place, and the way to another part. */
 .chapter-nav-sections { list-style: none; display: grid; gap: 1px; margin: 0.2rem 0 0.5rem calc(1.9rem + var(--sp-2)); padding: 0; }
 .chapter-nav-sections > li { margin: 0; }
+.chapter-nav-sections > .chapter-nav-sections__closing { margin-top: 0.4rem; }
 .chapter-nav-section { display: block; padding: 0.3rem var(--sp-2) 0.3rem var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-xs); line-height: 1.35; color: var(--c-text-3); border-left: 1px solid var(--c-line-strong); text-decoration: none; }
 .chapter-nav-section:hover { color: var(--c-text); }
 .chapter-nav-section[aria-current] { color: var(--c-text); border-left-color: var(--c-accent); box-shadow: inset 1px 0 0 var(--c-accent); }
