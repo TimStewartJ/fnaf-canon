@@ -31,7 +31,7 @@ export function ChapterContents({ groups, numberOf, read, pathOf = chapterPath, 
                     <span className="contents-item__n">{pad2(numberOf(s.id))}</span>
                     <span className="contents-item__body">
                       <span className="contents-item__title">{smartQuotes(s.title)}</span>
-                      {q && <span className="contents-item__q">{q}</span>}
+                      {q && <span className="contents-item__q">{smartQuotes(q)}</span>}
                       {/* Without the answers, a chapter with no question of its own still says what it is about. */}
                       {gist.text && (answers || !q) && <span className={`contents-item__a${gist.derived ? " is-derived" : ""}`}>{smartQuotes(gist.text)}</span>}
                       <span className="contents-item__meta">

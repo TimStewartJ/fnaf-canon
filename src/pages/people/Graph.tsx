@@ -236,7 +236,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
             role="button"
             tabIndex={n.id === tabStop ? 0 : -1}
             aria-pressed={focus === n.id}
-            aria-label={`${entityName(n.id, true)}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
+            aria-label={`${smartQuotes(entityName(n.id, true))}: ${plural(ties, "tie")}. ${GROUP_LABEL[n.group] ?? ""}`}
             onPointerDown={(e) => onDown(e, n.id)}
             onPointerMove={onMove}
             onPointerUp={(e) => onUp(e, n.id)}
@@ -249,7 +249,7 @@ function WebPicture({ web, focus, near, selected, onFocus, onSelect, avail, room
             onBlur={() => setHot((h) => (h === n.id ? null : h))}
             onKeyDown={(e) => onKey(e, n.id)}
           >
-            <title>{`${entityName(n.id, true)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map((id) => entityName(id)).join(", ")}` : ""}`}</title>
+            <title>{smartQuotes(`${entityName(n.id, true)}: ${plural(ties, "tie")}${n.folded.length ? `. With ${n.folded.map((id) => entityName(id)).join(", ")}` : ""}`)}</title>
             <circle className="graph-node__hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, reach)} />
             <circle className="graph-node__disc" cx={p.x} cy={p.y} r={p.r} />
             {l && label(n.id, l)}
@@ -301,7 +301,7 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
       lead={<>
         Showing {applied}.
         {unified && <> A tie that reaches a person through a folded record counts as no firmer than the fold.</>}
-        {focus && <> The focus is on {entityName(focus)}, so the list holds them and everyone they are tied to.</>}
+        {focus && <> The focus is on {smartQuotes(entityName(focus))}, so the list holds them and everyone they are tied to.</>}
         {web.untied > 0 && <> {plural(web.untied, "person", "people")} with a profile {web.untied === 1 ? "has" : "have"} no tie under these settings and {web.untied === 1 ? "is" : "are"} left out; the <Link to="/people">people index</Link> lists everyone.</>}
       </>}
     >
@@ -376,7 +376,7 @@ export default function Graph() {
           <span className="label">Focus on</span>
           <select value={focus} onChange={(e) => url.write({ focus: e.target.value || null, tie: null })}>
             <option value="">Everyone</option>
-            {sorted.map((n) => <option key={n.id} value={n.id}>{entityName(n.id, true)}</option>)}
+            {sorted.map((n) => <option key={n.id} value={n.id}>{smartQuotes(entityName(n.id, true))}</option>)}
           </select>
         </label>
         <Toggle on={unified} onChange={() => url.write((now) => ({ unified: now.get("unified") === "0" ? null : "0", tie: null }))}>Unified people</Toggle>
