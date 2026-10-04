@@ -1334,7 +1334,9 @@ such a field inside a `<p>` of your own.
 - **The sentence stays in view.** At a desk the side drawer lies over the right of a wide text column. While it
   is open, `.site-main` steps left (`--drawer-shift`, as margins: nothing inside is laid out again) by what it
   takes for the block the marked number stands in to be clear of the drawer, and no further than that block's
-  own left edge allows. Closing puts the page back. A sheet on a phone moves nothing.
+  own left edge allows. Closing puts the page back. A sheet on a phone moves nothing. What the window's edge
+  would cut while the page stands aside (a chapter's rail) is hidden until it is back: give a column of your
+  own at the left of a page the same rule (`:root[data-drawer-shift] .your-rail { visibility: hidden; }`).
 - **One wording.** A numbered source is "Source 8 of 24" whether it is opened from its number in the text or
   from the chapter's list of sources (`EvidenceList of="" noun="Source"`).
 - **A stretch of a longer list says so** (`DrawerSpan`, the fifth argument of `drawer.open`, the `whole` prop of
@@ -1354,7 +1356,9 @@ such a field inside a `<p>` of your own.
   list of sources says which numbers have no mark and what they stand behind (`unmarkedSources`).
 - **On a phone "What pushes back" shows three records and folds the rest** when there are more than four
   ("10 more records push back"), so the model's reply is within a screen or so of the heading. The note above
-  the list still counts all of them.
+  the list still counts all of them. The folded rows stay in the page and the stylesheet hides them
+  (`.pushback__list[data-folded]`, on a screen only), so a printout has the whole list: fold with a rule a
+  `@media print` block can undo, not by leaving rows out.
 - **In print** the measure is the page (`--measure` and `--measure-wide` are set to 100% in `print.css`) and the
   closed "Further evidence filed here" line is left out. A section that cannot be opened on paper is either
   opened for print (`<Collapsible print>`) or not printed.
