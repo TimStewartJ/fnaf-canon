@@ -129,7 +129,7 @@ export const places: Place[] = [
   },
   {
     id: "fazbear-orientation-program", name: "The Fazbear Orientation Program", years: "most likely between Gregory's night and RUIN (seen through a mask)",
-    summary: "The staff training program of Help Wanted 2 [[hw2-orientation-program-intro]], seen through a mask. With the mask off, its bright hub is a dark, derelict room [[hw2-remove-mask-real-world]], which the model reads, less surely, as the buried pizzeria [[hw2-real-hub-pit-pizzeria]]. Its levels are the company's staging; the gift on its stage and, by a fan wiki's summaries of the ending, the recharge station inside it are not [[hw2-faz-force-ending]].",
+    summary: "The staff training program of Help Wanted 2 [[hw2-orientation-program-intro]], seen through a mask. With the mask off, its bright hub is a dark, derelict room [[hw2-remove-mask-real-world]], which the model reads, less surely, as the buried pizzeria [[hw2-real-hub-pit-pizzeria]]. Its levels are the company's staging; the gift on its stage and the recharge station inside it are not [[hw2-faz-force-ending]].",
     evidence: ["hw2-orientation-program-intro", "hw2-remove-mask-real-world", "hw2-real-hub-pit-pizzeria", "hw2-faz-force-ending"],
     image: "hw2-hub-real-world.jpg",
   },

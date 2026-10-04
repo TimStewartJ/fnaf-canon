@@ -6,6 +6,15 @@
 > work was merged, after this was written: the people group `emily` is `cassette`, the chapter id `partners`
 > is `hen-and-wa`, and the free tag `toysnhk` is `one-you-should-not-have-killed`. Record ids were not changed.
 > Where a record as it now stands is more careful than a ruling's description of it, the record governs.
+>
+> **After the pass closed (3 October 2026).** Records added from recordings of play settle some things this
+> document leaves open, and the theory's text follows the records. R26: "Arnold" and "F10-N4" are now quoted;
+> Helpi's lower-case "the entity" is the game's own word (first tier); "Shadow Bonnie" is in Scott's guide to
+> Ultimate Custom Night (second tier); the robot's label on screen is "Maskbot". R19: Security Breach's cast
+> list was read from its credits roll and agrees with the transcription, so it no longer takes "(a fan wiki's
+> account)". R31: no text of FNaF3 says whose Fazbear's Fright is beyond "Local amusement park" and "the
+> owners", so "not the company's" is now marked "most likely". R19 (4): the ending below ground shows the place
+> burning and coming down as the two run out, and nothing from outside or afterwards. See `open-checks.md`.
 
 
 Adjudicator's rulings for the rebuilt theory. Written 2 October 2026, from the six analyst memos

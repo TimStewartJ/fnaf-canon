@@ -25,6 +25,7 @@ In the order the work ran:
 | `final-1.md` to `final-6.md` | Each writer's account of the final pass on those two memos, and of the last readability round. |
 | `verify-1.md` to `verify-4.md` (and `-1b` to `-4b`) | The last independent verification of the changed text against the records, and its short second round after the readability changes. |
 | `reader2-memo.md` | The second reader's memo: a verdict on the finished text and 26 cuts, moves and headings, all applied. |
+| `ev-gaps.md`, `ev-checks.md` | The last evidence work: eighteen records that the open checks asked for, and then those checks themselves, set against recordings of play. Each says what was read on screen, where in which recording, and what could not be found. |
 | `ux-review-desktop.md`, `ux-review-mobile.md` | Two independent reviews of the new interface, at a desk with a keyboard and on a phone. |
 
 What is still unverified, and what a future pass should do first, is in `../open-checks.md`.
