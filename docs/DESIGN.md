@@ -695,7 +695,11 @@ cannot start on this host (system libraries are missing, and installing them is 
 that nobody asked for), so Safari, which is what an iPhone uses, is untested. The parts most likely to differ
 there: the citation and date popovers (native popover API, Safari 17 or later; older browsers get no preview and
 the citation still opens the drawer), scroll locking behind the drawer and sheets, focus returning to a link
-after the drawer closes (Safari does not focus links on click), and `100dvh` sheets under the address bar. axe
+after the drawer closes (Safari does not focus links on click), and `100dvh` sheets under the address bar. The
+crawl can run in another engine: `--browser firefox` (after `npx playwright install firefox`) or `--browser
+webkit` where WebKit can start. The finished site was crawled in Firefox at three widths with no error, no
+sideways overflow and no axe violation; a 768px window there shows the evidence rows in two columns where
+Chromium, whose scrollbar takes 15px, still stacks them, and both are meant. axe
 finds only part of what makes a page accessible; the keyboard and screen-reader behaviour of your own widgets is
 yours to check by hand.
 
