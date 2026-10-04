@@ -288,7 +288,7 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
  * The same web in words: each person with their ties as recorded, following the filters above.
  * Memoised, because it is long and picking a line in the picture changes nothing in it.
  */
-const WebList = memo(function WebList({ web, focus, near, applied, unified, set }: { web: Web; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: Address["write"] }) {
+const WebList = memo(function WebList({ web, full, focus, near, applied, unified, set }: { web: Web; full: Web | null; focus: string; near: ReadonlySet<string> | null; applied: string; unified: boolean; set: Address["write"] }) {
   const sorted = useMemo(() => [...web.nodes].sort(byName), [web]);
   const listed = focus ? [web.byId.get(focus)!, ...sorted.filter((n) => n.id !== focus && near?.has(n.id))] : sorted;
   // On a phone a name and its group do not fit side by side; the swatch still gives the group.
@@ -300,6 +300,8 @@ const WebList = memo(function WebList({ web, focus, near, applied, unified, set 
       aside={`${plural(listed.length, "person", "people")}${focus ? "" : `, ${plural(web.relCount, "tie")}`}`}
       lead={<>
         Showing {applied}.
+        {/* What the two numbers above count, against the count with nothing folded (the home page's). */}
+        {full && full.relCount > web.relCount && <> Counted with every record on its own there are {plural(full.nodes.length, "person", "people")} and {plural(full.relCount, "tie")}: {count(full.relCount - web.relCount)} of those ties join two records that the model reads as one person, and folding leaves {count(web.relCount)}.</>}
         {unified && <> A tie that reaches a person through a folded record counts as no firmer than the fold.</>}
         {focus && <> The focus is on {smartQuotes(entityName(focus))}, so the list holds them and everyone they are tied to.</>}
         {web.untied > 0 && <> {plural(web.untied, "person", "people")} with a profile {web.untied === 1 ? "has" : "have"} no tie under these settings and {web.untied === 1 ? "is" : "are"} left out; the <Link to="/people">people index</Link> lists everyone.</>}
@@ -341,6 +343,8 @@ export default function Graph() {
   const support = useMemo(() => supportOf(supportParam), [supportParam]);
   const unified = url.get("unified") !== "0";
   const web = useMemo(() => buildWeb(new Set(support), unified), [support, unified]);
+  // The same ties with nothing folded, for the line that says what the folded web's numbers leave out.
+  const full = useMemo(() => (unified ? buildWeb(new Set(support), false) : null), [support, unified]);
   const finger = useMediaQuery("(pointer: coarse)");
 
   // ?focus= takes any record: one that is folded into a person focuses that person.
@@ -416,7 +420,7 @@ export default function Graph() {
         </>
       )}
 
-      <WebList web={web} focus={focus} near={near} applied={applied} unified={unified} set={url.write} />
+      <WebList web={web} full={full} focus={focus} near={near} applied={applied} unified={unified} set={url.write} />
     </Page>
   );
 }
