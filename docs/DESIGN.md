@@ -11,9 +11,9 @@
 
 Written for the four page agents (clusters A to D) who polished pages after phase 1, and brought up to date at
 the end of the final phase and again after the finishing round. Read sections 1 to 4 before you touch anything,
-then section 18, which lists what the final phase added and changed, section 19 on names, and section 20, which
-lists what the finishing round added (the words for deaths and other fates among them); use the rest as
-reference. Two live references sit beside this file:
+then section 18, which lists what the final phase added and changed, section 19 on names, section 20, which
+lists what the finishing round added (the words for deaths and other fates among them), and section 21 on how
+text from the data is printed; use the rest as reference. Two live references sit beside this file:
 
 - `/#/dev/kit` renders every shared component, the tokens and the type scale.
 - `/#/dev/blocks` renders every theory field and block type from made-up content.
@@ -25,7 +25,7 @@ Contents: 1 Intent · 2 Rules · 3 Files and ownership · 4 Adding page CSS · 5
 primitives · 8 Firmness grammar · 9 Citations and the evidence drawer · 10 Shared components · 11 What the shell
 does for you · 12 Responsive rules · 13 Accessibility rules · 14 Data colours and icons · 15 Checks ·
 16 Known issues by cluster (history) · 17 Decisions and their reasons · 18 What changed in the final phase ·
-19 Names, aliases and ties · 20 What changed in the finishing round
+19 Names, aliases and ties · 20 What changed in the finishing round · 21 How text from the data is printed
 
 ---
 
@@ -1268,3 +1268,134 @@ closed, in both views and both layers, the tallies of each era and the filter su
 separator on any page of the crawl), `t-dates.mjs`, `t-checked.mjs` (all 1,043 notes as the reader words them,
 then the page), `t-rail.mjs`, `t-small.mjs`, `t-quotes.mts` (the changed quote rule over every string of the
 data).
+
+---
+
+## 21. How text from the data is printed
+
+Added by the text pass (branch `ws/ui-text`), which changed nothing but the way a string from the data reaches
+the page. The code is `components/RichText.tsx`, `RecordText.tsx`, `textMarks.ts`, `richTextPlain.ts`,
+`typography.ts` and `labels.ts`; `/dev/kit` has a case for each rule below. The pass's scripted checks are in
+its working folder (`text/tools/`, not in the repository); 21.9 lists them.
+
+### 21.1 The four tags on a weaker kind of record
+
+The text sets one of four fixed phrases, in brackets, beside a statement that rests on a weaker record:
+`(a transcript)`, `(read from an image)`, `(as described)`, `(a fan wiki's account)`.
+
+- **`<RichText>` draws each as a marker** (`<RecordTagMark>`, class `rec-tag`): the words as written, brackets
+  included, in the face, size and colour of their sentence, with the dotted underline that names and inline
+  dates carry. Pointing at it, focusing it or pressing it shows what it means, in the date pill's popover
+  (`usePopover` and `<Pop>`; there is no second popover).
+- **The meanings are `RECORD_TAGS` in `labels.ts`**, after the chapter on the rules (`canon-rules`) and no
+  stronger than it. Change the wording there and nowhere else. A fifth tag is one more entry in that list.
+- **It is a `<span role="button">`, not a `<button>`**: a button is one box that cannot break, and a phrase of
+  twenty characters that cannot break leaves a ragged line on a phone. Its popover holds no links, so focus
+  alone may open it (the rule in section 13 is about popovers with controls inside).
+- Where the exact phrase stands inside a longer bracket, the phrase alone is the marker. The same words
+  outside a bracket are a sentence and are left as text. `plainText()` leaves the tags as the words they are.
+- **A marker in text that is cut off takes no tab stop** (a caption held to two lines): it watches the block
+  it stands in and leaves the tab order while an ancestor with `overflow: hidden` or `clip` hides all of it.
+
+### 21.2 A record's own prose: `<RecordText>` and `recordWords`
+
+A record's `notes` and the `basis` of its date are plain text, and they refer to other records by id: 742 ids
+in the text of 457 records. (A title, a claim, a quote and a place carry none; the validator says so.) **A
+reader never sees an id.** An id stands in such text in one of two ways, and each is printed as what it is.
+
+- **Alone in a bracket after a statement it is a citation** (623 of the 742): "…with the year hidden
+  (fnaf1-paycheck-night5)." The bracket goes, with the space before it, and a numeral stands against the
+  statement, as a citation does everywhere (section 9): it shows the record when pointed at and opens it in
+  the drawer. Several ids in one bracket are one cluster.
+- **As a word of its sentence, or in a bracket with other words, it is the record's title** (119): "see
+  ffps-hry223-label", "(…, a document not confirmed in play)". The title is a link that opens the record
+  (class `rec-ref`); a title over 72 characters is cut at a break between clauses (`shortTitle`) and the whole
+  of it is the link's `title`.
+- **Print these fields, and a claim, with `<RecordText text self={e.id}>`**, never with `smartQuotes()` or
+  `sourceWords()`. `emphasis` keeps the source's own `*asterisks*` as italics (notes); `open="page"` sends a
+  title's link to the record's own page. A record is never cited or linked from its own text.
+- **Numbering.** On a page the numerals are the page's own (`<CiteScope>`), and the drawer says "Source 5 of
+  7". The drawer itself is drawn outside the page, so inside it a record's numerals count the records that
+  record cites, in the order it prints them (`recordCites`), and opening one says "Cited record 2 of 5".
+- **Where nothing can be a link** (a row that is one, a citation's preview, a popover) **use
+  `recordWords(text)`**: a string, with titles for ids in a sentence and a bracket of nothing but ids left
+  out. A date's popover gives its reason this way and lists the records the reason names under "Rests on"
+  (`recordsNamed`).
+- Only the whole id of a known record is taken (`recordRefPieces` in `textMarks.ts`), the longest first.
+  "end-of-night", "11-12-1987" and an id no record has stay as written.
+- **Why numerals and not titles in the bracket.** Twelve real notes were set both ways. A bracket of titles
+  doubles a note's length, runs its titles together, and reads as part of the argument when it is only the
+  reference for it.
+- The reader's setting that hides markers hides these too, and the sentences read whole without them.
+- One thing to know: a numeral in a claim on an exhibit card would take the next free number of its chapter's
+  numbering, which the chapter's source list does not have. No claim carries an id today (the validator forbids
+  it) and no chapter has an `evidence` block.
+
+### 21.3 Quotation marks
+
+`smartQuotes()` reads a straight mark from both its sides. After a letter, a figure or punctuation it closes
+(or is an apostrophe); after a space, an opening bracket or the start of the text it opens, whatever follows:
+`'(no subject)'`, `'?'`, `'$2000'`, `'- Vanessa'`, `'1983'`. Where neither side says (the mark after the face
+in `"Bad news. :("`) a double mark closes the quotation that is open. A single mark before figures is an
+apostrophe only for a year cut to two figures (`'87`, `the '80s`). **Content is still written with straight
+quotes.** If a string comes out wrong, fix the rule if it is a kind of case and the string if it is one case.
+
+### 21.4 A label that ends in a full stop
+
+A chapter is titled "Hen and W.A." and a person is named "W.A.". Where such a link ends a sentence,
+`<RichText>` and `plainText()` print one full stop, the label's own. A comma after the label, or three dots,
+is untouched. Write the sentence with its stop in the data as usual: `See ((hen-and-wa)).`
+
+### 21.5 A beat's date
+
+In the storyline a beat's `when` is a date token (a chip) or plain words. Both are set alike in `.beat__when`:
+the mono face at `--fs-xs`, mixed case. A chip is a `<button>`, which does not inherit `text-transform`, so
+capitals on the parent reach the plain words only: do not put them back. Plain words are a chip with nothing
+to open: no mark, no underline, no pointer, no tab stop.
+
+### 21.6 A date printed month first
+
+"11-12-1987", as the games' cheques print it, is 12 November to its printer and 11 December to half its
+readers. **The figures stay as the source prints them, and the day is said in words beside them**: "11-12-1987
+is 12 November 1987: the month is written first."
+
+- `monthFirstNote(text, except)` in `typography.ts` writes the sentence, or `""`. Dates of one month and year
+  share their ending ("11-12-1987 and 11-13-1987 are 12 and 13 November 1987"); a blanked year is said
+  ("11-12-xx is 12 November (no year is printed)"); figures that name no day of a month are left alone. Only
+  the hyphen form is read: the dates written with strokes (`9/07/79`) are argued in the text.
+- **`<DatePill>` says it in its popover**, under the label, and again after the reason for any such date that
+  only the reason has.
+- **A record's "In-universe time" says it on the page** with `<DateInWords text className>`: under the pill
+  for the label, and after the reason (`except={label}`, so that a date is not said twice) for the 39 records
+  whose reason quotes the cheques. The record's page and the drawer both do; 45 records get a line.
+- `keepFigures(text)` keeps a date in figures on one line in these short lines: a browser may end a line
+  after a hyphen, and "11-" over "13-1987" has to be read twice.
+
+### 21.7 A large quotation that begins inside its sentence
+
+Four of the chapters' 77 large quotations begin with a small letter: each was cut from the middle of a
+sentence, and set large it reads as a sentence that has lost its capital. `pulledWords(text)` is
+`sourceWords` with an ellipsis before such a quotation, inside a quotation mark that opens it. One that begins
+with a capital, a figure or dots is left alone, and no ending is touched: the source's last word is the
+source's. It is for `PullQuote` in `pages/theory/blocks.tsx`, the one place a large quotation is printed; do
+not use it for a record's quote on its own page, where text that is small by nature ("it's me") would be
+marked as cut.
+
+### 21.8 The comma in a group of citation numbers
+
+In a group such as 24, 28, 11 the comma belongs to the number before it and the air follows it.
+`.cites__sep` is moved by its position (`position: relative` and a negative `inset-inline-start`), not by its
+margins, so a line is laid out exactly as it would be without the shift: no number moves, no link's box
+changes, and no paragraph breaks its lines anew. It takes no pointer events, so a tap on the comma reaches
+the number whose padding lies under it. **Do not close the gap with margins**: on a phone the strip in which a
+tap reaches each number depends on the distance between the numbers.
+
+### 21.9 Checks
+
+In the working folder, each at 390 and 1440 on a production build: `t-tags`, `t-ids` (numerals and titles on
+the record's page, in the drawer, on a card and a row, in the preview and the date's popover), `t-quotes`,
+`t-stops`, `t-when`, `t-dates`, `t-cites` (the comma's distance, every number's position and box against the
+same page without the shift, what a tap lands on), `t-pulled`, `t-axe-open` (axe on the open states the crawl
+does not reach). Over the whole of the data: `check-ids.ts`, `check-quotes.mts`, `check-dates.mts`,
+`check-pulled.mts`. `count-rawids.mjs` opens every record's page, and every record in the drawer, and looks
+for the id of any record printed as text: none.
