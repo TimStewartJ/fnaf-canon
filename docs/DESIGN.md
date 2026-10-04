@@ -1107,7 +1107,8 @@ passes while the page stepped to is being drawn.
 
 A short round after the final phase: seven places where a page did not yet say what the data says, one
 performance item, and this handbook's move into the repository. This section is the reference for what it
-added. Sections 1 to 19 stand as they were written.
+added. Sections 1 to 19 stand as they were written. The counts it quotes (of records, images, entries) are
+those of the day it was written; the data has grown since.
 
 ### 20.1 Deaths and other fates (`components/labels.ts`, `components/Outcome.tsx`)
 
@@ -1166,9 +1167,10 @@ New shared class roots: `outcome` (with `data-outcome`) and `fate-tag`.
 ### 20.2 Small copies of the images (`scripts/thumbs.py`, `components/Figure.tsx`, `components/links.ts`)
 
 The gallery, the cards and the lists of people and places used to load each image whole (20.7 MB for 170
-files). `python3 scripts/thumbs.py` writes a WebP copy at most 560px wide into `public/thumb/` for every image
-that is worth one (160 of them, 2.7 MB); the ten small pixel-art images get none and are served as they are,
-because they are light already and a resampled copy would spoil their crisp edges. The script records a hash of
+files when this was written). `python3 scripts/thumbs.py` writes a WebP copy at most 560px wide into
+`public/thumb/` for every image that is worth one (160 of the 170, 2.7 MB); the small pixel-art images (ten of
+them then) get none and are served as they are, because they are light already and a resampled copy would spoil
+their crisp edges. The script records a hash of
 every image it has looked at in `scripts/thumbs-manifest.json`, and the validator checks it: a copy whose image
 has since been replaced, a copy with no image, or a missing copy is an error; an image the script has not yet
 looked at is a warning. **Run the script after adding or replacing an image**, and commit what it writes.
