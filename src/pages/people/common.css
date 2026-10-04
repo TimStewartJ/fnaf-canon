@@ -108,8 +108,10 @@ a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-stro
 
 /* ── Entity chips with counts, and the link to the evidence locker ─ */
 .ppl-chips { --gap: var(--sp-2) var(--sp-3); }
-.ppl-chips__item { display: inline-flex; align-items: baseline; gap: 0.35rem; }
-.ppl-chips__n { font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); }
+.ppl-chips__item { display: inline-flex; align-items: baseline; gap: 0.35rem; max-width: 100%; }
+.ppl-chips__item > .entity { min-width: 0; }
+/* The count keeps its width beside a name that fills the line: the name wraps, the number never does ("23", not "2 / 3"). */
+.ppl-chips__n { flex: none; font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-3); white-space: nowrap; overflow-wrap: normal; }
 .ppl-locker { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); }
 .ppl-locker a { display: inline-flex; align-items: center; gap: 0.35em; }
 
