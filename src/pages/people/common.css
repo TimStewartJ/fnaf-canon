@@ -41,8 +41,9 @@
   .ppl-tie__ev .src-list { justify-content: flex-end; }
 }
 
-/* ── Event and death rows ──────────────────────────────────────────
- * date | what happened | how firm. On a phone the date sits as a small label over the title. */
+/* ── Event rows, and rows for deaths and other fates ───────────────
+ * date | what happened | how firm. On a phone the date sits as a small label over the title.
+ * A death or other fate says which it is on a line of its own over its title (the shared .fate-tag). */
 .ppl-events { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line-strong); }
 .ppl-event { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-3); align-items: baseline; margin: 0; padding: var(--sp-2) 0 calc(var(--sp-2) + 0.1rem); border-bottom: 1px solid var(--c-line); }
 .ppl-event__what { min-width: 0; }
@@ -55,7 +56,7 @@ a.ppl-event__title:hover, .ppl-event__title a:hover { color: var(--c-accent-stro
   a.ppl-event__title, .ppl-event__title a, .ppl-sec__lead a { position: relative; }
   a.ppl-event__title::after, .ppl-event__title a::after, .ppl-sec__lead a::after { content: ""; position: absolute; inset: calc(50% - max(50%, 1.25rem)) 0; }
 }
-.ppl-event__cause { color: var(--c-tension); }
+.ppl-event__fate { display: flex; margin-bottom: 0.15rem; }
 .ppl-event__status { font-size: var(--fs-sm); }
 @media (min-width: 47.5em) {
   .ppl-event { grid-template-columns: 13.5rem minmax(0, 1fr) auto; }

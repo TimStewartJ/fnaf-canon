@@ -15,7 +15,7 @@ import { IdentityTree } from "./IdentityTree";
 import { beingOf, chainTo, evidenceOf, isInsideBeing, linkCounts, subtree, type Being, type BeingNode } from "./identity";
 import { Name } from "./Names";
 import { Portrait } from "./Portrait";
-import { DeathRows, EventRows } from "./Story";
+import { EventRows, FateRows } from "./Story";
 import { OwnTies } from "./Ties";
 import { STATUSES, TIE_FAMILIES, plural, tieSaid, tieWords } from "./ties";
 import "./common.css";
@@ -99,8 +99,10 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
         .sort((a, b) => TIE_FAMILIES.indexOf(tieWords(a.r.kind).family) - TIE_FAMILIES.indexOf(tieWords(b.r.kind).family) || a.i - b.i)
         .map((x) => x.r),
       events: timeline.filter((t) => t.people?.some((x) => inScope.has(x))).sort((a, b) => a.year - b.year),
-      died: deaths.filter((d) => d.victims.some((x) => inScope.has(x))).sort((a, b) => a.year - b.year),
-      killed: deaths.filter((d) => d.by.some((x) => inScope.has(x))).sort((a, b) => a.year - b.year),
+      // The entries of data/deaths.ts that name this figure as the victim, and those put down to it.
+      // They are deaths and other fates (a survival, a fate not shown): each row prints which.
+      fate: deaths.filter((d) => d.victims.some((x) => inScope.has(x))).sort((a, b) => a.year - b.year),
+      answersFor: deaths.filter((d) => d.by.some((x) => inScope.has(x))).sort((a, b) => a.year - b.year),
       chapters: chaptersAbout(ids, recordIds),
       places: [...seenAt].sort((a, b) => b[1] - a[1]),
       groups: scope.map((n) => ({ node: n, records: evidenceForPerson(n.id) })).filter((g) => g.records.length > 0),
@@ -110,7 +112,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
   const descriptor = p.nameStatus === "descriptor";
   const others = being.nodes.length - 1;
   const counts = linkCounts(being);
-  const storyCount = view.events.length + view.died.length + view.killed.length;
+  const storyCount = view.events.length + view.fate.length + view.answersFor.length;
   const it = p.group === "entity" ? "it" : "them";
   const toc: [string, string, number][] = [
     ["identity", "Identity", others],
@@ -228,15 +230,16 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
       )}
 
       {storyCount > 0 && (
-        <DossierSection id="story" title="In the story" count={plural(storyCount, "entry", "entries")} lead="Events and deaths on the timeline that involve this figure. Each opens on the timeline.">
+        <DossierSection id="story" title="In the story" count={plural(storyCount, "entry", "entries")} lead="Events, deaths and other fates on the timeline that involve this figure. Each opens on the timeline.">
           {view.events.length > 0 && (
             <div className="ppl-block">
-              {(view.died.length > 0 || view.killed.length > 0) && <GroupLabel count={view.events.length}>Events</GroupLabel>}
+              {(view.fate.length > 0 || view.answersFor.length > 0) && <GroupLabel count={view.events.length}>Events</GroupLabel>}
               <Capped items={view.events} cap={cap("events")} noun="events">{(shown) => <EventRows events={shown} />}</Capped>
             </div>
           )}
-          {view.died.length > 0 && <div className="ppl-block"><GroupLabel count={view.died.length}>Died</GroupLabel><DeathRows deaths={view.died} /></div>}
-          {view.killed.length > 0 && <div className="ppl-block"><GroupLabel count={view.killed.length}>Responsible for</GroupLabel><DeathRows deaths={view.killed} /></div>}
+          {/* "Fate", not "Died": the entries under it may be a survival or a fate the games do not show, and each says which. */}
+          {view.fate.length > 0 && <div className="ppl-block"><GroupLabel count={view.fate.length}>Fate</GroupLabel><FateRows fates={view.fate} /></div>}
+          {view.answersFor.length > 0 && <div className="ppl-block"><GroupLabel count={view.answersFor.length}>Responsible for</GroupLabel><FateRows fates={view.answersFor} /></div>}
         </DossierSection>
       )}
 

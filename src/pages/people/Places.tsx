@@ -7,14 +7,14 @@ import { LOCATION_KIND, type LocationKind, type LocationSpan } from "../../data/
 import { ERA_DATES, PLACE_DATES } from "../../data/dates";
 import {
   Button, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Missing, Page,
-  PageHeader, RichText, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
+  PageHeader, RichText, countFates, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
 import { Capped, DossierSection, GroupLabel, JumpLinks } from "./Dossier";
 import { EvidenceRows } from "./EvidenceFile";
 import { Portrait } from "./Portrait";
-import { DeathRows, EventRows } from "./Story";
+import { EventRows, FateRows } from "./Story";
 import { plural, sentenceCase } from "./ties";
 import "./common.css";
 import "./places.css";
@@ -157,12 +157,16 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
     return {
       records,
       events: timeline.filter((t) => t.places?.includes(p.id)).sort((a, b) => a.year - b.year),
-      deaths: deaths.filter((d) => d.place === p.id).sort((a, b) => a.year - b.year),
+      // The entries of data/deaths.ts set here: deaths and other fates. Each row prints which it is.
+      fates: deaths.filter((d) => d.place === p.id).sort((a, b) => a.year - b.year),
       people: [...seen].sort((a, b) => b[1] - a[1]),
       chapters: chaptersAbout([p.id], new Set(records.map((e) => e.id))),
     };
   }, [p.id]);
-  const happened = view.events.length + view.deaths.length;
+  const happened = view.events.length + view.fates.length;
+  // The heading over those entries names only what is under it.
+  const tally = countFates(view.fates);
+  const fatesLabel = tally.others === 0 ? "Deaths here" : tally.deaths === 0 ? "Other fates here" : "Deaths and other fates here";
   const from = span?.from ? eraById.get(span.from) : undefined;
   const to = span?.to ? eraById.get(span.to) : undefined;
   const dateKind = DATE_KIND[date?.kind ?? "unknown"] ?? DATE_KIND.unknown;
@@ -216,14 +220,14 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
       />
 
       {happened > 0 && (
-        <DossierSection id="happened" title="What happened here" count={plural(happened, "entry", "entries")} lead="Events and deaths the timeline places here. Each opens on the timeline.">
+        <DossierSection id="happened" title="What happened here" count={plural(happened, "entry", "entries")} lead="Events, deaths and other fates the timeline places here. Each opens on the timeline.">
           {view.events.length > 0 && (
             <div className="ppl-block">
-              {view.deaths.length > 0 && <GroupLabel count={view.events.length}>Events</GroupLabel>}
+              {view.fates.length > 0 && <GroupLabel count={view.events.length}>Events</GroupLabel>}
               <Capped items={view.events} cap={cap("events")} noun="events">{(shown) => <EventRows events={shown} />}</Capped>
             </div>
           )}
-          {view.deaths.length > 0 && <div className="ppl-block"><GroupLabel count={view.deaths.length}>Deaths here</GroupLabel><DeathRows deaths={view.deaths} /></div>}
+          {view.fates.length > 0 && <div className="ppl-block"><GroupLabel count={view.fates.length}>{fatesLabel}</GroupLabel><FateRows fates={view.fates} /></div>}
         </DossierSection>
       )}
 
