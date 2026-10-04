@@ -229,6 +229,9 @@ em .chapter-link, i .chapter-link { font-style: normal; }
   border-radius: var(--r-sm);
   vertical-align: middle;
 }
+/* A tag whose words run to two or three lines keeps its glyph beside the first of them
+   (0.72em is the glyph's height, 1.35em the tag's line). On one line this is the centre. */
+.date--tag .firm-glyph { align-self: flex-start; margin-top: calc((1.35em - 0.72em) / 2); }
 .date--tag:hover, .date--tag[aria-expanded="true"] { border-color: var(--c-accent-line); background: var(--c-accent-soft); }
 .date--compact { font-size: var(--fs-2xs); padding: 0.16em 0.5em 0.14em 0.42em; }
 @media (pointer: coarse) { .date--tag { padding-block: 0.45em; } }

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type FocusEvent } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, ChevronUp, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
 import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, settleHeader, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
@@ -35,6 +35,60 @@ function landing(sp: URLSearchParams): string {
 
 const focusHeading = (section: HTMLElement) => section.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
 
+/** How many lines of an era's summary a phone shows before the reader asks for the rest. */
+const SUMMARY_LINES = 4;
+
+/**
+ * An era's summary. On a phone a long one fills the screen before the era's first entry, so it is
+ * cut to SUMMARY_LINES lines with a button for the rest (the cut itself is in timeline.css, under
+ * the phone width). Whether a summary is long is measured, not guessed from its length, so the
+ * answer follows the screen's width and the reader's text size; one that would lose a line or two
+ * is left whole. The whole text stays in the page, so a screen reader and find-in-page have it all.
+ */
+function EraSummary({ text, name }: { text: string; name: string }) {
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement | null>(null);
+  const id = useId();
+  useLayoutEffect(() => {
+    const el = box.current, p = el?.querySelector<HTMLElement>(".tl-era__sum");
+    if (!el || !p) return;
+    const measure = () => {
+      const line = parseFloat(getComputedStyle(p).lineHeight) || 24;
+      el.toggleAttribute("data-long", p.scrollHeight > line * (SUMMARY_LINES + 1.5));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(p);
+    return () => ro.disconnect();
+  }, [text]);
+  // "Show less" is pressed at the foot of a long summary, whose start may be far above the screen:
+  // once it is short again, the era's heading comes back into view, so the reader is not left in
+  // the entries below with the button gone from under the finger.
+  const shut = useRef(false);
+  useLayoutEffect(() => {
+    if (!shut.current) return;
+    shut.current = false;
+    const head = box.current?.closest<HTMLElement>(".tl-era__head");
+    const pinned = document.querySelector(".tl-erabar")?.getBoundingClientRect().bottom ?? 0;
+    if (!head || head.getBoundingClientRect().top >= pinned) return;
+    settleHeader();
+    head.scrollIntoView({ block: "nearest", behavior: "instant" });
+  }, [open]);
+  // A link in the part that is cut away can still take focus from the keyboard: show it.
+  const reveal = (e: FocusEvent<HTMLDivElement>) => {
+    const p = e.currentTarget.querySelector(".tl-era__sum");
+    if (!open && p && p !== e.target && p.contains(e.target) && e.target.getBoundingClientRect().bottom > p.getBoundingClientRect().bottom + 1) setOpen(true);
+  };
+  return (
+    <div className="tl-era__sumbox" ref={box} data-open={open || undefined} onFocus={reveal}>
+      <p className="tl-era__sum" id={id}><RichText text={text} /></p>
+      <Button variant="quiet" size="sm" className="tl-era__more" iconEnd={open ? ChevronUp : ChevronDown} aria-expanded={open} aria-controls={id} onClick={() => { shut.current = open; setOpen(!open); }}>
+        {open ? "Show less" : "Read the rest"}<span className="sr-only"> of the summary of {smartQuotes(name)}</span>
+      </Button>
+    </div>
+  );
+}
+
 /**
  * One era: where it sits, its name and range, its summary, then its entries in order.
  *  - folded    a long era showing only its first entries (see canFold in model.ts)
@@ -66,7 +120,7 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
           <h2 className="tl-era__title" tabIndex={-1}>{smartQuotes(era.name)}</h2>
           {era.range && <DatePill label={era.range} kind={date?.kind ?? "unknown"} basis={date?.basis} evidence={date?.evidence} />}
         </div>
-        {era.summary && <p className="tl-era__sum"><RichText text={era.summary} /></p>}
+        {era.summary && <EraSummary text={era.summary} name={era.name} />}
       </header>
       {rows.length > 0 ? (
         <ol className={`tl-list${folded ? " is-folded" : ""}`}>
