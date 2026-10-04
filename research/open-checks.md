@@ -92,12 +92,19 @@ is still open, and each entry says what was looked through.
     gift?", which is read from an image). Still not found: Glamrock Freddy's "What if I am not the first
     Glamrock Freddy?" on screen, the comics in RUIN, the earthquake headline legible in play, FNaF1's clipping
     on the mascot costume (a rare random screen, barely looked for), and Into the Pit's secret minigames.
+14. **Where the recharge station under the Pizzaplex stands.** The record of the buried pizzeria
+    (`security-breach-underground-pizza-place`) puts the burnt rabbit's recharge station there "with burner
+    rooms" on the wiki's word, and was not set against a recording. The fight was seen in a wood-panelled
+    office with monitors. The text now says "in a ruined pizzeria below Roxy Raceway" and no more.
+15. **How the fight below ground ends.** The recording shows prompts to push a button and then the cutscene.
+    The text says that the boy "fights" the burnt rabbit, and no longer that he beats it.
 
 **Settled from a recording**
 
 - **The wrecked Bonnie in RUIN** (`ruin-glamrock-bonnie-remains-hidden-room`): seen (RUIN Part 6, 24:40), a
   wrecked blue rabbit animatronic with lit eyes on a dark floor. That the room is hidden and at Bonnie Bowl is
-  still the wiki's.
+  still the wiki's, and the scene prints no name: the text says "a wrecked rabbit animatronic, most likely
+  Bonnie", the model's own step from the band's rabbit that the messages last track at 4:12AM.
 - **Whether Helpi says "the entity":** he does, in lower case, in his text boxes
   (`ruin-helpi-alert-anomalous-entity`, `ruin-helpi-entity-bypassed-signal-jammer`), so the word is the
   game's own (R26).
@@ -140,7 +147,8 @@ is still open, and each entry says what was looked through.
 1. **Scott's guide to Ultimate Custom Night.** Done: five records quote "RXQ aka Shadow Bonnie", "Withered
    Chica", "Withered Bonnie", "JJ", "The Marionette", "Phantom Mangle", "Lefty", "Funtime Foxy", "Rockstar
    Bonnie", "Circus Baby, Nightmare Bonnie, and Nightmare Mangle" and "Scrap Baby", and one lists all 51
-   headings (`scott-ucn-character-guide-…`). "Shadow Bonnie" is now Scott's word (R26, second tier).
+   headings (`scott-ucn-character-guide-…`). "Shadow Bonnie" is now Scott's word (R26, second tier). Not
+   checked: whether Ultimate Custom Night's own roster prints that name, which would move it to the first tier.
 2. **Names that no quote carried.** Done: "Arnold" and "dispatch"
    (`secret-of-the-mimic-opening-call-arnold-dispatch`), "F10-N4"
    (`secret-of-the-mimic-f10-n4-cabinet-lettering`; the subtitles write "F10 N4"), "Glamrock Freddy",
