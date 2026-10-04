@@ -222,7 +222,7 @@ export const chapters: TheorySection[] = [
     confidence: "medium",
     hero: { image: "fnaf2-paycheck-1987.jpg", caption: "FNaF2's Night 5 cheque, dated 11-12-1987: one of the two full dates the first games print [[fnaf2-paycheck-1987]]." },
     body: [
-      "FNaF2's fifth night ends with a cheque made out to {{jeremy-fitzgerald}} and dated 11-12-1987 [[fnaf2-paycheck-1987]]. FNaF1's ends with one made out to {{mike-schmidt}} and dated 11-12-xx [[fnaf1-paycheck-night5]]. The day and the month match, and the first game gives no year. The games print very few dates.",
+      "FNaF2's fifth night ends with a cheque made out to {{jeremy-fitzgerald}} and dated 11-12-1987 [[fnaf2-paycheck-1987]], which the model reads month first, as 12 November. FNaF1's ends with one made out to {{mike-schmidt}} and dated 11-12-xx [[fnaf1-paycheck-night5]]. The day and the month match, and the first game gives no year. The games print very few dates.",
       { kind: "heading", text: "What a player sees or hears" },
       { kind: "table", head: ["Date", "Where", "What it dates"], rows: [
         ["<<1983|printed|fnaf4-fredbear-and-friends-1983|Printed on the title card of a television show in the house.>>", "A television in FNaF4's house", "The show on it"],

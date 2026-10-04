@@ -17,7 +17,7 @@ export const chapters: TheorySection[] = [
     body: [
       "FNaF2 pays its guard at the end of the fifth night, and the cheque carries the firmest date in the story.",
       { kind: "figure", image: "fnaf2-paycheck-1987.jpg", caption: "The Night 5 cheque, dated 11-12-1987.", evidence: "fnaf2-paycheck-1987" },
-      "It is made out to {{jeremy-fitzgerald}} and dated <<11-12-1987|printed|fnaf2-paycheck-1987|The date printed on the Night 5 cheque.>>, with the memo \"Welcome to the family!\" The cheque for the sixth night is dated the next day [[fnaf2-overtime-robots-scrapped]].",
+      "It is made out to {{jeremy-fitzgerald}} and dated <<11-12-1987|printed|fnaf2-paycheck-1987|The date printed on the Night 5 cheque.>> (read month first: 12 November), with the memo \"Welcome to the family!\" The cheque for the sixth night is dated the next day [[fnaf2-overtime-robots-scrapped]].",
       "The restaurant has just opened, and the one before it has been abandoned: \"that old restaurant was kind of left to rot for quite a while\", says {{phone-guy}}, the voice on the guard's phone [[fnaf2-call1-new-location]]. Its new machines are \"tied into some kind of criminal database, so they can detect a predator a mile away\" [[fnaf2-call1-criminal-database]]. And: \"They even let them walk around during the day!\" [[fnaf2-call1-walk-around-during-day]]",
       { kind: "heading", text: "Wrong from the first night" },
       { kind: "table", head: ["When", "What is said or shown"], rows: [
