@@ -12,7 +12,7 @@ import { ArrowDown, ArrowRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } fr
 import type { Source } from "../../data/community";
 import { evidenceById, theoryById } from "../../data/store";
 import {
-  Button, ButtonLink, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, count, imgSize, isPlainClick, longDate, plural, settleHeader, smartQuotes, useAddress,
+  Button, ButtonLink, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RealDate, RichText, chapterNumber, chapterPath, count, imgSize, isPlainClick, plural, settleHeader, smartQuotes, useAddress,
 } from "../../components/ui";
 import { ESSAYS, SOURCES_ID, answerExhibits, answerId, isConfidence, pad2, recordOfImage } from "./essayModel";
 import { RowsContext, useRows, type RowsControl } from "./essayRows";
@@ -152,7 +152,7 @@ export function EssayRows({ control, variant = "ledger", label, children }: { co
  * One row: an optional date beside it, a line of small marks (kicker), the title, an optional
  * one-line gist, and the detail (children). Wrap each row of a long list in a memoised component
  * of its own: opening one row then re-renders the frames of the others and none of their detail.
- *  - when   sits outside the disclosure, so it may hold a control such as a date pill
+ *  - when   sits outside the disclosure, so it may hold a control. A real-world date is a plain <RealDate short>
  *  - node   what marks the row on the spine: a swatch or an icon
  */
 export function EssayRow({ id, when, node, kicker, title, sub, children }: { id?: string; when?: ReactNode; node?: ReactNode; kicker?: ReactNode; title: string; sub?: ReactNode; children: ReactNode }) {
@@ -226,7 +226,7 @@ export function EssayRefs({ items, label = "Outside links", chip }: { items: rea
       <p className="label">{label} <span className="essay-refs__note">· not evidence</span></p>
       <ul className="essay-refs__list">
         {items.map((s, i) => {
-          const text = <>{smartQuotes(s.who)} · <cite>{smartQuotes(s.what)}</cite>{s.date ? <> · <time dateTime={s.date}>{longDate(s.date)}</time></> : null}</>;
+          const text = <>{smartQuotes(s.who)} · <cite>{smartQuotes(s.what)}</cite>{s.date ? <> · <RealDate date={s.date} /></> : null}</>;
           return (
             <li key={i} className="essay-ref">
               {s.url
@@ -280,14 +280,18 @@ export function EssayFigure({ file, evidence, caption, size = "wide", eager }: {
 }
 
 /**
- * The detail of a dated step: the passage, its image as an exhibit beside it on a wide screen, the
- * records it rests on, and the outside links it came from.
+ * The detail of a dated step: the passage, its image as an exhibit beside it on a wide screen, what
+ * its date is the date of (`date` and `dateBasis`, where the data says), the records it rests on,
+ * and the outside links it came from. These are real-world dates (the day of a post or a release):
+ * the row shows one beside it as <RealDate short>, and this line spells it out and says where it
+ * is from. The date pill is not used for them.
  */
-export function EssayEntry({ text, image, evidence, sources, sourceChip }: { text: string; image?: string; evidence: string[]; sources?: readonly Source[]; sourceChip?: string }) {
+export function EssayEntry({ text, image, evidence, sources, sourceChip, date, dateBasis }: { text: string; image?: string; evidence: string[]; sources?: readonly Source[]; sourceChip?: string; date?: string; dateBasis?: string }) {
   return (
     <div className={`essay-entry${image ? " essay-entry--figure" : ""}`}>
       <p className="essay-text"><RichText text={text} /></p>
       {image && <EssayFigure file={image} evidence={recordOfImage(image, evidence)} size="side" />}
+      {date && dateBasis && <p className="essay-dated"><span className="label"><RealDate date={date} /></span> <span className="essay-dated__basis">{smartQuotes(dateBasis)}</span></p>}
       <EssayEvidence ids={evidence} />
       {sources && <EssayRefs items={sources} chip={sourceChip} />}
     </div>

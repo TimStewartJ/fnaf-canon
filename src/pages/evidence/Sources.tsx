@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import type { Evidence } from "../../data/schema";
 import { evidence, gameById, games } from "../../data/store";
 import {
-  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Missing, Page, PageHeader, sourceKindIcon, Section, isRelease, kindLabel, listParam, longDate, smartQuotes, sourcePath,
+  Button, ButtonLink, Empty, FilterChip, GameMark, Icon, Missing, Page, PageHeader, RealDate, sourceKindIcon, Section, isRelease, kindLabel, listParam, smartQuotes, sourcePath,
 } from "../../components/ui";
 import { useAddressState } from "./addressState";
 import { PLACE, PLACES, accounted, count, isPlace, percent, placeOf, records, tally, type Place } from "./coverage";
@@ -83,7 +83,7 @@ export default function Sources() {
                 <h2 className="srcs-item__title"><Link to={sourcePath(g.id)}>{smartQuotes(g.title)}</Link></h2>
                 <p className="srcs-item__meta">
                   <GameMark id={g.id} />
-                  {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
+                  {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <RealDate date={g.released} /></span>}
                   <span><span className="srcs-item__k">By</span> {g.developer}</span>
                   {hasSetIn(g.id, g.settingYearLabel) && <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>}
                 </p>
@@ -138,7 +138,7 @@ export function SourceDetail() {
       <PageHeader crumbs={[{ to: "/sources", label: "Sources" }, { label: g.title }]} title={g.title}>
         <p className="srcs-head__meta">
           <GameMark id={g.id} />
-          {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <time dateTime={g.released}>{longDate(g.released)}</time></span>}
+          {isRelease(g.id) && <span><span className="srcs-item__k">Released</span> <RealDate date={g.released} /></span>}
           <span><span className="srcs-item__k">By</span> {g.developer}</span>
           {hasSetIn(g.id, g.settingYearLabel) && <span><span className="srcs-item__k">Set in</span> <SetIn id={g.id} fallback={g.settingYearLabel} /></span>}
         </p>

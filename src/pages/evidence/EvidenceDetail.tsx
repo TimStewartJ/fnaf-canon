@@ -6,7 +6,7 @@ import { backlinksFor, evidenceById, gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
-  RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
+  RealDate, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
 import { PLACE, beatsCiting, count, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
@@ -161,7 +161,7 @@ export default function EvidenceDetail() {
             </Fact>
             <Fact label="Source">
               <GameMark id={e.game} variant="full" link />
-              {game?.released && isRelease(e.game) && <div className="evx-rec__sub">Released <time dateTime={game.released}>{longDate(game.released)}</time></div>}
+              {game?.released && isRelease(e.game) && <div className="evx-rec__sub">Released <RealDate date={game.released} /></div>}
             </Fact>
             <Fact label="Kind of source">
               <Tag to={`/evidence?game=${encodeURIComponent(e.game)}&kind=${encodeURIComponent(e.kind)}`} title={`Every ${kindLabel(e.kind).toLowerCase()} record from this source`}>
