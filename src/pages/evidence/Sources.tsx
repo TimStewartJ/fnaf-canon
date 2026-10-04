@@ -62,10 +62,10 @@ export default function Sources() {
           <h2 id="h-coverage" className="srcs-overall__title">How much of it the theory accounts for</h2>
           <p className="srcs-overall__lead read">
             {done === all.total
-              ? <>Every one of the {count(all.total)} records from {used} sources is accounted for.</>
-              : <><strong>{count(done)}</strong> of {count(all.total)} records from {used} sources so far, {percent(done, all.total)} percent.</>}
+              ? <>Every one of the {count(all.total)} records from {count(used)} sources is accounted for.</>
+              : <><strong>{count(done)}</strong> of {count(all.total)} records from {count(used)} sources so far, {percent(done, all.total)} percent.</>}
             {" "}A record is accounted for when a chapter cites it, a chapter files it as further evidence, or the theory sets it aside as outside the story and says why.
-            {games.length > used && <> Of the {games.length} sources listed here, {games.length - used} {games.length - used === 1 ? "has" : "have"} no records yet.</>}
+            {games.length > used && <> Of the {count(games.length)} sources listed here, {count(games.length - used)} {games.length - used === 1 ? "has" : "have"} no records yet.</>}
           </p>
         </div>
         <div className="srcs-overall__figure">
@@ -172,7 +172,7 @@ export function SourceDetail() {
         {all.length === 0 ? (
           <Empty title="No records yet">Nothing from this source has been filed in the archive.</Empty>
         ) : shown.length === 0 ? (
-          <Empty title="None in that place" action={<Button onClick={showAll}>Show all {all.length}</Button>}>No record from this source is {use.map((p) => PLACE[p].word.toLowerCase()).join(" or ")}.</Empty>
+          <Empty title="None in that place" action={<Button onClick={showAll}>Show all {count(all.length)}</Button>}>No record from this source is {use.map((p) => PLACE[p].word.toLowerCase()).join(" or ")}.</Empty>
         ) : groups.map(({ kind, items }) => {
           const limit = Math.min(MOST, Math.max(FOLD, open.get(kind) ?? 0));
           // Never fold away just one or two.
@@ -191,10 +191,10 @@ export function SourceDetail() {
               {rest > 0 && (
                 <p className="srcs-kind__more">
                   {full ? (
-                    <ButtonLink size="sm" to={lockerPath({ game: g.id, kind, ...inUse })} iconEnd={ArrowRight}>All {items.length} in the evidence locker</ButtonLink>
+                    <ButtonLink size="sm" to={lockerPath({ game: g.id, kind, ...inUse })} iconEnd={ArrowRight}>All {count(items.length)} in the evidence locker</ButtonLink>
                   ) : (
                     <Button size="sm" onClick={() => showMore(kind, visible.length)}>
-                      {rest <= STEP + 2 ? `Show all ${items.length}` : `Show ${STEP} more`}
+                      {rest <= STEP + 2 ? `Show all ${count(items.length)}` : `Show ${count(STEP)} more`}
                     </Button>
                   )}
                   <span className="srcs-kind__rest">{count(visible.length)} of {count(items.length)} shown</span>

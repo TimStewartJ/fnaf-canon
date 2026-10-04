@@ -5,7 +5,7 @@
 import type { Confidence } from "../../data/schema";
 import { citationsInText } from "../../data/theoryText";
 import { evidenceById } from "../../data/store";
-import { plainText } from "../../components/ui";
+import { plainText, plural } from "../../components/ui";
 
 export const pad2 = (n: number): string => String(n).padStart(2, "0");
 
@@ -28,9 +28,6 @@ export function readingMinutes(texts: readonly string[]): number {
   return Math.max(1, Math.round(words / 230));
 }
 
-/** "1 record", "2 records". */
-export const count = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
-
 /** "a", "a and b", "a, b and c". */
 export function sentenceList(parts: readonly string[]): string {
   if (parts.length < 2) return parts[0] ?? "";
@@ -51,12 +48,12 @@ export function yearSpan(dates: readonly string[]): string {
 /** "9 dated steps, 2015 to 2024": a count with the years it covers, when the dates carry years. */
 export function countOverYears(n: number, one: string, dates: readonly string[], many?: string): string {
   const span = yearSpan(dates);
-  return span ? `${count(n, one, many)}, ${span}` : count(n, one, many);
+  return span ? `${plural(n, one, many)}, ${span}` : plural(n, one, many);
 }
 
 /** Header facts such as "9 dated steps": one for each list that has something in it. */
 export const facts = (...items: [n: number, one: string, many?: string][]): string[] =>
-  items.filter(([n]) => n > 0).map(([n, one, many]) => count(n, one, many));
+  items.filter(([n]) => n > 0).map(([n, one, many]) => plural(n, one, many));
 
 /** True when a free-text confidence is exactly one of the shared scale's values, so it can be drawn as a mark. */
 export const isConfidence = (c: string | undefined): c is Confidence => c === "high" || c === "medium" || c === "low";

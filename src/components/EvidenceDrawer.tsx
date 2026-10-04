@@ -13,7 +13,7 @@ import { Figure } from "./Figure";
 import { Firmness } from "./Firmness";
 import { Callout, Fact, Facts } from "./layout";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
-import { smartQuotes, sourceWords } from "./typography";
+import { count, smartQuotes, sourceWords } from "./typography";
 
 function Record({ e }: { e: Evidence }) {
   const bl = backlinksFor(e.id);
@@ -108,7 +108,7 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       }}
     >
       <header className="drawer__bar sheet-bar" {...pull}>
-        <span className="label">{paged ? `${noun} ${idx + 1} of ${group.length}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
+        <span className="label">{paged ? `${noun} ${count(idx + 1)} of ${count(group.length)}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
         {paged && (
           <span className="drawer__pager">
             <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} onClick={() => go(-1)} />

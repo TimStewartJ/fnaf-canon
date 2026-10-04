@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 import { eras } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
-import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, eraHue, settleHeader, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
+import { Button, DatePill, Empty, Icon, Page, PageHeader, RichText, TabPanel, Tabs, count, eraHue, settleHeader, smartQuotes, useAddress, useMediaQuery } from "../../components/ui";
 import { EraBar, EraRail, type EraEntry } from "./EraIndex";
 import { AppliedSummary, FilterPanel, FilterSheet } from "./Filters";
 import { MarksKey } from "./Key";
@@ -59,7 +59,7 @@ function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: 
       <header className="tl-era__head">
         <p className="tl-era__kicker">
           <span className="tl-era__swatch" aria-hidden />
-          {era.id ? `Era ${g.index + 1} of ${total}` : "No era"}
+          {era.id ? `Era ${g.index + 1} of ${count(total)}` : "No era"}
           {tally && <span className="tl-era__tally">{tally}</span>}
         </p>
         <div className="tl-era__titleline">
@@ -260,7 +260,7 @@ export default function Timeline() {
             onClick={() => setFiltersOpen((o) => !o)}
           >
             <Icon icon={SlidersHorizontal} /> Filters
-            {nApplied > 0 && <span className="tl-bar__count">{nApplied}<span className="sr-only"> applied</span></span>}
+            {nApplied > 0 && <span className="tl-bar__count">{count(nApplied)}<span className="sr-only"> applied</span></span>}
           </button>
         </div>
       </div>

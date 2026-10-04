@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ConfidenceMark, chapterPath, smartQuotes } from "../../components/ui";
+import { ConfidenceMark, chapterPath, count, plural, smartQuotes } from "../../components/ui";
 import type { ChapterHit } from "./chapters";
 
 /** Theory chapters as rows: number, title, the chapter's confidence, and why it is listed. */
@@ -15,8 +15,8 @@ export function ChapterRows({ hits }: { hits: readonly ChapterHit[] }) {
               <span className="ppl-chapter__why">
                 <ConfidenceMark value={h.section.confidence} variant="inline" long />
                 {h.names && <span>Discusses it by name</span>}
-                {h.cited > 0 && <span>Rests on {h.cited} of these records</span>}
-                {h.against > 0 && <span>{h.against} push{h.against === 1 ? "es" : ""} back</span>}
+                {h.cited > 0 && <span>Rests on {count(h.cited)} of these records</span>}
+                {h.against > 0 && <span>{plural(h.against, "pushes", "push")} back</span>}
               </span>
             </span>
           </Link>

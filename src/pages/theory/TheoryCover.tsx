@@ -1,7 +1,7 @@
 import { Link, Navigate } from "react-router-dom";
 import { ArrowDown, ArrowRight, BookOpenText } from "lucide-react";
 import { outsideStory, storyline, theory, theoryById, theoryIntro } from "../../data/store";
-import { ButtonLink, Page, RichText, Segmented, chapterPath, smartQuotes, useAddress, useMediaQuery, useStored } from "../../components/ui";
+import { ButtonLink, Page, RichText, Segmented, chapterPath, count, plural, smartQuotes, useAddress, useMediaQuery, useStored } from "../../components/ui";
 import { ChapterContents } from "./Contents";
 import { HowToRead, OutsideStory } from "./CoverParts";
 import { StoryProgress, Storyline } from "./Storyline";
@@ -29,7 +29,7 @@ export default function TheoryCover() {
         <div className="band__inner">
           <div className="cover-hero__grid">
             <div className="cover-hero__main">
-              <p className="kicker">The theory · {theory.length} chapters in {partGroups.length} parts</p>
+              <p className="kicker">The theory · {plural(theory.length, "chapter")} in {plural(partGroups.length, "part")}</p>
               <h1 className="cover-hero__title">{smartQuotes(theoryIntro.title)}</h1>
               <p className="cover-hero__standfirst">{smartQuotes(theoryIntro.standfirst)}</p>
               <div className="thesis">
@@ -41,11 +41,11 @@ export default function TheoryCover() {
                 {resume
                   ? <ButtonLink to={resume.to} iconEnd={ArrowRight}>Continue: chapter {resume.number}</ButtonLink>
                   : first && <ButtonLink to={chapterPath(first.id)} iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
-                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} answers</ButtonLink>
               </div>
             </div>
             <nav className="cover-parts" aria-labelledby="h-cover-parts">
-              <p id="h-cover-parts" className="label">In {partGroups.length} parts</p>
+              <p id="h-cover-parts" className="label">In {plural(partGroups.length, "part")}</p>
               <ol>
                 {partGroups.map((g) => (
                   <li key={g.part?.id ?? "more"}>
@@ -75,7 +75,7 @@ export default function TheoryCover() {
             <p className="kicker">The short version</p>
             <h2 id="h-story" className="cover-section__title">The story, in order</h2>
             <p className="cover-section__lead">
-              {storyline.length} beats, start to finish: about {minutesFor(storyline.map((b) => b.text))} minutes. Each one says how sure the model is and which chapters make the case.
+              {plural(storyline.length, "beat")}, start to finish: about {plural(minutesFor(storyline.map((b) => b.text)), "minute")}. Each one says how sure the model is and which chapters make the case.
             </p>
           </div>
           {/* Outside the column, so the line runs the full width of the window. */}
@@ -87,7 +87,7 @@ export default function TheoryCover() {
               <p className="story-end__text">That is the whole story, as far as the evidence carries it. The chapters make the case for it one question at a time.</p>
               <div className="story-end__actions">
                 {first && <ButtonLink to={chapterPath(first.id)} variant="primary" iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
-                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {theory.length} answers</ButtonLink>
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} answers</ButtonLink>
               </div>
             </div>
           </div>
@@ -99,8 +99,8 @@ export default function TheoryCover() {
           <p className="kicker">The full case</p>
           <h2 id="h-contents" className="cover-section__title">Every question, and the model’s answer</h2>
           <p className="cover-section__lead">
-            {theory.length} chapters in {partGroups.length} parts. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
-            {readCount > 0 && <> You have read {readCount} of {theory.length}.</>}
+            {plural(theory.length, "chapter")} in {plural(partGroups.length, "part")}. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
+            {readCount > 0 && <> You have read {count(readCount)} of {count(theory.length)}.</>}
           </p>
           {/* How a chapter is built: said here, where the chapters begin, and not before the story. */}
           {theoryIntro.aboutChapters && <p className="contents-about"><RichText text={theoryIntro.aboutChapters} /></p>}

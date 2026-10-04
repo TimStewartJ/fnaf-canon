@@ -8,7 +8,7 @@ import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
   RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, longDate, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
-import { PLACE, beatsCiting, outsideGroupOf, placeOf, records } from "./coverage";
+import { PLACE, beatsCiting, count, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
 import { neighbours } from "./sourceModel";
 import "./evidence.css";
@@ -267,12 +267,12 @@ export default function EvidenceDetail() {
 
         {related.length > 0 && (
           <div className="evx-model__block evx-model__related">
-            <h3 className="label">Related records · {related.length}</h3>
+            <h3 className="label">Related records · {count(related.length)}</h3>
             <ul className="evx-list">
               {related.slice(0, RELATED_SHOWN).map((r) => <ResultRow key={r.id} e={r} group={relatedIds} terms={NO_TERMS} />)}
             </ul>
             {related.length > RELATED_SHOWN && (
-              <Collapsible summary={`${related.length - RELATED_SHOWN} more related records`}>
+              <Collapsible summary={records(related.length - RELATED_SHOWN, "more related record")}>
                 <ul className="evx-list">
                   {related.slice(RELATED_SHOWN).map((r) => <ResultRow key={r.id} e={r} group={relatedIds} terms={NO_TERMS} />)}
                 </ul>

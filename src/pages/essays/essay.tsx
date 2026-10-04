@@ -12,9 +12,9 @@ import { ArrowDown, ArrowRight, ChevronDown, ChevronsDownUp, ChevronsUpDown } fr
 import type { Source } from "../../data/community";
 import { evidenceById, theoryById } from "../../data/store";
 import {
-  Button, ButtonLink, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, imgSize, isPlainClick, longDate, settleHeader, smartQuotes, useAddress,
+  Button, ButtonLink, Chip, CiteList, Collapsible, ConfidenceMark, EvidenceList, ExternalLink, Figure, Icon, RichText, chapterNumber, chapterPath, count, imgSize, isPlainClick, longDate, plural, settleHeader, smartQuotes, useAddress,
 } from "../../components/ui";
-import { ESSAYS, SOURCES_ID, answerExhibits, answerId, count, isConfidence, pad2, recordOfImage } from "./essayModel";
+import { ESSAYS, SOURCES_ID, answerExhibits, answerId, isConfidence, pad2, recordOfImage } from "./essayModel";
 import { RowsContext, useRows, type RowsControl } from "./essayRows";
 
 /* ── Links inside the page ─────────────────────────────────────────────────────── */
@@ -100,7 +100,7 @@ export function EssayMeta({ minutes, cited, facts = [] }: { minutes?: number; ci
   const parts: ReactNode[] = [
     ...(minutes ? [`${minutes} min read`] : []),
     ...facts,
-    ...(cited > 0 ? [<button key="cited" type="button" className="essay-meta__sources" onClick={openSources}>{count(cited, "record")} cited</button>] : []),
+    ...(cited > 0 ? [<button key="cited" type="button" className="essay-meta__sources" onClick={openSources}>{plural(cited, "record")} cited</button>] : []),
   ];
   if (parts.length === 0) return null;
   return (
@@ -311,7 +311,7 @@ export const EssayArgument = memo(function EssayArgument({ answers, shown }: { a
           key={i}
           id={answerId(i)}
           className="essay-section--answer"
-          kicker={`Question ${i + 1} of ${answers.length}`}
+          kicker={`Question ${i + 1} of ${count(answers.length)}`}
           title={a.q}
           lead={
             <>
@@ -338,7 +338,7 @@ export const EssaySources = memo(function EssaySources({ ids, note }: { ids: rea
   if (!ids.length) return null;
   return (
     <section className="essay-end" aria-label="Sources">
-      <Collapsible eager id={SOURCES_ID} summary="Records cited on this page" meta={`${count(ids.length, "record")}, in order`}>
+      <Collapsible eager id={SOURCES_ID} summary="Records cited on this page" meta={`${plural(ids.length, "record")}, in order`}>
         {note && <p className="essay-note">{note}</p>}
         <EvidenceList ids={ids} numbers={(id) => ids.indexOf(id) + 1} claim={false} />
       </Collapsible>

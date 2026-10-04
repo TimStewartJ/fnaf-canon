@@ -1,12 +1,12 @@
 import type { OutsideStoryGroup } from "../../data/schema";
-import { Collapsible, DatePill, EvidenceList, FirmnessLegend, RichText } from "../../components/ui";
+import { Collapsible, DatePill, EvidenceList, FirmnessLegend, RichText, plural } from "../../components/ui";
 
 /** Records that deliberately carry no story weight, grouped by reason. */
 export function OutsideStory({ groups }: { groups: OutsideStoryGroup[] }) {
   return (
     <div className="outside">
       {groups.map((g) => (
-        <Collapsible key={g.id} id={`outside-${g.id}`} summary={g.title} meta={`${g.ids.length} record${g.ids.length === 1 ? "" : "s"}`}>
+        <Collapsible key={g.id} id={`outside-${g.id}`} summary={g.title} meta={plural(g.ids.length, "record")}>
           <p className="outside__reason"><RichText text={g.reason} /></p>
           <EvidenceList ids={g.ids} claim={false} />
         </Collapsible>

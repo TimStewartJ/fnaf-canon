@@ -7,7 +7,7 @@ import { eventDate } from "../../data/dates";
 import { evidenceById } from "../../data/store";
 import {
   Button, ChapterLink, Chip, CiteList, CiteScope, DatePill, DeathIcon, EntityLink, EvidenceRow, FateIcon, FateTag, Figure, Icon, RichText, StatusMark,
-  chapterNumber, excerpt, isDeath, levelOf, outcomeOf, smartQuotes,
+  chapterNumber, count, excerpt, isDeath, levelOf, outcomeOf, smartQuotes,
 } from "../../components/ui";
 import { type DeathRow, type EventRow, type Row, chaptersFor, eventLink, fatesOf, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
 
@@ -124,7 +124,7 @@ function Records({ ids, numbers }: { ids: string[]; numbers?: (id: string) => nu
       )}
       {cut && (
         <p className="tl-detail__more">
-          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; setAll(true); }}>Show the other {records.length - RECORDS_SHOWN} records</Button>
+          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; setAll(true); }}>Show the other {count(records.length - RECORDS_SHOWN)} records</Button>
         </p>
       )}
     </div>

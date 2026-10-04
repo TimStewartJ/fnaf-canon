@@ -5,11 +5,11 @@ import type { TheorySection } from "../../data/schema";
 import { citationsIn, evidence, evidenceById, evidenceFiledUnder, outsideStory, people, relations, storyline, theory, timeline } from "../../data/store";
 import {
   ButtonLink, CERTAINTY, CONFIDENCE, CiteGroup, CiteList, CiteScope, Collapsible, DATE_KIND, DATE_KINDS, DateGlyph, EntityLink, EvidenceList, Fact, Facts, FirmGlyph, FirmnessLegend,
-  GameMark, Page, PageHeader, RichText, STATUS, chapterPath, partGroups, readingOrder, smartQuotes, useMediaQuery, type FirmnessInfo,
+  GameMark, Page, PageHeader, RichText, STATUS, chapterPath, count, partGroups, plural, readingOrder, smartQuotes, useMediaQuery, type FirmnessInfo,
 } from "../../components/ui";
 import { modelCoverage, type Coverage } from "./coverage";
 import { EssayAnswers, EssayJump, EssayMore, EssayRow, EssayRows, EssaySection, type EssayAnswerItem } from "./essay";
-import { citedIn, count, knownRecords, pad2, sentenceList, tally } from "./essayModel";
+import { citedIn, knownRecords, pad2, sentenceList, tally } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./method.css";
@@ -67,7 +67,7 @@ function Scale({ title, about, levels, tallies, noun, fold }: { title: string; a
       {Object.entries(levels).map(([value, info]) => (
         <div key={value}>
           <dt>{info.word}</dt>
-          <dd className="method-scale__n">{count(tallies.get(value) ?? 0, noun[0], noun[1])}</dd>
+          <dd className="method-scale__n">{plural(tallies.get(value) ?? 0, noun[0], noun[1])}</dd>
           <dd>{info.help}.</dd>
         </div>
       ))}
@@ -101,16 +101,16 @@ function Ledger({ c }: { c: Coverage }) {
     { key: "outside", n: c.outside, label: outsideStory.length > 0 ? <Link to="/theory#outside">Outside the story</Link> : "Outside the story", note: "Set aside with a stated reason, in the appendix of the theory." },
     ...(c.unplaced > 0 ? [{ key: "unplaced", n: c.unplaced, label: "Not yet placed", note: "In the evidence locker, waiting for a chapter to take it up." }] : []),
   ];
-  const parts = `${c.cited} cited, ${c.filed} filed${c.story > 0 ? `, ${c.story} in the storyline only` : ""}, ${c.outside} outside the story`;
+  const parts = `${count(c.cited)} cited, ${count(c.filed)} filed${c.story > 0 ? `, ${count(c.story)} in the storyline only` : ""}, ${count(c.outside)} outside the story`;
   const summary = c.complete
-    ? `All ${c.total} records are placed: ${parts}.`
-    : `${c.placed} of ${c.total} records are placed so far: ${parts}. ${c.unplaced} ${c.unplaced === 1 ? "is" : "are"} not yet placed.`;
+    ? `All ${count(c.total)} records are placed: ${parts}.`
+    : `${count(c.placed)} of ${count(c.total)} records are placed so far: ${parts}. ${count(c.unplaced)} ${c.unplaced === 1 ? "is" : "are"} not yet placed.`;
   return (
     <div className="method-ledger">
       <p className="method-ledger__sum">
         {c.complete
-          ? <>All <strong>{c.total}</strong> records are placed.</>
-          : <><strong>{c.placed}</strong> of {c.total} records are placed so far<span className="method-ledger__pct"> · {c.percent}%</span></>}
+          ? <>All <strong>{count(c.total)}</strong> records are placed.</>
+          : <><strong>{count(c.placed)}</strong> of {count(c.total)} records are placed so far<span className="method-ledger__pct"> · {c.percent}%</span></>}
       </p>
       <div className="method-ledger__bar" role="img" aria-label={summary}>
         {rows.filter((r) => r.n > 0).map((r) => <span key={r.key} className="method-ledger__seg" data-part={r.key} style={{ flexGrow: r.n }} />)}
@@ -119,7 +119,7 @@ function Ledger({ c }: { c: Coverage }) {
         {rows.map((r) => (
           <div key={r.key} className="method-ledger__row">
             <dt><span className="method-ledger__seg method-ledger__key" data-part={r.key} aria-hidden />{r.label}</dt>
-            <dd className="method-ledger__n num">{r.n}</dd>
+            <dd className="method-ledger__n num">{count(r.n)}</dd>
             <dd className="method-ledger__note">{r.note}</dd>
           </div>
         ))}
@@ -231,12 +231,12 @@ function Method() {
             <div className="method-today">
               <p className="label">The archive today</p>
               <Facts>
-                <Fact label="Records"><span className="method-today__v"><Link to="/evidence">{count(evidence.length, "record")}</Link><span className="method-today__more">, one fact each</span></span></Fact>
-                <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{count(SOURCE_COUNT, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
-                <Fact label="The theory"><span className="method-today__v"><Link to="/theory">{count(theory.length, "chapter")}</Link> in {count(partGroups.length, "part")}</span></Fact>
+                <Fact label="Records"><span className="method-today__v"><Link to="/evidence">{plural(evidence.length, "record")}</Link><span className="method-today__more">, one fact each</span></span></Fact>
+                <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{plural(SOURCE_COUNT, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
+                <Fact label="The theory"><span className="method-today__v"><Link to="/theory">{plural(theory.length, "chapter")}</Link> in {plural(partGroups.length, "part")}</span></Fact>
                 {c.total > 0 && (
                   <Fact label="Placed in the theory">
-                    <span className="method-today__v"><EssayJump to="accounting">{c.complete ? `All ${c.total}` : `${c.placed} of ${c.total}`}</EssayJump>{!c.complete && ` · ${c.percent}%`}</span>
+                    <span className="method-today__v"><EssayJump to="accounting">{c.complete ? `All ${count(c.total)}` : `${count(c.placed)} of ${count(c.total)}`}</EssayJump>{!c.complete && ` · ${c.percent}%`}</span>
                   </Fact>
                 )}
               </Facts>
@@ -273,7 +273,7 @@ function Method() {
             </p>
           )}
           {BOOK_STATEMENTS.length > 0 && (
-            <Collapsible summary="Scott’s statements about the books" meta={count(BOOK_STATEMENTS.length, "record")}>
+            <Collapsible summary="Scott’s statements about the books" meta={plural(BOOK_STATEMENTS.length, "record")}>
               <EvidenceList ids={BOOK_STATEMENTS} />
             </Collapsible>
           )}
@@ -284,7 +284,7 @@ function Method() {
             <p>
               The basic unit is the evidence record: one claim, one exact place in a source, one time inside the story. A record quotes the source when a short
               quote carries the point, says where to find it (a night’s phone call, a named minigame, a dated post), and notes anything ambiguous about it.
-              The archive holds {count(evidence.length, "record")} from {count(SOURCE_COUNT, "source")}.
+              The archive holds {plural(evidence.length, "record")} from {plural(SOURCE_COUNT, "source")}.
             </p>
             <p>
               A record never holds a conclusion. “Purple Guy is William Afton” is not a record; the in-game facts that connect the two are, and the
@@ -377,9 +377,9 @@ function Method() {
               : "The count is worked out from the archive’s data each time this page loads, so it moves as chapters take up more records. Unplaced records are still in the locker, searchable and open to check."}
           </p>
           {c.unplacedBySource.length > 0 && (
-            <Collapsible summary="Not yet placed, by source" meta={count(c.unplaced, "record")}>
+            <Collapsible summary="Not yet placed, by source" meta={plural(c.unplaced, "record")}>
               <ul className="method-unplaced">
-                {c.unplacedBySource.map(([id, n]) => <li key={id}><GameMark id={id} variant="full" link /><span className="num">{n}</span></li>)}
+                {c.unplacedBySource.map(([id, n]) => <li key={id}><GameMark id={id} variant="full" link /><span className="num">{count(n)}</span></li>)}
               </ul>
             </Collapsible>
           )}
@@ -393,7 +393,7 @@ function Method() {
               <li>Coverage is broad, not exhaustive. The largest games (Security Breach, Help Wanted 2, Secret of the Mimic) hold more collectibles than the archive has records for.</li>
               <li>Quotes are short excerpts chosen for the sentence that carries the point. Where a transcript could not be verified, the record paraphrases instead of quoting.</li>
               <li>Transcripts can contain errors. If a record is wrong, the source location printed on it should make it quick to check in the game.</li>
-              {!c.complete && c.total > 0 && <li>The accounting is unfinished: {count(c.unplaced, "record has", "records have")} not been placed in the theory yet.</li>}
+              {!c.complete && c.total > 0 && <li>The accounting is unfinished: {plural(c.unplaced, "record has", "records have")} not been placed in the theory yet.</li>}
             </ul>
           </div>
           <p className="method-next">

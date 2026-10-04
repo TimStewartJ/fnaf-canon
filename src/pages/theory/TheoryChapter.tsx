@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ChevronLeft, ChevronRight, List, X } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
 import { theory, theoryById, theoryIntro } from "../../data/store";
-import { Icon, Missing, Page, chapterPath, useModalDialog, useSheetPull, smartQuotes } from "../../components/ui";
+import { Icon, Missing, Page, chapterPath, count, useModalDialog, useSheetPull, smartQuotes } from "../../components/ui";
 import { ChapterView, type ChapterContext } from "./ChapterView";
 import { ChapterNav } from "./Contents";
 import { type SectionHead, chapterHeads, chapterNumber, neighbours, ordered, pad2, partGroups, partOfChapter, saveReadingPlace, useReadingProgress } from "./model";
@@ -145,7 +145,7 @@ function ChapterScreen({ s }: { s: TheorySection }) {
         <ChapterView s={s} ctx={ctx} onEnd={onEnd} heads={heads} />
         <aside className="chapter-rail" ref={rail}>
           <Link to="/theory" className="chapter-rail__home"><Icon icon={ArrowLeft} /> {smartQuotes(theoryIntro.title)}</Link>
-          <p className="chapter-rail__progress" aria-live="off">{[...read].filter((id) => theoryById.has(id)).length} of {theory.length} chapters read</p>
+          <p className="chapter-rail__progress" aria-live="off">{count([...read].filter((id) => theoryById.has(id)).length)} of {count(theory.length)} chapters read</p>
           <nav aria-label="Chapters"><ChapterNav groups={partGroups} numberOf={chapterNumber} current={s.id} read={read} sections={heads} section={section} /></nav>
         </aside>
       </div>

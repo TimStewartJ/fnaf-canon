@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import type { TheorySection } from "../../data/schema";
-import { ConfidenceMark, FirmGlyph, Icon, RichText, chapterPath, firmness, smartQuotes } from "../../components/ui";
+import { ConfidenceMark, FirmGlyph, Icon, RichText, chapterPath, count, firmness, plural, smartQuotes } from "../../components/ui";
 import { type PartGroup, type SectionHead, chapterGist, distinctQuestion, pad2, roman } from "./model";
 
 type NumberOf = (id: string) => number;
@@ -67,8 +67,8 @@ export function ChapterNav({ groups, numberOf, current, read, onNavigate, pathOf
               <summary>
                 <span className="chapter-nav-part__n">{roman(g.n)}</span>
                 <span className="chapter-nav-part__title">{smartQuotes(g.part?.title ?? "Further chapters")}</span>
-                <span className="chapter-nav-part__count" aria-hidden>{g.chapters.length}</span>
-                <span className="sr-only">, {g.chapters.length} {g.chapters.length === 1 ? "chapter" : "chapters"}</span>
+                <span className="chapter-nav-part__count" aria-hidden>{count(g.chapters.length)}</span>
+                <span className="sr-only">, {plural(g.chapters.length, "chapter")}</span>
               </summary>
               <ol>
                 {g.chapters.map((s) => {

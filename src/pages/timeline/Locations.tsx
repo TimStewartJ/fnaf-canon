@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Diamond } from "lucide-react";
 import { eras } from "../../data/store";
 import { PLACE_DATES } from "../../data/dates";
-import { DatePill, DeathIcon, FateIcon, Icon, LOCATION_HUE, eraHue, hueOf, isPlainClick, smartQuotes } from "../../components/ui";
+import { DatePill, DeathIcon, FateIcon, Icon, LOCATION_HUE, count, eraHue, hueOf, isPlainClick, smartQuotes } from "../../components/ui";
 import { type Filters, type LocRow, type PlaceCounts, countsByPlace, locationGroups, tallyWords, within } from "./model";
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
@@ -68,9 +68,9 @@ function PlaceRow({ r, counts, f, to, on, onChoose }: { r: LocRow; counts: Place
               <span key={e.id} className="tl-loc__cell" style={{ gridColumn: i + 1 }}>
                 {(n.events > 0 || n.deaths > 0 || n.others > 0) && (
                   <span className="tl-loc__marks">
-                    {n.events > 0 && <span className="tl-loc__mark"><Icon icon={Diamond} size={9} />{n.events}</span>}
-                    {n.deaths > 0 && <span className="tl-loc__mark tl-loc__mark--death"><Icon icon={DeathIcon} size={10} />{n.deaths}</span>}
-                    {n.others > 0 && <span className="tl-loc__mark tl-loc__mark--fate"><Icon icon={FateIcon} size={10} />{n.others}</span>}
+                    {n.events > 0 && <span className="tl-loc__mark"><Icon icon={Diamond} size={9} />{count(n.events)}</span>}
+                    {n.deaths > 0 && <span className="tl-loc__mark tl-loc__mark--death"><Icon icon={DeathIcon} size={10} />{count(n.deaths)}</span>}
+                    {n.others > 0 && <span className="tl-loc__mark tl-loc__mark--fate"><Icon icon={FateIcon} size={10} />{count(n.others)}</span>}
                   </span>
                 )}
               </span>
@@ -147,7 +147,7 @@ export function LocationsView({ f, sp, onLeave }: { f: Filters; sp: URLSearchPar
       </div>
       {locationGroups.map((g) => (
         <section key={g.kind} className="tl-loc__group" style={{ "--hue": hueOf(LOCATION_HUE, g.kind) } as CSSProperties} aria-labelledby={`tl-loc-${g.kind}`}>
-          <h3 className="tl-loc__kind" id={`tl-loc-${g.kind}`}><span className="tl-loc__swatch" aria-hidden />{smartQuotes(g.label)} <span className="tl-loc__kind-n">{g.rows.length}</span></h3>
+          <h3 className="tl-loc__kind" id={`tl-loc-${g.kind}`}><span className="tl-loc__swatch" aria-hidden />{smartQuotes(g.label)} <span className="tl-loc__kind-n">{count(g.rows.length)}</span></h3>
           <ul className="tl-loc__rows">
             {g.rows.map((r) => <PlaceRow key={r.id} r={r} counts={counts.get(r.id)} f={f} to={toEvents((p) => p.set("place", r.id))} on={f.place === r.id} onChoose={leave} />)}
           </ul>

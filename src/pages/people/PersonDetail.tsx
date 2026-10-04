@@ -5,7 +5,7 @@ import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
   CiteList, Collapsible, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Missing, Page, PageHeader,
-  RichText, Segmented, StatusMark, aliasParts, capitalise, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
+  RichText, Segmented, StatusMark, aliasParts, capitalise, count, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -194,7 +194,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
             {plural(others, "other figure")}
             <span className="person-links">
               {STATUSES.filter((s) => counts[s] > 0).map((s) => (
-                <span key={s} className="person-links__n"><FirmGlyph level={levelOf(s)} /> {counts[s]} {firmness("status", s).short.toLowerCase()}</span>
+                <span key={s} className="person-links__n"><FirmGlyph level={levelOf(s)} /> {count(counts[s])} {firmness("status", s).short.toLowerCase()}</span>
               ))}
             </span>
           </>}
@@ -208,7 +208,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
                 label="The sections below cover"
                 value={narrow ? "record" : "all"}
                 onChange={(v) => set({ scope: v === "record" ? "record" : null })}
-                options={[{ id: "all", label: `All ${own.length} figures` }, { id: "record", label: "This figure only" }]}
+                options={[{ id: "all", label: `All ${count(own.length)} figures` }, { id: "record", label: "This figure only" }]}
               />
             </div>
           )}

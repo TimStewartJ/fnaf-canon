@@ -3,7 +3,7 @@ import type { SectionHead } from "./model";
 import { Check } from "lucide-react";
 import type { Evidence, TheoryBlock } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, smartQuotes, sourceWords } from "../../components/ui";
+import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, plural, smartQuotes, sourceWords } from "../../components/ui";
 
 type CompareColumn = Extract<TheoryBlock, { kind: "compare" }>["columns"][number];
 
@@ -91,7 +91,7 @@ export function Block({ block, fig, id, label }: { block: TheoryBlock; fig?: num
       const group = records.map((e) => e.id);
       return (
         <section className="exhibits full" aria-label={block.title ?? "Evidence"}>
-          <p className="label exhibits__title">{smartQuotes(block.title ?? "Exhibits")} <span className="faint">· {records.length} record{records.length === 1 ? "" : "s"}</span></p>
+          <p className="label exhibits__title">{smartQuotes(block.title ?? "Exhibits")} <span className="faint">· {plural(records.length, "record")}</span></p>
           <div className="exhibits__strip">{records.map((e) => <EvidenceCard key={e.id} e={e} group={group} compact />)}</div>
         </section>
       );

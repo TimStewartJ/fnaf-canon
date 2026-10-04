@@ -7,6 +7,7 @@
 import type { Evidence, OutsideStoryGroup, StoryBeat } from "../../data/schema";
 import { citationsIn, evidenceFiledUnder, outsideStory, storyline, theory } from "../../data/store";
 import { beatCitations } from "../../data/theoryText";
+import { count, plural } from "../../components/typography";
 
 export type Place = "cited" | "filed" | "outside" | "none";
 
@@ -66,9 +67,8 @@ export function percent(part: number, total: number): number {
   return Math.min(99, Math.max(1, Math.round((part / total) * 100)));
 }
 
-const thousands = new Intl.NumberFormat("en-US");
-/** "1,041": counts are shown with a thousands separator everywhere in this cluster. (Called for every option of every filter on each keystroke, hence the shortcut and the shared formatter.) */
-export const count = (n: number): string => (n > -1000 && n < 1000 ? String(n) : thousands.format(n));
+/** "1,041": a count as the whole interface prints it (components/typography.ts). */
+export { count };
 
-/** "1 record", "12 records". */
-export const records = (n: number, noun = "record"): string => `${count(n)} ${noun}${n === 1 ? "" : "s"}`;
+/** "1 record", "1,041 records": the shared `plural`, with the noun this cluster counts most. */
+export const records = (n: number, noun = "record"): string => plural(n, noun);

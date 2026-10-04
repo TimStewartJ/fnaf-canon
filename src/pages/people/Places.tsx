@@ -7,7 +7,7 @@ import { LOCATION_KIND, type LocationKind, type LocationSpan } from "../../data/
 import { ERA_DATES, PLACE_DATES } from "../../data/dates";
 import {
   Button, CiteList, Collapsible, DATE_KIND, DateGlyph, DatePill, Empty, EntityLink, Fact, Facts, FilterBar, FilterChip, FilterGroup, Icon, LOCATION_HUE, Missing, Page,
-  PageHeader, RichText, countFates, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
+  PageHeader, RichText, count, countFates, excerpt, hueOf, Thumb, placePath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
 import { ChapterRows } from "./Chapters";
@@ -101,12 +101,12 @@ export default function Places() {
       <PageHeader
         kicker="People & places"
         title="Places"
-        lede={<>Every location in the canon, under the era it first existed in: {places.length} places, each with when it existed and how the archive knows.</>}
+        lede={<>Every location in the canon, under the era it first existed in: {plural(places.length, "place")}, each with when it existed and how the archive knows.</>}
       >
         {phone
           ? <Collapsible className="place-filters" summary="Filter by kind" meta={picked.length ? picked.map((k) => LOCATION_KIND[k].label).join(", ") : "All kinds"}>{filters}</Collapsible>
           : filters}
-        {picked.length > 0 && <p className="ppl-found" role="status">{plural(shown.length, "place")} of {places.length} shown.</p>}
+        {picked.length > 0 && <p className="ppl-found" role="status">{plural(shown.length, "place")} of {count(places.length)} shown.</p>}
       </PageHeader>
 
       {groups.length > 1 && (
@@ -236,7 +236,7 @@ const PlaceDossier = memo(function PlaceDossier({ p }: { p: Place }) {
           <Capped items={view.people} cap={cap("people")} noun="people">
             {(shown) => (
               <ul className="cluster ppl-chips place-people">
-                {shown.map(([id, n]) => <li key={id} className="ppl-chips__item"><EntityLink id={id} variant="chip" /><span className="ppl-chips__n" title={`${plural(n, "record")} filed under both`}>{n}</span></li>)}
+                {shown.map(([id, n]) => <li key={id} className="ppl-chips__item"><EntityLink id={id} variant="chip" /><span className="ppl-chips__n" title={`${plural(n, "record")} filed under both`}>{count(n)}</span></li>)}
               </ul>
             )}
           </Capped>

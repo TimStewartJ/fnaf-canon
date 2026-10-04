@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { credits, eras, evidence, games, people, relations, storyline, theory, theoryById, theoryIntro, timeline } from "../../data/store";
 import { ERA_DATES } from "../../data/dates";
 import * as home from "../../data/home";
-import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, eraHue, numberWord, plainText, smartQuotes, useContinue, useMediaQuery } from "../../components/ui";
+import { DatePill, Figure, Icon, Page, RichText, StatusMark, chapterPath, count, eraHue, numberWord, plainText, plural, smartQuotes, useContinue, useMediaQuery } from "../../components/ui";
 import { Storyline } from "../theory/Storyline";
 import { chapterNumber, minutesFor, partGroups } from "../theory/model";
 import "../theory/theory.css";
@@ -85,17 +85,17 @@ export default function Home() {
             <Link to="/theory#storyline" className="path__step path__step--first">
               <span className="path__n">1</span>
               <span className="path__title">Read the story <Icon icon={ArrowRight} /></span>
-              <span className="path__desc">The whole thing in order: {storyline.length} beats, about {storyMinutes} minute{storyMinutes === 1 ? "" : "s"}.</span>
+              <span className="path__desc">The whole thing in order: {plural(storyline.length, "beat")}, about {plural(storyMinutes, "minute")}.</span>
             </Link>
             <Link to="/theory" className="path__step">
               <span className="path__n">2</span>
               <span className="path__title">Then the full case <Icon icon={ArrowRight} /></span>
-              <span className="path__desc">{theory.length} chapters. Each asks one question, answers it, and shows what pushes back.</span>
+              <span className="path__desc">{plural(theory.length, "chapter")}. Each asks one question, answers it, and shows what pushes back.</span>
             </Link>
             <Link to="/evidence" className="path__step">
               <span className="path__n">3</span>
               <span className="path__title">Then check the evidence <Icon icon={ArrowRight} /></span>
-              <span className="path__desc">{evidence.length.toLocaleString("en-GB")} records, each one fact pinned to an exact spot in a game or to Scott’s own words.</span>
+              <span className="path__desc">{plural(evidence.length, "record")}, each one fact pinned to an exact spot in a game or to Scott’s own words.</span>
             </Link>
           </nav>
 
@@ -109,11 +109,11 @@ export default function Home() {
           kicker="The story in brief"
           title="What happened, in order"
           lead="The model’s short telling. Every beat carries a mark for how sure it is and the chapters that argue it."
-          more={<Link to="/theory#storyline">{storyline.length > BEATS_ON_HOME ? `Read all ${storyline.length} beats` : "Read it with the exhibits"}<Icon icon={ArrowRight} /></Link>}
+          more={<Link to="/theory#storyline">{storyline.length > BEATS_ON_HOME ? `Read all ${count(storyline.length)} beats` : "Read it with the exhibits"}<Icon icon={ArrowRight} /></Link>}
         >
           <Storyline beats={storyline.slice(0, BEATS_ON_HOME)} compact />
           {storyline.length > BEATS_ON_HOME && (
-            <p className="home-more"><Link to={`/theory#${nextBeat.id}`}>…and {storyline.length - BEATS_ON_HOME} more beats, to the end of the story<Icon icon={ArrowRight} /></Link></p>
+            <p className="home-more"><Link to={`/theory#${nextBeat.id}`}>…and {plural(storyline.length - BEATS_ON_HOME, "more beat")}, to the end of the story<Icon icon={ArrowRight} /></Link></p>
           )}
         </HomeSection>
       )}
@@ -124,7 +124,7 @@ export default function Home() {
           kicker="The full case"
           title="Questions the model answers"
           lead="The old arguments, each with the model’s answer in a sentence or two. The reasoning is in the chapter behind it."
-          more={<Link to="/theory#contents">All {theory.length} chapters in {partGroups.length} parts<Icon icon={ArrowRight} /></Link>}
+          more={<Link to="/theory#contents">All {plural(theory.length, "chapter")} in {plural(partGroups.length, "part")}<Icon icon={ArrowRight} /></Link>}
         >
           <ul className="qa-list">
             {questions.map((q) => (
@@ -200,12 +200,12 @@ export default function Home() {
         kicker="The evidence"
         title="Nothing taken on trust"
         lead="The archive is built from single facts, each with its source. Books, films and fan theories are left out by design."
-        more={<Link to="/gallery">All {credits.length} screenshots<Icon icon={ArrowRight} /></Link>}
+        more={<Link to="/gallery">All {plural(credits.length, "screenshot")}<Icon icon={ArrowRight} /></Link>}
       >
         <div className="home-numbers">
           <ul className="stat-row">
             {stats.map(([n, label, to]) => (
-              <li key={label}><Link to={to} className="stat"><span className="stat__n">{n.toLocaleString("en-GB")}</span><span className="stat__label">{label}</span></Link></li>
+              <li key={label}><Link to={to} className="stat"><span className="stat__n">{count(n)}</span><span className="stat__label">{label}</span></Link></li>
             ))}
           </ul>
           {strip.length > 0 && <div className="exhibit-strip">{strip.map((f) => <Figure key={f} file={f} />)}</div>}
