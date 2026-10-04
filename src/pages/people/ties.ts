@@ -21,7 +21,7 @@ export const strongest = (list: Status[]): Status => list.reduce<Status>((w, s) 
 /** First letter upper-cased, for a phrase that opens a row. */
 export const sentenceCase = (text: string): string => (text ? text[0].toUpperCase() + text.slice(1) : text);
 
-export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+export { plural } from "../../components/ui";
 
 /** Splits ties into the four families, in a fixed order, keeping the given order inside each. */
 export function byFamily<T>(items: readonly T[], kindOf: (item: T) => string): { family: TieFamily; items: T[] }[] {
