@@ -158,6 +158,9 @@ summary.essay-row__head::-webkit-details-marker { display: none; }
   .essay-entry--figure > .essay-figure { grid-column: 2; grid-row: 1 / span 4; justify-self: end; }
 }
 
+/* What a step's date is the date of: the date in full, as a small label, and the data's sentence. */
+.essay-dated { max-width: var(--measure); margin: 0; font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.essay-dated > .label { margin-right: var(--sp-2); white-space: nowrap; }
 .essay-evidence { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); margin: 0; }
 
 /* Exhibits. Never wider than the image's own pixels, unless it is tiny pixel art. */
@@ -176,7 +179,7 @@ summary.essay-row__head::-webkit-details-marker { display: none; }
 .essay-ref > * { min-width: 0; }
 .essay-ref a { color: var(--c-text-2); }
 .essay-ref a:hover { color: var(--c-accent-strong); }
-.essay-ref a > .icon { margin-left: 0.15em; }
+.essay-ref a .icon { margin-left: 0.15em; }
 .essay-ref cite { font-family: var(--font-text); font-style: italic; font-size: 1.06em; }
 @media (pointer: coarse) { .essay-refs__list { gap: 0; } .essay-ref a { padding-block: 0.66rem; } }
 

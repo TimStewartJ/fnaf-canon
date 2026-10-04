@@ -5,7 +5,7 @@ import type { Status } from "../../data/schema";
 import { personById } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import {
-  Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, byEntityName, entityName,
+  Button, Collapsible, Empty, FilterChip, GROUP_HUE, GROUP_LABEL, Icon, IconButton, Page, PageHeader, Section, Toggle, byEntityName, count, entityName,
   firmness, hueOf, isDescriptor, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress, type Address,
 } from "../../components/ui";
 import { forgetTextWidths, textWidth, useContentWidth, useTypeScale } from "./measure";
@@ -266,7 +266,7 @@ function PersonBar({ node, web, onClose }: { node: WebNode; web: Web; onClose: (
   const { link: anchor } = useAddress();
   // Counted as recorded, like the list below (two records of one tie can share a line in the picture).
   const ties = web.relsOf.get(node.id) ?? [];
-  const counts = byFamily(ties, (t) => t.kind).map((g) => `${g.items.length} ${FAMILY_SHORT[g.family]}`);
+  const counts = byFamily(ties, (t) => t.kind).map((g) => `${count(g.items.length)} ${FAMILY_SHORT[g.family]}`);
   return (
     <div className="rel-bar graph-who">
       <div className="rel-bar__head">

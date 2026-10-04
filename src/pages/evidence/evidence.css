@@ -222,10 +222,15 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 }
 .evx-rec__sub { margin-top: 0.25rem; font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
 .evx-rec__url { overflow-wrap: anywhere; }
-.evx-rec__url > .icon { margin-left: 0.15em; }
+.evx-rec__url .icon { margin-left: 0.15em; }
 .evx-rec__id { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-2); user-select: all; }
-.evx-rec__check { max-width: var(--measure); font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); overflow-wrap: anywhere; }
-.evx-rec__check > .label { display: block; margin-bottom: var(--sp-1); }
+/* How the wording was checked: the note, with each address named in words behind its link, and a
+   line that keeps a fan wiki in its place where the note names one. */
+.evx-rec__check { display: grid; gap: var(--sp-1); max-width: var(--measure); font-size: var(--fs-sm); line-height: 1.6; color: var(--c-text-2); overflow-wrap: anywhere; }
+.evx-rec__check > * { margin: 0; }
+/* A page's own name, set as the essays set the title of an outside work (the interface face has no italic). */
+.evx-rec__check cite { font-family: var(--font-text); font-style: italic; font-size: 1.06em; }
+.evx-rec__aid { color: var(--c-text-3); }
 
 /* Where the record sits in the model */
 .evx-model__sits { display: inline-flex; align-items: center; gap: 0.5em; margin: 0; }

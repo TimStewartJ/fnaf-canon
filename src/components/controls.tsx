@@ -2,6 +2,7 @@ import { useEffect, useRef, type ButtonHTMLAttributes, type HTMLAttributes, type
 import { Link, type LinkProps } from "react-router-dom";
 import { ArrowUpRight, Search, type LucideIcon } from "lucide-react";
 import { Icon } from "./Icon";
+import { count as figures } from "./typography";
 
 type Variant = "default" | "primary" | "quiet";
 const btnClass = (variant: Variant, size: "md" | "sm", className?: string) =>
@@ -38,10 +39,12 @@ export function IconButton({ icon, label, className, type = "button", ...rest }:
 
 /**
  * A link that leaves the archive. It opens in a new tab, so the reader's place here is kept; it
- * carries the arrow that marks it, and says "opens in a new tab" to a screen reader.
+ * carries the arrow that marks it, and says "opens in a new tab" to a screen reader. The arrow
+ * stays on the line with the link's last word and with the mark that follows the link in a
+ * sentence (.outbound), so no line begins with an arrow, a full stop or a semicolon.
  */
 export function ExternalLink({ href, className, children }: { href: string; className?: string; children: ReactNode }) {
-  return <a href={href} target="_blank" rel="noreferrer" className={className}>{children}<Icon icon={ArrowUpRight} /><span className="sr-only"> (opens in a new tab)</span></a>;
+  return <a href={href} target="_blank" rel="noreferrer" className={className}>{children}<span className="outbound"><Icon icon={ArrowUpRight} /><span className="sr-only"> (opens in a new tab)</span></span></a>;
 }
 
 /** A small static label. For a clickable filter use <FilterChip>; for a link use <Tag>. */
@@ -58,7 +61,7 @@ export function Tag({ className, children, ...rest }: LinkProps) {
 export function FilterChip({ on, count, className, children, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { on: boolean; count?: number }) {
   return (
     <button type="button" className={`chip-btn${on ? " on" : ""}${className ? ` ${className}` : ""}`} aria-pressed={on} {...rest}>
-      {children}{count != null && <span className="chip-btn__count">{count}</span>}
+      {children}{count != null && <span className="chip-btn__count">{figures(count)}</span>}
     </button>
   );
 }

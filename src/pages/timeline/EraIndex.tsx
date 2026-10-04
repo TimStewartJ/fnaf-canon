@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, List, X } from "lucide-react";
-import { Icon, IconButton, isPlainClick, smartQuotes, useModalDialog, useSheetPull } from "../../components/ui";
+import { Icon, IconButton, count, isPlainClick, smartQuotes, useModalDialog, useSheetPull } from "../../components/ui";
 import { useCurrentEra } from "./hooks";
 import { plural, within } from "./model";
 
@@ -26,7 +26,7 @@ function EraLinks({ entries, current, sp, onGo }: { entries: EraEntry[]; current
           <>
             <span className="tl-eralink__n">{pad2(e.n)}</span>
             <span className="tl-eralink__name">{smartQuotes(e.name)}</span>
-            <span className="tl-eralink__count" title={plural(e.count, "entry", "entries")}>{e.count}<span className="sr-only"> {e.count === 1 ? "entry" : "entries"}</span></span>
+            <span className="tl-eralink__count" title={plural(e.count, "entry", "entries")}>{count(e.count)}<span className="sr-only"> {e.count === 1 ? "entry" : "entries"}</span></span>
             {e.range && <span className="tl-eralink__range">{smartQuotes(e.range)}</span>}
           </>
         );
@@ -115,11 +115,11 @@ export function EraBar({ entries, sp, onGo }: { entries: EraEntry[]; sp: URLSear
   const next = entries.find((e) => e.id === ids[at + 1]);
   return (
     <div className="tl-erabar pin" style={hueStyle(here.hue)}>
-      <button type="button" className="tl-erabar__btn" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-label={`Eras. Reading era ${here.n} of ${entries.length}: ${here.name}`}>
+      <button type="button" className="tl-erabar__btn" onClick={() => setSheet(true)} aria-haspopup="dialog" aria-label={`Eras. Reading era ${here.n} of ${count(entries.length)}: ${here.name}`}>
         <Icon icon={List} />
         <span className="tl-erabar__n">{pad2(here.n)}</span>
         <span className="tl-erabar__name">{smartQuotes(here.name)}</span>
-        <span className="tl-erabar__of">{here.n} of {entries.length}</span>
+        <span className="tl-erabar__of">{here.n} of {count(entries.length)}</span>
       </button>
       <span className="tl-erabar__pager">
         <IconButton icon={ChevronUp} label={prev ? `Previous era: ${prev.name}` : "Previous era"} disabled={!prev} onClick={() => prev && onGo(prev.id)} />

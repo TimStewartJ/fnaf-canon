@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { AUTHOR_PHASE, READING_STATUS, authorAnswer, authorTimeline, lexicon, readings, type AuthorStep, type LexLine } from "../../data/author";
 import { creditByFile, evidenceById } from "../../data/store";
-import { Chip, CiteScope, DatePill, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RichText, hueOf, longDate, smartQuotes, sourceWords } from "../../components/ui";
+import { Chip, CiteScope, EvidenceLink, GameMark, LEXICON_HUE, PHASE_HUE, Page, PageHeader, READING_TONE, RealDate, RichText, hueOf, smartQuotes, sourceWords } from "../../components/ui";
 import {
   EssayAnswers, EssayArgument, EssayChapterLink, EssayEntry, EssayFigure, EssayMeta, EssayMore, EssayRow, EssayRows, EssaySection, EssaySources, EssaySwatch, EssayToggleAll,
   type EssayAnswerItem,
@@ -84,12 +84,12 @@ const StepRow = memo(function StepRow({ s }: { s: AuthorStep }) {
   return (
     <EssayRow
       id={s.id}
-      when={<DatePill variant="inline" label={longDate(s.date, true)} kind={/^\d{4}-\d{2}-\d{2}$/.test(s.date) ? "printed" : "estimated"} basis={s.dateBasis} evidence={s.evidence.slice(0, 1)} />}
+      when={<RealDate date={s.date} short about={s.dateBasis} />}
       node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
       kicker={<span className="label">{AUTHOR_PHASE[s.phase]?.label ?? s.phase}</span>}
       title={s.title}
     >
-      <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" />
+      <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" date={s.date} dateBasis={s.dateBasis} />
     </EssayRow>
   );
 });

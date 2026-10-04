@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import type { TimelineEvent } from "../../data/schema";
 import { eventDate } from "../../data/dates";
-import { DEATH_KIND, type Death } from "../../data/deaths";
-import { DatePill, Icon, StatusMark, deathKindIcon, levelOf, smartQuotes, timelineEventPath } from "../../components/ui";
+import type { Death } from "../../data/deaths";
+import { DatePill, FateTag, StatusMark, levelOf, outcomeOf, smartQuotes, timelineEventPath } from "../../components/ui";
 
 /** Timeline events as compact rows: the date (with its justification), the event, how firm it is. */
 export function EventRows({ events }: { events: readonly TimelineEvent[] }) {
@@ -24,16 +24,22 @@ export function EventRows({ events }: { events: readonly TimelineEvent[] }) {
   );
 }
 
-/** Deaths as compact rows: cause, the death (a link to it on the timeline), its date, how firm it is. */
-export function DeathRows({ deaths }: { deaths: readonly Death[] }) {
+/**
+ * Deaths and other fates (the entries of data/deaths.ts) as compact rows: the date, what the
+ * records carry of the victim's fate and the cause (the shared tag: "Death", "Presumed dead",
+ * "Fate not shown", "Survives", "Death in one ending"), the entry as a link to it on the timeline,
+ * and how firm it is. Every row says its own outcome, so a heading over these rows never has to
+ * call them deaths.
+ */
+export function FateRows({ fates }: { fates: readonly Death[] }) {
   return (
     <ul className="ppl-events">
-      {deaths.map((d) => (
-        <li key={d.id} className="ppl-event ppl-event--death" data-level={levelOf(d.status)}>
+      {fates.map((d) => (
+        <li key={d.id} className="ppl-event ppl-event--fate" data-level={levelOf(d.status)} data-outcome={outcomeOf(d)}>
           <div className="ppl-event__what">
             <span className="ppl-event__when"><DatePill label={d.yearLabel} kind={d.date.kind} basis={d.date.basis} evidence={d.date.evidence} compact /></span>
             <span className="ppl-event__title">
-              <Icon icon={deathKindIcon(d.kind)} label={DEATH_KIND[d.kind]?.label ?? "Death"} className="ppl-event__cause" />{" "}
+              <FateTag d={d} className="ppl-event__fate" />
               <Link to={timelineEventPath(d.id)}>{smartQuotes(d.title)}</Link>
             </span>
           </div>

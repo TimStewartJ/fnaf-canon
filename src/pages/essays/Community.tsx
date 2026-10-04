@@ -2,12 +2,12 @@ import { memo } from "react";
 import { Check, PenLine, X } from "lucide-react";
 import { INTERACTION_KIND, VERDICT, interactions, theories, type CommunityTheory, type Interaction, type Verdict } from "../../data/community";
 import {
-  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, interactionIcon, Icon, Page, PageHeader, RichText, VERDICT_TONE, longDate, smartQuotes, useAddress,
+  Button, Callout, Chip, CiteScope, Empty, FilterChip, FilterGroup, GameMark, interactionIcon, Icon, Page, PageHeader, RealDate, RichText, VERDICT_TONE, count, plural, smartQuotes, useAddress,
 } from "../../components/ui";
 import {
   EssayAnswers, EssayChapterLink, EssayEntry, EssayMeta, EssayMore, EssayRefs, EssayRow, EssayRows, EssaySection, EssaySources, EssayToggleAll, type EssayAnswerItem,
 } from "./essay";
-import { citedIn, count, countOverYears, facts, knownRecords, sentenceList, tally } from "./essayModel";
+import { citedIn, countOverYears, facts, knownRecords, sentenceList, tally } from "./essayModel";
 import { useEssayRows } from "./essayRows";
 import "./essays.css";
 import "./community.css";
@@ -42,7 +42,7 @@ const kindLabel = (k: string): string => INTERACTION_KIND[k as Interaction["kind
 const ANSWERS: EssayAnswerItem[] = [
   ...(theories.length ? [{
     q: "How did the theories hold up?",
-    a: `Of ${count(theories.length, "well-known theory", "well-known theories")}: ${sentenceList(PRESENT.map((v) => `${TALLY.get(v)} ${verdictLabel(v).toLowerCase()}`))}.`,
+    a: `Of ${plural(theories.length, "well-known theory", "well-known theories")}: ${sentenceList(PRESENT.map((v) => `${count(TALLY.get(v) ?? 0)} ${verdictLabel(v).toLowerCase()}`))}.`,
     to: "theories", more: "The scorecard",
   }] : []),
   ...(MOMENTS.length ? [{
@@ -121,8 +121,8 @@ function Theories() {
       </FilterGroup>
       <p className="cmty-status" role="status">
         {verdict
-          ? <>Showing {shown.length} of {theories.length}. <strong>{VERDICT[verdict].label}.</strong> {smartQuotes(VERDICT[verdict].help)}.</>
-          : <>All {count(theories.length, "theory", "theories")}. Choose a verdict to narrow the list.</>}
+          ? <>Showing {count(shown.length)} of {count(theories.length)}. <strong>{VERDICT[verdict].label}.</strong> {smartQuotes(VERDICT[verdict].help)}.</>
+          : <>All {plural(theories.length, "theory", "theories")}. Choose a verdict to narrow the list.</>}
       </p>
       {shown.length > 0 ? (
         <EssayRows control={scored} label="The theories, scored">
@@ -140,7 +140,7 @@ const MomentRow = memo(function MomentRow({ x }: { x: Interaction }) {
   return (
     <EssayRow
       id={x.id}
-      when={<time dateTime={x.date}>{longDate(x.date, true)}</time>}
+      when={<RealDate date={x.date} short />}
       node={<Icon icon={interactionIcon(x.kind)} />}
       kicker={<><span className="label">{kindLabel(x.kind)}</span>{inferred && <Chip tone="open">Fan-inferred</Chip>}</>}
       title={x.title}

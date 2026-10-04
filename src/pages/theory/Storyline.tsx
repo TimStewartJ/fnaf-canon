@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import type { StoryBeat, TheorySection } from "../../data/schema";
 import { evidenceById, theoryById } from "../../data/store";
 import { citationsInText } from "../../data/theoryText";
-import { ConfidenceMark, Figure, RichText, chapterPath, eraHue, smartQuotes, useEvidenceDrawer } from "../../components/ui";
+import { ConfidenceMark, Figure, RichText, chapterPath, count, eraHue, plural, smartQuotes, useEvidenceDrawer } from "../../components/ui";
 import { chapterNumber, pad2 } from "./model";
 
 /**
@@ -37,7 +37,7 @@ export function Storyline({ beats, compact = false, chapters }: { beats: StoryBe
                 <ConfidenceMark value={b.confidence} variant="inline" long />
                 {sources.length > 0 && (
                   <button type="button" className="beat__sources" aria-haspopup="dialog" onClick={() => drawer.open(sources[0], sources, "for this beat", "Source")}>
-                    {sources.length} source{sources.length === 1 ? "" : "s"}<span className="sr-only"> for “{b.title}”</span>
+                    {plural(sources.length, "source")}<span className="sr-only"> for “{b.title}”</span>
                   </button>
                 )}
                 {argued.length > 0 && (
@@ -100,7 +100,7 @@ export function StoryProgress({ beats }: { beats: StoryBeat[] }) {
   return (
     <div className="story-progress pin" data-on={at.on ? "" : undefined} aria-hidden style={{ "--hue": eraHue(beat.era), "--p": (at.i + 1) / beats.length } as CSSProperties}>
       <div className="story-progress__bar">
-        <span className="story-progress__n">{pad2(at.i + 1)}<span className="story-progress__of"> of {beats.length}</span></span>
+        <span className="story-progress__n">{pad2(at.i + 1)}<span className="story-progress__of"> of {count(beats.length)}</span></span>
         <span className="story-progress__title">{smartQuotes(beat.title)}</span>
       </div>
     </div>

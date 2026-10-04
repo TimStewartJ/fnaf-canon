@@ -11,7 +11,7 @@ import { evidencePath, personPath, placePath } from "./links";
 import { entityName, isDescriptor, opensSentence } from "./names";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
-import { smartQuotes, sourceWords } from "./typography";
+import { longDate, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
@@ -273,6 +273,27 @@ export function EvidenceDate({ e, compact, variant, self = false }: { e: Evidenc
   // The record says how its date is known where it can; otherwise the precision stands in for it.
   const kind: DateKind = e.when.kind ?? (e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown");
   return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={self ? [] : [e.id]} compact={compact} variant={variant} />;
+}
+
+/** A date our calendar can mark up: a year, a year and month, or a full day, as the data writes them. */
+const CALENDAR_DATE = /^\d{4}(-\d{2}(-\d{2})?)?$/;
+
+/**
+ * A real-world date: the day something was released, posted, published or captured. It is plain
+ * text, marked up as a date where the data gives one the calendar knows ("2015-08-24", "2015-08",
+ * "2015"); a label such as "c. 2011" is printed as it was given. It is never drawn as a date pill:
+ * the pill, its glyph and its kinds ("printed", "derived", …) say how a date inside the story is
+ * known, and a reader must not be told that the day of a post is a date printed in a game.
+ *  - short   abbreviates the month, for a narrow column of dates
+ *  - about   what the date is the date of, where the data says (shown when the date is pointed at;
+ *            print it beside the date as well, for a reader who cannot point)
+ */
+export function RealDate({ date, short = false, about, className }: { date: string; short?: boolean; about?: string; className?: string }) {
+  const text = smartQuotes(longDate(date, short));
+  const title = about ? smartQuotes(about) : undefined;
+  return CALENDAR_DATE.test(date.trim())
+    ? <time dateTime={date.trim()} title={title} className={className}>{text}</time>
+    : <span title={title} className={className}>{text}</span>;
 }
 
 /* ── RichText ──────────────────────────────────────────────────────────────────── */

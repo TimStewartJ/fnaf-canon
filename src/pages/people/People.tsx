@@ -4,7 +4,7 @@ import type { Person } from "../../data/schema";
 import { people } from "../../data/store";
 import { isFoldedAway, unifiedPeople } from "../../data/model";
 import {
-  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, aliasParts, firmness, foldText, Thumb, levelOf,
+  Collapsible, Empty, FirmGlyph, GROUP_LABEL, GameMark, Page, PageHeader, SearchField, StatusMark, aliasParts, count, firmness, foldText, Thumb, levelOf,
   namesOf, personPath, plainText, smartQuotes, sortName, useAddressText, settleHeader,
 } from "../../components/ui";
 import { DossierSection, JumpLinks } from "./Dossier";
@@ -171,7 +171,7 @@ const MinorIndex = memo(function MinorIndex({ list, needle = "" }: { list: reado
                       <Name id={p.id} as="plain" alone />
                       {also && <span className="ppl-index__also">also <AliasText alias={also} /></span>}
                     </span>
-                    <span className="ppl-index__n" aria-label={plural(p.evidence.length, "record")}>{p.evidence.length}</span>
+                    <span className="ppl-index__n" aria-label={plural(p.evidence.length, "record")}>{count(p.evidence.length)}</span>
                   </Link>
                 </li>
               );
@@ -207,7 +207,7 @@ export default function People() {
         title="People"
         lede={<>
           Who is who, and how firmly. Names, descriptors, minigame figures and machines that the model reads as one person are folded into that
-          person: {entries.length} profiles, with {folded} other figures folded into them, and {minor.length} minor figures.
+          person: {plural(entries.length, "profile")}, with {plural(folded, "other figure")} folded into them, and {plural(minor.length, "minor figure")}.
         </>}
       >
         {/* On a phone the keyboard takes the lower half of the screen: the field goes to the top of
@@ -263,7 +263,7 @@ export default function People() {
           dense
           id="group-other"
           title={GROUP_LABEL.other}
-          count={needle ? `${shownMinor.length} of ${minor.length} match` : plural(minor.length, "name")}
+          count={needle ? `${count(shownMinor.length)} of ${count(minor.length)} match` : plural(minor.length, "name")}
           lead="Named or shown in the evidence, without a profile of their own. Each opens the records filed under it."
         >
           {needle

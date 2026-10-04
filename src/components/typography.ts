@@ -65,14 +65,25 @@ export function longDate(iso: string, short = false): string {
   return m[3] ? `${Number(m[3])} ${month} ${m[1]}` : `${month} ${m[1]}`;
 }
 
+const FIGURES = new Intl.NumberFormat("en-GB");
+/**
+ * A count in figures, as the interface prints it: with a comma between the thousands ("1,046").
+ * This is the one way a number of things is written, on every page: never print a count straight
+ * from `.length`. (A year, an id, a chapter's number and a citation's are not counts and are
+ * printed as they are.) It is called for every option of every filter on each keystroke, hence the
+ * shortcut for the numbers that need no separator.
+ */
+export const count = (n: number): string => (Number.isInteger(n) && n > -1000 && n < 1000 ? String(n) : FIGURES.format(n));
+/** A count with its noun: "1 record", "1,046 records", "2 entries" (`many` where the plural is not the noun with an s). */
+export const plural = (n: number, one: string, many = `${one}s`): string => `${count(n)} ${n === 1 ? one : many}`;
+
 const NUMBER_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
 /**
- * A small count in words, as running text has it ("eight eras"); from thirteen up, the figures.
+ * A small count in words, as running text has it ("eight eras"); from thirteen up, the figures (`count`).
  * For sentences and headings built around a count that comes from the data. `capital` for the
  * start of a sentence.
  */
 export function numberWord(n: number, capital = false): string {
-  const word = Number.isInteger(n) && n >= 0 && n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : String(n);
+  const word = Number.isInteger(n) && n >= 0 && n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : count(n);
   return capital ? word[0].toUpperCase() + word.slice(1) : word;
 }
-

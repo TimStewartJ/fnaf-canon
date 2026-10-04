@@ -5,19 +5,25 @@ import { creditByFile, evidenceById } from "../data/store";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { useFlick, useModalDialog } from "./hooks";
 import { ExternalLink } from "./controls";
-import { evidencePath, imgSize, imgUrl } from "./links";
+import { evidencePath, imgSize, imgUrl, thumbSize, thumbUrl } from "./links";
 import { Icon } from "./Icon";
 import { smartQuotes } from "./typography";
 
 /**
  * Pixel-art PNGs stay crisp when drawn larger than they are; everything else is drawn smooth.
- * The image is fitted inside its box (object-fit: contain), so the scale is the smaller of the two
- * sides': a tall image in a wide box is being shrunk, however wide the box.
+ * How large an image is drawn depends on how it is fitted to its box. Fitted inside it (object-fit:
+ * contain, the frame's default), the scale is the smaller of the two sides': a tall image in a wide
+ * box is being shrunk, however wide the box. Filling it (cover, as in a card's cropped picture),
+ * the scale is the larger: the same image across a wide card is being enlarged.
  */
 function markScale(img: HTMLImageElement): void {
   const png = /\.png(\?|$)/i.test(img.currentSrc || img.src);
-  const scale = img.naturalWidth > 0 && img.naturalHeight > 0 ? Math.min(img.clientWidth / img.naturalWidth, img.clientHeight / img.naturalHeight) : 0;
-  img.classList.toggle("is-upscaled", png && scale > 1.05);
+  let scale = 0;
+  if (png && img.naturalWidth > 0 && img.naturalHeight > 0) {
+    const across = img.clientWidth / img.naturalWidth, down = img.clientHeight / img.naturalHeight;
+    scale = getComputedStyle(img).objectFit === "cover" ? Math.max(across, down) : Math.min(across, down);
+  }
+  img.classList.toggle("is-upscaled", scale > 1.05);
 }
 /** Measures again when an image's box changes size (the window, the viewer's stage). */
 const scaleWatch = typeof ResizeObserver === "undefined" ? null : new ResizeObserver((entries) => { for (const e of entries) markScale(e.target as HTMLImageElement); });
@@ -71,12 +77,27 @@ function useNear(now: boolean): [boolean, (el: HTMLImageElement | null) => (() =
 }
 
 /**
+ * Which file a small frame draws: the image's small copy (public/thumb) where there is one, and
+ * the image itself where there is none, or where the copy could not be loaded. A small copy only
+ * saves bytes: its absence must never cost the picture.
+ * Returns the URL, whether it is the copy, and what to do when it fails: true means "the image
+ * itself is being tried now", false means there is nothing left to try.
+ */
+function useSmallCopy(file: string, small: boolean): { src: string; copy: boolean; retry: () => boolean } {
+  const [whole, setWhole] = useState<string | null>(null);
+  const copy = small && whole !== file && thumbSize(file) !== undefined;
+  return { src: copy ? thumbUrl(file) : imgUrl(file), copy, retry: () => { if (copy) setWhole(file); return copy; } };
+}
+
+/**
  * A small decorative picture from public/img for a box whose size the stylesheet sets (a row's
- * thumbnail). Fetched when it comes near the window; if the file is missing, the box stays empty.
+ * thumbnail). It draws the image's small copy. Fetched when it comes near the window; if the file
+ * is missing, the box stays empty.
  */
 export function Thumb({ file, className }: { file: string; className?: string }) {
   const [near, ref] = useNear(false);
-  return <img ref={ref} className={className} src={near ? imgUrl(file) : blank({ width: 3, height: 2 })} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />;
+  const { src, retry } = useSmallCopy(file, true);
+  return <img ref={ref} className={className} src={near ? src : blank({ width: 3, height: 2 })} alt="" loading="lazy" decoding="async" onError={(e) => { if (near && !retry()) e.currentTarget.style.visibility = "hidden"; }} />;
 }
 
 /** Said in place of an image whose file could not be loaded. */
@@ -98,22 +119,29 @@ const PHOTO_STRETCH = 1.25;
  *
  * `near` is for a page that is mostly images: the file is fetched only when the frame comes near
  * the window (see above). Not for figures in running text, which must print.
+ *
+ * `small` is for a frame that is never drawn large (a gallery tile, a card): it shows the image's
+ * small copy where one exists (and the image itself if the copy cannot be loaded). A copy is a
+ * resampled picture whatever its source was, so it is held near its own size as a photograph is.
+ * The viewer that the frame opens shows the image itself.
  */
-export function FigureFrame({ file, alt, eager = false, near: whenNear = false, onZoom, captionId }: { file: string; alt: string; eager?: boolean; near?: boolean; onZoom: () => void; captionId?: string }) {
+export function FigureFrame({ file, alt, eager = false, near: whenNear = false, small = false, onZoom, captionId }: { file: string; alt: string; eager?: boolean; near?: boolean; small?: boolean; onZoom: () => void; captionId?: string }) {
   const [failed, setFailed] = useState<string | null>(null);
-  const size = imgSize(file);
+  const { src, copy, retry } = useSmallCopy(file, small);
+  // The size of the file that is drawn: the copy's own when the copy is shown.
+  const size = (copy ? thumbSize(file) : undefined) ?? imgSize(file);
   // An image whose shape is not known is fetched at once: there would be nothing to hold its place with.
   const [near, img] = useNear(eager || !whenNear || !size);
   if (failed === file) {
     return <div className="figure__frame figure__frame--missing" style={size ? { aspectRatio: `${size.width} / ${size.height}` } : undefined}><Unavailable alt={alt} /></div>;
   }
-  const photo = !!size && !/\.png$/i.test(file);
+  const photo = !!size && (copy || !/\.png$/i.test(file));
   return (
     <button type="button" className="figure__frame" onClick={onZoom} aria-label={captionId ? "Enlarge image" : `Enlarge image: ${alt}`} aria-describedby={captionId}>
       <img
-        ref={img} src={near || !size ? imgUrl(file) : blank(size)} {...size} alt={captionId ? "" : alt} loading={eager ? "eager" : "lazy"} decoding="async"
+        ref={img} src={near || !size ? src : blank(size)} {...size} alt={captionId ? "" : alt} loading={eager ? "eager" : "lazy"} decoding="async"
         className={photo ? "is-photo" : undefined} style={photo ? { "--natural": `${Math.round(size.width * PHOTO_STRETCH)}px` } as CSSProperties : undefined}
-        onLoad={onImgLoad} onError={() => { if (near) setFailed(file); }}
+        onLoad={onImgLoad} onError={() => { if (near && !retry()) setFailed(file); }}
       />
       <span className="figure__zoom" aria-hidden><Icon icon={Maximize2} /></span>
     </button>
@@ -124,6 +152,10 @@ export function FigureFrame({ file, alt, eager = false, near: whenNear = false, 
  * Full-screen image viewer. Escape, the close button, or a click on the backdrop closes it;
  * focus returns to whatever opened it. Pass onPrev/onNext to page through a set: the arrow keys
  * work, and so does a flick of a finger to either side. A pull downwards closes it.
+ *
+ * It always shows the image itself. Where the image has a small copy (which the tile or card that
+ * opened the viewer has usually fetched already), the copy is drawn in its place until the image
+ * arrives, so the picture is there at once and sharpens, instead of a dark stage.
  */
 export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { file: string; caption?: ReactNode; onClose: () => void; onPrev?: () => void; onNext?: () => void; counter?: string }) {
   const credit = creditByFile.get(file);
@@ -131,6 +163,9 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
   const alt = typeof caption === "string" ? caption : credit?.caption ?? "";
   const shown = caption ?? credit?.caption;
   const [failed, setFailed] = useState<string | null>(null);
+  // The file whose own image has arrived; until then its small copy, if it has one, stands in.
+  const [arrived, setArrived] = useState<string | null>(null);
+  const standIn = arrived !== file && thumbSize(file) ? thumbUrl(file) : null;
   const dialog = dialogProps.ref;
   // Paging redraws the caption. Focus that was on a link in it stays in the viewer, on the way onward.
   useLayoutEffect(() => {
@@ -157,7 +192,11 @@ export function Lightbox({ file, caption, onClose, onPrev, onNext, counter }: { 
         {onPrev && <button type="button" className="icon-btn lightbox__nav" onClick={onPrev} aria-label="Previous image"><Icon icon={ChevronLeft} /></button>}
         {failed === file
           ? <Unavailable alt={alt} />
-          : <img ref={crisp} src={imgUrl(file)} alt={alt} decoding="async" onLoad={onImgLoad} onError={() => setFailed(file)} onClick={onClose} />}
+          : <img
+              // A new element for each picture: an <img> given a new address goes on showing the old picture until the new one is in.
+              key={file} ref={crisp} src={imgUrl(file)} alt={alt} decoding="async" style={standIn ? { backgroundImage: `url("${standIn}")` } : undefined}
+              onLoad={(e) => { onImgLoad(e); setArrived(file); }} onError={() => setFailed(file)} onClick={onClose}
+            />}
         {onNext && <button type="button" className="icon-btn lightbox__nav" onClick={onNext} aria-label="Next image"><Icon icon={ChevronRight} /></button>}
       </div>
       <div className="lightbox__caption">
@@ -188,7 +227,7 @@ export function Figure({ file, caption, alt, evidence, compact = false, tag, cla
   const captioned = !compact && !!cap && alt === undefined;
   return (
     <figure className={`figure${compact ? " figure--compact" : ""}${className ? ` ${className}` : ""}`}>
-      <FigureFrame file={file} alt={altText} eager={eager} onZoom={() => setZoom(true)} captionId={captioned ? capId : undefined} />
+      <FigureFrame file={file} alt={altText} eager={eager} small={compact} onZoom={() => setZoom(true)} captionId={captioned ? capId : undefined} />
       {!compact && (cap || credit) && (
         <figcaption className="figure__caption">
           {tag && <span className="label">{tag}</span>}

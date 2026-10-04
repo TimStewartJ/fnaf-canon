@@ -9,10 +9,11 @@ import {
   personName, personOptions, placeName, placeOptions, sourceOptions, toggleIn, within,
 } from "./model";
 
+// The second layer holds deaths and other fates (see model.ts); its id, "deaths", is the address's word for it.
 const LAYERS: { id: Layer; label: string }[] = [
   { id: "all", label: "Both" },
   { id: "events", label: "Story events" },
-  { id: "deaths", label: "Deaths" },
+  { id: "deaths", label: "Deaths and other fates" },
 ];
 
 function PersonLabel({ id }: { id: string }) {
@@ -27,7 +28,10 @@ function PersonLabel({ id }: { id: string }) {
  *  - bare         the groups without the panel around them (the sheet is the panel)
  *  - onLeave      called when the link to the Locations view is followed
  *
- * Person, source and killer take one value. Support and cause take several: none chosen means all.
+ * Person, source and "by" take one value. Support and cause take several: none chosen means all.
+ * Cause and "by" are asked of the second layer, whose entries are not all deaths: so they are
+ * named as the entries name them ("Cause", and "By" as in an entry's facts), never "cause of
+ * death" or "killer". In the address they are still `cause` and `killer`.
  */
 export function FilterPanel({ f, set, locationsTo, bare = false, onLeave }: { f: Filters; set: (change: FilterChange) => void; locationsTo: URLSearchParams; bare?: boolean; onLeave?: () => void }) {
   const people = f.person && !personOptions.includes(f.person) ? [...personOptions, f.person] : personOptions;
@@ -67,7 +71,7 @@ export function FilterPanel({ f, set, locationsTo, bare = false, onLeave }: { f:
       </FilterGroup>
       {f.layer !== "events" && (
         <>
-          <FilterGroup label="Cause of death">
+          <FilterGroup label="Cause">
             <FilterChip on={!f.cause.length} onClick={() => set((now) => ({ ...now, cause: [] }))}>Any</FilterChip>
             {DEATH_KINDS.map((k) => (
               <FilterChip key={k} on={f.cause.includes(k)} onClick={() => set((now) => ({ ...now, cause: toggleIn(DEATH_KINDS, now.cause, k) }))}>
@@ -75,7 +79,7 @@ export function FilterPanel({ f, set, locationsTo, bare = false, onLeave }: { f:
               </FilterChip>
             ))}
           </FilterGroup>
-          <FilterGroup label="Killer">
+          <FilterGroup label="By">
             <FilterChip on={!f.killer} onClick={() => set((now) => ({ ...now, killer: "" }))}>Anyone</FilterChip>
             {killerOptions.map(({ key, n }) => (
               <FilterChip key={key} on={f.killer === key} count={n} onClick={() => set((now) => ({ ...now, killer: now.killer === key ? "" : key }))}>

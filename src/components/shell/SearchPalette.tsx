@@ -11,7 +11,7 @@ import { Icon } from "../Icon";
 import { chapterPath, personPath, placePath, timelineEventPath } from "../links";
 import { aliasParts, capitalise, foldText as fold, namesOf } from "../names";
 import { plainText } from "../richTextPlain";
-import { smartQuotes } from "../typography";
+import { plural, smartQuotes } from "../typography";
 import { chapterNumber, readingOrder } from "../chapterOrder";
 import { NAV_FLAT } from "./nav";
 
@@ -266,7 +266,7 @@ export default function SearchPalette({ onClose, initial = "" }: { onClose: () =
   // Said to a screen reader once typing pauses: how many results, or that there are none.
   // (The last row is the way on to the evidence locker, not a result.)
   const hits = searching ? results.length - 1 : results.length;
-  const said = useSettled(!searching ? "" : hits === 0 ? `Nothing matches ${q.trim()}` : `${hits} ${hits === 1 ? "result" : "results"}${found.instead ? ` for ${found.instead}` : found.partial ? ", none with every word" : ""}`, 700);
+  const said = useSettled(!searching ? "" : hits === 0 ? `Nothing matches ${q.trim()}` : `${plural(hits, "result")}${found.instead ? ` for ${found.instead}` : found.partial ? ", none with every word" : ""}`, 700);
 
   const choose = (e: Entry) => {
     onClose();

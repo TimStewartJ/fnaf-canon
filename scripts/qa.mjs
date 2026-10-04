@@ -43,8 +43,9 @@ const NOT_FOUND = ["/this-route-does-not-exist", "/theory/no-such-chapter", "/pe
 const DEFAULT_ROUTES = [
   // Home and the theory: the cover, the longest chapter (open), chapters with wide tables, a figure-led one.
   "/", "/theory", "/theory/thesis", "/theory/open", "/theory/games", "/theory/ucn", "/theory/november-1987", "/theory/timeline-math", "/theory/plush", "/theory/bite",
-  // Timeline: both views, one era, one event open.
-  "/timeline", "/timeline?view=locations", "/timeline?era=murders",
+  // Timeline: both views, one era, the second layer alone (every death and other fate as a row of its own), and an
+  // event open on an entry that is not a death (Michael's scooping: he survives).
+  "/timeline", "/timeline?view=locations", "/timeline?era=murders", "/timeline?layer=deaths", "/timeline?e=d-michael-scooped",
   // Evidence: the explorer plain and filtered, a record, sources (one full, one with a single group, one with no records), the gallery.
   "/evidence", "/evidence?game=fnaf4&img=1", "/evidence/fnaf2-take-cake-to-the-children", "/sources", "/sources/fnaf4", "/sources/fnaf4-halloween", "/sources/freddy-in-space-2", "/gallery",
   // People and places: the register (plain, found by an alias, nobody found), the people with most on them, a descriptor with

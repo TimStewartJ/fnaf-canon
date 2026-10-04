@@ -55,13 +55,13 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
           return (
             <li key={credit.file} className="gal-tile">
               <figure className="figure">
-                <FigureFrame file={credit.file} alt={credit.caption} near onZoom={() => onZoom(g.id, at)} />
+                <FigureFrame file={credit.file} alt={credit.caption} near small onZoom={() => onZoom(g.id, at)} />
                 <figcaption className="figure__caption">
                   <span className="figure__text">{smartQuotes(credit.caption)}</span>
                   <span className="figure__meta">
                     {uses.length > 0 && (
                       <EvidenceLink id={uses[0].id} group={ids.length > 1 ? ids : undefined} className="figure__credit">
-                        {uses.length === 1 ? "Record" : `${uses.length} records`}
+                        {uses.length === 1 ? "Record" : records(uses.length)}
                         <span className="sr-only">: {uses.map((u) => u.title).join("; ")}</span>
                       </EvidenceLink>
                     )}
@@ -75,8 +75,8 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
         {!whole && (
           <li className="gal-tile">
             <button type="button" className="gal-tile__more" onClick={() => onShowAll(g.id, shots.length)}>
-              <span className="gal-tile__more-n">+{g.shots.length - shots.length}</span>
-              <span>Show all {g.shots.length}<span className="sr-only"> images from {g.title}</span></span>
+              <span className="gal-tile__more-n">+{count(g.shots.length - shots.length)}</span>
+              <span>Show all {count(g.shots.length)}<span className="sr-only"> images from {g.title}</span></span>
             </button>
           </li>
         )}
@@ -123,7 +123,7 @@ export default function Gallery() {
       {GROUPS.map((g) => (
         <li key={g.id}>
           <Link to={link(`g-${g.id}`)} className="tag gal-index__link" title={g.title}>
-            <GameMark id={g.id} /> <span className="gal-index__n">{g.shots.length}</span>
+            <GameMark id={g.id} /> <span className="gal-index__n">{count(g.shots.length)}</span>
           </Link>
         </li>
       ))}
@@ -137,13 +137,13 @@ export default function Gallery() {
       <PageHeader
         kicker="Evidence"
         title="Gallery"
-        lede={<>{count(total)} screenshots of the moments the evidence rests on, grouped by the {GROUPS.length} sources that have pictures. Each one opens larger, with the records it illustrates and the page it was retrieved from.</>}
+        lede={<>{count(total)} screenshots of the moments the evidence rests on, grouped by the {count(GROUPS.length)} sources that have pictures. Each one opens larger, with the records it illustrates and the page it was retrieved from.</>}
       />
 
       {GROUPS.length > 1 && (
         <nav className="gal-index" aria-label="Jump to a source">
           {/* A row or two of chips where there is room; folded to one line on a phone, where it would fill the screen. */}
-          {phone ? <Collapsible summary="Jump to a source" meta={`${GROUPS.length} sources with pictures`}>{index}</Collapsible> : <><span className="label">Jump to</span>{index}</>}
+          {phone ? <Collapsible summary="Jump to a source" meta={`${count(GROUPS.length)} sources with pictures`}>{index}</Collapsible> : <><span className="label">Jump to</span>{index}</>}
         </nav>
       )}
 
@@ -153,7 +153,7 @@ export default function Gallery() {
         <div className="gal-zoom">
           <Lightbox
             file={zoomShot.credit.file}
-            counter={`${zoom.at + 1} of ${zoomGroup.shots.length} · ${gameMeta(zoomGroup.id).short}`}
+            counter={`${count(zoom.at + 1)} of ${count(zoomGroup.shots.length)} · ${gameMeta(zoomGroup.id).short}`}
             caption={
               <>
                 {smartQuotes(zoomShot.credit.caption)}

@@ -7,6 +7,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin, type ResolvedConfig } from 'vite'
 
 const IMG_DIR = fileURLToPath(new URL('./public/img', import.meta.url))
+const THUMB_DIR = fileURLToPath(new URL('./public/thumb', import.meta.url))
 const SIZES_ID = 'virtual:image-sizes'
 const SIZES_RESOLVED = '\0' + SIZES_ID
 
@@ -39,6 +40,8 @@ function pixelSize(b: Buffer): [number, number] | null {
 /**
  * `virtual:image-sizes` maps each file in public/img to [width, height], so figures can reserve
  * their space before the image loads (no layout shift while reading or after an anchor jump).
+ * Its `thumbs` export maps each file that has a small copy in public/thumb (scripts/thumbs.py) to the
+ * copy's own [width, height], so a frame that shows the copy knows how large it may be drawn.
  */
 function imageSizes(): Plugin {
   return {
@@ -51,11 +54,20 @@ function imageSizes(): Plugin {
         const size = pixelSize(readFileSync(join(IMG_DIR, file)))
         if (size && size[0] > 0 && size[1] > 0) sizes[file] = size
       }
-      return `export default ${JSON.stringify(sizes)}`
+      const thumbs: Record<string, [number, number]> = {}
+      let copies: string[] = []
+      try { copies = readdirSync(THUMB_DIR).filter((f) => f.endsWith('.webp')).sort() } catch { /* no small copies have been made */ }
+      for (const copy of copies) {
+        const file = copy.slice(0, -'.webp'.length)
+        const size = pixelSize(readFileSync(join(THUMB_DIR, copy)))
+        // A copy of an image that is gone, or one that cannot be read, is not offered.
+        if (sizes[file] && size && size[0] > 0 && size[1] > 0) thumbs[file] = size
+      }
+      return `export default ${JSON.stringify(sizes)}\nexport const thumbs = ${JSON.stringify(thumbs)}`
     },
     configureServer(server) {
       const refresh = (file: string) => {
-        if (!file.startsWith(IMG_DIR)) return
+        if (!file.startsWith(IMG_DIR) && !file.startsWith(THUMB_DIR)) return
         const mod = server.moduleGraph.getModuleById(SIZES_RESOLVED)
         if (!mod) return
         server.moduleGraph.invalidateModule(mod)

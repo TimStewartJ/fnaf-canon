@@ -5,7 +5,7 @@ import type { Relation } from "../../data/schema";
 import { personById } from "../../data/store";
 import { familyTrees, type FamilyTree } from "../../data/familyTrees";
 import {
-  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, TabPanel, Tabs, Toggle, entityName, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
+  Callout, Collapsible, Empty, FilterChip, Icon, Page, PageHeader, TabPanel, Tabs, Toggle, count, entityName, levelOf, personPath, smartQuotes, useMediaQuery, listParam, useAddress,
 } from "../../components/ui";
 import { GroupLabel } from "./Dossier";
 import { useContentWidth } from "./measure";
@@ -196,7 +196,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
       <Collapsible
         className="fam-lines-pick"
         summary="Lines drawn"
-        meta={linesOn.length ? `${linesOn.length} of ${kinds.length} kinds${phone ? "" : `: ${linesOn.join(", ")}`}` : `none of ${kinds.length} kinds`}
+        meta={linesOn.length ? `${count(linesOn.length)} of ${count(kinds.length)} kinds${phone ? "" : `: ${linesOn.join(", ")}`}` : `none of ${count(kinds.length)} kinds`}
       >
         <div className="cluster fam-kinds" role="group" aria-label="Kinds of line to draw">
           {kinds.map(({ kind, n }) => (
@@ -248,7 +248,7 @@ function TreeView({ tree }: { tree: FamilyTree }) {
                       {smartQuotes(entityName(n.id, true))}
                     </span>
                     {sub && <span className="fam-node__sub">{smartQuotes(sub)}{short && <span className="sr-only">: {also.slice(1).join(", ")}</span>}</span>}
-                    {also.length > 0 && <span className="fam-node__badge" aria-hidden>+{also.length}</span>}
+                    {also.length > 0 && <span className="fam-node__badge" aria-hidden>+{count(also.length)}</span>}
                   </Link>
                 );
               })}

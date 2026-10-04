@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { Button, smartQuotes, useAddress } from "../../components/ui";
+import { Button, count as figures, smartQuotes, useAddress } from "../../components/ui";
 
 /**
  * A section of a dossier page (person, place): the heading, a count and a one-line lead sit in a
@@ -23,7 +23,7 @@ export function DossierSection({ id, title, count, lead, dense, children }: { id
 
 /** A small heading for a group of rows. Inside a dossier section it is an h3; pass `as="h2"` where no h2 stands above it. */
 export function GroupLabel({ children, count, as: Tag = "h3" }: { children: ReactNode; count?: number; as?: "h2" | "h3" }) {
-  return <Tag className="label ppl-group">{children}{count != null && <span className="ppl-group__n">{count}</span>}</Tag>;
+  return <Tag className="label ppl-group">{children}{count != null && <span className="ppl-group__n">{figures(count)}</span>}</Tag>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function Capped<T>({ items, cap, noun, children }: { items: readonly T[];
             iconEnd={all ? ChevronUp : ChevronDown}
             onClick={() => { folded.current = all; setAll(!all); }}
           >
-            {all ? `Show the first ${cap}` : `Show all ${items.length} ${noun}`}
+            {all ? `Show the first ${figures(cap)}` : `Show all ${figures(items.length)} ${noun}`}
           </Button>
         </p>
       )}
@@ -71,7 +71,7 @@ export function JumpLinks({ items, label = "On this page" }: { items: readonly {
   return (
     <nav className="ppl-toc" aria-label={label}>
       {items.map((it) => (
-        <Link key={it.id} to={anchor(it.id)} className="ppl-toc__link">{smartQuotes(it.label)}{it.n != null && <span className="ppl-toc__n">{it.n}</span>}</Link>
+        <Link key={it.id} to={anchor(it.id)} className="ppl-toc__link">{smartQuotes(it.label)}{it.n != null && <span className="ppl-toc__n">{figures(it.n)}</span>}</Link>
       ))}
     </nav>
   );

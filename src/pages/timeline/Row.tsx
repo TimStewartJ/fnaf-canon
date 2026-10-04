@@ -6,25 +6,33 @@ import type { Evidence } from "../../data/schema";
 import { eventDate } from "../../data/dates";
 import { evidenceById } from "../../data/store";
 import {
-  Button, ChapterLink, Chip, CiteList, CiteScope, DatePill, DeathIcon, deathKindIcon, EntityLink, EvidenceRow, Figure, Icon, RichText, StatusMark,
-  chapterNumber, excerpt, levelOf, smartQuotes,
+  Button, ChapterLink, Chip, CiteList, CiteScope, DatePill, DeathIcon, EntityLink, EvidenceRow, FateIcon, FateTag, Figure, Icon, RichText, StatusMark,
+  chapterNumber, count, excerpt, isDeath, levelOf, outcomeOf, smartQuotes,
 } from "../../components/ui";
-import { type DeathRow, type EventRow, type Row, causeLabel, chaptersFor, eventLink, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
+import { type DeathRow, type EventRow, type Row, chaptersFor, eventLink, fatesOf, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
 
 /** How much of a summary a closed row shows. CSS clamps it further on a narrow screen. */
 const EXCERPT = 190;
 
-/** The words that mark a death wherever one appears: the skull is never the only signal. */
-function DeathTag({ d }: { d: Death }) {
-  return (
-    <span className="tl-deathtag">
-      <Icon icon={DeathIcon} /> Death
-      <span className="tl-deathtag__cause"><Icon icon={deathKindIcon(d.kind)} /> {causeLabel(d.kind)}</span>
-    </span>
-  );
+/*
+ * An entry of the second layer (data/deaths.ts) is a death or another fate, and says which wherever
+ * it appears: <FateTag> prints its outcome ("Death", "Presumed dead", "Fate not shown", "Survives",
+ * "Death in one ending") and then its cause. The skull is for a death alone. `Death` below is the
+ * data's name for any such entry.
+ */
+
+/**
+ * The ending an entry is confined to, beside its tag: "one ending: Walk Away (Clock Out)". A death
+ * in one ending has said "in one ending" in its tag already, so its chip only names the ending.
+ * Two entries for one person are two endings of one game: without this, two lines of a closed row
+ * would read as the same thing said twice.
+ */
+function EndingChip({ d }: { d: Death }) {
+  if (!d.branch) return null;
+  return <Chip className="tl-ending">{outcomeOf(d) === "branch" ? "ending" : "one ending"}: {smartQuotes(d.branch)}</Chip>;
 }
 
-/** Who died, by whose hand and where. `ending` adds the ending a death is confined to (a row of its own says that in its heading line). */
+/** Whom it happened to, by whose hand and where. `ending` adds the ending an entry is confined to (a row of its own, and a line of a closed row, say that on a chip). */
 function DeathFacts({ d, ending = false }: { d: Death; ending?: boolean }) {
   return (
     <dl className="tl-facts">
@@ -36,12 +44,12 @@ function DeathFacts({ d, ending = false }: { d: Death; ending?: boolean }) {
   );
 }
 
-/** A death told by a story event, shown inside that event's row. Its title is left out when it only repeats the event's. */
+/** A death or other fate told by a story event, shown inside that event's row. Its title is left out when it only repeats the event's. */
 function DeathInEvent({ d, marked, eventTitle }: { d: Death; marked: boolean; eventTitle: string }) {
   return (
-    <div className={`tl-death${marked ? " is-marked" : ""}`} id={d.id} data-level={levelOf(d.status)}>
+    <div className={`tl-death${marked ? " is-marked" : ""}`} id={d.id} data-level={levelOf(d.status)} data-outcome={outcomeOf(d)}>
       <p className="tl-death__head">
-        <DeathTag d={d} />
+        <FateTag d={d} />
         <span className="tl-death__marks">
           <DatePill label={d.yearLabel} kind={d.date.kind} basis={d.date.basis} evidence={d.date.evidence} compact />
           <StatusMark value={d.status} />
@@ -116,7 +124,7 @@ function Records({ ids, numbers }: { ids: string[]; numbers?: (id: string) => nu
       )}
       {cut && (
         <p className="tl-detail__more">
-          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; setAll(true); }}>Show the other {records.length - RECORDS_SHOWN} records</Button>
+          <Button size="sm" iconEnd={ChevronDown} onClick={() => { reveal.current = true; setAll(true); }}>Show the other {count(records.length - RECORDS_SHOWN)} records</Button>
         </p>
       )}
     </div>
@@ -164,17 +172,20 @@ function DeathDetail({ row }: { row: DeathRow }) {
 }
 
 /**
- * One entry on the line: a story event, or a death that no story event tells. Closed, it is a date,
- * a title, how firm it is and a line or two. Open, it shows the whole entry in place: the summary
- * with its citations, the deaths it tells, the people and places, and the records.
- *  - mark   id of a death inside this row that a link pointed at
+ * One entry on the line: a story event, or a death or other fate that no story event tells.
+ * Closed, it is a date, a title, how firm it is and a line or two. Open, it shows the whole entry
+ * in place: the summary with its citations, the deaths and other fates it tells, the people and
+ * places, and the records. Its node on the line carries the skull if it has a death, the other
+ * mark if it has only other fates, and nothing if it is a plain story event.
+ *  - mark   id of a death or other fate inside this row that a link pointed at
  */
 export const TimelineRow = memo(function TimelineRow({ row, open, mark, onToggle }: { row: Row; open: boolean; mark?: string; onToggle: (id: string) => void }) {
-  const isDeath = row.kind === "death";
-  const title = isDeath ? row.d.title : row.ev.title;
-  const date = isDeath ? row.d.date : eventDate(row.id);
-  const yearLabel = isDeath ? row.d.yearLabel : row.ev.yearLabel;
-  const withDeath = isDeath || row.deaths.length > 0;
+  const own = row.kind === "death";
+  const title = own ? row.d.title : row.ev.title;
+  const date = own ? row.d.date : eventDate(row.id);
+  const yearLabel = own ? row.d.yearLabel : row.ev.yearLabel;
+  const fates = fatesOf(row);
+  const node = fates.some(isDeath) ? "death" : fates.length ? "fate" : null;
   const short = useMemo(() => (row.kind === "event" ? smartQuotes(excerpt(row.ev.summary, EXCERPT)) : ""), [row]);
 
   // Closing from the foot of a long entry: bring its heading back into view and return focus to it.
@@ -189,16 +200,16 @@ export const TimelineRow = memo(function TimelineRow({ row, open, mark, onToggle
   }, [open]);
 
   return (
-    <li ref={li} id={row.id} className={`tl-row tl-row--${row.kind}${withDeath ? " has-death" : ""}${open ? " is-open" : ""}`} data-level={levelOf(row.status)}>
-      <span className="tl-row__node" aria-hidden>{withDeath && <Icon icon={DeathIcon} size={12} />}</span>
+    <li ref={li} id={row.id} className={`tl-row tl-row--${row.kind}${node ? ` has-${node}` : ""}${open ? " is-open" : ""}`} data-level={levelOf(row.status)} data-outcome={own ? outcomeOf(row.d) : undefined}>
+      <span className="tl-row__node" aria-hidden>{node && <Icon icon={node === "death" ? DeathIcon : FateIcon} size={12} />}</span>
       <div className="tl-row__main">
         <div className="tl-row__head">
           <p className="tl-row__when">
             <DatePill label={yearLabel} kind={date.kind} basis={date.basis} evidence={date.evidence} />
             <span className="tl-row__status tl-row__status--long"><StatusMark value={row.status} variant="inline" long /></span>
             <span className="tl-row__status tl-row__status--short"><StatusMark value={row.status} variant="inline" /></span>
-            {isDeath && <DeathTag d={row.d} />}
-            {isDeath && row.d.branch && <Chip>one ending: {smartQuotes(row.d.branch)}</Chip>}
+            {own && <FateTag d={row.d} />}
+            {own && <EndingChip d={row.d} />}
           </p>
           <h3 className="tl-row__title">
             <button ref={toggle} type="button" className="tl-row__toggle" aria-expanded={open} aria-controls={open ? `${row.id}-detail` : undefined} onClick={() => onToggle(row.id)}>
@@ -213,7 +224,7 @@ export const TimelineRow = memo(function TimelineRow({ row, open, mark, onToggle
             </p>
           )}
           {!open && row.kind === "event" && row.deaths.map((d) => (
-            <p key={d.id} className="tl-row__death"><DeathTag d={d} /> <span className="tl-row__victim">{smartQuotes(d.victimLabel)}</span></p>
+            <p key={d.id} className="tl-row__death"><FateTag d={d} /> <EndingChip d={d} /> <span className="tl-row__victim">{smartQuotes(d.victimLabel)}</span></p>
           ))}
           <Icon icon={ChevronDown} className="tl-row__chev" />
         </div>

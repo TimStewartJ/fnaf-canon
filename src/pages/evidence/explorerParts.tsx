@@ -170,7 +170,7 @@ export const Facets = memo(function Facets({ query, outcome, searching, actions,
         ))}
       </Facet>
       <div ref={more}>
-        <Collapsible summary="More filters" meta={folded ? `${folded} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
+        <Collapsible summary="More filters" meta={folded ? `${count(folded)} in use` : undefined} defaultOpen={folded > 0} className="evx-more">
           <div className="evx-facets evx-facets--more">
             <Facet label="Place in the theory">
               {PLACES.map((p) => (

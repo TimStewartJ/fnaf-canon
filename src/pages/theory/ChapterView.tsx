@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, plainText, smartQuotes, useMediaQuery } from "../../components/ui";
+import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
 import { type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
@@ -60,7 +60,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         <header className="chapter-head">
           <p className="kicker chapter-head__kicker">
             {part ? <Link to={`${ctx.coverPath}#part-${part.id}`}>Part {roman(ctx.group!.n)} · {smartQuotes(part.title)}</Link> : <Link to={ctx.coverPath}>The theory</Link>}
-            <span className="chapter-head__count">Chapter {ctx.number} of {ctx.total}</span>
+            <span className="chapter-head__count">Chapter {ctx.number} of {count(ctx.total)}</span>
           </p>
           <h1 className="chapter-head__title">{smartQuotes(s.title)}</h1>
           <div className="verdict" data-level={conf.level}>
@@ -74,8 +74,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
           <p className="chapter-head__meta">
             {readingMinutes(s)} min read<span aria-hidden> · </span>
             {/* A link to the list at the foot (an anchor, so Back returns here); landing on it opens it. */}
-            <Link to={`${ctx.pathOf(s.id)}#sources`} className="chapter-head__sources">{cited.length} record{cited.length === 1 ? "" : "s"} cited</Link>
-            {counter.length > 0 && <><span aria-hidden> · </span>{counter.length} push{counter.length === 1 ? "es" : ""} back</>}
+            <Link to={`${ctx.pathOf(s.id)}#sources`} className="chapter-head__sources">{plural(cited.length, "record")} cited</Link>
+            {counter.length > 0 && <><span aria-hidden> · </span>{plural(counter.length, "pushes", "push")} back</>}
           </p>
         </header>
 
@@ -97,7 +97,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
             <h2 id={`${uid}-pushback`}><Icon icon={TriangleAlert} className="pushback__icon" /> What pushes back</h2>
             {counter.length > 0 && (
               <>
-                <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${counter.length} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
+                <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${count(counter.length)} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
                 <ul className="ev-list pushback__list">
                   {counter.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
                 </ul>
@@ -146,11 +146,11 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         <div className="chapter-end">
-          <Collapsible print id="sources" summary="Sources" meta={`${cited.length} record${cited.length === 1 ? "" : "s"} cited in this chapter, in order`}>
+          <Collapsible print id="sources" summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
-            <Collapsible eager summary="Further evidence filed here" meta={`${further.length} more record${further.length === 1 ? "" : "s"} on this thread, not cited above`}>
+            <Collapsible eager summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>
               <EvidenceList ids={further} />
             </Collapsible>
           )}
