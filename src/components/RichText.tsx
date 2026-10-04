@@ -300,7 +300,8 @@ export function RealDate({ date, short = false, about, className }: { date: stri
 
 const TOKEN_RE = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\|([^)]+))?\)\)|\*\*(.+?)\*\*|\*([^\s*](?:[^*]*[^\s*])?)\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
 
-type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "node"; node: ReactNode };
+/** `stop` marks a link whose own words end in a full stop (a chapter called "Hen and W.A."). */
+type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "node"; node: ReactNode; stop?: boolean };
 
 /**
  * Renders RichText (see the grammar in data/schema.ts):
@@ -316,6 +317,7 @@ type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "no
  * `opens={false}` for a phrase that is set inside a longer line.
  */
 export function RichText({ text: source, opens = true }: { text: string; opens?: boolean }) {
+  const chapters = useChapterResolver();
   const text = smartQuotes(source);
   const pieces: Piece[] = [];
   let last = 0;
@@ -333,13 +335,15 @@ export function RichText({ text: source, opens = true }: { text: string; opens?:
     } else {
       if (between) pieces.push({ t: "text", s: between });
       let node: ReactNode;
+      // The last character of what a link prints, where the link's words are known here.
+      let end = "";
       if (m[7]) node = <DatePill key={k++} variant="inline" label={m[7]} kind={m[8] as DateKind} evidence={m[9] ? m[9].split(",") : []} basis={m[10]} />;
-      else if (m[2]) node = <EntityLink key={k++} id={m[2]} alone={opensSentence(text.slice(0, m.index), opens)} />;
-      else if (m[3]) node = <ChapterLink key={k++} id={m[3]} label={m[4]} />;
+      else if (m[2]) { node = <EntityLink key={k++} id={m[2]} alone={opensSentence(text.slice(0, m.index), opens)} />; end = entityName(m[2]).slice(-1); }
+      else if (m[3]) { node = <ChapterLink key={k++} id={m[3]} label={m[4]} />; end = (m[4] ?? chapters.find(m[3])?.title ?? "").slice(-1); }
       // Emphasis opens a sentence only when it stands where one starts.
       else if (m[5]) node = <strong key={k++}><RichText text={m[5]} opens={opensSentence(text.slice(0, m.index), opens)} /></strong>;
       else node = <em key={k++}><RichText text={m[6]} opens={opensSentence(text.slice(0, m.index), opens)} /></em>;
-      pieces.push({ t: "node", node });
+      pieces.push({ t: "node", node, stop: end === "." });
     }
     last = m.index + m[0].length;
   }
@@ -348,8 +352,12 @@ export function RichText({ text: source, opens = true }: { text: string; opens?:
   const out: ReactNode[] = [];
   pieces.forEach((p, i) => {
     if (p.t === "text") {
+      // A sentence that ends on a link whose own words end in a full stop has one full stop, not
+      // two ("See Hen and W.A." and not "See Hen and W.A.."). An ellipsis is left as it is.
+      const before = pieces[i - 1];
+      const s = before?.t === "node" && before.stop && /^\.(?!\.)/.test(p.s) ? p.s.slice(1) : p.s;
       // A marker hugs the word before it: drop the space the author typed before [[…]].
-      out.push(pieces[i + 1]?.t === "cites" ? p.s.replace(/\s+$/, "") : p.s);
+      out.push(pieces[i + 1]?.t === "cites" ? s.replace(/\s+$/, "") : s);
     } else if (p.t === "cites") out.push(<CiteGroup key={`c${i}`} ids={p.ids} />);
     else out.push(p.node);
   });
