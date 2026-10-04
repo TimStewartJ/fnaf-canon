@@ -52,7 +52,6 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   // reply to them (three screens of cards in chapter 22): the first few show, the rest on request.
   const [allCounter, setAllCounter] = useState(false);
   const folds = stacked && counter.length > PUSHBACK_SHOWN + 1;
-  const counterShown = folds && !allCounter ? counter.slice(0, PUSHBACK_SHOWN) : counter;
   const moreRef = useRef<HTMLParagraphElement | null>(null);
   const refolded = useRef(false);
   // Folded again from the foot of the long list, the button would be far above the window: bring it back.
@@ -116,8 +115,9 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
             {counter.length > 0 && (
               <>
                 <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${count(counter.length)} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
-                <ul className="ev-list pushback__list">
-                  {counterShown.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
+                {/* Folded, the rest are still in the page (the stylesheet hides them), so a printout has the whole list. */}
+                <ul className="ev-list pushback__list" data-folded={folds && !allCounter ? "" : undefined}>
+                  {counter.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
                 </ul>
                 {folds && (
                   <p className="pushback__more" ref={moreRef}>
