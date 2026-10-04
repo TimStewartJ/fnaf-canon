@@ -177,8 +177,22 @@ is still open, and each entry says what was looked through.
   eleven "stated"; either can be defended, and they were not made uniform.
 - **"The newest game".** The storyline's first beat calls Secret of the Mimic the newest game, which is true of
   the archive's list of releases today. It needs changing when a later game is added to `games.json`.
-- **Safari was not tested.** WebKit could not be started on the machine that built the site; the interface
-  checks ran in Chromium.
+- **Safari was not tested.** WebKit could not be started on the machine that built the site. The interface
+  checks ran in Chromium, and the crawl of every kind of page also ran in Firefox
+  (`node scripts/qa.mjs --browser firefox`); `--browser webkit` will run where WebKit can start.
+
+## What the data could say better
+
+Noted by the engineers who built the pages; none of it is wrong today, and each would let a page say more.
+
+- **A fate's number of victims.** The timeline counts entries of `deaths.ts`, and one entry may be several
+  people (the five children; two technicians). The key says so. A count of the dead would need a number on each
+  entry, and for some entries the records give none.
+- **The day of a post.** A statement of Scott's carries the day inside its date label ("Out-of-universe
+  statement (posted 2015-12-18)"). A field of its own would let the page print it as a plain date.
+- **How a wording was checked.** `verifiedVia` is a sentence with addresses in it. As a list of
+  `{ kind, url, title }` it would let the page name a video by its title; today 59 links read "a video on
+  YouTube".
 
 ## Decisions that are the owner's
 
@@ -190,11 +204,11 @@ is still open, and each entry says what was looked through.
   unwelcome, it can go from `michael`, `open` and `fnaf1-restaurant` with no other change.
 - **The Theorists entry "The Cassette Man is Henry"** is kept, with text that says the name comes from the
   novels and is not used here. It is the one place a book-only name is printed.
-- **Recordings of play as a way of checking.** Forty-odd records now say they were read on screen in a
-  recording of someone else's play (one player's, kept at archive.org), and ten images are frames cut from
-  those recordings, with the player's camera cropped out. The words on the screen are the game's, so this
+- **Recordings of play as a way of checking.** Some sixty records now say that they, or part of them, were
+  read on screen in a recording of someone else's play (nearly all one player's, kept at archive.org), and
+  twelve images are frames cut from those recordings, with the player's camera cropped out. The words on the screen are the game's, so this
   stays inside the source rule; if recordings should not be used, the records say which they are
-  (`verifiedVia`), and the ten images are the ones whose credit points at archive.org.
+  (`verifiedVia`), and the twelve images are the ones whose credit points at archive.org.
 - **Search and the names the archive does not use.** A search for "Henry", "Charlie" or "Emily" finds nobody
   and says that the archive uses only names the games print or speak. Making such a name lead to the
   Cassette Man's page is one alias away, and was left undone on purpose.

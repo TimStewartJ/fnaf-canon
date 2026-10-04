@@ -96,21 +96,21 @@ function Ledger({ c }: { c: Coverage }) {
   const rows: { key: string; n: number; label: ReactNode; note: string }[] = [
     { key: "cited", n: c.cited, label: "Cited by a chapter", note: "In its argument, or listed as evidence that pushes back against it." },
     { key: "filed", n: c.filed, label: "Filed as further evidence", note: "Listed at the end of a chapter: on its thread, not cited in its text." },
-    // Only when it happens: a record the short storyline cites that no chapter has taken up. The archive's own check counts it as placed.
+    // Only when it happens: a record the short storyline cites that no chapter has taken up. The archive's own check counts it as accounted for.
     ...(c.story > 0 ? [{ key: "story", n: c.story, label: <Link to="/theory#storyline">Cited in the storyline only</Link>, note: "By a beat of the short telling, and not yet by a chapter." }] : []),
     { key: "outside", n: c.outside, label: outsideStory.length > 0 ? <Link to="/theory#outside">Outside the story</Link> : "Outside the story", note: "Set aside with a stated reason, in the appendix of the theory." },
-    ...(c.unplaced > 0 ? [{ key: "unplaced", n: c.unplaced, label: "Not yet placed", note: "In the evidence locker, waiting for a chapter to take it up." }] : []),
+    ...(c.unplaced > 0 ? [{ key: "unplaced", n: c.unplaced, label: "Not yet accounted for", note: "In the evidence locker, waiting for a chapter to take it up." }] : []),
   ];
   const parts = `${count(c.cited)} cited, ${count(c.filed)} filed${c.story > 0 ? `, ${count(c.story)} in the storyline only` : ""}, ${count(c.outside)} outside the story`;
   const summary = c.complete
-    ? `All ${count(c.total)} records are placed: ${parts}.`
-    : `${count(c.placed)} of ${count(c.total)} records are placed so far: ${parts}. ${count(c.unplaced)} ${c.unplaced === 1 ? "is" : "are"} not yet placed.`;
+    ? `All ${count(c.total)} records are accounted for: ${parts}.`
+    : `${count(c.placed)} of ${count(c.total)} records are accounted for so far: ${parts}. ${count(c.unplaced)} ${c.unplaced === 1 ? "is" : "are"} not yet accounted for.`;
   return (
     <div className="method-ledger">
       <p className="method-ledger__sum">
         {c.complete
-          ? <>All <strong>{count(c.total)}</strong> records are placed.</>
-          : <><strong>{count(c.placed)}</strong> of {count(c.total)} records are placed so far<span className="method-ledger__pct"> · {c.percent}%</span></>}
+          ? <>All <strong>{count(c.total)}</strong> records are accounted for.</>
+          : <><strong>{count(c.placed)}</strong> of {count(c.total)} records are accounted for so far<span className="method-ledger__pct"> · {c.percent}%</span></>}
       </p>
       <div className="method-ledger__bar" role="img" aria-label={summary}>
         {rows.filter((r) => r.n > 0).map((r) => <span key={r.key} className="method-ledger__seg" data-part={r.key} style={{ flexGrow: r.n }} />)}
@@ -235,7 +235,7 @@ function Method() {
                 <Fact label="Sources"><span className="method-today__v"><Link to="/sources">{plural(SOURCE_COUNT, "source")}</Link><span className="method-today__more">: the games, Scott’s posts and his teasers</span></span></Fact>
                 <Fact label="The theory"><span className="method-today__v"><Link to="/theory">{plural(theory.length, "chapter")}</Link> in {plural(partGroups.length, "part")}</span></Fact>
                 {c.total > 0 && (
-                  <Fact label="Placed in the theory">
+                  <Fact label="Accounted for in the theory">
                     <span className="method-today__v"><EssayJump to="accounting">{c.complete ? `All ${count(c.total)}` : `${count(c.placed)} of ${count(c.total)}`}</EssayJump>{!c.complete && ` · ${c.percent}%`}</span>
                   </Fact>
                 )}
@@ -374,10 +374,10 @@ function Method() {
           <p className="essay-note">
             {c.complete
               ? "The count is worked out from the archive’s data each time this page loads."
-              : "The count is worked out from the archive’s data each time this page loads, so it moves as chapters take up more records. Unplaced records are still in the locker, searchable and open to check."}
+              : "The count is worked out from the archive’s data each time this page loads, so it moves as chapters take up more records. Records not yet accounted for are still in the locker, searchable and open to check."}
           </p>
           {c.unplacedBySource.length > 0 && (
-            <Collapsible summary="Not yet placed, by source" meta={plural(c.unplaced, "record")}>
+            <Collapsible summary="Not yet accounted for, by source" meta={plural(c.unplaced, "record")}>
               <ul className="method-unplaced">
                 {c.unplacedBySource.map(([id, n]) => <li key={id}><GameMark id={id} variant="full" link /><span className="num">{count(n)}</span></li>)}
               </ul>
@@ -393,7 +393,7 @@ function Method() {
               <li>Coverage is broad, not exhaustive. The largest games (Security Breach, Help Wanted 2, Secret of the Mimic) hold more collectibles than the archive has records for.</li>
               <li>Quotes are short excerpts chosen for the sentence that carries the point. Where a transcript could not be verified, the record paraphrases instead of quoting.</li>
               <li>Transcripts can contain errors. If a record is wrong, the source location printed on it should make it quick to check in the game.</li>
-              {!c.complete && c.total > 0 && <li>The accounting is unfinished: {plural(c.unplaced, "record has", "records have")} not been placed in the theory yet.</li>}
+              {!c.complete && c.total > 0 && <li>The accounting is unfinished: {plural(c.unplaced, "record has", "records have")} not been accounted for in the theory yet.</li>}
             </ul>
           </div>
           <p className="method-next">

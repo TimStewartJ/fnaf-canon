@@ -23,7 +23,7 @@ export function MarksKey() {
       <span className="pop__kind marks-key__next">Deaths and other fates</span>
       <span className="marks-key__row"><Icon icon={DeathIcon} className="tl-key__death" /><span><strong>{OUTCOME.death.word}.</strong> {OUTCOME.death.help}.</span></span>
       <span className="marks-key__row"><Icon icon={FateIcon} className="tl-key__fate" /><span><strong>Other fate.</strong> Not a recorded death, and not counted as one. The entry says what instead: {otherFates}.</span></span>
-      <span className="marks-key__row"><span aria-hidden /><span>One that a story event already tells is marked on that event.</span></span>
+      <span className="marks-key__row"><span aria-hidden /><span>One that a story event already tells is marked on that event. The tallies count entries, and one entry may be several people: the five children are one.</span></span>
     </Key>
   );
 }
