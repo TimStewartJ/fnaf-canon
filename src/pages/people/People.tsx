@@ -15,7 +15,7 @@ import "./common.css";
 import "./people.css";
 
 /** The order the groups are shown in. Their names come from the shared palette. */
-const GROUP_ORDER: Person["group"][] = ["afton", "emily", "victim", "protagonist", "pizzaplex", "mimic", "staff", "entity"];
+const GROUP_ORDER: Person["group"][] = ["afton", "cassette", "victim", "protagonist", "pizzaplex", "mimic", "staff", "entity"];
 const AKA: [NodeKind, string][] = [["identity", "Also"], ["form", "Forms"], ["vessel", "Haunts"], ["role", "Wore"]];
 
 interface Entry {
