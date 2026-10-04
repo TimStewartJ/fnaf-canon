@@ -397,6 +397,13 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .firm-legend tbody th { width: 1.5rem; font-size: var(--fs-md); }
 .firm-legend tbody tr:last-child > * { border-bottom: 0; }
 
+/* ── The arrow of a link that leaves the archive (ExternalLink) ── */
+/* Whether a line may break beside the arrow is the arrow's box's to say: no-wrap keeps the mark
+   that follows the link in a sentence ("… Tutorial Unit ↗." or "↗; read on screen") on its line,
+   and the word joiner keeps the arrow with the link's last word. The link's own words wrap as before. */
+.outbound { white-space: nowrap; }
+.outbound::before { content: "\2060"; }
+
 /* ── The key to the marks (MarksKey) ───────────────────────────── */
 .marks-key { display: inline-flex; }
 /* Two classes: `.pop` is declared later (richtext.css) and would otherwise set the width and height back. */
