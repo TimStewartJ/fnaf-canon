@@ -211,7 +211,7 @@ export const theories: CommunityTheory[] = [
     verdict: "open",
     right: "Part of it fits what the game gives. The Cassette Man speaks of \"prisons of my making\" [[ffps-insanity-small-souls-prisons]], calls the one he sends to Hell \"old friend\" [[ffps-completion-old-friend-hell]], and speaks to a daughter [[ffps-completion-my-daughter]]. That the two men were partners in the restaurants is what the model itself reads into those lines. Secret of the Mimic adds a customer called \"Hen\", who is to be warned about the new springlocks [[secret-of-the-mimic-mail-springlocks-hen]] and who sends a change order [[secret-of-the-mimic-log-build-to-spec]].",
     wrong: "The name comes from the novels: no game prints it, and this archive does not use it. The credits call the part only \"Cassette Man\" [[ffps-credits-cassette-man]], so \"Hen\" has no name to match; the model rates that link low and does not tell it. Nor does any game call the two men partners, founders or owners: the game's word is \"old friend\" [[ffps-completion-old-friend-hell]]. Of the first of the novels Scott wrote in 2015: \"The games and the books should be considered to be separate continuities\" [[scott-2015-books-separate-continuity]]. Leaving the books out altogether is this archive's own policy.",
-    modelSection: "partners",
+    modelSection: "hen-and-wa",
   },
   {
     id: "c-ucn-hell", name: "UCN is William Afton's hell", year: 2018, emerged: "Jun–Jul 2018", games: ["ucn"],

@@ -41,7 +41,7 @@ export const chapters: TheorySection[] = [
     counterEvidence: ["hw2-pq4-graveyard-order", "ucn-withered-chica-toysnhk"],
     tension: "Take Cake's voice spells S-A-V-E-H-I-M: kept literal, FNaF2's child is a boy, another victim, and not the daughter of the later game; the box above gives the model's answer. Two records cut against telling her death first. In Ultimate Custom Night the older Chica says \"I was the first!\" [[ucn-withered-chica-toysnhk]], which does not say first of what; the model reads it as first of the five, of whom the child outside is not one. Help Wanted 2's graveyard is solved by lighting its six graves in an order that begins with Chica and ends with the Puppet [[hw2-pq4-graveyard-order]]: if that is an order of deaths, the two records agree with each other and against the model, but the game does not say what the order orders, and the model uses it for nothing. That is why her place before the five is a convention and not a finding.",
     changesIf: "A game that dates either death, or shows the Puppet active before hers.",
-    seeAlso: ["murders", "golden", "killer", "partners", "salvage", "ffps"],
+    seeAlso: ["murders", "golden", "killer", "hen-and-wa", "salvage", "ffps"],
     // Records with this chapter as their home that the text does not cite.
     further: [
       // support

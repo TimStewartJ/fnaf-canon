@@ -86,7 +86,7 @@ export interface Person {
   firstAppearance: GameId;
   evidence: string[];
   theory?: string;
-  group: "afton" | "emily" | "victim" | "staff" | "protagonist" | "entity" | "pizzaplex" | "mimic" | "other";
+  group: "afton" | "cassette" | "victim" | "staff" | "protagonist" | "entity" | "pizzaplex" | "mimic" | "other";
   image?: string;
 }
 
