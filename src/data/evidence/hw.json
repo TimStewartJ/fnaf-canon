@@ -2346,8 +2346,9 @@
       "fazbear-framing",
       "emails"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The only story email every new player receives. The usual reading is that this advisory is why the player receives the story emails."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (the inbox seen in a 1080p capture of play: Special Delivery, Part 1, 10:51, and Part 2, 2:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "The only story email every new player receives. The usual reading is that this advisory is why the player receives the story emails. The inbox was seen on 2026-10-03 in a capture of play (Markiplier's Part 1 of Special Delivery, archived at archive.org), 10:51: the screen is headed 'INBOX 8 / 10', and each row has a sender, a subject and, at the right, a time of day and no date. This email's row reads 'Fazbear Entertainment Office of Legal Affairs', 'Staff Advisory: Mail Server', '11:31:31 PM'; the rows above it carry '11:32:29 PM' to '11:35:24 PM'. An opened email (12:47) shows its subject, its sender and the greeting 'Dear 3289BA08319CE4F3,', and no date in the part of it that is in view. In Part 2 (2:40) the screen is headed 'INBOX 114 / 118' and its rows carry times such as '01:08:12 PM'. So the rows in view give a time of day and no day; whether an email from an earlier day is listed with a date was not seen. The text of this email was not read on screen.",
+    "image": "sd-inbox-times-of-day.jpg"
   },
   {
     "id": "sd-vintage-bonnie-reports",
@@ -2628,8 +2629,8 @@
   },
   {
     "id": "hw2-faz-force-ending",
-    "title": "Faz Force ending: a rabbit-costumed arm from a recharge station, S.T.A.F.F. bots, a mask held out to a girl",
-    "claim": "By the wiki's summaries of the ending, combining all six Faz Force figures makes a large box appear on the hub stage. Unwinding it uncovers a recharge station from which a rabbit-costumed arm emerges, while S.T.A.F.F. bots with painted Nightmarionne faces close in on the player. The view then cuts to a S.T.A.F.F. bot starting up and holding a rabbit mask out to a girl.",
+    "title": "Faz Force ending: a hand at the door of a recharge station, S.T.A.F.F. bots with painted faces, a rabbit mask held out to a girl",
+    "claim": "In the main ending a gift box with a red bow and a crank stands on the hub's stage and bursts open, and a red recharge station stands there under a spotlight. A dark hand takes hold of the edge of the station's door from inside, and S.T.A.F.F. bots whose faces are painted white, with hollow eyes and a stitched grin, crowd in on the player. After static and the words '[STARTING UP...]', the view is a robot's: its white hands hold a white rabbit mask out to a girl, who takes it. No name is printed for her. By the wiki's summaries the ending needs all six Faz Force figures, and the arm at the door is a rabbit costume's.",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Main ending (all 6 Faz Force figures)",
@@ -2658,8 +2659,9 @@
       "hw2-hub-helpi-pushes-gift",
       "hw2-faz-force-six-figures"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Described from the wiki's ending summaries; the scene itself was not watched. The wiki identifies the girl as RUIN's Cassie and the bot as RUIN's Mask Bot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni), and says the last shot is in first person from the bot. In Security Breach the burnt rabbit under the Pizzaplex also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a 1080p capture of play: Help Wanted 2, Part 14, 26:54 to 28:48) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 14 of Help Wanted 2, archived at archive.org); the sound was not heard, and the scene was not checked in play by this archive. In order: six toy robots stand in a row (26:54, 27:26); a gift box with a red bow and a crank on its side stands on the stage (27:20 to 27:48) and bursts apart in springs (27:50); a red recharge station with a checkered top, a lightning bolt and cyan lights stands under a spotlight (27:53 to 27:59); a dark hand with spread fingers grips the edge of its door from inside (27:59); S.T.A.F.F. bots whose faces are painted white, with hollow eyes and a stitched grin, one with 'IN YOUR DREAMS' scrawled on its chest, crowd in (28:03); static (28:05); '[STARTING UP...]' on a teal grid (28:10 to 28:17); then, in first person, a girl with brown hair in two bunches, in a red sweater with a star badge and blue shorts, faces the viewer, and two white segmented robot hands hold out a white rabbit mask with red markings round the eyes, which she takes and looks down at (28:21 to 28:33); the credits follow (28:48). Only a hand shows at the station's door; that it belongs to a rabbit costume is the wiki's account ('a rabbit-costumed arm') and could not be made out on screen. The wiki calls the painted faces Nightmarionne's, identifies the girl as RUIN's Cassie and the robot as RUIN's Mask Bot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni); the scene prints no name, and the mask looks like the one handed over in RUIN (a white rabbit's face, red round the eyes). In Security Breach the burnt rabbit under the Pizzaplex also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading.",
+    "image": "hw2-ending-girl-takes-rabbit-mask.jpg"
   },
   {
     "id": "hw2-faz-force-achievement",
@@ -3176,7 +3178,7 @@
     ],
     "image": "hw2-mcm-puzzle.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; in the RUIN dialogue checked it is 'that rabbit thing' (ruin-the-entity). The nameplate and the van's colours were read on 2026-10-03 from the wiki's two captures of the scene, which carry the game's on-screen prompts (File:HW2 Van MXES.png and File:FE Van HW2.png, on its page 'Arnold's Van'); in the second the van's hood is lettered 'COMPANY NAME'. The wiki's text calls the van white. The record's image is the puzzle's box art."
+    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; RUIN's own words for it are 'that rabbit thing', in Cassie's lines and the radio voice's (ruin-the-entity), and 'the entity', in lower case, in Helpi's text boxes (ruin-helpi-alert-anomalous-entity, ruin-helpi-entity-bypassed-signal-jammer). The nameplate and the van's colours were read on 2026-10-03 from the wiki's two captures of the scene, which carry the game's on-screen prompts (File:HW2 Van MXES.png and File:FE Van HW2.png, on its page 'Arnold's Van'); in the second the van's hood is lettered 'COMPANY NAME'. The wiki's text calls the van white. The record's image is the puzzle's box art."
   },
   {
     "id": "hw2-mystic-hippo-hello",

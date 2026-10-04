@@ -394,7 +394,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "PJ Heywood - William Afton",
+    "quote": "William Afton / PJ Heywood",
     "people": [
       "william-afton",
       "scraptrap"
@@ -409,8 +409,9 @@
       "ffps-credits-returning-voices",
       "ffps-scraptrap-alley-remains"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
-    "notes": "Cast list per wiki transcript: Heather Masters - Scrap Baby; PJ Heywood - William Afton; Kellen Goff - Molten Freddy; Andy Field - Tutorial Unit; Dave Steele - Cassette Man. The name 'Scraptrap' is not used in FFPS."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (read on screen in a capture of play: Pizzeria Simulator, Part 5, 11:44 to 12:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
+    "notes": "Read on 2026-10-03 on screen in a capture of the credits roll (Markiplier's Part 5 of Pizzeria Simulator, archived at archive.org), 11:44 to 12:40; not checked in play by this archive. The roll prints each part on one line and the performer's name on the line below it, with no dash; the slash in the quote marks the line break. Under the heading 'Cast' it has, in order: Scrap Baby, Heather Masters; William Afton, PJ Heywood; Molten Freddy, Kellen Goff; Tutorial Unit, Andy Field; Cassette Man, Dave Steele. Before this reading the record's quote followed the wiki's transcript, which sets the performer first and a dash between ('PJ Heywood - William Afton'). The name 'Scraptrap' is not used in FFPS.",
+    "image": "ffps-credits-cast.jpg"
   },
   {
     "id": "ffps-molten-freddy-lines",
@@ -1445,8 +1446,9 @@
       "ffps-scup-overheating-neutralize",
       "ffps-completion-slide-pizza-place-condemned"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Checked on 2026-10-03 against the wiki's captures of the scene: it has three, one each of Scrap Baby, Molten Freddy and the salvaged rabbit among flames (ScrBabyScreen.gif, MolFredScreen.gif and SpringTScreen.gif, in the galleries of its Circus Baby, Molten Freddy and William Afton pages), and none of Lefty. The wiki notes that Lefty is the only salvaged animatronic not shown burning. The three shots are interiors; that the fire destroys the building is the wiki's account ('burns down the place'). The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it (ffps-completion-peace-perhaps-more)."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a capture of play: Pizzeria Simulator, Part 5, 9:43 to 10:12) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 5 of Pizzeria Simulator, archived at archive.org), 9:43 to 10:12; the sound was not heard, and the scene was not checked in play by this archive. Three shots follow one another, each framed by the bezel of the office monitor and each among flames: Scrap Baby (9:43 to 9:49), Molten Freddy (9:50 to 9:56) and the salvaged rabbit (9:57 to 10:05); then the bezel stands empty, dark red (10:06 to 10:12), and pictures from the minigames follow (10:14 to 10:40). Lefty is in none of the shots. No text of the speech is on screen, so that it is spoken over these shots was not checked here. The wiki's captures of the scene, checked the same day, are of the same three (ScrBabyScreen.gif, MolFredScreen.gif and SpringTScreen.gif, in the galleries of its Circus Baby, Molten Freddy and William Afton pages), and the wiki notes that Lefty is the only salvaged animatronic not shown burning. The three shots are interiors; that the fire destroys the building is the wiki's account ('burns down the place'). The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it (ffps-completion-peace-perhaps-more).",
+    "image": "ffps-completion-three-machines-burning.jpg"
   },
   {
     "id": "ffps-completion-security-puppet-terminal",
@@ -3817,7 +3819,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy",
+    "quote": "Scrap Baby / Heather Masters … Molten Freddy / Kellen Goff",
     "people": [
       "scrap-baby",
       "molten-freddy"
@@ -3833,8 +3835,8 @@
       "ffps-molten-freddy-lines",
       "ffps-molten-freddy-alley-wires-eyes"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
-    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. The layout of the credit lines follows the wiki transcript. Lefty has no credited voice in FFPS."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (Pizzeria Simulator's roll read on screen in a capture of play: Part 5, 11:44 to 12:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
+    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. Pizzeria Simulator's roll was read on 2026-10-03 on screen in a capture of play (Markiplier's Part 5, archived at archive.org, 11:44 to 12:40): it prints each part on one line and the performer's name on the line below it, with no dash, and the slashes in the quote mark the line breaks; before this reading the quote followed the wiki's transcript ('Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy'). The roll has no line for Lefty. Sister Location's credits were not read on screen: that they list the same two performers as Baby and Funtime Freddy is the wiki's transcript."
   },
   {
     "id": "ffps-scup-overheating-neutralize",
