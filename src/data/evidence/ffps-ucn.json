@@ -3812,14 +3812,14 @@
     "claim": "FFPS's cast credits list Heather Masters as Scrap Baby and Kellen Goff as Molten Freddy. Sister Location's credits list the same two actors as Baby and Funtime Freddy.",
     "game": "ffps",
     "kind": "text",
-    "location": "End credits (cast list)",
+    "location": "End credits of Pizzeria Simulator (cast list) and of Sister Location (voice actors)",
     "certainty": "stated",
     "when": {
       "label": "End of FFPS (after Saturday's shift)",
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "Scrap Baby / Heather Masters … Molten Freddy / Kellen Goff",
+    "quote": "Scrap Baby / Heather Masters … Molten Freddy / Kellen Goff … Baby / Heather Masters … Funtime Freddy / Kellen Goff",
     "people": [
       "scrap-baby",
       "molten-freddy"
@@ -3835,8 +3835,9 @@
       "ffps-molten-freddy-lines",
       "ffps-molten-freddy-alley-wires-eyes"
     ],
-    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (Pizzeria Simulator's roll read on screen in a capture of play: Part 5, 11:44 to 12:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
-    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. Pizzeria Simulator's roll was read on 2026-10-03 on screen in a capture of play (Markiplier's Part 5, archived at archive.org, 11:44 to 12:40): it prints each part on one line and the performer's name on the line below it, with no dash, and the slashes in the quote mark the line breaks; before this reading the quote followed the wiki's transcript ('Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy'). The roll has no line for Lefty. Sister Location's credits were not read on screen: that they list the same two performers as Baby and Funtime Freddy is the wiki's transcript."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (each roll read on screen in a capture of play: Pizzeria Simulator, Part 5, 11:44 to 12:40; Sister Location, Part 5, 15:14 to 16:08) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
+    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. Both rolls were read on 2026-10-03 on screen in captures of play (Markiplier's playthroughs, archived at archive.org); not checked in play by this archive. In the quote the first two pairs are Pizzeria Simulator's and the last two Sister Location's, and the slashes mark the line breaks. Pizzeria Simulator's roll (Part 5, 11:44 to 12:40) prints each part on one line and the performer's name on the line below it, with no dash; before the reading the quote followed the wiki's transcript ('Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy'). It has no line for Lefty. Sister Location's roll (Part 5 of that game, 15:14 to 16:08) has the same layout: under the heading 'Voice Actors' it prints 'Baby' over 'Heather Masters' and 'Funtime Freddy' over 'Kellen Goff', among nine named parts (Baby, HandUnit, Computer Voice, Ballora, Funtime Freddy, Bidybabs, Vlad, Clara, Narrator); then a list headed 'Misc' (PJ Heywood, John Matthew, Jason Kappus, Jesse Adam, Becky Shrimpton), 'Music', 'TV Animations' and 'Created by Scott Cawthon'. So both sides of the comparison are read from the screen; the wiki's transcripts have the same two pairs. The picture on file sets the two rolls side by side: Sister Location's at 15:32, cut off below Funtime Freddy's line, and Pizzeria Simulator's at 12:00.",
+    "image": "ffps-sl-credits-shared-voices.jpg"
   },
   {
     "id": "ffps-scup-overheating-neutralize",

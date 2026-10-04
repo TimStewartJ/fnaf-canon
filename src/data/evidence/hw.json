@@ -1579,10 +1579,10 @@
   {
     "id": "hw-mobile-princess-quest-graveyard",
     "title": "Princess Quest graveyard",
-    "claim": "In the wiki's screenshot of Princess Quest's outdoor graveyard there are six gravestones, each with a torch brazier in front of it. No names are shown on the stones.",
+    "claim": "Princess Quest's outdoor graveyard has six gravestones, each on a plinth with a brazier in front of it; one stone is broken, its top lying beside it. The stones carry a few dots and no names.",
     "game": "help-wanted",
     "kind": "minigame",
-    "location": "Princess Quest cemetery (wiki screenshot; Help Wanted mobile port or Security Breach arcade version, not stated)",
+    "location": "Princess Quest cemetery (seen in the Security Breach arcade version; the wiki's screenshot does not say which version it shows)",
     "certainty": "shown",
     "when": {
       "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
@@ -1601,8 +1601,8 @@
       "ffps-lorekeeper-gravestones"
     ],
     "image": "hw-pq1-graveyard.png",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
-    "notes": "Six stones counted on the wiki's screenshot, which does not say whether it is from the Help Wanted mobile port or the Security Breach arcade version (the two differ only in small sprite changes, per the wiki). The wiki links the stones to FFPS's gravestones; that is interpretation. Help Wanted 2's Princess Quest IV graveyard also has six stones, there paired with the six memory dolls (hw2-pq4-graveyard-order)."
+    "verifiedVia": "https://archive.org/details/markiplier-fnafsb (seen in a 720p capture of play: Part 9, 1:20:30 to 1:21:15) ; https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 9 of Security Breach, archived at archive.org), 1:20:30 to 1:21:15, in the first Princess Quest cabinet played in that part: a walled graveyard in the rain, with paths between three plots; three stones stand in the middle plot, one at the left and two at the right, and the Princess lights the braziers. Six stones were counted there, as on the wiki's screenshot, which does not say whether it is from the Help Wanted mobile port or the Security Breach arcade version (the two differ only in small sprite changes, per the wiki). The wiki links the stones to FFPS's gravestones; that is interpretation. Help Wanted 2's Princess Quest IV graveyard also has six stones, there paired with the six memory dolls (hw2-pq4-graveyard-order)."
   },
   {
     "id": "hw-intro-indie-developer-poster",
@@ -3058,7 +3058,7 @@
   {
     "id": "hw2-pq4-vanny-crushes-glitchtrap",
     "title": "PQ IV ending: the giant rabbit-headed figure crushes the tiny rabbit",
-    "claim": "The giant rabbit-headed figure takes the plush, draws a tiny copy of Help Wanted's rabbit figure out of the prize chute, crushes it between its hands, and fades into the darkness.",
+    "claim": "Seen from inside a heap of plush toys behind glass: a giant figure with a rabbit's head, stitched and patched, its eyes glowing orange, puts its hands to the glass, holds up on one palm a tiny figure with two long ears, lit green from behind, closes both hands over it, and fades into the dark as its eyes turn red. By the wiki's account it has taken the player's plush, and the tiny figure is a copy of Help Wanted's rabbit figure drawn out of the prize chute.",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Princess Quest IV ending ('Consequences')",
@@ -3085,8 +3085,8 @@
       "hw2-pq4-elevator-claw-machine"
     ],
     "image": "hw2-pq4-vanny-crushes-glitchtrap.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Nothing is said in the scene. The figure is a dark silhouette whose glowing eyes, lashes and whiskers match the mask of Security Breach's Vanny; the scene does not show who it is. All of it happens inside the Princess Quest IV game the player has been pulled into. The achievement that follows reads 'System threats found. Repair complete.' A Steel Wool developer reportedly called this the end of the character in an interview; that is not a game or Scott source and is not recorded as fact."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a 1080p capture of play: Help Wanted 2, Part 13, 23:43 to 24:22) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 13 of Help Wanted 2, archived at archive.org), 23:43 to 24:22; the sound was not heard, and the scene was not checked in play by this archive. In order: a green rabbit plush glows in the foreground among the toys (23:44); the giant leans in with its hands on the glass (23:50 to 24:03), its face and fingers stitched, its eyes orange with lashes, whiskers at its cheeks; it holds up on its palm a tiny standing figure with two long ears, dark against a green glow (24:06 to 24:10), brings its other hand over it and clasps both hands shut (24:10 to 24:14); its eyes turn red and it fades (24:17 to 24:19); the credits follow (24:24). No subtitle is on screen. The figure's eyes, lashes, whiskers and stitching match the mask of Security Breach's Vanny; the scene does not show who it is. All of it happens inside the Princess Quest IV game the player has been pulled into. The achievement that follows reads 'System threats found. Repair complete.' A Steel Wool developer reportedly called this the end of the character in an interview; that is not a game or Scott source and is not recorded as fact."
   },
   {
     "id": "hw2-pq4-consequences-achievement",
@@ -4412,8 +4412,8 @@
       "ruin-mask-bot-helpi-vanni"
     ],
     "image": "hw2-hub-helpi-gift.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Helpi",
-    "notes": "Read from the wiki's images of the screen cards: 'Hey, hi!', 'There is a special gift for you on the stage.', 'You really don't want to miss out!', 'I promise it's worth it!', 'You got them all!', 'I am so excited!'. The bear is not named on the cards; the wiki says the files identify it as Helpi, the assistant inside RUIN's mask, and that it appears on holiday after the Faz Force ending and vanishes after the Princess Quest IV ending (neither checked)."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (the screen and three of its cards seen in a 1080p capture of play: Help Wanted 2, Part 13, 5:04 to 5:10, and Part 14, 26:51 to 27:14) ; https://freddy-fazbears-pizza.fandom.com/wiki/Helpi",
+    "notes": "Read from the wiki's images of the screen cards: 'Hey, hi!', 'There is a special gift for you on the stage.', 'You really don't want to miss out!', 'I promise it's worth it!', 'You got them all!', 'I am so excited!'. The bear is not named on the cards; the wiki says the files identify it as Helpi, the assistant inside RUIN's mask, and that it appears on holiday after the Faz Force ending and vanishes after the Princess Quest IV ending (neither checked). The screen was seen on 2026-10-03 in a capture of play (Markiplier's Parts 13 and 14 of Help Wanted 2, archived at archive.org): a cartoon bear in a top hat beside a speech bubble, on the big screen next to the hub's stage, with the cards 'New tasks available! Check the computer.' and 'Good for you!' (Part 13, 5:04 to 5:10) and 'You got them all!' (Part 14, 26:51 and 27:08 to 27:14, with the gift box on the stage). After the Princess Quest IV ending the same screen shows a black shape on yellow rings and no bear (Part 13, 27:12 to 27:40). The cards about the ignored gift, the quoted one among them, were not found in those two parts, so the quote is still read from the wiki's images."
   },
   {
     "id": "hw2-what-makes-you-so-special",

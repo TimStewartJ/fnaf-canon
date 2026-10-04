@@ -1278,8 +1278,9 @@
   },
   {
     "id": "security-breach-ending-alley",
-    "title": "The Alley: Gregory sleeps in a box; Vanny's silhouette looms over him",
-    "claim": "Leaving by the front entrance, Gregory sleeps in a cardboard box in an alley under a newspaper; Vanny's silhouette looms over him.",
+    "title": "The Alley: Gregory sleeps in a box under a 'MISSING' newspaper; a rabbit-eared shadow falls beside him",
+    "claim": "Leaving by the front entrance, Gregory is shown, under the caption 'LATER...', asleep in a cardboard box in an alley, covered by a newspaper headed 'MISSING'. In the last panel the shadow of a figure with long ears and whiskers falls across the ground beside the box. The pages name nobody.",
+    "quote": "LATER... / MISSING / LOCAL RESIDENTS CONTINUE TO DISAPPEAR",
     "game": "security-breach",
     "kind": "ending",
     "location": "'The Alley' ending (front entrance, 1 star)",
@@ -1296,12 +1297,12 @@
     "places": [
       "mega-pizzaplex"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "verifiedVia": "https://archive.org/details/roosterteeth-47843 (seen in a 1080p capture of play: 38:14 to 39:06) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
     "tags": [
       "homeless"
     ],
-    "notes": "Gregory sleeping in a box is often read as him being homeless; the ending does not say so in words. The page on file (the first of two) does not show the silhouette; that part of the claim follows the wiki's caption of the second page.",
-    "image": "sb-alley-ending-missing-newspaper.jpg",
+    "notes": "Seen on 2026-10-03 in a capture of play ('Can We Make It to the Ending of Five Nights at Freddy's: Security Breach? (Part 7 FINALE)', a Rooster Teeth video archived at archive.org), 38:14 to 39:06; the sound was not heard, and the scene was not checked in play by this archive. The Markiplier recordings used for the other records do not have this ending, so another player's was used. In order: Freddy, close up, with the question 'Do you wish to stay?', the choices 'Stay', 'Leave' and 'Vanny' and a warning that most save stations will no longer be available (38:14); then comic panels: a full moon (38:22); a boy with a plaster on his cheek running beside a wall (38:27); the caption 'LATER...' over an alley (38:35); a cardboard box with the boy inside under a newspaper (38:40); the boy's face beside the paper (38:43); the paper, headed 'MISSING' and, under that, 'LOCAL RESIDENTS CONTINUE TO DISAPPEAR', with rows of silhouetted portraits (38:48); the boy asleep under it as the panel turns red (38:54); and a large shadow with two long ears that falls across the ground beside the box (38:57 to 39:05; in the closer view its head shows whiskers and a lash); then a card with one star. The shadow has no face and no name: that it is Vanny's is a reading, from the ears and from the choice 'Vanny' offered just before. Gregory sleeping in a box is often read as him being homeless; the ending does not say so in words. The slashes in the quote divide the caption and the two lines of the newspaper's heading. The picture on file is the last panel as that capture shows it (39:01), cut at the right to leave out the players' camera inset, which also cuts off the shadow's second ear; the wiki's copy of the first page, with the newspaper, is the picture of security-breach-alley-newspaper.",
+    "image": "sb-alley-ending-rabbit-shadow.jpg",
     "related": [
       "security-breach-alley-newspaper"
     ]
@@ -1326,13 +1327,13 @@
     "places": [
       "mega-pizzaplex"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:TheAlleyPage1.jpg",
+    "verifiedVia": "https://archive.org/details/roosterteeth-47843 (read on screen in a 1080p capture of play: 38:43 to 38:52) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:TheAlleyPage1.jpg",
     "quote": "MISSING ... LOCAL RESIDENTS CONTINUE TO DISAPPEAR",
     "tags": [
       "missing-children",
       "disappearances"
     ],
-    "notes": "Read directly from the ending art: the subhead is cut off in one panel and whole in the panel below it. At least 9 silhouette portraits are visible; the text says 'residents', not specifically children. Claims that it shows exactly nine children killed by Vanessa are interpretation.",
+    "notes": "Read directly from the ending art: the subhead is cut off in one panel and whole in the panel below it. At least 9 silhouette portraits are visible; the text says 'residents', not specifically children. Claims that it shows exactly nine children killed by Vanessa are interpretation. The heading was also read on 2026-10-03 on screen in a capture of play (a Rooster Teeth video of the game's last part, archived at archive.org, 38:48): 'MISSING' and, under it, 'LOCAL RESIDENTS CONTINUE TO DISAPPEAR', over rows of silhouetted portraits; the rest of the ending is in security-breach-ending-alley.",
     "image": "sb-alley-ending-missing-newspaper.jpg"
   },
   {
@@ -1764,7 +1765,7 @@
   {
     "id": "ruin-pizzaplex-abandoned-earthquake",
     "title": "Pizzaplex abandoned; window newspapers call it an 'earthquake'",
-    "claim": "By the wiki's plot summary the Mega Pizzaplex is abandoned and wrecked, graffiti-covered and full of broken S.T.A.F.F. bots, and newspapers on the windows attribute the destruction to an 'earthquake'; the headline was read from the newspaper's texture.",
+    "claim": "RUIN opens in a wrecked, abandoned lobby: the entrance doors and the tall windows above them are papered over with newsprint, graffiti covers the walls, floor tiles lie loose, and a banner reads 'PARDON OUR MESS!' and 'WE'LL BE BACK SOON'. The newspaper's headline, read from its texture and not legible in the capture, puts the destruction down to an 'earthquake'. That the building is full of broken S.T.A.F.F. bots is the wiki's plot summary.",
     "game": "ruin",
     "kind": "environment",
     "location": "Opening, Pizzaplex lobby",
@@ -1780,13 +1781,13 @@
     "places": [
       "mega-pizzaplex"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:PizzaplexEarthquake_Nespaper.png",
+    "verifiedVia": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin (the opening seen in a 1080p capture of play: Part 1, 1:16 to 3:00) ; https://freddy-fazbears-pizza.fandom.com/wiki/File:PizzaplexEarthquake_Nespaper.png",
     "tags": [
       "earthquake"
     ],
     "quote": "Pizza Plex Destroyed … Earthquake shakes pizza plex",
     "image": "ruin-newspaper-earthquake.jpg",
-    "notes": "Headline and subhead read from the newspaper texture on the wiki (a small image, enlarged); the rest of the page is filler text ('Lorem ipsum'). The scene description is from the wiki's plot summary. The paper gives no date."
+    "notes": "The opening was seen on 2026-10-03 in a capture of play (Markiplier's Part 1 of RUIN, archived at archive.org), 1:16 to 3:00; not checked in play by this archive. The entrance and the windows above it are covered edge to edge with sheets of newsprint, each with a dark picture block and columns of text, lit from behind; the unlit neon outlines of four mascot faces and the words 'COME BACK' stand over the doors; graffiti covers the pillars; a forklift, crates, cones and loose tiles lie under a banner 'PARDON OUR MESS!' / 'WE'LL BE BACK SOON'; handwriting on a dark board reads 'Don't go in alone...'. At that distance no headline can be read on the sheets. Headline and subhead were read from the newspaper texture on the wiki (a small image, enlarged); the rest of the page is filler text ('Lorem ipsum'). The paper gives no date."
   },
   {
     "id": "ruin-cassie-seeks-gregory",
@@ -5834,7 +5835,7 @@
     ],
     "image": "sotm-work-order-1979.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:Arnold_work_order_1.png",
-    "notes": "Read from the document image on the wiki, which captions it 'Arnold's work order found within the Van'. The date appears twice: typed in the header and handwritten beside the employee signature. Service $30.00, gas $8.45, job total $38.45. In month/day order 9/07/79 is 7 September 1979, exactly five weeks (35 days) after the 'Aug 3rd' on the Inventor's House mailbox, whose message says the last mail came 'five weeks ago' (secret-of-the-mimic-mail-foreclosure). So the year is on a document among the game's files as well as in the teaser. The document was read from the wiki's copy of the image; whether the date can be read in play has not been confirmed, so the archive does not call it printed. It was looked for on 2026-10-03 in a capture of play (Markiplier's Part 1, archived at archive.org, 18:15 to 20:06): in the van a blank form with a 'FAZBEAR ENTERTAINMENT' letterhead hangs on a clipboard and a binder of two filled forms with a 'FAZBEAR' letterhead lies on the bench, but the player does not stop on them, and no date can be read at 1080p."
+    "notes": "Read from the document image on the wiki, which captions it 'Arnold's work order found within the Van'. The date appears twice: typed in the header and handwritten beside the employee signature. Service $30.00, gas $8.45, job total $38.45. In month/day order 9/07/79 is 7 September 1979, exactly five weeks (35 days) after the 'Aug 3rd' on the Inventor's House mailbox, whose message says the last mail came 'five weeks ago' (secret-of-the-mimic-mail-foreclosure). So the year is on a document among the game's files as well as in the teaser. The document was read from the wiki's copy of the image; whether the date can be read in play has not been confirmed, so the archive does not call it printed. It was looked for on 2026-10-03 in a capture of play (Markiplier's Part 1, archived at archive.org, 18:15 to 20:06): in the van a blank form with a 'FAZBEAR ENTERTAINMENT' letterhead hangs on a clipboard and a binder of two filled forms with a 'FAZBEAR' letterhead lies on the bench, but the player does not stop on them, and no date can be read at 1080p. A second player's capture was looked at the same day (iRaphahell's 'EP 01', archived at archive.org, 1:13 to 1:16): there too a blank form with the letterhead 'FAZBEAR ENTERTAINMENT' hangs on a clipboard and a filled form lies on the bench beside balls of crumpled paper, the player does not stop on either, and nothing written on them can be read."
   },
   {
     "id": "secret-of-the-mimic-credential-form-1979",
