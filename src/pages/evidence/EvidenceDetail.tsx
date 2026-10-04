@@ -8,6 +8,8 @@ import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
   RealDate, RecordText, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
+import { entryState } from "../../components/address";
+import { type CameFrom, useChapterReturn } from "../../components/reading";
 import { readCheck } from "./checked";
 import { PLACE, beatsCiting, count, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
@@ -74,19 +76,31 @@ function ChapterRows({ chapters, id }: { chapters: TheorySection[]; id: string }
 }
 
 /** Step to the neighbouring records of the same source. `compact` is the small stepper in the page head. */
+/**
+ * The chapter a reader left for this record, where the link that brought them said so (the
+ * drawer's "Open the full record"). Read from the history entry itself: a page is given its path
+ * by the router and nothing else (see PageLocation in App.tsx), and is drawn again when that changes.
+ */
+function cameFrom(): CameFrom | undefined {
+  return entryState<{ from?: CameFrom }>()?.from;
+}
+
 function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
   const { prev, next, at, of } = neighbours(e);
+  // Stepping from record to record keeps the way back to the chapter.
+  const from = cameFrom();
+  const keep = from ? { from } : undefined;
   const short = gameMeta(e.game).short;
   if (of < 2) return null;
   if (compact) {
     return (
       <nav className="evx-step" aria-label={`Records from ${short}`}>
         {prev
-          ? <Link to={evidencePath(prev.id)} className="evx-step__btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
+          ? <Link to={evidencePath(prev.id)} state={keep} className="evx-step__btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronLeft} /></span>}
         <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{count(at)} of {count(of)} in {short}</Link>
         {next
-          ? <Link to={evidencePath(next.id)} className="evx-step__btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
+          ? <Link to={evidencePath(next.id)} state={keep} className="evx-step__btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronRight} /></span>}
       </nav>
     );
@@ -94,13 +108,13 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
   return (
     <nav className="evx-pager" aria-label={`More records from ${short}`}>
       {prev ? (
-        <Link to={evidencePath(prev.id)} className="evx-pager__link" rel="prev">
+        <Link to={evidencePath(prev.id)} state={keep} className="evx-pager__link" rel="prev">
           <span className="label"><Icon icon={ArrowLeft} /> Previous in {short}</span>
           <span className="evx-pager__title">{smartQuotes(prev.title)}</span>
         </Link>
       ) : <span />}
       {next && (
-        <Link to={evidencePath(next.id)} className="evx-pager__link evx-pager__link--next" rel="next">
+        <Link to={evidencePath(next.id)} state={keep} className="evx-pager__link evx-pager__link--next" rel="next">
           <span className="label">Next in {short} <Icon icon={ArrowRight} /></span>
           <span className="evx-pager__title">{smartQuotes(next.title)}</span>
         </Link>
@@ -111,6 +125,7 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
 
 export default function EvidenceDetail() {
   const { id = "" } = useParams();
+  const back = useChapterReturn(cameFrom()?.chapter);
   const e = evidenceById.get(id);
   if (!e) return <Missing what="evidence record" id={id} list={{ to: "/evidence", label: "Open the evidence locker" }} />;
   const bl = backlinksFor(id);
@@ -132,6 +147,12 @@ export default function EvidenceDetail() {
 
   return (
     <Page title={e.title} kind="Record" className="evx-rec">
+      {/* Reached from a chapter (the drawer's "Open the full record"): one link back to the place left. */}
+      {back && (
+        <p className="evx-rec__back">
+          <Link to={back.to}><Icon icon={ArrowLeft} /> Back to chapter {back.number}: {smartQuotes(back.chapter.title)}</Link>
+        </p>
+      )}
       <div className="evx-rec__top">
         <Crumbs items={[{ to: "/evidence", label: "Evidence" }, { to: sourcePath(e.game), label: gameMeta(e.game).short }, { label: "Record" }]} />
         <Pager e={e} compact />

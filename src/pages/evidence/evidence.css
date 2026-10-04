@@ -185,6 +185,10 @@ dialog.evx-sheet::backdrop { background: var(--c-scrim); }
 .evx-next__note { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-text-3); }
 
 /* ── Record page ───────────────────────────────────────────────── */
+.evx-rec__back { margin: 0 0 var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); }
+.evx-rec__back a { display: inline-flex; align-items: baseline; gap: 0.4em; color: var(--c-text-2); text-decoration-color: var(--c-line-strong); }
+.evx-rec__back a:hover { color: var(--c-accent-strong); }
+.evx-rec__back .icon { align-self: center; flex: none; }
 .evx-rec__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); min-height: 2.25rem; margin-bottom: var(--sp-4); }
 .evx-rec__top > .crumbs { margin: 0; min-width: 0; }
 .evx-step { display: inline-flex; align-items: center; gap: var(--sp-1); margin-left: auto; }

@@ -68,3 +68,21 @@ export function useContinue(): Continue | null {
     return { chapter: c, number: chapterNumber(c.id), to: `${chapterPath(c.id)}${p ? `#${p.at}` : ""}`, part: p?.part ?? 0 };
   }, [read, last, place]);
 }
+
+/** What a link carries in its history state when it leaves a chapter for a record's own page. */
+export interface CameFrom { chapter: string }
+
+/**
+ * The way back to a chapter the reader left to look at a record: the chapter, its number, and a
+ * path to the place in it that was last noted (its head when none was). Null for an id that is
+ * no chapter's. The record's page prints it as one link at its head.
+ */
+export function useChapterReturn(id: string | undefined): { chapter: TheorySection; number: number; to: string } | null {
+  const [place] = useStored<ReadingPlace | null>(PLACE_KEY, null);
+  return useMemo(() => {
+    const chapter = id ? theoryById.get(id) : undefined;
+    if (!chapter) return null;
+    const at = place && place.id === chapter.id && place.at ? `#${place.at}` : "";
+    return { chapter, number: chapterNumber(chapter.id), to: `${chapterPath(chapter.id)}${at}` };
+  }, [id, place]);
+}

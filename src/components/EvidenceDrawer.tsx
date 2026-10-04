@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Evidence } from "../data/schema";
-import { backlinksFor, evidenceById } from "../data/store";
+import { backlinksFor, evidenceById, theoryById } from "../data/store";
 import { clearPlace, markOpen, openerAt } from "./drawerPlace";
 import { type DrawerState, useEvidenceDrawer } from "./evidenceDrawer";
 import { useFlick, useModalDialog, useSheetPull } from "./hooks";
@@ -14,6 +14,7 @@ import { Figure } from "./Figure";
 import { Firmness } from "./Firmness";
 import { Callout, Fact, Facts } from "./layout";
 import { RecordText } from "./RecordText";
+import type { CameFrom } from "./reading";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { count, smartQuotes, sourceWords } from "./typography";
 
@@ -105,6 +106,9 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
   const flick = useFlick({ onSide: (dir) => { if (paged) go(dir < 0 ? 1 : -1); } });
   const noun = state.noun ?? "Record";
   const of = state.of ?? "in this list";
+  // Opened over a chapter, the link to the record's own page says so, and that page offers the way back (reading.ts).
+  const under = useLocation().pathname.match(/^\/theory\/([^/]+)$/)?.[1];
+  const cameFrom: { from: CameFrom } | undefined = under && theoryById.has(under) ? { from: { chapter: under } } : undefined;
   return (
     <dialog
       className="drawer"
@@ -139,7 +143,7 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       </div>
       {e && (
         <footer className="drawer__foot">
-          <ButtonLink to={evidencePath(e.id)} iconEnd={ArrowRight}>Open the full record</ButtonLink>
+          <ButtonLink to={evidencePath(e.id)} state={cameFrom} iconEnd={ArrowRight}>Open the full record</ButtonLink>
         </footer>
       )}
     </dialog>
