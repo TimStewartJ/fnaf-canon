@@ -405,6 +405,12 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .outbound { white-space: nowrap; }
 .outbound::before { content: "\2060"; }
 
+/* ── Text set in paragraphs (Paragraphs) ───────────────────────── */
+/* The block carries the page's own class (its measure, its face, its rule down the side); the
+   paragraphs inside take their spacing from here. */
+.paras > p { margin: 0; }
+.paras > p + p { margin-top: 0.85em; }
+
 /* ── An inline date longer than its line ───────────────────────── */
 /* In running text (a paragraph, a list item) the date pill may wrap. It is one box, so one that fits
    is still never broken; one longer than the line it stands in (a long label at large text on a
