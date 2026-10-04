@@ -37,7 +37,9 @@ is still open, and each entry says what was looked through.
    teaser; in the game it was read from images of a work order (9/07/79) and a credential whose placement is
    unconfirmed (R2, R24). Every date for that night is marked as the teaser's. Looked for in a recording
    (Part 1, 18:15 to 20:06): forms with a Fazbear letterhead are in the van, but no date can be read and no
-   credential was made out. It needs the game, or a capture that stops on the papers.
+   credential was made out. A second player's recording was looked at as well (iRaphahell's EP 01, 1:13 to
+   1:16), with the same result: the forms are in the van, and nothing on them can be read. It needs the game,
+   or a capture that stops on the papers.
 2. **Secret of the Mimic: that the cabinet F10-N4 is the first machine's mind.** The model joins it from four
    records. A line of the game that states it would make R21 (1) "shown". Twelve records of M1 and of the voice
    speaking as Fiona carry the person tag `f10-n4` on the strength of that join. The subtitles call the
@@ -84,13 +86,12 @@ is still open, and each entry says what was looked through.
     source of a guess on the Box page and is now attached to nothing. Whether "The FINAL Theory", part 2,
     argued that Mike Schmidt is Michael decides that Theorists entry's source and one count on the entry for
     that video. The date of "FNAF 6, What was in the BOX?" (given as 2018-02-04) was not checked.
-13. **The scenes still told second-hand that were not reached.** Sister Location's credits roll (the tag
-    "(a fan wiki's account)" stays on the comparison of its cast list with Pizzeria Simulator's), Glamrock
-    Freddy's "What if I am not the first Glamrock Freddy?" on screen, and eleven scenes behind the tags
-    "(as described)" and "(a fan wiki's account)": the alley ending of Security Breach, the comics in RUIN,
-    the earthquake notice, Help Wanted 2's gift-pushing bear and its fourth Princess Quest, FNaF2's yellow
-    bear in the office, FNaF1's clipping on the mascot costume, Sister Location's keypad, the Princess Quest
-    graveyard on the mobile port, Into the Pit's secret minigames, and FNaF4's eighth night.
+13. **The scenes still told second-hand.** Seen in part: Sister Location's keypad (the pointer's rests fit
+    1-9-8-3 on a telephone layout, and no digit is shown, so the code is still "a fan wiki's account") and
+    Help Wanted 2's bear on the hub screen (three cards seen, not the one quoted, "Why are you ignoring the
+    gift?", which is read from an image). Still not found: Glamrock Freddy's "What if I am not the first
+    Glamrock Freddy?" on screen, the comics in RUIN, the earthquake headline legible in play, FNaF1's clipping
+    on the mascot costume (a rare random screen, barely looked for), and Into the Pit's secret minigames.
 
 **Settled from a recording**
 
@@ -116,6 +117,20 @@ is still open, and each entry says what was looked through.
 - **Pizzeria Simulator's last scene** (`ffps-completion-fire`; Part 5, 9:43 to 10:12): Scrap Baby, Molten
   Freddy and the salvaged rabbit among flames, one after another; Lefty is in none of the shots. Its credits
   roll prints each part above its performer (`ffps-credits-william-afton`).
+- **The two credits rolls behind "the same voices"** (`ffps-credits-returning-voices`): both read on screen
+  (Sister Location Part 5, 15:14; Pizzeria Simulator Part 5, 11:44). Baby and Scrap Baby have one performer,
+  Funtime Freddy and Molten Freddy another, and the tag is off the five sentences that say so.
+- **The alley ending of Security Breach** (`security-breach-ending-alley`): seen in another player's recording
+  (`roosterteeth-47843`, 38:14 to 39:06). The last panel shows a rabbit-eared shadow beside the sleeping boy;
+  no woman, costume or name is in the picture, so whose shadow it is, is marked "most likely".
+- **Help Wanted 2's fourth Princess Quest** (`hw2-pq4-vanny-crushes-glitchtrap`): the giant closes both hands
+  over a tiny figure with two long ears. Nothing in the picture says what the tiny figure is; the text now
+  says "most likely a copy of the rabbit in the code".
+- **RUIN's opening** (`ruin-pizzaplex-abandoned-earthquake`): the lobby wrecked and papered over, seen. The
+  headline is still read from its texture.
+- **FNaF2's yellow bear in the office**, **the six nameless stones of Princess Quest's graveyard** (in the
+  arcade version inside Security Breach) and **FNaF4's eighth night** (no text or scene): seen, and as
+  recorded.
 - **Special Delivery's inbox** (`sd-mail-server-advisory`; Part 1, 10:51; Part 2, 2:40): each row carries a
   time of day (as "11:31:31 PM") and no date. Every row seen was from the session being played, so whether
   an older email is listed with a date is not known. R24 (2) stands.
