@@ -84,7 +84,12 @@
   box-shadow: inset 0 0 0 3px var(--c-bg), inset 0 0 0 4px color-mix(in srgb, var(--hue) 28%, transparent);
 }
 .beat__body { min-width: 0; }
-.beat__when { margin: 0.6rem 0 0.4rem; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text-2); }
+/* When a beat falls. The data gives it as a date token (a chip: a mark for how the date is known,
+   a dotted line, its reason in a popover) or as plain words ("Afterwards"). Both are set the same:
+   one face, size, case and place. A chip is a <button>, which never takes capitals from its
+   parent, so the plain words are not put in capitals either; they are a chip with nothing to
+   open, and so carry no line, no pointer and no tab stop. */
+.beat__when { margin: 0.6rem 0 0.4rem; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.08em; font-variant-numeric: lining-nums; color: var(--c-text-2); }
 .beat__title { margin: 0 0 var(--sp-2); font-size: var(--fs-xl); line-height: 1.18; }
 .beat__text { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: var(--fs-read); line-height: 1.62; color: var(--c-text-read); text-wrap: pretty; }
 .beat__foot { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-5); margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--c-text-2); }
