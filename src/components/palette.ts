@@ -24,11 +24,11 @@ export const eraHue = (id: string | undefined): string => (id && ERA_HUE[id]) ||
 
 /** People groups (Person["group"]), used by the Web graph and people lists. */
 export const GROUP_HUE: Record<Person["group"], string> = {
-  afton: "#bba2ea", emily: "#d0ac5f", victim: "#63bde7", protagonist: "#7fc48e", staff: "#b7afb1",
+  afton: "#bba2ea", cassette: "#d0ac5f", victim: "#63bde7", protagonist: "#7fc48e", staff: "#b7afb1",
   pizzaplex: "#e196c0", mimic: "#e79d73", entity: "#ec9789", other: NEUTRAL_HUE,
 };
 export const GROUP_LABEL: Record<Person["group"], string> = {
-  afton: "Afton family", emily: "The Cassette Man’s household", victim: "Victims", protagonist: "Guards and protagonists",
+  afton: "Afton family", cassette: "The Cassette Man’s household", victim: "Victims", protagonist: "Guards and protagonists",
   staff: "Voices and companies", pizzaplex: "Pizzaplex era", mimic: "The Mimic and the Murrays", entity: "Machines and entities", other: "Minor figures",
 };
 

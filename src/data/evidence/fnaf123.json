@@ -1495,7 +1495,8 @@
       "custom-night"
     ],
     "related": [
-      "fnaf2-golden-freddy-night6-only"
+      "fnaf2-golden-freddy-night6-only",
+      "scott-ucn-character-guide-withered-chica-bonnie"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_7_(FNaF2)",
     "notes": "The game calls the older models just 'Freddy', 'Bonnie', 'Chica' and 'Foxy'. 'Withered' is not printed in FNaF2; Ultimate Custom Night's roster and Scott's character guide for it later use 'Withered Chica' and 'Withered Bonnie'. This is the first in-game use of the name 'Golden Freddy'. The Puppet is not on this screen."
@@ -1745,8 +1746,8 @@
       "fnaf2-parts-service-old-models"
     ],
     "image": "fnaf2-golden-freddy-office.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Night_7_(FNaF2)",
-    "notes": "He is active only on Night 6 and in the Custom Night (fnaf2-golden-freddy-night6-only). In the image the bear is worn like the older models: an ear is missing, wires hang from an eye socket and an arm is torn. FNaF1's yellow bear is whole (fnaf1-golden-freddy-office-figure)."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a 720p capture of play: FNaF2, Part 6, 9:02, 12:07 and 12:22) ; https://freddy-fazbears-pizza.fandom.com/wiki/Night_7_(FNaF2)",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 6 of FNaF2, archived at archive.org; Night 6): the yellow bear sits slumped at the left of the desk at 2 AM (9:02) and at 12 AM (12:07), and its head alone, large, with a top hat and empty eyes, hangs in the dark hallway at 2 AM (12:22). Each time the picture goes to a yellow face or to static within a second or two, and 'Game Over' follows. What makes it leave or strike (the Freddy head, the light) was not checked in the capture and is the wiki's account. He is active only on Night 6 and in the Custom Night (fnaf2-golden-freddy-night6-only). In the image the bear is worn like the older models: an ear is missing, wires hang from an eye socket and an arm is torn. FNaF1's yellow bear is whole (fnaf1-golden-freddy-office-figure)."
   },
   {
     "id": "fnaf2-puppet-music-box-mechanic",
@@ -1842,7 +1843,8 @@
       "crash"
     ],
     "related": [
-      "fnaf3-shadow-bonnie-minigame"
+      "fnaf3-shadow-bonnie-minigame",
+      "scott-ucn-character-guide-rxq-shadow-bonnie"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Easter_Eggs_(FNaF2)",
     "notes": "'RWQFSFASXC' is the name in the game's files and is not shown on screen. 'Shadow Bonnie' is the players' name and is not shown in FNaF2 either; Scott's Ultimate Custom Night character guide later has 'RXQ aka Shadow Bonnie'."
@@ -1900,7 +1902,8 @@
     "related": [
       "fnaf3-newspaper-developer-notes",
       "fnaf1-news-charged-vs-convicted",
-      "fnaf3-office-box-toy-heads"
+      "fnaf3-office-box-toy-heads",
+      "scott-2015-fnaf3-store-owners-revive-the-legend"
     ],
     "image": "fnaf3-coming-soon.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Cinematics_(FNaF3)"
@@ -2806,7 +2809,8 @@
       "cake-ending"
     ],
     "related": [
-      "fnaf2-shadow-bonnie-office"
+      "fnaf2-shadow-bonnie-office",
+      "scott-ucn-character-guide-rxq-shadow-bonnie"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Glitch_Minigame",
     "notes": "The game shows no name. 'RWQFSFASXC' is a file name and 'Shadow Bonnie' the players' name; neither is shown in FNaF3. Scott's Ultimate Custom Night character guide later has 'RXQ aka Shadow Bonnie'. The wiki calls this child 'Jeremy'. FNaF3 gives no name. The name is on a gravestone in Pizzeria Simulator (ffps-lorekeeper-gravestones); pairing it with this child is the wiki's. The figurine hint appears in the post-Night 4 minigame."
@@ -2901,7 +2905,8 @@
     ],
     "related": [
       "fnaf3-office-box-toy-heads",
-      "scott-2015-fnaf3-store-thirty-years"
+      "scott-2015-fnaf3-store-thirty-years",
+      "scott-2015-fnaf3-store-owners-revive-the-legend"
     ],
     "url": "https://store.steampowered.com/app/354140/Five_Nights_at_Freddys_3/",
     "notes": "Doesn't say which Freddy Fazbear's Pizza closing the thirty years count from. Fetched from the Steam appdetails API. The same store text is recorded in the Scott file as scott-2015-fnaf3-store-thirty-years; they are two records of one text."

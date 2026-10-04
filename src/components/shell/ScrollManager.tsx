@@ -3,6 +3,7 @@ import { useLocation, useNavigationType, type Location } from "react-router-dom"
 import { DRAWER_KEY, OVERLAY_KEY } from "../address";
 import { findFocus, markFocus, type FocusMark } from "./focusMark";
 import { settleHeader } from "./headerReveal";
+import { stepBegan } from "./stepClock";
 
 const STORE_KEY = "fca:scroll";
 const FOCUS_KEY = "fca:focus";
@@ -10,17 +11,28 @@ const FOCUS_KEY = "fca:focus";
 const INPUTS = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
 /** After a landing, how long the page must keep its shape before the landing is final. */
 const QUIET_MS = 1500;
-/** How long the page is held still to end a glide (see land). */
+/** How long, at least, the page is held still to end a glide (see land). */
 const HOLD_MS = 120;
+/** How many frames the browser must draw of the page held still before it is let go. */
+const HOLD_FRAMES = 2;
 
 /** When the page last moved, and when a finger last left the screen: together they say whether it is still gliding from a flick. */
 let lastScroll = 0;
 let lastTouchEnd = 0;
-const gliding = (): boolean => { const now = performance.now(); return now - lastTouchEnd < 3000 && now - lastScroll < 200; };
 /**
- * When the browser last stepped to another entry (Back, Forward, a typed address) that the router
- * has not drawn yet; 0 once it has. Until then the page on screen is still the one being left,
- * and where it stands must not be filed under the entry being arrived at.
+ * Whether the page was gliding from a flick at the time `at` (now, unless given). For a step
+ * through the history, ask about the moment the step began (stepClock.ts): while the page
+ * stepped to is being drawn no scroll event is delivered, so by the time it is on screen the
+ * last one heard may be old, on a slow phone, though the page glides on.
+ */
+const gliding = (at = performance.now()): boolean => at >= lastTouchEnd && at - lastTouchEnd < 3000 && at - lastScroll < 200;
+/**
+ * When the browser last stepped to another entry (Back, Forward, a typed address), as this
+ * component's own listener hears of it; 0 once the router has drawn a change of address. For a
+ * second after a step, where the page stands is not filed: what is on screen may still be the
+ * page being left, or a short stand-in for a page still being fetched, and neither position
+ * belongs to the entry arrived at. (Browsers differ on whether this listener or the router's
+ * hears of a step first; the second covers both orders.)
  */
 let stepped = 0;
 
@@ -65,10 +77,12 @@ const pageReady = (): boolean => !document.querySelector("[data-route-loading]")
  *
  * A page still gliding from a flick of the finger (the reader flicked, then pressed Back) would
  * glide on from wherever it is put, or put itself back where it was gliding. So if it is gliding
- * when the landing begins, it is first made unscrollable for a moment, which ends the glide, and
- * is placed when it is let go.
+ * when the landing begins (`glide`), it is first made unscrollable for a moment, which ends the
+ * glide, and is placed when it is let go. The moment is counted in frames drawn as well as in
+ * time: what does the gliding hears that the page cannot scroll only when a frame is drawn, and
+ * a busy page may draw none for longer than HOLD_MS.
  */
-function land(aim: () => boolean, then?: () => void): () => void {
+function land(aim: () => boolean, then?: () => void, glide = gliding()): () => void {
   let stopped = false;
   let placed: number | null = null;
   let quiet: number | undefined;
@@ -76,8 +90,9 @@ function land(aim: () => boolean, then?: () => void): () => void {
   const resized = new ResizeObserver(() => apply());
   const grown = new MutationObserver(() => apply());
   const root = document.documentElement;
-  let hold: number | undefined;
-  const release = () => { if (hold === undefined) return; window.clearTimeout(hold); hold = undefined; root.style.removeProperty("overflow"); };
+  // While the page is held to end a glide: what ends the hold early.
+  let hold: (() => void) | undefined;
+  const release = () => { if (hold === undefined) return; hold(); hold = undefined; root.style.removeProperty("overflow"); };
   const stop = () => {
     if (stopped) return;
     stopped = true;
@@ -107,9 +122,20 @@ function land(aim: () => boolean, then?: () => void): () => void {
     quiet = window.setTimeout(settled, QUIET_MS);
   }
   root.style.setProperty("overflow-anchor", "none");
-  if (gliding()) {
+  if (glide) {
     root.style.setProperty("overflow", "hidden");
-    hold = window.setTimeout(() => { release(); apply(); }, HOLD_MS);
+    const held = performance.now();
+    const go = () => { release(); apply(); };
+    let frames = 0;
+    const frame = () => {
+      frames++;
+      if (frames >= HOLD_FRAMES && performance.now() - held >= HOLD_MS) go();
+      else raf = requestAnimationFrame(frame);
+    };
+    let raf = requestAnimationFrame(frame);
+    // A page that is not being drawn (a tab put in the background) has no frames: it is let go after a second.
+    const late = window.setTimeout(go, 1000);
+    hold = () => { cancelAnimationFrame(raf); window.clearTimeout(late); };
   }
   for (const ev of INPUTS) window.addEventListener(ev, stop, { passive: true });
   resized.observe(document.body);
@@ -183,6 +209,11 @@ export function ScrollManager() {
   }, []);
 
   useLayoutEffect(() => {
+    // Whether the page was gliding when this change of address began (see gliding): for a step
+    // through the history, when the step began. (A step from long ago says nothing about now.)
+    const now = performance.now();
+    const began = stepBegan();
+    const glide = gliding(navType === "POP" && began && now - began < 2000 ? began : now);
     stepped = 0;
     const before = prev.current;
     const key = entryKey(location);
@@ -205,10 +236,10 @@ export function ScrollManager() {
         el.scrollIntoView({ block: "start", behavior: "instant" });
         target = el;
         return true;
-      }, () => { if (focus && target) focusAt(target); });
+      }, () => { if (focus && target) focusAt(target); }, glide);
     };
     // The top of the page, for a page still gliding from a flick: held there until the glide has ended.
-    const toTop = () => { cancel.current = land(() => { if (window.scrollY !== 0) window.scrollTo({ top: 0, behavior: "instant" }); return true; }); };
+    const toTop = () => { cancel.current = land(() => { if (window.scrollY !== 0) window.scrollTo({ top: 0, behavior: "instant" }); return true; }, undefined, glide); };
     const restore = (y: number, mark?: FocusMark) => {
       cancel.current = land(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -222,7 +253,7 @@ export function ScrollManager() {
         if (!mark || document.querySelector("dialog[open]")) return;
         const el = findFocus(mark);
         if (el && el !== document.activeElement) el.focus({ preventScroll: true });
-      });
+      }, glide);
     };
 
     if (!before) {
@@ -242,7 +273,7 @@ export function ScrollManager() {
       // set in it was written to the page's entry). The page is already where it belongs.
       else if (location.key !== "default" && before.pathname === location.pathname) positions.current!.set(key, window.scrollY);
       else if (location.hash) toAnchor(location.hash, false);
-      else if (gliding()) toTop();
+      else if (glide) toTop();
       else window.scrollTo({ top: 0, behavior: "instant" });
       return;
     }
@@ -267,7 +298,6 @@ export function ScrollManager() {
     // A new page: the top, with focus on <main>; then on to its anchor, if the link named one
     // (at once when it is there, otherwise when the page has arrived).
     positions.current!.set(key, 0);
-    const glide = gliding();
     if (!glide) window.scrollTo({ top: 0, behavior: "instant" });
     document.getElementById("main")?.focus({ preventScroll: true });
     if (location.hash) toAnchor(location.hash, true);

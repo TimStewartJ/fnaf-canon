@@ -45,6 +45,14 @@ for (const e of evidence) {
   if (e.image && !fs.existsSync(path.join(root, "public/img", e.image))) errors.push(`${e.id}: image missing ${e.image}`);
 }
 for (const e of evidence) for (const r of e.related ?? []) if (!ids.has(r)) warnings.push(`${e.id}: related -> unknown ${r}`);
+// What a reader is shown as the record itself (its title, claim, quote and place) names no other
+// record by id. A pointer to a related record belongs in the notes, where the interface prints it
+// as that record's title, or in `related`.
+for (const e of evidence) for (const k of ["title", "claim", "quote", "location"] as const) {
+  for (const m of (e[k] ?? "").matchAll(/(^|[^\p{L}\p{N}_/.#=-])([a-z0-9]+(?:-[a-z0-9]+)+)(?![\p{L}\p{N}_/-])/gu)) {
+    if (m[2] !== e.id && ids.has(m[2])) errors.push(`${e.id}: ${k} names the record ${m[2]} by id; move the pointer to notes`);
+  }
+}
 
 const personIds = new Set(people.map((p) => p.id));
 const placeIds = new Set(places.map((p) => p.id));
@@ -130,8 +138,35 @@ const outsideIds = new Set<string>();
 for (const g of outsideStory) { textRefs(`outsideStory ${g.id}`, g.reason); need(`outsideStory ${g.id}`, g.ids); for (const id of g.ids) outsideIds.add(id); }
 // Book-only names must not be used as names in the model (they may be discussed on the Theorists page).
 const BOOK_ONLY = /\b(Henry|Charlie|Charlotte|Evan|Cassidy|Emily)\b/;
-for (const s of theory) for (const t of [s.title, s.question ?? "", ...sectionTexts(s)]) { const m = t.match(BOOK_ONLY); if (m) warnings.push(`theory ${s.id}: uses the book-only name "${m[1]}"`); }
-for (const b of storyline) for (const t of [b.title, b.text]) { const m = t.match(BOOK_ONLY); if (m) warnings.push(`beat ${b.id}: uses the book-only name "${m[1]}"`); }
+/** Fan labels the archive keeps out of its own text. They may stand only as a marked alias on a person. */
+const FAN_LABEL = /(Shadow Freddy|RWQFSFASXC|\bthe Blob\b|\bTangle\b|Tape Girl|Phone Dude|\bMCI\b|Missing Children Incident|Bite of .?83|TOYSNHK)/;
+const MARKED_ALIAS = /\((?:[^)]*\b)?(a fan name|a file name)[^)]*\)$/;
+/** Strip citation, entity and chapter tokens so that ids never trip a name check. */
+const proseOnly = (t: string) => t.replace(/\[\[[^\]]*\]\]|\{\{[^}]*\}\}|\(\([^)]*\)\)/g, " ").replace(/<<([^|>]*)\|[^>]*>>/g, "$1");
+const nameCheck = (where: string, texts: (string | undefined)[], listsFanLabels = false) => {
+  for (const raw of texts) {
+    if (!raw) continue;
+    const t = proseOnly(raw);
+    const b = t.match(BOOK_ONLY); if (b) errors.push(`${where}: uses the book-only name "${b[1]}"`);
+    const f = listsFanLabels ? null : t.match(FAN_LABEL); if (f) errors.push(`${where}: uses the fan label "${f[1]}" (write the descriptor; a fan label may stand only as a marked alias)`);
+  }
+};
+// The chapter on the rules is the one place that lists the labels the archive does not use, each beside its descriptor.
+for (const s of theory) nameCheck(`theory ${s.id}`, [s.title, s.question, ...sectionTexts(s)], s.id === "canon-rules");
+for (const b of storyline) nameCheck(`beat ${b.id}`, [b.title, b.text, b.when]);
+for (const p of theoryParts) nameCheck(`part ${p.id}`, [p.title, p.blurb, p.kicker]);
+for (const p of people) {
+  nameCheck(`person ${p.id}`, [p.name, p.summary, p.theory, (p as { status?: string }).status]);
+  for (const a of p.aliases ?? []) { if (BOOK_ONLY.test(a)) errors.push(`person ${p.id}: alias uses a book-only name ("${a}")`); if (FAN_LABEL.test(a) && !MARKED_ALIAS.test(a)) errors.push(`person ${p.id}: the alias "${a}" is a fan label and must be marked "(a fan name)" or "(a file name)"`); }
+}
+for (const r of relations) nameCheck(`relation ${r.from}->${r.to}`, [(r as { note?: string }).note]);
+for (const t of timeline) nameCheck(`event ${t.id}`, [t.title, t.summary]);
+for (const e of eras) nameCheck(`era ${e.id}`, [(e as { name?: string }).name, (e as { summary?: string }).summary]);
+for (const p of places) nameCheck(`place ${p.id}`, [p.name, p.summary]);
+for (const t of familyTrees) nameCheck(`tree ${t.id}`, [(t as { title?: string }).title, (t as { description?: string }).description]);
+for (const d of deaths) nameCheck(`death ${d.id}`, [d.title, d.victimLabel, d.byLabel, d.note]);
+for (const c of homeSummary) nameCheck(`home card ${c.title}`, [c.title, c.text]);
+for (const q of keyQuestions) nameCheck(`home question ${q.q}`, [q.q, q.a]);
 for (const t of timeline) textRefs(`event ${t.id}`, t.summary);
 for (const p of people) { textRefs(`person ${p.id}`, p.summary); if (p.theory) textRefs(`person ${p.id} theory`, p.theory); }
 for (const p of places) textRefs(`place ${p.id}`, p.summary);
@@ -241,14 +276,15 @@ const counterAll = new Set(theory.flatMap((s) => s.counterEvidence ?? []));
 const furtherAll = new Set(theory.flatMap((s) => s.further ?? []));
 const storyAll = new Set(storyline.flatMap((b) => beatCitations(b)));
 const inModel = new Set([...inlineAll, ...counterAll, ...furtherAll, ...storyAll]);
-for (const id of outsideIds) if (inlineAll.has(id) || counterAll.has(id) || furtherAll.has(id)) warnings.push(`coverage: ${id} is listed in outsideStory but also used by a chapter`);
+for (const id of outsideIds) if (inlineAll.has(id) || counterAll.has(id) || furtherAll.has(id)) errors.push(`coverage: ${id} is listed in outsideStory but also used by a chapter`);
 const unaccounted = [...ids].filter((i) => !inModel.has(i) && !outsideIds.has(i));
 console.log(`theory coverage: ${ids.size - unaccounted.length}/${ids.size} accounted (cited inline ${inlineAll.size}, counter-evidence ${counterAll.size}, filed as further ${furtherAll.size}, outside the story ${outsideIds.size}); unaccounted ${unaccounted.length}`);
 const byGame = new Map<string, number>();
 for (const id of unaccounted) { const g = evById.get(id)!.game; byGame.set(g, (byGame.get(g) ?? 0) + 1); }
 if (unaccounted.length) console.log(`  unaccounted by source: ${[...byGame].sort((a, b) => b[1] - a[1]).map(([g, n]) => `${g} ${n}`).join(", ")}`);
 if (process.argv.includes("--list-unaccounted")) for (const id of unaccounted) console.log(`  UNACCOUNTED ${id}`);
-if (process.argv.includes("--strict-coverage") && unaccounted.length) errors.push(`coverage: ${unaccounted.length} evidence records are not cited, filed or listed as outside the story (run with --list-unaccounted)`);
+// HARDENED: coverage is an error unless --allow-unaccounted is given.
+if (!process.argv.includes("--allow-unaccounted") && unaccounted.length) errors.push(`coverage: ${unaccounted.length} evidence records are not cited, filed or listed as outside the story (run with --list-unaccounted)`);
 for (const w of warnings) console.log("WARN", w);
 for (const e of errors) console.log("ERROR", e);
 if (errors.length) { console.log(`${errors.length} errors`); process.exit(1); }

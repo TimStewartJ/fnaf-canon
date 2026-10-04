@@ -81,12 +81,14 @@ export interface Person {
   name: string;               // name as best established by canon (or a neutral descriptor)
   aliases: string[];
   nameStatus: "canon-name" | "descriptor";
+  /** RichText. What the records give. A long one is set in paragraphs: a blank line ("\n\n") starts a new one. */
   summary: string;
   status: string;
   firstAppearance: GameId;
   evidence: string[];
+  /** RichText. The model's reading. Paragraphs as in `summary`. */
   theory?: string;
-  group: "afton" | "emily" | "victim" | "staff" | "protagonist" | "entity" | "pizzaplex" | "mimic" | "other";
+  group: "afton" | "cassette" | "victim" | "staff" | "protagonist" | "entity" | "pizzaplex" | "mimic" | "other";
   image?: string;
 }
 

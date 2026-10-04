@@ -6,6 +6,16 @@
 > work was merged, after this was written: the people group `emily` is `cassette`, the chapter id `partners`
 > is `hen-and-wa`, and the free tag `toysnhk` is `one-you-should-not-have-killed`. Record ids were not changed.
 > Where a record as it now stands is more careful than a ruling's description of it, the record governs.
+>
+> **After the pass closed (3 October 2026).** Records added from recordings of play settle some things this
+> document leaves open, and the theory's text follows the records. R26: "Arnold" and "F10-N4" are now quoted;
+> Helpi's lower-case "the entity" is the game's own word (first tier); "Shadow Bonnie" is in Scott's guide to
+> Ultimate Custom Night (second tier; that game's own roster was not checked, and the name moves to the first
+> tier if the roster prints it); the robot's label on screen is "Maskbot". R19: Security Breach's cast
+> list was read from its credits roll and agrees with the transcription, so it no longer takes "(a fan wiki's
+> account)". R31: no text of FNaF3 says whose Fazbear's Fright is beyond "Local amusement park" and "the
+> owners", so "not the company's" is now marked "most likely". R19 (4): the ending below ground shows the place
+> burning and coming down as the two run out, and nothing from outside or afterwards. See `open-checks.md`.
 
 
 The compact version of `model.md` for the lead author and chapter writers: every ruling, R1 to R33, with its
@@ -904,8 +914,8 @@ never "works", never "where fire did not". That rabbit is the shadow on RUIN's h
 Vanessa with the mask off; the Redemption ending's own last page shows the blonde woman on a hill, from behind
 and unnamed.
 **Changes if.** A game shows two women together outside the rooftop page, names the caller, or says outright
-that the two are one; a later game shows Vanessa with the mask off; the credits roll, once captured, reads
-otherwise than the transcription; any third record for two women.
+that the two are one; a later game shows Vanessa with the mask off; any third record for two women. (The
+clause on the credits roll is struck: the roll was captured on 3 October 2026 and agrees with the transcription.)
 
 ### R20. The burnt rabbit under the Pizzaplex, and the mass of parts
 **Ruling.** [CHANGE] (1) The buried pizzeria is Pizzeria Simulator's building (medium). (2) The burnt rabbit

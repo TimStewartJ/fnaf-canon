@@ -1579,10 +1579,10 @@
   {
     "id": "hw-mobile-princess-quest-graveyard",
     "title": "Princess Quest graveyard",
-    "claim": "In the wiki's screenshot of Princess Quest's outdoor graveyard there are six gravestones, each with a torch brazier in front of it. No names are shown on the stones.",
+    "claim": "Princess Quest's outdoor graveyard has six gravestones, each on a plinth with a brazier in front of it; one stone is broken, its top lying beside it. The stones carry a few dots and no names.",
     "game": "help-wanted",
     "kind": "minigame",
-    "location": "Princess Quest cemetery (wiki screenshot; Help Wanted mobile port or Security Breach arcade version, not stated)",
+    "location": "Princess Quest cemetery (seen in the Security Breach arcade version; the wiki's screenshot does not say which version it shows)",
     "certainty": "shown",
     "when": {
       "label": "During Help Wanted (player's beta test of the Virtual Experience; undated)",
@@ -1601,8 +1601,8 @@
       "ffps-lorekeeper-gravestones"
     ],
     "image": "hw-pq1-graveyard.png",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
-    "notes": "Six stones counted on the wiki's screenshot, which does not say whether it is from the Help Wanted mobile port or the Security Breach arcade version (the two differ only in small sprite changes, per the wiki). The wiki links the stones to FFPS's gravestones; that is interpretation. Help Wanted 2's Princess Quest IV graveyard also has six stones, there paired with the six memory dolls (hw2-pq4-graveyard-order)."
+    "verifiedVia": "https://archive.org/details/markiplier-fnafsb (seen in a 720p capture of play: Part 9, 1:20:30 to 1:21:15) ; https://freddy-fazbears-pizza.fandom.com/wiki/Princess_Quest",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 9 of Security Breach, archived at archive.org), 1:20:30 to 1:21:15, in the first Princess Quest cabinet played in that part: a walled graveyard in the rain, with paths between three plots; three stones stand in the middle plot, one at the left and two at the right, and the Princess lights the braziers. Six stones were counted there, as on the wiki's screenshot, which does not say whether it is from the Help Wanted mobile port or the Security Breach arcade version (the two differ only in small sprite changes, per the wiki). The wiki links the stones to FFPS's gravestones; that is interpretation. Help Wanted 2's Princess Quest IV graveyard also has six stones, there paired with the six memory dolls (hw2-pq4-graveyard-order)."
   },
   {
     "id": "hw-intro-indie-developer-poster",
@@ -2064,7 +2064,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 28 November 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 28 November 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2089,7 +2089,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 2 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 2 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2114,7 +2114,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 4 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 4 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2141,7 +2141,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 6 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 6 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2165,7 +2165,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 8 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 8 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2189,7 +2189,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 9 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 9 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "luis-cabrera",
@@ -2218,7 +2218,7 @@
     "when": {
       "label": "Undated; several of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "The emails reached players on 29 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The emails reached players on 29 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "daniel-rocha",
@@ -2249,7 +2249,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "The two emails reached players on 30 November and 5 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The two emails reached players on 30 November and 5 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "steven-wilson",
@@ -2280,7 +2280,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 1 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 1 December 2019, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "kayla-stringer",
@@ -2311,7 +2311,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "The two emails reached players on 7 and 10 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The two emails reached players on 7 and 10 December 2019, real-world days (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "steven-wilson",
@@ -2346,8 +2346,9 @@
       "fazbear-framing",
       "emails"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
-    "notes": "The only story email every new player receives. The usual reading is that this advisory is why the player receives the story emails."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (the inbox seen in a 1080p capture of play: Special Delivery, Part 1, 10:51, and Part 2, 2:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Emails",
+    "notes": "The only story email every new player receives. The usual reading is that this advisory is why the player receives the story emails. The inbox was seen on 2026-10-03 in a capture of play (Markiplier's Part 1 of Special Delivery, archived at archive.org), 10:51: the screen is headed 'INBOX 8 / 10', and each row has a sender, a subject and, at the right, a time of day and no date. This email's row reads 'Fazbear Entertainment Office of Legal Affairs', 'Staff Advisory: Mail Server', '11:31:31 PM'; the rows above it carry '11:32:29 PM' to '11:35:24 PM'. An opened email (12:47) shows its subject, its sender and the greeting 'Dear 3289BA08319CE4F3,', and no date in the part of it that is in view. In Part 2 (2:40) the screen is headed 'INBOX 114 / 118' and its rows carry times such as '01:08:12 PM'. So the rows in view give a time of day and no day; whether an email from an earlier day is listed with a date was not seen. The text of this email was not read on screen.",
+    "image": "sd-inbox-times-of-day.jpg"
   },
   {
     "id": "sd-vintage-bonnie-reports",
@@ -2361,7 +2362,7 @@
     "when": {
       "label": "Undated; one of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Reached players on 12 February 2020, a real-world day (the wiki's record of when it was sent); the email carries no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Reached players on 12 February 2020, a real-world day (the wiki's record of when it was sent); the email carries no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "isolde-sd",
@@ -2390,7 +2391,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails",
       "precision": "unknown",
-      "basis": "The two emails reached players on 11 and 12 March 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The two emails reached players on 11 and 12 March 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "tristan-sd",
@@ -2628,8 +2629,8 @@
   },
   {
     "id": "hw2-faz-force-ending",
-    "title": "Faz Force ending: a rabbit-costumed arm from a recharge station, S.T.A.F.F. bots, a mask held out to a girl",
-    "claim": "By the wiki's summaries of the ending, combining all six Faz Force figures makes a large box appear on the hub stage. Unwinding it uncovers a recharge station from which a rabbit-costumed arm emerges, while S.T.A.F.F. bots with painted Nightmarionne faces close in on the player. The view then cuts to a S.T.A.F.F. bot starting up and holding a rabbit mask out to a girl.",
+    "title": "Faz Force ending: a hand at the door of a recharge station, S.T.A.F.F. bots with painted faces, a rabbit mask held out to a girl",
+    "claim": "In the main ending a gift box with a red bow and a crank stands on the hub's stage and bursts open, and a red recharge station stands there under a spotlight. A dark hand takes hold of the edge of the station's door from inside, and S.T.A.F.F. bots whose faces are painted white, with hollow eyes and a stitched grin, crowd in on the player. After static and the words '[STARTING UP...]', the view is a robot's: its white hands hold a white rabbit mask out to a girl, who takes it. No name is printed for her. By the wiki's summaries the ending needs all six Faz Force figures, and the arm at the door is a rabbit costume's.",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Main ending (all 6 Faz Force figures)",
@@ -2658,13 +2659,14 @@
       "hw2-hub-helpi-pushes-gift",
       "hw2-faz-force-six-figures"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Described from the wiki's ending summaries; the scene itself was not watched. The wiki identifies the girl as RUIN's Cassie and the bot as RUIN's Mask Bot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni), and says the last shot is in first person from the bot. In Security Breach the burnt rabbit under the Pizzaplex also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a 1080p capture of play: Help Wanted 2, Part 14, 26:54 to 28:48) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 14 of Help Wanted 2, archived at archive.org); the sound was not heard, and the scene was not checked in play by this archive. In order: six toy robots stand in a row (26:54, 27:26); a gift box with a red bow and a crank on its side stands on the stage (27:20 to 27:48) and bursts apart in springs (27:50); a red recharge station with a checkered top, a lightning bolt and cyan lights stands under a spotlight (27:53 to 27:59); a dark hand with spread fingers grips the edge of its door from inside (27:59); S.T.A.F.F. bots whose faces are painted white, with hollow eyes and a stitched grin, one with 'IN YOUR DREAMS' scrawled on its chest, crowd in (28:03); static (28:05); '[STARTING UP...]' on a teal grid (28:10 to 28:17); then, in first person, a girl with brown hair in two bunches, in a red sweater with a star badge and blue shorts, faces the viewer, and two white segmented robot hands hold out a white rabbit mask with red markings round the eyes, which she takes and looks down at (28:21 to 28:33); the credits follow (28:48). Only a hand shows at the station's door; that it belongs to a rabbit costume is the wiki's account ('a rabbit-costumed arm') and could not be made out on screen. The wiki calls the painted faces Nightmarionne's, identifies the girl as RUIN's Cassie and the robot as RUIN's Maskbot, which gives her the mask at RUIN's start (ruin-mask-bot-helpi-vanni); the scene prints no name, and the mask looks like the one handed over in RUIN (a white rabbit's face, red round the eyes). In Security Breach the burnt rabbit under the Pizzaplex also rises from a recharge station (security-breach-freddy-i-am-not-me). What becomes of the player is not shown; 'the bots disassemble the player' is the wiki's reading.",
+    "image": "hw2-ending-girl-takes-rabbit-mask.jpg"
   },
   {
     "id": "hw2-faz-force-achievement",
     "title": "'Batteries Not Included': 'Take this mask.'",
-    "claim": "The main-ending achievement 'Batteries Not Included' reads 'Take this mask. Take this mask.' RUIN's Mask Bot says 'Take a mask. Take a mask.'; the two wordings are close but not the same.",
+    "claim": "The main-ending achievement 'Batteries Not Included' reads 'Take this mask. Take this mask.' RUIN's Maskbot says 'Take a mask. Take a mask.'; the two wordings are close but not the same.",
     "quote": "Take this mask. Take this mask.",
     "game": "help-wanted-2",
     "kind": "text",
@@ -3056,7 +3058,7 @@
   {
     "id": "hw2-pq4-vanny-crushes-glitchtrap",
     "title": "PQ IV ending: the giant rabbit-headed figure crushes the tiny rabbit",
-    "claim": "The giant rabbit-headed figure takes the plush, draws a tiny copy of Help Wanted's rabbit figure out of the prize chute, crushes it between its hands, and fades into the darkness.",
+    "claim": "Seen from inside a heap of plush toys behind glass: a giant figure with a rabbit's head, stitched and patched, its eyes glowing orange, puts its hands to the glass, holds up on one palm a tiny figure with two long ears, lit green from behind, closes both hands over it, and fades into the dark as its eyes turn red. By the wiki's account it has taken the player's plush, and the tiny figure is a copy of Help Wanted's rabbit figure drawn out of the prize chute.",
     "game": "help-wanted-2",
     "kind": "ending",
     "location": "Princess Quest IV ending ('Consequences')",
@@ -3083,8 +3085,8 @@
       "hw2-pq4-elevator-claw-machine"
     ],
     "image": "hw2-pq4-vanny-crushes-glitchtrap.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Nothing is said in the scene. The figure is a dark silhouette whose glowing eyes, lashes and whiskers match the mask of Security Breach's Vanny; the scene does not show who it is. All of it happens inside the Princess Quest IV game the player has been pulled into. The achievement that follows reads 'System threats found. Repair complete.' A Steel Wool developer reportedly called this the end of the character in an interview; that is not a game or Scott source and is not recorded as fact."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a 1080p capture of play: Help Wanted 2, Part 13, 23:43 to 24:22) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 13 of Help Wanted 2, archived at archive.org), 23:43 to 24:22; the sound was not heard, and the scene was not checked in play by this archive. In order: a green rabbit plush glows in the foreground among the toys (23:44); the giant leans in with its hands on the glass (23:50 to 24:03), its face and fingers stitched, its eyes orange with lashes, whiskers at its cheeks; it holds up on its palm a tiny standing figure with two long ears, dark against a green glow (24:06 to 24:10), brings its other hand over it and clasps both hands shut (24:10 to 24:14); its eyes turn red and it fades (24:17 to 24:19); the credits follow (24:24). No subtitle is on screen. The figure's eyes, lashes, whiskers and stitching match the mask of Security Breach's Vanny; the scene does not show who it is. All of it happens inside the Princess Quest IV game the player has been pulled into. The achievement that follows reads 'System threats found. Repair complete.' A Steel Wool developer reportedly called this the end of the character in an interview; that is not a game or Scott source and is not recorded as fact."
   },
   {
     "id": "hw2-pq4-consequences-achievement",
@@ -3176,7 +3178,7 @@
     ],
     "image": "hw2-mcm-puzzle.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; in the RUIN dialogue checked it is 'that rabbit thing' (ruin-the-entity). The nameplate and the van's colours were read on 2026-10-03 from the wiki's two captures of the scene, which carry the game's on-screen prompts (File:HW2 Van MXES.png and File:FE Van HW2.png, on its page 'Arnold's Van'); in the second the van's hood is lettered 'COMPANY NAME'. The wiki's text calls the van white. The record's image is the puzzle's box art."
+    "notes": "In Secret of the Mimic 'MCM' is Murray's Costume Manor, and 4625 is a radio frequency (secret-of-the-mimic-log-frequency-4625). RUIN shows the same emerge-and-pulled-back sequence at the M.X.E.S. hub (ruin-mxes-hub); 'the M.X.E.S. Entity' is the wiki's name for the figure; RUIN's own words for it are 'that rabbit thing', in Cassie's lines and the radio voice's (ruin-the-entity), and 'the entity', in lower case, in Helpi's text boxes (ruin-helpi-alert-anomalous-entity, ruin-helpi-entity-bypassed-signal-jammer). The nameplate and the van's colours were read on 2026-10-03 from the wiki's two captures of the scene, which carry the game's on-screen prompts (File:HW2 Van MXES.png and File:FE Van HW2.png, on its page 'Arnold's Van'); in the second the van's hood is lettered 'COMPANY NAME'. The wiki's text calls the van white. The record's image is the puzzle's box art."
   },
   {
     "id": "hw2-mystic-hippo-hello",
@@ -4053,7 +4055,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Both emails reached players on 28 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Both emails reached players on 28 November 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "mark-cho",
@@ -4114,7 +4116,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails, in the order they reached players",
       "precision": "relative",
-      "basis": "Both emails reached players on 3 December 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "Both emails reached players on 3 December 2019, a real-world day (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "raha-salib",
@@ -4145,7 +4147,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails",
       "precision": "unknown",
-      "basis": "The two emails reached players on 3 and 5 March 2020, real-world days (the wiki's record of when they were sent); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The two emails reached players on 3 and 5 March 2020, real-world days (the wiki's record of when they were sent); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "tristan-sd",
@@ -4207,7 +4209,7 @@
     "when": {
       "label": "Undated; two of Special Delivery's emails",
       "precision": "unknown",
-      "basis": "The two emails reached players on 31 January and 4 February 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. Whether the inbox screen showed a date was not verified."
+      "basis": "The two emails reached players on 31 January and 4 February 2020, real-world days (the wiki's record of when they were sent; the line quoted is in the second); the emails carry no date. In a recording the inbox lists each email with a time of day and no date (sd-mail-server-advisory)."
     },
     "people": [
       "nora-sd",
@@ -4410,8 +4412,8 @@
       "ruin-mask-bot-helpi-vanni"
     ],
     "image": "hw2-hub-helpi-gift.jpg",
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Helpi",
-    "notes": "Read from the wiki's images of the screen cards: 'Hey, hi!', 'There is a special gift for you on the stage.', 'You really don't want to miss out!', 'I promise it's worth it!', 'You got them all!', 'I am so excited!'. The bear is not named on the cards; the wiki says the files identify it as Helpi, the assistant inside RUIN's mask, and that it appears on holiday after the Faz Force ending and vanishes after the Princess Quest IV ending (neither checked)."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (the screen and three of its cards seen in a 1080p capture of play: Help Wanted 2, Part 13, 5:04 to 5:10, and Part 14, 26:51 to 27:14) ; https://freddy-fazbears-pizza.fandom.com/wiki/Helpi",
+    "notes": "Read from the wiki's images of the screen cards: 'Hey, hi!', 'There is a special gift for you on the stage.', 'You really don't want to miss out!', 'I promise it's worth it!', 'You got them all!', 'I am so excited!'. The bear is not named on the cards; the wiki says the files identify it as Helpi, the assistant inside RUIN's mask, and that it appears on holiday after the Faz Force ending and vanishes after the Princess Quest IV ending (neither checked). The screen was seen on 2026-10-03 in a capture of play (Markiplier's Parts 13 and 14 of Help Wanted 2, archived at archive.org): a cartoon bear in a top hat beside a speech bubble, on the big screen next to the hub's stage, with the cards 'New tasks available! Check the computer.' and 'Good for you!' (Part 13, 5:04 to 5:10) and 'You got them all!' (Part 14, 26:51 and 27:08 to 27:14, with the gift box on the stage). After the Princess Quest IV ending the same screen shows a black shape on yellow rings and no bear (Part 13, 27:12 to 27:40). The cards about the ignored gift, the quoted one among them, were not found in those two parts, so the quote is still read from the wiki's images."
   },
   {
     "id": "hw2-what-makes-you-so-special",

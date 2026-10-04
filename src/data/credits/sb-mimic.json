@@ -142,5 +142,47 @@
     "game": "into-the-pit",
     "caption": "Technician's sketchbook, Chica page: 'Why is she starting to smell bad?'",
     "sourcePage": "https://freddy-fazbears-pizza.fandom.com/wiki/File:ITP_Sketchbook_1.png"
+  },
+  {
+    "file": "sb-credits-cast-list.jpg",
+    "game": "security-breach",
+    "caption": "The cast list in Security Breach's credits roll: 'Cast' and seven lines, from 'Andy Field - Dread Unit' to 'S.T.A.F.F. Bots - Themselves', among them 'Heather Masters - Vanessa/Glamrock Chica' and 'Marta Svetek - Gregory/Vanny/Roxanne'",
+    "sourcePage": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025"
+  },
+  {
+    "file": "sotm-cabinet-subtitle-labels.jpg",
+    "game": "secret-of-the-mimic",
+    "caption": "Three subtitle cards of one scene, in order, each from the lower part of its frame: 'DISPATCH: Error...', 'F10 N4: You give me no other option.', 'FIONA: And here you are.'",
+    "sourcePage": "https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic"
+  },
+  {
+    "file": "ruin-helpi-the-entity-text-box.jpg",
+    "game": "ruin",
+    "caption": "A text box beside a cartoon bear's portrait: 'Looks like the entity has bypassed my signal jammer and activated one of its own.'; behind it, giant cupcakes and a traffic cone (lower part of the frame)",
+    "sourcePage": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin"
+  },
+  {
+    "file": "sb-closing-announcement-entrance.jpg",
+    "game": "security-breach",
+    "caption": "The subtitle 'Intercom: Freddy Fazbear's Mega Pizzaplex is now closed. Initiating nighttime protocols.' over a view of the entrance doors and their neon signs (lower part of the frame)",
+    "sourcePage": "https://archive.org/details/markiplier-fnafsb"
+  },
+  {
+    "file": "ruin-wrecked-bonnie.jpg",
+    "game": "ruin",
+    "caption": "A wrecked blue rabbit animatronic lies on a dark floor, its face broken open and both eyes lit yellow",
+    "sourcePage": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin"
+  },
+  {
+    "file": "sb-pq3-cabinet-error.jpg",
+    "game": "security-breach",
+    "caption": "A comic panel: a boy at an arcade cabinet whose marquee reads 'Princess Quest III' and whose screen reads 'ERROR'; purple spray-painted letters on the wall are cut off at the left by the crop, and the game's prompt 'Hold E Skip' lies over the panel",
+    "sourcePage": "https://archive.org/details/markiplier-fnafsb"
+  },
+  {
+    "file": "sb-alley-ending-rabbit-shadow.jpg",
+    "game": "security-breach",
+    "caption": "A comic panel: a boy asleep in a cardboard box under a newspaper headed 'MISSING'; on the red ground beside the box, the shadow of a figure with a long bent ear and whiskers, one arm stretched out (the shadow is cut at the right by the crop)",
+    "sourcePage": "https://archive.org/details/roosterteeth-47843"
   }
 ]

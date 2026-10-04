@@ -394,7 +394,7 @@
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "PJ Heywood - William Afton",
+    "quote": "William Afton / PJ Heywood",
     "people": [
       "william-afton",
       "scraptrap"
@@ -409,8 +409,9 @@
       "ffps-credits-returning-voices",
       "ffps-scraptrap-alley-remains"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
-    "notes": "Cast list per wiki transcript: Heather Masters - Scrap Baby; PJ Heywood - William Afton; Kellen Goff - Molten Freddy; Andy Field - Tutorial Unit; Dave Steele - Cassette Man. The name 'Scraptrap' is not used in FFPS."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (read on screen in a capture of play: Pizzeria Simulator, Part 5, 11:44 to 12:40) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits",
+    "notes": "Read on 2026-10-03 on screen in a capture of the credits roll (Markiplier's Part 5 of Pizzeria Simulator, archived at archive.org), 11:44 to 12:40; not checked in play by this archive. The roll prints each part on one line and the performer's name on the line below it, with no dash; the slash in the quote marks the line break. Under the heading 'Cast' it has, in order: Scrap Baby, Heather Masters; William Afton, PJ Heywood; Molten Freddy, Kellen Goff; Tutorial Unit, Andy Field; Cassette Man, Dave Steele. Before this reading the record's quote followed the wiki's transcript, which sets the performer first and a dash between ('PJ Heywood - William Afton'). The name 'Scraptrap' is not used in FFPS.",
+    "image": "ffps-credits-cast.jpg"
   },
   {
     "id": "ffps-molten-freddy-lines",
@@ -1445,8 +1446,9 @@
       "ffps-scup-overheating-neutralize",
       "ffps-completion-slide-pizza-place-condemned"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
-    "notes": "Checked on 2026-10-03 against the wiki's captures of the scene: it has three, one each of Scrap Baby, Molten Freddy and the salvaged rabbit among flames (ScrBabyScreen.gif, MolFredScreen.gif and SpringTScreen.gif, in the galleries of its Circus Baby, Molten Freddy and William Afton pages), and none of Lefty. The wiki notes that Lefty is the only salvaged animatronic not shown burning. The three shots are interiors; that the fire destroys the building is the wiki's account ('burns down the place'). The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it (ffps-completion-peace-perhaps-more)."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (seen in a capture of play: Pizzeria Simulator, Part 5, 9:43 to 10:12) ; https://freddy-fazbears-pizza.fandom.com/wiki/Endings",
+    "notes": "Seen on 2026-10-03 in a capture of play (Markiplier's Part 5 of Pizzeria Simulator, archived at archive.org), 9:43 to 10:12; the sound was not heard, and the scene was not checked in play by this archive. Three shots follow one another, each framed by the bezel of the office monitor and each among flames: Scrap Baby (9:43 to 9:49), Molten Freddy (9:50 to 9:56) and the salvaged rabbit (9:57 to 10:05); then the bezel stands empty, dark red (10:06 to 10:12), and pictures from the minigames follow (10:14 to 10:40). Lefty is in none of the shots. No text of the speech is on screen, so that it is spoken over these shots was not checked here. The wiki's captures of the scene, checked the same day, are of the same three (ScrBabyScreen.gif, MolFredScreen.gif and SpringTScreen.gif, in the galleries of its Circus Baby, Molten Freddy and William Afton pages), and the wiki notes that Lefty is the only salvaged animatronic not shown burning. The three shots are interiors; that the fire destroys the building is the wiki's account ('burns down the place'). The game does not say who started the fire; the Cassette Man's 'after the smoke clears' implies he planned it (ffps-completion-peace-perhaps-more).",
+    "image": "ffps-completion-three-machines-burning.jpg"
   },
   {
     "id": "ffps-completion-security-puppet-terminal",
@@ -1536,7 +1538,7 @@
   {
     "id": "ffps-lorekeeper-gravestones",
     "title": "Lorekeeper screen: gravestones named Gabriel, Fritz, Susie, Jeremy",
-    "claim": "If the three lore minigames were completed before the Completion ending, a post-credits image shows gravestones in a sunny, grassy field. Five stand in a row in the foreground: four are legible, left to right 'Gabriel', 'Fritz', 'Susie' and 'Jeremy', and the fifth, at the right, is hidden behind blades of grass. A sixth stands apart on the hill behind (ffps-lorekeeper-hill-stone).",
+    "claim": "If the three lore minigames were completed before the Completion ending, a post-credits image shows gravestones in a sunny, grassy field. Five stand in a row in the foreground: four are legible, left to right 'Gabriel', 'Fritz', 'Susie' and 'Jeremy', and the fifth, at the right, is hidden behind blades of grass. A sixth stands apart on the hill behind.",
     "game": "ffps",
     "kind": "hidden",
     "location": "Post-credits Lorekeeper image (after Completion ending)",
@@ -1568,7 +1570,7 @@
     ],
     "image": "ffps-lorekeeper-the-end.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings ; https://freddy-fazbears-pizza.fandom.com/wiki/File:The_End.png",
-    "notes": "These names ARE in-game (engraved on the stones), so they can be cited. The game does not say whose graves they are, which animatronic each child haunted, or what the fifth stone says; the name fans give the fifth comes from the books and is not used here. Checked against the wiki's 1920x1080 capture. Four clear stones in a row plus one obscured echoes FNaF3's ending screen (the heads of Freddy, Foxy, Chica and Bonnie plus a fifth behind); pairing names with animatronics from that order is an inference. 'Fritz' and 'Jeremy' are also the first names of FNaF2's two guards; the game draws no connection. Help Wanted 2's achievement 'Remember Jeremy?' has a Bonnie-masked doll for its icon (hw2-remember-jeremy-achievement); which Jeremy it means is not stated."
+    "notes": "These names ARE in-game (engraved on the stones), so they can be cited. The game does not say whose graves they are, which animatronic each child haunted, or what the fifth stone says; the name fans give the fifth comes from the books and is not used here. Checked against the wiki's 1920x1080 capture. Four clear stones in a row plus one obscured echoes FNaF3's ending screen (the heads of Freddy, Foxy, Chica and Bonnie plus a fifth behind); pairing names with animatronics from that order is an inference. 'Fritz' and 'Jeremy' are also the first names of FNaF2's two guards; the game draws no connection. Help Wanted 2's achievement 'Remember Jeremy?' has a Bonnie-masked doll for its icon (hw2-remember-jeremy-achievement); which Jeremy it means is not stated. The sixth stone has a record of its own (ffps-lorekeeper-hill-stone)."
   },
   {
     "id": "ffps-lorekeeper-certificate",
@@ -2198,7 +2200,9 @@
     "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
     "notes": "Verified against Steam's news API. This is a Steam announcement. Scott used the name for Pizzeria Simulator's rabbit twice more, in Reddit comments of 2018-08-27 (scott-2018-afton-name-for-ffps-springtrap).",
     "related": [
-      "scott-2018-afton-name-for-ffps-springtrap"
+      "scott-2018-afton-name-for-ffps-springtrap",
+      "scott-ucn-character-guide-rxq-shadow-bonnie",
+      "scott-ucn-character-guide-lefty-funtime-rockstar"
     ]
   },
   {
@@ -3808,14 +3812,14 @@
     "claim": "FFPS's cast credits list Heather Masters as Scrap Baby and Kellen Goff as Molten Freddy. Sister Location's credits list the same two actors as Baby and Funtime Freddy.",
     "game": "ffps",
     "kind": "text",
-    "location": "End credits (cast list)",
+    "location": "End credits of Pizzeria Simulator (cast list) and of Sister Location (voice actors)",
     "certainty": "stated",
     "when": {
       "label": "End of FFPS (after Saturday's shift)",
       "precision": "relative",
       "basis": "Plays after the final (Saturday) shift; no year given"
     },
-    "quote": "Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy",
+    "quote": "Scrap Baby / Heather Masters … Molten Freddy / Kellen Goff … Baby / Heather Masters … Funtime Freddy / Kellen Goff",
     "people": [
       "scrap-baby",
       "molten-freddy"
@@ -3831,8 +3835,9 @@
       "ffps-molten-freddy-lines",
       "ffps-molten-freddy-alley-wires-eyes"
     ],
-    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
-    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. The layout of the credit lines follows the wiki transcript. Lefty has no credited voice in FFPS."
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (each roll read on screen in a capture of play: Pizzeria Simulator, Part 5, 11:44 to 12:40; Sister Location, Part 5, 15:14 to 16:08) ; https://freddy-fazbears-pizza.fandom.com/wiki/Freddy_Fazbear%27s_Pizzeria_Simulator/Credits ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy%27s:_Sister_Location/Credits",
+    "notes": "Casting is out-of-universe, but it is the games' own record of who is speaking: Molten Freddy talks with Funtime Freddy's voice and stutter, Scrap Baby with Baby's. Both rolls were read on 2026-10-03 on screen in captures of play (Markiplier's playthroughs, archived at archive.org); not checked in play by this archive. In the quote the first two pairs are Pizzeria Simulator's and the last two Sister Location's, and the slashes mark the line breaks. Pizzeria Simulator's roll (Part 5, 11:44 to 12:40) prints each part on one line and the performer's name on the line below it, with no dash; before the reading the quote followed the wiki's transcript ('Heather Masters - Scrap Baby / Kellen Goff - Molten Freddy'). It has no line for Lefty. Sister Location's roll (Part 5 of that game, 15:14 to 16:08) has the same layout: under the heading 'Voice Actors' it prints 'Baby' over 'Heather Masters' and 'Funtime Freddy' over 'Kellen Goff', among nine named parts (Baby, HandUnit, Computer Voice, Ballora, Funtime Freddy, Bidybabs, Vlad, Clara, Narrator); then a list headed 'Misc' (PJ Heywood, John Matthew, Jason Kappus, Jesse Adam, Becky Shrimpton), 'Music', 'TV Animations' and 'Created by Scott Cawthon'. So both sides of the comparison are read from the screen; the wiki's transcripts have the same two pairs. The picture on file sets the two rolls side by side: Sister Location's at 15:32, cut off below Funtime Freddy's line, and Pizzeria Simulator's at 12:00.",
+    "image": "ffps-sl-credits-shared-voices.jpg"
   },
   {
     "id": "ffps-scup-overheating-neutralize",
@@ -5065,5 +5070,162 @@
     "url": "https://steamcommunity.com/games/738060/announcements/detail/3263292131055945567",
     "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 738060): item 'Future of FNaF Games and Update Ideas', author 'Scott', timestamp 1518794991",
     "notes": "So UCN was conceived as Pizzeria Simulator's custom night; Scott later released it as its own free game (scott-2018-ucn-voice-lines-when-they-kill-you). For Sister Location he ruled the Custom Night itself non-canon and its cutscenes canon (scott-2016-sl-custom-night-not-canon, scott-2016-cutscenes-are-canon). None of his Steam posts for Pizzeria Simulator or Ultimate Custom Night says which applies to UCN."
+  },
+  {
+    "id": "scott-ucn-character-guide-rxq-shadow-bonnie",
+    "title": "Scott's UCN Character Guide: 'RXQ aka Shadow Bonnie'",
+    "claim": "In the Character Guide for Ultimate Custom Night that Scott Cawthon posted on Steam, one entry is headed 'RXQ aka Shadow Bonnie'. It says that he makes the office pitch black for about ten seconds and that there is no way to avoid him.",
+    "quote": "RXQ aka Shadow Bonnie: He will cause your office to become pitch black for about ten seconds. There is no way to avoid him.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "shadow-bonnie"
+    ],
+    "tags": [
+      "naming",
+      "dark-rabbit"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-shadow-bonnie-office",
+      "fnaf3-shadow-bonnie-minigame"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API; the quote is the whole entry, the 49th of the guide's 51. This is Scott's own use of the name, outside any game: FNaF2 and FNaF3 show the dark rabbit and print no name for it (fnaf2-shadow-bonnie-office, fnaf3-shadow-bonnie-minigame). Reading: 'RXQ' abbreviates RWQFSFASXC, the figure's file name. The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story. Its first lines say that 'shortened versions of these descriptions' show in the game when the cursor is over a character's icon; whether the game's own roster prints this heading was not checked."
+  },
+  {
+    "id": "scott-ucn-character-guide-withered-chica-bonnie",
+    "title": "Scott's UCN Character Guide: 'Withered Chica' and 'Withered Bonnie'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night heads one entry 'Withered Chica' and another 'Withered Bonnie'. The entry for Withered Chica also names Ennard, Molten Freddy, Springtrap and Mangle.",
+    "quote": "Withered Chica: She is the last of the five vent-crawlers. … While her girth prevents Ennard, Molten Freddy, and Springtrap from passing, Mangle can still get through. … Withered Bonnie: He slips in through the trapdoor while you are viewing your monitor.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "chica",
+      "bonnie",
+      "ennard",
+      "molten-freddy",
+      "springtrap",
+      "mangle"
+    ],
+    "tags": [
+      "naming",
+      "withered"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-custom-night-names"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Two entries, the 22nd and the 34th of the guide's 51: the first two sentences quoted are from the entry for Withered Chica, and the last is the first sentence of the entry for Withered Bonnie. The guide has separate entries headed 'Chica' and 'Bonnie', and entries headed 'Springtrap', 'Molten Freddy', 'Ennard' and 'Mangle'. FNaF2 calls its older models 'Bonnie' and 'Chica' and does not print 'Withered' (fnaf2-custom-night-names). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-jj-marionette-phantom-mangle",
+    "title": "Scott's UCN Character Guide: 'JJ', 'The Marionette' and 'Phantom Mangle'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night has entries headed 'JJ', 'The Marionette' and 'Phantom Mangle'. It also has entries headed 'Phantom Freddy' and 'Phantom BB'.",
+    "quote": "JJ: She will also try to sneak in through the side vent. … The Marionette: If you neglect its music box then it will break free of its prison. … Phantom Mangle: Will appear at random in your viewing monitor.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "jj",
+      "puppet",
+      "phantom-mangle"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-jj-endo-puppet-visions",
+      "fnaf3-phantom-hallucinations",
+      "ucn-roster-lefty-music-box"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Three entries, the 4th, 8th and 20th of the guide's 51; each sentence quoted is the first of its entry. The guide calls JJ 'she' and the Marionette 'it'. 'JJ' is not shown on screen in FNaF2 (fnaf2-jj-endo-puppet-visions), and FNaF3's Extras screen does not list a Phantom Mangle (fnaf3-springtrap-name). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-lefty-funtime-rockstar",
+    "title": "Scott's UCN Character Guide: 'Lefty', 'Funtime Foxy', 'Rockstar Bonnie', and its full list of headings",
+    "claim": "Among the 51 headings of Scott's Character Guide for Ultimate Custom Night are 'Lefty', 'Funtime Foxy', 'Funtime Chica', 'Rockstar Bonnie', 'Rockstar Chica', 'Rockstar Foxy' and 'Rockstar Freddy'.",
+    "quote": "Lefty: He sits in the closet off of the left hallway. … Funtime Foxy: He hides behind his curtain waiting for the show to begin. … Rockstar Bonnie: He will occasionally appear in your office and is conspicuously missing his guitar.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "lefty",
+      "funtime-foxy",
+      "rockstar-bonnie"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "ucn-roster-lefty-music-box"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Three entries, the 32nd, 37th and 39th; each sentence quoted is the first of its entry. The guide's headings, in its order: Golden Freddy; Helpy; BB; JJ; Nightmare Fredbear & Nightmare; Phantom Freddy; Old Man Consequences; The Marionette; Nightmarionne; Music Man; Nightmare BB; Happy Frog; Mr. Hippo; Pigpatch; Nedd Bear; Orville Elephant; Springtrap; Molten Freddy; Ennard; Phantom Mangle; Mangle; Withered Chica; Toy Bonnie; Toy Chica; Jack-O-Chica; Rockstar Chica; Freddy Fazbear; Phantom BB; Phone Guy; Nightmare Freddy; Chica; Lefty; El Chip; Withered Bonnie; Funtime Chica; Toy Freddy; Funtime Foxy; Ballora; Rockstar Bonnie; Rockstar Foxy; Circus Baby, Nightmare Bonnie, and Nightmare Mangle; William Afton (AKA Scraptrap); Scrap Baby; Rockstar Freddy; Trash and the Gang; Bonnie; Foxy; Dee Dee; RXQ aka Shadow Bonnie; Plushtrap; ???. The guide opens: 'This is the final character list for Ultimate Custom Night! Most of this was already posted on the Pizzeria Simulator Steam page, but I felt like it was obviously more useful here.' It is about the roster of that game: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-nightmare-scrap-baby",
+    "title": "Scott's UCN Character Guide: 'Nightmare Bonnie', 'Nightmare Mangle' and 'Scrap Baby'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night gives one entry to 'Circus Baby, Nightmare Bonnie, and Nightmare Mangle' and a separate entry to 'Scrap Baby'.",
+    "quote": "Circus Baby, Nightmare Bonnie, and Nightmare Mangle: They will all approach from the right hall, … Scrap Baby: Once per night, she will appear on the other side of your desk, slouched over and appearing to be decommissioned.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "circus-baby",
+      "nightmare-bonnie",
+      "nightmare-mangle",
+      "scrap-baby"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "ucn-roster-two-forms-at-once"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Two entries, the 41st and the 43rd of the guide's 51; the entry between them is 'William Afton (AKA Scraptrap)' (scott-ucn-character-guide-afton). The first quotation stops inside its sentence, which goes on 'but each of them will only attack once per night'; the second is the first sentence of its entry. The guide's other headings with the word are 'Nightmare Fredbear & Nightmare', 'Nightmare BB', 'Nightmare Freddy' and 'Nightmarionne'. That Circus Baby and Scrap Baby can be set on the same night is recorded from the game's roster (ucn-roster-two-forms-at-once). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
   }
 ]
