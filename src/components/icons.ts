@@ -7,7 +7,7 @@
  */
 import {
   BookOpenText, Bot, CalendarRange, CassetteTape, CircleHelp, Clapperboard, Cog, Compass, Drama, Eye, FileText,
-  Flag, Flame, Gamepad2, Handshake, Images, KeyRound, Library, Megaphone, MessageSquareQuote, MessagesSquare,
+  Flag, Flame, Gamepad2, Handshake, Hourglass, Images, KeyRound, Library, Megaphone, MessageSquareQuote, MessagesSquare,
   Network, Package, PenLine, Phone, Scale, ScrollText, Skull, Speech, Sword, TriangleAlert, Users, Waypoints,
   MapPin, Archive, CircleDashed, type LucideIcon,
 } from "lucide-react";
@@ -34,7 +34,7 @@ export const SOURCE_KIND_ICON: Record<SourceKind, LucideIcon> = {
 /** The icon for a kind of source. A kind this file does not know (new data) gets a neutral mark instead of breaking the page. */
 export const sourceKindIcon = (kind: string): LucideIcon => (Object.hasOwn(SOURCE_KIND_ICON, kind) ? SOURCE_KIND_ICON[kind as SourceKind] : CircleHelp);
 
-/** Death causes (data/deaths.ts DeathKind). */
+/** Causes (data/deaths.ts DeathKind). Their labels are worded to be true of an entry that is not a death. */
 export const DEATH_KIND_ICON: Record<string, LucideIcon> = {
   murder: Sword,
   machine: Bot,
@@ -43,9 +43,14 @@ export const DEATH_KIND_ICON: Record<string, LucideIcon> = {
   disappearance: CircleHelp,
   unknown: CircleDashed,
 };
+/** A death that the records state, show or firmly imply. The skull is used for that and for nothing else. */
 export const DeathIcon: LucideIcon = Skull;
-/** The icon for a cause of death; a cause this file does not know gets the general death icon. */
-export const deathKindIcon = (kind: string): LucideIcon => (Object.hasOwn(DEATH_KIND_ICON, kind) ? DEATH_KIND_ICON[kind] : DeathIcon);
+/** Any other fate of an entry in data/deaths.ts: presumed dead, not shown, survives, a death in one ending (labels.ts OUTCOME). */
+export const FateIcon: LucideIcon = Hourglass;
+/** The mark for an outcome: the skull for a death, the other mark for everything else, an outcome this file does not know included. */
+export const outcomeIcon = (outcome: string): LucideIcon => (outcome === "death" ? DeathIcon : FateIcon);
+/** The icon for a cause (data/deaths.ts `kind`); a cause this file does not know gets a neutral mark. */
+export const deathKindIcon = (kind: string): LucideIcon => (Object.hasOwn(DEATH_KIND_ICON, kind) ? DEATH_KIND_ICON[kind] : CircleDashed);
 
 /** Scott-and-community interaction kinds (data/community.ts InteractionKind). */
 export const INTERACTION_ICON: Record<string, LucideIcon> = {

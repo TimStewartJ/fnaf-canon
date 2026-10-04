@@ -2,6 +2,8 @@
  * Words used across the interface for the archive's scales and kinds. No components here.
  */
 import type { Certainty, Confidence, DateKind, SourceKind, Status } from "../data/schema";
+import { DEATH_KIND } from "../data/deaths";
+import { plural } from "./typography";
 
 export const KIND_LABEL: Record<SourceKind | string, string> = {
   "phone-call": "Phone call", "audio-tape": "Audio tape", minigame: "Minigame", cutscene: "Cutscene",
@@ -68,6 +70,53 @@ export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
   unknown: { label: "Undated", help: "The sources give no date" },
 };
 export const DATE_KINDS: DateKind[] = ["printed", "derived", "estimated", "relative", "teaser", "unknown"];
+
+/**
+ * Deaths and other fates: what the records carry about the victim of an entry in data/deaths.ts
+ * (its `outcome`; none means a death). The list holds more than deaths, so nothing may call an
+ * entry a death, or count it as one, unless it is: print the entry's own word (<OutcomeMark>, or
+ * `outcomeInfo(outcomeOf(d)).word`) where a page would say "Death", and count with `countFates`,
+ * written out by `fateWords` ("2 deaths", "5 other fates").
+ *
+ *   Death                 a record states it, shows it or firmly implies it. The only "death".
+ *   Presumed dead         no record states or shows the death; the model presumes it
+ *   Fate not shown        the game leaves the fate open
+ *   Survives              the attack is shown, and the victim lives
+ *   Death in one ending   it happens in one ending only, which no later game is shown to follow
+ *
+ * The last four are "other fates". The skull (DeathIcon) marks a death and nothing else; another
+ * fate carries FateIcon. See <OutcomeMark>.
+ */
+export const OUTCOME: Record<string, { word: string; help: string }> = {
+  death: { word: "Death", help: "A record states it, shows it or firmly implies it" },
+  presumed: { word: "Presumed dead", help: "No record states or shows the death. The model presumes it, and the entry says on what" },
+  "not-shown": { word: "Fate not shown", help: "The game leaves the fate open" },
+  survives: { word: "Survives", help: "The attack is shown, and the victim lives" },
+  branch: { word: "Death in one ending", help: "It happens in one ending only, which no later game is shown to follow" },
+};
+/** The outcomes in the order a key lists them: the death first, then the other fates. */
+export const OUTCOMES: string[] = Object.keys(OUTCOME);
+/** What the records carry about an entry's victim. An entry that says nothing is a death (see data/deaths.ts). */
+export const outcomeOf = (d: { outcome?: string }): string => d.outcome ?? "death";
+/** True for an entry that is a death: the only kind that may be called one, or counted as one. */
+export const isDeath = (d: { outcome?: string }): boolean => outcomeOf(d) === "death";
+/** The word and the help sentence for an outcome. One the interface does not know yet (new data) is printed as the data has it, and is never a death. */
+export const outcomeInfo = (outcome: string): { word: string; help: string } => {
+  if (Object.hasOwn(OUTCOME, outcome)) return OUTCOME[outcome];
+  const words = outcome.replace(/-/g, " ");
+  return { word: words.charAt(0).toUpperCase() + words.slice(1), help: "" };
+};
+/** How many of some entries are deaths, and how many are other fates. */
+export interface FateCount { deaths: number; others: number }
+export function countFates(list: readonly { outcome?: string }[]): FateCount {
+  const deaths = list.reduce((n, d) => n + (isDeath(d) ? 1 : 0), 0);
+  return { deaths, others: list.length - deaths };
+}
+/** The label of an entry's cause (its `kind`). The data words them to be true of an entry that is not a death; a cause its table does not have is printed as the data names it. */
+export const causeLabel = (kind: string): string => (DEATH_KIND as Record<string, { label: string } | undefined>)[kind]?.label ?? kind;
+/** A tally in words, one part for each kind there is any of: ["2 deaths", "5 other fates"]. */
+export const fateWords = ({ deaths, others }: FateCount): string[] =>
+  [deaths ? plural(deaths, "death") : "", others ? plural(others, "other fate") : ""].filter(Boolean);
 
 /**
  * Sources that are not a released work (a body of statements, a website's teasers). The data
