@@ -112,6 +112,9 @@ export const chapters: TheorySection[] = [
       "secret-of-the-mimic-white-tiger-first-birthday", // [stated] The White Tiger doll was David's first birthday present
       "secret-of-the-mimic-log-power-surges-tunnels", // [stated] Edwin: power surges, and 'extreme caution' in the tunnels
       "secret-of-the-mimic-mail-old-elevator-below", // [stated] Staff message: an elevator that has not worked 'in so long' Murray may not know what is down there
+      "secret-of-the-mimic-reveal-subtitle-labels", // [stated] At the cabinet, the subtitle label of the voice runs 'DISPATCH', then 'F10 N4', then 'FIONA'
+      "secret-of-the-mimic-dispatch-data-diver-master-key", // [stated] The Data Diver, by the voice on the radio: a tool 'to access the building', 'your master key to the MCM facility'
+      "secret-of-the-mimic-cabinet-message-for-edwin", // [stated] The cabinet sends Arnold to the main house: 'I have a message for him'
       // colour
       "secret-of-the-mimic-film-david-two", // [stated] Birthday film: David turns two; Edwin misses the party
       "secret-of-the-mimic-mail-sad", // [stated] 'Edwin, are we losing our home?'

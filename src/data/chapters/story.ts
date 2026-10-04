@@ -21,7 +21,7 @@ export const chapters: TheorySection[] = [
       { kind: "heading", text: "Clause by clause" },
       "The grades here are finer than the three marks: medium-high and low-medium sit between them.",
       { kind: "table", head: ["The clause", "How firm", "Argued in"], rows: [
-        ["A company that keeps putting it back on stage", "High as a pattern, from 1987 on. Fazbear's Fright is no part of it: a local amusement park runs that [[fnaf3-coming-soon-newspaper]]", "((cover-story))"],
+        ["A company that keeps putting it back on stage", "High as a pattern, from 1987 on. Fazbear's Fright is most likely no part of it: a local amusement park runs that [[fnaf3-coming-soon-newspaper]]", "((cover-story))"],
         ["A costume maker's suits, and his machines that copy", "High for both. Medium-high that the second machine's violence copies his own", "((springlocks)), ((two-machines))"],
         ["William Afton: killer, designer, father", "High. One link in the chain is stated, and four are short inferences", "((killer))"],
         ["An old friend", "Stated, that the Cassette Man, the voice on Pizzeria Simulator's tapes, calls the one he damns \"old friend\" [[ffps-completion-old-friend-hell]]; most likely, that he means Afton, whom the speech does not name. Medium that the two were partners in the business, which the paragraph does not say", "((partners))"],

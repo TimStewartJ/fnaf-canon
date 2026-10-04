@@ -55,6 +55,7 @@ export const chapters: TheorySection[] = [
       "fnaf3-guard-unnamed", // [implied] FNaF3 never names its guard
       "scottgames-site-fnaf3-parts-box", // [shown] FNaF3 teaser: box of old animatronic parts
       "scottgames-site-fnaf3-all-in-your-mind", // [shown] FNaF3 teaser: 'It's all in your mind.'
+      "scott-2015-fnaf3-store-owners-revive-the-legend", // [stated] FNaF3 Steam description: 'the owners' of Fazbear's Fright 'are determined to revive the legend'
       // colour
       "fnaf3-call1-attraction-opens", // [stated] The attraction's caller: it opens in a week; the guard is part of the show
     ],

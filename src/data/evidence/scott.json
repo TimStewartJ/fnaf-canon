@@ -1406,7 +1406,8 @@
       "thirty-years"
     ],
     "related": [
-      "scott-fnaf3-steam-description"
+      "scott-fnaf3-steam-description",
+      "scott-2015-fnaf3-store-owners-revive-the-legend"
     ],
     "url": "https://store.steampowered.com/app/354140/",
     "verifiedVia": "Steam appdetails API (2026); identical text in Wayback capture of 2015-03-11",
@@ -4974,5 +4975,37 @@
     "url": "https://www.youtube.com/watch?v=lrgSbteWMC8&t=2503s",
     "verifiedVia": "Scott's own speech. Wording from speech-to-text run by the researcher on the archive.org copy of the video (https://archive.org/details/an-interview-with-scott-cawthon-2.0-the-creator-of-five-nights-at-freddys) with Whisper models (base.en, small.en and medium.en); the quote keeps only words on which the transcripts agree. Not checked by ear; YouTube captions were unreachable.",
     "notes": "As transcribed: 'originally, it was just supposed to be a little novelty one-off… here's this little company that makes 16-bit cartridges'; 'they just kept going… and it just turned into this big full-fledged full-sized game'. The interviewer then asks about 'the future of FNAF spin-offs made by other studios' and Scott answers that it is 'definitely a possibility', naming another Frights story he would like made into a game. So on his account Into the Pit began as a novelty and grew. The word 'spin-offs' and the description of it as based on a book story are the interviewer's; Scott does not object to either. He does not say whether its events belong to the continuity of the main games."
+  },
+  {
+    "id": "scott-2015-fnaf3-store-owners-revive-the-legend",
+    "title": "FNaF3 Steam description: 'the owners' of Fazbear's Fright 'are determined to revive the legend'",
+    "claim": "Scott's FNaF3 Steam description speaks of 'the owners' of Fazbear's Fright: The Horror Attraction, who want to revive the legend and go to great lengths to find anything that survived. It does not say who the owners are.",
+    "quote": "but the owners of \"Fazbear's Fright: The Horror Attraction\" are determined to revive the legend and make the experience as authentic as possible for patrons, going to great lengths to find anything that might have survived decades of neglect and ruin.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam store page, Five Nights at Freddy's 3 (app 354140), description",
+    "certainty": "stated",
+    "when": {
+      "label": "During FNaF3 (thirty years after Freddy Fazbear's Pizza closed, by the store text)",
+      "precision": "relative",
+      "basis": "Scott's FNaF3 Steam description: 'Thirty years after Freddy Fazbear's Pizza closed it's doors'; it does not say which closing"
+    },
+    "places": [
+      "fazbears-fright"
+    ],
+    "tags": [
+      "fnaf3",
+      "store-text",
+      "fazbears-fright"
+    ],
+    "related": [
+      "scott-2015-fnaf3-store-thirty-years",
+      "scott-fnaf3-steam-description",
+      "fnaf3-coming-soon-newspaper",
+      "fnaf3-it-burns-newspaper"
+    ],
+    "url": "https://store.steampowered.com/app/354140/",
+    "verifiedVia": "Steam store API (store.steampowered.com/api/appdetails?appids=354140), field about_the_game; developer and publisher listed as Scott Cawthon",
+    "notes": "Read on 2026-10-03 from Steam's store API. The quote is the second half of the description's first sentence, which begins 'Thirty years after Freddy Fazbear's Pizza closed it's doors' (scott-2015-fnaf3-store-thirty-years; the same store text is also on file as scott-fnaf3-steam-description). The owners are not named here. FNaF3's first newspaper has 'Local amusement park is getting ready to scare your socks off with a new attraction' (fnaf3-coming-soon-newspaper) and its last 'A new local attraction based on an ancient pizzeria chain burned down overnight' (fnaf3-it-burns-newspaper); the attraction's caller says 'we' of its staff (fnaf3-call1-attraction-opens). In the phone calls, the two newspapers and this store text, no sentence names Fazbear Entertainment as the attraction's owner, and none says that the owners are someone else."
   }
 ]

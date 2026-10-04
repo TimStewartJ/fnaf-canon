@@ -2198,7 +2198,9 @@
     "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
     "notes": "Verified against Steam's news API. This is a Steam announcement. Scott used the name for Pizzeria Simulator's rabbit twice more, in Reddit comments of 2018-08-27 (scott-2018-afton-name-for-ffps-springtrap).",
     "related": [
-      "scott-2018-afton-name-for-ffps-springtrap"
+      "scott-2018-afton-name-for-ffps-springtrap",
+      "scott-ucn-character-guide-rxq-shadow-bonnie",
+      "scott-ucn-character-guide-lefty-funtime-rockstar"
     ]
   },
   {
@@ -5065,5 +5067,162 @@
     "url": "https://steamcommunity.com/games/738060/announcements/detail/3263292131055945567",
     "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 738060): item 'Future of FNaF Games and Update Ideas', author 'Scott', timestamp 1518794991",
     "notes": "So UCN was conceived as Pizzeria Simulator's custom night; Scott later released it as its own free game (scott-2018-ucn-voice-lines-when-they-kill-you). For Sister Location he ruled the Custom Night itself non-canon and its cutscenes canon (scott-2016-sl-custom-night-not-canon, scott-2016-cutscenes-are-canon). None of his Steam posts for Pizzeria Simulator or Ultimate Custom Night says which applies to UCN."
+  },
+  {
+    "id": "scott-ucn-character-guide-rxq-shadow-bonnie",
+    "title": "Scott's UCN Character Guide: 'RXQ aka Shadow Bonnie'",
+    "claim": "In the Character Guide for Ultimate Custom Night that Scott Cawthon posted on Steam, one entry is headed 'RXQ aka Shadow Bonnie'. It says that he makes the office pitch black for about ten seconds and that there is no way to avoid him.",
+    "quote": "RXQ aka Shadow Bonnie: He will cause your office to become pitch black for about ten seconds. There is no way to avoid him.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "shadow-bonnie"
+    ],
+    "tags": [
+      "naming",
+      "dark-rabbit"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-shadow-bonnie-office",
+      "fnaf3-shadow-bonnie-minigame"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API; the quote is the whole entry, the 49th of the guide's 51. This is Scott's own use of the name, outside any game: FNaF2 and FNaF3 show the dark rabbit and print no name for it (fnaf2-shadow-bonnie-office, fnaf3-shadow-bonnie-minigame). Reading: 'RXQ' abbreviates RWQFSFASXC, the figure's file name. The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story. Its first lines say that 'shortened versions of these descriptions' show in the game when the cursor is over a character's icon; whether the game's own roster prints this heading was not checked."
+  },
+  {
+    "id": "scott-ucn-character-guide-withered-chica-bonnie",
+    "title": "Scott's UCN Character Guide: 'Withered Chica' and 'Withered Bonnie'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night heads one entry 'Withered Chica' and another 'Withered Bonnie'. The entry for Withered Chica also names Ennard, Molten Freddy, Springtrap and Mangle.",
+    "quote": "Withered Chica: She is the last of the five vent-crawlers. … While her girth prevents Ennard, Molten Freddy, and Springtrap from passing, Mangle can still get through. … Withered Bonnie: He slips in through the trapdoor while you are viewing your monitor.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "chica",
+      "bonnie",
+      "ennard",
+      "molten-freddy",
+      "springtrap",
+      "mangle"
+    ],
+    "tags": [
+      "naming",
+      "withered"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-custom-night-names"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Two entries, the 22nd and the 34th of the guide's 51: the first two sentences quoted are from the entry for Withered Chica, and the last is the first sentence of the entry for Withered Bonnie. The guide has separate entries headed 'Chica' and 'Bonnie', and entries headed 'Springtrap', 'Molten Freddy', 'Ennard' and 'Mangle'. FNaF2 calls its older models 'Bonnie' and 'Chica' and does not print 'Withered' (fnaf2-custom-night-names). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-jj-marionette-phantom-mangle",
+    "title": "Scott's UCN Character Guide: 'JJ', 'The Marionette' and 'Phantom Mangle'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night has entries headed 'JJ', 'The Marionette' and 'Phantom Mangle'. It also has entries headed 'Phantom Freddy' and 'Phantom BB'.",
+    "quote": "JJ: She will also try to sneak in through the side vent. … The Marionette: If you neglect its music box then it will break free of its prison. … Phantom Mangle: Will appear at random in your viewing monitor.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "jj",
+      "puppet",
+      "phantom-mangle"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "fnaf2-jj-endo-puppet-visions",
+      "fnaf3-phantom-hallucinations",
+      "ucn-roster-lefty-music-box"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Three entries, the 4th, 8th and 20th of the guide's 51; each sentence quoted is the first of its entry. The guide calls JJ 'she' and the Marionette 'it'. 'JJ' is not shown on screen in FNaF2 (fnaf2-jj-endo-puppet-visions), and FNaF3's Extras screen does not list a Phantom Mangle (fnaf3-springtrap-name). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-lefty-funtime-rockstar",
+    "title": "Scott's UCN Character Guide: 'Lefty', 'Funtime Foxy', 'Rockstar Bonnie', and its full list of headings",
+    "claim": "Among the 51 headings of Scott's Character Guide for Ultimate Custom Night are 'Lefty', 'Funtime Foxy', 'Funtime Chica', 'Rockstar Bonnie', 'Rockstar Chica', 'Rockstar Foxy' and 'Rockstar Freddy'.",
+    "quote": "Lefty: He sits in the closet off of the left hallway. … Funtime Foxy: He hides behind his curtain waiting for the show to begin. … Rockstar Bonnie: He will occasionally appear in your office and is conspicuously missing his guitar.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "lefty",
+      "funtime-foxy",
+      "rockstar-bonnie"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "ucn-roster-lefty-music-box"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Three entries, the 32nd, 37th and 39th; each sentence quoted is the first of its entry. The guide's headings, in its order: Golden Freddy; Helpy; BB; JJ; Nightmare Fredbear & Nightmare; Phantom Freddy; Old Man Consequences; The Marionette; Nightmarionne; Music Man; Nightmare BB; Happy Frog; Mr. Hippo; Pigpatch; Nedd Bear; Orville Elephant; Springtrap; Molten Freddy; Ennard; Phantom Mangle; Mangle; Withered Chica; Toy Bonnie; Toy Chica; Jack-O-Chica; Rockstar Chica; Freddy Fazbear; Phantom BB; Phone Guy; Nightmare Freddy; Chica; Lefty; El Chip; Withered Bonnie; Funtime Chica; Toy Freddy; Funtime Foxy; Ballora; Rockstar Bonnie; Rockstar Foxy; Circus Baby, Nightmare Bonnie, and Nightmare Mangle; William Afton (AKA Scraptrap); Scrap Baby; Rockstar Freddy; Trash and the Gang; Bonnie; Foxy; Dee Dee; RXQ aka Shadow Bonnie; Plushtrap; ???. The guide opens: 'This is the final character list for Ultimate Custom Night! Most of this was already posted on the Pizzeria Simulator Steam page, but I felt like it was obviously more useful here.' It is about the roster of that game: it says how each character plays and nothing of the story."
+  },
+  {
+    "id": "scott-ucn-character-guide-nightmare-scrap-baby",
+    "title": "Scott's UCN Character Guide: 'Nightmare Bonnie', 'Nightmare Mangle' and 'Scrap Baby'",
+    "claim": "Scott's Character Guide for Ultimate Custom Night gives one entry to 'Circus Baby, Nightmare Bonnie, and Nightmare Mangle' and a separate entry to 'Scrap Baby'.",
+    "quote": "Circus Baby, Nightmare Bonnie, and Nightmare Mangle: They will all approach from the right hall, … Scrap Baby: Once per night, she will appear on the other side of your desk, slouched over and appearing to be decommissioned.",
+    "game": "scott",
+    "kind": "scott-statement",
+    "location": "Steam announcement 'Character Guide' for Ultimate Custom Night, posted by 'Scott', 2018-06-15",
+    "certainty": "stated",
+    "when": {
+      "label": "Out-of-universe statement (2018-06-15)",
+      "precision": "unknown",
+      "basis": "Developer statement; describes the UCN character, not an in-universe date"
+    },
+    "people": [
+      "circus-baby",
+      "nightmare-bonnie",
+      "nightmare-mangle",
+      "scrap-baby"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "scott-ucn-character-guide-afton",
+      "ucn-roster-two-forms-at-once"
+    ],
+    "url": "https://steamcommunity.com/games/871720/announcements/detail/2842216343263643020",
+    "verifiedVia": "Steam News API (ISteamNews/GetNewsForApp, appid 871720): item 'Character Guide', author 'Scott', timestamp 1529071900",
+    "notes": "Read on 2026-10-03 from Steam's news API. Two entries, the 41st and the 43rd of the guide's 51; the entry between them is 'William Afton (AKA Scraptrap)' (scott-ucn-character-guide-afton). The first quotation stops inside its sentence, which goes on 'but each of them will only attack once per night'; the second is the first sentence of its entry. The guide's other headings with the word are 'Nightmare Fredbear & Nightmare', 'Nightmare BB', 'Nightmare Freddy' and 'Nightmarionne'. That Circus Baby and Scrap Baby can be set on the same night is recorded from the game's roster (ucn-roster-two-forms-at-once). The guide is about the roster of Ultimate Custom Night: it says how each character plays and nothing of the story."
   }
 ]

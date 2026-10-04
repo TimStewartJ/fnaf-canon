@@ -53,22 +53,22 @@ export const chapters: TheorySection[] = [
       ] },
       { kind: "heading", text: "A name must be printed or spoken in a game" },
       { kind: "table", head: ["Tier", "Rule", "Examples"], rows: [
-        ["A game prints or speaks it", "Used as a name", "William Afton, Michael, Elizabeth, Mike Schmidt, Springtrap, Remnant; the games' own \"the anomaly\" [[hw-tape-girl-calls-it-the-anomaly]] and \"that rabbit thing\" [[ruin-fake-gregory-signal-jammer]]"],
-        ["A name Scott uses that no game prints or speaks", "Given once in a chapter, in a form that says whose label it is. Nothing is argued from it", "Glitchtrap, Burntrap, Scraptrap"],
-        ["A fan or file label", "Left out, for a plain description", "Shadow Freddy (here the dark bear), Shadow Bonnie (the dark rabbit), the Blob (the mass of parts), Tape Girl (the tape speaker), Phone Dude (the attraction's caller), MCI (the five)"],
+        ["A game prints or speaks it", "Used as a name", "William Afton, Michael, Elizabeth, Mike Schmidt, Springtrap, Remnant; the games' own \"the anomaly\" [[hw-tape-girl-calls-it-the-anomaly]], \"that rabbit thing\" [[ruin-fake-gregory-signal-jammer]] and \"the entity\" [[ruin-helpi-entity-bypassed-signal-jammer]]"],
+        ["A name Scott uses that no game prints or speaks", "Given once in a chapter, in a form that says whose label it is. Nothing is argued from it", "Glitchtrap, Burntrap, Scraptrap, Shadow Bonnie"],
+        ["A fan or file label", "Left out, for a plain description", "Shadow Freddy (here the dark bear), the Blob (the mass of parts), Tape Girl (the tape speaker), Phone Dude (the attraction's caller), MCI (the five)"],
       ] },
-      "The middle tier is the weakest. One name is in Scott's written guide to Ultimate Custom Night [[scott-ucn-character-guide-afton]]. The other two rest on one sentence of a 2024 interview (a transcript): a working name found in the source code is \"the canon name now\" [[scott-2024-interview-placeholder-names-canon]]. No game on record prints either [[hw-tape-girl-calls-it-the-anomaly]] [[security-breach-burntrap-name-not-in-game]].",
+      "The middle tier is the weakest. Two names are in Scott's written guide to Ultimate Custom Night: \"William Afton (AKA Scraptrap)\" [[scott-ucn-character-guide-afton]] and \"RXQ aka Shadow Bonnie\" [[scott-ucn-character-guide-rxq-shadow-bonnie]]. The other two rest on one sentence of a 2024 interview (a transcript): a working name found in the source code is \"the canon name now\" [[scott-2024-interview-placeholder-names-canon]]. No game on record prints either [[hw-tape-girl-calls-it-the-anomaly]] [[security-breach-burntrap-name-not-in-game]].",
       "Rabbits run all through the games, in the main line and outside it. Each has one fixed description here.",
       { kind: "table", head: ["Where", "Called here"], rows: [
         ["FNaF3's training tapes", "The Spring Bonnie suit, a springlock suit"],
         ["The murders of the five", "The yellow rabbit costume, which the killer most likely wore"],
         ["FNaF3", "Springtrap, his body in the suit"],
         ["Pizzeria Simulator", "The salvaged rabbit of Pizzeria Simulator, William Afton (Scott's guide adds \"AKA Scraptrap\")"],
-        ["FNaF2 and FNaF3", "The dark rabbit"],
+        ["FNaF2 and FNaF3", "The dark rabbit (known as Shadow Bonnie, Scott's name for it in his guide to Ultimate Custom Night)"],
         ["Help Wanted", "The rabbit in the code (known as Glitchtrap, Scott's working name for it)"],
         ["Security Breach", "The rabbit-costumed woman, or Vanny"],
         ["Security Breach", "The burnt rabbit under the Pizzaplex (known as Burntrap, a working name that Scott has said now stands)"],
-        ["RUIN", "The rabbit-shaped figure from the M.X.E.S. cabinet, or the game's own \"that rabbit thing\" [[ruin-fake-gregory-signal-jammer]]"],
+        ["RUIN", "The rabbit-shaped figure from the M.X.E.S. cabinet, or the game's own \"that rabbit thing\" [[ruin-fake-gregory-signal-jammer]] and \"the entity\" [[ruin-helpi-entity-bypassed-signal-jammer]]"],
         ["Outside the main line", "The yellow rabbit of Into the Pit; Special Delivery's \"vintage Bonnie\", an email's words [[sd-vintage-bonnie-reports]]"],
       ] },
       "People the games never name are called by description: the Cassette Man, a role in Pizzeria Simulator's credits and the only name the games give him [[ffps-credits-cassette-man]]; {{cassette-mans-daughter}}; {{crying-child}}; {{older-brother}}; {{fifth-child}}. No name from a novel is used for any of them.",
@@ -108,6 +108,15 @@ export const chapters: TheorySection[] = [
       "scott-2015-community-expectations-halloween", // [stated] 'The community's expectations demanded more'
       "scott-2016-silver-eyes-not-100-percent-games", // [stated] The Silver Eyes 'doesn't follow the events of the games 100%'
       "scott-2018-interview-books-extra-stories-not-definitive", // [stated] 2018: the books were 'never intended to be the definitive story'
+      "scott-ucn-character-guide-withered-chica-bonnie", // [stated] Scott's guide: 'Withered Chica' and 'Withered Bonnie'
+      "scott-ucn-character-guide-jj-marionette-phantom-mangle", // [stated] Scott's guide: 'JJ', 'The Marionette' and 'Phantom Mangle'
+      "scott-ucn-character-guide-lefty-funtime-rockstar", // [stated] Scott's guide: 'Lefty', 'Funtime Foxy', 'Rockstar Bonnie', and its full list of headings
+      "scott-ucn-character-guide-nightmare-scrap-baby", // [stated] Scott's guide: 'Nightmare Bonnie', 'Nightmare Mangle' and 'Scrap Baby'
+      "into-the-pit-oswald-named-in-dialogue", // [stated] Into the Pit prints the name 'Oswald': the father's first line, and the boy's own speaker label
+      "secret-of-the-mimic-opening-call-arnold-dispatch", // [stated] The opening call: 'Arnold! Hey buddy, this is dispatch with Fazbear Entertainment'; the subtitles label both speakers
+      "secret-of-the-mimic-f10-n4-cabinet-lettering", // [shown] The cabinet in the mock-up pizzeria's office is lettered 'F10-N4'
+      "security-breach-credits-cast-list", // [stated] The cast list in the credits roll: 'Glamrock Freddy', 'Glamrock Chica', 'Montgomery Gator'
+      "ruin-maskbot-subtitle-label", // [stated] RUIN's subtitles label the robot that hands over the mask 'Maskbot'
     ],
   },
   {

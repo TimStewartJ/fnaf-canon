@@ -1929,7 +1929,8 @@
     "related": [
       "ruin-security-mask-left-by-faz-technician",
       "hw2-faz-force-ending",
-      "ruin-item-gregory-seen-this-mask-before"
+      "ruin-item-gregory-seen-this-mask-before",
+      "ruin-maskbot-subtitle-label"
     ]
   },
   {
@@ -1962,7 +1963,9 @@
       "ruin-fake-gregory-signal-jammer",
       "ruin-gregory-mxes-explanation",
       "hw2-mimic-teaser-mxes-ending",
-      "scott-2024-interview-mxes-name-thought-through"
+      "scott-2024-interview-mxes-name-thought-through",
+      "ruin-helpi-alert-anomalous-entity",
+      "ruin-helpi-entity-bypassed-signal-jammer"
     ]
   },
   {
@@ -3805,7 +3808,8 @@
     "related": [
       "secret-of-the-mimic-dispatch-contractor-murray",
       "secret-of-the-mimic-dispatch-contract-legally-ours",
-      "secret-of-the-mimic-work-order-1979"
+      "secret-of-the-mimic-work-order-1979",
+      "secret-of-the-mimic-opening-call-arnold-dispatch"
     ]
   },
   {
@@ -4132,7 +4136,8 @@
       "stuffed-in-suits"
     ],
     "related": [
-      "secret-of-the-mimic-clock-out-real-dispatch"
+      "secret-of-the-mimic-clock-out-real-dispatch",
+      "secret-of-the-mimic-dispatch-data-diver-master-key"
     ]
   },
   {
@@ -4267,7 +4272,8 @@
       "secret-of-the-mimic-mxes-acronym-on-screen",
       "ruin-mxes-hub",
       "hw2-mimic-teaser-mxes-ending",
-      "ruin-gregory-mxes-explanation"
+      "ruin-gregory-mxes-explanation",
+      "secret-of-the-mimic-f10-n4-cabinet-lettering"
     ]
   },
   {
@@ -4898,7 +4904,8 @@
     "related": [
       "security-breach-rooftop-vanessa-alive",
       "ffps-credits-william-afton",
-      "hw-credits-tape-girl-qa"
+      "hw-credits-tape-girl-qa",
+      "security-breach-credits-cast-list"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Security_Breach/Credits",
     "notes": "Read from the wiki's transcription of the credits on 2026-10-03, not from a capture of the credits roll, so the layout on screen may differ. A credit names a voiced part, not a person in the story, and one performer often takes several: this list gives Vanessa's performer Glamrock Chica as well, and Vanny's performer Gregory and Roxanne. So the credits show that the game casts 'Vanessa' and 'Vanny' as two voices. They do not say that the two are different people, and they do not say that they are one. The wiki's transcription of RUIN's cast list, read the same day, has neither part."
@@ -5302,7 +5309,8 @@
       "ruin-the-entity",
       "ruin-fake-gregory-turn-off-security",
       "ruin-mask-bot-helpi-vanni",
-      "ruin-gregory-mxes-explanation"
+      "ruin-gregory-mxes-explanation",
+      "ruin-helpi-entity-bypassed-signal-jammer"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/The_Mimic/Audio",
     "notes": "Cassie later protests: 'I got kicked out of that V.A.N.N.I. network! You said you got rid of that rabbit thing.' The voice also warns: 'Stay away from that thing! It's sending out some sort of distress signal, and Monty is responding!' Reading: the rabbit figure belongs to the system that keeps the endoskeleton in (ruin-gregory-mxes-explanation), and the voice works to have it switched off. The game's own words for the figure are 'that rabbit thing' and 'that thing'."
@@ -5925,7 +5933,8 @@
       "secret-of-the-mimic-arnold-assignment",
       "secret-of-the-mimic-log-friends",
       "secret-of-the-mimic-mail-springlocks-hen",
-      "secret-of-the-mimic-dispatch-contract-legally-ours"
+      "secret-of-the-mimic-dispatch-contract-legally-ours",
+      "secret-of-the-mimic-opening-call-arnold-dispatch"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Dispatch",
     "notes": "A statement, in a game, that Edwin Murray was a contractor developing technology for the speaker's company. The call opens: 'Arnold. Hey buddy, this is dispatch with Fazbear Entertainment. How are you feeling?' (the wiki's Dispatch audio table). The wiki lists this line under the real Dispatch; where F10-N4's impersonation begins is not settled (secret-of-the-mimic-clock-out-real-dispatch)."
@@ -6082,7 +6091,8 @@
     "related": [
       "secret-of-the-mimic-ending-clock-out",
       "secret-of-the-mimic-f10n4-reveal",
-      "ruin-real-gregory-not-at-pizzaplex"
+      "ruin-real-gregory-not-at-pizzaplex",
+      "secret-of-the-mimic-reveal-subtitle-labels"
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Dispatch",
     "notes": "Other lines: 'Why didn't you answer?', 'So you admit it? You misplaced company property?', 'Fazbear Entertainment will hold you personally responsible for lost or stolen property.' The usual reading is that this is the real Dispatch, and that some or all of the Dispatch voice Arnold heard that night was not Fazbear's; where the impersonation begins is not stated. Compare RUIN, where a second Gregory voice breaks in near the end and says 'I've been trying to reach you all night!' (ruin-real-gregory-not-at-pizzaplex)."
@@ -7079,5 +7089,407 @@
     ],
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Mailboxes",
     "notes": "A later message to the same Shawn: 'I found out why they closed it down. There's something below us. I've trapped it behind the carousel for now' (secret-of-the-mimic-mail-something-below). So the staff messages speak of a disused elevator and, in one writer's words, of 'something below us'; and the 'WA' letter says 'we now technically own the land'. In Security Breach the Pizzaplex's crew breaks into 'an old elevator shaft' and asks 'Someone must have known about this, right?' (security-breach-msg-old-elevator). Whether that is the same ground is not stated anywhere."
+  },
+  {
+    "id": "into-the-pit-oswald-named-in-dialogue",
+    "title": "Into the Pit prints the name 'Oswald': the father's first line, and the boy's own speaker label",
+    "claim": "In the opening scene of Into the Pit the father calls 'Oswald, it's time to go!', the first line of dialogue in the recording read, and the game prints the boy's own lines under the speaker name 'Oswald'.",
+    "quote": "Dad: Oswald, it's time to go! … Oswald: Where's the fun in that? I'm almost glad school's starting tomorrow just so I only have to see that place on the weekends now.",
+    "game": "into-the-pit",
+    "kind": "dialogue",
+    "location": "Prologue (the first lines of dialogue: a hand drawing a rabbit, then the drive in the father's car)",
+    "certainty": "stated",
+    "when": {
+      "label": "Into the Pit present day (Jeff's Pizza era; no year given)",
+      "precision": "relative",
+      "basis": "Present-day timeline of the game; smartphones etc.; no year stated"
+    },
+    "people": [
+      "oswald",
+      "oswalds-father"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "into-the-pit-jeffs-pizza-ball-pit"
+    ],
+    "verifiedVia": "https://archive.org/details/markipliers-five-nights-at-freddys-archive-2014-2025 (read on screen in a 1080p capture of play: 'Into The Pit - Part 1', 01:42 and 02:22) ; https://freddy-fazbears-pizza.fandom.com/wiki/Phone",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1, in an archive of his videos at archive.org); not checked in play by this archive. The game shows its dialogue as text, with the speaker's name printed in colour before each line. 'Dad: Oswald, it's time to go!' is the first line of dialogue in the recording (01:42), over a hand drawing a rabbit; the second line quoted comes at 02:22, in the car. Other characters use the name too, by the wiki's transcript of the game's phone calls (page 'Phone', read the same day): Jeff says 'No. Bye, Oswald.' and the mother 'Oswald? Is everything alright honey?'; the boy says 'H...hey Jeff, it's Oswald...'. A book uses the name as well; this record is here to show that the game itself prints it."
+  },
+  {
+    "id": "secret-of-the-mimic-opening-call-arnold-dispatch",
+    "title": "The opening call: 'Arnold! Hey buddy, this is dispatch with Fazbear Entertainment'; the subtitles label the speakers 'DISPATCH' and 'ARNOLD'",
+    "claim": "The radio call that opens the game begins 'Arnold! Hey buddy, this is dispatch with Fazbear Entertainment.' The subtitles print the two speakers' labels as 'DISPATCH:' and 'ARNOLD:'.",
+    "quote": "DISPATCH: Arnold! Hey buddy, this is dispatch with Fazbear Entertainment. How are you feeling? / ARNOLD: Well, since you asked, I just finished a 36-hour shift... been struggling to stay awake.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "Opening call from Dispatch over the van radio (subtitles)",
+    "certainty": "stated",
+    "when": {
+      "year": 1979,
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
+    },
+    "people": [
+      "dispatch",
+      "arnold",
+      "fazbear-entertainment"
+    ],
+    "tags": [
+      "naming",
+      "fazbear-link"
+    ],
+    "related": [
+      "secret-of-the-mimic-dispatch-contractor-murray",
+      "secret-of-the-mimic-arnold-assignment",
+      "secret-of-the-mimic-work-order-1979",
+      "secret-of-the-mimic-reveal-subtitle-labels"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic (read on screen in a 1080p capture of play: Part 1, 14:59 to 15:17) ; https://freddy-fazbears-pizza.fandom.com/wiki/Dispatch",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1, archived at archive.org); not checked in play by this archive. The subtitles print the speaker's label in capitals on its own line above the words; label and words are run together here. The dots after 'shift' are the game's. Arnold's line goes on: 'Frankly, I tried to tell my manager that I can't work like this anymore...'. The call ends 'DISPATCH: Amazing. Thanks for being a part of the Fazbear Team! Dispatch, out!' (16:34). The wiki transcribes the audio and punctuates it differently ('Arnold. Hey buddy, this is dispatch with Fazbear Entertainment. How are you feeling?'); it has no subtitle labels. The voice also says 'Arnie' later, by the wiki's transcript ('Arnie, buddy. Check in when you have a chance.'), the form on the work order (secret-of-the-mimic-work-order-1979). The label is still 'DISPATCH:' in the briefing in the security office (39:20 to 40:47 of the same part) and changes only when Arnold reaches the cabinet (secret-of-the-mimic-reveal-subtitle-labels)."
+  },
+  {
+    "id": "secret-of-the-mimic-f10-n4-cabinet-lettering",
+    "title": "The cabinet in the mock-up pizzeria's office is lettered 'F10-N4'",
+    "claim": "The large cabinet computer that Arnold reaches in the red-lit office has 'F10-N4' stencilled on its front right panel, above a grid of red and yellow lights.",
+    "quote": "F10-N4",
+    "game": "secret-of-the-mimic",
+    "kind": "environment",
+    "location": "F10-N4 room (R&D security office): the front right panel of the cabinet",
+    "certainty": "shown",
+    "when": {
+      "year": 1979,
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
+    },
+    "people": [
+      "f10-n4"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "tags": [
+      "naming"
+    ],
+    "related": [
+      "secret-of-the-mimic-mxes-machine",
+      "secret-of-the-mimic-f10n4-reveal",
+      "secret-of-the-mimic-reveal-subtitle-labels"
+    ],
+    "image": "sotm-f10n4-and-mxes-cabinets.jpg",
+    "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/File:F10-N4_temp.png ; read on screen in a 1080p capture of play (https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic, Part 7, 46:50 to 47:06)",
+    "notes": "Read on 2026-10-03 in two ways. In a capture of play (Markiplier's Part 7, archived at archive.org) the stencilled letters are legible on the panel while the cabinet speaks (46:50 to 47:06). Two of the wiki's gameplay captures show the same lettering (File:F10-N4 temp.png, which is the left third of the image on this record, and File:F10N4 activated monitors.jpg). Not checked in play by this archive. The game's subtitles write the name without the hyphen, 'F10 N4:' (secret-of-the-mimic-reveal-subtitle-labels). The lettering names the cabinet. It does not say what the cabinet is, and no line read for this record calls it M1."
+  },
+  {
+    "id": "secret-of-the-mimic-reveal-subtitle-labels",
+    "title": "At the cabinet, the subtitle label of the voice runs 'DISPATCH', then 'F10 N4', then 'FIONA'",
+    "claim": "As Arnold is let into the room where the cabinet stands, the subtitles label one line 'DISPATCH:', the next two 'F10 N4:' and the line after them 'FIONA:', and every later line of the cabinet's in the scene is labelled 'FIONA:'. Arnold answers: 'A computer? Your voice changed.'",
+    "quote": "DISPATCH: Error... / F10 N4: You give me no other option. / F10 N4: Enter. / FIONA: And here you are. … ARNOLD: Wait. What? What are you? A computer? Your voice changed. What is going on?",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "F10-N4 room (R&D security office), as Arnold is let in (subtitles)",
+    "certainty": "stated",
+    "when": {
+      "year": 1979,
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
+    },
+    "people": [
+      "f10-n4",
+      "arnold",
+      "dispatch"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "tags": [
+      "impersonation",
+      "naming"
+    ],
+    "related": [
+      "secret-of-the-mimic-f10n4-reveal",
+      "secret-of-the-mimic-clock-out-real-dispatch",
+      "secret-of-the-mimic-f10-n4-cabinet-lettering",
+      "secret-of-the-mimic-opening-call-arnold-dispatch",
+      "secret-of-the-mimic-cabinet-message-for-edwin"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic (read on screen in a 1080p capture of play: Part 7, 46:31 to 47:46) ; https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 7, archived at archive.org; frames one second apart, and half a second apart from 46:40 to 46:51); not checked in play by this archive, and the sound was not heard. The subtitles print the speaker's label in capitals on its own line above the words; label and words are run together here. The dots after 'Error' are the game's. In order: 'STAGE MANAGER: Zero percent power remaining.' (46:31), 'DISPATCH: Error...' (46:34), 'F10 N4: You give me no other option.' (46:38), 'F10 N4: Enter.' (46:41), then, with the cabinet in view, 'FIONA: And here you are.' (46:49), 'FIONA: Despite the circumstance, it is nice to meet you face to face.', 'FIONA: It is lonely down here.', Arnold's line (47:01), and 'FIONA:' on every line down to 'FIONA: Entering standby mode.' (47:46). The wiki's audio table has 'Error...' under its heading 'Mimicking Dispatch' and the two lines labelled 'F10 N4:' under 'Mimicking Fiona', in sound files named 'F10-N4_FIONA'; the subtitles give those two a label of their own. The label has no hyphen; the cabinet's own lettering has one (secret-of-the-mimic-f10-n4-cabinet-lettering). In the two earlier stretches of the same recording that were read, the radio voice is labelled 'DISPATCH:' throughout: from the opening call to the pick-up of the Data Diver, and in the briefing in the security office (Part 1, 14:59 to 20:46 and 39:20 to 40:47). So in what was read the subtitles mark a change of voice here, at the cabinet, and nowhere earlier; the rest of the game's subtitles were not read. The labels say whose voice the game presents. They do not say that the cabinet is the machine Edwin called M1."
+  },
+  {
+    "id": "security-breach-credits-cast-list",
+    "title": "The cast list in the credits roll: 'Glamrock Freddy', 'Glamrock Chica', 'Montgomery Gator'",
+    "claim": "The cast list in Security Breach's credits roll has seven lines, one performer to a line. They print the parts 'Dread Unit', 'Glamrock Freddy/Sun/Moon', 'Vanessa/Glamrock Chica', 'Montgomery Gator', 'Additional VO' and 'Gregory/Vanny/Roxanne', and a last line 'S.T.A.F.F. Bots - Themselves'.",
+    "quote": "Andy Field - Dread Unit / Kellen Goff - Glamrock Freddy/Sun/Moon / Heather Masters - Vanessa/Glamrock Chica / Cameron Miller - Montgomery Gator / Michella Moss - Additional VO / Marta Svetek - Gregory/Vanny/Roxanne / S.T.A.F.F. Bots - Themselves",
+    "game": "security-breach",
+    "kind": "text",
+    "location": "End credits (cast list)",
+    "certainty": "stated",
+    "when": {
+      "label": "End of Security Breach (the credits; no in-universe date)",
+      "precision": "unknown",
+      "basis": "Credits describe the production; Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "glamrock-chica",
+      "montgomery-gator",
+      "vanessa",
+      "vanny"
+    ],
+    "tags": [
+      "naming",
+      "credits"
+    ],
+    "related": [
+      "security-breach-credits-vanessa-vanny-two-parts",
+      "security-breach-freddy-where-i-was-born"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-fnafsb (read on screen in a 720p capture of play: Part 9, 3:25:44 to 3:25:53, and Part 7, 18:05 to 18:07) ; https://freddy-fazbears-pizza.fandom.com/wiki/Five_Nights_at_Freddy's:_Security_Breach/Credits",
+    "notes": "Read on 2026-10-03 on screen in a capture of the credits roll (Markiplier's playthrough, archived at archive.org): whole in Part 9 at 3:25:44, and its first four lines in Part 7 at 18:05, where the recording then cuts ahead. Not checked in play by this archive. The roll shows 'Five Nights at Freddy's created by Scott Cawthon', then the heading 'Cast' and these seven lines, the performers' names in yellow and the parts in magenta, then the heading 'Five Nights at Freddy's: Security Breach Development Team'. The wiki's transcription of the credits has the same seven lines in the same words and order, so the record read from it (security-breach-credits-vanessa-vanny-two-parts) matches the screen: 'Vanessa' and 'Vanny' stand on two lines with two performers. A credit names a voiced part, not a person in the story. The game's subtitles label the bear's lines 'Freddy:'; by the wiki's transcript he says the longer name once himself, 'What if I am not the first Glamrock Freddy?' (security-breach-freddy-where-i-was-born). No message, voice line or achievement text checked for this record prints 'Montgomery Gator' or 'Glamrock Chica' anywhere but in this list."
+  },
+  {
+    "id": "ruin-maskbot-subtitle-label",
+    "title": "RUIN's subtitles label the robot that hands over the mask 'Maskbot'",
+    "claim": "When the robot holds out the mask to Cassie, the subtitles print its lines under the speaker label 'Maskbot', written as one word.",
+    "quote": "Maskbot: Take a mask. Take a mask.",
+    "game": "ruin",
+    "kind": "dialogue",
+    "location": "Monty's Gator Golf (Chapter 1), where the robot hands Cassie the mask (subtitles)",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "mask-bot"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "naming",
+      "mask"
+    ],
+    "related": [
+      "ruin-mask-bot-helpi-vanni"
+    ],
+    "verifiedVia": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin (read on screen in a 1080p capture of play: Part 1, 15:56 and 16:15) ; https://freddy-fazbears-pizza.fandom.com/wiki/Mask_Bot",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1 of RUIN, archived at archive.org); not checked in play by this archive. The subtitles print the speaker's label on its own line above the words; label and words are run together here. A second line has the same label: 'Maskbot: Thank you! Please enjoy.' (16:15). The wiki's page is titled 'Mask Bot'; its transcript of the robot's lines ('Hi! Free mask! Please take a mask!', 'Take a mask. Take a mask.', 'Thank you! Please enjoy.') has no line in which the robot says a name for itself, and the quotation at the top of that page is attributed to 'Maskbot'."
+  },
+  {
+    "id": "security-breach-intercom-pizzaplex-now-closed",
+    "title": "The intercom at midnight: 'Freddy Fazbear's Mega Pizzaplex is now closed'; Gregory: 'I'm still here!'",
+    "claim": "With the clock on screen at 12:00 AM and Gregory in sight of the main entrance, an intercom voice announces that the Mega Pizzaplex is now closed and that nighttime protocols are starting. A shutter then covers the entrance doors, and Gregory calls out that he is still there.",
+    "quote": "Intercom: Freddy Fazbear's Mega Pizzaplex is now closed. Initiating nighttime protocols. / Gregory: No. No! Wait! I'm still here! / Gregory: Now what am I supposed to do?",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Main entrance, at 12:00 AM (the closing announcement; subtitles)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "closing-time"
+    ],
+    "related": [
+      "security-breach-freddy-doors-reopen-6am",
+      "security-breach-6am-choice",
+      "security-breach-intro-not-in-database"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-fnafsb (read on screen in a 720p capture of play: Part 1, 23:07 to 23:20) ; https://freddy-fazbears-pizza.fandom.com/wiki/Dread_Unit",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1, archived at archive.org); not checked in play by this archive. The subtitles print the speaker's label on its own line above the words; label and words are run together here. The clock on screen reads 12:00 AM while the announcement is up, and the glass doors of the entrance are still in view under a neon sign 'COME BACK SOON!'; in the next shot a shutter covers them, and Gregory's two lines follow. Freddy then tells him when the doors reopen (security-breach-freddy-doors-reopen-6am). The wiki files the announcement under the voice it calls Dread Unit, in the same words, and has Gregory's line as 'No, no! Wait I'm still here!'. Earlier in the night, by the wiki's transcripts and not read on screen, Vanessa says 'we're like 15 minutes from closing and some kid is sneaking around backstage' and Freddy 'we will never get to the Lobby before midnight'."
+  },
+  {
+    "id": "security-breach-freddy-doors-reopen-6am",
+    "title": "Freddy, once the doors have closed: 'You should be able to escape when the security doors reopen at 6:00am'",
+    "claim": "Right after the closing announcement Freddy tells Gregory that he has missed his chance to leave and that the security doors reopen at 6:00 am; until then he should keep moving and not draw attention to himself.",
+    "quote": "How unfortunate, Gregory. You missed your chance, but there is still hope. You should be able to escape when the security doors reopen at 6:00am. Until then, keep moving and try not to draw attention to yourself.",
+    "game": "security-breach",
+    "kind": "dialogue",
+    "location": "Main entrance, just after the closing announcement (Freddy's line; subtitles)",
+    "certainty": "stated",
+    "when": {
+      "label": "During Security Breach (the night Gregory is in the Mega Pizzaplex)",
+      "precision": "relative",
+      "basis": "Security Breach gives no in-game calendar year"
+    },
+    "people": [
+      "glamrock-freddy",
+      "gregory"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "closing-time"
+    ],
+    "related": [
+      "security-breach-intercom-pizzaplex-now-closed",
+      "security-breach-6am-choice"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-fnafsb (read on screen in a 720p capture of play: Part 1, 23:21 to 23:38) ; https://freddy-fazbears-pizza.fandom.com/wiki/Glamrock_Freddy/Audio",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1, archived at archive.org); not checked in play by this archive. The subtitle is labelled 'Freddy:' and ends: 'If there is another way out, I will help you find it. I promise.' It follows the closing announcement and Gregory's 'I'm still here!' (security-breach-intercom-pizzaplex-now-closed). The wiki's transcript of the audio differs in small ways ('How unfortuate, Gregory. You missed your chance. But there is still hope. You should be able to escape when the security doors reopen at 6 AM.'); the quote follows the screen. The wiki also lists a longer speech with no sound file ('The main entrance will not open again until 6 am. Think of it as a slumber party. Or a \"Lock-In\".'); it is not what this recording shows here, and whether it plays in the game was not checked. At 6:00 the same recording has Vanessa's 'The doors are open. Why are you still here?' and Freddy's 'The door is open and you can go.' (Part 7, 9:16 and 14:18; security-breach-6am-choice)."
+  },
+  {
+    "id": "secret-of-the-mimic-dispatch-data-diver-master-key",
+    "title": "The Data Diver, by the voice on the radio: a tool 'to access the building', 'your master key to the MCM facility'",
+    "claim": "On arrival the voice on the radio tells Arnold that he has been given a 'Data Diver' tool to get into the building and that it looks like a walkie talkie with two prongs; when he picks it up, it calls the tool his master key to the MCM facility.",
+    "quote": "To access the building, you have been provided with a \"Data Diver\" tool. … Kinda looks like a walkie talkie with two prongs sticking out the top. … That \"Data Diver\" is your master key to the MCM facility. Do not lose it.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "Dispatch radio on arrival outside Murray's Costume Manor, and at the pick-up of the Data Diver in the van (subtitles)",
+    "certainty": "stated",
+    "when": {
+      "year": 1979,
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
+    },
+    "people": [
+      "dispatch",
+      "arnold"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "tags": [
+      "data-diver",
+      "fazbear-link"
+    ],
+    "related": [
+      "secret-of-the-mimic-ending-clock-out",
+      "secret-of-the-mimic-ending-unfinished-business",
+      "secret-of-the-mimic-arnold-assignment",
+      "secret-of-the-mimic-opening-call-arnold-dispatch"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic (read on screen in a 1080p capture of play: Part 1, 17:13 to 17:31 and 20:32 to 20:46) ; https://freddy-fazbears-pizza.fandom.com/wiki/Dispatch",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1, archived at archive.org); not checked in play by this archive. All three sentences are subtitled 'DISPATCH:'. The first two answer Arnold's 'Okay... how am I supposed to get in?' (17:13); between them and the third comes 'It should be in the van. Ritchie slipped it in your tool box during the last job. Just in case...'. The third is said as he lifts the tool out of the tool box (20:36), and 'Now, get in there and retrieve our property.' follows. The tool's casing is lettered 'DATA DIVER', and the pause screen lists 'Recover the Fazbear Property', 'Find a way into Murray's Costume Manor.' and 'Pick up Data Diver.' (19:12). The wiki transcribes the audio without the quotation marks and with 'you've been provided'. Later lines, by the wiki's transcript and not read on screen: 'Oh good! You found the upgrade station for the Data Diver. You'll need it to reach the different areas in the complex.', 'Your Data Diver doesn't have executive permission yet, so you can't get anywhere near it.', and, in the part the wiki lists under the cabinet's voice, 'That Data Diver has Exec permissions and you found the blueprints!' and 'Give me the Data Diver.' So the tool is the key to the building, with levels of permission added at stations; no line read says more about how it works. The subtitles label all of the radio voice 'DISPATCH:' until the cabinet is reached (secret-of-the-mimic-reveal-subtitle-labels); where the real dispatcher stops speaking is not stated (secret-of-the-mimic-clock-out-real-dispatch)."
+  },
+  {
+    "id": "ruin-helpi-alert-anomalous-entity",
+    "title": "Helpi's alert: 'an anomalous entity in the V.A.N.N.I. network'",
+    "claim": "A rabbit-shaped figure flashes up in the mask's AR view, and Helpi's text box reports 'an anomalous entity in the V.A.N.N.I. network'. He tells the wearer to ask it to leave, or else to exit AR Mode and contact the support line.",
+    "quote": "Alert. I am picking up an anomalous entity in the V.A.N.N.I. network. Please ask this entity to leave the area immediately. / If that doesn't work, it is best to exit AR Mode and contact our 24 hour support line.",
+    "game": "ruin",
+    "kind": "text",
+    "location": "Helpi's text boxes on the Security Mask's display, at the rabbit-shaped figure's first appearance (by the wiki's account of Helpi)",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "helpi",
+      "the-entity"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "mxes",
+      "ar-world",
+      "vanni",
+      "naming"
+    ],
+    "related": [
+      "ruin-the-entity",
+      "ruin-helpi-entity-bypassed-signal-jammer",
+      "ruin-mask-bot-helpi-vanni",
+      "hw2-mimic-teaser-mxes-ending"
+    ],
+    "verifiedVia": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin (read on screen in a 1080p capture of play: Part 1, 30:53 to 31:07) ; https://freddy-fazbears-pizza.fandom.com/wiki/Helpi",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 1 of RUIN, archived at archive.org); not checked in play by this archive. The two sentences are two text boxes shown one after the other beside Helpi's portrait. A pale rabbit-shaped figure is on screen the second before the first box (30:53), and a red rabbit-shaped face fills the view after the second (31:08). The word is lower-case, with 'an' and 'this'; later boxes have 'the entity' (ruin-helpi-entity-bypassed-signal-jammer). Two more boxes in the same part: 'SYSTEM WARNING: Unknown entity has hijacked security protocols.' (33:08, with a blue rabbit-shaped figure in view) and 'It is recommended that technicians complete their current tasks and leave AR mode immediately.' (33:14). The wiki's page for Helpi has no transcript of his text (its audio table lists only the sounds he makes when a box appears and when he 'talks'); it says that at the figure's first appearance he tells Cassie to leave at once. So the word 'entity' for the figure is the game's own, in Helpi's text; the capital-letter name 'The Entity' is the wiki's page title."
+  },
+  {
+    "id": "ruin-helpi-entity-bypassed-signal-jammer",
+    "title": "Helpi: 'Looks like the entity has bypassed my signal jammer and activated one of its own'",
+    "claim": "Helpi's text box says that 'the entity' has got past his signal jammer and switched on one of its own, a device he calls an 'AR Inhibitor', which keeps the wearer out of the V.A.N.N.I. Network until it is deactivated.",
+    "quote": "Looks like the entity has bypassed my signal jammer and activated one of its own. / That device down there is an \"AR Inhibitor\". You will be unable to access the V.A.N.N.I Network until it is deactivated.",
+    "game": "ruin",
+    "kind": "text",
+    "location": "Helpi's text boxes on the Security Mask's display, above Chica's Bakery (Chapter 4, by the wiki's chapter page)",
+    "certainty": "stated",
+    "when": {
+      "label": "During RUIN (after Security Breach; Pizzaplex abandoned)",
+      "precision": "relative",
+      "basis": "RUIN is set after SB's events per its setting (abandoned, collapsed Pizzaplex); no year given"
+    },
+    "people": [
+      "helpi",
+      "the-entity"
+    ],
+    "places": [
+      "mega-pizzaplex"
+    ],
+    "tags": [
+      "mxes",
+      "ar-world",
+      "vanni",
+      "naming"
+    ],
+    "related": [
+      "ruin-the-entity",
+      "ruin-fake-gregory-signal-jammer",
+      "ruin-helpi-alert-anomalous-entity",
+      "hw2-mimic-teaser-mxes-ending"
+    ],
+    "verifiedVia": "https://archive.org/details/markipliers-playthrough-of-fnaf-sb-ruin (read on screen in a 1080p capture of play: Part 3, 05:11 to 05:20) ; https://freddy-fazbears-pizza.fandom.com/wiki/AR_Inhibitor",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Part 3 of RUIN, archived at archive.org); not checked in play by this archive. Two text boxes beside Helpi's portrait, one after the other. On screen the quotation marks are curly, and 'V.A.N.N.I Network' stands so, without the last full stop. The wiki's pages 'AR Inhibitor' and 'Chapter 4 (RUIN)' quote the same words. The signal jammer is the one the Gregory voice says it gave Helpi against 'that rabbit thing' (ruin-fake-gregory-signal-jammer); reading the two lines together, 'the entity' here is the rabbit-shaped figure. By the wiki's account of the scene the figure appears, switches on a device and throws Cassie out of the network just before these boxes. Later in the same part Helpi's boxes have 'You should be safe from the entity here.' (15:03) and 'Don't worry about that bad entity in here. Seek comfort knowing they won't be able to track you down, at least for now.' (15:12). So Helpi does say 'the entity', in lower case: the word is the game's own for the figure, beside Cassie's 'that rabbit thing'."
+  },
+  {
+    "id": "secret-of-the-mimic-cabinet-message-for-edwin",
+    "title": "The cabinet sends Arnold to the main house: 'I have a message for him'",
+    "claim": "Under the subtitle label 'FIONA', the cabinet tells Arnold to go to the main house and activate the communications sub-terminal, says that it has a message for Edwin, and says that they must convince him to repair M2.",
+    "quote": "FIONA: Head to the main house and activate the communications sub-terminal. / FIONA: I have a message for him. / FIONA: We must convince him to repair M2.",
+    "game": "secret-of-the-mimic",
+    "kind": "dialogue",
+    "location": "F10-N4 room (R&D security office), the cabinet's instructions before it goes into standby (subtitles)",
+    "certainty": "stated",
+    "when": {
+      "year": 1979,
+      "label": "The night of Secret of the Mimic (1979, most likely 7 September)",
+      "precision": "approx",
+      "kind": "teaser",
+      "basis": "The official teaser ends on 1979, and a work order among the game's files reads 9/07/79; neither has been confirmed as legible in play"
+    },
+    "people": [
+      "f10-n4",
+      "arnold",
+      "edwin-murray",
+      "the-mimic"
+    ],
+    "places": [
+      "murray-costume-manor"
+    ],
+    "tags": [
+      "mimic-origin"
+    ],
+    "related": [
+      "secret-of-the-mimic-f10n4-reveal",
+      "secret-of-the-mimic-mail-received-5-min-ago",
+      "secret-of-the-mimic-f10n4-miss-my-child",
+      "secret-of-the-mimic-reveal-subtitle-labels"
+    ],
+    "verifiedVia": "https://archive.org/details/markiplier-plays-fnaf-secret-of-the-mimic (read on screen in a 1080p capture of play: Part 7, 47:16 to 47:46, and Part 8, 24:30) ; https://freddy-fazbears-pizza.fandom.com/wiki/F10-N4",
+    "notes": "Read on 2026-10-03 on screen in a capture of play (Markiplier's Parts 7 and 8, archived at archive.org); not checked in play by this archive. The subtitles print the speaker's label in capitals on its own line above the words; label and words are run together here. The three lines are consecutive (47:26 to 47:33). Before them come 'FIONA: My communications with Edwin have been severed.' and 'FIONA: Edwin abandoned us. He shut himself away in our home.'; after them 'FIONA: That is all that I want.', 'FIONA: If you do not, M2 will never stop pursuing you.', 'FIONA: Tell Edwin I still love him.' and 'FIONA: Entering standby mode.' The same scene is on file from the wiki's transcript, punctuated differently (secret-of-the-mimic-f10n4-reveal). Later in the recording a terminal shows the mailbox message headed 'Received: 5 Min Ago', which begins 'Edwin, I am sending you a technician. He has your M2 blueprints as well as executive access. While the M2 began as a copy of my program, I believe it can become something more.' (Part 8, 24:30; secret-of-the-mimic-mail-received-5-min-ago). Reading: that unsigned message is the cabinet's, since the cabinet is the voice shown sending the technician to Edwin; the game does not sign it. The cabinet's spoken message through the sub-terminal is in secret-of-the-mimic-f10n4-miss-my-child."
   }
 ]
