@@ -24,9 +24,7 @@ export function smartQuotes(text: string): string {
     const prev = j >= 0 ? out[j] : "";
     const opens = prev === "" || OPENS_AFTER.test(prev) || prev === "\u201C" || prev === "\u2018";
     const next = text[i + 1] ?? "";
-    // A double mark opens after a space or an opening bracket, unless a space or the end of the
-    // text follows it: no quotation opens there (“Bad news about the movie. :(” ends on a bracket).
-    if (ch === '"') { out += opens && next !== "" && !/\s/.test(next) ? "\u201C" : "\u201D"; continue; }
+    if (ch === '"') { out += opens ? "\u201C" : "\u201D"; continue; }
     if (!opens) { out += "\u2019"; continue; }                               // it's, brothers', a closing quote
     if (/\d/.test(next) || ELISION.test(text.slice(i + 1))) { out += "\u2019"; continue; }  // '87, 'em
     out += WORD.test(next) || next === '"' || next === "\u201C" || next === "*" || next === "." || next === "\u2026" ? "\u2018" : "\u2019";
