@@ -50,6 +50,9 @@ const DEFAULT_ROUTES = [
   "/evidence", "/evidence?game=fnaf4&img=1", "/evidence/fnaf2-take-cake-to-the-children", "/sources", "/sources/fnaf4", "/sources/fnaf4-halloween", "/sources/freddy-in-space-2", "/gallery",
   // People and places: the register (plain, found by an alias, nobody found), the people with most on them, a descriptor with
   // marked aliases and a long name, the trees, the web, places.
+  // Records whose claim or quotation holds a long run with no space in it (lines of a web page's source).
+  "/evidence/scottgames-site-sl-source-rental-schedule", "/evidence/scottgames-site-sl-source-client-directory",
+  "/evidence/scottgames-site-sl-source-service-log-afton-robotics", "/evidence/fnaf2-save-them-golden-freddy",
   "/people", "/people?q=glitchtrap", "/people?q=henry", "/people/william-afton", "/people/fazbear-entertainment", "/people/crying-child", "/people/scraptrap",
   "/family", "/family?tree=pizzaplex", "/graph", "/places", "/places/fredbears-family-diner", "/places/private-room",
   // Essays, the fixtures, and every kind of dead end.

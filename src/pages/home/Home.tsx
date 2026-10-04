@@ -48,7 +48,9 @@ export default function Home() {
     [evidence.length, "evidence records", "/evidence"],
     [sources, "sources", "/sources"],
     [people.length, "people", "/people"],
-    [relations.length, "relationships", "/family"],
+    // Every relation as recorded, which is what the web counts with no record folded into another:
+    // the tile leads to the view that prints this number (folded, the web draws fewer and says why).
+    [relations.length, "ties between people", "/graph?unified=0"],
     [timeline.length, "timeline events", "/timeline"],
     [credits.length, "screenshots", "/gallery"],
   ];

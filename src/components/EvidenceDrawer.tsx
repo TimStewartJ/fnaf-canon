@@ -1,8 +1,9 @@
 import { useLayoutEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Evidence } from "../data/schema";
-import { backlinksFor, evidenceById } from "../data/store";
+import { backlinksFor, evidenceById, theoryById } from "../data/store";
+import { clearPlace, markOpen, openerAt } from "./drawerPlace";
 import { type DrawerState, useEvidenceDrawer } from "./evidenceDrawer";
 import { useFlick, useModalDialog, useSheetPull } from "./hooks";
 import { firmness } from "./labels";
@@ -13,6 +14,7 @@ import { Figure } from "./Figure";
 import { Firmness } from "./Firmness";
 import { Callout, Fact, Facts } from "./layout";
 import { RecordText } from "./RecordText";
+import type { CameFrom } from "./reading";
 import { DateInWords, EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { count, smartQuotes, sourceWords } from "./typography";
 
@@ -90,22 +92,45 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
     shown.current = true;
     if (!paging) el.querySelector<HTMLElement>("#drawer-title")?.focus({ preventScroll: true });
   }, [dialog, state.id]);
+  // The page under the drawer marks the numbers that stand for this record and, at a desk, steps
+  // aside for the sentence being checked (drawerPlace.ts). Focus goes back to the number the reader
+  // last chose there: declared after the dialog's own effect, so it has the last word.
+  const chosen = useRef<HTMLElement | null>(null);
+  useLayoutEffect(() => markOpen(state.id, dialog.current), [dialog, state.id]);
+  useLayoutEffect(() => () => {
+    clearPlace();
+    if (chosen.current?.isConnected) chosen.current.focus({ preventScroll: true });
+  }, []);
   const e = evidenceById.get(state.id);
   const group = (state.group ?? []).filter((id) => evidenceById.has(id));
   const idx = group.indexOf(state.id);
   const paged = group.length > 1 && idx >= 0;
-  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], state.group, state.of, state.noun);
+  // The set has two ends: the arrows, the arrow keys and a flick stop there. (They used to go round
+  // from the last to the first, with nothing to say that the count had started again.)
+  const can = (d: number) => paged && idx + d >= 0 && idx + d < group.length;
+  const go = (d: number) => { if (can(d)) drawer.open(group[idx + d], state.group, state.of, state.noun, state.whole); };
+  // A set that is a stretch of a longer list is counted in that list.
+  const place = (state.whole?.before ?? 0) + idx + 1, outOf = state.whole?.total ?? group.length;
   // On a phone the drawer is a sheet, and a sheet can be pulled down by its bar.
   const pull = useSheetPull(onClose);
   // A flick across the record steps to the next of its set (finger to the left) or the one before.
   const flick = useFlick({ onSide: (dir) => { if (paged) go(dir < 0 ? 1 : -1); } });
   const noun = state.noun ?? "Record";
   const of = state.of ?? "in this list";
+  // Opened over a chapter, the link to the record's own page says so, and that page offers the way back (reading.ts).
+  const under = useLocation().pathname.match(/^\/theory\/([^/]+)$/)?.[1];
+  const cameFrom: { from: CameFrom } | undefined = under && theoryById.has(under) ? { from: { chapter: under } } : undefined;
   return (
     <dialog
       className="drawer"
       aria-labelledby="drawer-title"
       {...dialogProps}
+      onClick={(ev) => {
+        // A click on the dimmed page that lands on another citation goes straight to that record.
+        const other = ev.target === ev.currentTarget ? openerAt(ev.clientX, ev.clientY, ev.currentTarget) : null;
+        if (other) { chosen.current = other; other.click(); }
+        else dialogProps.onClick(ev);
+      }}
       onKeyDown={(ev) => {
         // Keys pressed in something opened over the drawer (an enlarged image) belong to that.
         const from = ev.target as HTMLElement;
@@ -115,11 +140,11 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       }}
     >
       <header className="drawer__bar sheet-bar" {...pull}>
-        <span className="label">{paged ? `${noun} ${count(idx + 1)} of ${count(group.length)}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
+        <span className="label">{paged ? `${noun} ${count(place)} of ${count(outOf)}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
         {paged && (
           <span className="drawer__pager">
-            <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} onClick={() => go(-1)} />
-            <IconButton icon={ChevronRight} label={`Next ${noun.toLowerCase()}`} onClick={() => go(1)} />
+            <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} aria-disabled={!can(-1) || undefined} onClick={() => go(-1)} />
+            <IconButton icon={ChevronRight} label={`Next ${noun.toLowerCase()}`} aria-disabled={!can(1) || undefined} onClick={() => go(1)} />
           </span>
         )}
         <IconButton icon={X} label="Close" onClick={onClose} />
@@ -129,7 +154,7 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       </div>
       {e && (
         <footer className="drawer__foot">
-          <ButtonLink to={evidencePath(e.id)} iconEnd={ArrowRight}>Open the full record</ButtonLink>
+          <ButtonLink to={evidencePath(e.id)} state={cameFrom} iconEnd={ArrowRight}>Open the full record</ButtonLink>
         </footer>
       )}
     </dialog>

@@ -7,9 +7,9 @@ import { eventDate } from "../../data/dates";
 import { evidenceById } from "../../data/store";
 import {
   Button, ChapterLink, Chip, CiteList, CiteScope, DatePill, DeathIcon, EntityLink, EvidenceRow, FateIcon, FateTag, Figure, Icon, RichText, StatusMark,
-  chapterNumber, count, excerpt, isDeath, levelOf, outcomeOf, smartQuotes,
+  chapterNumber, count, excerpt, isDeath, levelOf, outcomeOf, smartQuotes, useMediaQuery,
 } from "../../components/ui";
-import { type DeathRow, type EventRow, type Row, chaptersFor, eventLink, fatesOf, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
+import { type DeathRow, type EventRow, type Row, cardLabel, chaptersFor, eventLink, fatesOf, imageOf, peopleOfDeath, peopleOfEvent, plural, recordOrder } from "./model";
 
 /** How much of a summary a closed row shows. CSS clamps it further on a narrow screen. */
 const EXCERPT = 190;
@@ -44,6 +44,18 @@ function DeathFacts({ d, ending = false }: { d: Death; ending?: boolean }) {
   );
 }
 
+/**
+ * The date on an entry's card. On a phone a label that would take three lines is cut at a natural
+ * break (cardLabel in model.ts): the card keeps the first part, and the date's popover says the
+ * rest first, before the reason for the date, so the whole label is one press away.
+ */
+function When({ label, date, compact }: { label: string; date: { kind: Parameters<typeof DatePill>[0]["kind"]; basis?: string; evidence?: string[] }; compact?: boolean }) {
+  const phone = useMediaQuery("(max-width: 640px)");
+  const cut = phone ? cardLabel(label) : null;
+  if (!cut?.rest) return <DatePill label={label} kind={date.kind} basis={date.basis} evidence={date.evidence} compact={compact} />;
+  return <DatePill label={cut.short} kind={date.kind} basis={date.basis ? `${cut.rest} ${date.basis}` : cut.rest} evidence={date.evidence} compact={compact} />;
+}
+
 /** A death or other fate told by a story event, shown inside that event's row. Its title is left out when it only repeats the event's. */
 function DeathInEvent({ d, marked, eventTitle }: { d: Death; marked: boolean; eventTitle: string }) {
   return (
@@ -51,7 +63,7 @@ function DeathInEvent({ d, marked, eventTitle }: { d: Death; marked: boolean; ev
       <p className="tl-death__head">
         <FateTag d={d} />
         <span className="tl-death__marks">
-          <DatePill label={d.yearLabel} kind={d.date.kind} basis={d.date.basis} evidence={d.date.evidence} compact />
+          <When label={d.yearLabel} date={d.date} compact />
           <StatusMark value={d.status} />
         </span>
       </p>
@@ -205,7 +217,7 @@ export const TimelineRow = memo(function TimelineRow({ row, open, mark, onToggle
       <div className="tl-row__main">
         <div className="tl-row__head">
           <p className="tl-row__when">
-            <DatePill label={yearLabel} kind={date.kind} basis={date.basis} evidence={date.evidence} />
+            <When label={yearLabel} date={date} />
             <span className="tl-row__status tl-row__status--long"><StatusMark value={row.status} variant="inline" long /></span>
             <span className="tl-row__status tl-row__status--short"><StatusMark value={row.status} variant="inline" /></span>
             {own && <FateTag d={row.d} />}

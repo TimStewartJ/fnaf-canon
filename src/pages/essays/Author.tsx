@@ -86,7 +86,7 @@ const StepRow = memo(function StepRow({ s }: { s: AuthorStep }) {
       id={s.id}
       when={<RealDate date={s.date} short about={s.dateBasis} />}
       node={<EssaySwatch hue={hueOf(PHASE_HUE, s.phase)} />}
-      kicker={<span className="label">{AUTHOR_PHASE[s.phase]?.label ?? s.phase}</span>}
+      kicker={<span className="label">{smartQuotes(AUTHOR_PHASE[s.phase]?.label ?? s.phase)}</span>}
       title={s.title}
     >
       <EssayEntry text={s.body} image={s.image} evidence={s.evidence} sources={s.sources} sourceChip="archive" date={s.date} dateBasis={s.dateBasis} />

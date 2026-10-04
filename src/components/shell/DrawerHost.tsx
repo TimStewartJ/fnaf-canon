@@ -38,7 +38,7 @@ export function DrawerHost({ children }: { children: ReactNode }) {
       return { d: state[DRAWER_KEY], go: latest.current.navigate, here: { pathname, search: live.search, hash: live.hash }, state };
     };
     return {
-      open(id, group, of, noun) {
+      open(id, group, of, noun, whole) {
         // A filter still on its way to the address is written first: the drawer's entry, and the one under it, both say what the reader sees.
         settleAddress();
         const { d, go, here, state } = now();
@@ -49,7 +49,7 @@ export function DrawerHost({ children }: { children: ReactNode }) {
         const paging = !!d && !overlay && sameList(d.group, group);
         const steps = (d?.steps ?? 0) + (paging ? 0 : 1);
         if (!d && !overlay) notePlace();
-        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, noun, pushed: d ? d.pushed : true, steps } }, replace: paging || !!overlay });
+        void go(here, { state: { ...rest, [DRAWER_KEY]: { id, group, of, noun, whole, pushed: d ? d.pushed : true, steps } }, replace: paging || !!overlay });
       },
       close() {
         const { d, go, here, state } = now();

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CornerDownRight } from "lucide-react";
 import type { Evidence } from "../data/schema";
 import { evidenceById } from "../data/store";
-import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
+import { type DrawerSpan, isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
 import { firmness } from "./labels";
 import { evidencePath } from "./links";
 import { FirmGlyph, Firmness } from "./Firmness";
@@ -20,14 +20,14 @@ import { smartQuotes, sourceWords } from "./typography";
  * `group` is the set the reader can step through from it; `of` and `noun` word the drawer's
  * "Record 2 of 5 in this list" for that set (see EvidenceDrawerApi.open).
  */
-export function EvidenceLink({ id, group, of, noun, open = "drawer", className, children }: { id: string; group?: string[]; of?: string; noun?: string; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
+export function EvidenceLink({ id, group, of, noun, whole, open = "drawer", className, children }: { id: string; group?: string[]; of?: string; noun?: string; whole?: DrawerSpan; open?: "drawer" | "page"; className?: string; children: ReactNode }) {
   const drawer = useEvidenceDrawer();
   return (
     <Link
       to={evidencePath(id)}
       className={className}
       aria-haspopup={open === "drawer" ? "dialog" : undefined}
-      onClick={(e) => { if (open !== "drawer" || !isPlainClick(e)) return; e.preventDefault(); drawer.open(id, group, of, noun); }}
+      onClick={(e) => { if (open !== "drawer" || !isPlainClick(e)) return; e.preventDefault(); drawer.open(id, group, of, noun, whole); }}
     >
       {children}
     </Link>
@@ -41,7 +41,7 @@ export function EvidenceLink({ id, group, of, noun, open = "drawer", className, 
  *  - compact   for exhibit strips inside an article: image first, claim and quote clamped to a few
  *              lines, no date or entity chips (the drawer has the rest)
  */
-export function EvidenceCard({ e, showImage = true, open = "drawer", group, compact = false }: { e: Evidence; showImage?: boolean; open?: "drawer" | "page"; group?: string[]; compact?: boolean }) {
+export function EvidenceCard({ e, showImage = true, open = "drawer", group, whole, compact = false }: { e: Evidence; showImage?: boolean; open?: "drawer" | "page"; group?: string[]; whole?: DrawerSpan; compact?: boolean }) {
   const entities = compact ? [] : [...(e.people ?? []), ...(e.places ?? [])];
   const figure = showImage && e.image ? <Figure file={e.image} compact /> : null;
   return (
@@ -51,7 +51,7 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
         <SourceLine e={e} location={false} />
         <Firmness scale="certainty" value={e.certainty} variant={compact ? "inline" : "tag"} />
       </header>
-      <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{smartQuotes(e.title)}</EvidenceLink></h3>
+      <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group} whole={whole}>{smartQuotes(e.title)}</EvidenceLink></h3>
       <p className="ev-card__claim"><RecordText text={e.claim} open={open} self={e.id} /></p>
       {e.quote && <blockquote className="ev-card__quote">“{sourceWords(e.quote)}”</blockquote>}
       {!compact && figure}
@@ -86,13 +86,13 @@ export function EvidenceRow({ e, n, group, of, noun, claim = true, open = "drawe
 }
 
 /** A list of evidence rows from ids (unknown ids are skipped). `numbers` maps an id to its citation number. */
-export function EvidenceList({ ids, numbers, claim = true, open, className }: { ids: readonly string[]; numbers?: (id: string) => number | undefined; claim?: boolean; open?: "drawer" | "page"; className?: string }) {
+export function EvidenceList({ ids, numbers, claim = true, open, className, of, noun }: { ids: readonly string[]; numbers?: (id: string) => number | undefined; claim?: boolean; open?: "drawer" | "page"; className?: string; of?: string; noun?: string }) {
   const rows = ids.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   if (!rows.length) return null;
   const group = rows.length > 1 ? rows.map((e) => e.id) : undefined;
   return (
     <ul className={`ev-list${className ? ` ${className}` : ""}`}>
-      {rows.map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} claim={claim} open={open} />)}
+      {rows.map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} of={of} noun={noun} claim={claim} open={open} />)}
     </ul>
   );
 }
