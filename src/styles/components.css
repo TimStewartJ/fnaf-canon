@@ -339,6 +339,7 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 }
 .callout[data-tone="open"] { border-style: dashed; border-left-style: solid; }
 .callout__label { display: flex; align-items: center; gap: 0.5em; margin: 0 0 var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--tone, var(--c-text-2)); }
+.callout__body { overflow-wrap: anywhere; }
 .callout__body > :last-child { margin-bottom: 0; }
 /* A callout may be as wide as its container; its text keeps a readable line. */
 .callout__body > :where(p, ul, ol) { max-width: 78ch; }
