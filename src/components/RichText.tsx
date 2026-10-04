@@ -1,4 +1,4 @@
-import { Fragment, type MouseEvent, type ReactNode } from "react";
+import { Fragment, useCallback, useId, type MouseEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { CornerDownRight, MapPin, User } from "lucide-react";
 import type { DateKind, Evidence } from "../data/schema";
@@ -6,11 +6,12 @@ import { evidenceById, personById, placeById } from "../data/store";
 import { gameById } from "../data/store";
 import { type CiteNumbering, useCiteNumbering } from "./citeScope";
 import { isPlainClick, useEvidenceDrawer } from "./evidenceDrawer";
-import { DATE_KIND, firmness, kindLabel } from "./labels";
+import { DATE_KIND, RECORD_TAG_KIND, type RecordTag, firmness, kindLabel } from "./labels";
 import { evidencePath, personPath, placePath } from "./links";
 import { entityName, isDescriptor, opensSentence } from "./names";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
+import { recordTagPieces } from "./textMarks";
 import { longDate, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
@@ -296,6 +297,89 @@ export function RealDate({ date, short = false, about, className }: { date: stri
     : <span title={title} className={className}>{text}</span>;
 }
 
+/* ── Tags on a weaker kind of record ───────────────────────────────────────────── */
+
+/** The ancestors that cut off what overflows them (a clamped caption, a folded summary). One that scrolls cuts nothing off: its content can be reached. */
+function clippers(el: HTMLElement): HTMLElement[] {
+  const out: HTMLElement[] = [];
+  for (let a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+    const s = getComputedStyle(a);
+    if (/hidden|clip/.test(`${s.overflowX} ${s.overflowY}`)) out.push(a);
+  }
+  return out;
+}
+
+/** True when nothing of the element shows inside the box. */
+function cutOff(el: HTMLElement, box: HTMLElement): boolean {
+  const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+  return r.top >= b.bottom - 1 || r.bottom <= b.top + 1 || r.left >= b.right - 1 || r.right <= b.left + 1;
+}
+
+/**
+ * Keeps a marker out of the tab order while the text it stands in is cut off before it (a caption
+ * held to two lines, a summary folded on a phone). A tab stop there is one nobody can see, and
+ * focus would drag the cut text up into its box. It is looked at when the marker is drawn and
+ * whenever the block it stands in changes size, which is what applying or lifting a cut does.
+ * Returns what ends the watch.
+ */
+function watchClipping(el: HTMLElement): () => void {
+  if (typeof ResizeObserver === "undefined") return () => {};
+  let block = el.parentElement;
+  while (block?.parentElement && /^(inline|contents)$/.test(getComputedStyle(block).display)) block = block.parentElement;
+  if (!block) return () => {};
+  const watcher = new ResizeObserver(() => {
+    const cut = clippers(el).some((box) => cutOff(el, box));
+    if (cut !== (el.tabIndex < 0)) el.tabIndex = cut ? -1 : 0;
+  });
+  watcher.observe(block);
+  return () => watcher.disconnect();
+}
+
+/**
+ * One of the four tags on a weaker kind of record, drawn where the text has it: "(as described)".
+ * The words stay as they were written, brackets and all, in the face and size of their sentence,
+ * and wrap with it; what is added is a dotted line under them and, when the tag is pointed at,
+ * focused or pressed, a few words saying what it means (the same popover the date pills use). It
+ * holds no links, so focus alone may open it. Copied and printed text is the text as written.
+ * Produced by <RichText>; the meanings are RECORD_TAGS in labels.ts.
+ */
+export function RecordTagMark({ tag, children }: { tag: RecordTag; children: string }) {
+  const [pop, anchorRef] = usePopover();
+  const meaning = useId();
+  const ref = useCallback((el: HTMLElement | null) => {
+    anchorRef(el);
+    if (!el) return;
+    const stop = watchClipping(el);
+    return () => { stop(); anchorRef(null); };
+  }, [anchorRef]);
+  return (
+    <span className="rec-tag-wrap" {...pop.wrapProps}>
+      {/* A span, not a <button>: a button is one unbreakable box, and these words must break across lines like the rest. */}
+      <span
+        ref={ref}
+        role="button"
+        tabIndex={0}
+        className="rec-tag"
+        aria-expanded={pop.open}
+        aria-describedby={meaning}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); pop.toggle(); }}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pop.toggle(); } }}
+      >
+        {children}
+      </span>
+      {/* What a screen reader says after the words. Not drawn, so it is neither copied nor printed. */}
+      <span id={meaning} hidden>{tag.means}</span>
+      {pop.open && (
+        <Pop control={pop} className="pop--tag">
+          <span className="pop__head"><span className="pop__kind">{RECORD_TAG_KIND}</span></span>
+          <strong className="pop__title">{tag.name}</strong>
+          <span className="pop__text">{tag.means}</span>
+        </Pop>
+      )}
+    </span>
+  );
+}
+
 /* ── RichText ──────────────────────────────────────────────────────────────────── */
 
 const TOKEN_RE = /\[\[([a-z0-9-]+)\]\]|\{\{([a-z0-9-]+)\}\}|\(\(([a-z0-9-]+)(?:\|([^)]+))?\)\)|\*\*(.+?)\*\*|\*([^\s*](?:[^*]*[^\s*])?)\*|<<([^|>]+)\|([a-z]+)\|([a-z0-9,-]*)\|([^>]*)>>/g;
@@ -309,6 +393,8 @@ type Piece = { t: "text"; s: string } | { t: "cites"; ids: string[] } | { t: "no
  *   ((chapter-id)) ((id|label))   link to a theory chapter
  *   **bold**  *italic*            may contain other tokens
  *   <<label|kind|ids|basis>>      a date pill
+ * and, in the plain text between them, the four tags on a weaker kind of record ("(as described)"),
+ * each drawn as a marker that says what it means (see RecordTagMark).
  *
  * Names are stored as they run in a sentence ("the rabbit in the code"), so an entity that opens
  * the text or follows the end of a sentence is printed with a capital. The text is taken to open
@@ -349,7 +435,8 @@ export function RichText({ text: source, opens = true }: { text: string; opens?:
   pieces.forEach((p, i) => {
     if (p.t === "text") {
       // A marker hugs the word before it: drop the space the author typed before [[…]].
-      out.push(pieces[i + 1]?.t === "cites" ? p.s.replace(/\s+$/, "") : p.s);
+      const s = pieces[i + 1]?.t === "cites" ? p.s.replace(/\s+$/, "") : p.s;
+      recordTagPieces(s).forEach((piece, j) => out.push(typeof piece === "string" ? piece : <RecordTagMark key={`t${i}.${j}`} tag={piece.tag}>{piece.text}</RecordTagMark>));
     } else if (p.t === "cites") out.push(<CiteGroup key={`c${i}`} ids={p.ids} />);
     else out.push(p.node);
   });

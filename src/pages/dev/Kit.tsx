@@ -76,6 +76,10 @@ export default function DevKit() {
         {/* Names are stored as they run in a sentence; a name that stands alone or opens a sentence takes a capital, and a descriptor is italic where people are listed. */}
         <div className="dev-row"><span className="label">A descriptor</span><EntityLink id="glitchtrap" variant="chip" /><span>alone: <EntityLink id="glitchtrap" alone /></span><span>in a sentence: see <EntityLink id="glitchtrap" />.</span></div>
         <p className="prose"><RichText text="{{glitchtrap}} opens a sentence with a capital. Inside one, {{glitchtrap}} keeps its small letter." /></p>
+        {/* The four tags on a weaker kind of record. Each is the words as written, with a dotted line and its meaning on hover, focus or a press. */}
+        <p className="prose" id="kit-tags"><RichText text="The four tags: the call ends in a scream (as described) [[fnaf1-call4-phone-guy-attacked]], a poster among the textures (read from an image) names the diner, the keypad answers to 1-9-8-3 (a fan wiki's account), and in a 2018 interview (a transcript) Scott said more. In bold the tag keeps its mark: **(as described)**. Inside a longer bracket the phrase alone is marked (a rabbit costume's, by a fan wiki's account). Outside a bracket the same words are a sentence and are left alone: by a fan wiki's account, read from an image." /></p>
+        {/* A tag in text that is cut off takes no tab stop: this paragraph is held to two lines, and its tag is on a later one. */}
+        <p className="prose dev-clamp" id="kit-tags-cut"><RichText text="A paragraph held to two lines, as a caption is in a tile or a summary is on a phone. Its first lines are plain words, long enough to fill the two lines that show at any width from a phone to a desk, and then some more words to be sure of it. The tag stands in the part that is cut off (as described), where no key should stop." /></p>
       </Section>
 
       <Section title="Buttons and controls">
