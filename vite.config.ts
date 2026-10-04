@@ -206,9 +206,10 @@ function delivery(): Plugin {
 export default defineConfig({
   plugins: [react(), imageSizes(), delivery()],
   build: {
-    // The evidence records are one chunk of about 1.3 MB (some 210 kB as brotli) because the data
-    // store loads them all at start. That is the archive's content, not code that could be split.
-    chunkSizeWarningLimit: 1400,
+    // The evidence records are one chunk of about 1.4 MB (some 230 kB as brotli) because the data
+    // store loads them all at start. That is the archive's content, not code that could be split,
+    // and it grows with every record added: the limit leaves room for about four hundred more.
+    chunkSizeWarningLimit: 2000,
     rolldownOptions: {
       output: {
         // Named, stable chunks. The framework, the evidence records, the theory's text and the rest
