@@ -7,7 +7,7 @@ import { GameBadge, RichText } from "../components/ui";
 
 const GROUPS: [Person["group"], string, string][] = [
   ["afton", "The Afton family", "William Afton and his children"],
-  ["emily", "The Cassette Man's household", "The partner and the daughter he lost"],
+  ["cassette", "The Cassette Man's household", "The partner and the daughter he lost"],
   ["victim", "The victims", "The children, and those who haunt"],
   ["protagonist", "Guards & protagonists", "The people we play as"],
   ["pizzaplex", "The Pizzaplex era", "Vanessa, Gregory and Cassie"],

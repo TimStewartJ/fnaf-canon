@@ -10,7 +10,7 @@ interface N extends SimulationNodeDatum { id: string; group: string; weight: num
 interface L extends SimulationLinkDatum<N> { rel: Relation }
 
 const GROUP_COLOR: Record<string, string> = {
-  afton: "#b784ff", emily: "#f4c95d", victim: "#7fd1ff", protagonist: "#8ce99a", staff: "#ced4da",
+  afton: "#b784ff", cassette: "#f4c95d", victim: "#7fd1ff", protagonist: "#8ce99a", staff: "#ced4da",
   pizzaplex: "#ff8fab", mimic: "#ff9f43", entity: "#e8590c", other: "#adb5bd",
 };
 
