@@ -102,6 +102,13 @@ for (const s of theory) {
   const where = `theory ${s.id}`;
   for (const t of sectionTexts(s)) textRefs(where, t);
   need(`${where} counter`, s.counterEvidence ?? []);
+  // "What pushes back" lists these records, and "how the model handles it" must answer each one:
+  // a record listed against a chapter that its reply never cites is a record explained away by silence.
+  {
+    const answered = new Set([...(s.tension ?? "").matchAll(/\[\[([a-z0-9-]+)\]\]/g)].map((m) => m[1]));
+    const silent = (s.counterEvidence ?? []).filter((id) => !answered.has(id));
+    if (silent.length) errors.push(`${where}: ${silent.length} of its counter-evidence records ${silent.length === 1 ? "is" : "are"} not cited in its tension: ${silent.join(", ")}`);
+  }
   need(`${where} further`, s.further ?? []);
   for (const b of s.body) {
     need(`${where} block`, blockEvidenceIds(b));
