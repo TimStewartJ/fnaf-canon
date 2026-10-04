@@ -29,6 +29,8 @@ let readerUntil = 0;
 let last = 0;
 let turn = 0;
 let dir = 0;
+/** Until this moment a scroll is the site keeping the reader where they are (see keepHeader), and the header stays as it is. */
+let stillUntil = 0;
 
 function set(next: boolean): void {
   if (next === away) return;
@@ -46,6 +48,7 @@ function position(): number {
 function onScroll(): void {
   const y = position();
   const now = performance.now();
+  if (now < stillUntil) { last = turn = y; dir = 0; return; }
   const readers = now < readerUntil;
   // A page still gliding after the finger has left it is still being moved by the reader.
   if (readers) readerUntil = Math.max(readerUntil, now + 160);
@@ -71,6 +74,15 @@ export function settleHeader(): void {
   set(true);
   // If nothing then moves (the page was already there) no scroll event will say where it stands.
   requestAnimationFrame(() => { if (listening && position() <= height) set(false); });
+}
+
+/**
+ * Call just before the site moves the page only to keep the reader on the line they are reading
+ * (the text size changed under them, and the page is put back where it was). The header neither
+ * leaves nor returns for that move: the reader has not gone anywhere, and may have its settings open.
+ */
+export function keepHeader(): void {
+  stillUntil = performance.now() + 250;
 }
 
 /** Runs the header's coming and going for as long as the window is narrow. `header` is the header element. */
