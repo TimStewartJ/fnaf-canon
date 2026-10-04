@@ -176,7 +176,7 @@ export const chapters: TheorySection[] = [
       "Among Special Delivery's staff emails (see ((digital))) is a run from {{luis-cabrera}}, who monitors what staff do online, to a colleague he calls {{ness}}. Her searches have set off his alarms: anything with \"torture\" in it [[sd-ness-blood-eagle-calendar]], then \"how to induce compliance in human subjects, and how to induce self-compliance(?)\", and he asks whether she searched for the one word help [[sd-ness-compliance-searches]].",
       "By the order in which the emails arrive, itself a convention, only the \"torture\" email [[sd-ness-blood-eagle-calendar]] comes before the contractor's scan goes wrong [[sd-circuit-board-scan-virus]]. Because that one email comes before the scan, the model reads {{glitchtrap}} (known as Glitchtrap, Scott's working name for it) as having reached her through the VR game.",
       { kind: "heading", text: "Vanessa matches Ness at four points" },
-      "Security Breach is set in {{mega-pizzaplex}} (see ((pizzaplex))), and its security guard is {{vanessa}} [[security-breach-msg-marked-for-deletion]]. A set of retro CDs in that game holds her sessions with company therapists [[security-breach-cd-therapists-shared-and-replaced]]. Here they are set beside Luis's emails. No game calls Ness \"Vanessa\".",
+      "Security Breach is set in {{mega-pizzaplex}} (see ((pizzaplex))), and its security guard is {{vanessa}}: a security report signed with her name says \"I was the only one here\" [[security-breach-msg-false-alarm]], and interview notes weigh her for Chief Security Officer [[security-breach-msg-marked-for-deletion]]. A set of retro CDs in that game holds her sessions with company therapists [[security-breach-cd-therapists-shared-and-replaced]]. Here they are set beside Luis's emails. No game calls Ness \"Vanessa\".",
       { kind: "table", head: ["The link", "Ness, in Special Delivery", "Vanessa, in Security Breach"], rows: [
         ["A colleague named Luis", "The emails about her searches are his", "A check of her online history finds Luis, and encrypted conversations with someone else [[security-breach-cd-vanessa-encrypted-conversation]]"],
         ["Things the monitoring caught her buying", "Three \"lifelike, human male rubber masks\" [[sd-ness-rubber-masks]]", "A costume and fake fur, kept secret: \"He said he would always be watching.\" [[security-breach-cd-vanessa-costume-fur]]"],
@@ -221,7 +221,6 @@ export const chapters: TheorySection[] = [
       "hw2-credits-vanny", // [stated] Cast credits list a 'Vanny' role
       "hw2-pq4-alpha-take-it", // [stated] The cabinet reads 'Princess Quest IV'; its title screen, 'Princess Quest (Alpha)'
       "security-breach-msg-stolen-property", // [stated] Vanessa's report: Music Man prototypes stolen, 'no sign of a break in'
-      "security-breach-msg-false-alarm", // [stated] Vanessa turns away a police officer
       "security-breach-msg-no-questions-asked", // [implied] Head Security Guard hired with an anonymous internal reference
       "security-breach-msg-pq1-maint-log", // [stated] Maintenance log guesses Princess Quest 1 came from 'that old mobile game'
       "security-breach-vanny-lines", // [stated] Vanny's spoken lines

@@ -27,5 +27,8 @@ In the order the work ran:
 | `reader2-memo.md` | The second reader's memo: a verdict on the finished text and 26 cuts, moves and headings, all applied. |
 | `ev-gaps.md`, `ev-checks.md`, `ev-checks2.md` | The last evidence work: eighteen records that the open checks asked for, and then those checks themselves and the scenes still told second-hand, set against recordings of play. Each says what was read on screen, where in which recording, and what could not be found. |
 | `ux-review-desktop.md`, `ux-review-mobile.md` | Two independent reviews of the new interface, at a desk with a keyboard and on a phone. |
+| `verify-5.md` | The verification of the ninety or so sentences that changed when records were set against recordings: 17 findings, all applied, and four questions for the adjudicator with their answers in `../rulings.md` and `../open-checks.md`. |
+| `acceptance-read.md` | The last read before publication, as a fan on a phone and then as a careful reader at a desk: a verdict for each, 33 findings (none a blocker), ten statements traced from the page to their records, and what works well. Its pictures and scripts were not kept. |
+| `ui-notes-lead.md` | The interface's lead author's notes: what was built, what each review finding became, what was declined and why, and what to check on an iPhone. The rules themselves are in `../../docs/DESIGN.md`. |
 
 What is still unverified, and what a future pass should do first, is in `../open-checks.md`.
