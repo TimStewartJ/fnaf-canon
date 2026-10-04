@@ -11,13 +11,19 @@ import { smartQuotes } from "./typography";
 
 /**
  * Pixel-art PNGs stay crisp when drawn larger than they are; everything else is drawn smooth.
- * The image is fitted inside its box (object-fit: contain), so the scale is the smaller of the two
- * sides': a tall image in a wide box is being shrunk, however wide the box.
+ * How large an image is drawn depends on how it is fitted to its box. Fitted inside it (object-fit:
+ * contain, the frame's default), the scale is the smaller of the two sides': a tall image in a wide
+ * box is being shrunk, however wide the box. Filling it (cover, as in a card's cropped picture),
+ * the scale is the larger: the same image across a wide card is being enlarged.
  */
 function markScale(img: HTMLImageElement): void {
   const png = /\.png(\?|$)/i.test(img.currentSrc || img.src);
-  const scale = img.naturalWidth > 0 && img.naturalHeight > 0 ? Math.min(img.clientWidth / img.naturalWidth, img.clientHeight / img.naturalHeight) : 0;
-  img.classList.toggle("is-upscaled", png && scale > 1.05);
+  let scale = 0;
+  if (png && img.naturalWidth > 0 && img.naturalHeight > 0) {
+    const across = img.clientWidth / img.naturalWidth, down = img.clientHeight / img.naturalHeight;
+    scale = getComputedStyle(img).objectFit === "cover" ? Math.max(across, down) : Math.min(across, down);
+  }
+  img.classList.toggle("is-upscaled", scale > 1.05);
 }
 /** Measures again when an image's box changes size (the window, the viewer's stage). */
 const scaleWatch = typeof ResizeObserver === "undefined" ? null : new ResizeObserver((entries) => { for (const e of entries) markScale(e.target as HTMLImageElement); });
