@@ -22,11 +22,15 @@
  *     [--font 20]                      the browser's own default font size in px (16 unless set): what a
  *                                      reader gets from "Large" or "Very large" in the browser's settings
  *     [--no-shots]                     skip the screenshots (a wide sweep of widths)
+ *     [--browser firefox]              the engine to crawl with: chromium (the default), firefox or webkit,
+ *                                      where Playwright has it (`npx playwright install firefox`). Firefox
+ *                                      has no phone emulation, so a narrow width there is a narrow window
+ *                                      with touch; --font is Chromium's only.
  * A route that lands on a "not found" page is an error too, unless it is listed as one on purpose
  * (NOT_FOUND below): an id renamed in the data must not turn a check into a pass on an empty page.
  * Exit code 1 when any route has a console/page error, a failed request or horizontal overflow.
  */
-import { chromium } from "playwright";
+import { chromium, firefox, webkit } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -74,12 +78,15 @@ if (flag("axe")) {
 }
 
 const font = Number(opt("font", "16"));
-const browser = await chromium.launch({ args: font !== 16 ? [`--blink-settings=defaultFontSize=${font}`] : [] });
+const engineName = opt("browser", "chromium");
+const engine = { chromium, firefox, webkit }[engineName];
+if (!engine) { console.error(`unknown --browser ${engineName}: use chromium, firefox or webkit`); process.exit(2); }
+const browser = await engine.launch(engineName === "chromium" && font !== 16 ? { args: [`--blink-settings=defaultFontSize=${font}`] } : {});
 const report = [];
 let bad = 0;
 for (const width of widths) {
   const height = width >= 700 ? 900 : 844;
-  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700, isMobile: width < 700 });
+  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700, ...(engineName === "firefox" ? {} : { isMobile: width < 700 }) });
   if (customPrefs) await ctx.addInitScript((p) => { try { localStorage.setItem("fca:prefs", JSON.stringify(p)); } catch { /* about:blank has no storage */ } }, prefs);
   const page = await ctx.newPage();
   let errs = [];
