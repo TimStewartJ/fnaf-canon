@@ -18,10 +18,9 @@
  * Links written before several values were allowed carry exactly one and read the same as ever.
  */
 import type { Evidence } from "../../data/schema";
-import { allTags, evidence, evidenceById, games, labelForEntity, personById, placeById } from "../../data/store";
+import { allTags, evidence, games, labelForEntity, personById, placeById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
-import { CERTAINTY, KIND_LABEL, entityName, namesOf, smartQuotes, sortName } from "../../components/ui";
-import { recordIdPieces, shortTitle } from "../../components/textMarks";
+import { CERTAINTY, KIND_LABEL, entityName, namesOf, recordWords, smartQuotes, sortName } from "../../components/ui";
 import { isPlace, placeOf, type Place } from "./coverage";
 
 export type Sort = "match" | "time" | "game";
@@ -365,25 +364,17 @@ export function claimFor(e: Evidence, terms: string[]): string {
 }
 
 /**
- * A record's notes as plain words, for an excerpt: another record is named by its title and
- * never by its id, as <RecordText plain> prints it.
- */
-function noteWords(notes: string): string {
-  return recordIdPieces(smartQuotes(notes), (id) => evidenceById.has(id))
-    .map((p) => (typeof p === "string" ? p : shortTitle(smartQuotes(evidenceById.get(p.id)?.title ?? p.id))))
-    .join("");
-}
-
-/**
  * When a matched word is nowhere in what a row shows (title, claim, exact spot), says where it
- * was found, with a short excerpt.
+ * was found, with a short excerpt. A note is excerpted as plain words (recordWords): a record it
+ * names in a sentence is given by its title, and a bracket that only cites records is left out,
+ * as on the record's own page, where a numeral stands for it.
  */
 export function elsewhere(e: Evidence, terms: string[]): { label: string; text: string } | null {
   if (!terms.length) return null;
   const shown = fold(`${e.title} \n ${e.claim} \n ${e.location}`);
   const missing = terms.filter((t) => !shown.includes(t));
   if (!missing.length) return null;
-  const fields: [string, string][] = [["Quote", smartQuotes(e.quote ?? "")], ["Note", noteWords(e.notes ?? "")], ["Id", e.id], ["Tags", (e.tags ?? []).map((t) => `#${t}`).join(" ")]];
+  const fields: [string, string][] = [["Quote", smartQuotes(e.quote ?? "")], ["Note", recordWords(e.notes ?? "")], ["Id", e.id], ["Tags", (e.tags ?? []).map((t) => `#${t}`).join(" ")]];
   for (const [label, text] of fields) {
     const low = fold(text);
     const hit = missing.map((t) => low.indexOf(t)).filter((i) => i >= 0).sort((a, b) => a - b)[0];

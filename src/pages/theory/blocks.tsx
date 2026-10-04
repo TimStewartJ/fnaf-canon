@@ -3,7 +3,7 @@ import type { SectionHead } from "./model";
 import { Check } from "lucide-react";
 import type { Evidence, TheoryBlock } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, plural, smartQuotes, sourceWords } from "../../components/ui";
+import { Callout, CiteGroup, EvidenceCard, EvidenceLink, Figure, GameMark, Icon, RichText, TableWrap, plainText, plural, pulledWords, smartQuotes, sourceWords } from "../../components/ui";
 
 type CompareColumn = Extract<TheoryBlock, { kind: "compare" }>["columns"][number];
 
@@ -14,7 +14,8 @@ function PullQuote({ id, text }: { id: string; text?: string }) {
   const words = text ?? e.quote;
   return (
     <figure className="pullquote">
-      <blockquote className={words ? undefined : "pullquote--claim"}>{sourceWords(words ?? e.claim)}</blockquote>
+      {/* A quotation that begins inside its sentence opens with an ellipsis (pulledWords); the claim that stands in for a missing quotation is the archive's own sentence. */}
+      <blockquote className={words ? undefined : "pullquote--claim"}>{words ? pulledWords(words) : sourceWords(e.claim)}</blockquote>
       <figcaption>
         <EvidenceLink id={e.id} className="pullquote__source"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></EvidenceLink>
         <CiteGroup ids={[e.id]} />
