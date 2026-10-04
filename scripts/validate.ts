@@ -1,4 +1,5 @@
 /* Validates referential integrity of the canon data. Run: npx tsx scripts/validate.ts */
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -145,6 +146,30 @@ for (const t of familyTrees) for (const m of t.members) if (!personIds.has(m.id)
 for (const c of credits) if (!fs.existsSync(path.join(root, "public/img", c.file))) errors.push(`credit: missing file ${c.file}`);
 const credited = new Set(credits.map((c) => c.file));
 for (const f of fs.readdirSync(path.join(root, "public/img"))) if (!credited.has(f)) warnings.push(`image without credit: ${f}`);
+// Small copies of the images (public/thumb, made by scripts/thumbs.py). Its manifest holds a hash of every
+// image the script has looked at: those it made a copy of ("copies") and those it left alone ("as-is").
+// A copy made from an image that has since changed would show the old picture: an error. An image the
+// script has not looked at is only served whole until it is: a warning.
+{
+  const thumbDir = path.join(root, "public/thumb");
+  const manifestPath = path.join(root, "scripts/thumbs-manifest.json");
+  if (fs.existsSync(manifestPath) && fs.existsSync(thumbDir)) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as { copies?: Record<string, string>; "as-is"?: Record<string, string> };
+    const copies = manifest.copies ?? {}, asIs = manifest["as-is"] ?? {};
+    const redo = "run python3 scripts/thumbs.py";
+    const digestOf = (file: string) => crypto.createHash("sha1").update(fs.readFileSync(path.join(root, "public/img", file))).digest("hex");
+    for (const [file, digest] of Object.entries(copies)) {
+      if (!fs.existsSync(path.join(root, "public/img", file))) { errors.push(`thumbnail of a missing image: ${file} (${redo})`); continue; }
+      if (digestOf(file) !== digest) errors.push(`thumbnail out of date: ${file} (${redo})`);
+      if (!fs.existsSync(path.join(thumbDir, `${file}.webp`))) errors.push(`thumbnail missing: ${file} (${redo})`);
+    }
+    for (const f of fs.readdirSync(thumbDir)) if (f.endsWith(".webp") && !(f.slice(0, -".webp".length) in copies)) errors.push(`thumbnail without a source: ${f} (${redo})`);
+    for (const f of fs.readdirSync(path.join(root, "public/img"))) {
+      if (!/\.(png|jpe?g|webp|gif)$/i.test(f) || f in copies) continue;
+      if (asIs[f] === undefined || asIs[f] !== digestOf(f)) warnings.push(`image that scripts/thumbs.py has not looked at, served whole until it has: ${f} (${redo})`);
+    }
+  }
+}
 
 // ── Consistency rules added by the theory audit ──
 const evById = new Map(evidence.map((e) => [e.id, e]));

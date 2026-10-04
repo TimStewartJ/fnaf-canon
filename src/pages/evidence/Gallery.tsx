@@ -55,7 +55,7 @@ const GroupSection = memo(function GroupSection({ g, all, fold, onShowAll, onZoo
           return (
             <li key={credit.file} className="gal-tile">
               <figure className="figure">
-                <FigureFrame file={credit.file} alt={credit.caption} near onZoom={() => onZoom(g.id, at)} />
+                <FigureFrame file={credit.file} alt={credit.caption} near small onZoom={() => onZoom(g.id, at)} />
                 <figcaption className="figure__caption">
                   <span className="figure__text">{smartQuotes(credit.caption)}</span>
                   <span className="figure__meta">

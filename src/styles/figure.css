@@ -69,7 +69,8 @@ dialog.lightbox[open] { display: grid; }
 .lightbox .icon-btn { color: var(--c-mat-text); border-color: var(--c-line-strong); }
 .lightbox .icon-btn:hover { background: var(--c-scrim); border-color: var(--c-mat-text); }
 .lightbox__stage { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); min-height: 0; min-width: 0; padding: 0 var(--sp-2); cursor: zoom-out; }
-.lightbox__stage img { flex: 1 1 0; min-width: 0; width: 100%; height: 100%; object-fit: contain; }
+/* The background is the image's small copy, set while the image itself is on its way: it is fitted exactly as the image will be. */
+.lightbox__stage img { flex: 1 1 0; min-width: 0; width: 100%; height: 100%; object-fit: contain; background: center / contain no-repeat; }
 .lightbox__nav { flex: none; }
 /* A phone: the picture takes the whole width, and the arrows lie over its edges. (A flick to
    either side changes the picture too, and a pull downwards closes the viewer: Figure.tsx.) */
