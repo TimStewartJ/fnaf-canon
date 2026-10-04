@@ -72,6 +72,38 @@ export const DATE_KIND: Record<DateKind, { label: string; help: string }> = {
 export const DATE_KINDS: DateKind[] = ["printed", "derived", "estimated", "relative", "teaser", "unknown"];
 
 /**
+ * The four tags the text sets, in brackets, beside a statement that rests on a record of a weaker
+ * kind: "(as described)". They are fixed phrases in the data; <RichText> draws each where it
+ * stands as a quiet marker that says what it means (<RecordTagMark>). This is the one place the
+ * meanings are kept: a sentence or two each, after the chapter on the rules (`canon-rules`), and
+ * saying no more than it does.
+ *   phrase  the tag as the data writes it, without its brackets
+ *   name    the same words as a heading
+ *   means   what the tag says about the record
+ */
+export interface RecordTag { phrase: string; name: string; means: string }
+export const RECORD_TAGS: RecordTag[] = [
+  {
+    phrase: "a transcript", name: "A transcript",
+    means: "Scott Cawthon’s 2018 and 2024 interviews are on record here as machine transcripts of archived video. A transcript supports a claim about the story, and is never the only support for one.",
+  },
+  {
+    phrase: "read from an image", name: "Read from an image",
+    means: "The words or the date were read from an image, such as one of the game’s own picture files, and have not yet been seen in play. A date read this way is not called a printed date.",
+  },
+  {
+    phrase: "as described", name: "As described",
+    means: "The archive holds this scene or sound as a description, and has not captured it: no recording or screenshot of it is on file.",
+  },
+  {
+    phrase: "a fan wiki's account", name: "A fan wiki’s account",
+    means: "This count, comparison or detail is taken from a fan wiki, and the archive gives it as the wiki’s account.",
+  },
+];
+/** What the four have in common, as the small heading over each meaning. */
+export const RECORD_TAG_KIND = "A weaker kind of record";
+
+/**
  * Deaths and other fates: what the records carry about the victim of an entry in data/deaths.ts
  * (its `outcome`; none means a death). The list holds more than deaths, so nothing may call an
  * entry a death, or count it as one, unless it is: print the entry's own word (<OutcomeMark>, or

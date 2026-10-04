@@ -10,6 +10,7 @@ import { FirmGlyph, Firmness } from "./Firmness";
 import { Figure } from "./Figure";
 import { GameMark } from "./GameMark";
 import { Icon } from "./Icon";
+import { RecordText } from "./RecordText";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { smartQuotes, sourceWords } from "./typography";
 
@@ -50,7 +51,7 @@ export function EvidenceCard({ e, showImage = true, open = "drawer", group, comp
         <Firmness scale="certainty" value={e.certainty} variant={compact ? "inline" : "tag"} />
       </header>
       <h3 className="ev-card__title"><EvidenceLink id={e.id} open={open} group={group}>{smartQuotes(e.title)}</EvidenceLink></h3>
-      <p className="ev-card__claim">{smartQuotes(e.claim)}</p>
+      <p className="ev-card__claim"><RecordText text={e.claim} open={open} self={e.id} /></p>
       {e.quote && <blockquote className="ev-card__quote">“{sourceWords(e.quote)}”</blockquote>}
       {!compact && figure}
       <footer className="ev-card__foot">
@@ -76,7 +77,7 @@ export function EvidenceRow({ e, n, group, of, noun, claim = true, open = "drawe
       <span className="ev-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <span className="ev-row__main">
         <EvidenceLink id={e.id} group={group} of={of} noun={noun} open={open} className="ev-row__title">{smartQuotes(e.title)}</EvidenceLink>
-        {claim && <span className="ev-row__claim">{smartQuotes(e.claim)}</span>}
+        {claim && <span className="ev-row__claim"><RecordText text={e.claim} plain /></span>}
         <span className="ev-row__meta"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></span>
       </span>
     </Tag>

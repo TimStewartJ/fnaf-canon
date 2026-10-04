@@ -12,6 +12,7 @@ import { EvidenceRow } from "./EvidenceCard";
 import { Figure } from "./Figure";
 import { Firmness } from "./Firmness";
 import { Callout, Fact, Facts } from "./layout";
+import { RecordText } from "./RecordText";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
 import { count, smartQuotes, sourceWords } from "./typography";
 
@@ -26,17 +27,17 @@ function Record({ e }: { e: Evidence }) {
       {/* The source by its full name: a reader checking a claim may not know what "FFPS" stands for. */}
       <p className="drawer__source"><SourceLine e={e} full /></p>
       <h2 className="drawer__title" id="drawer-title" tabIndex={-1}>{smartQuotes(e.title)}</h2>
-      <p className="drawer__claim">{smartQuotes(e.claim)}</p>
+      <p className="drawer__claim"><RecordText text={e.claim} self={e.id} /></p>
       {e.quote && <blockquote className="drawer__quote">“{sourceWords(e.quote)}”</blockquote>}
       {e.image && <Figure file={e.image} />}
       <Facts className="drawer__facts">
         <Fact label="Certainty"><Firmness scale="certainty" value={e.certainty} variant="inline" /> <span className="muted">{firmness("certainty", e.certainty).help}.</span></Fact>
-        <Fact label="In-universe time"><EvidenceDate e={e} self />{e.when.basis && <span className="muted"> {smartQuotes(e.when.basis)}</span>}</Fact>
+        <Fact label="In-universe time"><EvidenceDate e={e} self />{e.when.basis && <span className="muted"> <RecordText text={e.when.basis} self={e.id} /></span>}</Fact>
         {entities.length > 0 && <Fact label="People and places"><span className="cluster">{entities.map((id) => <EntityLink key={id} id={id} variant="chip" />)}</span></Fact>}
         {!!e.tags?.length && <Fact label="Tags"><span className="cluster">{e.tags.map((t) => <Tag key={t} to={`/evidence?tag=${t}`}>#{t}</Tag>)}</span></Fact>}
         {e.url && <Fact label="Original"><ExternalLink href={e.url} className="drawer__url">{e.url.replace(/^https?:\/\//, "")}</ExternalLink></Fact>}
       </Facts>
-      {e.notes && <Callout tone="note" title="Notes and caveats"><p>{sourceWords(e.notes)}</p></Callout>}
+      {e.notes && <Callout tone="note" title="Notes and caveats"><p><RecordText text={e.notes} emphasis self={e.id} /></p></Callout>}
       {chapters.length > 0 && (
         <section className="drawer__section">
           <h3 className="label">In the theory</h3>

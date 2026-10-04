@@ -157,7 +157,7 @@
 .pop__text { color: var(--c-text-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden; }
 /* A date's reason is the archive's argument for it and is printed nowhere else: never cut. */
 .pop--date { max-height: min(34rem, calc(100vh - 1rem)); }
-.pop--date .pop__text { display: block; -webkit-line-clamp: none; line-clamp: none; overflow: visible; }
+.pop--date .pop__text, .pop--tag .pop__text { display: block; -webkit-line-clamp: none; line-clamp: none; overflow: visible; }
 .pop__quote { font-family: var(--font-text); font-style: italic; color: var(--c-text); padding-left: var(--sp-3); border-left: 2px solid var(--c-accent-line); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
 .pop__meta { font-size: var(--fs-xs); color: var(--c-text-3); }
 .pop__hint { margin-top: 0.2rem; padding-top: 0.5rem; border-top: 1px solid var(--c-line); font-family: var(--font-mono); font-size: var(--fs-2xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-3); }
@@ -235,3 +235,13 @@ em .chapter-link, i .chapter-link { font-style: normal; }
 .date--tag:hover, .date--tag[aria-expanded="true"] { border-color: var(--c-accent-line); background: var(--c-accent-soft); }
 .date--compact { font-size: var(--fs-2xs); padding: 0.16em 0.5em 0.14em 0.42em; }
 @media (pointer: coarse) { .date--tag { padding-block: 0.45em; } }
+
+/* ── Tags on a weaker kind of record ───────────────────────────────
+ * "(as described)" and the other three, where the text has them. The words keep the face, size
+ * and colour of their sentence and wrap with it; the dotted line is the one the site draws under
+ * a word that has something to say for itself (a name, a date). */
+.rec-tag-wrap { display: inline; }
+.rec-tag { border-radius: var(--r-xs); text-decoration: underline dotted; text-decoration-color: var(--c-text-3); text-decoration-thickness: 1px; text-underline-offset: 0.22em; cursor: help; }
+.rec-tag:hover, .rec-tag[aria-expanded="true"] { color: var(--c-accent-strong); text-decoration-color: currentColor; }
+/* On paper there is nothing to point at: the words alone. */
+@media print { .rec-tag { text-decoration: none; } }
