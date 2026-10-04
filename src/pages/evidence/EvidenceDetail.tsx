@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
@@ -8,6 +8,7 @@ import {
   CERTAINTY, Callout, CertaintyMark, Chip, Collapsible, Crumbs, EntityLink, EvidenceDate, ExternalLink, Fact, Facts, Figure, GameMark, Icon, Missing, Page,
   RealDate, RichText, sourceKindIcon, Section, SourceLine, StatusMark, Tag, chapterNumber, chapterPath, evidencePath, isRelease, kindLabel, smartQuotes, sourcePath, sourceWords, tieSaid, timelineEventPath,
 } from "../../components/ui";
+import { readCheck } from "./checked";
 import { PLACE, beatsCiting, count, outsideGroupOf, placeOf, records } from "./coverage";
 import { ResultRow, PlaceSwatch } from "./explorerParts";
 import { neighbours } from "./sourceModel";
@@ -23,34 +24,27 @@ function Outbound({ href }: { href: string }) {
   return <ExternalLink href={href} className="evx-rec__url">{bare(href)}</ExternalLink>;
 }
 
-/** Where a web address ends inside a sentence: not at its own brackets, but before the punctuation after it. */
-function addressEnd(run: string): number {
-  let end = run.length;
-  while (end > 0) {
-    const ch = run[end - 1];
-    const head = run.slice(0, end);
-    const unopened = ch === ")" && (head.match(/\)/g)?.length ?? 0) > (head.match(/\(/g)?.length ?? 0);
-    if (/[.,;:!?'"]/.test(ch) || unopened) end -= 1; else break;
-  }
-  return end;
-}
-
 /**
- * A note that may hold no, one or several web addresses among its words (how a record's wording
- * was checked): the addresses become links, the words stay words.
+ * How a record's wording was checked (`verifiedVia`): against a page of a fan wiki, most often, or
+ * Steam's own API, an archived copy, a capture of the game. The data gives an address, a sentence,
+ * or a sentence with addresses in it; checked.ts reads all three into words, and an address is
+ * never the text of its link: the link says what kind of thing it is and names the page.
+ * A fan wiki is a research aid and never a source, so a note that names one says so.
  */
-function Linked({ text }: { text: string }) {
-  const out: ReactNode[] = [];
-  let at = 0;
-  for (const m of text.matchAll(/https?:\/\/\S+/g)) {
-    const url = m[0].slice(0, addressEnd(m[0]));
-    if (!url) continue;
-    if (m.index > at) out.push(smartQuotes(text.slice(at, m.index)));
-    out.push(<Outbound key={m.index} href={url} />);
-    at = m.index + url.length;
-  }
-  if (at < text.length) out.push(smartQuotes(text.slice(at)));
-  return <>{out}</>;
+function Checked({ note }: { note: string }) {
+  const check = readCheck(note);
+  if (!check.parts.length) return null;
+  return (
+    <div className="evx-rec__check">
+      <p className="label">How the wording was checked</p>
+      <p>
+        {check.parts.map((p, i) => ("href" in p
+          ? <ExternalLink key={i} href={p.href} className="evx-rec__url">{p.lead}{p.name && <cite>{smartQuotes(p.name)}</cite>}{p.tail}</ExternalLink>
+          : <Fragment key={i}>{smartQuotes(p.text)}</Fragment>))}
+      </p>
+      {check.wiki && <p className="evx-rec__aid">A fan wiki is where the wording was checked, not where the fact comes from.</p>}
+    </div>
+  );
 }
 
 /** One block of the "In the model" section: a small label and whatever hangs under it. */
@@ -187,7 +181,7 @@ export default function EvidenceDetail() {
           <div className="evx-rec__more">
             {e.image && <Figure file={e.image} tag="Exhibit" eager />}
             {e.notes && <Callout tone="note" title="Notes and caveats"><p>{sourceWords(e.notes)}</p></Callout>}
-            {e.verifiedVia && <p className="evx-rec__check"><span className="label">How the wording was checked</span> <Linked text={e.verifiedVia} /></p>}
+            {e.verifiedVia && <Checked note={e.verifiedVia} />}
           </div>
         )}
       </div>
