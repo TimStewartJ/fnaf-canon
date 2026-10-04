@@ -5,7 +5,7 @@ import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
   EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
-  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, smartQuotes,
+  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, recordWords, smartQuotes,
 } from "../../components/ui";
 import "./dev.css";
 
@@ -90,10 +90,11 @@ export default function DevKit() {
       </Section>
 
       <Section title="A record’s own prose">
-        {/* Notes, claims and date bases name other records by id. A known id is printed as the record's title, as a link that opens it; a long title is cut; an id no record has, and a word that only looks like one, stay as written. */}
-        <p className="read dev-narrow" id="kit-recordtext"><RecordText emphasis text="The year is hidden on the first game's cheque (fnaf1-paycheck-night5); see fnaf2-overtime-robots-scrapped and secret-of-the-mimic-opening-call-arnold-dispatch. An id that no record has stays as written (fnaf9-no-such-record), and so does a word that only looks like one: end-of-night, 11-12-1987. The source's own *emphasis* is kept." /></p>
-        <p className="read dev-narrow" id="kit-recordtext-plain"><span className="label">plain</span> <RecordText plain text="Where a link cannot go the title is words only (fnaf1-paycheck-night5)." /></p>
-        {/* A card whose claim names another record, and the same record as a row. */}
+        {/* Notes, claims and date bases name other records by id, and an id is never printed. Alone in a bracket it is a citation: the bracket goes and a numeral stands for each record. As a word of its sentence, or in a bracket with other words, it is the record's title, as a link; a long title is cut. An id no record has, and a word that only looks like one, stay as written. */}
+        <p className="read dev-narrow" id="kit-recordtext"><RecordText emphasis text="The year is hidden on the first game's cheque (fnaf1-paycheck-night5), and both of the second game's are dated (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). The same text is recorded as fnaf2-overtime-robots-scrapped, and the call opens the game (secret-of-the-mimic-opening-call-arnold-dispatch, a document not confirmed in play). An id that no record has stays as written (fnaf9-no-such-record), and so does a word that only looks like one: end-of-night, 11-12-1987. The source's own *emphasis* is kept." /></p>
+        {/* Where nothing can be a link (a row that is one, a preview, a popover): the same text as plain words. The citations are left out, bracket and all. */}
+        <p className="read dev-narrow" id="kit-recordtext-plain"><span className="label">plain words</span> {recordWords("The year is hidden on the first game's cheque (fnaf1-paycheck-night5), and both of the second game's are dated (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). The same text is recorded as fnaf2-overtime-robots-scrapped.")}</p>
+        {/* A card whose claim cites another record, and the same record as a row. */}
         <div className="dev-grid" id="kit-recordtext-card">{["into-the-pit-new-mill-fathers"].map((id) => evidenceById.get(id)).map((e) => e && <EvidenceCard key={e.id} e={e} />)}</div>
         <EvidenceList ids={["into-the-pit-new-mill-fathers", "ffps-lorekeeper-gravestones"]} />
       </Section>

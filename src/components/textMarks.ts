@@ -101,6 +101,47 @@ export function recordIdPieces(text: string, known: (id: string) => boolean): Id
   return out;
 }
 
+/** A run of plain text, the id of a known record standing in a sentence, or a bracket that held nothing but ids. */
+export type RefPiece = string | { id: string } | { ids: string[] };
+
+/** What may stand between two ids in a bracket that holds nothing else. */
+const BETWEEN_IDS = /^\s*(?:[,;]|and|,\s*and|&)\s*$/;
+
+/**
+ * recordIdPieces, with the two ways an id stands in a record's prose told apart. A bracket that
+ * holds nothing but ids, "(fnaf1-paycheck-night5)" or "(fnaf2-a, fnaf2-b)", is a citation: one
+ * piece, `{ ids }`, standing for the whole bracket (the text on either side loses the "(" and
+ * the ")"). An id anywhere else is a word of its sentence or of a longer bracket ("see fnaf2-a",
+ * "(fnaf2-a, a document not confirmed in play)"), and stays a piece of its own, `{ id }`.
+ */
+export function recordRefPieces(text: string, known: (id: string) => boolean): RefPiece[] {
+  const pieces: IdPiece[] = recordIdPieces(text, known);
+  const out: RefPiece[] = [];
+  for (let i = 0; i < pieces.length; i++) {
+    const piece = pieces[i], before = out[out.length - 1];
+    if (typeof piece !== "string" && typeof before === "string" && before.endsWith("(")) {
+      const ids = [piece.id];
+      let j = i + 1;
+      for (;;) {
+        const sep = pieces[j], next = pieces[j + 1];
+        if (typeof sep !== "string" || !BETWEEN_IDS.test(sep) || next === undefined || typeof next === "string") break;
+        ids.push(next.id);
+        j += 2;
+      }
+      const after = pieces[j];
+      if (typeof after === "string" && after.startsWith(")")) {
+        out[out.length - 1] = before.slice(0, -1);
+        out.push({ ids });
+        pieces[j] = after.slice(1);
+        i = j - 1;
+        continue;
+      }
+    }
+    out.push(piece);
+  }
+  return out.filter((p) => p !== "");
+}
+
 /** The most characters a record's title may take as a link inside a sentence before it is cut. */
 const TITLE_MAX = 72;
 

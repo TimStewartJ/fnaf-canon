@@ -11,7 +11,7 @@ import { evidencePath, personPath, placePath } from "./links";
 import { entityName, isDescriptor, opensSentence } from "./names";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
-import { RecordText } from "./RecordText";
+import { recordsNamed, recordWords } from "./richTextPlain";
 import { recordTagPieces } from "./textMarks";
 import { longDate, monthFirstNote, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
@@ -42,7 +42,7 @@ export function EvidencePreview({ e }: { e: Evidence }) {
         <Firmness scale="certainty" value={e.certainty} variant="inline" />
       </span>
       <strong className="pop__title">{smartQuotes(e.title)}</strong>
-      <span className="pop__text"><RecordText text={e.claim} plain /></span>
+      <span className="pop__text">{recordWords(e.claim)}</span>
       {e.quote && <q className="pop__quote">{sourceWords(e.quote)}</q>}
       <span className="pop__meta"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>
       <span className="pop__hint">Click to open the record</span>
@@ -57,29 +57,37 @@ export function EvidencePreview({ e }: { e: Evidence }) {
  * page, in order: the drawer then reads "Source 18 of 35", which confirms which marker was hit
  * (on a phone two of them can sit under one finger) and its arrows walk the page's sources.
  */
-function useOpenEvidence(id: string, group: string[] | undefined, after?: () => void, numbered?: CiteNumbering | null) {
+function useOpenEvidence(id: string, group: string[] | undefined, after?: () => void, numbered?: CiteNumbering | null, set?: CiteSet) {
   const drawer = useEvidenceDrawer();
   return (ev: MouseEvent) => {
     if (!isPlainClick(ev)) return; // let Ctrl/Cmd/middle click open the full record in a new tab
     ev.preventDefault();
     after?.();
     const all = numbered?.ids();
-    if (all && all.length > 1 && all.includes(id)) drawer.open(id, all, "", "Source");
+    if (set) drawer.open(id, set.ids.length > 1 ? set.ids : undefined, set.of, set.noun);
+    else if (all && all.length > 1 && all.includes(id)) drawer.open(id, all, "", "Source");
     else drawer.open(id, group, "cited here");
   };
 }
 
 /**
+ * A set of records that markers are numbered in and open among, for markers that stand where no
+ * page numbers them: a record's own prose shown in the drawer, which is drawn outside the page
+ * and its <CiteScope>. `noun` and `of` word the drawer's heading for the set ("Cited record 2 of 5").
+ */
+export interface CiteSet { ids: string[]; noun: string; of: string }
+
+/**
  * An inline citation marker: a small superscript number. Hover or focus previews the record;
  * click or tap opens it in the evidence drawer over the page. Usually produced by <RichText>.
  */
-export function Cite({ id, group }: { id: string; group?: string[] }) {
+export function Cite({ id, group, set }: { id: string; group?: string[]; set?: CiteSet }) {
   const e = evidenceById.get(id);
   const numbering = useCiteNumbering();
   const [pop, anchorRef] = usePopover();
-  const open = useOpenEvidence(id, group, pop.hide, numbering);
+  const open = useOpenEvidence(id, group, pop.hide, numbering, set);
   if (!e) return <span className="cite cite--missing" title="Missing evidence record">?{id}</span>;
-  const n = numbering ? numbering.number(id) : null;
+  const n = set ? set.ids.indexOf(id) + 1 || null : numbering ? numbering.number(id) : null;
   return (
     <span className="cite-wrap" {...pop.wrapProps}>
       <Link
@@ -97,8 +105,8 @@ export function Cite({ id, group }: { id: string; group?: string[] }) {
   );
 }
 
-/** Citations that sit next to each other, drawn as one cluster: ¹,²,³ */
-export function CiteGroup({ ids }: { ids: string[] }) {
+/** Citations that sit next to each other, drawn as one cluster: ¹,²,³. `set` numbers them in a set of their own (see CiteSet). */
+export function CiteGroup({ ids, set }: { ids: string[]; set?: CiteSet }) {
   const unique = [...new Set(ids)];
   const group = unique.length > 1 ? unique : undefined;
   return (
@@ -106,7 +114,7 @@ export function CiteGroup({ ids }: { ids: string[] }) {
       {unique.map((id, i) => (
         <Fragment key={id}>
           {i > 0 && <span className="cites__sep" aria-hidden>,</span>}
-          <Cite id={id} group={group} />
+          <Cite id={id} group={group} set={set} />
         </Fragment>
       ))}
     </span>
@@ -213,19 +221,24 @@ const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "es
 
 /**
  * A date with its justification. Hover, tap, or Enter on it shows why the date is what it is and
- * which records support it. The reason is given in full, however long. A label that is a date
- * in figures with the month first (11-12-1987, as a cheque prints it) is also given in words
- * there; the label itself is never changed.
+ * which records support it. The reason is given in full, however long, and in plain words: a
+ * record it names by id is not printed there but listed under "Rests on" with the rest. A label
+ * that is a date in figures with the month first (11-12-1987, as a cheque prints it) is also
+ * given in words there; the label itself is never changed.
+ *  - own   the record whose own page or drawer the pill stands on: never listed under "Rests on"
  *  - variant "tag" (default): a compact mono label, for cards, tables and headers
  *  - variant "inline": sits in a sentence without changing its rhythm (what <RichText> uses)
  */
-export function DatePill({ label, kind, basis, evidence = [], compact, variant = "tag" }: { label: string; kind: DateKind; basis?: string; evidence?: string[]; compact?: boolean; variant?: "tag" | "inline" }) {
+export function DatePill({ label, kind, basis, evidence = [], compact, variant = "tag", own }: { label: string; kind: DateKind; basis?: string; evidence?: string[]; compact?: boolean; variant?: "tag" | "inline"; own?: string }) {
   // Opened by a press, not by focus alone: it holds links, and a reader tabbing down a page of
   // dates should not have to pass through each one's sources.
   const [pop, anchorRef] = usePopover({ focus: false });
   const drawer = useEvidenceDrawer();
   const k = DATE_KIND[kind] ?? DATE_KIND.unknown;
-  const evs = evidence.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
+  // The records the reason names are records the date rests on: they are listed with the rest, to be opened, and the
+  // reason itself is given in plain words (a record's basis names other records by id). `own` is the record whose page this is.
+  const rests = basis ? [...new Set([...evidence, ...recordsNamed(basis)])].filter((id) => id !== own) : evidence;
+  const evs = rests.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   const ids = evs.map((e) => e.id);
   // A cheque dated 11-12-1987 is 12 November to its printer and 11 December to half its readers: the popover says which.
   const inWords = monthFirstNote(label);
@@ -248,7 +261,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
           <strong className="pop__title">{smartQuotes(label)}</strong>
           {inWords && <span className="pop__text pop__inwords">{inWords}</span>}
-          <span className="pop__text">{basis ? <RecordText text={basis} plain /> : `${k.help}.`}</span>
+          <span className="pop__text">{basis ? recordWords(basis) : `${k.help}.`}</span>
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
             <span className="pop__records">
@@ -279,7 +292,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
 export function EvidenceDate({ e, compact, variant, self = false }: { e: Evidence; compact?: boolean; variant?: "tag" | "inline"; self?: boolean }) {
   // The record says how its date is known where it can; otherwise the precision stands in for it.
   const kind: DateKind = e.when.kind ?? (e.kind === "teaser" && e.when.precision === "exact" ? "teaser" : PRECISION_KIND[e.when.precision] ?? "unknown");
-  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={self ? [] : [e.id]} compact={compact} variant={variant} />;
+  return <DatePill label={e.when.label} kind={kind} basis={e.when.basis} evidence={self ? [] : [e.id]} own={self ? e.id : undefined} compact={compact} variant={variant} />;
 }
 
 /** A date our calendar can mark up: a year, a year and month, or a full day, as the data writes them. */

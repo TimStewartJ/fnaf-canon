@@ -12,6 +12,7 @@ import { GameMark } from "./GameMark";
 import { Icon } from "./Icon";
 import { RecordText } from "./RecordText";
 import { EntityLink, EvidenceDate, SourceLine } from "./RichText";
+import { recordWords } from "./richTextPlain";
 import { smartQuotes, sourceWords } from "./typography";
 
 /**
@@ -77,7 +78,7 @@ export function EvidenceRow({ e, n, group, of, noun, claim = true, open = "drawe
       <span className="ev-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <span className="ev-row__main">
         <EvidenceLink id={e.id} group={group} of={of} noun={noun} open={open} className="ev-row__title">{smartQuotes(e.title)}</EvidenceLink>
-        {claim && <span className="ev-row__claim"><RecordText text={e.claim} plain /></span>}
+        {claim && <span className="ev-row__claim">{recordWords(e.claim)}</span>}
         <span className="ev-row__meta"><GameMark id={e.game} /> <span>{smartQuotes(e.location)}</span></span>
       </span>
     </Tag>
