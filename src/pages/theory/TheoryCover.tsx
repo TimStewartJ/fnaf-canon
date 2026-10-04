@@ -18,6 +18,8 @@ export default function TheoryCover() {
   const phone = useMediaQuery("(max-width: 640px)");
   const [chosen, setChosen] = useStored<"answers" | "questions" | null>("fca:contents", null);
   const show = chosen ?? (phone ? "questions" : "answers");
+  // What the list holds as it stands, for the words that lead to it: they promise what it shows.
+  const listed = show === "answers" ? "answers" : "questions";
   if (legacy && theoryById.has(legacy)) return <Navigate to={chapterPath(legacy)} replace />;
 
   const first = ordered[0];
@@ -41,7 +43,7 @@ export default function TheoryCover() {
                 {resume
                   ? <ButtonLink to={resume.to} iconEnd={ArrowRight}>Continue: chapter {resume.number}</ButtonLink>
                   : first && <ButtonLink to={chapterPath(first.id)} iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
-                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} answers</ButtonLink>
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} {listed}</ButtonLink>
               </div>
             </div>
             <nav className="cover-parts" aria-labelledby="h-cover-parts">
@@ -87,7 +89,7 @@ export default function TheoryCover() {
               <p className="story-end__text">That is the whole story, as far as the evidence carries it. The chapters make the case for it one question at a time.</p>
               <div className="story-end__actions">
                 {first && <ButtonLink to={chapterPath(first.id)} variant="primary" iconEnd={ArrowRight}>Begin with chapter 1</ButtonLink>}
-                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} answers</ButtonLink>
+                <ButtonLink to="/theory#contents" variant="quiet" iconEnd={ArrowDown}>All {count(theory.length)} {listed}</ButtonLink>
               </div>
             </div>
           </div>
@@ -99,7 +101,8 @@ export default function TheoryCover() {
           <p className="kicker">The full case</p>
           <h2 id="h-contents" className="cover-section__title">Every question, and the model’s answer</h2>
           <p className="cover-section__lead">
-            {plural(theory.length, "chapter")} in {plural(partGroups.length, "part")}. Skim the answers here, then open a chapter for the argument, the evidence and what pushes back.
+            {plural(theory.length, "chapter")} in {plural(partGroups.length, "part")}. Skim the {listed} here, then open a chapter for the argument, the evidence and what pushes back.
+            {show === "questions" && <> “With answers” puts the model’s answer under each question.</>}
             {readCount > 0 && <> You have read {count(readCount)} of {count(theory.length)}.</>}
           </p>
           {/* How a chapter is built: said here, where the chapters begin, and not before the story. */}

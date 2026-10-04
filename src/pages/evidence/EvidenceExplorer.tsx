@@ -94,6 +94,8 @@ export default function EvidenceExplorer() {
   const end = start + shown.length;
   const rest = results.length - end;
   const group = useMemo(() => shown.map((e) => e.id), [shown]);
+  // The rows drawn are a stretch of the results: a record opened from one says its place in all of them.
+  const whole = useMemo(() => ({ before: start, total: results.length }), [start, results.length]);
   const sections = useMemo(() => {
     const out: { g: Group | null; items: Evidence[] }[] = [];
     for (const e of shown) {
@@ -194,8 +196,8 @@ export default function EvidenceExplorer() {
                 <div key={g?.key ?? "all"} className="evx-section">
                   {g && <GroupHead g={g} />}
                   {query.view === "cards"
-                    ? <div className="ev-grid">{items.map((e) => <EvidenceCard key={e.id} e={e} group={group} />)}</div>
-                    : <ul className="evx-list">{items.map((e) => <ResultRow key={e.id} e={e} group={group} terms={terms} />)}</ul>}
+                    ? <div className="ev-grid">{items.map((e) => <EvidenceCard key={e.id} e={e} group={group} whole={whole} />)}</div>
+                    : <ul className="evx-list">{items.map((e) => <ResultRow key={e.id} e={e} group={group} whole={whole} terms={terms} />)}</ul>}
                 </div>
               ))}
             </div>

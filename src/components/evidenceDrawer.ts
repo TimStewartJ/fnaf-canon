@@ -5,6 +5,9 @@
  */
 import { createContext, useContext } from "react";
 
+/** Where a set stands in a longer list it is a stretch of: how many of the list come before its first, and how long the list is. */
+export interface DrawerSpan { before: number; total: number }
+
 export interface DrawerState {
   /** The record being shown. */
   id: string;
@@ -14,6 +17,8 @@ export interface DrawerState {
   of?: string;
   /** What one of the set is called, in place of "Record": "Source" for a numbered citation, whose place in the set is its number. */
   noun?: string;
+  /** Set when the set is a stretch of a longer list (the locker draws 100 rows of a thousand): the place is then counted in the whole list. */
+  whole?: DrawerSpan;
   /** True when opening pushed a history entry (so closing can go back). */
   pushed?: boolean;
   /**
@@ -29,9 +34,10 @@ export interface EvidenceDrawerApi {
   /**
    * Opens a record. `group` lists the records the reader can page through from it, `of` says
    * in a few words what that set is, to finish "Record 2 of 5 …" (default: "in this list"), and
-   * `noun` replaces "Record" ("Source 9 of 35").
+   * `noun` replaces "Record" ("Source 9 of 35"). `whole` is for a set that is a stretch of a
+   * longer list: the drawer then counts the place in that list ("Record 101 of 1,064").
    */
-  open(id: string, group?: string[], of?: string, noun?: string): void;
+  open(id: string, group?: string[], of?: string, noun?: string, whole?: DrawerSpan): void;
   close(): void;
 }
 

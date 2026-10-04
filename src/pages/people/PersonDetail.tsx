@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import type { Person } from "../../data/schema";
 import { deaths, evidenceForPerson, relations, personById, placeById, timeline } from "../../data/store";
 import {
-  CiteList, Collapsible, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Missing, Page, PageHeader,
+  CiteList, Collapsible, EntityLink, Fact, Facts, FirmGlyph, GROUP_LABEL, GameMark, Icon, MarksKey, Missing, Page, PageHeader, Paragraphs,
   RichText, Segmented, StatusMark, aliasParts, capitalise, count, firmness, levelOf, personPath, smartQuotes, useMediaQuery, useAddress, type Address,
 } from "../../components/ui";
 import { chaptersAbout } from "./chapters";
@@ -153,7 +153,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
           </dl>
         )}
         {me.parent && <Standing node={me} being={being} />}
-        <p className="ppl-summary"><RichText text={p.summary} /></p>
+        <Paragraphs text={p.summary} className="ppl-summary" />
       </PageHeader>
 
       <div className="ppl-file">
@@ -182,7 +182,7 @@ const Dossier = memo(function Dossier({ p, record, set }: { p: Person; record: b
 
       {p.theory && (
         <DossierSection id="reading" title="The model’s reading" lead="The archive’s interpretation, beyond what the records state outright.">
-          <p className="person-reading"><RichText text={p.theory} /></p>
+          <Paragraphs text={p.theory} className="person-reading" />
         </DossierSection>
       )}
 

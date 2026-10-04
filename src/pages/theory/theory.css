@@ -118,6 +118,8 @@
   .beat__text .cites, .beat__when .cites { display: none; }
 }
 .beat__when .firm-glyph { width: 0.72em; height: 0.72em; }
+/* A beat's date wraps when it is longer than the line ("Undated. Placed here by convention." at large text on a phone). */
+.beat__when .date--inline { white-space: normal; }
 
 /* Where the reader is, while the beats pass under it (the cover only). It takes no room in the
    page: the bar hangs from a line of no height that sticks to the top of the window. */
@@ -297,6 +299,7 @@
 /* The sections of the chapter being read, hung under it: the reader's place, and the way to another part. */
 .chapter-nav-sections { list-style: none; display: grid; gap: 1px; margin: 0.2rem 0 0.5rem calc(1.9rem + var(--sp-2)); padding: 0; }
 .chapter-nav-sections > li { margin: 0; }
+.chapter-nav-sections > .chapter-nav-sections__closing { margin-top: 0.4rem; }
 .chapter-nav-section { display: block; padding: 0.3rem var(--sp-2) 0.3rem var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-xs); line-height: 1.35; color: var(--c-text-3); border-left: 1px solid var(--c-line-strong); text-decoration: none; }
 .chapter-nav-section:hover { color: var(--c-text); }
 .chapter-nav-section[aria-current] { color: var(--c-text); border-left-color: var(--c-accent); box-shadow: inset 1px 0 0 var(--c-accent); }
@@ -344,6 +347,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter > .chapter-hero { margin-block: var(--sp-6) var(--sp-7); }
 .chapter-hero .figure__frame img { max-height: min(27rem, 56vh); }
 .chapter-note { font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.chapter-end__note { max-width: var(--measure); margin: 0 0 var(--sp-3); }
 
 .chapter-figure .figure__frame img { max-height: 27rem; }
 
@@ -411,6 +415,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .pushback__icon { color: var(--c-tension); }
 .pushback__list { margin-top: var(--sp-3); }
 .pushback__list .ev-row__n { color: var(--c-tension); }
+.pushback__more { margin: var(--sp-3) 0 0; }
 .pushback__answer { margin-top: var(--sp-4); padding: var(--sp-4) var(--sp-5); background: var(--c-tension-soft); border-left: 3px solid var(--c-tension-line); border-radius: 0 var(--r-md) var(--r-md) 0; }
 .pushback__answer > .label { margin-bottom: var(--sp-2); color: var(--c-tension); }
 .pushback__answer > p:last-child { margin: 0; font-size: 0.94em; line-height: 1.6; }
@@ -459,6 +464,8 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
    for print by the shell). No rail, no bars, no way on to other chapters. */
 @media print {
   .chapter-bar, .chapter-rail, .reading-progress, .chapter-pager, .chapter-onward, .story-progress, .parts-strip, .contents-show, .beat__sources, .cover-hero__actions, .story-end__actions, .cover-parts { display: none !important; }
+  /* Records filed with the chapter and not cited in it: a closed line on paper, which nobody can open. The numbered sources above it are the chapter's. */
+  .chapter-further { display: none; }
   .chapter-layout { display: block; max-width: none; padding: 0; }
   .chapter-layout > .chapter { max-width: none; }
   .cover-hero { background: none; padding-block: 0 var(--sp-6); }

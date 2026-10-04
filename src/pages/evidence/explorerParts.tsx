@@ -5,7 +5,7 @@ import { gameById } from "../../data/store";
 import { gameMeta } from "../../data/gameMeta";
 import {
   Collapsible, EvidenceLink, FirmGlyph, GameMark, Icon, IconButton, aliasParts, entityName, sourceKindIcon, firmness, kindLabel, smartQuotes, sourceWordsPlain,
-  useDrawerRecord, useModalDialog, useSheetPull,
+  useDrawerRecord, useModalDialog, useSheetPull, type DrawerSpan,
 } from "../../components/ui";
 import { PLACE, PLACES, count, records, type Place } from "./coverage";
 import "./evidence.css";
@@ -32,7 +32,7 @@ export function PlaceSwatch({ place }: { place: Place }) {
  *  - kind    show the kind of source (off inside a list already grouped by kind)
  *  - place   show the record's place in the theory
  */
-export const ResultRow = memo(function ResultRow({ e, group, terms, source = true, kind = true, place }: { e: Evidence; group?: string[]; terms: string[]; source?: boolean; kind?: boolean; place?: Place }) {
+export const ResultRow = memo(function ResultRow({ e, group, whole, terms, source = true, kind = true, place }: { e: Evidence; group?: string[]; whole?: DrawerSpan; terms: string[]; source?: boolean; kind?: boolean; place?: Place }) {
   const open = useDrawerRecord() === e.id;
   const c = firmness("certainty", e.certainty);
   const extra = elsewhere(e, terms);
@@ -40,7 +40,7 @@ export const ResultRow = memo(function ResultRow({ e, group, terms, source = tru
     <li className={`evx-row${open ? " is-open" : ""}`}>
       <span className="evx-row__mark" title={`${c.word}: ${c.help}`}><FirmGlyph level={c.level} /><span className="sr-only">{c.word}.</span></span>
       <div className="evx-row__main">
-        <EvidenceLink id={e.id} group={group} className="evx-row__title"><Marked text={e.title} terms={terms} /></EvidenceLink>
+        <EvidenceLink id={e.id} group={group} whole={whole} className="evx-row__title"><Marked text={e.title} terms={terms} /></EvidenceLink>
         <p className="evx-row__claim"><Marked text={claimFor(e, terms)} terms={terms} /></p>
         {extra && <p className="evx-row__extra"><span className="evx-row__extra-label">{extra.label}</span> <Marked text={extra.text} terms={terms} /></p>}
       </div>

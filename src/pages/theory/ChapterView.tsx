@@ -1,12 +1,12 @@
-import { useEffect, useId, useMemo, useRef } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
+import { firmness, Button, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, numberWord, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
-import { type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
+import { CLOSING, type PartGroup, type SectionHead, unmarkedSources, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
 /** Everything a chapter needs to know about its surroundings. The fixture route supplies its own. */
 export interface ChapterContext {
@@ -21,6 +21,9 @@ export interface ChapterContext {
   coverPath: string;
 }
 
+/** How many of the records that push back a phone shows before the reader asks for the rest. */
+const PUSHBACK_SHOWN = 3;
+
 /**
  * One chapter of the model as a reading page: where it sits, the question, the answer set large,
  * the confidence in words, the hero image, the body blocks, what pushes back, what would change the
@@ -32,6 +35,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   const sections = useMemo(() => heads ?? chapterHeads(s), [heads, s]);
   const cited = useMemo(() => chapterCitations(s), [s]);
   const numbers = useMemo(() => new Map(cited.map((id, i) => [id, i + 1])), [cited]);
+  // Why the numbers in the text skip, said at the head of the list of sources.
+  const unmarked = useMemo(() => unmarkedSources(s, cited), [s, cited]);
   const counter = (s.counterEvidence ?? []).map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   const counterIds = counter.map((e) => e.id);
   const further = (s.further ?? []).filter((id) => !numbers.has(id) && evidenceById.has(id));
@@ -43,6 +48,19 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   const uid = useId();
   // One column of cards (a phone): the way on comes first, the way back second and smaller.
   const stacked = useMediaQuery("(max-width: 640px)");
+  // There, a long list of the records that push back stands between the heading and the model's
+  // reply to them (three screens of cards in chapter 22): the first few show, the rest on request.
+  const [allCounter, setAllCounter] = useState(false);
+  const folds = stacked && counter.length > PUSHBACK_SHOWN + 1;
+  const counterShown = folds && !allCounter ? counter.slice(0, PUSHBACK_SHOWN) : counter;
+  const moreRef = useRef<HTMLParagraphElement | null>(null);
+  const refolded = useRef(false);
+  // Folded again from the foot of the long list, the button would be far above the window: bring it back.
+  useLayoutEffect(() => {
+    if (!refolded.current) return;
+    refolded.current = false;
+    moreRef.current?.scrollIntoView({ block: "center" });
+  }, [allCounter]);
 
   // Reaching the end of the chapter marks it as read.
   const endRef = useRef<HTMLElement | null>(null);
@@ -93,14 +111,21 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         <Blocks blocks={s.body} heads={sections} />
 
         {(counter.length > 0 || s.tension) && (
-          <section className="pushback" aria-labelledby={`${uid}-pushback`}>
+          <section className="pushback" id={CLOSING.pushback} aria-labelledby={`${uid}-pushback`}>
             <h2 id={`${uid}-pushback`}><Icon icon={TriangleAlert} className="pushback__icon" /> What pushes back</h2>
             {counter.length > 0 && (
               <>
                 <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${count(counter.length)} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
                 <ul className="ev-list pushback__list">
-                  {counter.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
+                  {counterShown.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
                 </ul>
+                {folds && (
+                  <p className="pushback__more" ref={moreRef}>
+                    <Button size="sm" aria-expanded={allCounter} iconEnd={allCounter ? ChevronUp : ChevronDown} onClick={() => { refolded.current = allCounter; setAllCounter(!allCounter); }}>
+                      {allCounter ? `Show the first ${numberWord(PUSHBACK_SHOWN)}` : `${plural(counter.length - PUSHBACK_SHOWN, "more record")} push back`}
+                    </Button>
+                  </p>
+                )}
               </>
             )}
             {s.tension && (
@@ -113,7 +138,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         {s.changesIf && (
-          <Callout tone="open" title="What would change this" className="chapter-changes">
+          <Callout tone="open" title="What would change this" className="chapter-changes" id={CLOSING.changes}>
             <p><RichText text={s.changesIf} /></p>
           </Callout>
         )}
@@ -129,7 +154,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         {seeAlso.length > 0 && (
-          <section className="see-also" aria-labelledby={`${uid}-seealso`}>
+          <section className="see-also" id={CLOSING.alongside} aria-labelledby={`${uid}-seealso`}>
             <h2 id={`${uid}-seealso`} className="label">Read alongside</h2>
             <ul className="see-also__list">
               {seeAlso.map((c) => (
@@ -146,11 +171,13 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
         )}
 
         <div className="chapter-end">
-          <Collapsible print id="sources" summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
-            {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
+          <Collapsible print id={CLOSING.sources} summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
+            {unmarked && <p className="chapter-note chapter-end__note">{unmarked}</p>}
+            {/* Opened from here a record is headed as it is from its number in the text: "Source 8 of 24". */}
+            {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} of="" noun="Source" /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
-            <Collapsible eager summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>
+            <Collapsible eager className="chapter-further" summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>
               <EvidenceList ids={further} />
             </Collapsible>
           )}

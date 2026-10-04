@@ -14,6 +14,9 @@
   :root, :root[data-text] { font-size: 81.25%; }
   html, body { background: var(--c-bg); }
   body::before { display: none; }
+  /* The measure is a screen's: there it keeps a line readable in a wide window. A sheet of paper
+     is its own measure, and text held to two thirds of it wastes a third of every page. */
+  :root { --measure: 100%; --measure-wide: 100%; }
 
   /* The shell and everything that only works on a screen. */
   .skip-link, .site-header, .site-footer, .route-progress, .shell-notice, dialog, .pop, .figure__zoom,

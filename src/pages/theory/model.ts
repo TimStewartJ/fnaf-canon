@@ -6,6 +6,7 @@
  */
 import type { TheoryBlock, TheorySection } from "../../data/schema";
 import { partGroups, readingOrder, type PartGroup } from "../../components/chapterOrder";
+import { evidenceById, theoryById } from "../../data/store";
 import { blockEvidenceIds, blockTexts, citationsInText } from "../../data/theoryText";
 import { excerpt, plainText } from "../../components/richTextPlain";
 
@@ -51,10 +52,78 @@ export function chapterCitations(s: TheorySection): string[] {
   return [...new Set(ids)];
 }
 
+/** A date chip in RichText, with the ids of the records behind it. */
+const DATE_CHIP = /<<[^|>]+\|[a-z]+\|([a-z0-9,-]*)\|[^>]*>>/g;
+
+/** "8 to 11, 14 to 16, 21 and 22" */
+function runs(numbers: number[]): string {
+  const out: string[] = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let j = i;
+    while (j + 1 < numbers.length && numbers[j + 1] === numbers[j] + 1) j++;
+    // Two neighbours are named one by one; three or more are a run.
+    if (j - i >= 2) { out.push(`${numbers[i]} to ${numbers[j]}`); i = j; }
+    else out.push(String(numbers[i]));
+  }
+  return out.length > 1 ? `${out.slice(0, -1).join(", ")} and ${out[out.length - 1]}` : out.join("");
+}
+
+/**
+ * The numbered sources that carry no number in the chapter's text, in a sentence for the head of
+ * its source list. A chapter numbers every record it cites, in reading order; the ones behind a
+ * date, a picture or a strip of exhibits are opened from that date or picture and print no number,
+ * so the numbers a reader meets in the text skip (7, 12, 13, 17). Null where none is skipped.
+ */
+export function unmarkedSources(s: TheorySection, cited: string[]): string | null {
+  const marked = new Set<string>(s.counterEvidence ?? []);
+  const dated = new Set<string>(), pictured = new Set<string>(), shown = new Set<string>();
+  for (const t of [s.answer, s.hero?.caption, ...s.body.flatMap(blockTexts), s.tension, s.changesIf]) {
+    if (!t) continue;
+    for (const m of t.matchAll(DATE_CHIP)) for (const id of m[1].split(",")) if (id) dated.add(id);
+    for (const id of citationsInText(t.replace(DATE_CHIP, ""))) marked.add(id);
+  }
+  for (const b of s.body) {
+    if (typeof b === "string") continue;
+    if (b.kind === "quote") marked.add(b.evidence);
+    else if (b.kind === "figure" && b.evidence) pictured.add(b.evidence);
+    else if (b.kind === "evidence") for (const id of b.ids) shown.add(id);
+  }
+  const silent = cited.map((id, i) => ({ id, n: i + 1 })).filter((x) => !marked.has(x.id));
+  if (!silent.length) return null;
+  const one = silent.length === 1;
+  const behind = [
+    silent.some((x) => dated.has(x.id)) && (one ? "a date" : "dates"),
+    silent.some((x) => pictured.has(x.id)) && (one ? "a picture" : "pictures"),
+    silent.some((x) => shown.has(x.id)) && (one ? "an exhibit" : "exhibits"),
+  ].filter((w): w is string => !!w);
+  const what = behind.length > 1 ? `${behind.slice(0, -1).join(", ")} and ${behind[behind.length - 1]}` : behind[0] ?? (one ? "a date" : "dates");
+  return one
+    ? `Number ${silent[0].n} has no mark in the text: it is the record behind ${what}.`
+    : `Numbers ${runs(silent.map((x) => x.n))} have no mark in the text: they are the records behind its ${what}.`;
+}
+
 const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
 /** A heading inside a chapter: its words, and the anchor it can be linked by. */
-export interface SectionHead { id: string; text: string }
+export interface SectionHead { id: string; text: string; /** One of the parts every chapter closes with, not a heading of its own. */ closing?: boolean }
+
+/** The anchors of the parts a chapter closes with. */
+export const CLOSING = { pushback: "pushback", changes: "changes", alongside: "read-alongside", sources: "sources" } as const;
+
+/**
+ * The parts a chapter closes with, after its own sections: what pushes back, what would change
+ * it, what to read alongside, and its sources; each only where the chapter has it. The chapter's
+ * contents list them after its headings, so the list goes on saying where the reader is to the
+ * foot of the page (it used to mark the last section of the argument all the way down).
+ */
+export function closingHeads(s: TheorySection): SectionHead[] {
+  const out: SectionHead[] = [];
+  if ((s.counterEvidence ?? []).some((id) => evidenceById.has(id)) || s.tension) out.push({ id: CLOSING.pushback, text: "What pushes back", closing: true });
+  if (s.changesIf) out.push({ id: CLOSING.changes, text: "What would change this", closing: true });
+  if ((s.seeAlso ?? []).some((id) => theoryById.has(id))) out.push({ id: CLOSING.alongside, text: "Read alongside", closing: true });
+  out.push({ id: CLOSING.sources, text: "Sources", closing: true });
+  return out;
+}
 
 /**
  * The headings of a chapter, in order, each with an anchor that is unique on the page
