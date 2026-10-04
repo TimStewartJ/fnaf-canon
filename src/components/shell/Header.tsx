@@ -23,7 +23,7 @@ function NavMenu({ group, open, onOpen, onClose }: { group: NavGroup; open: bool
       onPointerLeave={(e) => { if (e.pointerType === "mouse") later(onClose, 220); }}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) onClose(); }}
       onKeyDown={(e) => {
-        if (e.key === "Escape" && open) { onClose(); btn.current?.focus(); return; }
+        if (e.key === "Escape" && open) { onClose(); btn.current?.focus({ preventScroll: true }); return; }
         if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
         // Arrow keys open the menu and walk its items; Tab works as usual.
         const root = e.currentTarget;
@@ -121,10 +121,15 @@ function useHeaderFit(): [RefObject<HTMLElement | null>, RefObject<HTMLDivElemen
     };
     const resized = new ResizeObserver(() => fit());
     resized.observe(box);
+    // The reader's text size changes what is in the row and not the row's width, so nothing above
+    // would hear of it: the header kept the layout it chose for the old size, and at "Large" on a
+    // phone ran off the screen until the page was loaded again.
+    const sized = new MutationObserver(() => fit(true));
+    sized.observe(document.documentElement, { attributes: true, attributeFilter: ["data-text"] });
     // The links are measured in the font they are drawn in, so measure again when it has arrived.
     void document.fonts?.ready.then(() => fit(true));
     fit(true);
-    return () => resized.disconnect();
+    return () => { resized.disconnect(); sized.disconnect(); };
   }, []);
   return [header, row];
 }
@@ -167,7 +172,7 @@ export function Header({ onSearch, onMenu }: { onSearch: () => void; onMenu: () 
             className="site-tools__settings"
             ref={settingsRef}
             // Escape closes the panel and hands focus back to its button; focus moving on past the panel closes it too.
-            onKeyDown={(e) => { if (e.key === "Escape" && openId === "settings") { close("settings"); settingsBtn.current?.focus(); } }}
+            onKeyDown={(e) => { if (e.key === "Escape" && openId === "settings") { close("settings"); settingsBtn.current?.focus({ preventScroll: true }); } }}
             onBlur={(e) => { if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget as Node)) close("settings"); }}
           >
             <button ref={settingsBtn} type="button" className="icon-btn" aria-label="Reading settings" title="Reading settings" aria-expanded={openId === "settings"} aria-controls={openId === "settings" ? "reader-settings" : undefined} onClick={() => (openId === "settings" ? close("settings") : open("settings"))}>

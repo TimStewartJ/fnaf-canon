@@ -118,6 +118,8 @@
   .beat__text .cites, .beat__when .cites { display: none; }
 }
 .beat__when .firm-glyph { width: 0.72em; height: 0.72em; }
+/* A beat's date wraps when it is longer than the line ("Undated. Placed here by convention." at large text on a phone). */
+.beat__when .date--inline { white-space: normal; }
 
 /* Where the reader is, while the beats pass under it (the cover only). It takes no room in the
    page: the bar hangs from a line of no height that sticks to the top of the window. */
