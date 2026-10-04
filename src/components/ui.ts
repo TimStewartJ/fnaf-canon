@@ -33,6 +33,7 @@ export { OutcomeMark, FateTag } from "./Outcome";
 export { RichText, Cite, CiteGroup, CiteList, SourceChip, EntityLink, ChapterLink, DatePill, DateGlyph, EvidenceDate, RealDate, RecordTagMark, EvidencePreview, SourceLine } from "./RichText";
 export * from "./textMarks";
 export { EvidenceCard, EvidenceRow, EvidenceList, EvidenceLink } from "./EvidenceCard";
+export { RecordText } from "./RecordText";
 export { Figure, FigureFrame, Lightbox, Thumb } from "./Figure";
 export { Button, ButtonLink, ExternalLink, IconButton, Chip, Tag, FilterChip, Toggle, Tabs, TabPanel, Segmented, SearchField, FilterBar, FilterGroup } from "./controls";
 export { Page, PageHeader, Crumbs, Section, Empty, Collapsible, Callout, TableWrap, Prose, Facts, Fact, Loading } from "./layout";

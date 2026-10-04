@@ -5,7 +5,7 @@ import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
   EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
-  IconButton, Loading, Page, PageHeader, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel,
+  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel,
 } from "../../components/ui";
 import "./dev.css";
 
@@ -80,6 +80,15 @@ export default function DevKit() {
         <p className="prose" id="kit-tags"><RichText text="The four tags: the call ends in a scream (as described) [[fnaf1-call4-phone-guy-attacked]], a poster among the textures (read from an image) names the diner, the keypad answers to 1-9-8-3 (a fan wiki's account), and in a 2018 interview (a transcript) Scott said more. In bold the tag keeps its mark: **(as described)**. Inside a longer bracket the phrase alone is marked (a rabbit costume's, by a fan wiki's account). Outside a bracket the same words are a sentence and are left alone: by a fan wiki's account, read from an image." /></p>
         {/* A tag in text that is cut off takes no tab stop: this paragraph is held to two lines, and its tag is on a later one. */}
         <p className="prose dev-clamp" id="kit-tags-cut"><RichText text="A paragraph held to two lines, as a caption is in a tile or a summary is on a phone. Its first lines are plain words, long enough to fill the two lines that show at any width from a phone to a desk, and then some more words to be sure of it. The tag stands in the part that is cut off (as described), where no key should stop." /></p>
+      </Section>
+
+      <Section title="A record’s own prose">
+        {/* Notes, claims and date bases name other records by id. A known id is printed as the record's title, as a link that opens it; a long title is cut; an id no record has, and a word that only looks like one, stay as written. */}
+        <p className="read dev-narrow" id="kit-recordtext"><RecordText emphasis text="The year is hidden on the first game's cheque (fnaf1-paycheck-night5); see fnaf2-overtime-robots-scrapped and secret-of-the-mimic-opening-call-arnold-dispatch. An id that no record has stays as written (fnaf9-no-such-record), and so does a word that only looks like one: end-of-night, 11-12-1987. The source's own *emphasis* is kept." /></p>
+        <p className="read dev-narrow" id="kit-recordtext-plain"><span className="label">plain</span> <RecordText plain text="Where a link cannot go the title is words only (fnaf1-paycheck-night5)." /></p>
+        {/* A card whose claim names another record, and the same record as a row. */}
+        <div className="dev-grid" id="kit-recordtext-card">{["into-the-pit-new-mill-fathers"].map((id) => evidenceById.get(id)).map((e) => e && <EvidenceCard key={e.id} e={e} />)}</div>
+        <EvidenceList ids={["into-the-pit-new-mill-fathers", "ffps-lorekeeper-gravestones"]} />
       </Section>
 
       <Section title="Buttons and controls">

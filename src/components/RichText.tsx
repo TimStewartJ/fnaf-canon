@@ -11,6 +11,7 @@ import { evidencePath, personPath, placePath } from "./links";
 import { entityName, isDescriptor, opensSentence } from "./names";
 import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
+import { RecordText } from "./RecordText";
 import { recordTagPieces } from "./textMarks";
 import { longDate, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
@@ -41,7 +42,7 @@ export function EvidencePreview({ e }: { e: Evidence }) {
         <Firmness scale="certainty" value={e.certainty} variant="inline" />
       </span>
       <strong className="pop__title">{smartQuotes(e.title)}</strong>
-      <span className="pop__text">{smartQuotes(e.claim)}</span>
+      <span className="pop__text"><RecordText text={e.claim} plain /></span>
       {e.quote && <q className="pop__quote">{sourceWords(e.quote)}</q>}
       <span className="pop__meta"><Icon icon={CornerDownRight} /> {smartQuotes(e.location)}</span>
       <span className="pop__hint">Click to open the record</span>
@@ -242,7 +243,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
           <strong className="pop__title">{smartQuotes(label)}</strong>
-          <span className="pop__text">{basis ? smartQuotes(basis) : `${k.help}.`}</span>
+          <span className="pop__text">{basis ? <RecordText text={basis} plain /> : `${k.help}.`}</span>
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
             <span className="pop__records">

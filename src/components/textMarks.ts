@@ -50,3 +50,92 @@ export function recordTagPieces(text: string): TagPiece[] {
   if (last < text.length) out.push(text.slice(last));
   return out;
 }
+
+/* ── Record ids in a record's own prose ────────────────────────────────────────── */
+
+/** A run of plain text, or the id of a known record that stands in it. */
+export type IdPiece = string | { id: string };
+
+/**
+ * A word in kebab-case, as every record id is, with what stands before it (first group). It must
+ * stand free: not glued to a letter, a figure or a hyphen, and not part of a file name or an
+ * address ("…/fnaf2-save-them.png" is no record, whatever its stem).
+ */
+const KEBAB = /(^|[^\p{L}\p{N}_/.#=-])([a-z0-9]+(?:-[a-z0-9]+)+)(?![\p{L}\p{N}_/-]|\.[\p{L}\p{N}])/gu;
+
+/** The longest run of whole parts of a kebab-case word that is a record id, as [start, end) in the word; the word itself first. */
+function idWithin(word: string, known: (id: string) => boolean): [number, number] | null {
+  if (known(word)) return [0, word.length];
+  const at: number[] = [0];
+  for (let i = 0; i < word.length; i++) if (word[i] === "-") at.push(i + 1);
+  for (let n = at.length - 1; n >= 2; n--) {
+    for (let i = 0; i + n <= at.length; i++) {
+      const from = at[i], to = i + n < at.length ? at[i + n] - 1 : word.length;
+      if (known(word.slice(from, to))) return [from, to];
+    }
+  }
+  return null;
+}
+
+/**
+ * Splits a record's prose (its notes, its claim, the basis of its date) at the ids of other
+ * records that stand in it: "…the year hidden (fnaf1-paycheck-night5)." Only a whole id of a known
+ * record counts, the longest first, so a word that merely looks like one ("end-of-night",
+ * "11-12-1987") stays text, and so does an id no record has. Joined back together, the pieces
+ * are the text exactly (an id piece stands for its id).
+ */
+export function recordIdPieces(text: string, known: (id: string) => boolean): IdPiece[] {
+  if (text.indexOf("-") < 0) return [text];
+  const out: IdPiece[] = [];
+  let last = 0;
+  for (const m of text.matchAll(KEBAB)) {
+    const found = idWithin(m[2], known);
+    if (!found) continue;
+    const start = m.index + m[1].length + found[0], end = m.index + m[1].length + found[1];
+    if (start > last) out.push(text.slice(last, start));
+    out.push({ id: text.slice(start, end) });
+    last = end;
+  }
+  if (!out.length) return [text];
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+/** The most characters a record's title may take as a link inside a sentence before it is cut. */
+const TITLE_MAX = 72;
+
+const CLOSES: Record<string, string> = { "\u2018": "\u2019", "\u201C": "\u201D", "(": ")" };
+/** The quotation marks and brackets that a cut after `head` would leave open, the innermost last. An apostrophe inside a word closes nothing. */
+function leftOpen(head: string): string[] {
+  const open: string[] = [];
+  const close = (mark: string) => { const i = open.lastIndexOf(mark); if (i >= 0) open.length = i; };
+  for (let i = 0; i < head.length; i++) {
+    const c = head[i];
+    if (c in CLOSES) open.push(c);
+    else if (c === "\u201D") close("\u201C");
+    else if (c === ")") close("(");
+    else if (c === "\u2019" && !/[\p{L}\p{N}]/u.test(head[i + 1] ?? "")) close("\u2018");
+  }
+  return open;
+}
+
+/**
+ * A record's title as it is named inside a sentence: whole when it is short enough. A longer one
+ * is cut at the last break between its clauses that fits (a colon, a semicolon, a comma, an
+ * opening bracket) if that keeps at least half the room, otherwise between two words, and ends
+ * in an ellipsis. A quotation or a bracket that the cut would leave open is closed after the
+ * ellipsis, so a quoted line that has been cut still reads as a quotation, and as a cut one.
+ * Give it the title as it will be printed (curly quotes).
+ */
+export function shortTitle(title: string, max = TITLE_MAX): string {
+  if (title.length <= max) return title;
+  let at = -1;
+  for (const m of title.matchAll(/[:;,](?= )| (?=\()/g)) {
+    if (m.index > max) break;
+    if (m.index >= max / 2 && !leftOpen(title.slice(0, m.index)).length) at = m.index;
+  }
+  if (at < 0) at = title.lastIndexOf(" ", max);
+  if (at < 0) at = max;
+  const head = title.slice(0, at).replace(/[\s,;:.\u2013\u2014-]+$/, "");
+  return `${head}\u2026${leftOpen(head).reverse().map((mark) => CLOSES[mark]).join("")}`;
+}
