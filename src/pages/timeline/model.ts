@@ -1,19 +1,26 @@
 /**
- * The timeline's data model: what a row is, which deaths a story event already tells, how the
- * filters narrow the line, and how all of it is written to the URL. No components here.
+ * The timeline's data model: what a row is, which entries of the second layer a story event already
+ * tells, how the filters narrow the line, and how all of it is written to the URL. No components here.
+ *
+ * The line has two layers: the story events (data/timeline.ts) and the deaths and other fates
+ * (data/deaths.ts). That second list holds more than deaths: its `outcome` field says what the
+ * records carry about each victim, and only an entry without one is a death. The data's type is
+ * still called `Death`, the URL still says `layer=deaths`, `cause` and `killer`, and this file
+ * keeps those names where it speaks of the data or the address; but nothing here counts an entry
+ * as a death, or lets a page call it one, unless `isDeath` says so. The words are in
+ * components/labels.ts (OUTCOME).
  *
  * Everything is derived from src/data at load: no era id, count or name is written down in this
- * folder, so eras, events, deaths and location spans can be added, renamed or re-dated freely.
+ * folder, so eras, events, fates and location spans can be added, renamed or re-dated freely.
  */
 import { backlinksFor, deaths, eras, evidenceById, games, labelForEntity, LOCATION_SPANS, personById, placeById, places, timeline } from "../../data/store";
 import { canonicalId } from "../../data/model";
 import { citationsInText } from "../../data/theoryText";
 import { gameMeta } from "../../data/gameMeta";
 import { DEATH_KIND, type Death, type DeathKind } from "../../data/deaths";
-import { numberWord } from "../../components/typography";
 import { LOCATION_KIND, type LocationSpan } from "../../data/locations";
 import type { Status, TimelineEvent } from "../../data/schema";
-import { STATUS, chapterNumber, entityName, timelineEventPath } from "../../components/ui";
+import { STATUS, causeLabel, chapterNumber, count, countFates, entityName, fateWords, isDeath, numberWord, plural, timelineEventPath, type FateCount } from "../../components/ui";
 
 /** True for a person whose name is the archive's own descriptor (set in italic where people are listed). */
 export { isDescriptor } from "../../components/ui";
@@ -29,15 +36,14 @@ const eventById = new Map(timeline.map((t) => [t.id, t]));
 const deathById = new Map(deaths.map((d) => [d.id, d]));
 
 const unique = <T,>(xs: T[]): T[] => [...new Set(xs)];
-const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
-export { plural, unique };
+export { causeLabel, plural, unique };
 
 /* ── What each item touches ─────────────────────────────────────────────────────── */
 
 const gamesOfIds = (ids: string[]): string[] => unique(ids.map((id) => evidenceById.get(id)?.game).filter((g): g is NonNullable<typeof g> => !!g));
 const deathPeople = (d: Death) => [...d.victims, ...d.by];
 const UNKNOWN_KILLER = "unknown";
-/** The person a death is attributed to, folded to one identity; "unknown" when the records name nobody. */
+/** Whom an entry is attributed to (the first of its `by`), folded to one identity; "unknown" when the records name nobody. The `killer` parameter of the address. */
 export const killerKey = (d: Death): string => (d.by.length ? canonicalId(d.by[0], { identities: true, vessels: false }) : UNKNOWN_KILLER);
 
 /** The sources and the people behind an entry, with every alias, form and vessel folded into its person. */
@@ -82,8 +88,8 @@ export function chaptersFor(evidenceIds: string[]): string[] {
   return ranked.filter(([, n], i) => i === 0 || n >= 2).slice(0, CHAPTERS_SHOWN).map(([id]) => id);
 }
 
-/* ── Deaths that a story event already tells ────────────────────────────────────────
- * Such a death is shown on its event's row; every other death gets a row of its own.
+/* ── Deaths and other fates that a story event already tells ────────────────────────
+ * Such an entry is shown on its event's row; every other one gets a row of its own.
  * The data says which event tells a death (`Death.event`). Where it does, it is the whole answer: a
  * death it leaves unlinked has no event (Edwin Murray's disappearance, undated, is not part of the
  * night of 1979 although the two share records), and a link to an event that does not exist is
@@ -124,7 +130,7 @@ export interface Filters {
   support: Status[];
   person: string;
   source: string;
-  /** Causes of death to keep; empty means all of them. */
+  /** Causes to keep (the `kind` of an entry of the second layer); empty means all of them. */
   cause: DeathKind[];
   killer: string;
   place: string;
@@ -149,7 +155,7 @@ export function readFilters(sp: URLSearchParams): Filters {
     // A link may name any record of a person (an alias, a suit, a later form): it means that person.
     person: person && canonicalId(person),
     source: sp.get("source") ?? "",
-    // Cause and killer describe deaths, so they mean nothing while deaths are off.
+    // Cause and killer describe the second layer, so they mean nothing while it is off.
     cause: withDeaths ? subset(DEATH_KINDS, sp.getAll("cause")) : [],
     killer: !withDeaths || !killer ? "" : killer === UNKNOWN_KILLER ? killer : canonicalId(killer, { identities: true, vessels: false }),
     place: sp.get("place") ?? "",
@@ -208,23 +214,27 @@ const eventPasses = (t: TimelineEvent, f: Filters): boolean =>
 
 /* ── The line ───────────────────────────────────────────────────────────────────── */
 
-export interface EventRow { kind: "event"; id: string; era: string; year: number; status: Status; ev: TimelineEvent; /** Deaths this event tells, shown on its row. */ deaths: Death[] }
-export interface DeathRow { kind: "death"; id: string; era: string; year: number; status: Status; d: Death; /** The story event that tells this death, when that event is not on screen. */ host: TimelineEvent | null }
+export interface EventRow { kind: "event"; id: string; era: string; year: number; status: Status; ev: TimelineEvent; /** The deaths and other fates this event tells, shown on its row. */ deaths: Death[] }
+/** A row for an entry of the second layer that no story event on screen tells: a death, or another fate (its `outcome` says which). */
+export interface DeathRow { kind: "death"; id: string; era: string; year: number; status: Status; d: Death; /** The story event that tells this entry, when that event is not on screen. */ host: TimelineEvent | null }
 export type Row = EventRow | DeathRow;
-export interface EraGroup { era: Era; /** Position among all eras, from 0. */ index: number; rows: Row[]; deaths: number }
+/** The entries of the second layer a row carries: its own, or those its event tells. */
+export const fatesOf = (r: Row): Death[] => (r.kind === "death" ? [r.d] : r.deaths);
+export interface EraGroup { era: Era; /** Position among all eras, from 0. */ index: number; rows: Row[]; /** The deaths, and the other fates, among its entries. */ fates: FateCount }
 export interface Lineup {
   groups: EraGroup[];
-  /** Every event and death on screen, mapped to the row that shows it (a death may sit on its event's row). */
+  /** Every event and fate on screen, mapped to the row that shows it (a fate may sit on its event's row). */
   rowOf: Map<string, string>;
   events: number;
-  deaths: number;
+  /** The deaths, and the other fates, on screen. */
+  fates: FateCount;
 }
 
 const UNPLACED: Era = { id: "", name: "Not placed in an era", range: "", summary: "" };
 
 /**
  * Builds the line for a set of filters. Every filter narrows it. Cause and killer are questions
- * about deaths, so while one is set a story event stays only if it tells a death that matches.
+ * about the second layer, so while one is set a story event stays only if it tells an entry that matches.
  */
 export function buildLineup(f: Filters): Lineup {
   const showEvents = f.layer !== "deaths", showDeaths = f.layer !== "events";
@@ -245,18 +255,19 @@ export function buildLineup(f: Filters): Lineup {
   }
 
   const inEra = (id: string, known: boolean) => rows.filter((r) => (known ? r.era === id : !eraIndex.has(r.era))).sort((a, b) => a.year - b.year);
-  const deathsIn = (rs: Row[]) => rs.reduce((n, r) => n + (r.kind === "death" ? 1 : r.deaths.length), 0);
-  const groups: EraGroup[] = eras.map((era, index) => { const rs = inEra(era.id, true); return { era, index, rows: rs, deaths: deathsIn(rs) }; });
+  const fatesIn = (rs: Row[]) => countFates(rs.flatMap(fatesOf));
+  const groups: EraGroup[] = eras.map((era, index) => { const rs = inEra(era.id, true); return { era, index, rows: rs, fates: fatesIn(rs) }; });
   // The validator forbids an unknown era, but content is being rewritten: show such rows last, never drop them.
   const stray = inEra("", false);
-  if (stray.length) groups.push({ era: UNPLACED, index: eras.length, rows: stray, deaths: deathsIn(stray) });
-  return { groups, rowOf, events: keptEvents.length, deaths: keptDeaths.length };
+  if (stray.length) groups.push({ era: UNPLACED, index: eras.length, rows: stray, fates: fatesIn(stray) });
+  return { groups, rowOf, events: keptEvents.length, fates: countFates(keptDeaths) };
 }
 
 export const TOTAL_EVENTS = timeline.length;
-export const TOTAL_DEATHS = deaths.length;
+/** The whole second layer: how many of its entries are deaths, and how many are other fates. */
+export const TOTAL_FATES: FateCount = countFates(deaths);
 
-/** The title of an event or a death, for messages about an entry that is not on screen. */
+/** The title of an event or a fate, for messages about an entry that is not on screen. */
 export const titleOfId = (id: string): string => eventById.get(id)?.title ?? deathById.get(id)?.title ?? id;
 
 /* ── Long eras ──────────────────────────────────────────────────────────────────────
@@ -267,7 +278,7 @@ export const FOLD_TO = 12;
 const FOLD_MIN_HIDDEN = 4;
 export const canFold = (g: EraGroup): boolean => g.rows.length >= FOLD_TO + FOLD_MIN_HIDDEN;
 
-/** What an id from a link is: a story event, a death, or nothing the timeline knows. */
+/** What an id from a link is: a story event, an entry of the second layer ("death", as the data's list is named), or nothing the timeline knows. */
 export const kindOfId = (id: string): "event" | "death" | null => (eventById.has(id) ? "event" : deathById.has(id) ? "death" : null);
 
 /* ── Choices offered by the filter panel ────────────────────────────────────────── */
@@ -302,7 +313,6 @@ export const personName = (id: string): string => entityName(id, true);
 export const killerName = (key: string): string => (key === UNKNOWN_KILLER ? "Unknown or not stated" : entityName(key, true));
 export const isUnknownKiller = (key: string): boolean => key === UNKNOWN_KILLER;
 export const placeName = (id: string): string => placeById.get(id)?.name ?? labelForEntity(id);
-export const causeLabel = (kind: string): string => (DEATH_KIND as Record<string, { label: string } | undefined>)[kind]?.label ?? kind;
 
 /* ── The filters in plain words ─────────────────────────────────────────────────── */
 
@@ -320,24 +330,42 @@ export interface Applied {
 export function appliedFilters(f: Filters): Applied[] {
   const out: Applied[] = [];
   if (f.layer === "events") out.push({ key: "layer", text: "story events only", remove: (now) => ({ ...now, layer: "all" }) });
-  if (f.layer === "deaths") out.push({ key: "layer", text: "deaths only", remove: (now) => ({ ...now, layer: "all" }) });
+  if (f.layer === "deaths") out.push({ key: "layer", text: "deaths and other fates only", remove: (now) => ({ ...now, layer: "all" }) });
   if (f.person) out.push({ key: "person", text: `with ${labelForEntity(f.person)}`, remove: (now) => ({ ...now, person: "" }) });
   if (f.place) out.push({ key: "place", text: `at ${placeName(f.place)}`, remove: (now) => ({ ...now, place: "" }) });
   if (f.support.length) out.push({ key: "support", text: `${list(f.support.map((s) => lower(STATUS[s].word)), "and")} only`, remove: (now) => ({ ...now, support: [] }) });
   if (f.source) out.push({ key: "source", text: `from ${gameMeta(f.source).short}`, remove: (now) => ({ ...now, source: "" }) });
-  if (f.cause.length) out.push({ key: "cause", text: `cause of death: ${list(f.cause.map((c) => lower(causeLabel(c))), "or")}`, remove: (now) => ({ ...now, cause: [] }) });
-  if (f.killer) out.push({ key: "killer", text: f.killer === UNKNOWN_KILLER ? "killer unknown or not stated" : `killed by ${labelForEntity(f.killer)}`, remove: (now) => ({ ...now, killer: "" }) });
+  // Said so that each is true of an entry that is not a death: a cause, and whom it is put down to ("by", as on the entry).
+  if (f.cause.length) out.push({ key: "cause", text: `cause: ${list(f.cause.map((c) => lower(causeLabel(c))), "or")}`, remove: (now) => ({ ...now, cause: [] }) });
+  if (f.killer) out.push({ key: "killer", text: f.killer === UNKNOWN_KILLER ? "by: unknown or not stated" : `by ${labelForEntity(f.killer)}`, remove: (now) => ({ ...now, killer: "" }) });
   return out;
 }
 
-const share = (n: number, total: number, noun: string) => (n === total ? `all ${plural(total, noun)}` : `${n} of ${plural(total, noun)}`);
-/** "12 of 36 events and 3 of 25 deaths", following the layer in use. */
+const share = (n: number, total: number, noun: string) => (n === total ? `all ${plural(total, noun)}` : `${count(n)} of ${plural(total, noun)}`);
+/** "a", "a and b", "a, b and c". */
+const series = (parts: string[]) => list(parts, "and");
+/**
+ * "12 of 43 events, 3 of 9 deaths and 2 of 14 other fates", following the layer in use. Deaths
+ * and other fates are counted apart, so the line never says "deaths" of an entry that is not one;
+ * a kind the data has none of is left out.
+ */
 export function countPhrase(line: Lineup, f: Filters): string {
   const parts: string[] = [];
   if (f.layer !== "deaths") parts.push(share(line.events, TOTAL_EVENTS, "event"));
-  if (f.layer !== "events") parts.push(share(line.deaths, TOTAL_DEATHS, "death"));
-  return parts.join(" and ");
+  if (f.layer !== "events") {
+    if (TOTAL_FATES.deaths) parts.push(share(line.fates.deaths, TOTAL_FATES.deaths, "death"));
+    if (TOTAL_FATES.others) parts.push(share(line.fates.others, TOTAL_FATES.others, "other fate"));
+  }
+  return series(parts);
 }
+/** The page's opening count: "43 events, 9 recorded deaths and 14 other fates". */
+export const totalsPhrase = (): string => series([
+  plural(TOTAL_EVENTS, "event"),
+  ...(TOTAL_FATES.deaths ? [plural(TOTAL_FATES.deaths, "recorded death")] : []),
+  ...(TOTAL_FATES.others ? [plural(TOTAL_FATES.others, "other fate")] : []),
+]);
+/** An era's or a place's tally: "6 events · 1 death · 5 other fates", a part with nothing in it left out. */
+export const tallyWords = (events: number, fates: FateCount): string[] => [...(events ? [plural(events, "event")] : []), ...fateWords(fates)];
 
 /** Small numbers as words, for sentences. */
 export const inWords = (n: number): string => numberWord(n);
@@ -381,23 +409,23 @@ export const locationGroups: LocGroup[] = (() => {
     .filter((g) => g.rows.length > 0);
 })();
 
-export interface PlaceCounts { events: number[]; deaths: number[] }
-/** Events and deaths at each place, per era, under every filter except the place filter itself. */
+export interface PlaceCounts { events: number[]; deaths: number[]; /** Entries of the second layer that are not deaths. */ others: number[] }
+/** Events, deaths and other fates at each place, per era, under every filter except the place filter itself. */
 export function countsByPlace(f: Filters): Map<string, PlaceCounts> {
   const line = buildLineup({ ...f, place: "" });
   const out = new Map<string, PlaceCounts>();
   const at = (place: string) => {
     let c = out.get(place);
-    if (!c) { c = { events: eras.map(() => 0), deaths: eras.map(() => 0) }; out.set(place, c); }
+    if (!c) { c = { events: eras.map(() => 0), deaths: eras.map(() => 0), others: eras.map(() => 0) }; out.set(place, c); }
     return c;
   };
-  const count = (d: Death) => { const i = eraIndex.get(d.era); if (d.place && i != null) at(d.place).deaths[i]++; };
+  const tally = (d: Death) => { const i = eraIndex.get(d.era); if (d.place && i != null) at(d.place)[isDeath(d) ? "deaths" : "others"][i]++; };
   for (const g of line.groups) {
     for (const r of g.rows) {
-      if (r.kind === "death") { count(r.d); continue; }
+      if (r.kind === "death") { tally(r.d); continue; }
       const i = eraIndex.get(r.era);
       if (i != null) for (const p of r.ev.places ?? []) at(p).events[i]++;
-      r.deaths.forEach(count);
+      r.deaths.forEach(tally);
     }
   }
   return out;

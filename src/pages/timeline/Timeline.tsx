@@ -11,8 +11,8 @@ import { LocationsView } from "./Locations";
 import { TimelineRow } from "./Row";
 import { landOn, useReturnVisit } from "./hooks";
 import {
-  type EraGroup, type FilterChange, type Filters, type View, FOLD_TO, TOTAL_DEATHS, TOTAL_EVENTS, appliedFilters, buildLineup, canFold, filtersKey, inWords,
-  isFiltered, kindOfId, plural, readFilters, sameFilters, titleOfId, within, writeFilters,
+  type EraGroup, type FilterChange, type Filters, type View, FOLD_TO, appliedFilters, buildLineup, canFold, filtersKey, inWords,
+  isFiltered, kindOfId, readFilters, sameFilters, tallyWords, titleOfId, totalsPhrase, within, writeFilters,
 } from "./model";
 import "./timeline.css";
 
@@ -43,8 +43,8 @@ const focusHeading = (section: HTMLElement) => section.querySelector<HTMLElement
 function EraSection({ g, total, open, marks, folded, onToggle, onUnfold }: { g: EraGroup; total: number; open: Set<string>; marks: Map<string, string>; folded: boolean; onToggle: (id: string) => void; onUnfold: (eraId: string) => void }) {
   const { era } = g;
   const date = ERA_DATES[era.id];
-  const events = g.rows.filter((r) => r.kind === "event").length;
-  const tally = [events ? plural(events, "event") : "", g.deaths ? plural(g.deaths, "death") : ""].filter(Boolean).join(" · ");
+  // Deaths and other fates are counted apart: nothing is tallied as a death that is not one.
+  const tally = tallyWords(g.rows.filter((r) => r.kind === "event").length, g.fates).join(" · ");
   const rows = folded ? g.rows.slice(0, FOLD_TO) : g.rows;
   // After "show the rest", focus moves to the first entry that appeared.
   const reveal = useRef(false);
@@ -103,7 +103,7 @@ export default function Timeline() {
   const bar = useRef<HTMLDivElement | null>(null);
   const panel = useRef<HTMLDivElement | null>(null);
 
-  // Open rows. A death told by a story event opens that event's row and is marked inside it.
+  // Open rows. A death or other fate told by a story event opens that event's row and is marked inside it.
   const openKey = sp.getAll("e").join(" ");
   const { open, marks } = useMemo(() => {
     const rows = new Set<string>(), inside = new Map<string, string>();
@@ -239,7 +239,10 @@ export default function Timeline() {
 
   return (
     <Page title="Timeline" className="tl-page">
-      <PageHeader title="Timeline" lede={`The story in order: ${TOTAL_EVENTS} events and ${TOTAL_DEATHS} recorded deaths across ${inWords(eras.length)} eras.`}>
+      {/* The opening line counts deaths and other fates apart. It does not go on to list the other
+          fates: each entry says its own, the key explains them, and on a phone every line added
+          here pushes the first event off the first screen. */}
+      <PageHeader title="Timeline" lede={`The story in order: ${totalsPhrase()} across ${inWords(eras.length)} eras.`}>
         <p className="tl-caveat">Where the games print no date, an entry is placed by what it follows. That position is a convention, not a claim about the year.</p>
       </PageHeader>
 
@@ -284,7 +287,7 @@ export default function Timeline() {
             {sections.map((g) => <EraSection key={g.era.id || "unplaced"} g={g} total={eras.length} open={open} marks={marks} folded={isFolded(g)} onToggle={toggleRow} onUnfold={unfoldEra} />)}
             {sections.length === 0 && (
               <Empty title="Nothing on the line matches these filters" action={<Button onClick={clearFilters}>Clear all filters</Button>}>
-                No story event or death fits every filter at once.
+                No entry fits every filter at once.
               </Empty>
             )}
             {sections.length > 0 && (

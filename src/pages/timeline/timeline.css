@@ -5,6 +5,10 @@
  * an era index that stays in reach) and Locations (every place across the eras). Support is carried
  * by the shared firmness marks and, on an open row, by data-level's line style. Era and place-kind
  * colours arrive as --hue and are only ever used for swatches, rules and tints.
+ *
+ * The line's second layer is deaths and other fates. The skull and the tension colour are spent on
+ * a death that the records give (data-outcome="death") and on nothing else; any other fate has the
+ * other mark and no colour. The tag that says which is the shared one (.outcome, .fate-tag).
  */
 
 /* The reader's text-size setting now moves the root font size (see tokens.css), so every size
@@ -24,8 +28,9 @@
 /* How many filters are on: a small count on the corner of the button, so the button keeps its width. */
 .tl-bar__count { position: absolute; top: -0.45rem; right: -0.45rem; display: grid; place-items: center; min-width: 1.15rem; height: 1.15rem; padding: 0 0.25em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1; color: var(--c-accent-ink); background: var(--c-accent-fill); border-radius: var(--r-pill); }
 
-/* The key itself is the shared one (.marks-key in components.css); only the death mark is the timeline's. */
+/* The key itself is the shared one (.marks-key in components.css); only the rows for deaths and other fates are the timeline's. */
 .tl-key__death { color: var(--c-tension); }
+.tl-key__fate { color: var(--c-text-2); }
 
 /* ── Filters: one control opens them; what is applied is said in words ── */
 .tl-panel { margin-bottom: var(--sp-3); }
@@ -135,9 +140,11 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-row:last-child::before { bottom: auto; height: 1.5rem; }
 .tl-row:only-child::before { display: none; }
 
-/* A plain node is a story event; a skull marks a death (its own row, or one the event tells). */
+/* A plain node is a story event. A skull marks a death (the row's own, or one its event tells), and nothing
+   else; a row whose entries of the second layer are all other fates carries the other mark, uncoloured. */
 .tl-row__node { position: relative; z-index: var(--z-raised); justify-self: center; width: 0.6875rem; height: 0.6875rem; margin-top: 1.25rem; background: var(--c-bg); border: 2px solid var(--c-text-3); border-radius: 50%; box-shadow: 0 0 0 3px var(--c-bg); }
-.tl-row.has-death .tl-row__node { display: grid; place-items: center; width: 1.375rem; height: 1.375rem; margin-top: 0.9rem; color: var(--c-tension); border: 1px solid var(--c-tension-line); }
+.tl-row:is(.has-death, .has-fate) .tl-row__node { display: grid; place-items: center; width: 1.375rem; height: 1.375rem; margin-top: 0.9rem; color: var(--c-text-2); border: 1px solid var(--c-line-control); }
+.tl-row.has-death .tl-row__node { color: var(--c-tension); border-color: var(--c-tension-line); }
 .tl-row.is-open .tl-row__node { border-color: var(--c-accent); }
 .tl-row.has-death.is-open .tl-row__node { border-color: var(--c-tension); }
 
@@ -145,7 +152,8 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 /* An open row is a card; its edge is drawn in the line style of its support. */
 .tl-row.is-open .tl-row__main { margin-block: var(--sp-2) var(--sp-4); padding-left: calc(var(--sp-4) - 2px); background: var(--c-surface); border-color: var(--c-line); border-left: 3px var(--firm-style, solid) var(--c-accent); }
 .tl-row.is-open:first-child .tl-row__main { margin-top: 0; }
-.tl-row--death.is-open .tl-row__main { border-left-color: var(--c-tension); }
+/* The tension colour is for a death alone: the row of another fate keeps the edge every open row has. */
+.tl-row--death[data-outcome="death"].is-open .tl-row__main { border-left-color: var(--c-tension); }
 
 .tl-row__head { position: relative; padding-right: 2rem; }
 /* The date and the marks sit above the row's click area; only the date itself takes a click. */
@@ -172,14 +180,14 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 /* The gap trails a fact instead of leading the next, so a fact that wraps starts flush with the line. */
 .tl-row__fact:not(:last-child) { margin-right: var(--sp-3); }
 .tl-row__k { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }
-/* A death the event tells: the tag, then who, on one line. */
+/* A death or other fate the event tells: its tag (the shared .fate-tag: outcome, then cause), then who, on one line. */
 .tl-row__death { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem var(--sp-3); max-width: var(--measure-wide); margin: 0.4rem 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--c-text-2); }
-.tl-row__death .tl-deathtag { flex: none; }
+/* The tag keeps its width while it fits; on a line narrower than itself its two pieces wrap. */
+.tl-row__death .fate-tag { flex: 0 1 auto; min-width: 0; }
 .tl-row__victim { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-/* "Death", in words, with its cause. */
-.tl-deathtag { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.2em 0.45em; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-tension); }
-.tl-deathtag__cause { display: inline-flex; align-items: center; gap: 0.4em; margin-left: 0.3em; color: var(--c-text-2); }
+/* The ending an entry is confined to, beside its tag. A long name ("Framed (Unfinished Business)")
+   takes a second line on a narrow screen instead of widening the page. */
+.chip.tl-ending { display: inline-block; flex: 0 1 auto; min-width: 0; max-width: 100%; white-space: normal; }
 
 /* ── An open row ───────────────────────────────────────────────── */
 /* Single tracks are minmax(0, 1fr) so that a long chip or word can never widen the row. */
@@ -214,8 +222,9 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-facts dt { font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--c-text-3); }
 .tl-facts dd { margin: 0; color: var(--c-text); }
 
-/* A death told by a story event, inside that event's row. */
-.tl-death { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); background: var(--c-tension-soft); border: 1px solid var(--c-tension-line); border-left: 3px var(--firm-style, solid) var(--c-tension); border-radius: var(--r-md); }
+/* A death or other fate told by a story event, inside that event's row. Only a death is tinted. */
+.tl-death { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); background: var(--c-surface-2); border: 1px solid var(--c-line-strong); border-left: 3px var(--firm-style, solid) var(--c-text-3); border-radius: var(--r-md); }
+.tl-death[data-outcome="death"] { background: var(--c-tension-soft); border-color: var(--c-tension-line); border-left-color: var(--c-tension); }
 .tl-death.is-marked { outline: 2px solid var(--c-accent-line); outline-offset: 2px; }
 .tl-death__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-3); margin: 0; }
 .tl-death__marks { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
@@ -241,7 +250,7 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
   .tl-row__main { padding: 0.625rem var(--sp-2); }
   .tl-row.is-open .tl-row__main { padding: var(--sp-3); padding-left: calc(var(--sp-3) - 2px); }
   .tl-row__node { margin-top: 1.05rem; }
-  .tl-row.has-death .tl-row__node { margin-top: 0.75rem; }
+  .tl-row:is(.has-death, .has-fate) .tl-row__node { margin-top: 0.75rem; }
   .tl-row:first-child::before { top: 1.3rem; }
   .tl-row:last-child::before { height: 1.3rem; }
   .tl-row__head { padding-right: 1.5rem; }
@@ -263,14 +272,16 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
  * The eras are --tl-n equal columns. --tl-cell is the width of one of them, worked out from the
  * width of the chart (a size container), so what a column shows follows the room it really has,
  * however many eras the data holds: era names over the columns from 6.5rem, counts inside them from
- * 3rem, and below either, the same fact in words under the bar. */
+ * 3rem (from 4.5rem in a row that needs three marks in one column), and below either, the same
+ * fact in words under the bar. */
 .tl-loc { --tl-place: clamp(13rem, 30%, 20rem); --tl-colgap: 3px; --tl-cell: calc((100cqi - (var(--tl-n) - 1) * var(--tl-colgap)) / var(--tl-n)); }
 .tl-loc__intro { max-width: var(--measure-wide); margin-bottom: var(--sp-4); }
 .tl-loc__intro h2 { margin: 0 0 var(--sp-2); font-size: var(--fs-2xl); line-height: 1.1; }
 .tl-loc__intro p { margin: 0; font-family: var(--font-text); font-weight: var(--w-text); font-size: calc(var(--fs-md) * var(--tl-read)); line-height: 1.55; color: var(--c-text-2); }
 .tl-loc__intro .tl-loc__legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-4); margin-top: var(--sp-3); font-family: var(--font-ui); font-size: var(--fs-sm); }
 .tl-loc__legend > span { display: inline-flex; align-items: center; gap: 0.4em; }
-.tl-loc__legend-death .icon { color: var(--c-tension); }
+.tl-loc__legend > span > .icon { color: var(--c-text-2); }
+.tl-loc__legend > .tl-loc__legend-death > .icon { color: var(--c-tension); }
 
 /* The era columns. They stay in view while the places scroll under them; each one goes to its era. */
 .tl-loc__head { position: sticky; top: var(--sticky-top); z-index: var(--z-sticky); display: grid; grid-template-columns: var(--tl-place) minmax(0, 1fr); column-gap: var(--sp-4); align-items: end; padding: var(--sp-2) 0; background: var(--c-bg); border-bottom: 1px solid var(--c-line-strong); }
@@ -318,15 +329,20 @@ dialog.tl-sheet::backdrop { background: var(--c-scrim); }
 .tl-loc__bar.fz-start.fz-end { background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--hue) 36%, var(--c-surface)) min(2rem, 40%), color-mix(in oklab, var(--hue) 36%, var(--c-surface)) calc(100% - min(2rem, 40%)), transparent); }
 .tl-loc__bar--float { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-2xs); color: var(--c-text-2); background: transparent; border: 1px dashed var(--c-line-strong); }
 .tl-loc__row.is-on .tl-loc__bar { box-shadow: 0 0 0 1px var(--hue); }
-.tl-loc__marks { position: relative; z-index: 2; display: inline-flex; gap: 0.4rem; max-width: max(0px, calc((var(--tl-cell) - 3rem) * 9999)); overflow: hidden; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1; color: var(--c-text); }
+/* --tl-marks is the narrowest column that can carry a row's counts: two marks side by side, or
+   three in a row that has an era with story events, deaths and other fates at once (.is-crowded). */
+.tl-loc__row { --tl-marks: 3rem; }
+.tl-loc__row.is-crowded { --tl-marks: 4.5rem; }
+.tl-loc__marks { position: relative; z-index: 2; display: inline-flex; gap: 0.4rem; max-width: max(0px, calc((var(--tl-cell) - var(--tl-marks)) * 9999)); overflow: hidden; font-family: var(--font-mono); font-size: var(--fs-2xs); font-weight: 500; line-height: 1; color: var(--c-text); }
 .tl-loc__mark { display: inline-flex; align-items: center; gap: 2px; }
 .tl-loc__mark--death .icon { color: var(--c-tension); }
+.tl-loc__mark--fate .icon { color: var(--c-text-2); }
 /* The bar in words, for when the chart cannot say it: which eras (when the era names do not fit
    over the columns) and how much happened there (when the counts do not fit in them). */
 .tl-loc__words { margin: 0; font-size: var(--fs-xs); line-height: 1.45; color: var(--c-text-3); }
 .tl-loc__span, .tl-loc__totals { display: block; overflow: hidden; }
 .tl-loc__span { max-height: max(0px, calc((6.5rem - var(--tl-cell)) * 9999)); }
-.tl-loc__totals { max-height: max(0px, calc((3rem - var(--tl-cell)) * 9999)); color: var(--c-text-2); }
+.tl-loc__totals { max-height: max(0px, calc((var(--tl-marks) - var(--tl-cell)) * 9999)); color: var(--c-text-2); }
 .tl-loc__span > span, .tl-loc__totals > span { display: block; padding-top: 0.25rem; }
 
 /* Phone: each place is a short stack: name, when, a thin bar across the eras, and the same in words. */

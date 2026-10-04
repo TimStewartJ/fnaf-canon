@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Diamond } from "lucide-react";
 import { eras } from "../../data/store";
 import { PLACE_DATES } from "../../data/dates";
-import { DatePill, DeathIcon, Icon, LOCATION_HUE, eraHue, hueOf, isPlainClick, smartQuotes } from "../../components/ui";
-import { type Filters, type LocRow, type PlaceCounts, countsByPlace, locationGroups, plural, within } from "./model";
+import { DatePill, DeathIcon, FateIcon, Icon, LOCATION_HUE, eraHue, hueOf, isPlainClick, smartQuotes } from "../../components/ui";
+import { type Filters, type LocRow, type PlaceCounts, countsByPlace, locationGroups, tallyWords, within } from "./model";
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
@@ -17,12 +17,23 @@ function spanWords(r: LocRow): string {
   return `${r.from === r.to ? a : `${a} to ${b}`}${loose ? ` (${loose})` : ""}`;
 }
 
-/** The numbers the chart draws, as a sentence: "Founding: 1 event. The Diner Years: 4 events, 1 death." */
+/** What a place has in one era, or in all of them (`i` left out), under the layer in use: story events, deaths, other fates. */
+function shown(c: PlaceCounts | undefined, f: Filters, i?: number): { events: number; deaths: number; others: number } {
+  const of = (xs: number[]) => (i == null ? sum(xs) : xs[i]);
+  return {
+    events: c && f.layer !== "deaths" ? of(c.events) : 0,
+    deaths: c && f.layer !== "events" ? of(c.deaths) : 0,
+    others: c && f.layer !== "events" ? of(c.others) : 0,
+  };
+}
+
+/** The numbers the chart draws, as a sentence: "Founding: 1 event. The Diner Years: 4 events, 1 death, 2 other fates." */
 function countWords(c: PlaceCounts | undefined, f: Filters): string {
   if (!c) return "";
   return eras
     .map((e, i) => {
-      const parts = [f.layer !== "deaths" && c.events[i] ? plural(c.events[i], "event") : "", f.layer !== "events" && c.deaths[i] ? plural(c.deaths[i], "death") : ""].filter(Boolean);
+      const n = shown(c, f, i);
+      const parts = tallyWords(n.events, n);
       return parts.length ? `${e.name}: ${parts.join(", ")}.` : "";
     })
     .filter(Boolean)
@@ -31,13 +42,16 @@ function countWords(c: PlaceCounts | undefined, f: Filters): string {
 
 function PlaceRow({ r, counts, f, to, on, onChoose }: { r: LocRow; counts: PlaceCounts | undefined; f: Filters; to: URLSearchParams; on: boolean; onChoose: (ev: MouseEvent) => void }) {
   const date = PLACE_DATES[r.id];
-  const nEvents = f.layer !== "deaths" && counts ? sum(counts.events) : 0;
-  const nDeaths = f.layer !== "events" && counts ? sum(counts.deaths) : 0;
+  const all = shown(counts, f);
   const placed = r.from != null && r.to != null;
   const perEra = countWords(counts, f);
-  const totals = [nEvents ? plural(nEvents, "event") : "", nDeaths ? plural(nDeaths, "death") : ""].filter(Boolean).join(" · ");
+  const totals = tallyWords(all.events, all).join(" · ");
+  const cells = eras.map((_, i) => shown(counts, f, i));
+  // A cell that carries all three marks needs more room than one with two: the row says how much, and
+  // below that its counts are given in words under the bar instead (see --tl-marks in timeline.css).
+  const crowded = cells.some((n) => n.events > 0 && n.deaths > 0 && n.others > 0);
   return (
-    <li className={`tl-loc__row${on ? " is-on" : ""}`}>
+    <li className={`tl-loc__row${on ? " is-on" : ""}${crowded ? " is-crowded" : ""}`}>
       <div className="tl-loc__place">
         <Link className="tl-loc__name" to={within(to)} aria-current={on ? "true" : undefined} onClick={onChoose}>
           {smartQuotes(r.name)}<span className="sr-only">: read what happened here</span>
@@ -48,16 +62,20 @@ function PlaceRow({ r, counts, f, to, on, onChoose }: { r: LocRow; counts: Place
       </div>
       <div className="tl-loc__chart">
         <div className="tl-loc__track" aria-hidden>
-          {eras.map((e, i) => (
-            <span key={e.id} className="tl-loc__cell" style={{ gridColumn: i + 1 }}>
-              {counts && (counts.events[i] > 0 || counts.deaths[i] > 0) && (
-                <span className="tl-loc__marks">
-                  {f.layer !== "deaths" && counts.events[i] > 0 && <span className="tl-loc__mark"><Icon icon={Diamond} size={9} />{counts.events[i]}</span>}
-                  {f.layer !== "events" && counts.deaths[i] > 0 && <span className="tl-loc__mark tl-loc__mark--death"><Icon icon={DeathIcon} size={10} />{counts.deaths[i]}</span>}
-                </span>
-              )}
-            </span>
-          ))}
+          {eras.map((e, i) => {
+            const n = cells[i];
+            return (
+              <span key={e.id} className="tl-loc__cell" style={{ gridColumn: i + 1 }}>
+                {(n.events > 0 || n.deaths > 0 || n.others > 0) && (
+                  <span className="tl-loc__marks">
+                    {n.events > 0 && <span className="tl-loc__mark"><Icon icon={Diamond} size={9} />{n.events}</span>}
+                    {n.deaths > 0 && <span className="tl-loc__mark tl-loc__mark--death"><Icon icon={DeathIcon} size={10} />{n.deaths}</span>}
+                    {n.others > 0 && <span className="tl-loc__mark tl-loc__mark--fate"><Icon icon={FateIcon} size={10} />{n.others}</span>}
+                  </span>
+                )}
+              </span>
+            );
+          })}
           {placed ? (
             <span className={`tl-loc__bar${r.span.fuzzyStart ? " fz-start" : ""}${r.span.fuzzyEnd ? " fz-end" : ""}`} style={{ gridColumn: `${r.from! + 1} / ${r.to! + 2}` }} />
           ) : (
@@ -78,7 +96,8 @@ function PlaceRow({ r, counts, f, to, on, onChoose }: { r: LocRow; counts: Place
 /**
  * The second view of the timeline: every place laid across the eras, grouped by kind. Choosing a
  * place goes to the events with the line narrowed to it; choosing an era goes to that era. The
- * counts follow every filter except the place filter, so they say what a place would show.
+ * counts follow every filter except the place filter, so they say what a place would show. Deaths
+ * are counted under the skull and other fates under their own mark, here as on the line.
  *  - onLeave  called when a plain click on a place or an era is about to go to the events
  */
 export function LocationsView({ f, sp, onLeave }: { f: Filters; sp: URLSearchParams; onLeave: () => void }) {
@@ -101,6 +120,7 @@ export function LocationsView({ f, sp, onLeave }: { f: Filters; sp: URLSearchPar
         <p className="tl-loc__legend">
           <span><Icon icon={Diamond} size={11} /> story events</span>
           <span className="tl-loc__legend-death"><Icon icon={DeathIcon} size={12} /> deaths</span>
+          <span><Icon icon={FateIcon} size={12} /> other fates</span>
           <span>set there in each era</span>
         </p>
       </header>
