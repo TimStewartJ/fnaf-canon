@@ -1538,7 +1538,7 @@
   {
     "id": "ffps-lorekeeper-gravestones",
     "title": "Lorekeeper screen: gravestones named Gabriel, Fritz, Susie, Jeremy",
-    "claim": "If the three lore minigames were completed before the Completion ending, a post-credits image shows gravestones in a sunny, grassy field. Five stand in a row in the foreground: four are legible, left to right 'Gabriel', 'Fritz', 'Susie' and 'Jeremy', and the fifth, at the right, is hidden behind blades of grass. A sixth stands apart on the hill behind (ffps-lorekeeper-hill-stone).",
+    "claim": "If the three lore minigames were completed before the Completion ending, a post-credits image shows gravestones in a sunny, grassy field. Five stand in a row in the foreground: four are legible, left to right 'Gabriel', 'Fritz', 'Susie' and 'Jeremy', and the fifth, at the right, is hidden behind blades of grass. A sixth stands apart on the hill behind.",
     "game": "ffps",
     "kind": "hidden",
     "location": "Post-credits Lorekeeper image (after Completion ending)",
@@ -1570,7 +1570,7 @@
     ],
     "image": "ffps-lorekeeper-the-end.jpg",
     "verifiedVia": "https://freddy-fazbears-pizza.fandom.com/wiki/Endings ; https://freddy-fazbears-pizza.fandom.com/wiki/File:The_End.png",
-    "notes": "These names ARE in-game (engraved on the stones), so they can be cited. The game does not say whose graves they are, which animatronic each child haunted, or what the fifth stone says; the name fans give the fifth comes from the books and is not used here. Checked against the wiki's 1920x1080 capture. Four clear stones in a row plus one obscured echoes FNaF3's ending screen (the heads of Freddy, Foxy, Chica and Bonnie plus a fifth behind); pairing names with animatronics from that order is an inference. 'Fritz' and 'Jeremy' are also the first names of FNaF2's two guards; the game draws no connection. Help Wanted 2's achievement 'Remember Jeremy?' has a Bonnie-masked doll for its icon (hw2-remember-jeremy-achievement); which Jeremy it means is not stated."
+    "notes": "These names ARE in-game (engraved on the stones), so they can be cited. The game does not say whose graves they are, which animatronic each child haunted, or what the fifth stone says; the name fans give the fifth comes from the books and is not used here. Checked against the wiki's 1920x1080 capture. Four clear stones in a row plus one obscured echoes FNaF3's ending screen (the heads of Freddy, Foxy, Chica and Bonnie plus a fifth behind); pairing names with animatronics from that order is an inference. 'Fritz' and 'Jeremy' are also the first names of FNaF2's two guards; the game draws no connection. Help Wanted 2's achievement 'Remember Jeremy?' has a Bonnie-masked doll for its icon (hw2-remember-jeremy-achievement); which Jeremy it means is not stated. The sixth stone has a record of its own (ffps-lorekeeper-hill-stone)."
   },
   {
     "id": "ffps-lorekeeper-certificate",
