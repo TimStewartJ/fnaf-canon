@@ -68,14 +68,14 @@ const NIGHT_1979 = "The night of the work order, which is dated 9/07/79 on a doc
 export const deaths: Death[] = [
   // ── The costume workshop ──
   {
-    id: "d-fiona", title: "Fiona Murray is gone: her death is the reading the recordings support", victims: ["fiona-murray"], victimLabel: "Fiona Murray (death implied; no recording says outright what became of her)", by: [], byLabel: "Not stated",
+    id: "d-fiona", title: "Fiona Murray is gone: her death is the reading the recordings support", victims: ["fiona-murray"], victimLabel: "Fiona Murray (no recording says outright what became of her)", by: [], byLabel: "Not stated",
     kind: "unknown", placeLabel: "Not stated. She leaves to help the Fall Fest crew with an installation away from the workshop; that she died on that trip is an inference", era: "founding", year: 20100, yearLabel: "year unknown; before the night of 1979",
     date: { kind: "relative", basis: "Told before the recording in which Edwin gives David the first machine as a babysitter; no record orders the two outright. No record gives the year or says which Fall Fest it was.", evidence: ["secret-of-the-mimic-log-death", "secret-of-the-mimic-log-training-m1"] },
     status: "strong", outcome: "presumed", evidence: ["secret-of-the-mimic-log-installation-worries", "secret-of-the-mimic-log-death", "secret-of-the-mimic-film-mommy-gone", "secret-of-the-mimic-mail-heard-fiona", "secret-of-the-mimic-log-m1-as-fiona"], event: "t-fiona-dies",
     note: "In a log titled 'Death' Edwin asks how he is to tell David 'that his mother is gone'; the log does not speak her name. In a birthday film he tells the boy 'David, Mommy's gone...'. No recording says outright what became of her or gives a cause, and the model presumes her death on those recordings. An employee who swears to hearing her voice wonders whether her death was faked; in other recordings a voice speaks to Edwin as Fiona, which the model reads as the first machine's.",
   },
   {
-    id: "d-david", title: "David Murray's death is implied, never stated", victims: ["david-murray"], victimLabel: "David Murray, the Murrays' son (death implied, never stated)", by: [], byLabel: "Not stated. One birthday film ends on his father's line 'I left him out at the playground'; the game never shows or says what happened there",
+    id: "d-david", title: "David Murray's death is implied, never stated", victims: ["david-murray"], victimLabel: "David Murray, the Murrays' son (his death is never stated)", by: [], byLabel: "Not stated. One birthday film ends on his father's line 'I left him out at the playground'; the game never shows or says what happened there",
     kind: "unknown", placeLabel: "Not stated", era: "founding", year: 30100, yearLabel: "first week of a December; the model's estimate is 1975",
     date: { kind: "estimated", basis: "His party is announced on 1 December and cancelled on 6 December; the headers carry no year. If 6 December was the Saturday of the party, the year between 1965 and 1979 is 1969 or 1975, and 1975 fits the company's decline. The estimate is low to medium: the cancellation does not name him, and a memo about the research floor strains it.", evidence: ["secret-of-the-mimic-mail-david-party", "secret-of-the-mimic-mail-party-canceled", "secret-of-the-mimic-mcm-rnd-floor-opening-memo"] },
     status: "strong", outcome: "presumed", evidence: ["secret-of-the-mimic-mail-david-party", "secret-of-the-mimic-mail-party-canceled", "secret-of-the-mimic-log-refusal", "secret-of-the-mimic-f10n4-miss-my-child", "secret-of-the-mimic-film-yellow-playground"], event: "t-mimic-born",
@@ -103,15 +103,15 @@ export const deaths: Death[] = [
     note: "In the ending where he walks away, he is attacked in his van and wakes inside the suit on the mock-up stage. His death is not shown. In another ending he is left in a crash as the workshop burns. The game has three endings, and the model does not choose between them.",
   },
   {
-    id: "d-arnold-crash", title: "One ending (Framed): the technician is left in a crash as the workshop burns", victims: ["arnold"], victimLabel: "Arnold, the technician (presumed dead; not shown)", by: ["the-mimic"], byLabel: "The Mimic, which rides his van and causes the crash (the archive reads the name as the second machine)",
+    id: "d-arnold-crash", title: "One ending (Framed): the technician is left in a crash as the workshop burns", victims: ["arnold"], victimLabel: "Arnold, the technician (fate not shown)", by: ["the-mimic"], byLabel: "The Mimic, which rides his van and causes the crash (the archive reads the name as the second machine)",
     kind: "machine", placeLabel: "In his van; where the crash happens is not stated", era: "founding", year: 51100, yearLabel: "the night of 1979",
     date: { kind: "teaser", basis: NIGHT_1979, evidence: ["secret-of-the-mimic-ending-unfinished-business", "secret-of-the-mimic-work-order-1979", "secret-of-the-mimic-teaser-1979"] },
     status: "theory", outcome: "not-shown", evidence: ["secret-of-the-mimic-ending-unfinished-business"], branch: "Framed (Unfinished Business)", event: "t-1979-night",
-    note: "In this ending he sets off the building's self-destruction; the machine rides his van, causes a crash and walks away, leaving him presumably dead. His death is not shown. In another ending he wakes inside the springlock suit that the game's files label Fredbear. The game has three endings, and the model does not choose between them.",
+    note: "In this ending he sets off the building's self-destruction; the machine rides his van, causes a crash and walks away. The record of this ending calls him \"presumably dead\"; his death is not shown. In another ending he wakes inside the springlock suit that the game's files label Fredbear. The game has three endings, and the model does not choose between them.",
   },
   // ── The house and the birthday ──
   {
-    id: "d-crying-child", title: "The bitten boy most likely dies", victims: ["crying-child"], victimLabel: "The crying child (death implied, never stated)", by: ["fredbear", "older-brother"], byLabel: "Fredbear's jaw, after his older brother and three friends lift him to its mouth as a joke",
+    id: "d-crying-child", title: "The bitten boy most likely dies", victims: ["crying-child"], victimLabel: "The crying child (his death is never stated)", by: ["fredbear", "older-brother"], byLabel: "Fredbear's jaw, after his older brother and three friends lift him to its mouth as a joke",
     kind: "accident", place: "fredbears-family-diner", era: "diner", year: 65100, yearLabel: "c. 1983",
     date: { kind: "estimated", basis: "The party ends the five-day countdown, in the week whose only printed year is 1983: a title card on the television, which gives a floor.", evidence: ["fnaf4-minigame-countdown-to-party", "fnaf4-fredbear-and-friends-1983"] },
     status: "strong", outcome: "presumed", evidence: ["fnaf4-give-fredbear-a-kiss", "fnaf4-the-bite", "fnaf4-night6-fade-order", "fnaf4-youre-broken", "fnaf4-flatline", "fnaf4-diner-unnamed"], event: "t-bite-1983",
@@ -142,7 +142,7 @@ export const deaths: Death[] = [
   },
   // ── 1987 and the last Freddy's ──
   {
-    id: "d-phone-guy", title: "Phone Guy's last recording ends in a scream", victims: ["phone-guy"], victimLabel: "Phone Guy (death implied, never stated)", by: [], byLabel: "Not stated. By the transcript the message has banging through it and ends in music, a scream and static",
+    id: "d-phone-guy", title: "Phone Guy's last recording ends in a scream", victims: ["phone-guy"], victimLabel: "Phone Guy (his death is never stated)", by: [], byLabel: "Not stated. By the transcript the message has banging through it and ends in music, a scream and static",
     kind: "unknown", place: "freddy-fazbears-pizza-fnaf1", era: "pizzeria", year: 130100, yearLabel: "his own last week, before the player's",
     date: { kind: "relative", basis: "The messages are recordings made during his last week, an unstated time before the guard hears them. That guard's week falls in a November after 1987.", evidence: ["fnaf1-calls-prerecorded", "fnaf1-call4-phone-guy-attacked"] },
     status: "strong", outcome: "presumed", evidence: ["fnaf1-call4-phone-guy-attacked", "fnaf1-calls-prerecorded", "fnaf1-call5-garbled", "fnaf1-call4-empty-heads"], event: "t-fnaf1",
