@@ -150,7 +150,7 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
             {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
-            <Collapsible eager summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>
+            <Collapsible eager className="chapter-further" summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>
               <EvidenceList ids={further} />
             </Collapsible>
           )}

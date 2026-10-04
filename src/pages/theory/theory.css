@@ -461,6 +461,8 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
    for print by the shell). No rail, no bars, no way on to other chapters. */
 @media print {
   .chapter-bar, .chapter-rail, .reading-progress, .chapter-pager, .chapter-onward, .story-progress, .parts-strip, .contents-show, .beat__sources, .cover-hero__actions, .story-end__actions, .cover-parts { display: none !important; }
+  /* Records filed with the chapter and not cited in it: a closed line on paper, which nobody can open. The numbered sources above it are the chapter's. */
+  .chapter-further { display: none; }
   .chapter-layout { display: block; max-width: none; padding: 0; }
   .chapter-layout > .chapter { max-width: none; }
   .cover-hero { background: none; padding-block: 0 var(--sp-6); }
