@@ -84,7 +84,7 @@ function Pager({ e, compact }: { e: Evidence; compact?: boolean }) {
         {prev
           ? <Link to={evidencePath(prev.id)} className="evx-step__btn" rel="prev" aria-label={`Previous record from ${short}: ${prev.title}`} title={`Previous: ${prev.title}`}><Icon icon={ChevronLeft} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronLeft} /></span>}
-        <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{at} of {of} in {short}</Link>
+        <Link to={sourcePath(e.game)} className="evx-step__at" title={`All records from ${gameById.get(e.game)?.title ?? short}`}>{count(at)} of {count(of)} in {short}</Link>
         {next
           ? <Link to={evidencePath(next.id)} className="evx-step__btn" rel="next" aria-label={`Next record from ${short}: ${next.title}`} title={`Next: ${next.title}`}><Icon icon={ChevronRight} /></Link>
           : <span className="evx-step__btn is-off" aria-hidden><Icon icon={ChevronRight} /></span>}

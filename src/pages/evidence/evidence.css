@@ -244,7 +244,9 @@ a.evx-step__btn:hover { color: var(--c-text); background: var(--c-surface-2); bo
 .evx-model__related > .evx-list { border-top: 1px solid var(--c-line); }
 .evx-links { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-line); }
 .evx-links > li { margin: 0; }
-.evx-link { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; align-items: baseline; gap: var(--sp-1) var(--sp-3); padding: var(--sp-2) var(--sp-1); color: var(--c-text); border-bottom: 1px solid var(--c-line); text-decoration: none; transition: background var(--dur-1) var(--ease); }
+/* The third column (a date in words, a mark) takes what it needs up to half the row, then wraps:
+   a long date no longer squeezes the title beside it into a column one word wide. */
+.evx-link { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) fit-content(50%); align-items: baseline; gap: var(--sp-1) var(--sp-3); padding: var(--sp-2) var(--sp-1); color: var(--c-text); border-bottom: 1px solid var(--c-line); text-decoration: none; transition: background var(--dur-1) var(--ease); }
 .evx-link:hover { color: var(--c-accent-strong); background: var(--c-surface); }
 .evx-link:hover .evx-link__title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .evx-link__n { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; color: var(--c-accent); }
