@@ -430,3 +430,32 @@ export function countsByPlace(f: Filters): Map<string, PlaceCounts> {
   }
   return out;
 }
+
+/** The longest a date label may be on a phone's card before it is cut: two lines at 390px. */
+const CARD_LABEL = 64;
+
+/**
+ * A date label for a card on a phone. One that would take three lines there is cut at a natural
+ * break (a semicolon, or the bracket that opens a gloss; never inside a bracket), keeping as much
+ * as fits in two; what is cut is returned as a sentence, to be said first in the date's popover,
+ * so the whole label is one press away. A label with no such break is left whole, and the data's
+ * label is never changed.
+ */
+export function cardLabel(label: string): { short: string; rest: string } {
+  if (label.length <= CARD_LABEL) return { short: label, rest: "" };
+  const cuts: number[] = [];
+  let depth = 0;
+  for (let i = 0; i < label.length; i++) {
+    const c = label[i];
+    if (c === "(") { if (depth === 0 && i > 0) cuts.push(i); depth++; }
+    else if (c === ")") depth = Math.max(0, depth - 1);
+    else if (c === ";" && depth === 0) cuts.push(i);
+  }
+  if (!cuts.length) return { short: label, rest: "" };
+  const at = [...cuts].reverse().find((i) => i <= CARD_LABEL) ?? cuts[0];
+  const short = label.slice(0, at).trim();
+  let rest = label.slice(at).replace(/^[;\s]+/, "").trim();
+  if (rest.startsWith("(") && rest.endsWith(")")) rest = rest.slice(1, -1).trim();
+  if (!short || !rest) return { short: label, rest: "" };
+  return { short, rest: `${rest[0].toUpperCase()}${rest.slice(1)}${/[.!?]$/.test(rest) ? "" : "."}` };
+}
