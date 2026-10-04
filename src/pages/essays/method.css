@@ -1,8 +1,8 @@
 /* Method. Cluster D. The essay template is in essays.css. */
 
-/* Header aside: the archive in numbers, read off the data. */
-.method-today { padding: var(--sp-4) var(--sp-5) var(--sp-5); background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); }
-.method-today > .label { margin-bottom: var(--sp-3); }
+/* Header aside: the archive in numbers, read off the data. The surface is the shared .panel, and
+   the facts are the shared <Facts>, as on a record's page: one way of writing a side panel. */
+.method-today > .label { margin: 0 0 var(--sp-3); }
 .method-today__v { color: var(--c-text-2); }
 .method-today__v > a { font-weight: 600; }
 /* Below the two-column header the panel follows the short answers, so it shrinks to its numbers. */
