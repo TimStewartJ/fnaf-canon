@@ -114,6 +114,25 @@ export function sourceWords(text: string): ReactNode {
   return shown.split(EMPHASIS).map((part, i) => (i % 2 ? createElement("em", { key: i }, part) : part));
 }
 
+/** What may stand before a quotation's first word: space, then quotation marks or a bracket, then the asterisk of emphasis. */
+const OPENS_SMALL = /^\s*(["'\u201C\u2018(]*)(\*?\p{Ll})/u;
+
+/**
+ * A quotation set large and alone (a chapter's pull quote), for display: sourceWords, and an
+ * ellipsis before a quotation that begins with a small letter. Such a quotation starts inside
+ * its sentence; set large it reads as a sentence that has lost its capital, and the ellipsis
+ * says that it was cut. The ellipsis stands inside a quotation mark that opens the text, and
+ * before the apostrophe of 'til or 'cause, which is part of the word. A quotation that already
+ * opens with dots is left as it is, and so is every ending: the source's last word is the source's.
+ */
+export function pulledWords(text: string): ReactNode {
+  const m = OPENS_SMALL.exec(text);
+  if (!m) return sourceWords(text);
+  let marks = m[1], rest = text.slice(m[0].length - m[2].length);
+  if (marks.endsWith("'") && ELISION.test(rest.replace(/^\*/, ""))) { marks = marks.slice(0, -1); rest = `'${rest}`; }
+  return sourceWords(`${marks}\u2026${rest}`);
+}
+
 /** The same words with the asterisks dropped, where italics cannot be shown (an attribute, a search excerpt). */
 export const sourceWordsPlain = (text: string): string => smartQuotes(text).replace(EMPHASIS, "$1");
 

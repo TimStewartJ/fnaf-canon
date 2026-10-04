@@ -5,7 +5,7 @@ import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
   EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
-  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, recordWords, smartQuotes,
+  IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, pulledWords, recordWords, smartQuotes,
 } from "../../components/ui";
 import "./dev.css";
 
@@ -83,6 +83,12 @@ export default function DevKit() {
         <p className="prose" id="kit-stops-plain">{plainText("As plain words: see ((hen-and-wa)). Signed {{wa-signatory}}. In bold: **((hen-and-wa))**.")}</p>
         {/* Quotation marks are read from both sides: a mark after a bracket can close, a quotation can open on a bracket, a sign or a figure, and only a year cut short keeps its apostrophe. */}
         <p className="prose" id="kit-quotes">{smartQuotes(`Quotation marks: a post called "Bad news about the FNAF movie. :(" by its author; an email headed '(no subject)' and signed '- Vanessa'; a tiny '?', a price of '$2000', the year '1983' and a hidden '10'; but the Bite of '87, the '80s and the brothers' room keep their apostrophes.`)}</p>
+        {/* A quotation set large (a chapter's pull quote): one that begins inside its sentence opens with an ellipsis, inside an opening mark; one that begins with a capital is left alone; no ending is touched. */}
+        <div id="kit-pulled">
+          <blockquote>{pulledWords("it's been trapped down here for a really long time. The M.X.E.S. security program was designed to keep it locked up")}</blockquote>
+          <blockquote>{pulledWords("With all due respect, those aren't the design choices we were curious about, Mr. Afton.")}</blockquote>
+          <blockquote>{pulledWords(`"if I make a game that contradicts one of your theories, it doesn't mean that my game is wrong"`)}</blockquote>
+        </div>
         {/* The four tags on a weaker kind of record. Each is the words as written, with a dotted line and its meaning on hover, focus or a press. */}
         <p className="prose" id="kit-tags"><RichText text="The four tags: the call ends in a scream (as described) [[fnaf1-call4-phone-guy-attacked]], a poster among the textures (read from an image) names the diner, the keypad answers to 1-9-8-3 (a fan wiki's account), and in a 2018 interview (a transcript) Scott said more. In bold the tag keeps its mark: **(as described)**. Inside a longer bracket the phrase alone is marked (a rabbit costume's, by a fan wiki's account). Outside a bracket the same words are a sentence and are left alone: by a fan wiki's account, read from an image." /></p>
         {/* A tag in text that is cut off takes no tab stop: this paragraph is held to two lines, and its tag is on a later one. */}
