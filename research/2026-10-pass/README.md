@@ -30,5 +30,6 @@ In the order the work ran:
 | `verify-5.md` | The verification of the ninety or so sentences that changed when records were set against recordings: 17 findings, all applied, and four questions for the adjudicator with their answers in `../rulings.md` and `../open-checks.md`. |
 | `acceptance-read.md` | The last read before publication, as a fan on a phone and then as a careful reader at a desk: a verdict for each, 33 findings (none a blocker), ten statements traced from the page to their records, and what works well. Its pictures and scripts were not kept. |
 | `ui-notes-lead.md` | The interface's lead author's notes: what was built, what each review finding became, what was declined and why, and what to check on an iPhone. The rules themselves are in `../../docs/DESIGN.md`. |
+| `ui-notes-text.md` | The notes of the engineer who settled how text from the data is printed: the four tags as explained markers, a record's id printed as that record's title or as a numeral, quotation marks read from both sides, month-first dates said in words, and what was measured before and after each. |
 
 What is still unverified, and what a future pass should do first, is in `../open-checks.md`.
