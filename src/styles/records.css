@@ -85,6 +85,13 @@ dialog.drawer {
 }
 dialog.drawer[open] { display: flex; }
 dialog.drawer::backdrop { background: var(--c-scrim); }
+/* The page under an open drawer (drawerPlace.ts). The number that stands for the record on show
+   is filled, wherever it stands; and at a desk, where the drawer lies over the right of a wide
+   column, the page steps left by what it takes for the sentence being checked to stand clear.
+   Margins, not a transform: the column keeps its width and nothing inside it is laid out again. */
+a.cite[data-open], a.cite[data-open]:hover { color: var(--c-accent-ink); background: var(--c-accent-fill); text-decoration: none; }
+a.src-chip[data-open] { border-color: var(--c-accent); box-shadow: inset 0 0 0 1px var(--c-accent); }
+:root[data-drawer-shift] .site-main { margin-left: calc(-1 * var(--drawer-shift)); margin-right: var(--drawer-shift); }
 .drawer__bar { display: flex; align-items: center; gap: var(--sp-1); padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-5); border-bottom: 1px solid var(--c-line); flex: none; }
 /* Beside three buttons on a phone the label can take two lines: break it evenly, not one word from the end. */
 .drawer__bar > .label { flex: 1; min-width: 0; text-wrap: balance; }

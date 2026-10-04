@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Evidence } from "../data/schema";
 import { backlinksFor, evidenceById } from "../data/store";
+import { clearPlace, markOpen, openerAt } from "./drawerPlace";
 import { type DrawerState, useEvidenceDrawer } from "./evidenceDrawer";
 import { useFlick, useModalDialog, useSheetPull } from "./hooks";
 import { firmness } from "./labels";
@@ -84,6 +85,15 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
     shown.current = true;
     if (!paging) el.querySelector<HTMLElement>("#drawer-title")?.focus({ preventScroll: true });
   }, [dialog, state.id]);
+  // The page under the drawer marks the numbers that stand for this record and, at a desk, steps
+  // aside for the sentence being checked (drawerPlace.ts). Focus goes back to the number the reader
+  // last chose there: declared after the dialog's own effect, so it has the last word.
+  const chosen = useRef<HTMLElement | null>(null);
+  useLayoutEffect(() => markOpen(state.id, dialog.current), [dialog, state.id]);
+  useLayoutEffect(() => () => {
+    clearPlace();
+    if (chosen.current?.isConnected) chosen.current.focus({ preventScroll: true });
+  }, []);
   const e = evidenceById.get(state.id);
   const group = (state.group ?? []).filter((id) => evidenceById.has(id));
   const idx = group.indexOf(state.id);
@@ -100,6 +110,12 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       className="drawer"
       aria-labelledby="drawer-title"
       {...dialogProps}
+      onClick={(ev) => {
+        // A click on the dimmed page that lands on another citation goes straight to that record.
+        const other = ev.target === ev.currentTarget ? openerAt(ev.clientX, ev.clientY, ev.currentTarget) : null;
+        if (other) { chosen.current = other; other.click(); }
+        else dialogProps.onClick(ev);
+      }}
       onKeyDown={(ev) => {
         // Keys pressed in something opened over the drawer (an enlarged image) belong to that.
         const from = ev.target as HTMLElement;
