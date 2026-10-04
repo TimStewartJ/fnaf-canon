@@ -1,10 +1,10 @@
 import { useState, type CSSProperties } from "react";
 import { ArrowRight, Search } from "lucide-react";
-import type { DateKind } from "../../data/schema";
+import type { DateKind, Evidence } from "../../data/schema";
 import { evidenceById, games } from "../../data/store";
 import {
   Button, ButtonLink, Callout, CertaintyMark, ChapterLink, Chip, CiteList, Collapsible, ConfidenceMark, DATE_KINDS, DEATH_KIND_ICON, DatePill, ERA_HUE, Empty,
-  EntityLink, EvidenceCard, EvidenceList, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
+  EntityLink, EvidenceCard, EvidenceList, EvidenceRow, Fact, Facts, Figure, FilterBar, FilterChip, FilterGroup, FirmnessLegend, GROUP_HUE, GameMark, INTERACTION_ICON, Icon,
   IconButton, Loading, Page, PageHeader, RecordText, RichText, SOURCE_KIND_ICON, SearchField, Section, Segmented, StatusMark, TableWrap, Tabs, Tag, Toggle, kindLabel, plainText, pulledWords, recordWords, smartQuotes,
 } from "../../components/ui";
 import "./dev.css";
@@ -24,6 +24,15 @@ const TYPE: [string, string, string][] = [
   ["--fs-2xs", "var(--font-mono)", "MICRO LABELS, UPPERCASE"],
 ];
 const RECORDS = ["fnaf2-take-cake-to-the-children", "fnaf1-news-five-children", "fnaf4-the-bite", "ffps-scup-blueprint"];
+/**
+ * A record whose claim cites another record. No record's claim does (the validator forbids an id in a title, a
+ * claim, a quote or a place), so this one is a real record with a claim made up for the kit: it shows that a
+ * card and a row would print such a claim as a record's page prints its notes.
+ */
+const CITING: Evidence | undefined = (() => {
+  const real = evidenceById.get("fnaf2-paycheck-1987");
+  return real && { ...real, claim: "The second game's cheque gives its year in full; the first game's hides it (fnaf1-paycheck-night5)." };
+})();
 
 /** /dev/kit: every shared component in one place, for review and as a living reference next to DESIGN.md. */
 export default function DevKit() {
@@ -100,8 +109,9 @@ export default function DevKit() {
         <p className="read dev-narrow" id="kit-recordtext"><RecordText emphasis text="The year is hidden on the first game's cheque (fnaf1-paycheck-night5), and both of the second game's are dated (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). The same text is recorded as fnaf2-overtime-robots-scrapped, and the call opens the game (secret-of-the-mimic-opening-call-arnold-dispatch, a document not confirmed in play). An id that no record has stays as written (fnaf9-no-such-record), and so does a word that only looks like one: end-of-night, 11-12-1987. The source's own *emphasis* is kept." /></p>
         {/* Where nothing can be a link (a row that is one, a preview, a popover): the same text as plain words. The citations are left out, bracket and all. */}
         <p className="read dev-narrow" id="kit-recordtext-plain"><span className="label">plain words</span> {recordWords("The year is hidden on the first game's cheque (fnaf1-paycheck-night5), and both of the second game's are dated (fnaf2-paycheck-1987, fnaf2-overtime-robots-scrapped). The same text is recorded as fnaf2-overtime-robots-scrapped.")}</p>
-        {/* A card whose claim cites another record, and the same record as a row. */}
-        <div className="dev-grid" id="kit-recordtext-card">{["into-the-pit-new-mill-fathers"].map((id) => evidenceById.get(id)).map((e) => e && <EvidenceCard key={e.id} e={e} />)}</div>
+        {/* A claim that cites another record (made up: see CITING), on a card and in a row. The card sets a numeral; the row, which is one link, gives plain words. */}
+        <div className="dev-grid" id="kit-recordtext-card">{CITING && <EvidenceCard e={CITING} />}</div>
+        <ul className="ev-list" id="kit-recordtext-row">{CITING && <EvidenceRow e={CITING} />}</ul>
         <EvidenceList ids={["into-the-pit-new-mill-fathers", "ffps-lorekeeper-gravestones"]} />
       </Section>
 
