@@ -1251,6 +1251,12 @@ a reader had just chosen. If you write a "where am I" mark of your own, measure 
 - `.evx-link` (a record page's row for a chapter, a beat or a timeline event): the third column takes at most
   half the row and wraps, so a long date in words no longer squeezes the title into a column one word wide.
 - The Method page's side panel is the shared `.panel` with the shared `Facts`, as a record's is.
+- `smartQuotes`: a double mark that is followed by a space or by the end of the text never opens a quotation,
+  so a title that ends on an opening bracket ("Bad news about the FNAF movie. :(") closes with a closing mark.
+- `<RichText>`: a sentence that ends on a link whose own words end in a full stop (the chapter "Hen and W.A.")
+  has one full stop. Write the sentence's full stop after the link as usual; it is dropped where it would be
+  the second.
+- The count beside an entity chip (`.ppl-chips__n`) keeps its width: the name wraps, the number never does.
 
 ### 20.9 Checks
 
@@ -1260,4 +1266,5 @@ working folder (`fin/tools/`, not in the repository): `t-timeline.mjs` (every en
 closed, in both views and both layers, the tallies of each era and the filter summary against the data),
 `t-thumbs.mjs` and `t-print-thumbs.mjs`, `t-home.mjs`, `t-counts.mjs` (no count of four digits without its
 separator on any page of the crawl), `t-dates.mjs`, `t-checked.mjs` (all 1,043 notes as the reader words them,
-then the page), `t-rail.mjs`, `t-small.mjs`.
+then the page), `t-rail.mjs`, `t-small.mjs`, `t-quotes.mts` (the changed quote rule over every string of the
+data).
