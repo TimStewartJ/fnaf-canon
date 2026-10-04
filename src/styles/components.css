@@ -121,6 +121,8 @@ a.game:hover { color: var(--c-text); text-decoration: underline; }
   transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
 .icon-btn:hover, .icon-btn[aria-expanded="true"] { color: var(--c-text); background: var(--c-surface-2); }
+/* One with nothing to do (the drawer's arrow at the end of its set) stays where it is, and can still be focused, so the reader who pressed it is not left nowhere. */
+.icon-btn[aria-disabled="true"], .icon-btn[aria-disabled="true"]:hover { color: var(--c-text-3); background: none; opacity: 0.45; cursor: default; }
 
 /* ── Chips, tags ───────────────────────────────────────────────── */
 .chip {

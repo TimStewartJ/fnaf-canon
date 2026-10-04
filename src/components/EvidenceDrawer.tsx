@@ -99,7 +99,12 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
   const group = (state.group ?? []).filter((id) => evidenceById.has(id));
   const idx = group.indexOf(state.id);
   const paged = group.length > 1 && idx >= 0;
-  const go = (d: number) => drawer.open(group[(idx + d + group.length) % group.length], state.group, state.of, state.noun);
+  // The set has two ends: the arrows, the arrow keys and a flick stop there. (They used to go round
+  // from the last to the first, with nothing to say that the count had started again.)
+  const can = (d: number) => paged && idx + d >= 0 && idx + d < group.length;
+  const go = (d: number) => { if (can(d)) drawer.open(group[idx + d], state.group, state.of, state.noun, state.whole); };
+  // A set that is a stretch of a longer list is counted in that list.
+  const place = (state.whole?.before ?? 0) + idx + 1, outOf = state.whole?.total ?? group.length;
   // On a phone the drawer is a sheet, and a sheet can be pulled down by its bar.
   const pull = useSheetPull(onClose);
   // A flick across the record steps to the next of its set (finger to the left) or the one before.
@@ -129,11 +134,11 @@ export default function EvidenceDrawer({ state, onClose }: { state: DrawerState;
       }}
     >
       <header className="drawer__bar sheet-bar" {...pull}>
-        <span className="label">{paged ? `${noun} ${count(idx + 1)} of ${count(group.length)}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
+        <span className="label">{paged ? `${noun} ${count(place)} of ${count(outOf)}${of ? ` ${of}` : ""}` : "Evidence record"}</span>
         {paged && (
           <span className="drawer__pager">
-            <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} onClick={() => go(-1)} />
-            <IconButton icon={ChevronRight} label={`Next ${noun.toLowerCase()}`} onClick={() => go(1)} />
+            <IconButton icon={ChevronLeft} label={`Previous ${noun.toLowerCase()}`} aria-disabled={!can(-1) || undefined} onClick={() => go(-1)} />
+            <IconButton icon={ChevronRight} label={`Next ${noun.toLowerCase()}`} aria-disabled={!can(1) || undefined} onClick={() => go(1)} />
           </span>
         )}
         <IconButton icon={X} label="Close" onClick={onClose} />
