@@ -1,10 +1,10 @@
-import { useEffect, useId, useMemo, useRef } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, TriangleAlert } from "lucide-react";
 import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
-import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
+import { firmness, Button, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, numberWord, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
 import { CLOSING, type PartGroup, type SectionHead, unmarkedSources, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
@@ -20,6 +20,9 @@ export interface ChapterContext {
   pathOf: (id: string) => string;
   coverPath: string;
 }
+
+/** How many of the records that push back a phone shows before the reader asks for the rest. */
+const PUSHBACK_SHOWN = 3;
 
 /**
  * One chapter of the model as a reading page: where it sits, the question, the answer set large,
@@ -45,6 +48,19 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   const uid = useId();
   // One column of cards (a phone): the way on comes first, the way back second and smaller.
   const stacked = useMediaQuery("(max-width: 640px)");
+  // There, a long list of the records that push back stands between the heading and the model's
+  // reply to them (three screens of cards in chapter 22): the first few show, the rest on request.
+  const [allCounter, setAllCounter] = useState(false);
+  const folds = stacked && counter.length > PUSHBACK_SHOWN + 1;
+  const counterShown = folds && !allCounter ? counter.slice(0, PUSHBACK_SHOWN) : counter;
+  const moreRef = useRef<HTMLParagraphElement | null>(null);
+  const refolded = useRef(false);
+  // Folded again from the foot of the long list, the button would be far above the window: bring it back.
+  useLayoutEffect(() => {
+    if (!refolded.current) return;
+    refolded.current = false;
+    moreRef.current?.scrollIntoView({ block: "center" });
+  }, [allCounter]);
 
   // Reaching the end of the chapter marks it as read.
   const endRef = useRef<HTMLElement | null>(null);
@@ -101,8 +117,15 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
               <>
                 <p className="chapter-note">{counter.length === 1 ? "One record cuts" : `${count(counter.length)} records cut`} against this chapter. The model keeps {counter.length === 1 ? "it" : "them"} in view instead of explaining {counter.length === 1 ? "it" : "them"} away.</p>
                 <ul className="ev-list pushback__list">
-                  {counter.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
+                  {counterShown.map((e) => <EvidenceRow key={e.id} e={e} n={numbers.get(e.id)} group={counterIds.length > 1 ? counterIds : undefined} />)}
                 </ul>
+                {folds && (
+                  <p className="pushback__more" ref={moreRef}>
+                    <Button size="sm" aria-expanded={allCounter} iconEnd={allCounter ? ChevronUp : ChevronDown} onClick={() => { refolded.current = allCounter; setAllCounter(!allCounter); }}>
+                      {allCounter ? `Show the first ${numberWord(PUSHBACK_SHOWN)}` : `${plural(counter.length - PUSHBACK_SHOWN, "more record")} push back`}
+                    </Button>
+                  </p>
+                )}
               </>
             )}
             {s.tension && (

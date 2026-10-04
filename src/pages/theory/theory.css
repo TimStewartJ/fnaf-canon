@@ -415,6 +415,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .pushback__icon { color: var(--c-tension); }
 .pushback__list { margin-top: var(--sp-3); }
 .pushback__list .ev-row__n { color: var(--c-tension); }
+.pushback__more { margin: var(--sp-3) 0 0; }
 .pushback__answer { margin-top: var(--sp-4); padding: var(--sp-4) var(--sp-5); background: var(--c-tension-soft); border-left: 3px solid var(--c-tension-line); border-radius: 0 var(--r-md) var(--r-md) 0; }
 .pushback__answer > .label { margin-bottom: var(--sp-2); color: var(--c-tension); }
 .pushback__answer > p:last-child { margin: 0; font-size: 0.94em; line-height: 1.6; }
