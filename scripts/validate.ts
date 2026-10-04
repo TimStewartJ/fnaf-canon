@@ -44,6 +44,14 @@ for (const e of evidence) {
   if (e.image && !fs.existsSync(path.join(root, "public/img", e.image))) errors.push(`${e.id}: image missing ${e.image}`);
 }
 for (const e of evidence) for (const r of e.related ?? []) if (!ids.has(r)) warnings.push(`${e.id}: related -> unknown ${r}`);
+// What a reader is shown as the record itself (its title, claim, quote and place) names no other
+// record by id. A pointer to a related record belongs in the notes, where the interface prints it
+// as that record's title, or in `related`.
+for (const e of evidence) for (const k of ["title", "claim", "quote", "location"] as const) {
+  for (const m of (e[k] ?? "").matchAll(/(^|[^\p{L}\p{N}_/.#=-])([a-z0-9]+(?:-[a-z0-9]+)+)(?![\p{L}\p{N}_/-])/gu)) {
+    if (m[2] !== e.id && ids.has(m[2])) errors.push(`${e.id}: ${k} names the record ${m[2]} by id; move the pointer to notes`);
+  }
+}
 
 const personIds = new Set(people.map((p) => p.id));
 const placeIds = new Set(places.map((p) => p.id));
