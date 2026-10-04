@@ -405,6 +405,14 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .outbound { white-space: nowrap; }
 .outbound::before { content: "\2060"; }
 
+/* ── An inline date longer than its line ───────────────────────── */
+/* In running text (a paragraph, a list item) the date pill may wrap. It is one box, so one that fits
+   is still never broken; one longer than the line it stands in (a long label at large text on a
+   phone) wraps inside itself instead of pushing the page sideways. Not in a table, where no-wrap is
+   what keeps a column of dates from being squeezed. The pill's own rule (richtext.css) comes later
+   and says no-wrap, hence the weight of the selector. */
+:is(p, li, dd):not(:is(td, th) *) > .date-wrap > .date--inline { white-space: normal; }
+
 /* ── A popover with more below its edge (Popover.tsx sets data-more) ── */
 /* Its last line fades instead of being cut in half, which is what says that it scrolls. The veil is
    the popover's own ground, pinned to its bottom edge; it takes no room (the margin gives back its
