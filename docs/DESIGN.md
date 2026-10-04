@@ -11,9 +11,9 @@
 
 Written for the four page agents (clusters A to D) who polished pages after phase 1, and brought up to date at
 the end of the final phase and again after the finishing round. Read sections 1 to 4 before you touch anything,
-then section 18, which lists what the final phase added and changed, section 19 on names, and section 20, which
-lists what the finishing round added (the words for deaths and other fates among them); use the rest as
-reference. Two live references sit beside this file:
+then section 18, which lists what the final phase added and changed, section 19 on names, section 20, which
+lists what the finishing round added (the words for deaths and other fates among them), and section 21, which
+lists what was changed after the acceptance read; use the rest as reference. Two live references sit beside this file:
 
 - `/#/dev/kit` renders every shared component, the tokens and the type scale.
 - `/#/dev/blocks` renders every theory field and block type from made-up content.
@@ -25,7 +25,7 @@ Contents: 1 Intent · 2 Rules · 3 Files and ownership · 4 Adding page CSS · 5
 primitives · 8 Firmness grammar · 9 Citations and the evidence drawer · 10 Shared components · 11 What the shell
 does for you · 12 Responsive rules · 13 Accessibility rules · 14 Data colours and icons · 15 Checks ·
 16 Known issues by cluster (history) · 17 Decisions and their reasons · 18 What changed in the final phase ·
-19 Names, aliases and ties · 20 What changed in the finishing round
+19 Names, aliases and ties · 20 What changed in the finishing round · 21 What changed after the acceptance read
 
 ---
 
@@ -143,7 +143,8 @@ another cluster's folder or from `pages/theory` or `pages/home`.
   `table`, `table-wrap`, `facts`, `fact`, `panel`, `firm`, `firm-glyph`, `firm-legend`, `game`, `cite`, `cites`,
   `cite-wrap`, `src-chip`, `src-list`, `entity`, `chapter-link`, `date`, `date-wrap`, `pop`, `ev-card`, `ev-row`,
   `ev-list`, `ev-grid`, `drawer`, `figure`, `lightbox`, `source-line`, `name-canon`, `name-desc`, `plain`, `wide`,
-  `full`, `read`, `num`, `nowrap`, `sr-only`, `page-enter`, `outcome`, `fate-tag`, `outbound` (section 20), and everything in `shell.css` (`site-*`, `nav-*`, `brand*`,
+  `full`, `read`, `num`, `nowrap`, `sr-only`, `page-enter`, `outcome`, `fate-tag`, `outbound` (section 20), `paras`, `marks-key`,
+  `boot-wait` (section 21), and everything in `shell.css` (`site-*`, `nav-*`, `brand*`,
   `menu-*`, `palette*`, `settings*`, `reader-settings`, `search-trigger`, `skip-link`). To adjust one inside your page,
   scope it: `.person-hero .figure { max-width: 22rem; }`.
 - **Tokens only.** Sizes from the type scale, gaps from `--sp-*`, radii from `--r-*`, layers from `--z-*`,
@@ -354,6 +355,9 @@ The pattern, which every page must follow:
    A numbered marker opens its record among everything numbered on the page, so the drawer is headed
    "Source 18 of 35" (which confirms which marker was hit) and its arrows, the arrow keys, or a flick across the
    record walk the page's sources in order.
+   While it is open the marker of the record on show is filled, a click on another marker switches the drawer
+   to that record, and at a desk the page steps aside so the sentence stays in view; the walk stops at the
+   first and the last source (21.5).
 5. **Outside running text** ("Evidence:", "Rests on:", table cells) use `<CiteList ids>`: chips showing the
    certainty glyph, the source code and the record title. `variant="code"` drops the title for tight spots.
 6. **Lists of records** use `<EvidenceList ids>` (compact rows) or a grid of `<EvidenceCard>`. Both open the
@@ -927,14 +931,16 @@ has gone missing; keep that if you change it.
 
 The shell switches to the paper theme for printing, and opens every `<Collapsible print>`. The header, footer,
 bars, rails, dialogs and controls are not printed. A page of your own needs only to hide its own controls, in a
-`@media print` block in its own stylesheet (see the end of `theory.css`).
+`@media print` block in its own stylesheet (see the end of `theory.css`). On paper the measure is the page, and
+a closed section that is not opened for print is not printed (21.6).
 
 ### 18.10 Type on a phone, and the text-size setting
 
 - Under 40em `--fs-sm` is 14px and `--fs-2xs` is 12px (16px root). A sentence a reader is meant to read is never
   smaller than `--fs-sm`; `--fs-xs` and `--fs-2xs` are for labels and metadata.
 - The reader's text-size setting scales the root font size (93.75%, 100%, 112.5%). Everything set in rem or in a
-  token follows it. Do not set a font size, or a size that should grow with text, in px.
+  token follows it. Do not set a font size, or a size that should grow with text, in px. Changing it with a page
+  open keeps the reader's place and refits the header (21.1).
 
 ### 18.11 Delivery (`vite.config.ts`)
 
@@ -1264,3 +1270,128 @@ closed, in both views and both layers, the tallies of each era and the filter su
 `t-thumbs.mjs` and `t-print-thumbs.mjs`, `t-home.mjs`, `t-counts.mjs` (no count of four digits without its
 separator on any page of the crawl), `t-dates.mjs`, `t-checked.mjs` (all 1,043 notes as the reader words them,
 then the page), `t-rail.mjs`, `t-small.mjs`.
+
+## 21. What changed after the acceptance read
+
+A reader went through the finished site on a phone (390px, night), at a desk (1440px, paper) and at large text,
+and wrote down where it failed them. This section lists what was changed in answer and what each change makes
+a rule. The other finishing-round rules (section 20) stand.
+
+### 21.1 The reader's place is kept when the text is set anew (`shell/prefs.ts`, `shell/Header.tsx`)
+
+- **The header fits itself again when the text size changes.** `useHeaderFit` used to measure only when the
+  row's width changed, so choosing "Large" with a page open left the row overflowing and the page sliding
+  sideways until a reload. It now also watches `data-text` on `<html>`. Anything of yours that measures text to
+  lay itself out has to do the same.
+- **A change of text size, or of the citation markers, does not move the reader.** `applyPrefs` notes the block
+  under the reader's eye (a third of the way down the window) and how far through it the eye is, and after the
+  change scrolls the page so the same share of that block is at the same height (`holdPlace`). The hide-on-scroll
+  header holds still while that happens (`keepHeader()` in `shell/headerReveal.ts`): call it before any scroll
+  the reader did not make.
+- **Giving focus back never moves the page**: `focus({ preventScroll: true })` wherever a panel returns focus
+  to the button that opened it.
+
+### 21.2 Text that cannot break, and text that may (`components.css`, `evidence.css`)
+
+- A record's claim and quotation, and the body of a callout, carry `overflow-wrap: anywhere`: records hold file
+  paths and lines of source with no space in them, and four record pages were up to 770px wide on a phone. Any
+  new place that prints a record's own words needs the same.
+- An inline date pill (`.date--inline`) may wrap **in running text** (a paragraph, a list item, a definition),
+  never in a table. The pill is one box, so one that fits its line is still never broken; one longer than the
+  line wraps inside itself instead of pushing the page sideways. The rule is in `components.css` with a selector
+  heavy enough to outweigh the pill's own no-wrap in `richtext.css`; if that file drops its `white-space: nowrap`,
+  this rule, the one for `.beat__when` in `theory.css` and the one for `.era-row__when` in `home.css` can go.
+- **The crawl is also run at large text**: `node scripts/qa.mjs --text large --widths 390,360 --axe`. It visits
+  the four record pages that were too wide.
+
+### 21.3 Popovers (`components/Popover.tsx`)
+
+- **A popover with more below its edge fades its last line** (`data-more`, set by `Pop`; the veil is
+  `.pop[data-more]::after` in `components.css`). The fade is what says that it scrolls, and it goes when the end
+  is reached. This holds for every popover, the dates' among them.
+- **`makeRoom`** is for a tall panel that a press asks for (the key to the marks). Where it fits on neither side
+  of its button, the page moves just far enough to give it the room, never so far that the button leaves the
+  screen or goes under the header, and moves back when the panel closes unless the reader has scrolled since.
+  Never use it for a popover that opens on hover or focus: a page must not move under a pointer.
+
+### 21.4 Text set in paragraphs (`components/Paragraphs.tsx`, `components/paragraphs.ts`)
+
+`Person.summary` and `Person.theory` may hold paragraph breaks (a blank line). Shown whole, such a text goes
+through `<Paragraphs text className>`: one block with the page's own class (its measure, its face, a rule down
+the side) and a `<p>` for each paragraph; the shared class `paras` spaces them. Clipped or used as plain text
+(an excerpt, a search result, a title), pass it through `oneLine()` first, so a break is a space. Do not put
+such a field inside a `<p>` of your own.
+
+### 21.5 The evidence drawer (`components/EvidenceDrawer.tsx`, `components/drawerPlace.ts`)
+
+- **The open number is marked.** While a record is open, every link in the page that opens that record carries
+  `data-open`: a citation number is filled (`a.cite[data-open]`), a source chip is ringed. The mark follows the
+  drawer's arrows.
+- **A click on another number switches the drawer.** The drawer is modal and the page under it inert, so the
+  click arrives on the backdrop: `openerAt` finds the citation under the pointer and the drawer opens that
+  record in place, on the same history step. A click on bare page still closes it. Focus returns to the number
+  last chosen.
+- **The sentence stays in view.** At a desk the side drawer lies over the right of a wide text column. While it
+  is open, `.site-main` steps left (`--drawer-shift`, as margins: nothing inside is laid out again) by what it
+  takes for the block the marked number stands in to be clear of the drawer, and no further than that block's
+  own left edge allows. Closing puts the page back. A sheet on a phone moves nothing.
+- **One wording.** A numbered source is "Source 8 of 24" whether it is opened from its number in the text or
+  from the chapter's list of sources (`EvidenceList of="" noun="Source"`).
+- **A stretch of a longer list says so** (`DrawerSpan`, the fifth argument of `drawer.open`, the `whole` prop of
+  `EvidenceLink`, `EvidenceCard` and the locker's rows): the locker draws 100 rows of a thousand, and a record
+  opened from row 101 is headed "Record 101 of 1,064 in this list".
+- **The set has two ends.** The arrows, the arrow keys and a flick stop at the first and the last; they used to
+  go round. The arrow with nothing to do is `aria-disabled` (dimmed, still focusable), not `disabled`: a button
+  that disables itself under the reader's finger drops their focus.
+
+### 21.6 A chapter (`pages/theory/`)
+
+- **The contents follow the reader to the foot of the page.** After a chapter's own headings the rail and the
+  contents sheet list the parts every chapter closes with: "What pushes back", "What would change this", "Read
+  alongside", "Sources" (`closingHeads` in `model.ts`; the anchors are `CLOSING`). The one being read is marked.
+- **Numbers that skip are explained.** A chapter numbers every record it cites, and the ones behind a date, a
+  picture or a strip of exhibits print no number in the text, so a reader meets 7, 12, 13, 17. The head of the
+  list of sources says which numbers have no mark and what they stand behind (`unmarkedSources`).
+- **On a phone "What pushes back" shows three records and folds the rest** when there are more than four
+  ("10 more records push back"), so the model's reply is within a screen or so of the heading. The note above
+  the list still counts all of them.
+- **In print** the measure is the page (`--measure` and `--measure-wide` are set to 100% in `print.css`) and the
+  closed "Further evidence filed here" line is left out. A section that cannot be opened on paper is either
+  opened for print (`<Collapsible print>`) or not printed.
+- **A record's page reached from a chapter offers the way back.** The drawer's "Open the full record" puts
+  `{ from: { chapter } }` in the history entry; the record's page prints "Back to chapter 2: …" at its head, to
+  the place last noted in that chapter (`useChapterReturn` in `components/reading.ts`), and its own Previous and
+  Next carry it on. A page reads history state with `entryState()` from `components/address.ts`: the router
+  gives a page its path and nothing else (`PageLocation` in `App.tsx`), so `useLocation().state` is always null
+  there.
+
+### 21.7 Words and counts
+
+- **A link's words name what it leads to as it stands.** The cover's list of chapters starts as questions on a
+  phone and with answers at a desk; the buttons that lead to it say "All 35 questions" or "All 35 answers"
+  accordingly, and the line above it likewise.
+- **Two counts of one thing are either the same number or say what each counts.** The home page's tile is
+  "78 ties between people" and leads to the web with nothing folded, which prints 78; the folded web prints 50
+  and says that 28 of the 78 join two records the model reads as one person.
+- Text from the data goes through `smartQuotes` wherever it is printed as plain text: the cover's questions,
+  the phase tags of Scott and faith, the names in the web's picker.
+- **A long date label on a phone's timeline card** is cut at a semicolon or at the bracket that opens a gloss
+  (`cardLabel` in `pages/timeline/model.ts`), keeping what fits in two lines; the date's popover says the rest
+  first. The data's label is never changed, and a desk shows it whole.
+
+### 21.8 The first screen (`index.html`)
+
+`#root` is not empty: it holds the header's bar with the site's name and "Loading the archive…", in the
+shell's own classes, so it is drawn in the reader's theme and text size as soon as the stylesheet has arrived,
+while the script and the data (most of a megabyte) are still on their way. React clears it when it mounts. It
+is the same for every route. **If you change the header's bar or the brand, change it here too.** With scripts
+off it says that the archive needs JavaScript and does not say that it is loading.
+
+### 21.9 Checks
+
+The crawl has the four record pages that were too wide, and is run a third time at large text (21.2). The
+scripted checks of this round are in the working folder (`fin/tools/`, not in the repository): `t-large.mjs`
+(every route at 390 and 360, Large chosen with the page open and again after a reload; the reader's line),
+`t-key.mjs`, `t-paras.mjs`, `t-drawer.mjs`, `t-cover.mjs`, `t-print.mjs`, `t-ties.mjs`, `t-rail2.mjs`,
+`t-a9.mjs`, `t-when.mjs`, `t-sources.mjs` (all 35 chapters), `t-boot.mjs`, `t-back.mjs`, `t-pushback.mjs`,
+`t-ends.mjs`.
