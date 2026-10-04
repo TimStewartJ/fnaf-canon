@@ -85,13 +85,13 @@ export function EvidenceRow({ e, n, group, of, noun, claim = true, open = "drawe
 }
 
 /** A list of evidence rows from ids (unknown ids are skipped). `numbers` maps an id to its citation number. */
-export function EvidenceList({ ids, numbers, claim = true, open, className }: { ids: readonly string[]; numbers?: (id: string) => number | undefined; claim?: boolean; open?: "drawer" | "page"; className?: string }) {
+export function EvidenceList({ ids, numbers, claim = true, open, className, of, noun }: { ids: readonly string[]; numbers?: (id: string) => number | undefined; claim?: boolean; open?: "drawer" | "page"; className?: string; of?: string; noun?: string }) {
   const rows = ids.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   if (!rows.length) return null;
   const group = rows.length > 1 ? rows.map((e) => e.id) : undefined;
   return (
     <ul className={`ev-list${className ? ` ${className}` : ""}`}>
-      {rows.map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} claim={claim} open={open} />)}
+      {rows.map((e) => <EvidenceRow key={e.id} e={e} n={numbers?.(e.id)} group={group} of={of} noun={noun} claim={claim} open={open} />)}
     </ul>
   );
 }

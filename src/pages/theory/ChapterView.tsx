@@ -6,7 +6,7 @@ import type { Evidence, TheorySection } from "../../data/schema";
 import { evidenceById } from "../../data/store";
 import { firmness, Callout, CiteScope, Collapsible, ConfidenceMark, EvidenceList, EvidenceRow, Figure, Icon, RichText, count, plainText, plural, smartQuotes, useMediaQuery } from "../../components/ui";
 import { Blocks } from "./blocks";
-import { CLOSING, type PartGroup, type SectionHead, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
+import { CLOSING, type PartGroup, type SectionHead, unmarkedSources, chapterCitations, chapterHeads, distinctQuestion, pad2, readingMinutes, roman } from "./model";
 
 /** Everything a chapter needs to know about its surroundings. The fixture route supplies its own. */
 export interface ChapterContext {
@@ -32,6 +32,8 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
   const sections = useMemo(() => heads ?? chapterHeads(s), [heads, s]);
   const cited = useMemo(() => chapterCitations(s), [s]);
   const numbers = useMemo(() => new Map(cited.map((id, i) => [id, i + 1])), [cited]);
+  // Why the numbers in the text skip, said at the head of the list of sources.
+  const unmarked = useMemo(() => unmarkedSources(s, cited), [s, cited]);
   const counter = (s.counterEvidence ?? []).map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   const counterIds = counter.map((e) => e.id);
   const further = (s.further ?? []).filter((id) => !numbers.has(id) && evidenceById.has(id));
@@ -147,7 +149,9 @@ export function ChapterView({ s, ctx, onEnd, heads }: { s: TheorySection; ctx: C
 
         <div className="chapter-end">
           <Collapsible print id={CLOSING.sources} summary="Sources" meta={`${plural(cited.length, "record")} cited in this chapter, in order`}>
-            {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} /> : <p className="muted">This chapter cites no records.</p>}
+            {unmarked && <p className="chapter-note chapter-end__note">{unmarked}</p>}
+            {/* Opened from here a record is headed as it is from its number in the text: "Source 8 of 24". */}
+            {cited.length > 0 ? <EvidenceList ids={cited} numbers={(id) => numbers.get(id)} claim={false} of="" noun="Source" /> : <p className="muted">This chapter cites no records.</p>}
           </Collapsible>
           {further.length > 0 && (
             <Collapsible eager className="chapter-further" summary="Further evidence filed here" meta={`${plural(further.length, "more record")} on this thread, not cited above`}>

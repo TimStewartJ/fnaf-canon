@@ -52,6 +52,55 @@ export function chapterCitations(s: TheorySection): string[] {
   return [...new Set(ids)];
 }
 
+/** A date chip in RichText, with the ids of the records behind it. */
+const DATE_CHIP = /<<[^|>]+\|[a-z]+\|([a-z0-9,-]*)\|[^>]*>>/g;
+
+/** "8 to 11, 14 to 16, 21 and 22" */
+function runs(numbers: number[]): string {
+  const out: string[] = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let j = i;
+    while (j + 1 < numbers.length && numbers[j + 1] === numbers[j] + 1) j++;
+    // Two neighbours are named one by one; three or more are a run.
+    if (j - i >= 2) { out.push(`${numbers[i]} to ${numbers[j]}`); i = j; }
+    else out.push(String(numbers[i]));
+  }
+  return out.length > 1 ? `${out.slice(0, -1).join(", ")} and ${out[out.length - 1]}` : out.join("");
+}
+
+/**
+ * The numbered sources that carry no number in the chapter's text, in a sentence for the head of
+ * its source list. A chapter numbers every record it cites, in reading order; the ones behind a
+ * date, a picture or a strip of exhibits are opened from that date or picture and print no number,
+ * so the numbers a reader meets in the text skip (7, 12, 13, 17). Null where none is skipped.
+ */
+export function unmarkedSources(s: TheorySection, cited: string[]): string | null {
+  const marked = new Set<string>(s.counterEvidence ?? []);
+  const dated = new Set<string>(), pictured = new Set<string>(), shown = new Set<string>();
+  for (const t of [s.answer, s.hero?.caption, ...s.body.flatMap(blockTexts), s.tension, s.changesIf]) {
+    if (!t) continue;
+    for (const m of t.matchAll(DATE_CHIP)) for (const id of m[1].split(",")) if (id) dated.add(id);
+    for (const id of citationsInText(t.replace(DATE_CHIP, ""))) marked.add(id);
+  }
+  for (const b of s.body) {
+    if (typeof b === "string") continue;
+    if (b.kind === "quote") marked.add(b.evidence);
+    else if (b.kind === "figure" && b.evidence) pictured.add(b.evidence);
+    else if (b.kind === "evidence") for (const id of b.ids) shown.add(id);
+  }
+  const silent = cited.map((id, i) => ({ id, n: i + 1 })).filter((x) => !marked.has(x.id));
+  if (!silent.length) return null;
+  const behind = [
+    silent.some((x) => dated.has(x.id)) && "dates",
+    silent.some((x) => pictured.has(x.id)) && "pictures",
+    silent.some((x) => shown.has(x.id)) && "exhibits",
+  ].filter((w): w is string => !!w);
+  const what = behind.length > 1 ? `${behind.slice(0, -1).join(", ")} and ${behind[behind.length - 1]}` : behind[0] ?? "dates";
+  return silent.length === 1
+    ? `Number ${silent[0].n} has no mark in the text: it is the record behind one of its ${what}.`
+    : `Numbers ${runs(silent.map((x) => x.n))} have no mark in the text: they are the records behind its ${what}.`;
+}
+
 const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
 /** A heading inside a chapter: its words, and the anchor it can be linked by. */

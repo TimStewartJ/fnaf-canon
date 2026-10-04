@@ -347,6 +347,7 @@ dialog.contents-sheet::backdrop { background: var(--c-scrim); }
 .chapter > .chapter-hero { margin-block: var(--sp-6) var(--sp-7); }
 .chapter-hero .figure__frame img { max-height: min(27rem, 56vh); }
 .chapter-note { font-family: var(--font-ui); font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text-2); }
+.chapter-end__note { max-width: var(--measure); margin: 0 0 var(--sp-3); }
 
 .chapter-figure .figure__frame img { max-height: 27rem; }
 
