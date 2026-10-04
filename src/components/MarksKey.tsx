@@ -31,7 +31,7 @@ export function MarksKey({ scales, dates = false, children, note, className, pop
         <Icon icon={CircleHelp} /> Key
       </button>
       {pop.open && (
-        <Pop control={pop} role="group" label="Key to the marks" align="end" className={`marks-key__pop${popClassName ? ` ${popClassName}` : ""}`}>
+        <Pop control={pop} role="group" label="Key to the marks" align="end" makeRoom className={`marks-key__pop${popClassName ? ` ${popClassName}` : ""}`}>
           <span className="marks-key__grid">
             <span className="marks-key__col">
               {scales.map((scale, i) => (

@@ -405,10 +405,21 @@ h1.empty__title { font-size: var(--fs-xl); line-height: 1.25; }
 .outbound { white-space: nowrap; }
 .outbound::before { content: "\2060"; }
 
+/* ── A popover with more below its edge (Popover.tsx sets data-more) ── */
+/* Its last line fades instead of being cut in half, which is what says that it scrolls. The veil is
+   the popover's own ground, pinned to its bottom edge; it takes no room (the margin gives back its
+   height and the column's gap) and goes when the end is reached. */
+.pop[data-more]::after {
+  content: ""; flex: none; position: sticky; bottom: 0; z-index: 1;
+  height: 3.25rem; margin: calc(-3.25rem - 0.4rem) calc(-1 * var(--sp-4)) 0;
+  background: linear-gradient(to bottom, transparent, var(--c-overlay) 85%);
+  pointer-events: none;
+}
+
 /* ── The key to the marks (MarksKey) ───────────────────────────── */
 .marks-key { display: inline-flex; }
 /* Two classes: `.pop` is declared later (richtext.css) and would otherwise set the width and height back. */
-.pop.marks-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: min(36rem, calc(100vh - 1rem)); }
+.pop.marks-key__pop { width: min(41rem, calc(100vw - 1rem)); max-height: calc(100vh - 1rem); }
 /* The same again: `.pop > *` (richtext.css) makes every child a block. */
 .pop > .marks-key__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--sp-4) var(--sp-5); }
 .marks-key__col, .marks-key__group { display: grid; align-content: start; gap: 0.4rem; min-width: 0; }
