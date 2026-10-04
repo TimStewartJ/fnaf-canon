@@ -15,6 +15,10 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2" />
+    <style>
+      /* With scripts off nothing more will arrive: the still first screen then says what the page needs, not that it is loading. */
+      @media (scripting: none) { .boot-wait { display: none !important; } }
+    </style>
     <script>
       // Apply the reader's saved settings before first paint (see src/components/shell/prefs.ts).
       try {
@@ -27,8 +31,29 @@
     </script>
   </head>
   <body>
-    <noscript>The Fazbear Canon Archive needs JavaScript to run.</noscript>
-    <div id="root"></div>
+    <!-- The still first screen. The archive's script and data are most of a megabyte, and until they
+         have arrived and run nothing else can be drawn: on a slow phone that was up to five seconds of
+         empty background. This is the header's bar with the site's name and one line, in the shell's
+         own classes (so in the reader's theme and text size, set above), and the same for every
+         route. React clears it when it mounts. Keep it in step with shell/Header.tsx and Brand.tsx. -->
+    <div id="root">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <span class="brand">
+            <svg class="brand__mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" focusable="false">
+              <g fill="currentColor"><circle cx="8.4" cy="13" r="4.2" /><circle cx="23.6" cy="13" r="4.2" /><circle cx="16" cy="19.4" r="9.8" /><rect x="12.4" y="2.4" width="7.2" height="6.6" rx="0.7" /><rect x="10.2" y="7.8" width="11.6" height="2.2" rx="1.1" /></g>
+              <g class="brand__mark-cut"><circle cx="12.2" cy="18.2" r="1.85" /><circle cx="19.8" cy="18.2" r="1.85" /><ellipse cx="16" cy="22.4" rx="1.7" ry="1.15" /></g>
+            </svg>
+            <span class="brand__name">Fazbear</span>
+            <span class="brand__sub">Canon Archive</span>
+          </span>
+        </div>
+      </header>
+      <main class="site-main">
+        <div class="loading boot-wait" role="status"><span class="loading__dot" aria-hidden="true"></span>Loading the archive…</div>
+        <noscript><p class="loading">The Fazbear Canon Archive needs JavaScript to run.</p></noscript>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

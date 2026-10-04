@@ -90,14 +90,15 @@ export function unmarkedSources(s: TheorySection, cited: string[]): string | nul
   }
   const silent = cited.map((id, i) => ({ id, n: i + 1 })).filter((x) => !marked.has(x.id));
   if (!silent.length) return null;
+  const one = silent.length === 1;
   const behind = [
-    silent.some((x) => dated.has(x.id)) && "dates",
-    silent.some((x) => pictured.has(x.id)) && "pictures",
-    silent.some((x) => shown.has(x.id)) && "exhibits",
+    silent.some((x) => dated.has(x.id)) && (one ? "a date" : "dates"),
+    silent.some((x) => pictured.has(x.id)) && (one ? "a picture" : "pictures"),
+    silent.some((x) => shown.has(x.id)) && (one ? "an exhibit" : "exhibits"),
   ].filter((w): w is string => !!w);
-  const what = behind.length > 1 ? `${behind.slice(0, -1).join(", ")} and ${behind[behind.length - 1]}` : behind[0] ?? "dates";
-  return silent.length === 1
-    ? `Number ${silent[0].n} has no mark in the text: it is the record behind one of its ${what}.`
+  const what = behind.length > 1 ? `${behind.slice(0, -1).join(", ")} and ${behind[behind.length - 1]}` : behind[0] ?? (one ? "a date" : "dates");
+  return one
+    ? `Number ${silent[0].n} has no mark in the text: it is the record behind ${what}.`
     : `Numbers ${runs(silent.map((x) => x.n))} have no mark in the text: they are the records behind its ${what}.`;
 }
 
