@@ -133,6 +133,26 @@ export function longDate(iso: string, short = false): string {
   return m[3] ? `${Number(m[3])} ${month} ${m[1]}` : `${month} ${m[1]}`;
 }
 
+/** A date in figures with the month first, as the games' cheques print it: 11-12-1987, or 11-12-xx where the year is blanked. The first group is what stands before it. */
+const MONTH_FIRST = /(^|[^\d-])(\d{1,2})-(\d{1,2})-(\d{4}|xx)(?![\d-])/gi;
+/**
+ * What a date printed month first says, in words, for a reader who writes the day first and
+ * would take 11-12-1987 for 11 December: "11-12-1987 is 12 November 1987: the month is written
+ * first." One sentence for every such date in the text (a date pill's label), or "" when it has
+ * none. Figures whose first number cannot be a month are not such a date and are left alone.
+ * The label itself is what the source prints and is never changed.
+ */
+export function monthFirstNote(text: string): string {
+  const said: string[] = [];
+  for (const m of text.matchAll(MONTH_FIRST)) {
+    const month = MONTHS[Number(m[2]) - 1], day = Number(m[3]);
+    if (!month || day < 1 || day > 31) continue;
+    const one = `${m[0].slice(m[1].length)} is ${day} ${month}${/^\d/.test(m[4]) ? ` ${m[4]}` : " (no year is printed)"}`;
+    if (!said.includes(one)) said.push(one);
+  }
+  return said.length ? `${said.join(", and ")}: the month is written first.` : "";
+}
+
 const FIGURES = new Intl.NumberFormat("en-GB");
 /**
  * A count in figures, as the interface prints it: with a comma between the thousands ("1,046").

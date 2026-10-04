@@ -65,6 +65,8 @@ export default function DevKit() {
       <Section title="Dates">
         <div className="dev-row">{DATE_KINDS.map((k: DateKind) => <DatePill key={k} label={k === "unknown" ? "undated" : "c. 1983"} kind={k} basis={`Example of a ${k} date.`} evidence={k === "printed" ? ["fnaf4-fredbear-and-friends-1983"] : []} />)}</div>
         <div className="dev-row"><span className="label">compact</span><DatePill compact label="1987" kind="printed" /><DatePill compact label="before c. 1979 – 1983" kind="estimated" /></div>
+        {/* A date in figures with the month first keeps its figures; the popover gives it in words. Figures whose first number is no month are left alone. */}
+        <div className="dev-row" id="kit-monthfirst"><span className="label">month first</span><DatePill label="11-12-1987" kind="printed" basis="The date printed on the Night 5 cheque." /><DatePill label="11-12-1987 and 11-13-1987" kind="printed" basis="Printed on the two cheques." /><DatePill label="11-12-xx" kind="printed" basis="The year is blanked on the cheque." /><DatePill label="After 11-13-1987 (the closure)" kind="derived" /><DatePill label="25-12-1987" kind="estimated" basis="Not a date with the month first: nothing is added." /></div>
         <p className="prose"><RichText text="Inline, in a sentence: the party falls in <<c. 1983|derived|fnaf4-fredbear-and-friends-1983|From the printed TV year.>>, and the bite of <<'87|printed|fnaf1-call1-bite-of-87|Spoken by Phone Guy.>> is a different event." /></p>
       </Section>
 

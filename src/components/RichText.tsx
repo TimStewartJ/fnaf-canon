@@ -13,7 +13,7 @@ import { useChapterResolver } from "./chapterResolver";
 import { usePopover } from "./popover";
 import { RecordText } from "./RecordText";
 import { recordTagPieces } from "./textMarks";
-import { longDate, smartQuotes, sourceWords } from "./typography";
+import { longDate, monthFirstNote, smartQuotes, sourceWords } from "./typography";
 import { Pop } from "./Popover";
 import { FirmGlyph, Firmness } from "./Firmness";
 import { GameMark } from "./GameMark";
@@ -213,7 +213,9 @@ const PRECISION_KIND: Record<string, DateKind> = { exact: "printed", approx: "es
 
 /**
  * A date with its justification. Hover, tap, or Enter on it shows why the date is what it is and
- * which records support it. The reason is given in full, however long.
+ * which records support it. The reason is given in full, however long. A label that is a date
+ * in figures with the month first (11-12-1987, as a cheque prints it) is also given in words
+ * there; the label itself is never changed.
  *  - variant "tag" (default): a compact mono label, for cards, tables and headers
  *  - variant "inline": sits in a sentence without changing its rhythm (what <RichText> uses)
  */
@@ -225,6 +227,8 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
   const k = DATE_KIND[kind] ?? DATE_KIND.unknown;
   const evs = evidence.map((id) => evidenceById.get(id)).filter((e): e is Evidence => !!e);
   const ids = evs.map((e) => e.id);
+  // A cheque dated 11-12-1987 is 12 November to its printer and 11 December to half its readers: the popover says which.
+  const inWords = monthFirstNote(label);
   return (
     <span className="date-wrap" {...pop.wrapProps}>
       <button
@@ -243,6 +247,7 @@ export function DatePill({ label, kind, basis, evidence = [], compact, variant =
         <Pop control={pop} className="pop--date" role="group" label={`About the date ${label}`}>
           <span className="pop__head"><span className="pop__kind"><DateGlyph kind={kind} /> {k.label} date</span></span>
           <strong className="pop__title">{smartQuotes(label)}</strong>
+          {inWords && <span className="pop__text pop__inwords">{inWords}</span>}
           <span className="pop__text">{basis ? <RecordText text={basis} plain /> : `${k.help}.`}</span>
           {basis && <span className="pop__meta">{k.help}.</span>}
           {evs.length > 0 && (
