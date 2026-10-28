@@ -46,4 +46,12 @@ npm run dev                   # http://localhost:5173
 npm run build && npx vite preview
 ```
 
-Unofficial fan reference. Five Nights at Freddy's © Scott Cawthon. Screenshots are low-resolution stills used for commentary, each credited to its source page.
+## License and rights
+
+This is an unofficial fan project. It is not affiliated with, endorsed by or sponsored by Scott Cawthon, Steel Wool Studios or any other holder of rights in Five Nights at Freddy's.
+
+- **Code: MIT** (`LICENSE`). The site's source code, scripts, styles and configuration (`src/` apart from `src/data/`, `scripts/`, `index.html` and the project files).
+- **Written content: CC BY-SA 4.0** (`LICENSE-CONTENT`). The theory, the chapters and the storyline, the evidence records' own wording (titles, claims, locations, dates and notes), the people, places, ties, timeline and essays (`src/data/`), and the research papers and handbook (`research/`, `docs/`). You may share and adapt it, with credit, under the same license.
+- **Not licensed by this project.** Five Nights at Freddy's, its names, characters, images and text are © Scott Cawthon. The screenshots in `public/img/` and their small copies in `public/thumb/`, and every quotation from the games or from Scott Cawthon (the records' `quote` fields and the phrases the chapters quote from them), belong to their owners. They are used here, at low resolution and in short extracts, for commentary and analysis, which is fair use; each image is credited to its source page in `src/data/credits/`. Neither license above extends to them, and anyone reusing this project must make their own judgment about them.
+
+**Removal on request.** If you hold rights in anything here and want it taken down, open an issue at https://github.com/TimStewartJ/fnaf-canon/issues and it will be removed.
