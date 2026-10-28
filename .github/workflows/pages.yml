@@ -1,0 +1,54 @@
+# Publishes the site to GitHub Pages on every push to master (and on demand).
+# The archive's own checks run first: a push that breaks the data or a quotation is not published.
+name: Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One publication at a time; a newer push replaces one still waiting, never one under way.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+      - name: Check the data and the quotations
+        run: |
+          npx tsx scripts/validate.ts
+          npx tsx scripts/quote-check.ts
+      - name: Build for the project site's address (/fnaf-canon/)
+        run: |
+          npx tsc -b
+          npx vite build --base=/fnaf-canon/
+          # Pages compresses on its own; the .br and .gz copies the build writes are for the home server.
+          find dist -type f \( -name '*.br' -o -name '*.gz' \) -delete
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

@@ -2,6 +2,8 @@
 
 An interactive, evidence-first reconstruction of the Five Nights at Freddy's story, sourced **only** from the games and Scott Cawthon's own words. The novels, the Survival Logbook, the guidebooks, the films and fan theory are not evidence and fill no gap. That is this project's own policy.
 
+**Read it at https://timstewartj.github.io/fnaf-canon/** (published from `master` by `.github/workflows/pages.yml`, after the validator and the quotation check pass).
+
 ## How the archive is built
 
 **Evidence.** `src/data/evidence/*.json` holds 1,064 atomic records in six files (FNaF1 to FNaF3; FNaF4, FNaF World and Sister Location; Pizzeria Simulator and Ultimate Custom Night; Help Wanted, Curse of Dreadbear, Special Delivery and Help Wanted 2; Security Breach, RUIN, Into the Pit and Secret of the Mimic; Scott's statements and teasers). Each record has one claim, an exact source location, a certainty (stated, shown or implied), a verbatim quote where there is one, and the in-universe time it describes; an approximate date says how it is known (derived, estimated, or taken from a teaser). `src/data/credits/*.json` gives the provenance of every image in `public/img/`.
